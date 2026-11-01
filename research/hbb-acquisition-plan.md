@@ -198,3 +198,5 @@ All tests run offline against the frozen fixtures (`data/fixtures/hbb/`, copied 
 - Symmetry-mate contacts for chains B, D and F are not computed.
 - Q-H-LIC-1 resolved 2026-11-01: OMIM and HGMD identifiers are stripped from the snapshot and must not enter curated data.
 - Whether Mol* selects by auth or label IDs by default: P1.4.1.
+
+**Phase 2 status (2026-11-01):** E8 was fetched (live, `data/fixtures/hbb/ensembl/`, and in every live build); the 32 tests above are implemented in `packages/scientific-core/test/hbb-plan.test.ts`; results are in `docs/scientific-validation.md`. The GRCh37 HGVS g. string and the symmetry-mate contacts remain open. Deviations from this plan are listed in `docs/data-core.md` §9.

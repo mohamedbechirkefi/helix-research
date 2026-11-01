@@ -12,7 +12,12 @@ Helix is a nonclinical, research-grounded exploration of genes, variants and pro
 
 **Zero spend:** everything here runs on free software, free public data and free models.
 
-**Status:** Phase 0 (setup). Work starts with the HBB (beta-globin) vertical slice.
+**Status:** Phase 2 (data core). The HBB (beta-globin) slice is built from live Ensembl, UniProt, RCSB PDB, PDBe SIFTS, ClinVar, HGNC and AlphaFold records into `data/curated/hbb/`, with a provenance manifest. See `docs/data-core.md` (layout, choices, how to run) and `docs/scientific-validation.md` (every check and its last result).
+
+```
+npm install && npm test        # Node >= 22.18
+npm run build:hbb              # live rebuild of data/curated/hbb
+```
 
 ## License
 

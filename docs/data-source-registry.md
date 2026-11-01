@@ -217,6 +217,15 @@
   - Tools and services should provide "the GO release date and DOI along with the results".
 - **Redistribution:** yes with attribution, licence notice, and GO release date and DOI. The GO release DOI was **not** retrieved in this session.
 
+## Phase 2 use of conditional sources (2026-11-01)
+
+The master prompt (§4) allows conditional sources "only for a specific scientific need". Phase 2 uses two:
+
+- **PDBe SIFTS** (§10), for the UniProt to PDB residue mapping. The need: the 2HBS file's own `_struct_ref_seq` aligns P68871 in mature numbering (db_align_beg 1, where UniProt numbers that residue 2). Trusting it would put the HbS highlight on label 7, a glutamate, instead of label 6, the valine. SIFTS is the mapping of record; RCSB's `rcsb_polymer_entity_align` (provenance SIFTS) and a global alignment are cross-checks (`docs/scientific-validation.md`, T21, T22, T25). Licence CC0, with the SIFTS citation in each dataset's attribution.
+- **HGNC** (§8), for approved symbols and alias resolution (for example "beta-globin"). Ensembl's `lookup/symbol/homo_sapiens/beta-globin` returned HTTP 400 "No valid lookup found for symbol beta-globin" (measured 2026-11-01), so Ensembl alone cannot resolve this alias. Licence CC0.
+
+ClinVar (§5) is used for the variant's aggregate classification only. Requests carry `tool=helix-research` and no `email` parameter. Trait names and trait cross-references are not stored.
+
 ## Not covered or unverified
 
 - NCBI pages behind reCAPTCHA: ClinVar programmatic-access and data-use pages, the E-utilities manual (API-key limit), the RefSeq FAQ.

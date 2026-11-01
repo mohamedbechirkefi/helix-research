@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0
 /**
  * A small, dependency-free reader for the text form of PDBx/mmCIF (CIF 1.1 syntax).
- * See docs/mmcif-parser.md for why this is not Mol*'s parser or a Python step.
+ * See docs/data-core.md §3 for why this is not Mol*'s parser or a Python step.
  *
  * Supports: data blocks, single-item categories, loop_ categories, unquoted values,
  * '…' and "…" quoted values (a quote closes only when followed by whitespace),
