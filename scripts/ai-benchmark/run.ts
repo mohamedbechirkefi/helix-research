@@ -106,6 +106,8 @@ else if (providerKind === "ollama") {
   provider = new OllamaProvider({ model, baseUrl, ...(think !== undefined ? { think } : {}), numCtx: 8192, keepAlive: "15m" });
   meta.think = think ?? "not sent (model has no thinking capability)";
   meta.numCtx = 8192;
+  meta.numPredict = 1024;
+  meta.timeoutMs = 180000;
 } else throw new Error(`unknown provider ${providerKind}`);
 
 const date = new Date().toISOString().slice(0, 10);
@@ -157,6 +159,8 @@ for (const item of items) {
       out = await provider.plan({ query: item.query, context: ctx, requestId: `${item.id}-${p.rep}`, temperature: p.temperature, seed: p.seed, schemaMode });
     } catch (e) {
       error = (e as Error).message;
+      const partial = (e as { partial?: string }).partial;
+      if (partial) error += ` | partial(${partial.length} chars): ${partial.slice(0, 300)} ... ${partial.slice(-200)}`;
     }
     const raw = out?.raw ?? "";
     const score = out ? scoreItem(item, raw, ctx).score : null;

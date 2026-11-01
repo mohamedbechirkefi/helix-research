@@ -47,6 +47,8 @@ export interface PlanProvider {
 export class ProviderError extends Error {
   readonly providerId: string;
   readonly code: "unavailable" | "http" | "aborted" | "protocol" | "timeout";
+  /** Output received before the failure, if any (kept for diagnosis, never executed). */
+  partial = "";
   constructor(providerId: string, code: ProviderError["code"], message: string) {
     super(message);
     this.name = "ProviderError";
