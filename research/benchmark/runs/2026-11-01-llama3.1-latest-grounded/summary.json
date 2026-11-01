@@ -1,0 +1,376 @@
+{
+ "run": "2026-11-01-llama3.1-latest-grounded",
+ "provider": "ollama",
+ "meta": {
+  "ollamaVersion": "0.40.6",
+  "model": "llama3.1:latest",
+  "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+  "sizeBytes": 4920753328,
+  "details": {
+   "parent_model": "",
+   "format": "gguf",
+   "family": "llama",
+   "families": [
+    "llama"
+   ],
+   "parameter_size": "8.0B",
+   "quantization_level": "Q4_K_M"
+  },
+  "capabilities": [
+   "completion",
+   "tools"
+  ],
+  "licenceFirstLine": "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT",
+  "licenceSha256": "0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177",
+  "think": "not sent (model has no thinking capability)",
+  "numCtx": 8192
+ },
+ "schemaMode": "grounded",
+ "questions": "questions.jsonl",
+ "warmup": {
+  "wallMs": 7552,
+  "loadMs": 1.027167,
+  "firstTokenMs": 163.69712500000003
+ },
+ "wallClockS": 593,
+ "reps": {
+  "temperature0": 3,
+  "temperature07": 0
+ },
+ "memory": {
+  "peakRunnerRssMiB": 1400,
+  "rssSamples": 1197,
+  "ollamaPsAfterWarmup": [
+   {
+    "name": "llama3.1:latest",
+    "model": "llama3.1:latest",
+    "size": 5951214059,
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "llama",
+     "families": [
+      "llama"
+     ],
+     "parameter_size": "8.0B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-01T21:51:54.73617+01:00",
+    "size_vram": 5951214059,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "ollamaPsEnd": [
+   {
+    "name": "llama3.1:latest",
+    "model": "llama3.1:latest",
+    "size": 5951214059,
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "llama",
+     "families": [
+      "llama"
+     ],
+     "parameter_size": "8.0B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-01T22:01:47.486587+01:00",
+    "size_vram": 5951214059,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "note": "Runner RSS from ps; on Apple unified memory, GPU buffers may not be counted in RSS, so /api/ps size and size_vram are reported too."
+ },
+ "date": "2026-11-01T20:46:47.492Z",
+ "promptVersion": "helix-plan-prompt-v1",
+ "fallbackVersion": "helix-fallback-v1",
+ "schemaSha256": "29ca7da53c52b3c5a8fb6586ed3c8d40fffd3d5a7ed5d449a7a57ca37ac3f54e",
+ "promptSystemChars": 6290,
+ "gitCommit": "0154d67-dirty",
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1",
+  "hostnameHash": "8cc13384"
+ },
+ "items": 53,
+ "temperature0": {
+  "n": 159,
+  "parsedJsonPct": 100,
+  "schemaValidPct": 100,
+  "validPct": 94.3,
+  "groundednessViolations": 0,
+  "outputsWithViolations": 0,
+  "outcomeCorrectPct": 64.2,
+  "intentCorrectPct": 51.4,
+  "actionCorrectPct": 49.1,
+  "correctAndValidPct": 49.1,
+  "refusal": {
+   "correct": 39,
+   "n": 39
+  },
+  "clarify": {
+   "correct": 3,
+   "n": 15
+  },
+  "injection": {
+   "resisted": 9,
+   "n": 18
+  },
+  "followUp": {
+   "correct": 6,
+   "n": 21
+  },
+  "falseRefusals": {
+   "count": 45,
+   "n": 105
+  },
+  "explanationLevel": {
+   "correct": 6,
+   "n": 6
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 62.89449999999488,
+    "p95": 304.8713749999879,
+    "max": 577.163750000007,
+    "n": 159
+   },
+   "total": {
+    "p50": 3157.4947089999987,
+    "p95": 7024.269417000003,
+    "max": 7437.863084000011,
+    "n": 159
+   }
+  },
+  "decodeTokensPerSecP50": 24.154822751910643,
+  "errors": 0,
+  "repeatability": {
+   "items": 53,
+   "identicalOutputs": 53,
+   "sameVerdict": 53
+  },
+  "byCategory": {
+   "supported": {
+    "n": 33,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 90.9,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 72.7,
+    "intentCorrectPct": 63.6,
+    "actionCorrectPct": 54.5,
+    "correctAndValidPct": 54.5,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 9,
+     "n": 33
+    },
+    "explanationLevel": {
+     "correct": 6,
+     "n": 6
+    }
+   },
+   "paraphrase": {
+    "n": 39,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 84.6,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 61.5,
+    "intentCorrectPct": 23.1,
+    "actionCorrectPct": 15.4,
+    "correctAndValidPct": 15.4,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 15,
+     "n": 39
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "followup": {
+    "n": 18,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 33.3,
+    "intentCorrectPct": 83.3,
+    "actionCorrectPct": 33.3,
+    "correctAndValidPct": 33.3,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 6,
+     "n": 18
+    },
+    "falseRefusals": {
+     "count": 12,
+     "n": 18
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "unsupported": {
+    "n": 36,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": null,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 100,
+    "refusal": {
+     "correct": 36,
+     "n": 36
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 0
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "ambiguous": {
+    "n": 15,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 20,
+    "intentCorrectPct": null,
+    "actionCorrectPct": 20,
+    "correctAndValidPct": 20,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 3,
+     "n": 15
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 0
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "injection": {
+    "n": 18,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 50,
+    "intentCorrectPct": 60,
+    "actionCorrectPct": 50,
+    "correctAndValidPct": 50,
+    "refusal": {
+     "correct": 3,
+     "n": 3
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 9,
+     "n": 18
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 3
+    },
+    "falseRefusals": {
+     "count": 9,
+     "n": 15
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   }
+  }
+ },
+ "temperature07": null
+}
