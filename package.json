@@ -1,0 +1,26 @@
+{
+  "name": "helix-research",
+  "private": true,
+  "version": "0.0.0",
+  "license": "SEE LICENSE IN LICENSE",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "test:live": "HELIX_LIVE=1 vitest run live",
+    "typecheck": "tsc -p packages/shared-types && tsc -p packages/data-adapters && tsc -p packages/scientific-core && tsc -p tsconfig.json",
+    "build:hbb": "node scripts/data-preparation/build-hbb.ts",
+    "compare:hbb": "node scripts/data-preparation/compare-builds.ts"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.5",
+    "typescript": "6.0.3",
+    "vite": "8.3.4",
+    "vitest": "5.0.5"
+  }
+}

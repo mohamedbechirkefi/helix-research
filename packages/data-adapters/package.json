@@ -1,0 +1,14 @@
+{
+  "name": "@helix/data-adapters",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "license": "SEE LICENSE IN ../../LICENSE",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "dependencies": {
+    "@helix/shared-types": "0.0.0",
+    "zod": "4.6.7"
+  }
+}
