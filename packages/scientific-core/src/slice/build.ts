@@ -1,0 +1,612 @@
+// SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0
+/**
+ * Build a curated gene slice from retrieved records (P2.5.1): parse -> normalise ->
+ * validate -> curated records with provenance and evidence.
+ *
+ * Pure and deterministic: the same inputs give byte-identical record files; only the
+ * retrieval times inside provenance and the validation times (`ctx.now`) change. Every
+ * number written is read from an input body. Any failed error-level check throws a
+ * ValidationFailedError and nothing is produced (no partial dataset).
+ */
+import {
+  type HgncRecord,
+  type MmcifStructure,
+  SOURCE_TERMS,
+  ValidationFailedError,
+  alphafoldDisclaimer,
+  assertNoProprietaryIdentifiers,
+  parseAlphafoldPrediction,
+  parseClinvarEsummary,
+  parseEnsembl,
+  parseFasta,
+  parseHgnc,
+  parseJsonBody,
+  parseRcsb,
+  parseSifts,
+  parseUniprotEntry,
+  readMmcifStructure,
+  sha256Hex,
+} from "@helix/data-adapters";
+import {
+  CapabilityReport,
+  type DriftReport,
+  type Evidence,
+  Gene,
+  type KnownIssue,
+  PredictedModel,
+  Protein,
+  type Provenance,
+  ResidueContacts,
+  ResidueMapping,
+  type ResidueRef,
+  Sequence,
+  Structure,
+  TranscriptRecord,
+  type ValidationResult,
+  Variant,
+  formatVersioned,
+  parseVersioned,
+} from "@helix/shared-types";
+import type { z } from "zod";
+import { capabilities } from "../capabilities.ts";
+import { type CheckOutcome, translationChecks } from "../checks.ts";
+import { interChainContacts } from "../contacts.ts";
+import { cdsLengthFromExons, codonGenomicSpan, fivePrimeUtrLength, hgvsGToSpdi, spdiToHgvsG } from "../coordinates.ts";
+import { detectDrift } from "../drift.ts";
+import { classifyClinvarReview, evidence } from "../evidence.ts";
+import { resolveGeneQuery } from "../gene-resolution.ts";
+import { classifyPdbxMutation, matureIndex, matureLabel, translatedLabel } from "../numbering.ts";
+import { interval, normaliseTranscript } from "../normalise.ts";
+import { AA_PDB_NAME, complement } from "../sequence.ts";
+import { alignmentCrossCheck, assemblyOf, entityForAccession, labelAuthDivergences, mapUniprotPosition, structRefSeqIssues } from "../structure-mapping.ts";
+import { selectTranscript } from "../transcript-selection.ts";
+import { allelesAtSite, hgvsChangePart, resolveAllele } from "../variant.ts";
+import type { RawRecord, SliceConfig, SliceInputName, SliceInputs } from "./types.ts";
+
+export interface SliceFile {
+  path: string;
+  recordKind: string;
+  content: string;
+}
+
+export interface SliceBuild {
+  files: SliceFile[];
+  sources: Provenance[];
+  validation: ValidationResult[];
+  knownIssues: KnownIssue[];
+  drift: DriftReport[];
+  attribution: { source: string; licence: string; text: string }[];
+  summary: Record<string, unknown>;
+}
+
+const BACKBONE = new Set(["N", "CA", "C", "O", "CB", "OXT"]);
+
+function json(r: RawRecord): unknown {
+  return parseJsonBody(r.body, r.url);
+}
+
+function stable(value: unknown): string {
+  return `${JSON.stringify(value, null, 2)}\n`;
+}
+
+export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: { now: string }): Promise<SliceBuild> {
+  // Every body must hash to the sha256 recorded at retrieval (T29).
+  for (const [name, r] of Object.entries(inputs) as [string, RawRecord | undefined][]) {
+    if (!r) continue;
+    const h = await sha256Hex(r.body);
+    if (h !== r.sha256) throw new ValidationFailedError("T29-raw-sha256", `${name}: body hashes to ${h}, recorded ${r.sha256}`);
+  }
+  // ------------------------------------------------------------ checks collector
+  const outcomes: (CheckOutcome & { records: string[] })[] = [];
+  const check = (id: string, pass: boolean, detail: string, records: string[], level: "error" | "warn" = "error"): boolean => {
+    outcomes.push({ check: id, pass, detail, level, records });
+    return pass;
+  };
+  const validationFor = (record: string): ValidationResult[] =>
+    outcomes
+      .filter((o) => o.records.includes(record))
+      .map((o) => ({ check: o.check, result: o.pass ? "pass" : o.level === "warn" ? "warn" : "fail", detail: o.detail, at: ctx.now }));
+
+  // ------------------------------------------------------------ Ensembl: release, assembly, gene, transcript
+  const infoData = parseEnsembl.infoData(json(inputs.ensemblInfoData), inputs.ensemblInfoData.url);
+  const asm = parseEnsembl.assembly(json(inputs.ensemblAssembly), inputs.ensemblAssembly.url);
+  const ensemblRelease = `Ensembl ${infoData.releases[0]}`;
+  const gene = parseEnsembl.gene(json(inputs.geneLookup), inputs.geneLookup.url);
+  check("T01-gene-identity", gene.id === config.ensemblGeneId && gene.display_name === config.hgncSymbol, `${gene.id}.${gene.version} ${gene.display_name}`, ["gene"]);
+  check("assembly-grch38", gene.assembly_name === "GRCh38" && asm.default_coord_system_version === "GRCh38", `gene ${gene.assembly_name}; Ensembl default ${asm.default_coord_system_version} (${asm.assembly_name})`, ["gene", "transcript"]);
+  const sel = selectTranscript(gene);
+  check("T02-transcript-selection", sel.selection.rule === "mane_select", `${sel.selection.rule}: ${formatVersioned(sel.selection.selected)} (${sel.selection.reason}); ${sel.selection.candidatesConsidered} candidates`, ["gene", "transcript"]);
+  const tRaw = parseEnsembl.transcript(json(inputs.transcriptLookup), inputs.transcriptLookup.url);
+  check("transcript-lookup-matches-selection", tRaw.id === sel.transcript.id && tRaw.version === sel.transcript.version, `${tRaw.id}.${tRaw.version}`, ["transcript"]);
+  const transcript = normaliseTranscript(tRaw, { assemblyPatch: asm.assembly_name });
+  if (!transcript.translation) throw new ValidationFailedError("translation", `${formatVersioned(transcript.id)} has no translation`);
+  const exonSum = transcript.exons.reduce((n, e) => n + e.interval.end - e.interval.start + 1, 0);
+  check("T05-exon-lengths-sum", exonSum === transcript.length, `sum of exon lengths ${exonSum} vs transcript length ${transcript.length} (1-based closed)`, ["transcript"]);
+
+  // ------------------------------------------------------------ sequences
+  const cds = parseFasta(inputs.cds.body, inputs.cds.url);
+  const cdna = parseFasta(inputs.cdna.body, inputs.cdna.url);
+  const ensp = parseFasta(inputs.ensemblProtein.body, inputs.ensemblProtein.url);
+  check("fasta-ids-versioned", cds.id === formatVersioned(transcript.id) && cdna.id === formatVersioned(transcript.id) && ensp.id === formatVersioned(transcript.translation.id), `${cds.id}, ${cdna.id}, ${ensp.id}`, ["sequences"]);
+  check("T06-cds-length", cds.sequence.length === cdsLengthFromExons(transcript) && cds.sequence.length === (transcript.translation.length + 1) * 3, `CDS ${cds.sequence.length} nt; exon walk ${cdsLengthFromExons(transcript)}; (protein ${transcript.translation.length} + stop) x 3`, ["sequences", "transcript"]);
+  check("cdna-length", cdna.sequence.length === transcript.length, `cDNA ${cdna.sequence.length} vs transcript ${transcript.length}`, ["sequences"]);
+
+  // ------------------------------------------------------------ UniProt
+  const uni = parseUniprotEntry(json(inputs.uniprot), inputs.uniprot.url);
+  const uniRelease = inputs.uniprot.headers["x-uniprot-release"] ?? null;
+  check("uniprot-accession", uni.accession === config.uniprotAccession && uni.reviewed, `${uni.accession} ${uni.entryName}, reviewed ${uni.reviewed}`, ["protein"]);
+  for (const o of translationChecks({ cds: cds.sequence, ensemblProtein: ensp.sequence, uniprotSequence: uni.sequence, uniprotMd5: uni.md5 })) {
+    check(o.check === "cds-shape" ? "T06-cds-shape" : `T07-${o.check}`, o.pass, o.detail, ["sequences", "protein"]);
+  }
+  check("uniprot-mane-xref", uni.maneSelect?.transcript === formatVersioned(transcript.id) && uni.maneSelect?.protein === formatVersioned(transcript.translation.id) && uni.maneSelect?.refSeqNucleotide === (transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null), `UniProt MANE-Select ${uni.maneSelect?.transcript} / ${uni.maneSelect?.protein} / ${uni.maneSelect?.refSeqNucleotide}`, ["protein", "transcript"]);
+  const initMet = uni.features.find((f) => f.type === "Initiator methionine");
+  const chainF = uni.features.find((f) => f.type === "Chain");
+  check("T15-initiator-met-and-chain", initMet?.start === 1 && /removed/i.test(initMet.description) && chainF !== undefined, `Initiator methionine ${initMet?.start} "${initMet?.description}"; Chain ${chainF?.start}-${chainF?.end}`, ["protein", "variant"]);
+  const chainRange = chainF ? { start: chainF.start, end: chainF.end } : null;
+
+  // ------------------------------------------------------------ HGNC
+  const hgncDocs: HgncRecord[] = parseHgnc(json(inputs.hgnc), inputs.hgnc.url);
+  const hgnc = hgncDocs[0];
+  if (!hgnc) throw new ValidationFailedError("hgnc", `no HGNC record for ${config.hgncSymbol}`);
+  const res = resolveGeneQuery(config.hgncSymbol, hgncDocs);
+  check("T04-hgnc-resolution", res.status === "resolved" && res.ensemblGeneId === gene.id, `${config.hgncSymbol} -> ${res.status === "resolved" ? `${res.hgncId} ${res.ensemblGeneId}` : res.status}`, ["gene"]);
+  for (const alias of hgnc.aliases) {
+    const r = resolveGeneQuery(alias, hgncDocs);
+    check(`T04-alias-${alias}`, r.status === "resolved" && r.ensemblGeneId === gene.id, `alias ${alias} -> ${r.status === "resolved" ? r.ensemblGeneId : r.status}`, ["gene"]);
+  }
+
+  // ------------------------------------------------------------ variant
+  const recoder = parseEnsembl.variantRecoder(json(inputs.variantRecoder), inputs.variantRecoder.url);
+  const variation = parseEnsembl.variation(json(inputs.variation), inputs.variation.url);
+  const vep = parseEnsembl.vep(json(inputs.vep), inputs.vep.url);
+  const vctx = { transcript, cds: cds.sequence, refSeqTranscript: transcript.refSeqMatch, refSeqProtein: uni.maneSelect?.refSeqProtein ?? null };
+  const allele = resolveAllele(recoder, config.variant.forwardAllele, vctx);
+  const others = allelesAtSite(recoder, vctx);
+  const map38 = variation.mappings.find((m) => m.assembly_name === "GRCh38");
+  if (!map38) throw new ValidationFailedError("variation", `${config.variant.rsId} has no GRCh38 mapping`);
+  const rsAlleles = map38.allele_string.split("/");
+  check("T13-rsid-multiallelic", rsAlleles.length > 2 && others.filter((o) => o.coding.altAa === allele.coding.altAa).length === 1, `${config.variant.rsId} alleles ${map38.allele_string}; ${others.map((o) => `${o.forwardAllele}:${o.coding.proteinChange}`).join(", ")}`, ["variant"]);
+  check("T08-exon-walk-genomic", allele.genomicPositionFromExonWalk === allele.genomicPosition && map38.start === allele.genomicPosition, `exon walk c.${allele.coding.cdsPosition} -> ${allele.genomicPositionFromExonWalk}; hgvsg ${allele.genomicPosition}; variation ${map38.start}`, ["variant"]);
+  const codonMap = parseEnsembl.mapping(json(inputs.codonMap), inputs.codonMap.url).mappings[0]!;
+  const span = codonGenomicSpan(transcript, allele.coding.codonNumber);
+  check("T08-codon-span", span.contiguous && codonMap.start === span.start && codonMap.end === span.end && codonMap.strand === transcript.interval.strand, `own walk codon ${allele.coding.codonNumber} -> ${span.start}-${span.end}; Ensembl map/cds ${codonMap.start}-${codonMap.end} strand ${codonMap.strand}`, ["variant"]);
+  const window = parseEnsembl.regionSequence(json(inputs.genomicWindow), inputs.genomicWindow.url);
+  const winM = /^chromosome:(GRCh\d+):(\w+):(\d+):(\d+):(-?1)$/.exec(window.id);
+  if (!winM) throw new ValidationFailedError("genomic-window", `unexpected region id ${window.id}`);
+  const winStart = Number(winM[3]);
+  const winEnd = Number(winM[4]);
+  const baseAt = window.seq[allele.genomicPosition - winStart]?.toUpperCase();
+  check("T09-forward-and-coding-base", winM[5] === "1" && baseAt === allele.genomicRef && complement(baseAt) === cds.sequence[allele.coding.cdsPosition - 1], `forward-strand base at ${allele.genomicPosition} = ${baseAt}; coding-strand c.${allele.coding.cdsPosition} = ${cds.sequence[allele.coding.cdsPosition - 1]}`, ["variant", "sequences"]);
+  check("T10-spdi-roundtrip", spdiToHgvsG(allele.spdi) === allele.hgvsg && hgvsGToSpdi(allele.hgvsg) === allele.spdi, `${allele.spdi} <-> ${allele.hgvsg}`, ["variant"]);
+  check("T11-codon-change", allele.coding.refCodon !== allele.coding.altCodon && allele.coding.refAa !== allele.coding.altAa, `codon ${allele.coding.codonNumber} ${allele.coding.refCodon} -> ${allele.coding.altCodon}; ${allele.coding.refAa} -> ${allele.coding.altAa}`, ["variant"]);
+  const pStrings = allele.hgvsp.map(hgvsChangePart);
+  check("T12-hgvsp-agrees", pStrings.length >= 2 && pStrings.every((p) => p === allele.coding.proteinChange), `computed ${allele.coding.proteinChange}; variant_recoder ${allele.hgvsp.join(", ")}`, ["variant"]);
+  const tc = vep[0]!.transcript_consequences.find((c) => c.transcript_id === transcript.id.id);
+  if (!tc) throw new ValidationFailedError("vep", `VEP has no consequence for ${transcript.id.id}`);
+  check("T12-vep-agrees", tc.protein_start === allele.coding.codonNumber && tc.cds_start === allele.coding.cdsPosition && hgvsChangePart(tc.hgvsp ?? "") === allele.coding.proteinChange && tc.amino_acids === `${allele.coding.refAa}/${allele.coding.altAa}`, `VEP ${tc.hgvsp} protein_start ${tc.protein_start} cds_start ${tc.cds_start} codons ${tc.codons}`, ["variant"]);
+  const cdnaPos = allele.coding.cdsPosition + fivePrimeUtrLength(transcript);
+  check("cdna-position", tc.cdna_start === cdnaPos, `c.${allele.coding.cdsPosition} + 5' UTR ${fivePrimeUtrLength(transcript)} = ${cdnaPos}; VEP cdna_start ${tc.cdna_start}`, ["variant"]);
+
+  const uniPos = allele.coding.codonNumber; // translated numbering: p. position == UniProt position for the canonical isoform
+  check("T18-hgvsp-equals-uniprot-position", uni.sequence[uniPos - 1] === allele.coding.refAa && uni.sequence === ensp.sequence, `p.${uniPos}: UniProt residue ${uni.sequence[uniPos - 1]}, HGVS ref ${allele.coding.refAa}`, ["variant", "protein"]);
+  const mature = matureIndex(uniPos, chainRange);
+  const mLabel = matureLabel(allele.coding.refAa, uniPos, allele.coding.altAa, chainRange);
+  check("T17-mature-index", mature !== null && mature === uniPos - chainRange!.start + 1, `mature index of ${uniPos} = ${mature} (${mLabel})`, ["variant"]);
+  const natVar = uni.features.find((f) => f.type === "Natural variant" && f.start === uniPos && f.end === uniPos && f.originalSequence === allele.coding.refAa && f.alternativeSequences.includes(allele.coding.altAa) && f.xrefs.includes(`dbSNP:${config.variant.rsId}`));
+  check("T16-uniprot-natural-variant", natVar !== undefined, natVar ? `${natVar.featureId} at ${natVar.start}: ${natVar.originalSequence}->${natVar.alternativeSequences.join("/")}; ${natVar.description}` : "no matching natural variant", ["variant", "protein"]);
+
+  const clinvarRecords = parseClinvarEsummary(json(inputs.clinvar), inputs.clinvar.url);
+  const cv = clinvarRecords.find((r) => r.uid === config.variant.clinvarUid);
+  if (!cv) throw new ValidationFailedError("clinvar", `ClinVar uid ${config.variant.clinvarUid} not in response`);
+  const cv38 = cv.locations.find((l) => l.assembly === "GRCh38");
+  const cv37 = cv.locations.find((l) => l.assembly === "GRCh37");
+  check("T14-clinvar-record", !cv.isHaplotypeOrCompound && cv.canonicalSpdi.includes(allele.spdi) && cv38?.start === allele.genomicPosition, `${cv.accessionVersion} ${cv.objectType}; spdi ${cv.canonicalSpdi.join(",")}; GRCh38 ${cv38?.start}; GRCh37 ${cv37?.start}; ${cv.classification} (${cv.reviewStatus})`, ["variant"]);
+  const cvBuild = inputs.clinvarEinfo ? (json(inputs.clinvarEinfo) as { einforesult?: { dbinfo?: { dbbuild?: string }[] } }).einforesult?.dbinfo?.[0]?.dbbuild ?? null : null;
+
+  // ------------------------------------------------------------ structure
+  const struct: MmcifStructure = readMmcifStructure(inputs.mmcif.body, inputs.mmcif.url);
+  const sifts = parseSifts(json(inputs.sifts), config.pdbId, inputs.sifts.url);
+  const rEntry = parseRcsb.entry(json(inputs.rcsbEntry), inputs.rcsbEntry.url);
+  const rEntity = parseRcsb.polymerEntity(json(inputs.rcsbPolymerEntity), inputs.rcsbPolymerEntity.url);
+  const rAsm = parseRcsb.assembly(json(inputs.rcsbAssembly), inputs.rcsbAssembly.url);
+  const pdbRelease = `PDB rev ${struct.latestRevision.version} ${struct.latestRevision.date}`;
+  check("structure-entry", struct.entryId === config.pdbId && rEntry.rcsb_id === config.pdbId, `${struct.entryId} ${struct.method} ${struct.resolution} A, rev ${struct.latestRevision.version}`, ["structure"]);
+  const rLast = [...rEntry.pdbx_audit_revision_history].sort((a, b) => a.major_revision - b.major_revision || a.minor_revision - b.minor_revision).at(-1)!;
+  check("structure-revision-agrees", `${rLast.major_revision}.${rLast.minor_revision}` === struct.latestRevision.version, `Data API rev ${rLast.major_revision}.${rLast.minor_revision}; mmCIF rev ${struct.latestRevision.version}`, ["structure"]);
+  const { entityId, segments } = entityForAccession(sifts, config.uniprotAccession);
+  const ent = struct.entities.find((e) => e.id === entityId);
+  if (!ent || !ent.sequenceCanonical) throw new ValidationFailedError("structure-entity", `entity ${entityId} not in mmCIF`);
+  const polymerCount = struct.entities.filter((e) => e.type === "polymer").length;
+  const siftsChains = [...new Set(segments.map((s) => s.labelAsymId))].sort();
+  check("T20-entity-by-sifts", polymerCount >= 1 && ent.type === "polymer" && siftsChains.join(",") === [...ent.strandIds].sort().join(","), `${polymerCount} polymer entities; SIFTS ${config.uniprotAccession} -> entity ${entityId}, chains ${siftsChains.join(",")}; mmCIF strands ${ent.strandIds.join(",")}`, ["structure", "residue-mapping"]);
+  check("T20-rcsb-entity-agrees", rEntity.rcsb_polymer_entity_container_identifiers.entity_id === entityId && (rEntity.rcsb_polymer_entity_container_identifiers.uniprot_ids ?? []).includes(config.uniprotAccession), `RCSB polymer_entity ${rEntity.rcsb_id} uniprot ${rEntity.rcsb_polymer_entity_container_identifiers.uniprot_ids?.join(",")}`, ["structure"]);
+  const xc = alignmentCrossCheck(ent.sequenceCanonical, uni.sequence, segments);
+  check("T21-alignment-cross-check", xc.agrees && xc.alignment.identity >= 0.95, `entity ${ent.sequenceCanonical.length} aa vs UniProt ${uni.sequence.length} aa: offset ${xc.alignment.constantOffset}, identity ${xc.alignment.identity.toFixed(4)}, mismatches ${xc.alignment.mismatches.map((m) => `entity ${m.queryPos} ${m.query} / UniProt ${m.referencePos} ${m.reference}`).join("; ")}; SIFTS offset ${xc.siftsOffset}`, ["residue-mapping"]);
+  const rAlign = rEntity.rcsb_polymer_entity_align.find((a) => a.reference_database_accession === config.uniprotAccession && a.provenance_source === "SIFTS");
+  const rRegion = rAlign?.aligned_regions[0];
+  check("T22-rcsb-align-agrees", rRegion !== undefined && rRegion.ref_beg_seq_id - rRegion.entity_beg_seq_id === xc.siftsOffset, `RCSB rcsb_polymer_entity_align ref_beg ${rRegion?.ref_beg_seq_id} <-> entity_beg ${rRegion?.entity_beg_seq_id}`, ["residue-mapping"]);
+  const residues = mapUniprotPosition(struct, sifts, config.uniprotAccession, uniPos, (a) => assemblyOf(struct, a));
+  const altName = AA_PDB_NAME[allele.coding.altAa];
+  const refName = AA_PDB_NAME[allele.coding.refAa];
+  const carries = residues.every((r) => r.compId === altName && r.authCompId === altName) ? "alternate" : residues.every((r) => r.compId === refName) ? "reference" : "mixed";
+  check("T23-residue-from-atom-site", residues.length === siftsChains.length && carries !== "mixed", `${residues.map((r) => `${r.labelAsymId}/${r.authAsymId} label ${r.labelSeqId} auth ${r.authSeqId} ${r.compId}`).join("; ")}; structure carries the ${carries} residue`, ["residue-mapping", "structure"]);
+  const naive = struct.polySeqScheme.find((r) => r.labelAsymId === residues[0]!.labelAsymId && r.labelSeqId === uniPos);
+  check("T24-wrong-numbering-detectable", naive !== undefined && naive.monId !== residues[0]!.compId && uni.sequence[mature! - 1] !== allele.coding.refAa, `label ${uniPos} in ${residues[0]!.labelAsymId} is ${naive?.monId} (not ${residues[0]!.compId}); UniProt position ${mature} is ${uni.sequence[mature! - 1]} (not ${allele.coding.refAa})`, ["residue-mapping"]);
+  const mutNumbering = ent.mutation ? classifyPdbxMutation(ent.mutation, uni.sequence, chainRange) : "unknown";
+  check("T19-pdbx-mutation-numbering", ent.mutation === null || mutNumbering === "mature/legacy", `_entity.pdbx_mutation "${ent.mutation}" -> numbering ${mutNumbering}`, ["structure"]);
+  const knownIssues: KnownIssue[] = structRefSeqIssues(struct, sifts, config.uniprotAccession);
+  check("T25-struct-ref-seq-not-trusted", true, `${knownIssues.length} _struct_ref_seq disagreement(s) with SIFTS recorded as known issues`, ["residue-mapping"]);
+  const divergences = labelAuthDivergences(struct);
+  if (divergences.length > 0) {
+    knownIssues.push({
+      id: `label-auth-chain-ids-differ-${struct.entryId}`,
+      severity: "info",
+      summary: `${struct.entryId}: ${divergences.length} non-polymer label chains have a different auth chain id`,
+      detail: divergences.map((d) => `label ${d.labelAsymId} = auth ${d.authAsymId} ${d.monId} ${d.authSeqNum}`).join("; "),
+      resolution: "ResidueRef keeps both label_* and auth_* ids; viewer commands must say which they use.",
+    });
+  }
+  check("T26-label-auth-kept", divergences.length === 0 || divergences.every((d) => d.labelAsymId !== d.authAsymId), `${divergences.length} non-polymer label/auth divergences`, ["structure"]);
+  const rAsmGen = rAsm.pdbx_struct_assembly_gen[0];
+  const mmAsm1 = struct.assemblies.find((a) => a.id === rAsmGen?.assembly_id);
+  check("T27-assemblies", mmAsm1 !== undefined && rAsmGen !== undefined && [...mmAsm1.asymIds].sort().join(",") === [...rAsmGen.asym_id_list].sort().join(","), struct.assemblies.map((a) => `assembly ${a.id}: ${a.asymIds.join(",")}`).join("; "), ["structure"]);
+  const polymerAsyms = new Set(struct.structAsym.filter((a) => struct.entities.find((e) => e.id === a.entityId)?.type === "polymer").map((a) => a.id));
+  const defaultAssembly = [...struct.assemblies].sort((a, b) => a.id.localeCompare(b.id)).find((a) => residues.some((r) => a.asymIds.includes(r.labelAsymId)));
+  if (!defaultAssembly) throw new ValidationFailedError("assembly", "no assembly contains a mapped chain");
+
+  // contacts of the variant residue (side-chain atoms beyond CB)
+  const contactChains = residues.map((r) => {
+    const probeAtoms = [...new Set(struct.atoms.filter((a) => a.model === 1 && a.labelAsymId === r.labelAsymId && a.labelSeqId === r.labelSeqId && !BACKBONE.has(a.atomName) && a.element !== "H").map((a) => a.atomName))].sort();
+    const c = interChainContacts(struct, r.authAsymId, r.authSeqId, probeAtoms, config.contactCutoffAngstrom);
+    return { residue: r, probeAtoms, contacts: c.contacts };
+  });
+  check("T28-contacts-computed", contactChains.every((c) => c.probeAtoms.length > 0), contactChains.map((c) => `${c.residue.authAsymId}${c.residue.authSeqId}: ${c.contacts.filter((x) => x.compId !== "HOH").map((x) => `${x.authAsymId}${x.authSeqId}`).join(",") || "none"}`).join("; "), ["residue-contacts"]);
+
+  // ------------------------------------------------------------ AlphaFold (optional)
+  let af: ReturnType<typeof parseAlphafoldPrediction> | null = null;
+  let afDisclaimer: string | null = null;
+  if (config.includeAlphafold && inputs.alphafoldPrediction && inputs.alphafoldModel) {
+    af = parseAlphafoldPrediction(json(inputs.alphafoldPrediction), inputs.alphafoldPrediction.url);
+    afDisclaimer = alphafoldDisclaimer(inputs.alphafoldModel.body, inputs.alphafoldModel.url);
+    check("T32-alphafold-labelled", af.uniprotAccession === config.uniprotAccession && af.sequenceChecksumMd5 === uni.md5.toUpperCase() && af.sequence[uniPos - 1] === allele.coding.refAa, `${af.entryId} v${af.modelVersion}; md5 match ${af.sequenceChecksumMd5 === uni.md5.toUpperCase()}; residue ${uniPos} in model = ${af.sequence[uniPos - 1]} (reference), so never used to place ${allele.coding.altAa}`, ["predicted-model"]);
+  }
+
+  // ------------------------------------------------------------ drift
+  const drift = detectDrift({
+    ensemblGene: { id: gene.id, version: gene.version },
+    uniprot: { accession: uni.accession, entryVersion: uni.entryVersion, ensemblXrefs: uni.ensembl },
+    selectedTranscript: formatVersioned(transcript.id),
+    vepSwissprot: tc.swissprot ?? [],
+    maneRefSeq: transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null,
+    hgncManeSelect: hgnc.maneSelect,
+    uniprotManeSelect: uni.maneSelect,
+    clinvarTitle: cv.title,
+  });
+  check("T31-drift-reported", true, drift.length === 0 ? "no version drift" : drift.map((d) => `${d.id}: ${d.observedValue} vs ${d.referenceValue}`).join("; "), ["gene", "protein"], "warn");
+
+  // ------------------------------------------------------------ stop on any failed error-level check
+  const failed = outcomes.filter((o) => !o.pass && o.level === "error");
+  if (failed.length > 0) {
+    throw new ValidationFailedError(failed.map((f) => f.check).join(","), failed.map((f) => `${f.check}: ${f.detail}`).join(" | "));
+  }
+
+  // ------------------------------------------------------------ provenance
+  const prov = (name: SliceInputName, recordId: string, recordVersion: string | null, sourceRelease: string | null, assembly: string | null): Provenance => {
+    const r = inputs[name];
+    if (!r) throw new Error(`missing input ${name}`);
+    const t = SOURCE_TERMS[r.source];
+    return { source: r.source, url: r.url, method: r.method, retrievedAt: r.retrievedAt, sourceRelease, recordId, recordVersion, assembly, sha256: r.sha256, licence: t.licence, attribution: t.attribution };
+  };
+  const A = asm.assembly_name;
+  const P = {
+    E1: prov("ensemblInfoData", "info/data", null, ensemblRelease, null),
+    E2: prov("ensemblAssembly", "homo_sapiens", A, ensemblRelease, A),
+    E3: prov("geneLookup", gene.id, String(gene.version), ensemblRelease, A),
+    E4: prov("transcriptLookup", tRaw.id, String(tRaw.version), ensemblRelease, A),
+    E5: prov("cds", cds.id, String(transcript.id.version), ensemblRelease, A),
+    E6: prov("cdna", cdna.id, String(transcript.id.version), ensemblRelease, A),
+    E7: prov("ensemblProtein", ensp.id, String(transcript.translation.id.version), ensemblRelease, A),
+    E8: prov("genomicWindow", window.id, null, ensemblRelease, A),
+    E9: prov("codonMap", `${tRaw.id} codon ${allele.coding.codonNumber}`, String(tRaw.version), ensemblRelease, A),
+    E10: prov("variation", variation.name, null, ensemblRelease, A),
+    E11: prov("variantRecoder", variation.name, null, ensemblRelease, A),
+    E12: prov("vep", vep[0]!.input, null, ensemblRelease, A),
+    U1: prov("uniprot", uni.accession, `entry ${uni.entryVersion}, sequence ${uni.sequenceVersion}`, uniRelease ? `UniProt ${uniRelease}` : null, null),
+    P1: prov("mmcif", struct.entryId, struct.latestRevision.version, pdbRelease, null),
+    P2: prov("rcsbEntry", rEntry.rcsb_id, struct.latestRevision.version, pdbRelease, null),
+    P3: prov("rcsbPolymerEntity", rEntity.rcsb_id, struct.latestRevision.version, pdbRelease, null),
+    P4: prov("rcsbAssembly", rAsm.rcsb_id, struct.latestRevision.version, pdbRelease, null),
+    S1: prov("sifts", config.pdbId.toLowerCase(), null, null, null),
+    C1: prov("clinvar", cv.accession, cv.accessionVersion.split(".")[1] ?? null, cvBuild ? `ClinVar ${cvBuild}` : null, "GRCh38"),
+    H1: prov("hgnc", hgnc.hgncId, null, null, null),
+  };
+  const sourcesUsed: Provenance[] = Object.values(P);
+  if (af && inputs.alphafoldPrediction && inputs.alphafoldModel) {
+    sourcesUsed.push(prov("alphafoldPrediction", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
+    sourcesUsed.push(prov("alphafoldModel", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
+  }
+  const rp = (record: string, sources: Provenance[], transformations: string[], ev: Evidence[]) => ({
+    sources,
+    transformations,
+    validation: validationFor(record),
+    evidenceCategory: ev[0]!.category,
+  });
+
+  const iv = (s: number, e: number, strand: number) => interval(gene.assembly_name, gene.seq_region_name, s, e, strand, { assemblyPatch: A });
+  const chrAcc = parseVersioned(allele.hgvsg.split(":")[0]!).id.startsWith("NC_") ? allele.hgvsg.split(":")[0]! : null;
+
+  // ------------------------------------------------------------ records
+  const geneEv = [evidence("curated-database-annotation", `${gene.display_name} (${gene.id}.${gene.version}) is annotated on ${gene.assembly_name} chromosome ${gene.seq_region_name}:${gene.start}-${gene.end}, strand ${gene.strand}.`)];
+  const geneRec = Gene.parse({
+    kind: "gene",
+    id: { id: gene.id, version: gene.version },
+    symbol: gene.display_name,
+    description: gene.description ?? "",
+    biotype: gene.biotype,
+    interval: iv(gene.start, gene.end, gene.strand),
+    hgncId: hgnc.hgncId,
+    aliases: [...hgnc.aliases].sort(),
+    ncbiGeneId: hgnc.ncbiGeneId,
+    transcriptCount: gene.Transcript.length,
+    selection: sel.selection,
+    evidence: geneEv,
+    provenance: rp("gene", [P.E3, P.E2, P.H1], ["field-select", "normalise-interval", "select-transcript", "hgnc-resolve"], geneEv),
+  });
+
+  const trEv = [evidence("curated-database-annotation", `${formatVersioned(transcript.id)} is the MANE Select transcript (RefSeq match ${transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : "none"}).`)];
+  const trRec = TranscriptRecord.parse({ kind: "transcript", ...transcript, evidence: trEv, provenance: rp("transcript", [P.E4, P.E3], ["field-select", "normalise-interval", "rank-exons"], trEv) });
+
+  const seqEv = (what: string) => [evidence("curated-database-annotation", `${what} as served by Ensembl.`)];
+  const seqRec = (kind: "cds" | "cdna" | "protein" | "genomic", id: string, s: string, sha: string, src: Provenance[], what: string, ivl: ReturnType<typeof iv> | null) =>
+    Sequence.parse({ kind: "sequence", sequenceKind: kind, sourceId: id, alphabet: kind === "protein" ? "protein" : "dna", sequence: s, length: s.length, sha256: sha, interval: ivl, evidence: seqEv(what), provenance: rp("sequences", src, ["parse-fasta", "uppercase"], seqEv(what)) });
+
+  const seqSha = {
+    cds: await sha256Hex(cds.sequence),
+    cdna: await sha256Hex(cdna.sequence),
+    protein: await sha256Hex(ensp.sequence),
+    genomic: await sha256Hex(window.seq.toUpperCase()),
+  };
+  const assemble = (): SliceBuild => {
+    const files: SliceFile[] = [];
+    const add = (path: string, recordKind: string, record: unknown): void => {
+      files.push({ path, recordKind, content: typeof record === "string" ? record : stable(record) });
+    };
+    add("gene.json", "gene", geneRec);
+    add("transcript.json", "transcript", trRec);
+    add(
+      "sequences.json",
+      "sequence-set",
+      {
+        kind: "sequence-set",
+        records: [
+          seqRec("cds", cds.id, cds.sequence, seqSha.cds, [P.E5], `CDS of ${cds.id}`, null),
+          seqRec("cdna", cdna.id, cdna.sequence, seqSha.cdna, [P.E6], `cDNA of ${cdna.id}`, null),
+          seqRec("protein", ensp.id, ensp.sequence, seqSha.protein, [P.E7], `Translation ${ensp.id}`, null),
+          seqRec("genomic", window.id, window.seq.toUpperCase(), seqSha.genomic, [P.E8], `Forward-strand genomic window ${window.id} around the variant`, { ...iv(winStart, winEnd, 1), refSeqAccession: chrAcc }),
+        ],
+      },
+    );
+
+    const protEv = [
+      evidence("curated-database-annotation", `${uni.accession} (${uni.entryName}) canonical sequence, ${uni.length} aa; initiator Met ${initMet?.description.toLowerCase()}; chain ${chainF?.start}-${chainF?.end}.`, { qualifier: initMet?.evidences.join("; ") ?? null }),
+    ];
+    const protRec = Protein.parse({
+      kind: "protein",
+      accession: uni.accession,
+      entryName: uni.entryName,
+      reviewed: uni.reviewed,
+      isoform: { isoformId: "canonical", isCanonical: true },
+      entryVersion: uni.entryVersion,
+      sequenceVersion: uni.sequenceVersion,
+      sequence: uni.sequence,
+      length: uni.length,
+      md5: uni.md5.toUpperCase(),
+      crc64: uni.crc64.toUpperCase(),
+      numbering: "translated",
+      processedChain: chainF ? { start: chainF.start, end: chainF.end, featureId: chainF.featureId } : null,
+      initiatorMethionineRemoved: initMet !== undefined && /removed/i.test(initMet.description),
+      features: uni.features.filter((f) => f.type !== "Natural variant" || (f.start <= uniPos && f.end >= uniPos)),
+      xrefs: { maneSelect: uni.maneSelect, ensembl: uni.ensembl, pdb: uni.pdb.filter((p) => p.id === config.pdbId) },
+      comments: uni.comments,
+      evidence: protEv,
+      provenance: rp("protein", [P.U1], ["field-select", "drop-proprietary-xrefs", "natural-variants-at-position-only", "pdb-xrefs-of-selected-entry-only"], protEv),
+    });
+    add(`protein-${uni.accession}.json`, "protein", protRec);
+
+    const varEv = [
+      evidence(classifyClinvarReview(cv.reviewStatus), `ClinVar ${cv.accessionVersion}: ${cv.classification}.`, { qualifier: cv.reviewStatus }),
+      evidence("curated-database-annotation", `UniProt ${natVar!.featureId}: ${natVar!.originalSequence} to ${natVar!.alternativeSequences.join("/")} at position ${natVar!.start} (${natVar!.description}).`, { qualifier: natVar!.evidences.join("; ") }),
+      evidence("reference-sequence-derivation", `${allele.hgvsc[0]} changes codon ${allele.coding.codonNumber} ${allele.coding.refCodon} to ${allele.coding.altCodon}, giving ${allele.coding.proteinChange} by translation.`),
+      evidence("computational-prediction", `VEP consequence on ${transcript.id.id}: ${tc.consequence_terms.join(", ")}.`),
+    ];
+    const varRec = Variant.parse({
+      kind: "variant",
+      key: allele.hgvsg,
+      commonName: config.variant.commonName,
+      rsId: variation.name,
+      rsAlleles,
+      allele: { reference: allele.genomicRef, alternate: allele.genomicAlt, strand: 1 },
+      location: { ...iv(allele.genomicPosition, allele.genomicPosition, 1), refSeqAccession: chrAcc },
+      locationGRCh37: cv37 ? interval("GRCh37", cv37.chromosome, cv37.start, cv37.stop, 1) : null,
+      hgvs: { genomic: allele.hgvsg, coding: [...allele.hgvsc].sort(), protein: [...allele.hgvsp].sort() },
+      spdi: allele.spdi,
+      transcript: transcript.id,
+      cdsPosition: allele.coding.cdsPosition,
+      cdnaPosition: tc.cdna_start ?? null,
+      codon: { number: allele.coding.codonNumber, reference: allele.coding.refCodon, alternate: allele.coding.altCodon, genomic: iv(span.start, span.end, transcript.interval.strand) },
+      aminoAcids: { reference: allele.coding.refAa, alternate: allele.coding.altAa },
+      proteinChangeComputed: allele.coding.proteinChange,
+      numbering: {
+        translatedPosition: uniPos,
+        maturePosition: mature,
+        matureLabel: mLabel,
+        translatedLabel: translatedLabel(allele.coding.refAa, uniPos, allele.coding.altAa),
+      },
+      consequence: { terms: tc.consequence_terms, codons: tc.codons ?? "", source: `Ensembl VEP (${ensemblRelease})` },
+      clinvar: {
+        accession: cv.accession,
+        accessionVersion: cv.accessionVersion,
+        title: cv.title,
+        classification: cv.classification,
+        reviewStatus: cv.reviewStatus,
+        lastEvaluated: cv.lastEvaluated,
+        proteinChange: cv.proteinChange,
+        supportingSubmissionCount: cv.supportingSubmissionCount,
+        traitCount: cv.traitCount,
+        traitNote: "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers.",
+      },
+      evidence: varEv,
+      provenance: rp("variant", [P.E11, P.E10, P.E12, P.E9, P.E8, P.E5, P.U1, P.C1], ["select-allele", "filter-hgvs-to-selected-transcript", "apply-substitution-to-cds", "translate-codon", "exon-walk", "mature-index", "drop-trait-names"], varEv),
+    });
+    add(`variant-${config.variant.slug}.json`, "variant", varRec);
+
+    const structEv = [
+      evidence("experimental-structure-observation", `${struct.entryId}: ${struct.method}, ${struct.resolution} A resolution, deposited ${struct.depositionDate}.`),
+    ];
+    const entities = struct.entities.map((e) => ({
+      entityId: e.id,
+      type: e.type,
+      description: e.description,
+      moleculeCount: e.moleculeCount,
+      mutation: e.mutation ? { text: e.mutation, numbering: classifyPdbxMutation(e.mutation, e.id === entityId ? uni.sequence : "", e.id === entityId ? chainRange : null) } : null,
+      sequence: e.sequenceCanonical,
+      strandIds: e.strandIds,
+      siftsUniprot: [...new Set(sifts.filter((s) => s.entityId === e.id).map((s) => s.uniprotAccession))].sort(),
+    }));
+    const authOf = new Map<string, string>();
+    for (const r of struct.polySeqScheme) authOf.set(r.labelAsymId, r.authAsymId);
+    for (const r of struct.nonpolyScheme) if (!authOf.has(r.labelAsymId)) authOf.set(r.labelAsymId, r.authAsymId);
+    const chains = struct.structAsym
+      .map((a) => ({ labelAsymId: a.id, authAsymId: authOf.get(a.id) ?? "?", entityId: a.entityId, entityType: (struct.entities.find((e) => e.id === a.entityId)?.type ?? "polymer") as "polymer" }))
+      .sort((x, y) => x.labelAsymId.localeCompare(y.labelAsymId));
+    const cifPath = `${struct.entryId}.cif`;
+    const structRec = Structure.parse({
+      kind: "structure",
+      entryId: struct.entryId,
+      title: struct.title,
+      method: struct.method,
+      origin: "experimental",
+      resolutionAngstrom: struct.resolution,
+      revision: struct.latestRevision,
+      depositionDate: struct.depositionDate,
+      citation: struct.primaryCitation,
+      entities,
+      chains,
+      assemblies: struct.assemblies.map((a) => ({ ...a, polymerAsymIds: a.asymIds.filter((x) => polymerAsyms.has(x)) })),
+      defaultAssemblyId: defaultAssembly.id,
+      modelFile: { path: cifPath, format: "mmcif", sha256: inputs.mmcif.sha256, bytes: new TextEncoder().encode(inputs.mmcif.body).byteLength },
+      evidence: structEv,
+      provenance: rp("structure", [P.P1, P.P2, P.P3, P.P4, P.S1], ["parse-mmcif", "field-select", "sifts-entity-selection", "classify-pdbx-mutation-numbering"], structEv),
+    });
+    add(`structure-${struct.entryId}.json`, "structure", structRec);
+    add(cifPath, "mmcif", inputs.mmcif.body);
+
+    const mapEv = [
+      evidence("experimental-structure-observation", `Residue ${residues.map((r) => `${r.authAsymId} ${r.authSeqId}`).join(", ")} is ${residues[0]!.compId} in the deposited coordinates of ${struct.entryId} (atom_site).`),
+      evidence("curated-database-annotation", `SIFTS maps ${config.uniprotAccession} ${segments[0]!.unpStart}-${segments[0]!.unpEnd} to ${struct.entryId} entity ${entityId} residues ${segments[0]!.labelSeqStart}-${segments[0]!.labelSeqEnd}.`, { qualifier: `identity ${segments[0]!.identity}, coverage ${segments[0]!.coverage}` }),
+    ];
+    const mapRec = ResidueMapping.parse({
+      kind: "residue-mapping",
+      uniprotAccession: config.uniprotAccession,
+      uniprotPosition: uniPos,
+      uniprotResidue: uni.sequence[uniPos - 1],
+      maturePosition: mature,
+      entryId: struct.entryId,
+      entityId,
+      method: "sifts",
+      crossChecks: [
+        { method: "global alignment of entity sequence to UniProt", agrees: xc.agrees, detail: `offset ${xc.alignment.constantOffset}, identity ${xc.alignment.identity.toFixed(4)}, ${xc.alignment.mismatches.length} mismatch(es): ${xc.alignment.mismatches.map((m) => `entity ${m.queryPos} ${m.query} vs UniProt ${m.referencePos} ${m.reference}`).join("; ")}` },
+        { method: "RCSB rcsb_polymer_entity_align (SIFTS provenance)", agrees: rRegion !== undefined && rRegion.ref_beg_seq_id - rRegion.entity_beg_seq_id === xc.siftsOffset, detail: `ref_beg ${rRegion?.ref_beg_seq_id} <-> entity_beg ${rRegion?.entity_beg_seq_id}, length ${rRegion?.length}` },
+        { method: "mmCIF _struct_ref_seq (not used)", agrees: knownIssues.every((k) => !k.id.startsWith("struct-ref-seq")), detail: knownIssues.filter((k) => k.id.startsWith("struct-ref-seq")).map((k) => k.detail)[0] ?? "agrees with SIFTS" },
+      ],
+      residues,
+      evidence: mapEv,
+      provenance: rp("residue-mapping", [P.S1, P.P1, P.P3, P.U1], ["sifts-segment-lookup", "poly-seq-scheme-auth-ids", "atom-site-residue-name", "alignment-cross-check"], mapEv),
+    });
+    add(`residue-mapping-${config.variant.slug}-${struct.entryId}.json`, "residue-mapping", mapRec);
+
+    const withContacts = contactChains.filter((c) => c.contacts.some((x) => x.compId !== "HOH"));
+    const without = contactChains.filter((c) => !c.contacts.some((x) => x.compId !== "HOH"));
+    const conEv = [
+      evidence("computed-from-experimental-data", `Within ${config.contactCutoffAngstrom} A of the ${residues[0]!.compId} side chain, in the asymmetric unit: ${withContacts.map((c) => `chain ${c.residue.authAsymId} contacts chain(s) ${[...new Set(c.contacts.filter((x) => x.compId !== "HOH").map((x) => x.authAsymId))].join(",")}`).join("; ") || "no inter-chain protein contacts"}.`),
+      ...(without.length > 0
+        ? [evidence("inference-not-verified", `Chains ${without.map((c) => c.residue.authAsymId).join(", ")} show no protein contact inside the asymmetric unit; they may contact symmetry-related molecules, which were not generated.`)]
+        : []),
+    ];
+    const conRec = ResidueContacts.parse({
+      kind: "residue-contacts",
+      entryId: struct.entryId,
+      scope: "asymmetric unit, model 1, no symmetry mates",
+      cutoffAngstrom: config.contactCutoffAngstrom,
+      numbering: "auth_asym_id / auth_seq_id",
+      chains: contactChains,
+      evidence: conEv,
+      provenance: rp("residue-contacts", [P.P1], ["parse-mmcif", "side-chain-atoms-beyond-cb", "distance-cutoff"], conEv),
+    });
+    add(`contacts-${config.variant.slug}-${struct.entryId}.json`, "residue-contacts", conRec);
+
+    let pmRec: z.infer<typeof PredictedModel> | null = null;
+    if (af && afDisclaimer) {
+      const pmEv = [evidence("computational-prediction", `${af.entryId} is a predicted model (AlphaFold DB v${af.modelVersion}, ${af.toolUsed ?? "AlphaFold"}), global pLDDT ${af.globalPlddt}.`, { qualifier: af.globalPlddt === null ? null : `global pLDDT ${af.globalPlddt}` })];
+      pmRec = PredictedModel.parse({
+        kind: "predicted-model",
+        modelId: af.entryId,
+        modelVersion: af.modelVersion,
+        uniprotAccession: af.uniprotAccession,
+        uniprotRange: { start: af.uniprotStart, end: af.uniprotEnd },
+        modelCreatedDate: af.modelCreatedDate,
+        globalPlddt: af.globalPlddt,
+        sequenceChecksumMatchesUniprot: af.sequenceChecksumMd5 === uni.md5.toUpperCase(),
+        disclaimer: afDisclaimer,
+        usableForVariantPlacement: false,
+        evidence: pmEv,
+        provenance: rp("predicted-model", sourcesUsed.filter((s) => s.source === "alphafold"), ["field-select", "keep-in-file-disclaimer"], pmEv),
+      });
+      add(`predicted-model-${af.entryId}.json`, "predicted-model", pmRec);
+    }
+
+    const capRec = CapabilityReport.parse({
+      ...capabilities({
+        geneId: gene.id,
+        symbol: gene.display_name,
+        biotype: gene.biotype,
+        transcriptSelection: sel.selection,
+        hasTranslation: transcript.translation !== null,
+        protein: { accession: uni.accession, sequenceVerified: true },
+        experimentalStructures: uni.pdb.map((p) => ({ entryId: p.id, method: p.method })).sort((a, b) => a.entryId.localeCompare(b.entryId)),
+        verifiedMappings: [{ entryId: struct.entryId, uniprotPosition: uniPos }],
+        predictedModel: pmRec ? { modelId: pmRec.modelId, version: pmRec.modelVersion } : null,
+        variantPositions: [uniPos],
+      }),
+      derivedFrom: files.map((f) => f.path).filter((p) => p.endsWith(".json")),
+    });
+    add("capabilities.json", "capabilities", capRec);
+
+    for (const f of files) if (f.recordKind !== "mmcif") assertNoProprietaryIdentifiers(JSON.parse(f.content));
+    assertNoProprietaryIdentifiers(inputs.mmcif.body.slice(0, 200_000));
+
+    const used = new Set(sourcesUsed.map((s) => s.source));
+    return {
+      files,
+      sources: sourcesUsed,
+      validation: outcomes.map((o) => ({ check: o.check, result: o.pass ? "pass" : o.level === "warn" ? "warn" : "fail", detail: o.detail, at: ctx.now })),
+      knownIssues,
+      drift,
+      attribution: [...used].sort().map((s) => ({ source: s, licence: SOURCE_TERMS[s].licence, text: SOURCE_TERMS[s].attribution })),
+      summary: {
+        gene: `${gene.id}.${gene.version}`,
+        transcript: formatVersioned(transcript.id),
+        refSeq: transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null,
+        translation: formatVersioned(transcript.translation!.id),
+        uniprot: `${uni.accession} entry ${uni.entryVersion} seq ${uni.sequenceVersion} (${uniRelease})`,
+        variant: { hgvsg: allele.hgvsg, hgvsc: allele.hgvsc, hgvsp: allele.hgvsp, mature: mLabel },
+        clinvar: `${cv.accessionVersion} ${cv.classification} (${cv.reviewStatus})`,
+        structure: `${struct.entryId} rev ${struct.latestRevision.version}`,
+        mapping: residues.map((r) => ({ uniprot: uniPos, mature, labelAsym: r.labelAsymId, labelSeq: r.labelSeqId, authAsym: r.authAsymId, authSeq: r.authSeqId, residue: r.compId, assembly: r.assemblyId })),
+        drift: drift.map((d) => d.id),
+        knownIssues: knownIssues.map((k) => k.id),
+      },
+    };
+  };
+  return assemble();
+}
