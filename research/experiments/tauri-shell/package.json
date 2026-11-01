@@ -1,0 +1,23 @@
+{
+  "name": "helix-exp-tauri-shell",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "SEE LICENSE IN ../../../LICENSE",
+  "scripts": {
+    "build:page": "npm --prefix ../molstar-embed run build",
+    "build:shell": "vite build",
+    "tauri": "tauri",
+    "build": "npm run build:page && npm run build:shell && tauri build --bundles app",
+    "build:dmg": "npm run build:page && npm run build:shell && tauri build --bundles app,dmg"
+  },
+  "dependencies": {
+    "@tauri-apps/api": "2.12.4",
+    "@tauri-apps/plugin-http": "2.8.3"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.3",
+    "typescript": "6.0.3",
+    "vite": "8.3.4"
+  }
+}

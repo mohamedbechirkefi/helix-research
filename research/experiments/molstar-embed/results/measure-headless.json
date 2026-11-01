@@ -1,0 +1,876 @@
+{
+ "date": "2026-11-01T19:12:03.356Z",
+ "chromeVersion": "Chrome/156.0.8078.74",
+ "headless": true,
+ "uncapped": false,
+ "base": "http://localhost:5181/",
+ "runs": [
+  {
+   "mode": "imperative",
+   "source": "local",
+   "wallToReadyMs": 1736,
+   "clickEvents": [
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "imperative",
+    "source": "local",
+    "url": "http://localhost:5181/data/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "selection.changed",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 8.5,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 90.1
+     },
+     {
+      "t": 112.8,
+      "call": "plugin.builders.data.download",
+      "args": {
+       "url": "http://localhost:5181/data/2HBS.cif",
+       "isBinary": false
+      },
+      "ms": 36.5
+     },
+     {
+      "t": 149.3,
+      "call": "plugin.builders.structure.parseTrajectory",
+      "args": "mmcif",
+      "ms": 29.5
+     },
+     {
+      "t": 178.8,
+      "call": "plugin.builders.structure.hierarchy.applyPreset",
+      "args": {
+       "preset": "default",
+       "structure": "model"
+      },
+      "ms": 89.4
+     },
+     {
+      "t": 350.1,
+      "call": "plugin.managers.structure.selection.fromLoci",
+      "args": {
+       "modifier": "set"
+      },
+      "ms": 0.8
+     },
+     {
+      "t": 350.9,
+      "call": "plugin.managers.interactivity.lociHighlights.highlightOnly",
+      "args": {},
+      "ms": 0.7
+     },
+     {
+      "t": 351.6,
+      "call": "plugin.managers.structure.focus.setFromLoci",
+      "args": {},
+      "ms": 1.1
+     },
+     {
+      "t": 352.7,
+      "call": "plugin.managers.camera.focusLoci",
+      "args": {
+       "durationMs": 600,
+       "extraRadius": 4
+      },
+      "ms": 0.7
+     },
+     {
+      "t": 353.5,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "H",
+       "label_seq_id": 6
+      },
+      "ms": 20.8
+     },
+     {
+      "t": 374.3,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "amber"
+      },
+      "ms": 17.1
+     },
+     {
+      "t": 391.4,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "B",
+       "label_seq_ids": [
+        70,
+        73,
+        84,
+        85,
+        88
+       ]
+      },
+      "ms": 0.2
+     },
+     {
+      "t": 391.6,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "teal"
+      },
+      "ms": 8.1
+     },
+     {
+      "t": 399.8,
+      "call": "plugin.managers.structure.measurement.addLabel",
+      "args": {},
+      "ms": 107.8
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 90.4,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "loadToFirstDrawMs": 236.8,
+    "actionToDrawMs": 223.8,
+    "readback": {
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "focus": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.97
+    },
+    "totalToReadyMs": 1466.9,
+    "frames": {
+     "frames": 297,
+     "molstarDraws": 303,
+     "durationMs": 5000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.7,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  },
+  {
+   "mode": "mvs",
+   "source": "local",
+   "wallToReadyMs": 1620,
+   "clickEvents": [
+    {
+     "type": "focus.current",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "mvs",
+    "source": "local",
+    "url": "http://localhost:5181/data/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 9.3,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 95.4
+     },
+     {
+      "t": 117.1,
+      "call": "MVSData.validationIssues",
+      "args": "valid"
+     },
+     {
+      "t": 117.1,
+      "call": "loadMVS",
+      "args": {
+       "replaceExisting": true,
+       "sanityChecks": true
+      },
+      "ms": 245.7
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 95.6,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "mvsj": {
+     "root": {
+      "kind": "root",
+      "children": [
+       {
+        "kind": "download",
+        "params": {
+         "url": "http://localhost:5181/data/2HBS.cif"
+        },
+        "children": [
+         {
+          "kind": "parse",
+          "params": {
+           "format": "mmcif"
+          },
+          "children": [
+           {
+            "kind": "structure",
+            "params": {
+             "type": "model"
+            },
+            "children": [
+             {
+              "kind": "component",
+              "params": {
+               "selector": "polymer"
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "cartoon"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#8fa3b8"
+                  }
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "component",
+              "params": {
+               "selector": {
+                "label_asym_id": "H",
+                "label_seq_id": 6
+               }
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "ball_and_stick"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#ffb000"
+                  }
+                 }
+                ]
+               },
+               {
+                "kind": "label",
+                "params": {
+                 "text": "HbS: Val6 (chain H)"
+                }
+               },
+               {
+                "kind": "tooltip",
+                "params": {
+                 "text": "beta chain H, label_seq_id 6, VAL (E6V)"
+                }
+               },
+               {
+                "kind": "focus",
+                "params": {
+                 "radius_extent": 4
+                }
+               }
+              ]
+             },
+             {
+              "kind": "component",
+              "params": {
+               "selector": [
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 70
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 73
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 84
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 85
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 88
+                }
+               ]
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "ball_and_stick"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#2ec4b6"
+                  }
+                 }
+                ]
+               },
+               {
+                "kind": "label",
+                "params": {
+                 "text": "chain B contacts"
+                }
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "canvas",
+        "params": {
+         "background_color": "#06090f"
+        }
+       }
+      ]
+     },
+     "metadata": {
+      "version": "1",
+      "timestamp": "2026-11-01T19:12:12.175Z"
+     }
+    },
+    "loadToFirstDrawMs": 337.8,
+    "readback": {
+     "selection": [],
+     "components": [
+      {
+       "label": "Custom Selection: {label_asym_id: \"H\", label_seq_id: 6}",
+       "residues": [
+        {
+         "label_asym_id": "H",
+         "auth_asym_id": "H",
+         "label_seq_id": 6,
+         "auth_seq_id": 6,
+         "label_comp_id": "VAL",
+         "entity_id": "2",
+         "atoms": 7
+        }
+       ]
+      },
+      {
+       "label": "Custom Selection: [{label_asym_id: \"B\", label_seq_id: 70}, {label_asym_id: \"B\", label_seq_id: 73}, {label_asym_id: \"B\", label_seq_id: 84}, {label_asym_id: \"B\", label_seq_id: 85}, {label_asym_id: \"B\", label_seq_id: 88}]",
+       "residues": [
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 70,
+         "auth_seq_id": 70,
+         "label_comp_id": "ALA",
+         "entity_id": "2",
+         "atoms": 5
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 73,
+         "auth_seq_id": 73,
+         "label_comp_id": "ASP",
+         "entity_id": "2",
+         "atoms": 8
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 84,
+         "auth_seq_id": 84,
+         "label_comp_id": "THR",
+         "entity_id": "2",
+         "atoms": 7
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 85,
+         "auth_seq_id": 85,
+         "label_comp_id": "PHE",
+         "entity_id": "2",
+         "atoms": 11
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 88,
+         "auth_seq_id": 88,
+         "label_comp_id": "LEU",
+         "entity_id": "2",
+         "atoms": 8
+        }
+       ]
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.94
+    },
+    "totalToReadyMs": 1355.5,
+    "frames": {
+     "frames": 296,
+     "molstarDraws": 302,
+     "durationMs": 5000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.7,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": []
+  },
+  {
+   "mode": "imperative",
+   "source": "rcsb",
+   "wallToReadyMs": 2215,
+   "clickEvents": [
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "imperative",
+    "source": "rcsb",
+    "url": "https://files.rcsb.org/download/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "selection.changed",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 8.7,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 91.3
+     },
+     {
+      "t": 112.8,
+      "call": "plugin.builders.data.download",
+      "args": {
+       "url": "https://files.rcsb.org/download/2HBS.cif",
+       "isBinary": false
+      },
+      "ms": 517.5
+     },
+     {
+      "t": 630.3,
+      "call": "plugin.builders.structure.parseTrajectory",
+      "args": "mmcif",
+      "ms": 43.3
+     },
+     {
+      "t": 673.6,
+      "call": "plugin.builders.structure.hierarchy.applyPreset",
+      "args": {
+       "preset": "default",
+       "structure": "model"
+      },
+      "ms": 91.3
+     },
+     {
+      "t": 831.6,
+      "call": "plugin.managers.structure.selection.fromLoci",
+      "args": {
+       "modifier": "set"
+      },
+      "ms": 0.8
+     },
+     {
+      "t": 832.4,
+      "call": "plugin.managers.interactivity.lociHighlights.highlightOnly",
+      "args": {},
+      "ms": 0.7
+     },
+     {
+      "t": 833.1,
+      "call": "plugin.managers.structure.focus.setFromLoci",
+      "args": {},
+      "ms": 1.3
+     },
+     {
+      "t": 834.4,
+      "call": "plugin.managers.camera.focusLoci",
+      "args": {
+       "durationMs": 600,
+       "extraRadius": 4
+      },
+      "ms": 0.6
+     },
+     {
+      "t": 835.1,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "H",
+       "label_seq_id": 6
+      },
+      "ms": 26.6
+     },
+     {
+      "t": 861.7,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "amber"
+      },
+      "ms": 16.2
+     },
+     {
+      "t": 877.9,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "B",
+       "label_seq_ids": [
+        70,
+        73,
+        84,
+        85,
+        88
+       ]
+      },
+      "ms": 0.3
+     },
+     {
+      "t": 878.2,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "teal"
+      },
+      "ms": 7.9
+     },
+     {
+      "t": 886.2,
+      "call": "plugin.managers.structure.measurement.addLabel",
+      "args": {},
+      "ms": 112.7
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 91.5,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "loadToFirstDrawMs": 718.2,
+    "actionToDrawMs": 219.8,
+    "readback": {
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "focus": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.97
+    },
+    "totalToReadyMs": 1942.6,
+    "frames": {
+     "frames": 296,
+     "molstarDraws": 302,
+     "durationMs": 5000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": []
+  }
+ ]
+}

@@ -1,0 +1,577 @@
+{
+ "date": "2026-11-01T19:19:45.221Z",
+ "chrome": "Chrome/156.0.8078.74",
+ "uncapped": false,
+ "headless": true,
+ "runs": [
+  {
+   "layout": "side",
+   "wallToReadyMs": 610,
+   "basics": {
+    "loadMs": 246.3,
+    "cds": {
+     "id": "ENST00000335295.4",
+     "length": 444,
+     "codon7": "GAG",
+     "c20": "A"
+    },
+    "glContexts": [
+     {
+      "kind": "webgl2",
+      "canvasId": "canvas#1",
+      "at": 330.7
+     },
+     {
+      "kind": "webgl2",
+      "canvasId": "canvas#2",
+      "at": 619
+     }
+    ],
+    "mappingCheck": [
+     {
+      "codon": 2,
+      "bases": "GTG",
+      "translated": "VAL",
+      "structure": "VAL",
+      "match": true
+     },
+     {
+      "codon": 3,
+      "bases": "CAT",
+      "translated": "HIS",
+      "structure": "HIS",
+      "match": true
+     },
+     {
+      "codon": 4,
+      "bases": "CTG",
+      "translated": "LEU",
+      "structure": "LEU",
+      "match": true
+     },
+     {
+      "codon": 5,
+      "bases": "ACT",
+      "translated": "THR",
+      "structure": "THR",
+      "match": true
+     },
+     {
+      "codon": 6,
+      "bases": "CCT",
+      "translated": "PRO",
+      "structure": "PRO",
+      "match": true
+     },
+     {
+      "codon": 7,
+      "bases": "GAG",
+      "translated": "GLU",
+      "structure": "VAL",
+      "match": false
+     },
+     {
+      "codon": 8,
+      "bases": "GAG",
+      "translated": "GLU",
+      "structure": "GLU",
+      "match": true
+     },
+     {
+      "codon": 9,
+      "bases": "AAG",
+      "translated": "LYS",
+      "structure": "LYS",
+      "match": true
+     },
+     {
+      "codon": 10,
+      "bases": "TCT",
+      "translated": "SER",
+      "structure": "SER",
+      "match": true
+     },
+     {
+      "codon": 11,
+      "bases": "GCC",
+      "translated": "ALA",
+      "structure": "ALA",
+      "match": true
+     },
+     {
+      "codon": 12,
+      "bases": "GTT",
+      "translated": "VAL",
+      "structure": "VAL",
+      "match": true
+     },
+     {
+      "codon": 13,
+      "bases": "ACT",
+      "translated": "THR",
+      "structure": "THR",
+      "match": true
+     },
+     {
+      "codon": 14,
+      "bases": "GCC",
+      "translated": "ALA",
+      "structure": "ALA",
+      "match": true
+     }
+    ]
+   },
+   "r3fToMolstar": {
+    "clickAt": {
+     "x": 418.46469509969694,
+     "y": 456.3440144613061
+    },
+    "events": [
+     {
+      "type": "store",
+      "codon": 7,
+      "source": "r3f",
+      "phase": "dna",
+      "seq": 1,
+      "t": 3212.5
+     }
+    ],
+    "lastSync": {
+     "codon": 7,
+     "source": "r3f",
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "ms": 63
+    }
+   },
+   "molstarToR3f": [
+    {
+     "aimedAt": "H2",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H3",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H5",
+     "picked": "PRO H5",
+     "storeUpdates": [
+      "molstar:6"
+     ]
+    },
+    {
+     "aimedAt": "H6",
+     "picked": "VAL H6",
+     "storeUpdates": [
+      "molstar:7"
+     ]
+    },
+    {
+     "aimedAt": "H8",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H10",
+     "picked": "VAL H126",
+     "storeUpdates": [
+      "molstar:127"
+     ]
+    },
+    {
+     "aimedAt": "H12",
+     "picked": "THR H12",
+     "storeUpdates": [
+      "molstar:13"
+     ]
+    },
+    {
+     "aimedAt": "H13",
+     "picked": "ALA H13",
+     "storeUpdates": [
+      "molstar:14"
+     ]
+    }
+   ],
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "frames": 237,
+     "molstarDraws": 1,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.7,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "frames": 236,
+     "molstarDraws": 242,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 6,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 242,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    }
+   ],
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "warn: THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "layout": "overlay",
+   "wallToReadyMs": 619,
+   "basics": {
+    "loadMs": 258,
+    "cds": {
+     "id": "ENST00000335295.4",
+     "length": 444,
+     "codon7": "GAG",
+     "c20": "A"
+    },
+    "glContexts": [
+     {
+      "kind": "webgl2",
+      "canvasId": "canvas#1",
+      "at": 327.3
+     },
+     {
+      "kind": "webgl2",
+      "canvasId": "canvas#2",
+      "at": 626.5
+     }
+    ],
+    "mappingCheck": [
+     {
+      "codon": 2,
+      "bases": "GTG",
+      "translated": "VAL",
+      "structure": "VAL",
+      "match": true
+     },
+     {
+      "codon": 3,
+      "bases": "CAT",
+      "translated": "HIS",
+      "structure": "HIS",
+      "match": true
+     },
+     {
+      "codon": 4,
+      "bases": "CTG",
+      "translated": "LEU",
+      "structure": "LEU",
+      "match": true
+     },
+     {
+      "codon": 5,
+      "bases": "ACT",
+      "translated": "THR",
+      "structure": "THR",
+      "match": true
+     },
+     {
+      "codon": 6,
+      "bases": "CCT",
+      "translated": "PRO",
+      "structure": "PRO",
+      "match": true
+     },
+     {
+      "codon": 7,
+      "bases": "GAG",
+      "translated": "GLU",
+      "structure": "VAL",
+      "match": false
+     },
+     {
+      "codon": 8,
+      "bases": "GAG",
+      "translated": "GLU",
+      "structure": "GLU",
+      "match": true
+     },
+     {
+      "codon": 9,
+      "bases": "AAG",
+      "translated": "LYS",
+      "structure": "LYS",
+      "match": true
+     },
+     {
+      "codon": 10,
+      "bases": "TCT",
+      "translated": "SER",
+      "structure": "SER",
+      "match": true
+     },
+     {
+      "codon": 11,
+      "bases": "GCC",
+      "translated": "ALA",
+      "structure": "ALA",
+      "match": true
+     },
+     {
+      "codon": 12,
+      "bases": "GTT",
+      "translated": "VAL",
+      "structure": "VAL",
+      "match": true
+     },
+     {
+      "codon": 13,
+      "bases": "ACT",
+      "translated": "THR",
+      "structure": "THR",
+      "match": true
+     },
+     {
+      "codon": 14,
+      "bases": "GCC",
+      "translated": "ALA",
+      "structure": "ALA",
+      "match": true
+     }
+    ]
+   },
+   "r3fToMolstar": {
+    "clickAt": {
+     "x": 764.4646951257167,
+     "y": 456.34401450246503
+    },
+    "events": [
+     {
+      "type": "store",
+      "codon": 7,
+      "source": "r3f",
+      "phase": "protein",
+      "seq": 1,
+      "t": 3195.3
+     }
+    ],
+    "lastSync": {
+     "codon": 7,
+     "source": "r3f",
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "ms": 67.5
+    }
+   },
+   "molstarToR3f": [
+    {
+     "aimedAt": "H2",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H3",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H5",
+     "picked": "PRO H5",
+     "storeUpdates": [
+      "molstar:6"
+     ]
+    },
+    {
+     "aimedAt": "H6",
+     "picked": "VAL H6",
+     "storeUpdates": [
+      "molstar:7"
+     ]
+    },
+    {
+     "aimedAt": "H8",
+     "picked": null,
+     "storeUpdates": []
+    },
+    {
+     "aimedAt": "H10",
+     "picked": "VAL H126",
+     "storeUpdates": [
+      "molstar:127"
+     ]
+    },
+    {
+     "aimedAt": "H12",
+     "picked": "THR H12",
+     "storeUpdates": [
+      "molstar:13"
+     ]
+    },
+    {
+     "aimedAt": "H13",
+     "picked": "ALA H13",
+     "storeUpdates": [
+      "molstar:14"
+     ]
+    }
+   ],
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "frames": 237,
+     "molstarDraws": 1,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.7,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "frames": 236,
+     "molstarDraws": 242,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 6,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 242,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    }
+   ],
+   "console": [
+    "warn: THREE.Clock: This module has been deprecated. Please use THREE.Timer instead."
+   ]
+  },
+  {
+   "baseline": "?layout=side&r3f=0",
+   "glContexts": [
+    {
+     "kind": "webgl2",
+     "canvasId": "canvas#1",
+     "at": 324.1
+    }
+   ],
+   "frames": [
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 242,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.8,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    }
+   ]
+  },
+  {
+   "baseline": "?layout=side&molstar=0",
+   "glContexts": [
+    {
+     "kind": "webgl2",
+     "canvasId": "canvas#1",
+     "at": 368.8
+    }
+   ],
+   "frames": [
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "frames": 236,
+     "molstarDraws": 0,
+     "durationMs": 4000,
+     "meanMs": 16.67,
+     "p50Ms": 16.7,
+     "p95Ms": 16.7,
+     "p99Ms": 16.8,
+     "maxMs": 16.8,
+     "over20ms": 0
+    }
+   ]
+  }
+ ]
+}

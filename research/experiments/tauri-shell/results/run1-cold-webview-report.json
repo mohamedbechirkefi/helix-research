@@ -1,0 +1,175 @@
+{
+ "date": "2026-11-01T19:27:19.196Z",
+ "location": "tauri://localhost",
+ "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)",
+ "pageReady": true,
+ "pageError": null,
+ "gpu": {
+  "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko)",
+  "webgl2": true,
+  "webglRenderer": "Apple GPU",
+  "webglVendor": "Apple Inc.",
+  "webglVersion": "WebGL 2.0",
+  "maxTextureSize": 16384,
+  "navigatorGpu": false,
+  "molstarWebgl2": true
+ },
+ "readback": {
+  "selection": [
+   {
+    "label_asym_id": "H",
+    "auth_asym_id": "H",
+    "label_seq_id": 6,
+    "auth_seq_id": 6,
+    "label_comp_id": "VAL",
+    "entity_id": "2",
+    "atoms": 7
+   }
+  ],
+  "focus": [
+   {
+    "label_asym_id": "H",
+    "auth_asym_id": "H",
+    "label_seq_id": 6,
+    "auth_seq_id": 6,
+    "label_comp_id": "VAL",
+    "entity_id": "2",
+    "atoms": 7
+   }
+  ]
+ },
+ "pluginInitMs": 113,
+ "loadToFirstDrawMs": 2740,
+ "actionToDrawMs": 2276,
+ "camera": {
+  "target": [
+   22.19,
+   48.88,
+   35.14
+  ],
+  "radius": 7.97
+ },
+ "screenshot": "webview-molstar.png",
+ "frames": {
+  "frames": 296,
+  "molstarDraws": 302,
+  "durationMs": 5000,
+  "meanMs": 16.53,
+  "p50Ms": 17,
+  "p95Ms": 18,
+  "p99Ms": 20,
+  "maxMs": 25,
+  "over20ms": 2
+ },
+ "rcsbPlainGet": {
+  "name": "fetch https://files.rcsb.org/header/2HBS.cif",
+  "ok": true,
+  "ms": 0,
+  "result": {
+   "status": 200,
+   "bytes": 158884
+  },
+  "msTotal": 1439
+ },
+ "ollama": [
+  {
+   "name": "webview fetch (direct, CORS)",
+   "ok": true,
+   "ms": 0,
+   "result": {
+    "model": "llama3.1",
+    "total_duration_ms": 13042,
+    "eval_count": 131,
+    "content": "{\n  \"intent\": \"highlightResidue\",\n  \"actions\": [\n    {\n      \"type\": \"loadStructure\",\n      \"pdbId\": \"1BZO\"\n    },\n    {\n      \"type\": \"focusCamera\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"zoom in on the beta-globin chain\"\n    },\n    {\n      \"type\": \"highlightResidue\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"glutamic acid at position 6 (Glu6) is replaced with valine (Val6)\"\n    }\n  ]\n}",
+    "parsed": {
+     "intent": "highlightResidue",
+     "actions": [
+      {
+       "type": "loadStructure",
+       "pdbId": "1BZO"
+      },
+      {
+       "type": "focusCamera",
+       "pdbId": "1BZO",
+       "note": "zoom in on the beta-globin chain"
+      },
+      {
+       "type": "highlightResidue",
+       "pdbId": "1BZO",
+       "note": "glutamic acid at position 6 (Glu6) is replaced with valine (Val6)"
+      }
+     ]
+    }
+   },
+   "msTotal": 13118
+  },
+  {
+   "name": "tauri-plugin-http fetch",
+   "ok": true,
+   "ms": 0,
+   "result": {
+    "model": "llama3.1",
+    "total_duration_ms": 5017,
+    "eval_count": 131,
+    "content": "{\n  \"intent\": \"highlightResidue\",\n  \"actions\": [\n    {\n      \"type\": \"loadStructure\",\n      \"pdbId\": \"1BZO\"\n    },\n    {\n      \"type\": \"focusCamera\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"zoom in on the beta-globin chain\"\n    },\n    {\n      \"type\": \"highlightResidue\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"glutamic acid at position 6 (Glu6) is replaced with valine (Val6)\"\n    }\n  ]\n}",
+    "parsed": {
+     "intent": "highlightResidue",
+     "actions": [
+      {
+       "type": "loadStructure",
+       "pdbId": "1BZO"
+      },
+      {
+       "type": "focusCamera",
+       "pdbId": "1BZO",
+       "note": "zoom in on the beta-globin chain"
+      },
+      {
+       "type": "highlightResidue",
+       "pdbId": "1BZO",
+       "note": "glutamic acid at position 6 (Glu6) is replaced with valine (Val6)"
+      }
+     ]
+    }
+   },
+   "msTotal": 5037
+  },
+  {
+   "name": "Rust command ollama_chat",
+   "ok": true,
+   "ms": 0,
+   "result": {
+    "model": "llama3.1",
+    "total_duration_ms": 5049,
+    "eval_count": 131,
+    "content": "{\n  \"intent\": \"highlightResidue\",\n  \"actions\": [\n    {\n      \"type\": \"loadStructure\",\n      \"pdbId\": \"1BZO\"\n    },\n    {\n      \"type\": \"focusCamera\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"zoom in on the beta-globin chain\"\n    },\n    {\n      \"type\": \"highlightResidue\",\n      \"pdbId\": \"1BZO\",\n      \"note\": \"glutamic acid at position 6 (Glu6) is replaced with valine (Val6)\"\n    }\n  ]\n}",
+    "parsed": {
+     "intent": "highlightResidue",
+     "actions": [
+      {
+       "type": "loadStructure",
+       "pdbId": "1BZO"
+      },
+      {
+       "type": "focusCamera",
+       "pdbId": "1BZO",
+       "note": "zoom in on the beta-globin chain"
+      },
+      {
+       "type": "highlightResidue",
+       "pdbId": "1BZO",
+       "note": "glutamic acid at position 6 (Glu6) is replaced with valine (Val6)"
+      }
+     ]
+    }
+   },
+   "msTotal": 5052
+  },
+  {
+   "name": "tauri-plugin-http to a URL outside the scope (expected: refused)",
+   "ok": false,
+   "msTotal": 2,
+   "error": "url not allowed on the configured scope: https://example.org/"
+  }
+ ]
+}
