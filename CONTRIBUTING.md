@@ -48,6 +48,47 @@ Before submitting a Pull Request, please ensure that:
 - New files carry the header `SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0` where the format allows.
 - You are prepared to accept the Contributor License Agreement (CLA) before your contribution is merged.
 
+## 3a. Development conventions
+
+**Commands** (Node 22.18 or later):
+
+```
+npm install
+npm test             # unit and scientific validation tests, offline (fixtures)
+npm run typecheck    # tsc over every package
+npm run test:live    # live API tests (HELIX_LIVE=1); uses the network, run deliberately
+npm run build:hbb    # live rebuild of data/curated/hbb with its provenance manifest
+```
+
+Python research scripts run through `uv` with the locked environment (`uv.lock`).
+
+**Architecture decisions** are recorded in `docs/adr/NNNN-short-title.md`. Each record has:
+
+- date and status;
+- context;
+- decision;
+- alternatives rejected and why;
+- consequences.
+
+A later change amends or supersedes the earlier record, and says so.
+
+**Provenance rules:**
+
+- Every scientific value comes from a cited source record: source, identifier and version, retrieval date, the transformations applied and the validation result.
+- Curated data is rebuilt by script, never edited by hand.
+- Identifiers from sources Helix may not redistribute (for example OMIM or HGMD) are filtered out of curated data and fixtures.
+- Licence and attribution notes go in `docs/data-source-registry.md` and `docs/license-attribution-cost-audit.md`.
+
+**File headers.** New source and documentation files start with `SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0`, as a comment where the format allows.
+
+**Prose.** Documentation is in English. External claims cite a URL and the access date, and assumptions are marked as such.
+
+**Privacy.** Never put an email address, a name or any other personal identifier in a request header, a URL parameter, a log, a fixture or a committed file:
+
+- Scripted requests send the User-Agent `helix-research`.
+- NCBI requests send `tool` only, never `email`.
+- Before committing, check your changes for addresses, for example with `git grep -nE "[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}"`.
+
 ## 4. Contributor License Agreement
 
 A recorded acceptance of the Contributor License Agreement (CLA.md) is required before merging copyrightable code or documentation contributions.
