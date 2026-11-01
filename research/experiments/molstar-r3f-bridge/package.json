@@ -1,0 +1,31 @@
+{
+  "name": "helix-exp-molstar-r3f-bridge",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "license": "SEE LICENSE IN ../../../LICENSE",
+  "scripts": {
+    "prepare-data": "node scripts/copy-data.mjs",
+    "dev": "npm run prepare-data && vite",
+    "build": "npm run prepare-data && vite build",
+    "preview": "vite preview --port 5182 --strictPort",
+    "measure": "node scripts/measure.mjs"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "molstar": "5.13.1",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "three": "0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "puppeteer-core": "25.14.0",
+    "sass": "1.105.2",
+    "typescript": "6.0.3",
+    "vite": "8.3.4"
+  }
+}

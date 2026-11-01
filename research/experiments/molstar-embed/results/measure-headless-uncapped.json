@@ -1,0 +1,876 @@
+{
+ "date": "2026-11-01T19:12:49.428Z",
+ "chromeVersion": "Chrome/156.0.8078.74",
+ "headless": true,
+ "uncapped": true,
+ "base": "http://localhost:5181/",
+ "runs": [
+  {
+   "mode": "imperative",
+   "source": "local",
+   "wallToReadyMs": 1820,
+   "clickEvents": [
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "imperative",
+    "source": "local",
+    "url": "http://localhost:5181/data/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "selection.changed",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 9.9,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 138.8
+     },
+     {
+      "t": 168.9,
+      "call": "plugin.builders.data.download",
+      "args": {
+       "url": "http://localhost:5181/data/2HBS.cif",
+       "isBinary": false
+      },
+      "ms": 33.4
+     },
+     {
+      "t": 202.3,
+      "call": "plugin.builders.structure.parseTrajectory",
+      "args": "mmcif",
+      "ms": 30.9
+     },
+     {
+      "t": 233.2,
+      "call": "plugin.builders.structure.hierarchy.applyPreset",
+      "args": {
+       "preset": "default",
+       "structure": "model"
+      },
+      "ms": 90.2
+     },
+     {
+      "t": 407.9,
+      "call": "plugin.managers.structure.selection.fromLoci",
+      "args": {
+       "modifier": "set"
+      },
+      "ms": 0.8
+     },
+     {
+      "t": 408.7,
+      "call": "plugin.managers.interactivity.lociHighlights.highlightOnly",
+      "args": {},
+      "ms": 0.8
+     },
+     {
+      "t": 409.5,
+      "call": "plugin.managers.structure.focus.setFromLoci",
+      "args": {},
+      "ms": 1.4
+     },
+     {
+      "t": 410.9,
+      "call": "plugin.managers.camera.focusLoci",
+      "args": {
+       "durationMs": 600,
+       "extraRadius": 4
+      },
+      "ms": 0.5
+     },
+     {
+      "t": 411.6,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "H",
+       "label_seq_id": 6
+      },
+      "ms": 20.3
+     },
+     {
+      "t": 431.9,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "amber"
+      },
+      "ms": 15.9
+     },
+     {
+      "t": 447.8,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "B",
+       "label_seq_ids": [
+        70,
+        73,
+        84,
+        85,
+        88
+       ]
+      },
+      "ms": 0.3
+     },
+     {
+      "t": 448.2,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "teal"
+      },
+      "ms": 7.9
+     },
+     {
+      "t": 456.3,
+      "call": "plugin.managers.structure.measurement.addLabel",
+      "args": {},
+      "ms": 112.2
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 139.1,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "loadToFirstDrawMs": 238.7,
+    "actionToDrawMs": 222,
+    "readback": {
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "focus": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.97
+    },
+    "totalToReadyMs": 1523.3,
+    "frames": {
+     "frames": 1628,
+     "molstarDraws": 1634,
+     "durationMs": 5000,
+     "meanMs": 3.07,
+     "p50Ms": 3.1,
+     "p95Ms": 3.9,
+     "p99Ms": 4.5,
+     "maxMs": 7.1,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": [
+    "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+   ]
+  },
+  {
+   "mode": "mvs",
+   "source": "local",
+   "wallToReadyMs": 1672,
+   "clickEvents": [
+    {
+     "type": "focus.current",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "mvs",
+    "source": "local",
+    "url": "http://localhost:5181/data/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 9.9,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 130.7
+     },
+     {
+      "t": 172.4,
+      "call": "MVSData.validationIssues",
+      "args": "valid"
+     },
+     {
+      "t": 172.4,
+      "call": "loadMVS",
+      "args": {
+       "replaceExisting": true,
+       "sanityChecks": true
+      },
+      "ms": 246.4
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 131,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "mvsj": {
+     "root": {
+      "kind": "root",
+      "children": [
+       {
+        "kind": "download",
+        "params": {
+         "url": "http://localhost:5181/data/2HBS.cif"
+        },
+        "children": [
+         {
+          "kind": "parse",
+          "params": {
+           "format": "mmcif"
+          },
+          "children": [
+           {
+            "kind": "structure",
+            "params": {
+             "type": "model"
+            },
+            "children": [
+             {
+              "kind": "component",
+              "params": {
+               "selector": "polymer"
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "cartoon"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#8fa3b8"
+                  }
+                 }
+                ]
+               }
+              ]
+             },
+             {
+              "kind": "component",
+              "params": {
+               "selector": {
+                "label_asym_id": "H",
+                "label_seq_id": 6
+               }
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "ball_and_stick"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#ffb000"
+                  }
+                 }
+                ]
+               },
+               {
+                "kind": "label",
+                "params": {
+                 "text": "HbS: Val6 (chain H)"
+                }
+               },
+               {
+                "kind": "tooltip",
+                "params": {
+                 "text": "beta chain H, label_seq_id 6, VAL (E6V)"
+                }
+               },
+               {
+                "kind": "focus",
+                "params": {
+                 "radius_extent": 4
+                }
+               }
+              ]
+             },
+             {
+              "kind": "component",
+              "params": {
+               "selector": [
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 70
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 73
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 84
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 85
+                },
+                {
+                 "label_asym_id": "B",
+                 "label_seq_id": 88
+                }
+               ]
+              },
+              "children": [
+               {
+                "kind": "representation",
+                "params": {
+                 "type": "ball_and_stick"
+                },
+                "children": [
+                 {
+                  "kind": "color",
+                  "params": {
+                   "color": "#2ec4b6"
+                  }
+                 }
+                ]
+               },
+               {
+                "kind": "label",
+                "params": {
+                 "text": "chain B contacts"
+                }
+               }
+              ]
+             }
+            ]
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "kind": "canvas",
+        "params": {
+         "background_color": "#06090f"
+        }
+       }
+      ]
+     },
+     "metadata": {
+      "version": "1",
+      "timestamp": "2026-11-01T19:12:58.389Z"
+     }
+    },
+    "loadToFirstDrawMs": 324.1,
+    "readback": {
+     "selection": [],
+     "components": [
+      {
+       "label": "Custom Selection: {label_asym_id: \"H\", label_seq_id: 6}",
+       "residues": [
+        {
+         "label_asym_id": "H",
+         "auth_asym_id": "H",
+         "label_seq_id": 6,
+         "auth_seq_id": 6,
+         "label_comp_id": "VAL",
+         "entity_id": "2",
+         "atoms": 7
+        }
+       ]
+      },
+      {
+       "label": "Custom Selection: [{label_asym_id: \"B\", label_seq_id: 70}, {label_asym_id: \"B\", label_seq_id: 73}, {label_asym_id: \"B\", label_seq_id: 84}, {label_asym_id: \"B\", label_seq_id: 85}, {label_asym_id: \"B\", label_seq_id: 88}]",
+       "residues": [
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 70,
+         "auth_seq_id": 70,
+         "label_comp_id": "ALA",
+         "entity_id": "2",
+         "atoms": 5
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 73,
+         "auth_seq_id": 73,
+         "label_comp_id": "ASP",
+         "entity_id": "2",
+         "atoms": 8
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 84,
+         "auth_seq_id": 84,
+         "label_comp_id": "THR",
+         "entity_id": "2",
+         "atoms": 7
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 85,
+         "auth_seq_id": 85,
+         "label_comp_id": "PHE",
+         "entity_id": "2",
+         "atoms": 11
+        },
+        {
+         "label_asym_id": "B",
+         "auth_asym_id": "B",
+         "label_seq_id": 88,
+         "auth_seq_id": 88,
+         "label_comp_id": "LEU",
+         "entity_id": "2",
+         "atoms": 8
+        }
+       ]
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.94
+    },
+    "totalToReadyMs": 1397.2,
+    "frames": {
+     "frames": 1719,
+     "molstarDraws": 1725,
+     "durationMs": 5000,
+     "meanMs": 2.9,
+     "p50Ms": 2.9,
+     "p95Ms": 3.8,
+     "p99Ms": 4.3,
+     "maxMs": 5.5,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": []
+  },
+  {
+   "mode": "imperative",
+   "source": "rcsb",
+   "wallToReadyMs": 2644,
+   "clickEvents": [
+    {
+     "type": "click",
+     "residues": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 1
+      }
+     ]
+    }
+   ],
+   "helix": {
+    "mode": "imperative",
+    "source": "rcsb",
+    "url": "https://files.rcsb.org/download/2HBS.cif",
+    "ready": true,
+    "events": [
+     {
+      "type": "selection.changed",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "focus.current",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 7
+       }
+      ]
+     },
+     {
+      "type": "click",
+      "residues": [
+       {
+        "label_asym_id": "H",
+        "auth_asym_id": "H",
+        "label_seq_id": 6,
+        "auth_seq_id": 6,
+        "label_comp_id": "VAL",
+        "entity_id": "2",
+        "atoms": 1
+       }
+      ]
+     }
+    ],
+    "callLog": [
+     {
+      "t": 9.8,
+      "call": "createPluginUI",
+      "args": {
+       "spec": "DefaultPluginUISpec + MolViewSpec behavior"
+      },
+      "ms": 132.1
+     },
+     {
+      "t": 159.9,
+      "call": "plugin.builders.data.download",
+      "args": {
+       "url": "https://files.rcsb.org/download/2HBS.cif",
+       "isBinary": false
+      },
+      "ms": 880.5
+     },
+     {
+      "t": 1040.4,
+      "call": "plugin.builders.structure.parseTrajectory",
+      "args": "mmcif",
+      "ms": 43.9
+     },
+     {
+      "t": 1084.3,
+      "call": "plugin.builders.structure.hierarchy.applyPreset",
+      "args": {
+       "preset": "default",
+       "structure": "model"
+      },
+      "ms": 91.8
+     },
+     {
+      "t": 1241.2,
+      "call": "plugin.managers.structure.selection.fromLoci",
+      "args": {
+       "modifier": "set"
+      },
+      "ms": 0.8
+     },
+     {
+      "t": 1242,
+      "call": "plugin.managers.interactivity.lociHighlights.highlightOnly",
+      "args": {},
+      "ms": 0.7
+     },
+     {
+      "t": 1242.7,
+      "call": "plugin.managers.structure.focus.setFromLoci",
+      "args": {},
+      "ms": 1.2
+     },
+     {
+      "t": 1243.9,
+      "call": "plugin.managers.camera.focusLoci",
+      "args": {
+       "durationMs": 600,
+       "extraRadius": 4
+      },
+      "ms": 0.5
+     },
+     {
+      "t": 1244.5,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "H",
+       "label_seq_id": 6
+      },
+      "ms": 22.7
+     },
+     {
+      "t": 1267.2,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "amber"
+      },
+      "ms": 15.6
+     },
+     {
+      "t": 1282.8,
+      "call": "plugin.builders.structure.tryCreateComponentFromExpression",
+      "args": {
+       "label_asym_id": "B",
+       "label_seq_ids": [
+        70,
+        73,
+        84,
+        85,
+        88
+       ]
+      },
+      "ms": 0.2
+     },
+     {
+      "t": 1283,
+      "call": "plugin.builders.structure.representation.addRepresentation",
+      "args": {
+       "type": "ball-and-stick",
+       "color": "teal"
+      },
+      "ms": 7.8
+     },
+     {
+      "t": 1291,
+      "call": "plugin.managers.structure.measurement.addLabel",
+      "args": {},
+      "ms": 114.1
+     }
+    ],
+    "started": true,
+    "pluginInitMs": 132.4,
+    "gpu": {
+     "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36",
+     "webgl2": true,
+     "webglRenderer": "ANGLE (Apple, ANGLE Metal Renderer: Apple M1 Pro, Unspecified Version)",
+     "webglVendor": "Google Inc. (Apple)",
+     "webglVersion": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+     "maxTextureSize": 16384,
+     "navigatorGpu": true,
+     "webgpuAdapter": true,
+     "webgpuAdapterInfo": {
+      "vendor": "apple",
+      "architecture": "metal-3",
+      "description": ""
+     },
+     "webgpuShaderF16": true,
+     "webgpuMaxBufferSize": 4294967292,
+     "webgpuDevice": true,
+     "molstarWebgl2": true
+    },
+    "loadToFirstDrawMs": 1080.9,
+    "actionToDrawMs": 217.4,
+    "readback": {
+     "selection": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ],
+     "focus": [
+      {
+       "label_asym_id": "H",
+       "auth_asym_id": "H",
+       "label_seq_id": 6,
+       "auth_seq_id": 6,
+       "label_comp_id": "VAL",
+       "entity_id": "2",
+       "atoms": 7
+      }
+     ]
+    },
+    "camera": {
+     "target": [
+      22.19,
+      48.88,
+      35.14
+     ],
+     "radius": 7.97
+    },
+    "totalToReadyMs": 2350.7,
+    "frames": {
+     "frames": 1623,
+     "molstarDraws": 1629,
+     "durationMs": 5000,
+     "meanMs": 3.07,
+     "p50Ms": 3.1,
+     "p95Ms": 3.9,
+     "p99Ms": 4.5,
+     "maxMs": 6,
+     "over20ms": 0
+    },
+    "measured": true
+   },
+   "console": []
+  }
+ ]
+}
