@@ -235,7 +235,17 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
   const mutNumbering = ent.mutation ? classifyPdbxMutation(ent.mutation, uni.sequence, chainRange) : "unknown";
   check("T19-pdbx-mutation-numbering", ent.mutation === null || mutNumbering === "mature/legacy", `_entity.pdbx_mutation "${ent.mutation}" -> numbering ${mutNumbering}`, ["structure"]);
   const knownIssues: KnownIssue[] = structRefSeqIssues(struct, sifts, config.uniprotAccession);
-  check("T25-struct-ref-seq-not-trusted", true, `${knownIssues.length} _struct_ref_seq disagreement(s) with SIFTS recorded as known issues`, ["residue-mapping"]);
+  // What the file's own _struct_ref_seq would have selected, had it been trusted.
+  const srs = struct.structRefSeq.find((r) => r.dbAccession === config.uniprotAccession && r.strandId === residues[0]!.authAsymId);
+  const srsLabel = srs ? srs.seqAlignBeg + (uniPos - srs.dbAlignBeg) : null;
+  const srsMon = srsLabel === null ? null : struct.polySeqScheme.find((r) => r.labelAsymId === residues[0]!.labelAsymId && r.labelSeqId === srsLabel)?.monId ?? null;
+  check(
+    "T25-struct-ref-seq-not-trusted",
+    residues[0]!.labelSeqId === segments.find((s) => s.labelAsymId === residues[0]!.labelAsymId)!.labelSeqStart + (uniPos - segments.find((s) => s.labelAsymId === residues[0]!.labelAsymId)!.unpStart) &&
+      (srsLabel === null || srsLabel === residues[0]!.labelSeqId || knownIssues.length > 0),
+    `SIFTS selects label ${residues[0]!.labelSeqId} (${residues[0]!.compId}); _struct_ref_seq would select label ${srsLabel} (${srsMon}); ${knownIssues.length} disagreement(s) recorded as known issues`,
+    ["residue-mapping"],
+  );
   const divergences = labelAuthDivergences(struct);
   if (divergences.length > 0) {
     knownIssues.push({
@@ -246,7 +256,9 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       resolution: "ResidueRef keeps both label_* and auth_* ids; viewer commands must say which they use.",
     });
   }
-  check("T26-label-auth-kept", divergences.length === 0 || divergences.every((d) => d.labelAsymId !== d.authAsymId), `${divergences.length} non-polymer label/auth divergences`, ["structure"]);
+  const authKnown = new Set([...struct.polySeqScheme.map((r) => r.labelAsymId), ...struct.nonpolyScheme.map((r) => r.labelAsymId)]);
+  const noAuth = struct.structAsym.filter((a) => !authKnown.has(a.id)).map((a) => a.id);
+  check("T26-label-auth-kept", noAuth.length === 0, `${struct.structAsym.length} label chains, all with an auth chain id from the scheme tables${noAuth.length ? ` (missing: ${noAuth.join(",")})` : ""}; ${divergences.length} non-polymer chains have label != auth (e.g. ${divergences[0] ? `label ${divergences[0].labelAsymId} = auth ${divergences[0].authAsymId} ${divergences[0].monId} ${divergences[0].authSeqNum}` : "none"})`, ["structure"]);
   const rAsmGen = rAsm.pdbx_struct_assembly_gen[0];
   const mmAsm1 = struct.assemblies.find((a) => a.id === rAsmGen?.assembly_id);
   check("T27-assemblies", mmAsm1 !== undefined && rAsmGen !== undefined && [...mmAsm1.asymIds].sort().join(",") === [...rAsmGen.asym_id_list].sort().join(","), struct.assemblies.map((a) => `assembly ${a.id}: ${a.asymIds.join(",")}`).join("; "), ["structure"]);
@@ -282,7 +294,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     uniprotManeSelect: uni.maneSelect,
     clinvarTitle: cv.title,
   });
-  check("T31-drift-reported", true, drift.length === 0 ? "no version drift" : drift.map((d) => `${d.id}: ${d.observedValue} vs ${d.referenceValue}`).join("; "), ["gene", "protein"], "warn");
+  check("T31-drift-recorded", true, drift.length === 0 ? "no version drift" : drift.map((d) => `${d.id}: ${d.observedValue} vs ${d.referenceValue}`).join("; "), ["gene", "protein"], "warn");
 
   // ------------------------------------------------------------ stop on any failed error-level check
   const failed = outcomes.filter((o) => !o.pass && o.level === "error");
