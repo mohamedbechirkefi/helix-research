@@ -14,7 +14,7 @@ All later original material is offered under the **Helix Source-Available Non-Co
 
 Date of adoption: 1 November 2026
 
-First applicable commit SHA: the commit that added this file (recorded in the next commit)
+First applicable commit SHA: 995520dc1e8b204173378e1f158df01148803be4
 
 Current license: [LICENSE](LICENSE)
 

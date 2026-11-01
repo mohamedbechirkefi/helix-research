@@ -8,7 +8,7 @@ The repository's initial commit, **`859ed93cbac995e5d2efc1fed821fa67092e45e9`** 
 
 ## 2. Helix Source-Available Non-Commercial Research License v1.0: everything else
 
-All original material added after that commit, from the adoption commit recorded in [`LICENSE_HISTORY.md`](LICENSE_HISTORY.md), is licensed under the [Helix Source-Available Non-Commercial Research License v1.0](LICENSE), where the Licensor is entitled to license it on those terms. This covers code, research documents, scripts, curated data products and derived annotations.
+All original material added after that commit, from the adoption commit `995520dc1e8b204173378e1f158df01148803be4` recorded in [`LICENSE_HISTORY.md`](LICENSE_HISTORY.md), is licensed under the [Helix Source-Available Non-Commercial Research License v1.0](LICENSE), where the Licensor is entitled to license it on those terms. This covers code, research documents, scripts, curated data products and derived annotations.
 
 - **New files** carry the header `SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0` where the file format allows a comment.
 - **Files that cannot carry a comment** (JSON data, images and similar) are covered by this notice.
