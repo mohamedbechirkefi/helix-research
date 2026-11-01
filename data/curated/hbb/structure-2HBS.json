@@ -1,0 +1,418 @@
+{
+  "kind": "structure",
+  "entryId": "2HBS",
+  "title": "THE HIGH RESOLUTION CRYSTAL STRUCTURE OF DEOXYHEMOGLOBIN S",
+  "method": "X-RAY DIFFRACTION",
+  "origin": "experimental",
+  "resolutionAngstrom": 2.05,
+  "revision": {
+    "version": "1.5",
+    "date": "2026-08-12"
+  },
+  "depositionDate": "1997-05-06",
+  "citation": {
+    "title": "The high resolution crystal structure of deoxyhemoglobin S.",
+    "journal": "J.Mol.Biol.",
+    "year": 1997,
+    "pubmedId": "9325099",
+    "doi": "10.1006/jmbi.1997.1253"
+  },
+  "entities": [
+    {
+      "entityId": "1",
+      "type": "polymer",
+      "description": "HEMOGLOBIN S (DEOXY), ALPHA CHAIN",
+      "moleculeCount": 4,
+      "mutation": null,
+      "sequence": "VLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSFPTTKTYFPHFDLSHGSAQVKGHGKKVADALTNAVAHVDDMPNALSALSDLHAHKLRVDPVNFKLLSHCLLVTLAAHLPAEFTPAVHASLDKFLASVSTVLTSKYR",
+      "strandIds": [
+        "A",
+        "C",
+        "E",
+        "G"
+      ],
+      "siftsUniprot": [
+        "P69905"
+      ]
+    },
+    {
+      "entityId": "2",
+      "type": "polymer",
+      "description": "HEMOGLOBIN S (DEOXY), BETA CHAIN",
+      "moleculeCount": 4,
+      "mutation": {
+        "text": "E6V VARIANT",
+        "numbering": "mature/legacy"
+      },
+      "sequence": "VHLTPVEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+      "strandIds": [
+        "B",
+        "D",
+        "F",
+        "H"
+      ],
+      "siftsUniprot": [
+        "P68871"
+      ]
+    },
+    {
+      "entityId": "3",
+      "type": "non-polymer",
+      "description": "PROTOPORPHYRIN IX CONTAINING FE",
+      "moleculeCount": 8,
+      "mutation": null,
+      "sequence": null,
+      "strandIds": [],
+      "siftsUniprot": []
+    },
+    {
+      "entityId": "4",
+      "type": "water",
+      "description": "water",
+      "moleculeCount": 573,
+      "mutation": null,
+      "sequence": null,
+      "strandIds": [],
+      "siftsUniprot": []
+    }
+  ],
+  "chains": [
+    {
+      "labelAsymId": "A",
+      "authAsymId": "A",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "B",
+      "authAsymId": "B",
+      "entityId": "2",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "C",
+      "authAsymId": "C",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "D",
+      "authAsymId": "D",
+      "entityId": "2",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "E",
+      "authAsymId": "E",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "F",
+      "authAsymId": "F",
+      "entityId": "2",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "G",
+      "authAsymId": "G",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "H",
+      "authAsymId": "H",
+      "entityId": "2",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "I",
+      "authAsymId": "A",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "J",
+      "authAsymId": "B",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "K",
+      "authAsymId": "C",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "L",
+      "authAsymId": "D",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "M",
+      "authAsymId": "E",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "N",
+      "authAsymId": "F",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "O",
+      "authAsymId": "G",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "P",
+      "authAsymId": "H",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "Q",
+      "authAsymId": "A",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "R",
+      "authAsymId": "B",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "S",
+      "authAsymId": "C",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "T",
+      "authAsymId": "D",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "U",
+      "authAsymId": "E",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "V",
+      "authAsymId": "F",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "W",
+      "authAsymId": "G",
+      "entityId": "4",
+      "entityType": "water"
+    },
+    {
+      "labelAsymId": "X",
+      "authAsymId": "H",
+      "entityId": "4",
+      "entityType": "water"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "1",
+      "details": "author_and_software_defined_assembly",
+      "asymIds": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "I",
+        "J",
+        "K",
+        "L",
+        "Q",
+        "R",
+        "S",
+        "T"
+      ],
+      "polymerAsymIds": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ]
+    },
+    {
+      "id": "2",
+      "details": "author_and_software_defined_assembly",
+      "asymIds": [
+        "E",
+        "F",
+        "G",
+        "H",
+        "M",
+        "N",
+        "O",
+        "P",
+        "U",
+        "V",
+        "W",
+        "X"
+      ],
+      "polymerAsymIds": [
+        "E",
+        "F",
+        "G",
+        "H"
+      ]
+    }
+  ],
+  "defaultAssemblyId": "1",
+  "modelFile": {
+    "path": "2HBS.cif",
+    "format": "mmcif",
+    "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+    "bytes": 1001300
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/2HBS.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/entry/2HBS",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:53Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS_2",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/assembly/2HBS/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:53Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS-1",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": null,
+        "recordId": "2hbs",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "field-select",
+      "sifts-entity-selection",
+      "classify-pdbx-mutation-numbering"
+    ],
+    "validation": [
+      {
+        "check": "structure-entry",
+        "result": "pass",
+        "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "structure-revision-agrees",
+        "result": "pass",
+        "detail": "Data API rev 1.5; mmCIF rev 1.5",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T20-rcsb-entity-agrees",
+        "result": "pass",
+        "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T19-pdbx-mutation-numbering",
+        "result": "pass",
+        "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T26-label-auth-kept",
+        "result": "pass",
+        "detail": "16 non-polymer label/auth divergences",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T27-assemblies",
+        "result": "pass",
+        "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
+        "at": "2026-11-01T19:24:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "2HBS: X-RAY DIFFRACTION, 2.05 A resolution, deposited 1997-05-06.",
+      "qualifier": null,
+      "limitations": []
+    }
+  ]
+}

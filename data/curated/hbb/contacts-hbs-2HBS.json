@@ -1,0 +1,174 @@
+{
+  "kind": "residue-contacts",
+  "entryId": "2HBS",
+  "scope": "asymmetric unit, model 1, no symmetry mates",
+  "cutoffAngstrom": 4.5,
+  "numbering": "auth_asym_id / auth_seq_id",
+  "chains": [
+    {
+      "residue": {
+        "entryId": "2HBS",
+        "assemblyId": "1",
+        "entityId": "2",
+        "labelAsymId": "B",
+        "labelSeqId": 6,
+        "authAsymId": "B",
+        "authSeqId": "6",
+        "insCode": null,
+        "compId": "VAL",
+        "authCompId": "VAL"
+      },
+      "probeAtoms": [
+        "CG1",
+        "CG2"
+      ],
+      "contacts": []
+    },
+    {
+      "residue": {
+        "entryId": "2HBS",
+        "assemblyId": "1",
+        "entityId": "2",
+        "labelAsymId": "D",
+        "labelSeqId": 6,
+        "authAsymId": "D",
+        "authSeqId": "6",
+        "insCode": null,
+        "compId": "VAL",
+        "authCompId": "VAL"
+      },
+      "probeAtoms": [
+        "CG1",
+        "CG2"
+      ],
+      "contacts": []
+    },
+    {
+      "residue": {
+        "entryId": "2HBS",
+        "assemblyId": "2",
+        "entityId": "2",
+        "labelAsymId": "F",
+        "labelSeqId": 6,
+        "authAsymId": "F",
+        "authSeqId": "6",
+        "insCode": null,
+        "compId": "VAL",
+        "authCompId": "VAL"
+      },
+      "probeAtoms": [
+        "CG1",
+        "CG2"
+      ],
+      "contacts": []
+    },
+    {
+      "residue": {
+        "entryId": "2HBS",
+        "assemblyId": "2",
+        "entityId": "2",
+        "labelAsymId": "H",
+        "labelSeqId": 6,
+        "authAsymId": "H",
+        "authSeqId": "6",
+        "insCode": null,
+        "compId": "VAL",
+        "authCompId": "VAL"
+      },
+      "probeAtoms": [
+        "CG1",
+        "CG2"
+      ],
+      "contacts": [
+        {
+          "authAsymId": "B",
+          "authSeqId": 70,
+          "compId": "ALA"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 73,
+          "compId": "ASP"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 84,
+          "compId": "THR"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 85,
+          "compId": "PHE"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 88,
+          "compId": "LEU"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 232,
+          "compId": "HOH"
+        },
+        {
+          "authAsymId": "B",
+          "authSeqId": 302,
+          "compId": "HOH"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/2HBS.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "side-chain-atoms-beyond-cb",
+      "distance-cutoff"
+    ],
+    "validation": [
+      {
+        "check": "T28-contacts-computed",
+        "result": "pass",
+        "detail": "B6: none; D6: none; F6: none; H6: B70,B73,B84,B85,B88",
+        "at": "2026-11-01T19:24:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "computed-from-experimental-data",
+      "statement": "Within 4.5 A of the VAL side chain, in the asymmetric unit: chain H contacts chain(s) B.",
+      "qualifier": null,
+      "limitations": [
+        "Computed by HELIX from deposited coordinates; depends on the deposited model and the stated cutoff."
+      ]
+    },
+    {
+      "category": 4,
+      "categoryLabel": "Hypothesis or uncertain association",
+      "basis": "inference-not-verified",
+      "statement": "Chains B, D, F show no protein contact inside the asymmetric unit; they may contact symmetry-related molecules, which were not generated.",
+      "qualifier": null,
+      "limitations": [
+        "HELIX inference, not verified against a record."
+      ]
+    }
+  ]
+}

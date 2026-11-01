@@ -1,0 +1,749 @@
+{
+  "schema": "helix-dataset-manifest/1",
+  "datasetId": "hbb",
+  "description": "HBB (beta-globin) vertical slice: gene, MANE Select transcript, sequences, UniProt P68871, the HbS variant, PDB 2HBS and its residue mapping.",
+  "generatedAt": "2026-11-01T19:24:48Z",
+  "generator": {
+    "script": "scripts/data-preparation/build-hbb.ts (live)",
+    "gitCommit": "aeb7b4336c16be5e9fae4cfdca82a8ae4400933c",
+    "gitDirty": false,
+    "node": "v22.23.3"
+  },
+  "assembly": "GRCh38.p14",
+  "nonclinicalNotice": "HELIX is a nonclinical research and education project. This dataset is not a clinical diagnostic, variant classification or medical advice resource.",
+  "sources": [
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:49Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "info/data",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:49Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "homo_sapiens",
+      "recordVersion": "GRCh38.p14",
+      "assembly": "GRCh38.p14",
+      "sha256": "5e4f219596dea847466c30a3bbe464c9234aebcec797c58c332f31a409b30a88",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:49Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSG00000244734",
+      "recordVersion": "6",
+      "assembly": "GRCh38.p14",
+      "sha256": "2462861934df05de1c8d581e9359b4d9e654b4209ec9b429357c0a36f91819b5",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:49Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000335295",
+      "recordVersion": "4",
+      "assembly": "GRCh38.p14",
+      "sha256": "775086731dbf73a2f3a0321cae8cea8ed0e7799d374504d0aa3f2d3263b79b4a",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:49Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000335295.4",
+      "recordVersion": "4",
+      "assembly": "GRCh38.p14",
+      "sha256": "29c6c4bfdcb16e7dd60449d343f77422614ccb6dcec6c247abc2f54555c665a2",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cdna;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000335295.4",
+      "recordVersion": "4",
+      "assembly": "GRCh38.p14",
+      "sha256": "454eb079badbaae5fe62d40acbcd9b66c32f4919f5f876dfdbf26c470a535d9c",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENSP00000333994?content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSP00000333994.3",
+      "recordVersion": "3",
+      "assembly": "GRCh38.p14",
+      "sha256": "1b692b7c3ecea1db563500856ee02d07e97f4edb7208d3c2d5016f8c4daddaf8",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "chromosome:GRCh38:11:5226982:5227022:1",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000335295 codon 7",
+      "recordVersion": "4",
+      "assembly": "GRCh38.p14",
+      "sha256": "8eaedfd66ef11a52004b946b89bb6f96b5cd307ed729bd849bc1101e61cfe8eb",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/variation/human/rs334?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:51Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "rs334",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "f7dbaf43bad5df823df3fd68128e4723fb5ddf59c605bc82280bebb75e121cb5",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "rs334",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "f386752565b25e1e3cb98c5848cb4b9c771a37820d62e9671292ec18dd6d67a9",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000335295.4:c.20A>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:51Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000335295.4:c.20A>T",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "a23ecc28477f0629a91f222c241a5cbdac9ae8e3c8f8cd21f6de9776039e0cb4",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "uniprot",
+      "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:50Z",
+      "sourceRelease": "UniProt 2026_03",
+      "recordId": "P68871",
+      "recordVersion": "entry 219, sequence 2",
+      "assembly": null,
+      "sha256": "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+      "licence": "CC-BY-4.0",
+      "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    },
+    {
+      "source": "rcsb-files",
+      "url": "https://files.rcsb.org/download/2HBS.cif",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:52Z",
+      "sourceRelease": "PDB rev 1.5 2026-08-12",
+      "recordId": "2HBS",
+      "recordVersion": "1.5",
+      "assembly": null,
+      "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+      "licence": "CC0-1.0",
+      "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/entry/2HBS",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:52Z",
+      "sourceRelease": "PDB rev 1.5 2026-08-12",
+      "recordId": "2HBS",
+      "recordVersion": "1.5",
+      "assembly": null,
+      "sha256": "c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:53Z",
+      "sourceRelease": "PDB rev 1.5 2026-08-12",
+      "recordId": "2HBS_2",
+      "recordVersion": "1.5",
+      "assembly": null,
+      "sha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/assembly/2HBS/1",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:53Z",
+      "sourceRelease": "PDB rev 1.5 2026-08-12",
+      "recordId": "2HBS-1",
+      "recordVersion": "1.5",
+      "assembly": null,
+      "sha256": "c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "pdbe-sifts",
+      "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:52Z",
+      "sourceRelease": null,
+      "recordId": "2hbs",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+      "licence": "CC0-1.0",
+      "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+    },
+    {
+      "source": "ncbi-clinvar",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=15333&retmode=json&tool=helix-research",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:53Z",
+      "sourceRelease": "ClinVar Build261025-1250.1",
+      "recordId": "VCV000015333",
+      "recordVersion": "183",
+      "assembly": "GRCh38",
+      "sha256": "1259fcf4752b78052e70a6db77db5b5bdeb81193929bebf85ea15b96e1e11e84",
+      "licence": "NCBI-public-domain",
+      "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "hgnc",
+      "url": "https://rest.genenames.org/fetch/symbol/HBB",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:51Z",
+      "sourceRelease": null,
+      "recordId": "HGNC:4827",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+      "licence": "CC0-1.0",
+      "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/api/prediction/P68871",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:54Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-P68871-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "7a4ab449f01a2d36cac886f2f3d360552f52a1d1147c4525b4765b9324704078",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif",
+      "method": "GET",
+      "retrievedAt": "2026-11-01T19:24:54Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-P68871-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    }
+  ],
+  "files": [
+    {
+      "path": "gene.json",
+      "sha256": "ee5aae0ea8719aedb4eb57e3f9810fce3c89319422dbd99797b80545f8c19b58",
+      "bytes": 4770,
+      "recordKind": "gene"
+    },
+    {
+      "path": "transcript.json",
+      "sha256": "121fd444913e39b8db5a58c96a075730f58fe4d0c6ce8ee030517376064a97da",
+      "bytes": 5871,
+      "recordKind": "transcript"
+    },
+    {
+      "path": "sequences.json",
+      "sha256": "e092cb9ba99d71554b41257e2696014a92f4833563e6a0b4cb6b11d1ad7eaabf",
+      "bytes": 15309,
+      "recordKind": "sequence-set"
+    },
+    {
+      "path": "protein-P68871.json",
+      "sha256": "45bc0420d569c258b8d32313d0797c1c1e3eab55b63a53e8611145fd11914736",
+      "bytes": 13402,
+      "recordKind": "protein"
+    },
+    {
+      "path": "variant-hbs.json",
+      "sha256": "59199ce76d7f0d47e3623cf6945b401608284fd8f01f0e886b5f9464ac943300",
+      "bytes": 12987,
+      "recordKind": "variant"
+    },
+    {
+      "path": "structure-2HBS.json",
+      "sha256": "f5f4bef6b6dcb4d5c6e2a1da26aec0dabd0a621d4d193429b1a4cfef548007be",
+      "bytes": 10815,
+      "recordKind": "structure"
+    },
+    {
+      "path": "2HBS.cif",
+      "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+      "bytes": 1001300,
+      "recordKind": "mmcif"
+    },
+    {
+      "path": "residue-mapping-hbs-2HBS.json",
+      "sha256": "3db9f390d1a2950f7b9ba4189a93015a89f3cb0c9c164306507acbefcc7a39f4",
+      "bytes": 6598,
+      "recordKind": "residue-mapping"
+    },
+    {
+      "path": "contacts-hbs-2HBS.json",
+      "sha256": "bfe7921b255c8ef10aee21c86751e039d4aea334d92d29ad4e067e49398ade90",
+      "bytes": 4326,
+      "recordKind": "residue-contacts"
+    },
+    {
+      "path": "predicted-model-AF-P68871-F1.json",
+      "sha256": "9864cba91095b19b102148cb33d89107e44c97a8495dd4fab38ce90c58b9c470",
+      "bytes": 3053,
+      "recordKind": "predicted-model"
+    },
+    {
+      "path": "capabilities.json",
+      "sha256": "fb5481bc1cfc1a603cc852fde52eda7266a480f16cfdd773c0b6c11324c64ed2",
+      "bytes": 1273,
+      "recordKind": "capabilities"
+    }
+  ],
+  "validation": [
+    {
+      "check": "T01-gene-identity",
+      "result": "pass",
+      "detail": "ENSG00000244734.6 HBB",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "assembly-grch38",
+      "result": "pass",
+      "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T02-transcript-selection",
+      "result": "pass",
+      "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "transcript-lookup-matches-selection",
+      "result": "pass",
+      "detail": "ENST00000335295.4",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T05-exon-lengths-sum",
+      "result": "pass",
+      "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "fasta-ids-versioned",
+      "result": "pass",
+      "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T06-cds-length",
+      "result": "pass",
+      "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "cdna-length",
+      "result": "pass",
+      "detail": "cDNA 628 vs transcript 628",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "uniprot-accession",
+      "result": "pass",
+      "detail": "P68871 HBB_HUMAN, reviewed true",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T06-cds-shape",
+      "result": "pass",
+      "detail": "length 444, starts ATG, ends TAA",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T07-translation-equals-ensembl-protein",
+      "result": "pass",
+      "detail": "translated 147 aa vs Ensembl 147 aa",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T07-translation-equals-uniprot",
+      "result": "pass",
+      "detail": "translated 147 aa vs UniProt 147 aa",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T07-uniprot-md5",
+      "result": "pass",
+      "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "uniprot-mane-xref",
+      "result": "pass",
+      "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T15-initiator-met-and-chain",
+      "result": "pass",
+      "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T04-hgnc-resolution",
+      "result": "pass",
+      "detail": "HBB -> HGNC:4827 ENSG00000244734",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T04-alias-CD113t-C",
+      "result": "pass",
+      "detail": "alias CD113t-C -> ENSG00000244734",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T04-alias-beta-globin",
+      "result": "pass",
+      "detail": "alias beta-globin -> ENSG00000244734",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T13-rsid-multiallelic",
+      "result": "pass",
+      "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T08-exon-walk-genomic",
+      "result": "pass",
+      "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T08-codon-span",
+      "result": "pass",
+      "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T09-forward-and-coding-base",
+      "result": "pass",
+      "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T10-spdi-roundtrip",
+      "result": "pass",
+      "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T11-codon-change",
+      "result": "pass",
+      "detail": "codon 7 GAG -> GTG; E -> V",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T12-hgvsp-agrees",
+      "result": "pass",
+      "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T12-vep-agrees",
+      "result": "pass",
+      "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "cdna-position",
+      "result": "pass",
+      "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T18-hgvsp-equals-uniprot-position",
+      "result": "pass",
+      "detail": "p.7: UniProt residue E, HGVS ref E",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T17-mature-index",
+      "result": "pass",
+      "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T16-uniprot-natural-variant",
+      "result": "pass",
+      "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T14-clinvar-record",
+      "result": "pass",
+      "detail": "VCV000015333.183 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "structure-entry",
+      "result": "pass",
+      "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "structure-revision-agrees",
+      "result": "pass",
+      "detail": "Data API rev 1.5; mmCIF rev 1.5",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T20-entity-by-sifts",
+      "result": "pass",
+      "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T20-rcsb-entity-agrees",
+      "result": "pass",
+      "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T21-alignment-cross-check",
+      "result": "pass",
+      "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T22-rcsb-align-agrees",
+      "result": "pass",
+      "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T23-residue-from-atom-site",
+      "result": "pass",
+      "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T24-wrong-numbering-detectable",
+      "result": "pass",
+      "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T19-pdbx-mutation-numbering",
+      "result": "pass",
+      "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T25-struct-ref-seq-not-trusted",
+      "result": "pass",
+      "detail": "4 _struct_ref_seq disagreement(s) with SIFTS recorded as known issues",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T26-label-auth-kept",
+      "result": "pass",
+      "detail": "16 non-polymer label/auth divergences",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T27-assemblies",
+      "result": "pass",
+      "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T28-contacts-computed",
+      "result": "pass",
+      "detail": "B6: none; D6: none; F6: none; H6: B70,B73,B84,B85,B88",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T32-alphafold-labelled",
+      "result": "pass",
+      "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
+      "at": "2026-11-01T19:24:48Z"
+    },
+    {
+      "check": "T31-drift-reported",
+      "result": "pass",
+      "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
+      "at": "2026-11-01T19:24:48Z"
+    }
+  ],
+  "knownIssues": [
+    {
+      "id": "struct-ref-seq-numbering-2HBS-B",
+      "severity": "warning",
+      "summary": "2HBS _struct_ref_seq for chain B disagrees with SIFTS",
+      "detail": "_struct_ref_seq db_align_beg..end = 1..146 for P68871; SIFTS unp_start..unp_end = 2..147. The file uses a different (mature) numbering of the reference.",
+      "resolution": "SIFTS is the mapping of record; _struct_ref_seq is not used for mapping."
+    },
+    {
+      "id": "struct-ref-seq-numbering-2HBS-D",
+      "severity": "warning",
+      "summary": "2HBS _struct_ref_seq for chain D disagrees with SIFTS",
+      "detail": "_struct_ref_seq db_align_beg..end = 1..146 for P68871; SIFTS unp_start..unp_end = 2..147. The file uses a different (mature) numbering of the reference.",
+      "resolution": "SIFTS is the mapping of record; _struct_ref_seq is not used for mapping."
+    },
+    {
+      "id": "struct-ref-seq-numbering-2HBS-F",
+      "severity": "warning",
+      "summary": "2HBS _struct_ref_seq for chain F disagrees with SIFTS",
+      "detail": "_struct_ref_seq db_align_beg..end = 1..146 for P68871; SIFTS unp_start..unp_end = 2..147. The file uses a different (mature) numbering of the reference.",
+      "resolution": "SIFTS is the mapping of record; _struct_ref_seq is not used for mapping."
+    },
+    {
+      "id": "struct-ref-seq-numbering-2HBS-H",
+      "severity": "warning",
+      "summary": "2HBS _struct_ref_seq for chain H disagrees with SIFTS",
+      "detail": "_struct_ref_seq db_align_beg..end = 1..146 for P68871; SIFTS unp_start..unp_end = 2..147. The file uses a different (mature) numbering of the reference.",
+      "resolution": "SIFTS is the mapping of record; _struct_ref_seq is not used for mapping."
+    },
+    {
+      "id": "label-auth-chain-ids-differ-2HBS",
+      "severity": "info",
+      "summary": "2HBS: 16 non-polymer label chains have a different auth chain id",
+      "detail": "label I = auth A HEM 153; label J = auth B HEM 153; label K = auth C HEM 153; label L = auth D HEM 153; label M = auth E HEM 153; label N = auth F HEM 153; label O = auth G HEM 153; label P = auth H HEM 153; label Q = auth A HOH 235; label R = auth B HOH 205; label S = auth C HOH 204; label T = auth D HOH 201; label U = auth E HOH 211; label V = auth F HOH 203; label W = auth G HOH 206; label X = auth H HOH 202",
+      "resolution": "ResidueRef keeps both label_* and auth_* ids; viewer commands must say which they use."
+    }
+  ],
+  "drift": [
+    {
+      "id": "uniprot-xref-ensembl-gene-version",
+      "subject": "ENSG00000244734",
+      "observedIn": "UniProt P68871 Ensembl cross-reference",
+      "observedValue": "ENSG00000244734.5",
+      "referenceSource": "Ensembl lookup",
+      "referenceValue": "ENSG00000244734.6",
+      "fatal": false,
+      "note": "UniProt's cross-reference lags the Ensembl gene version; the transcript and protein versions agree, so mappings are unaffected."
+    },
+    {
+      "id": "vep-swissprot-entry-version",
+      "subject": "P68871",
+      "observedIn": "Ensembl VEP swissprot field",
+      "observedValue": "P68871.216",
+      "referenceSource": "UniProt REST entryVersion",
+      "referenceValue": "P68871.219",
+      "fatal": false,
+      "note": "Entry versions change with annotation; HELIX compares the sequence (md5) instead."
+    }
+  ],
+  "attribution": [
+    {
+      "source": "alphafold",
+      "licence": "CC-BY-4.0",
+      "text": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "ensembl",
+      "licence": "Ensembl-no-restrictions",
+      "text": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "hgnc",
+      "licence": "CC0-1.0",
+      "text": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "ncbi-clinvar",
+      "licence": "NCBI-public-domain",
+      "text": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "pdbe-sifts",
+      "licence": "CC0-1.0",
+      "text": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+    },
+    {
+      "source": "rcsb",
+      "licence": "CC0-1.0",
+      "text": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb-files",
+      "licence": "CC0-1.0",
+      "text": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "uniprot",
+      "licence": "CC-BY-4.0",
+      "text": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    }
+  ]
+}

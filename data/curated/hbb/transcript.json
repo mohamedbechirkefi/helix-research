@@ -1,0 +1,210 @@
+{
+  "id": {
+    "id": "ENST00000335295",
+    "version": 4
+  },
+  "displayName": "HBB-201",
+  "biotype": "protein_coding",
+  "isCanonical": true,
+  "maneSelect": true,
+  "refSeqMatch": {
+    "id": "NM_000518",
+    "version": 5
+  },
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "11",
+    "refSeqAccession": null,
+    "start": 5225464,
+    "end": 5227071,
+    "strand": -1,
+    "convention": "1-based-closed"
+  },
+  "length": 628,
+  "exons": [
+    {
+      "id": {
+        "id": "ENSE00001829867",
+        "version": 2
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": null,
+        "start": 5226930,
+        "end": 5227071,
+        "strand": -1,
+        "convention": "1-based-closed"
+      },
+      "rank": 1
+    },
+    {
+      "id": {
+        "id": "ENSE00001057381",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": null,
+        "start": 5226577,
+        "end": 5226799,
+        "strand": -1,
+        "convention": "1-based-closed"
+      },
+      "rank": 2
+    },
+    {
+      "id": {
+        "id": "ENSE00001600613",
+        "version": 2
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": null,
+        "start": 5225464,
+        "end": 5225726,
+        "strand": -1,
+        "convention": "1-based-closed"
+      },
+      "rank": 3
+    }
+  ],
+  "utrs": [
+    {
+      "type": "five_prime_utr",
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": null,
+        "start": 5227022,
+        "end": 5227071,
+        "strand": -1,
+        "convention": "1-based-closed"
+      }
+    },
+    {
+      "type": "three_prime_utr",
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": null,
+        "start": 5225464,
+        "end": 5225597,
+        "strand": -1,
+        "convention": "1-based-closed"
+      }
+    }
+  ],
+  "translation": {
+    "id": {
+      "id": "ENSP00000333994",
+      "version": 3
+    },
+    "length": 147,
+    "interval": {
+      "assembly": "GRCh38",
+      "assemblyPatch": "GRCh38.p14",
+      "seqRegion": "11",
+      "refSeqAccession": null,
+      "start": 5225598,
+      "end": 5227021,
+      "strand": -1,
+      "convention": "1-based-closed"
+    }
+  },
+  "kind": "transcript",
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:49Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000335295",
+        "recordVersion": "4",
+        "assembly": "GRCh38.p14",
+        "sha256": "775086731dbf73a2f3a0321cae8cea8ed0e7799d374504d0aa3f2d3263b79b4a",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:49Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000244734",
+        "recordVersion": "6",
+        "assembly": "GRCh38.p14",
+        "sha256": "2462861934df05de1c8d581e9359b4d9e654b4209ec9b429357c0a36f91819b5",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "rank-exons"
+    ],
+    "validation": [
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "transcript-lookup-matches-selection",
+        "result": "pass",
+        "detail": "ENST00000335295.4",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T05-exon-lengths-sum",
+        "result": "pass",
+        "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T06-cds-length",
+        "result": "pass",
+        "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
+        "at": "2026-11-01T19:24:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "ENST00000335295.4 is the MANE Select transcript (RefSeq match NM_000518.5).",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

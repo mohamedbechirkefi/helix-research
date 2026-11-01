@@ -1,0 +1,198 @@
+{
+  "kind": "residue-mapping",
+  "uniprotAccession": "P68871",
+  "uniprotPosition": 7,
+  "uniprotResidue": "E",
+  "maturePosition": 6,
+  "entryId": "2HBS",
+  "entityId": "2",
+  "method": "sifts",
+  "crossChecks": [
+    {
+      "method": "global alignment of entity sequence to UniProt",
+      "agrees": true,
+      "detail": "offset 1, identity 0.9932, 1 mismatch(es): entity 6 V vs UniProt 7 E"
+    },
+    {
+      "method": "RCSB rcsb_polymer_entity_align (SIFTS provenance)",
+      "agrees": true,
+      "detail": "ref_beg 2 <-> entity_beg 1, length 146"
+    },
+    {
+      "method": "mmCIF _struct_ref_seq (not used)",
+      "agrees": false,
+      "detail": "_struct_ref_seq db_align_beg..end = 1..146 for P68871; SIFTS unp_start..unp_end = 2..147. The file uses a different (mature) numbering of the reference."
+    }
+  ],
+  "residues": [
+    {
+      "entryId": "2HBS",
+      "assemblyId": "1",
+      "entityId": "2",
+      "labelAsymId": "B",
+      "labelSeqId": 6,
+      "authAsymId": "B",
+      "authSeqId": "6",
+      "insCode": null,
+      "compId": "VAL",
+      "authCompId": "VAL"
+    },
+    {
+      "entryId": "2HBS",
+      "assemblyId": "1",
+      "entityId": "2",
+      "labelAsymId": "D",
+      "labelSeqId": 6,
+      "authAsymId": "D",
+      "authSeqId": "6",
+      "insCode": null,
+      "compId": "VAL",
+      "authCompId": "VAL"
+    },
+    {
+      "entryId": "2HBS",
+      "assemblyId": "2",
+      "entityId": "2",
+      "labelAsymId": "F",
+      "labelSeqId": 6,
+      "authAsymId": "F",
+      "authSeqId": "6",
+      "insCode": null,
+      "compId": "VAL",
+      "authCompId": "VAL"
+    },
+    {
+      "entryId": "2HBS",
+      "assemblyId": "2",
+      "entityId": "2",
+      "labelAsymId": "H",
+      "labelSeqId": 6,
+      "authAsymId": "H",
+      "authSeqId": "6",
+      "insCode": null,
+      "compId": "VAL",
+      "authCompId": "VAL"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": null,
+        "recordId": "2hbs",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      },
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/2HBS.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:52Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:53Z",
+        "sourceRelease": "PDB rev 1.5 2026-08-12",
+        "recordId": "2HBS_2",
+        "recordVersion": "1.5",
+        "assembly": null,
+        "sha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:50Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P68871",
+        "recordVersion": "entry 219, sequence 2",
+        "assembly": null,
+        "sha256": "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "sifts-segment-lookup",
+      "poly-seq-scheme-auth-ids",
+      "atom-site-residue-name",
+      "alignment-cross-check"
+    ],
+    "validation": [
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T21-alignment-cross-check",
+        "result": "pass",
+        "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T22-rcsb-align-agrees",
+        "result": "pass",
+        "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T24-wrong-numbering-detectable",
+        "result": "pass",
+        "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T25-struct-ref-seq-not-trusted",
+        "result": "pass",
+        "detail": "4 _struct_ref_seq disagreement(s) with SIFTS recorded as known issues",
+        "at": "2026-11-01T19:24:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "Residue B 6, D 6, F 6, H 6 is VAL in the deposited coordinates of 2HBS (atom_site).",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "SIFTS maps P68871 2-147 to 2HBS entity 2 residues 1-146.",
+      "qualifier": "identity 0.99, coverage 0.993",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "kind": "protein",
+  "accession": "P68871",
+  "entryName": "HBB_HUMAN",
+  "reviewed": true,
+  "isoform": {
+    "isoformId": "canonical",
+    "isCanonical": true
+  },
+  "entryVersion": 219,
+  "sequenceVersion": 2,
+  "sequence": "MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+  "length": 147,
+  "md5": "209D686939D0B8D1EA089368150140E2",
+  "crc64": "A31F6D621C6556A1",
+  "numbering": "translated",
+  "processedChain": {
+    "start": 2,
+    "end": 147,
+    "featureId": "PRO_0000052976"
+  },
+  "initiatorMethionineRemoved": true,
+  "features": [
+    {
+      "type": "Initiator methionine",
+      "start": 1,
+      "end": 1,
+      "description": "Removed",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000250 UniProtKB:P02086",
+        "ECO:0000269 PubMed:13872627"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Chain",
+      "start": 2,
+      "end": 147,
+      "description": "Hemoglobin subunit beta",
+      "featureId": "PRO_0000052976",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 3,
+      "end": 147,
+      "description": "Globin",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00238"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 2,
+      "end": 2,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 3,
+      "end": 3,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 64,
+      "end": 64,
+      "description": "distal binding residue",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 83,
+      "end": 83,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 93,
+      "end": 93,
+      "description": "proximal binding residue",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 144,
+      "end": 144,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 2,
+      "end": 2,
+      "description": "N-acetylvaline",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000250 UniProtKB:P02086"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 2,
+      "end": 2,
+      "description": "N-pyruvate 2-iminyl-valine; in Hb A1b",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 10,
+      "end": 10,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:24275569"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 13,
+      "end": 13,
+      "description": "Phosphothreonine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:24275569"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 45,
+      "end": 45,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:24275569"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 51,
+      "end": 51,
+      "description": "Phosphothreonine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:24275569"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 60,
+      "end": 60,
+      "description": "N6-acetyllysine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:4531009"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 83,
+      "end": 83,
+      "description": "N6-acetyllysine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:4531009"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 88,
+      "end": 88,
+      "description": "Phosphothreonine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:24275569"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 94,
+      "end": 94,
+      "description": "S-nitrosocysteine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:8637569",
+        "ECO:0000269 PubMed:9843411"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 145,
+      "end": 145,
+      "description": "N6-acetyllysine; alternate",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:4531009"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Natural variant",
+      "start": 7,
+      "end": 7,
+      "description": "in G-Makassar; dbSNP:rs334",
+      "featureId": "VAR_002862",
+      "originalSequence": "E",
+      "alternativeSequences": [
+        "A"
+      ],
+      "evidences": [],
+      "xrefs": [
+        "dbSNP:rs334"
+      ]
+    },
+    {
+      "type": "Natural variant",
+      "start": 7,
+      "end": 7,
+      "description": "in Hb C; confers resistance to severe malaria; dbSNP:rs33930165",
+      "featureId": "VAR_002864",
+      "originalSequence": "E",
+      "alternativeSequences": [
+        "K"
+      ],
+      "evidences": [
+        "ECO:0000269 PubMed:11001883",
+        "ECO:0000269 PubMed:16175509"
+      ],
+      "xrefs": [
+        "dbSNP:rs33930165"
+      ]
+    },
+    {
+      "type": "Natural variant",
+      "start": 7,
+      "end": 7,
+      "description": "in Machida; dbSNP:rs33930165",
+      "featureId": "VAR_002865",
+      "originalSequence": "E",
+      "alternativeSequences": [
+        "Q"
+      ],
+      "evidences": [],
+      "xrefs": [
+        "dbSNP:rs33930165"
+      ]
+    },
+    {
+      "type": "Natural variant",
+      "start": 7,
+      "end": 7,
+      "description": "in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
+      "featureId": "VAR_002863",
+      "originalSequence": "E",
+      "alternativeSequences": [
+        "V"
+      ],
+      "evidences": [
+        "ECO:0000269 PubMed:13464827",
+        "ECO:0000269 PubMed:16001361",
+        "ECO:0000269 Reference:Ref.10"
+      ],
+      "xrefs": [
+        "dbSNP:rs334"
+      ]
+    }
+  ],
+  "xrefs": {
+    "maneSelect": {
+      "transcript": "ENST00000335295.4",
+      "protein": "ENSP00000333994.3",
+      "refSeqNucleotide": "NM_000518.5",
+      "refSeqProtein": "NP_000509.1"
+    },
+    "ensembl": [
+      {
+        "transcript": "ENST00000335295.4",
+        "protein": "ENSP00000333994.3",
+        "gene": "ENSG00000244734.5"
+      },
+      {
+        "transcript": "ENST00000647020.1",
+        "protein": "ENSP00000494175.1",
+        "gene": "ENSG00000244734.5"
+      },
+      {
+        "transcript": "ENST00000883533.1",
+        "protein": "ENSP00000553592.1",
+        "gene": "ENSG00000244734.5"
+      }
+    ],
+    "pdb": [
+      {
+        "id": "2HBS",
+        "method": "X-ray",
+        "resolution": "2.05 A",
+        "chains": "B/D/F/H=2-147"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "type": "FUNCTION",
+      "text": "Involved in oxygen transport from the lung to the various peripheral tissues",
+      "evidences": [
+        "ECO:0000269 PubMed:28066926"
+      ]
+    },
+    {
+      "type": "FUNCTION",
+      "text": "LVV-hemorphin-7 potentiates the activity of bradykinin, causing a decrease in blood pressure",
+      "evidences": []
+    },
+    {
+      "type": "FUNCTION",
+      "text": "Functions as an endogenous inhibitor of enkephalin-degrading enzymes such as DPP3, and as a selective antagonist of the P2RX3 receptor which is involved in pain signaling, these properties implicate it as a regulator of pain and inflammation",
+      "evidences": []
+    },
+    {
+      "type": "SUBUNIT",
+      "text": "Heterotetramer of two alpha chains and two beta chains in adult hemoglobin A (HbA). Heterotetramer of two zeta chains and two beta chains in hemoglobin Portland-2, detected in fetuses and neonates with homozygous alpha-thalassemia",
+      "evidences": [
+        "ECO:0000269 PubMed:11747442",
+        "ECO:0000269 PubMed:24100324",
+        "ECO:0000269 PubMed:6539334"
+      ]
+    },
+    {
+      "type": "TISSUE SPECIFICITY",
+      "text": "Red blood cells",
+      "evidences": [
+        "ECO:0000269 PubMed:6539334"
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-01T19:24:50Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P68871",
+        "recordVersion": "entry 219, sequence 2",
+        "assembly": null,
+        "sha256": "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-proprietary-xrefs",
+      "natural-variants-at-position-only",
+      "pdb-xrefs-of-selected-entry-only"
+    ],
+    "validation": [
+      {
+        "check": "uniprot-accession",
+        "result": "pass",
+        "detail": "P68871 HBB_HUMAN, reviewed true",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T06-cds-shape",
+        "result": "pass",
+        "detail": "length 444, starts ATG, ends TAA",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T07-translation-equals-ensembl-protein",
+        "result": "pass",
+        "detail": "translated 147 aa vs Ensembl 147 aa",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T07-translation-equals-uniprot",
+        "result": "pass",
+        "detail": "translated 147 aa vs UniProt 147 aa",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T07-uniprot-md5",
+        "result": "pass",
+        "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "p.7: UniProt residue E, HGVS ref E",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
+        "at": "2026-11-01T19:24:48Z"
+      },
+      {
+        "check": "T31-drift-reported",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
+        "at": "2026-11-01T19:24:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "P68871 (HBB_HUMAN) canonical sequence, 147 aa; initiator Met removed; chain 2-147.",
+      "qualifier": "ECO:0000250 UniProtKB:P02086; ECO:0000269 PubMed:13872627",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

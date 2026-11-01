@@ -1,0 +1,390 @@
+{
+  "kind": "sequence-set",
+  "records": [
+    {
+      "kind": "sequence",
+      "sequenceKind": "cds",
+      "sourceId": "ENST00000335295.4",
+      "alphabet": "dna",
+      "sequence": "ATGGTGCATCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAGTTGGTGGTGAGGCCCTGGGCAGGCTGCTGGTGGTCTACCCTTGGACCCAGAGGTTCTTTGAGTCCTTTGGGGATCTGTCCACTCCTGATGCTGTTATGGGCAACCCTAAGGTGAAGGCTCATGGCAAGAAAGTGCTCGGTGCCTTTAGTGATGGCCTGGCTCACCTGGACAACCTCAAGGGCACCTTTGCCACACTGAGTGAGCTGCACTGTGACAAGCTGCACGTGGATCCTGAGAACTTCAGGCTCCTGGGCAACGTGCTGGTCTGTGTGCTGGCCCATCACTTTGGCAAAGAATTCACCCCACCAGTGCAGGCTGCCTATCAGAAAGTGGTGGCTGGTGTGGCTAATGCCCTGGCCCACAAGTATCACTAA",
+      "length": 444,
+      "sha256": "838ee6276e734b829a5ca342989eb04464173f44da33ca3a5eb3267ad66a495e",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-01T19:24:49Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENST00000335295.4",
+            "recordVersion": "4",
+            "assembly": "GRCh38.p14",
+            "sha256": "29c6c4bfdcb16e7dd60449d343f77422614ccb6dcec6c247abc2f54555c665a2",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 628 vs transcript 628",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 444, starts ATG, ends TAA",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 147 aa vs Ensembl 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 147 aa vs UniProt 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T09-forward-and-coding-base",
+            "result": "pass",
+            "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
+            "at": "2026-11-01T19:24:48Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "CDS of ENST00000335295.4 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "sequenceKind": "cdna",
+      "sourceId": "ENST00000335295.4",
+      "alphabet": "dna",
+      "sequence": "ACATTTGCTTCTGACACAACTGTGTTCACTAGCAACCTCAAACAGACACCATGGTGCATCTGACTCCTGAGGAGAAGTCTGCCGTTACTGCCCTGTGGGGCAAGGTGAACGTGGATGAAGTTGGTGGTGAGGCCCTGGGCAGGCTGCTGGTGGTCTACCCTTGGACCCAGAGGTTCTTTGAGTCCTTTGGGGATCTGTCCACTCCTGATGCTGTTATGGGCAACCCTAAGGTGAAGGCTCATGGCAAGAAAGTGCTCGGTGCCTTTAGTGATGGCCTGGCTCACCTGGACAACCTCAAGGGCACCTTTGCCACACTGAGTGAGCTGCACTGTGACAAGCTGCACGTGGATCCTGAGAACTTCAGGCTCCTGGGCAACGTGCTGGTCTGTGTGCTGGCCCATCACTTTGGCAAAGAATTCACCCCACCAGTGCAGGCTGCCTATCAGAAAGTGGTGGCTGGTGTGGCTAATGCCCTGGCCCACAAGTATCACTAAGCTCGCTTTCTTGCTGTCCAATTTCTATTAAAGGTTCCTTTGTTCCCTAAGTCCAACTACTAAACTGGGGGATATTATGAAGGGCCTTGAGCATCTGGATTCTGCCTAATAAAAAACATTTATTTTCATTGCAA",
+      "length": 628,
+      "sha256": "9e811fb12c639fc6610265da635ebbf31521b62410132c6e19dfd0192bd194f3",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cdna;content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-01T19:24:50Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENST00000335295.4",
+            "recordVersion": "4",
+            "assembly": "GRCh38.p14",
+            "sha256": "454eb079badbaae5fe62d40acbcd9b66c32f4919f5f876dfdbf26c470a535d9c",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 628 vs transcript 628",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 444, starts ATG, ends TAA",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 147 aa vs Ensembl 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 147 aa vs UniProt 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T09-forward-and-coding-base",
+            "result": "pass",
+            "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
+            "at": "2026-11-01T19:24:48Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "cDNA of ENST00000335295.4 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "sequenceKind": "protein",
+      "sourceId": "ENSP00000333994.3",
+      "alphabet": "protein",
+      "sequence": "MVHLTPEEKSAVTALWGKVNVDEVGGEALGRLLVVYPWTQRFFESFGDLSTPDAVMGNPKVKAHGKKVLGAFSDGLAHLDNLKGTFATLSELHCDKLHVDPENFRLLGNVLVCVLAHHFGKEFTPPVQAAYQKVVAGVANALAHKYH",
+      "length": 147,
+      "sha256": "9ebf320eb707d71644444fe5006ed58af56a0bf0ec9568eb6a3a65e0e8191465",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENSP00000333994?content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-01T19:24:50Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENSP00000333994.3",
+            "recordVersion": "3",
+            "assembly": "GRCh38.p14",
+            "sha256": "1b692b7c3ecea1db563500856ee02d07e97f4edb7208d3c2d5016f8c4daddaf8",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 628 vs transcript 628",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 444, starts ATG, ends TAA",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 147 aa vs Ensembl 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 147 aa vs UniProt 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T09-forward-and-coding-base",
+            "result": "pass",
+            "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
+            "at": "2026-11-01T19:24:48Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "Translation ENSP00000333994.3 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "sequenceKind": "genomic",
+      "sourceId": "chromosome:GRCh38:11:5226982:5227022:1",
+      "alphabet": "dna",
+      "sequence": "CAGTAACGGCAGACTTCTCCTCAGGAGTCAGATGCACCATG",
+      "length": 41,
+      "sha256": "3b4ed353e445dbda4b9e5570aa2b181b146051f211f73a997afcb48ed02e9038",
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "11",
+        "refSeqAccession": "NC_000011.10",
+        "start": 5226982,
+        "end": 5227022,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
+            "method": "GET",
+            "retrievedAt": "2026-11-01T19:24:50Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "chromosome:GRCh38:11:5226982:5227022:1",
+            "recordVersion": null,
+            "assembly": "GRCh38.p14",
+            "sha256": "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 628 vs transcript 628",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 444, starts ATG, ends TAA",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 147 aa vs Ensembl 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 147 aa vs UniProt 147 aa",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
+            "at": "2026-11-01T19:24:48Z"
+          },
+          {
+            "check": "T09-forward-and-coding-base",
+            "result": "pass",
+            "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
+            "at": "2026-11-01T19:24:48Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "Forward-strand genomic window chromosome:GRCh38:11:5226982:5227022:1 around the variant as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    }
+  ]
+}
