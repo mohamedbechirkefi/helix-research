@@ -18,7 +18,7 @@
         "source": "alphafold",
         "url": "https://alphafold.ebi.ac.uk/api/prediction/P68871",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:54Z",
+        "retrievedAt": "2026-11-01T19:27:36Z",
         "sourceRelease": "AlphaFold DB model v6",
         "recordId": "AF-P68871-F1",
         "recordVersion": "6",
@@ -31,7 +31,7 @@
         "source": "alphafold",
         "url": "https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:54Z",
+        "retrievedAt": "2026-11-01T19:27:36Z",
         "sourceRelease": "AlphaFold DB model v6",
         "recordId": "AF-P68871-F1",
         "recordVersion": "6",
@@ -50,7 +50,7 @@
         "check": "T32-alphafold-labelled",
         "result": "pass",
         "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       }
     ],
     "evidenceCategory": 3

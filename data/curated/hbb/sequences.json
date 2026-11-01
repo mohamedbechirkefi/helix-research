@@ -16,7 +16,7 @@
             "source": "ensembl",
             "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
             "method": "GET",
-            "retrievedAt": "2026-11-01T19:24:49Z",
+            "retrievedAt": "2026-11-01T19:27:31Z",
             "sourceRelease": "Ensembl 116",
             "recordId": "ENST00000335295.4",
             "recordVersion": "4",
@@ -35,49 +35,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 628 vs transcript 628",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 444, starts ATG, ends TAA",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 147 aa vs Ensembl 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 147 aa vs UniProt 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           }
         ],
         "evidenceCategory": 2
@@ -110,7 +110,7 @@
             "source": "ensembl",
             "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cdna;content-type=text/x-fasta",
             "method": "GET",
-            "retrievedAt": "2026-11-01T19:24:50Z",
+            "retrievedAt": "2026-11-01T19:27:31Z",
             "sourceRelease": "Ensembl 116",
             "recordId": "ENST00000335295.4",
             "recordVersion": "4",
@@ -129,49 +129,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 628 vs transcript 628",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 444, starts ATG, ends TAA",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 147 aa vs Ensembl 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 147 aa vs UniProt 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           }
         ],
         "evidenceCategory": 2
@@ -204,7 +204,7 @@
             "source": "ensembl",
             "url": "https://rest.ensembl.org/sequence/id/ENSP00000333994?content-type=text/x-fasta",
             "method": "GET",
-            "retrievedAt": "2026-11-01T19:24:50Z",
+            "retrievedAt": "2026-11-01T19:27:31Z",
             "sourceRelease": "Ensembl 116",
             "recordId": "ENSP00000333994.3",
             "recordVersion": "3",
@@ -223,49 +223,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 628 vs transcript 628",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 444, starts ATG, ends TAA",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 147 aa vs Ensembl 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 147 aa vs UniProt 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           }
         ],
         "evidenceCategory": 2
@@ -307,7 +307,7 @@
             "source": "ensembl",
             "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
             "method": "GET",
-            "retrievedAt": "2026-11-01T19:24:50Z",
+            "retrievedAt": "2026-11-01T19:27:31Z",
             "sourceRelease": "Ensembl 116",
             "recordId": "chromosome:GRCh38:11:5226982:5227022:1",
             "recordVersion": null,
@@ -326,49 +326,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 628 vs transcript 628",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 444, starts ATG, ends TAA",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 147 aa vs Ensembl 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 147 aa vs UniProt 147 aa",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-            "at": "2026-11-01T19:24:48Z"
+            "at": "2026-11-01T19:27:28Z"
           }
         ],
         "evidenceCategory": 2

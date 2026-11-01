@@ -80,7 +80,7 @@
         "source": "pdbe-sifts",
         "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:52Z",
+        "retrievedAt": "2026-11-01T19:27:34Z",
         "sourceRelease": null,
         "recordId": "2hbs",
         "recordVersion": null,
@@ -93,7 +93,7 @@
         "source": "rcsb-files",
         "url": "https://files.rcsb.org/download/2HBS.cif",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:52Z",
+        "retrievedAt": "2026-11-01T19:27:32Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS",
         "recordVersion": "1.5",
@@ -106,7 +106,7 @@
         "source": "rcsb",
         "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:53Z",
+        "retrievedAt": "2026-11-01T19:27:35Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS_2",
         "recordVersion": "1.5",
@@ -119,7 +119,7 @@
         "source": "uniprot",
         "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:24:50Z",
+        "retrievedAt": "2026-11-01T19:27:31Z",
         "sourceRelease": "UniProt 2026_03",
         "recordId": "P68871",
         "recordVersion": "entry 219, sequence 2",
@@ -140,37 +140,37 @@
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       },
       {
         "check": "T21-alignment-cross-check",
         "result": "pass",
         "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       },
       {
         "check": "T22-rcsb-align-agrees",
         "result": "pass",
         "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       },
       {
         "check": "T24-wrong-numbering-detectable",
         "result": "pass",
         "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
-        "at": "2026-11-01T19:24:48Z"
+        "at": "2026-11-01T19:27:28Z"
       },
       {
         "check": "T25-struct-ref-seq-not-trusted",
         "result": "pass",
-        "detail": "4 _struct_ref_seq disagreement(s) with SIFTS recorded as known issues",
-        "at": "2026-11-01T19:24:48Z"
+        "detail": "SIFTS selects label 6 (VAL); _struct_ref_seq would select label 7 (GLU); 4 disagreement(s) recorded as known issues",
+        "at": "2026-11-01T19:27:28Z"
       }
     ],
     "evidenceCategory": 1
