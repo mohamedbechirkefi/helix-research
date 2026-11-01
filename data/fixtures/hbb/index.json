@@ -1,0 +1,34 @@
+{
+  "description": "Offline fixtures for the HBB slice. Paths are relative to the repository root. research/raw is the frozen Phase 1 snapshot (redacted under Q-H-LIC-1); data/fixtures/hbb holds records recorded in Phase 2 by scripts/data-preparation/record-fixtures.ts. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": { "source": "ensembl", "path": "research/raw/ensembl/info_data.json" },
+    "ensemblAssembly": { "source": "ensembl", "path": "research/raw/ensembl/assembly_homo_sapiens.json" },
+    "geneLookup": { "source": "ensembl", "path": "research/raw/ensembl/lookup_ENSG00000244734_expand_mane.json" },
+    "transcriptLookup": { "source": "ensembl", "path": "research/raw/ensembl/lookup_ENST00000335295_expand.json" },
+    "cds": { "source": "ensembl", "path": "research/raw/ensembl/seq_ENST00000335295_cds.fa" },
+    "cdna": { "source": "ensembl", "path": "research/raw/ensembl/seq_ENST00000335295_cdna.fa" },
+    "ensemblProtein": { "source": "ensembl", "path": "research/raw/ensembl/seq_ENSP00000333994_protein.fa" },
+    "genomicWindow": { "source": "ensembl", "path": "data/fixtures/hbb/ensembl/sequence_region_11_5226982-5227022_1.json" },
+    "codonMap": { "source": "ensembl", "path": "research/raw/ensembl/map_cds_ENST00000335295_19-21.json" },
+    "variation": { "source": "ensembl", "path": "research/raw/ensembl/variation_rs334.json" },
+    "variantRecoder": { "source": "ensembl", "path": "research/raw/ensembl/variant_recoder_rs334_retry.json" },
+    "vep": { "source": "ensembl", "path": "research/raw/ensembl/vep_hgvs_ENST00000335295_c20AT.json" },
+    "uniprot": { "source": "uniprot", "path": "research/raw/uniprot/P68871.json" },
+    "mmcif": { "source": "rcsb-files", "path": "research/raw/rcsb/2HBS.cif" },
+    "rcsbEntry": { "source": "rcsb", "path": "research/raw/rcsb/entry_2HBS.json" },
+    "rcsbPolymerEntity": { "source": "rcsb", "path": "research/raw/rcsb/polymer_entity_2HBS_2.json" },
+    "rcsbAssembly": { "source": "rcsb", "path": "research/raw/rcsb/assembly_2HBS_1.json" },
+    "sifts": { "source": "pdbe-sifts", "path": "research/raw/pdbe/sifts_mappings_uniprot_2hbs.json" },
+    "clinvar": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-clinvar/esummary_rs334_ids.json" },
+    "hgnc": { "source": "hgnc", "path": "research/raw/hgnc/fetch_symbol_HBB.json" },
+    "alphafoldPrediction": { "source": "alphafold", "path": "research/raw/alphafold/prediction_P68871.json" },
+    "alphafoldModel": { "source": "alphafold", "path": "research/raw/alphafold/AF-P68871-F1-model_v6.cif" }
+  },
+  "extra": {
+    "hbbp1Lookup": { "source": "ensembl", "path": "data/fixtures/hbb/ensembl/lookup_symbol_HBBP1_expand_mane.json" },
+    "goReleaseDate": { "source": "ensembl", "path": "research/raw/geneontology/release-date.json" },
+    "ncbiGeneEsummary": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-gene/esummary_3043_85344.json" },
+    "pdbeSegments": { "source": "pdbe-sifts", "path": "research/raw/pdbe/sifts_mappings_uniprot_segments_2hbs.json" },
+    "valContactsDerived": { "source": "rcsb-files", "path": "research/derived/val6_contacts_2HBS.json" }
+  }
+}
