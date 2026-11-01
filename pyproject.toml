@@ -1,0 +1,14 @@
+# SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0
+[project]
+name = "helix-research"
+version = "0.0.0"
+description = "Helix research phase: scientific data preparation and validation"
+requires-python = ">=3.12,<3.13"
+license = "LicenseRef-Helix-NC-Research-1.0"
+dependencies = [
+    "biopython>=1.84",
+]
+
+[tool.uv]
+# Supply-chain policy: resolve only releases at least two weeks old.
+exclude-newer = "2026-10-18T00:00:00Z"

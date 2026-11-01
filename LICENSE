@@ -1,21 +1,209 @@
-MIT License
+HELIX SOURCE-AVAILABLE NON-COMMERCIAL RESEARCH LICENSE
+Version 1.0 — 1 November 2026
 
-Copyright (c) 2026 Mohamed Bechir Kefi
+Copyright (c) 2026 Mohamed Bechir Kefi.
+All rights reserved except as expressly licensed.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+IMPORTANT NOTICE
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+This is a custom license, not an OSI-approved open-source license.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+It applies only to copyrightable material that the Licensor has
+authority to license and that is expressly released under this license.
+
+The repository's initial commit (859ed93, 1 November 2026), which
+contained only a license file, a short README and a .gitignore, was
+published under the MIT License. That earlier grant is not revoked.
+NOTICE.md identifies which material is covered by which license.
+
+1. PARTIES AND DEFINITIONS
+
+"Licensor" means Mohamed Bechir Kefi, solely with respect to material
+he owns or is authorized to license.
+
+"Licensed Material" means original source code, accompanying software
+files, documentation, research scripts, curated data products and
+derived annotations authored by the Licensor, and other copyrightable
+material specifically distributed by the Licensor under this license,
+excluding third-party material identified as subject to separate terms
+(including records obtained from public scientific databases).
+Licensed Material is identified by NOTICE.md and by the license header
+"SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0" in
+individual files.
+
+"Non-Commercial Research Use" means personal learning, independent
+academic research, reproducibility experiments, non-commercial
+benchmarking, and non-commercial educational work, conducted without
+selling, licensing, offering as a paid service, incorporating into a
+commercial product, or using the Licensed Material to provide services
+to a paying client.
+
+Research within a for-profit organization or funded commercial
+arrangement requires separate permission unless applicable law
+independently permits it.
+
+"Contribution" means a proposed change submitted intentionally to
+this repository for possible inclusion.
+
+2. LIMITED PERMISSION
+
+Subject to compliance with this license, the Licensor grants each
+recipient a non-exclusive, worldwide, royalty-free, non-transferable
+permission, for the duration of applicable copyright, to:
+
+(a) Access, download, and reproduce the Licensed Material as reasonably
+necessary for Non-Commercial Research Use.
+
+(b) Compile, execute, test, benchmark, analyze, and locally modify
+the Licensed Material solely for Non-Commercial Research Use.
+
+(c) Communicate research findings, cite the project, and publish
+original measurements, subject to applicable law, without reproducing
+substantial protected code.
+
+(d) Submit a Contribution through the repository's official GitHub
+contribution workflow, including uploading the proposed patch as
+needed for review, provided Section 5 is satisfied.
+
+No other permissions are granted. These limited permissions may not
+be sublicensed.
+
+Rights granted by applicable law and the GitHub Terms of Service
+are unaffected.
+
+3. RESTRICTIONS
+
+Unless the Licensor gives separate prior written authorization,
+this license does NOT grant permission to:
+
+(a) Use Licensed Material commercially, including in paid apps,
+services, products, client deliverables, or proprietary development.
+
+(b) Incorporate Licensed Material into any publicly or privately
+distributed third-party product or software package.
+
+(c) Publish, mirror, redistribute, sell, sublicense, or otherwise
+make copies or modified versions available outside the limited
+GitHub contribution workflow in Section 2(d).
+
+(d) Distribute compiled binaries, model weights or data products
+derived from Licensed Material, except as separately authorized.
+
+(e) Use Licensed Material as input to commercial AI model training,
+fine-tuning, distillation, or dataset construction where copyright-
+owner permission is legally required.
+
+(f) Remove or falsify applicable copyright notices or misrepresent
+authorship or endorsement.
+
+These restrictions do not apply to independent implementations of
+unprotected ideas, algorithms, techniques, facts, or public-domain
+material, to scientific facts and records obtained from third-party
+databases under their own terms, or to acts permitted under statutory
+exceptions or earlier valid license grants.
+
+4. OWNERSHIP AND RESERVED RIGHTS
+
+All copyright and other rights lawfully owned by the Licensor are
+retained.
+
+Merely providing public access does not assign ownership.
+
+No patent, trademark, or third-party intellectual-property rights
+are granted under this license.
+
+This license grants no rights in third-party databases, structures,
+sequences, annotations or other material held by third parties, which
+remain subject to their providers' terms.
+
+It does not restrict work developed independently without copying
+protected expression.
+
+Copyright in the Licensed Material is protected under applicable
+national laws and international treaties, including the Berne
+Convention for the Protection of Literary and Artistic Works.
+
+5. CONTRIBUTIONS
+
+Issues, ideas, and suggestions are welcome.
+
+Proposed code or documentation changes may be submitted for review,
+but a Contribution will not be merged until the contributor has
+separately accepted the project's Contributor License Agreement (CLA)
+using a verifiable process approved by the Licensor.
+
+A pull-request checkbox alone does not itself guarantee a legally
+sufficient signature.
+
+Contributors retain copyright in their original submissions unless
+they separately assign it.
+
+The Licensor is under no obligation to accept any Contribution.
+
+6. PREVIOUS MIT GRANT
+
+This license is prospective only.
+
+The repository's initial commit 859ed93 was made available under the
+MIT License, which continues to govern that commit's content.
+
+Repository history, previous tags, releases, archived copies, and
+third-party rights are not retroactively relicensed or revoked.
+
+This license governs only added material the Licensor is entitled
+to license on these terms.
+
+The date and first applicable commit are identified in
+LICENSE_HISTORY.md.
+
+7. TERMINATION
+
+The permission granted under Section 2 terminates for a recipient
+upon a material violation of this license, to the extent permitted
+by applicable law.
+
+Termination does not undo valid earlier MIT grants or rights held
+under separate agreements.
+
+The Licensor may offer reinstatement in writing.
+
+Other legal rights and defenses remain unaffected.
+
+8. WARRANTIES AND LIABILITY
+
+TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, LICENSED MATERIAL
+IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+
+THE LICENSED MATERIAL IS FOR NONCLINICAL EXPLORATION AND EDUCATION. IT
+IS NOT A CLINICAL DIAGNOSTIC, VARIANT CLASSIFICATION OR MEDICAL ADVICE
+TOOL.
+
+THE LICENSOR DISCLAIMS LIABILITY FOR LOSSES ARISING FROM ITS USE
+TO THE MAXIMUM EXTENT PERMITTED BY LAW.
+
+NOTHING EXCLUDES LIABILITY THAT CANNOT LAWFULLY BE EXCLUDED.
+
+9. THIRD-PARTY MATERIAL AND SEVERABILITY
+
+Separately licensed dependencies, contributions, datasets, database
+records, structures, models, and other third-party materials retain
+their own terms.
+
+If a provision is unenforceable, the remaining provisions continue
+to the extent legally possible.
+
+10. REQUESTS FOR OTHER PERMISSIONS
+
+Request commercial or broader research permissions by opening a
+GitHub Issue titled "Licensing request" at:
+
+https://github.com/mohamedbechirkefi/helix-research/issues
+
+or by writing to: kefimohamedbechir@gmail.com
+
+Silence is not consent.
+
+A separate written agreement is required for permissions beyond
+this license.
+
+END OF LICENSE

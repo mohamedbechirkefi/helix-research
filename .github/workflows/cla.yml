@@ -1,0 +1,41 @@
+# Contributor License Agreement check (CLA Assistant Lite).
+# A PR author signs CLA.md v1.0 by commenting the exact sentence below on their PR.
+# Signatures (GitHub username, numeric user id, PR number, comment id, date) are
+# committed to signatures/version1/cla.json on the `cla-signatures` branch.
+# The action does not check out or run code from the pull request.
+name: "CLA Assistant"
+
+on:
+  issue_comment:
+    types: [created]
+  pull_request_target:
+    types: [opened, closed, synchronize]
+
+permissions:
+  actions: write
+  contents: write # to commit signatures to the cla-signatures branch
+  pull-requests: write
+  statuses: write
+
+jobs:
+  CLAAssistant:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "CLA Assistant"
+        if: (github.event.comment.body == 'recheck' || github.event.comment.body == 'I have read the Helix CLA v1.0 and I hereby sign it') || github.event_name == 'pull_request_target'
+        uses: contributor-assistant/github-action@ca4a40a7d1004f18d9960b404b97e5f30a505a08 # v2.6.1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          path-to-signatures: "signatures/version1/cla.json"
+          path-to-document: "https://github.com/mohamedbechirkefi/helix-research/blob/cla-v1.0/CLA.md"
+          branch: "cla-signatures"
+          allowlist: "mohamedbechirkefi,dependabot[bot],github-actions[bot]"
+          custom-pr-sign-comment: "I have read the Helix CLA v1.0 and I hereby sign it"
+          custom-notsigned-prcomment: >-
+            Thank you for your contribution. Before it can be merged, please read the
+            [Helix Contributor License Agreement v1.0](https://github.com/mohamedbechirkefi/helix-research/blob/cla-v1.0/CLA.md)
+            and sign it by posting the comment below on this pull request. You keep the
+            copyright in your contribution; the CLA grants the maintainer the license it describes.
+          custom-allsigned-prcomment: "All contributors have signed the Helix CLA v1.0. Thank you."
+          lock-pullrequest-aftermerge: false
