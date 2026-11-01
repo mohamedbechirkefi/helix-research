@@ -13,9 +13,11 @@
   "scripts": {
     "test": "vitest run",
     "test:live": "HELIX_LIVE=1 vitest run live",
-    "typecheck": "tsc -p packages/shared-types && tsc -p packages/data-adapters && tsc -p packages/scientific-core && tsc -p tsconfig.json",
+    "typecheck": "tsc -p packages/shared-types && tsc -p packages/data-adapters && tsc -p packages/scientific-core && tsc -p packages/ai-planning && tsc -p tsconfig.json",
     "build:hbb": "node scripts/data-preparation/build-hbb.ts",
-    "compare:hbb": "node scripts/data-preparation/compare-builds.ts"
+    "compare:hbb": "node scripts/data-preparation/compare-builds.ts",
+    "bench:ai": "node scripts/ai-benchmark/run.ts",
+    "bench:report": "node scripts/ai-benchmark/report.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",

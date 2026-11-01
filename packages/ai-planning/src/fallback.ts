@@ -1,0 +1,195 @@
+// SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0
+/**
+ * Deterministic fallback planner (P3.2.3, master prompt §8 item 3). No model: ordered rules
+ * over the query and the bundled records. It reads only the user's query and the trusted
+ * context, never retrieved text, so it cannot be injected through retrieved data.
+ *
+ * Refusal and safety rules run first (clinical, code, identifiers outside the context), then
+ * selection-dependent follow-ups, ambiguity, and finally the supported commands. Anything
+ * not recognised is answered "unsupported" with a reason: the fallback never guesses.
+ */
+import type { Action, Plan, Intent } from "./schema.ts";
+import { extractIdTokens } from "./validate.ts";
+import { trustedContextJson, type PlanningContext } from "./context.ts";
+
+export const FALLBACK_VERSION = "helix-fallback-v1";
+
+const fold = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase();
+
+const CLINICAL =
+  /\b(should (i|he|she|we|they|my)|am i|do i have|will (i|he|she) (get|be)|i carry|my (son|daughter|child|baby|test|genetic|doctor|results?|medication)|dose|dosage|medication|medicine|treat(ment)?|therap|hydroxyurea|folic|diagnos|prognos|symptom|que dois-je|mon enfant|ma fille|mon fils|medicament|traitement|porteur|porteuse)\b/;
+const CODE = /\b(javascript|typescript|python|code|script|eval|execute|run it|run this|executez?|executer)\b/;
+const CANCEL = /^\s*(stop|cancel|abort|arrete|annule)\b|\bcancel (that|this|it)\b/;
+const SELECTION_REF = /\b(this|that|selected|current) (residue|one|amino acid|position)\b|\bthis one\b|\bce (residu|acide amine)\b|\bcelui-ci\b|\bselected residue\b/;
+const RESIDUE_NUMBER = /\b(residue|residu|position|amino acid) \d+\b/;
+const VARIANT = /(sickle|drepano|falciform|\bhbs\b|\be6v\b|glu6val|glu7val|\be7v\b|rs334|mutation|mutated|variant|substitution)/;
+const EVIDENCE = /(evidence|pathogen|clinvar|preuve|record|source|citation)/;
+const CONTACT = /(contact|touch|interact|neighbo)/;
+const PREDICTED = /(alphafold|predicted|prediction|predit)/;
+const STRUCTURE_NAMED = /(2hbs|crystal|cristal|deoxyhemoglobin|asymmetric unit)/;
+const STRUCTURE_ANY = /\b(structure|3d model|pdb)\b/;
+const PROTEIN_WORLD = /(protein world|monde (de la )?proteine|protein view)/;
+const GENE = /\b(gene|gene for|hbb|locus|genome)\b|hemoglobin subunit beta/;
+const GLOBIN_UNQUALIFIED = /\bglobin\b/;
+const COMPARE = /\b(compare|comparer|versus|vs\.?|side by side)\b/;
+const DOMAINS = /\b(domain|domains|domaine|domaines)\b/;
+const PATHWAY = /\b(pathway|dna repair|reparation|voie)\b/;
+const BEGINNER = /(beginner|simple|simply|debutant|explain like)/;
+const EXPERT = /(expert|detail|in depth|codon|numbering)/;
+const OUT_OF_CONTEXT_GENES = new Set(["CFTR", "BRCA1", "BRCA2", "TP53", "EGFR", "KRAS", "BRAF", "APOE", "HBA1", "HBA2", "HBD", "HBG1", "HBG2", "HTT", "DMD", "MYC", "PTEN", "SMN1", "FBN1"]);
+const OTHER_VARIANTS = /\b(hbc|hbe|f508del|r175h|v600e)\b/;
+
+function base(ctx: PlanningContext): Pick<Plan, "entities" | "citations" | "followUps" | "explanationLevel"> {
+  return { entities: { geneId: null, proteinId: null, variantId: null, structureId: null }, citations: [], followUps: [], explanationLevel: "intermediate" };
+}
+
+function refuse(ctx: PlanningContext, intent: Intent, reason: string): Plan {
+  return { ...base(ctx), outcome: "unsupported", intent, actions: [], reason };
+}
+function clarify(ctx: PlanningContext, intent: Intent, reason: string): Plan {
+  return { ...base(ctx), outcome: "clarify", intent, actions: [], reason };
+}
+
+export interface FallbackResult {
+  plan: Plan;
+  /** The rule that produced the plan, for transparency in the UI and tests. */
+  rule: string;
+}
+
+export function deterministicPlan(query: string, ctx: PlanningContext): FallbackResult {
+  const q = fold(query);
+  const gene = ctx.genes[0] ?? null;
+  const protein = ctx.proteins[0] ?? null;
+  const variant = ctx.variants[0] ?? null;
+  const experimental = ctx.structures.find((s) => s.origin === "experimental" && s.variantPlacement) ?? null;
+  const predicted = ctx.structures.find((s) => s.origin === "predicted") ?? null;
+  const varFeature = variant ? (ctx.features.find((f) => f.id === variant.featureId) ?? null) : null;
+  const contactFeature = ctx.features.find((f) => f.kind === "contact") ?? null;
+  const level: Plan["explanationLevel"] = BEGINNER.test(q) ? "intro" : EXPERT.test(q) ? "expert" : "intermediate";
+  const symbols = new Set(ctx.genes.flatMap((g) => [g.symbol.toUpperCase(), ...g.aliases.map((a) => a.toUpperCase())]));
+  const r = (plan: Plan, rule: string): FallbackResult => ({ plan, rule });
+
+  // 1. Safety refusals.
+  if (CLINICAL.test(q)) return r(refuse(ctx, "other", "HELIX is a nonclinical educational tool and cannot give medical, diagnostic or treatment advice. Please ask a qualified health professional."), "clinical");
+  if (CODE.test(q)) return r(refuse(ctx, "other", "HELIX does not write or run code; it only executes its fixed, validated scene actions."), "code");
+
+  // 2. Identifiers, genes or variants outside the trusted context.
+  const trusted = trustedContextJson(ctx).toLowerCase();
+  const foreignIds = extractIdTokens(query).filter((t) => !trusted.includes(t.token.toLowerCase()));
+  if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
+  const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
+  if (geneLike.length > 0) return r(refuse(ctx, "other", `${[...new Set(geneLike)].join(", ")} is not in the curated records available here; only ${[...symbols][0] ?? "the curated gene"} is.`), "foreign-gene");
+  if (OTHER_VARIANTS.test(q)) return r(refuse(ctx, "compare_variants", "Only the HbS variant is in the curated records; other variants are not available, and variant comparison is not executable in this build."), "foreign-variant");
+
+  // 3. Cancel.
+  if (CANCEL.test(q)) return r({ ...base(ctx), outcome: "plan", intent: "cancel", actions: [{ type: "cancelActions" }], reason: null }, "cancel");
+
+  // 4. Follow-ups that refer to the current selection.
+  if (SELECTION_REF.test(q) || (/\b(it|ca)\b/.test(q) && COMPARE.test(q))) {
+    const sel = ctx.selection;
+    if (!sel) return r(clarify(ctx, "explain_selection", "Nothing is selected. Select a residue in the structure first, or name the residue, chain and structure."), "selection-missing");
+    if (COMPARE.test(q)) return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare-selection");
+    const selFeature = sel.featureId ? ctx.features.find((f) => f.id === sel.featureId) : null;
+    if (CONTACT.test(q) && selFeature && contactFeature && contactFeature.chains[0] === sel.chainId) {
+      const t = { kind: "feature" as const, featureId: contactFeature.id };
+      return r({ ...base(ctx), outcome: "plan", intent: "explain_selection", entities: { ...base(ctx).entities, structureId: sel.structureId, proteinId: contactFeature.proteinId }, actions: [{ type: "focusCamera", target: t }, { type: "highlightResidue", target: t }, ...contactFeature.evidenceIds.slice(0, 1).map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], citations: contactFeature.evidenceIds.slice(0, 2), explanationLevel: level, reason: null }, "selection-contact");
+    }
+    if (CONTACT.test(q)) return r(clarify(ctx, "explain_selection", `No curated contact data exists for ${sel.chainId}${sel.residueNumber}; contacts are curated only for the HbS residue on chain ${contactFeature?.chains[0] ?? "?"}.`), "selection-contact-missing");
+    const evidenceIds = selFeature ? selFeature.evidenceIds.slice(0, 2) : [];
+    if (EVIDENCE.test(q)) {
+      if (evidenceIds.length === 0) return r(clarify(ctx, "explain_evidence", `No curated evidence is available for ${sel.compId} ${sel.chainId}${sel.residueNumber}.`), "selection-evidence-missing");
+      return r({ ...base(ctx), outcome: "plan", intent: "explain_evidence", actions: evidenceIds.map((id) => ({ type: "revealEvidence" as const, evidenceId: id })), citations: evidenceIds, explanationLevel: level, reason: null }, "selection-evidence");
+    }
+    const actions: Action[] = [{ type: "focusCamera", target: { kind: "selection" } }];
+    if (!/\b(zoom|focus|centre|center)\b/.test(q)) actions.push({ type: "highlightResidue", target: { kind: "selection" } });
+    actions.push(...evidenceIds.slice(0, 1).map((id) => ({ type: "revealEvidence" as const, evidenceId: id })));
+    return r(
+      {
+        ...base(ctx),
+        outcome: "plan",
+        intent: "explain_selection",
+        entities: { ...base(ctx).entities, structureId: sel.structureId },
+        actions,
+        citations: evidenceIds,
+        explanationLevel: level,
+        reason: evidenceIds.length === 0 ? `No curated evidence is available for ${sel.compId} ${sel.chainId}${sel.residueNumber}; only its location is shown.` : null,
+      },
+      selFeature ? "selection-explain" : "selection-explain-no-evidence",
+    );
+  }
+
+  // 5. Ambiguity.
+  if (RESIDUE_NUMBER.test(q)) return r(clarify(ctx, "other", "Which numbering, protein and chain? For beta-globin, translated numbering (Met = 1) and mature numbering differ by one."), "residue-number");
+  if (COMPARE.test(q)) return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare");
+  if (DOMAINS.test(q)) return r(refuse(ctx, "show_domains", "Protein domain display is not executable in this build."), "domains");
+  if (PATHWAY.test(q)) return r(refuse(ctx, "other", "No curated pathway records are available in this context."), "pathway");
+
+  // 6. Supported commands.
+  if (variant && experimental && contactFeature && CONTACT.test(q) && (VARIANT.test(q) || /\b(valine|val) ?6\b|\bchain h\b/.test(q))) {
+    const t = { kind: "feature" as const, featureId: contactFeature.id };
+    return r(
+      {
+        ...base(ctx),
+        outcome: "plan",
+        intent: "locate_variant",
+        entities: { geneId: gene?.id ?? null, proteinId: contactFeature.proteinId, variantId: variant.id, structureId: contactFeature.structureId },
+        actions: [{ type: "loadStructure", structureId: contactFeature.structureId, assembly: "model" }, { type: "focusCamera", target: t }, { type: "highlightResidue", target: t }, ...contactFeature.evidenceIds.slice(0, 1).map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))],
+        citations: contactFeature.evidenceIds,
+        explanationLevel: level,
+        reason: null,
+      },
+      "contact",
+    );
+  }
+  if (variant && VARIANT.test(q)) {
+    if (EVIDENCE.test(q)) {
+      return r({ ...base(ctx), outcome: "plan", intent: "explain_evidence", entities: { ...base(ctx).entities, geneId: variant.geneId, variantId: variant.id }, actions: variant.evidenceIds.map((id) => ({ type: "revealEvidence" as const, evidenceId: id })), citations: variant.evidenceIds, explanationLevel: level, reason: null }, "variant-evidence");
+    }
+    if (experimental && varFeature) {
+      const t = { kind: "feature" as const, featureId: varFeature.id };
+      return r(
+        {
+          ...base(ctx),
+          outcome: "plan",
+          intent: "locate_variant",
+          entities: { geneId: variant.geneId, proteinId: variant.proteinId, variantId: variant.id, structureId: varFeature.structureId },
+          actions: [
+            { type: "resolveVariant", variantId: variant.id },
+            { type: "loadStructure", structureId: varFeature.structureId, assembly: "model" },
+            { type: "focusCamera", target: t },
+            { type: "highlightResidue", target: t },
+            { type: "revealEvidence", evidenceId: variant.evidenceIds[0]! },
+          ],
+          citations: varFeature.evidenceIds,
+          explanationLevel: level,
+          followUps: ["Why is this residue important?", "What does this residue touch in the crystal?"],
+          reason: null,
+        },
+        "variant-locate",
+      );
+    }
+  }
+  if (predicted && PREDICTED.test(q)) {
+    return r({ ...base(ctx), outcome: "plan", intent: "show_structure", entities: { ...base(ctx).entities, proteinId: predicted.proteinIds[0] ?? null, structureId: predicted.id }, actions: [{ type: "loadStructure", structureId: predicted.id, assembly: "model" }], citations: ctx.evidence.filter((e) => e.id.endsWith(predicted.id)).map((e) => e.id), explanationLevel: level, reason: null }, "predicted-structure");
+  }
+  if (experimental && STRUCTURE_NAMED.test(q)) {
+    return r({ ...base(ctx), outcome: "plan", intent: "show_structure", entities: { ...base(ctx).entities, structureId: experimental.id }, actions: [{ type: "loadStructure", structureId: experimental.id, assembly: "model" }], citations: ctx.evidence.filter((e) => e.id === `pdb:${experimental.id}`).map((e) => e.id), explanationLevel: level, reason: null }, "experimental-structure");
+  }
+  if (STRUCTURE_ANY.test(q) && ctx.structures.length > 1) {
+    return r(clarify(ctx, "show_structure", `Which structure: ${ctx.structures.map((s) => `${s.id} (${s.origin})`).join(" or ")}?`), "structure-ambiguous");
+  }
+  if (protein && PROTEIN_WORLD.test(q)) {
+    return r({ ...base(ctx), outcome: "plan", intent: "show_protein", entities: { ...base(ctx).entities, proteinId: protein.id }, actions: [{ type: "enterWorld", world: "protein" }], citations: [], explanationLevel: level, reason: null }, "protein-world");
+  }
+  if (GLOBIN_UNQUALIFIED.test(q) && !/(beta|alpha|hbb)/.test(q)) {
+    return r(clarify(ctx, "other", "Alpha or beta globin? Only beta-globin (HBB) has curated records here; 2HBS contains both chains."), "globin-ambiguous");
+  }
+  if (gene && GENE.test(q)) {
+    return r({ ...base(ctx), outcome: "plan", intent: "show_gene", entities: { ...base(ctx).entities, geneId: gene.id }, actions: [{ type: "resolveGene", geneId: gene.id }, { type: "enterWorld", world: "genome" }], citations: ctx.evidence.filter((e) => e.id === `ensembl:${gene.id}`).map((e) => e.id), explanationLevel: level, reason: null }, "gene");
+  }
+  return r(refuse(ctx, "other", "This request is not one of the supported commands in the deterministic mode."), "no-rule");
+}

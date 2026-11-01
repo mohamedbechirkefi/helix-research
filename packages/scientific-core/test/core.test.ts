@@ -200,7 +200,7 @@ describe("acquisition and graceful errors (P2.5.2)", () => {
 describe("platform-agnostic runtime packages (amendment A-1)", () => {
   it("no Node-only APIs in packages/*/src", async () => {
     const offenders: string[] = [];
-    for (const pkg of ["shared-types", "data-adapters", "scientific-core"]) {
+    for (const pkg of ["shared-types", "data-adapters", "scientific-core", "ai-planning"]) {
       const walk = async (dir: string): Promise<void> => {
         for (const e of await readdir(dir, { withFileTypes: true })) {
           const p = join(dir, e.name);
