@@ -21,6 +21,8 @@ export interface OllamaConfig {
   think?: boolean;
   keepAlive?: string;
   timeoutMs?: number;
+  /** Cap on generated tokens (Ollama num_predict). Constrained JSON can otherwise run on in whitespace or repetition. */
+  numPredict?: number;
 }
 
 export function contextIdLists(ctx: PlanningContext) {
@@ -52,6 +54,7 @@ export class OllamaProvider implements PlanProvider {
       numCtx: 8192,
       keepAlive: "10m",
       timeoutMs: 180_000,
+      numPredict: 1024,
       ...cfg,
       fetch: cfg.fetch ?? ((...a: Parameters<typeof fetch>) => fetch(...a)),
     };
@@ -86,7 +89,7 @@ export class OllamaProvider implements PlanProvider {
       format: schemaFor(req),
       stream: true,
       keep_alive: this.cfg.keepAlive,
-      options: { temperature: req.temperature ?? 0, num_ctx: this.cfg.numCtx, ...(req.seed !== undefined ? { seed: req.seed } : {}) },
+      options: { temperature: req.temperature ?? 0, num_ctx: this.cfg.numCtx, num_predict: this.cfg.numPredict, ...(req.seed !== undefined ? { seed: req.seed } : {}) },
     };
     if (this.cfg.think !== undefined) body.think = this.cfg.think;
     const t0 = now();
@@ -123,7 +126,11 @@ export class OllamaProvider implements PlanProvider {
       }
     } catch (e) {
       if (e instanceof ProviderError) throw e;
-      if (ctl.signal.aborted) throw new ProviderError(this.id, req.signal?.aborted ? "aborted" : "timeout", req.signal?.aborted ? "cancelled" : `timed out after ${this.cfg.timeoutMs} ms`);
+      if (ctl.signal.aborted) {
+        const err = new ProviderError(this.id, req.signal?.aborted ? "aborted" : "timeout", req.signal?.aborted ? "cancelled" : `timed out after ${this.cfg.timeoutMs} ms`);
+        err.partial = raw;
+        throw err;
+      }
       throw new ProviderError(this.id, "unavailable", (e as Error).message);
     } finally {
       clearTimeout(timer);
