@@ -1,0 +1,3 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+prediction_P68871.json	2026-11-01T18:18:29Z	200	7a4ab449f01a2d36cac886f2f3d360552f52a1d1147c4525b4765b9324704078	1996	GET	https://alphafold.ebi.ac.uk/api/prediction/P68871	"{""content-type"": ""application/json""}"	
+AF-P68871-F1-model_v6.cif	2026-11-01T18:30:30Z	200	0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e	143532	GET	https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif	"{""content-type"": ""application/octet-stream"", ""last-modified"": ""Thu, 18 Sep 2025 16:50:25 GMT"", ""etag"": ""W/\""e9c1c2f52ab8365b59d3212c44035ae3\""""}"	

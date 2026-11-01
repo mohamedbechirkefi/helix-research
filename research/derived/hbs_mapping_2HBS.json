@@ -1,0 +1,150 @@
+{
+  "uniprot_accession": "P68871",
+  "uniprot_entry_version": 219,
+  "uniprot_sequence_version": 2,
+  "uniprot_length": 147,
+  "uniprot_residue_at_7": "E",
+  "uniprot_residue_at_6": "P",
+  "cds_length_nt": 444,
+  "cds_codon_7": "GAG",
+  "cds_base_c20": "A",
+  "translated_cds_equals_uniprot": true,
+  "ensp_equals_uniprot": true,
+  "beta_entity_id": "2",
+  "beta_entity_description": "HEMOGLOBIN S (DEOXY), BETA CHAIN",
+  "beta_entity_strands": "B,D,F,H",
+  "beta_entity_length": 146,
+  "entity_seq_offset_vs_uniprot": 1,
+  "entity_vs_uniprot_differences": [
+    [
+      6,
+      "E",
+      "V"
+    ]
+  ],
+  "hbs_uniprot_position": 7,
+  "hbs_label_seq_id": 6,
+  "hbs_rows": [
+    {
+      "label_asym_id": "B",
+      "label_entity_id": "2",
+      "label_seq_id": 6,
+      "pdbx_poly_seq_scheme_mon_id": "VAL",
+      "auth_asym_id": "B",
+      "auth_seq_num": "6",
+      "ins_code": ".",
+      "atom_site_CA_label_comp_id": "VAL",
+      "atom_site_CA_auth_asym_id": "B",
+      "atom_site_CA_auth_seq_id": "6",
+      "atom_site_CA_auth_comp_id": "VAL"
+    },
+    {
+      "label_asym_id": "D",
+      "label_entity_id": "2",
+      "label_seq_id": 6,
+      "pdbx_poly_seq_scheme_mon_id": "VAL",
+      "auth_asym_id": "D",
+      "auth_seq_num": "6",
+      "ins_code": ".",
+      "atom_site_CA_label_comp_id": "VAL",
+      "atom_site_CA_auth_asym_id": "D",
+      "atom_site_CA_auth_seq_id": "6",
+      "atom_site_CA_auth_comp_id": "VAL"
+    },
+    {
+      "label_asym_id": "F",
+      "label_entity_id": "2",
+      "label_seq_id": 6,
+      "pdbx_poly_seq_scheme_mon_id": "VAL",
+      "auth_asym_id": "F",
+      "auth_seq_num": "6",
+      "ins_code": ".",
+      "atom_site_CA_label_comp_id": "VAL",
+      "atom_site_CA_auth_asym_id": "F",
+      "atom_site_CA_auth_seq_id": "6",
+      "atom_site_CA_auth_comp_id": "VAL"
+    },
+    {
+      "label_asym_id": "H",
+      "label_entity_id": "2",
+      "label_seq_id": 6,
+      "pdbx_poly_seq_scheme_mon_id": "VAL",
+      "auth_asym_id": "H",
+      "auth_seq_num": "6",
+      "ins_code": ".",
+      "atom_site_CA_label_comp_id": "VAL",
+      "atom_site_CA_auth_asym_id": "H",
+      "atom_site_CA_auth_seq_id": "6",
+      "atom_site_CA_auth_comp_id": "VAL"
+    }
+  ],
+  "chain_B_context": [
+    {
+      "label_seq_id": 3,
+      "mon_id": "LEU",
+      "auth_seq_num": "3",
+      "uniprot_pos": 4,
+      "uniprot_residue": "L"
+    },
+    {
+      "label_seq_id": 4,
+      "mon_id": "THR",
+      "auth_seq_num": "4",
+      "uniprot_pos": 5,
+      "uniprot_residue": "T"
+    },
+    {
+      "label_seq_id": 5,
+      "mon_id": "PRO",
+      "auth_seq_num": "5",
+      "uniprot_pos": 6,
+      "uniprot_residue": "P"
+    },
+    {
+      "label_seq_id": 6,
+      "mon_id": "VAL",
+      "auth_seq_num": "6",
+      "uniprot_pos": 7,
+      "uniprot_residue": "E"
+    },
+    {
+      "label_seq_id": 7,
+      "mon_id": "GLU",
+      "auth_seq_num": "7",
+      "uniprot_pos": 8,
+      "uniprot_residue": "E"
+    },
+    {
+      "label_seq_id": 8,
+      "mon_id": "LYS",
+      "auth_seq_num": "8",
+      "uniprot_pos": 9,
+      "uniprot_residue": "K"
+    },
+    {
+      "label_seq_id": 9,
+      "mon_id": "SER",
+      "auth_seq_num": "9",
+      "uniprot_pos": 10,
+      "uniprot_residue": "S"
+    }
+  ],
+  "entities": {
+    "1": {
+      "description": "HEMOGLOBIN S (DEOXY), ALPHA CHAIN",
+      "strands": "A,C,E,G"
+    },
+    "2": {
+      "description": "HEMOGLOBIN S (DEOXY), BETA CHAIN",
+      "strands": "B,D,F,H"
+    },
+    "3": {
+      "description": "PROTOPORPHYRIN IX CONTAINING FE",
+      "strands": null
+    },
+    "4": {
+      "description": "water",
+      "strands": null
+    }
+  }
+}

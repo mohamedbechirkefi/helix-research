@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+protein_uniprot_P68871.json	2026-11-01T18:18:37Z	200	1aa912d178817f29847f6b3efda3a2b40f2b5deb046c2c518ed080bab2e7fa5e	1684	GET	https://www.ebi.ac.uk/interpro/api/protein/uniprot/P68871	"{""content-type"": ""application/json"", ""interpro-version"": ""110.0""}"	

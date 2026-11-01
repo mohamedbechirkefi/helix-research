@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+release-date.json	2026-11-01T18:18:42Z	200	858f641a1e2999ed521cb7ee1a167305ae669e148172720041210235b6ebc2b8	19	GET	https://current.geneontology.org/metadata/release-date.json	"{""content-type"": ""application/json"", ""last-modified"": ""Sat, 08 Aug 2026 22:43:52 GMT"", ""etag"": ""\""887ad0cbce22986217baa736d218745c\""""}"	

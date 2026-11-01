@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_HBB.json	2026-11-01T18:18:30Z	200	166dc349c88ebaaf3a6337449c222cbc4af61e0407539aa696b40055138efd72	1695	GET	https://rest.genenames.org/fetch/symbol/HBB	"{""content-type"": ""application/json;charset=utf-8""}"	redacted 2026-11-01: OMIM/MIM/HGMD identifiers removed (author Q-H-LIC-1); original sha256 5c1b37931b746314dc2040a355f3b6c4c05d7c22fe58ae959ef6a782a0c6c49a

@@ -1,0 +1,6 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+2HBS.cif	2026-11-01T18:18:22Z	200	e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2	1001300	GET	https://files.rcsb.org/download/2HBS.cif	"{""content-type"": ""chemical/x-cif"", ""last-modified"": ""Sun, 16 Aug 2026 00:47:17 GMT"", ""etag"": ""W/\""197cffa360992dcc8ba71d7b65c266b1-identity\""""}"	
+entry_2HBS.json	2026-11-01T18:18:23Z	200	c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b	20118	GET	https://data.rcsb.org/rest/v1/core/entry/2HBS	"{""content-type"": ""application/json""}"	
+polymer_entity_2HBS_1.json	2026-11-01T18:18:24Z	200	5136ceb61332c83259f8fa684a1b3d599da3f1d25e72bb387a78920397d66102	53293	GET	https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/1	"{""content-type"": ""application/json""}"	
+polymer_entity_2HBS_2.json	2026-11-01T18:18:26Z	200	339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93	49282	GET	https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2	"{""content-type"": ""application/json""}"	
+assembly_2HBS_1.json	2026-11-01T18:18:27Z	200	c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded	4385	GET	https://data.rcsb.org/rest/v1/core/assembly/2HBS/1	"{""content-type"": ""application/json""}"	

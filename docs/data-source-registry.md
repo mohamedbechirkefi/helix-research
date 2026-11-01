@@ -1,0 +1,225 @@
+<!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
+# Data-source registry (P1.3.1)
+
+**Status:** Phase 1. **All pages and endpoints accessed 2026-11-01.**
+
+- **Policy text:** fetched from the official pages listed (by this session's research pass). Key licence sentences were re-checked with a second fetch.
+- **Release values and CORS results:** live measurements, saved under `research/raw/` (`*/MANIFEST.tsv` for release headers, `cors/cors-results.txt` for CORS).
+- **Labels:** "Inference" marks our reading of a policy. It is **not legal advice**.
+
+## Summary for architecture
+
+| Source | Release seen | Rate limit (documented) | Browser CORS (measured) | Data licence | Cached records in public repo / app bundle |
+|---|---|---|---|---|---|
+| Ensembl REST | 116 (REST 15.12) | 55,000 req/hour (~15/s); 429 + Retry-After | Yes: `*`, preflight OK, **no exposed headers** | Ensembl data "without restriction"; third-party content excepted | Yes (Inference), minus third-party content |
+| UniProt REST | 2026_03 (2026-09-02) | Not stated | Yes: `*`, preflight OK, release headers exposed | CC BY 4.0 | Yes with attribution, licence link, change notice |
+| RCSB Data API | n/a | "a handful of requests per second"; 429 | Yes: `*`, preflight OK | CC0 1.0 | Yes |
+| RCSB files (files.rcsb.org) | weekly PDB release | static files "not restricted" | Simple GET yes; **preflight returns 403** | CC0 1.0 | Yes |
+| RCSB ModelServer (models.rcsb.org) | | | Simple GET yes; **preflight lacks ACAO** | CC0 1.0 | Yes |
+| AlphaFold DB | model v6 | Not stated (EMBL-EBI ToU) | Yes: `*` (API and files) | CC BY 4.0 + in-file disclaimer | Yes with attribution and disclaimer kept |
+| NCBI E-utilities / ClinVar | ClinVar build 261025 (2026-10-25) | 3 req/s without key; >100 requests off-peak; `tool`/`email` | Yes: `*`, rate-limit headers exposed | Public domain (US Gov) + submitter caveat; disclaimer "must be evident" | Yes (Inference) with NCBI notice; no OMIM content |
+| Reactome Content Service | 98 | Not stated | Yes: `*` | CC0 (data); CC BY 4.0 (diagrams, icons) | Yes (data); attribution for diagrams |
+| Open Targets GraphQL | 26.09 (API 26.9.0) | No number; heavy use blocked; bulk via downloads | Yes: echoes Origin, credentials true; POST preflight OK | CC0 1.0 (platform); per-source terms | Core yes; check ChEMBL/HPA (CC BY-SA) and COSMIC fields |
+| HGNC REST | lastModified 2026-10-30 | 10 req/s; 403 IP block | Simple GET yes (`*`); preflight returns no allow-headers | CC0 | Yes |
+| NCBI Gene / RefSeq | (E-utilities) | as NCBI | as NCBI | as NCBI | as NCBI (RefSeq-specific statement not fetched) |
+| PDBe API / SIFTS | weekly | "no hard limits" currently | Yes: `*` (documented) | CC0 + EMBL-EBI ToU | Yes; cite SIFTS |
+| InterPro API | 110.0 | Not stated | Yes: `*`, version header exposed | CC0 for InterPro, Pfam, PRINTS, SFLD; members vary | InterPro yes; member signatures checked one by one |
+| GO / QuickGO | GO release 2026-08-05 | Not stated | Yes: `*` | CC BY 4.0 | Yes with attribution, licence and **GO release date + DOI** |
+
+### Architecture consequences
+
+1. **A static app can call every listed API directly from the browser today** (measured 2026-11-01, Origin `https://helix-cors-test.example`). Constraints:
+   - **Use simple GETs** (no custom request headers) for files.rcsb.org, models.rcsb.org and HGNC. Their preflights fail: 403, missing `Access-Control-Allow-Origin`, and no `Access-Control-Allow-Headers` respectively. For Ensembl, pass `content-type=application/json` as a **query parameter**, not a header. `Accept: application/json` is a CORS-safelisted header.
+   - Browsers do not let page scripts set `User-Agent`, so the documented identification cannot be sent from the browser. NCBI asks for `tool` and `email` URL parameters. Putting the maintainer email in a public bundle exposes it; **Decision proposal:** send `tool=helix` only from the browser.
+   - **Ensembl exposes no response headers**, so browser code cannot read `Retry-After` or the rate-limit headers. Back-off must be blind (exponential), not header-driven.
+   - CORS is **documented** only by Ensembl and PDBe. For the others it is observed behaviour that can change without notice.
+2. **The curated HBB journey must work with no network** (§4.2). Live calls are an enhancement of dynamic mode, behind adapters with timeouts, retries and back-off (§4.1).
+3. Per-IP rate limits apply per visitor in a static app. One heavy page could still exceed NCBI's 3 req/s or Ensembl's 15 req/s. **Decision proposal:** a client-side token bucket per source, set below the documented limit (Ensembl 10/s, NCBI 2/s, HGNC 5/s, others 3/s).
+4. **Redistribution is permitted for every source examined** (Inference), with conditions:
+   - attribution for UniProt, AlphaFold DB, GO and Reactome diagrams
+   - the NCBI disclaimer notice
+   - GO release date and DOI
+   - keep AlphaFold's in-file disclaimer
+   - no third-party proprietary content: OMIM text, HGMD, COSMIC, and share-alike fields from Open Targets sources
+   
+   Curated bundles should keep only the fields HELIX uses (see `research/hbb-acquisition-plan.md`).
+
+---
+
+## 1. Ensembl REST
+
+- **Docs and endpoints:**
+  - https://rest.ensembl.org/ ("Ensembl REST API (Version 15.12)")
+  - Used: `lookup/id/:id` (`expand`, `mane`, `utr`), `sequence/id/:id` (`type=cds|cdna|genomic|protein`), `map/cds/:id/:region`, `map/translation/:id/:region`, `variation/:species/:id`, `variant_recoder/:species/:id`, `vep/:species/hgvs/:hgvs`, `vep/:species/id/:id`, `xrefs/id/:id`, `info/data`, `info/rest`, `info/assembly/:species`
+  - GRCh37 host: https://grch37.rest.ensembl.org
+- **Versioning:** `info/data` returned `{"releases":[116]}`; `info/rest` returned `{"release":"15.12"}`. Stable IDs carry versions (ENSG00000244734.6 in release 116).
+- **Rate limits:** https://github.com/Ensembl/ensembl-rest/wiki/Rate-Limits: "we are allowed 55000 requests over an hour (3600 seconds) meaning we can perform an average of 15 requests per second". On 429, "Any client should then refuse to query the service until this period has been exceeded." Live headers `x-ratelimit-limit: 55000`, `x-ratelimit-period: 3600`.
+  - Note: that GitHub repository was archived on 2026-10-16 ("now read-only").
+  - www.ensembl.org now serves a new site; legal pages redirect to `jun2026.archive.ensembl.org` (release 116).
+  - Documentation location may move. Re-check at Phase 2.
+- **CORS:**
+  - Documented at https://github.com/Ensembl/ensembl-rest/wiki/CORS-And-JSONP: "Ensembl REST will return a Access-Control-Allow-Origin: * response header when any Origin request header is sent."
+  - Measured: preflight 200 with `allow-origin *`, `allow-methods GET, POST, OPTIONS`, `allow-headers content-type`; GET 200 with `allow-origin *`; `access-control-expose-headers` empty. GRCh37 host identical.
+- **Licence and terms:** https://jun2026.archive.ensembl.org/info/about/legal/disclaimer.html:
+  - "Ensembl imposes no restrictions on access to, or use of, the data provided and the software used to analyse and present it."
+  - "Some of the data and software included in the distribution may be subject to third-party constraints." Users are "solely responsible for establishing the nature of and complying with any such restrictions."
+  - EMBL-EBI terms of use also apply (section 10).
+  - Attribution is not stated as mandatory. **Decision:** we attribute anyway.
+- **Redistribution:** Inference: allowed for Ensembl-generated records. Strip or review third-party content:
+  - phenotype text from external sources
+  - HGMD accessions in VEP `colocated_variants` (removed from the snapshot)
+  - OMIM-derived synonyms in `variation/rs334` (removed from the snapshot)
+
+## 2. UniProt REST
+
+- **Docs and endpoints:**
+  - https://www.uniprot.org/help/api (text served by https://rest.uniprot.org/help/api) and https://www.uniprot.org/api-documentation/
+  - Used: `https://rest.uniprot.org/uniprotkb/{acc}.json` and `.fasta`
+  - Help pages are readable as JSON at `https://rest.uniprot.org/help/{id}`
+- **Versioning:** response headers `x-uniprot-release: 2026_03`, `x-uniprot-release-date: 02-September-2026` (documented at https://rest.uniprot.org/help/rest-api-headers). Entries carry `entryVersion` (219 for P68871) and `sequenceVersion` (2).
+- **Rate limits:** not stated in help/api, programmatic_access or rest-api-headers. HTTP 503 means "try again later". EMBL-EBI terms apply.
+- **CORS:** measured preflight 204 with `allow-origin *`; GET exposes `Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date`. Not documented.
+- **Licence:** https://www.uniprot.org/help/license:
+  - "We have chosen to apply the Creative Commons Attribution 4.0 International (CC BY 4.0) License to all copyrightable parts of our databases."
+  - It also says it cannot "provide unrestricted permission regarding the use of the data, as some data may be covered by patents or other rights".
+  - Medical information is "for research, educational and informational purposes only".
+- **Redistribution:** yes under CC BY 4.0, with attribution, a licence link, and an indication of changes (trimmed fields).
+
+## 3. RCSB PDB (Data API, files, ModelServer)
+
+- **Docs and endpoints:**
+  - https://www.rcsb.org/docs/programmatic-access/web-apis-overview
+  - Used: `https://data.rcsb.org/rest/v1/core/entry/{id}`, `core/polymer_entity/{id}/{entity}`, `core/assembly/{id}/{n}`, `https://files.rcsb.org/download/{id}.cif`
+  - GraphQL at `https://data.rcsb.org/graphql`
+- **Versioning:** the archive updates weekly. Entries carry revision history: 2HBS revision 1.5, 2026-08-12.
+- **Rate limits:** same overview page: "While access to static files is not restricted, all RCSB PDB APIs have rate limits in place. We recommend starting with a handful of requests per second. If you exceed the limit, the service will respond with a 429 HTTP error code". It recommends exponential back-off.
+- **CORS:**
+  - data.rcsb.org: preflight 200 and GET with `allow-origin *`.
+  - files.rcsb.org: **preflight 403** (with `allow-origin *`); GET 200 with `allow-origin *`. A browser fetch with non-safelisted headers will fail; plain GET works.
+  - models.rcsb.org: preflight 200 **without** `allow-origin`; GET 200 with `allow-origin *`.
+  - Not documented.
+- **Licence:**
+  - https://www.rcsb.org/pages/usage-policy: "data files contained in the PDB archive are available under the CC0 1.0 Universal (CC0 1.0) Public Domain Dedication. All data provided by RCSB PDB programmatic APIs are available under the same license."
+  - Attribution to original authors is "encouraged". "All other articles and text on the RCSB PDB site are copyrighted."
+  - wwPDB: https://www.wwpdb.org/about/usage-policies.
+- **Redistribution:** yes (CC0). Do not copy RCSB site text or images other than those under stated licences. Computed structure models served through RCSB (IDs starting `AF_` or `MA_`) carry their source's licence.
+
+## 4. AlphaFold DB
+
+- **Docs and endpoints:**
+  - https://alphafold.ebi.ac.uk/api-docs (OpenAPI at https://alphafold.ebi.ac.uk/api/openapi.json)
+  - Used: `https://alphafold.ebi.ac.uk/api/prediction/{uniprot}` and `https://alphafold.ebi.ac.uk/files/AF-{acc}-F1-model_v6.cif`
+- **Versioning:** P68871: `latestVersion` 6, `modelCreatedDate` 2025-08-01, `toolUsed` "AlphaFold Monomer v2.0 pipeline".
+- **Rate limits:** not stated. EMBL-EBI terms of use apply.
+- **CORS:** measured `allow-origin *` on the API (preflight and GET) and on files (preflight allows GET and Content-Type).
+- **Licence:**
+  - Site: "Data is available for academic and commercial use, under a CC-BY-4.0 licence." and "EMBL-EBI expects attribution".
+  - The model file `_pdbx_data_usage` says "Data in this file is available under a CC-BY-4.0 license." plus the DeepMind copyright and disclaimer ("THEORETICAL MODELLING ONLY ... NOT INTENDED TO BE A SUBSTITUTE FOR PROFESSIONAL MEDICAL ADVICE"), verified in the saved `AF-P68871-F1-model_v6.cif`.
+  - The FAQ page is a JavaScript app and was not readable by script.
+- **Redistribution:** yes with attribution (DeepMind and EMBL-EBI), keeping the in-file notice, and always labelled "predicted".
+
+## 5. NCBI ClinVar via E-utilities
+
+- **Docs and endpoints:**
+  - https://www.ncbi.nlm.nih.gov/clinvar/docs/programmatic_access/ (**not fetchable by script**: reCAPTCHA page)
+  - Used: `https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar`, `esummary.fcgi?db=clinvar`, `einfo.fcgi?db=clinvar`
+- **Versioning:**
+  - `einfo` returned `dbbuild` Build261025-1250.1, last update 2026/10/25.
+  - https://ftp.ncbi.nlm.nih.gov/pub/clinvar/README.txt: "Data on the ftp site are updated monthly and weekly", "Weekly releases are not archived", and "ClinVar may modify files after release to remove personally identifiable information".
+  - Records are versioned (VCV000015333.183).
+- **Rate limits:** https://www.ncbi.nlm.nih.gov/home/about/policies/: "Make no more than 3 requests every 1 second." and "Run retrieval scripts on weekends or between 9 pm and 5 am Eastern Time weekdays for any series of more than 100 requests." It asks for the `tool` and `email` parameters. Live header `x-ratelimit-limit: 3`. The 10 req/s with an API key is **unverified** (the E-utilities manual returned reCAPTCHA).
+- **CORS:** measured preflight 200 and GET 200 with `allow-origin *`; GET exposes `X-RateLimit-Limit, X-RateLimit-Remaining`. Not documented.
+- **Licence:** same policies page:
+  - "NCBI itself places no restrictions on the use or distribution of the data contained therein."
+  - Submitters "may claim patent, copyright, or other intellectual property rights".
+  - "NCBI's Disclaimer and Copyright notice must be evident to users of your service."
+  - US government works are public domain, with NLM acknowledgement requested.
+  - ClinVar's own submitter-data statement: **unverified** (reCAPTCHA).
+- **Redistribution:** Inference: allowed, with the NCBI notice shown in the app. Keep submitter attribution (SCV accessions). Exclude OMIM text.
+
+## 6. Reactome Content Service
+
+- **Docs and endpoints:**
+  - https://reactome.org/dev/content-service
+  - Used: `https://reactome.org/ContentService/data/database/version`, `/data/mapping/UniProt/{acc}/pathways`
+  - Planned: `/data/query/{stId}`, `/data/event/{stId}/participatingPhysicalEntities`
+- **Versioning:** database version **98**. Stable IDs are versioned (R-HSA-1237044.5).
+- **Rate limits:** not stated.
+- **CORS:** measured `allow-origin *` (the preflight response duplicates some headers, harmless).
+- **Licence:** https://reactome.org/license:
+  - "All data in the Reactome database and files derived from that data are licensed under the Creative Commons Public Domain Dedication (CC0)" and "Attribution is encouraged but not required."
+  - Pathway illustrations, icons and art are CC BY 4.0. Software is Apache 2.0.
+- **Redistribution:** yes (CC0 data). Reactome diagrams and icons need CC BY attribution.
+
+## 7. Open Targets Platform GraphQL
+
+- **Docs and endpoints:**
+  - https://platform-docs.opentargets.org/data-access/graphql-api
+  - Used: `POST https://api.platform.opentargets.org/api/v4/graphql` with `meta` and `target(ensemblId)`
+- **Versioning:** live `meta`: apiVersion 26.9.0, dataVersion 26/09. Release notes (https://platform-docs.opentargets.org/release-notes): 26.09, 24 September 2026.
+- **Rate limits:**
+  - The docs "discourage users from repeatedly querying the GraphQL API one entity at a time" and send bulk use to downloads or BigQuery.
+  - Terms (https://platform-docs.opentargets.org/licence/terms-of-use): use "that prevents, or looks likely to prevent, Open Targets providing services to others, will result in the use being blocked."
+- **CORS:** measured POST preflight 200, `allow-origin` echoes the request Origin, `allow-credentials true`. Not documented.
+- **Licence:** https://platform-docs.opentargets.org/licence:
+  - "Open Targets Platform is marked with CC0 1.0."
+  - A per-source table includes ChEMBL and Human Protein Atlas (CC BY-SA 3.0), Cancer Gene Census ("Commercial use for Open Targets"), and Europe PMC (mixed).
+  - It also says all listed sources "have agreed for their data to be used without restriction by all Open Targets users".
+- **Redistribution:** platform core yes. **Decision proposal:** bundle only association scores and identifiers HELIX needs, and review any field derived from share-alike or COSMIC sources before bundling. Not needed for the HBB slice.
+
+## 8. HGNC REST
+
+- **Docs and endpoints:** https://www.genenames.org/help/rest/. Used: `https://rest.genenames.org/fetch/symbol/{symbol}` (Accept: application/json), `/info`.
+- **Versioning:** no numbered release; `/info` lastModified 2026-10-30.
+- **Rate limits:** "Please only send REST requests at a rate of 10 requests per second". Higher rates may get an IP block with 403.
+- **CORS:** measured preflight 200 with `allow-origin *` but **no** allow-methods or allow-headers; GET 200 with `allow-origin *`. Use simple GETs only.
+- **Licence:** https://www.genenames.org/about/license/: "released under the Creative Commons Public Domain (CC0) License. This means that any form of reuse of the content is permitted." Attribution recommended (Seal et al., NAR 2023).
+- **Redistribution:** yes.
+
+## 9. NCBI Gene and RefSeq
+
+- **Endpoints:** E-utilities `db=gene`, `db=nuccore`, `db=protein`. Used: `esearch` (`HBB[sym] AND Homo sapiens[orgn]`, which returned GeneIDs 3043 and 85344; 85344 is KRT89P, a false hit) and `esummary` (3043).
+- **Versioning, rate limits, CORS, licence:** as section 5. The RefSeq FAQ (https://www.ncbi.nlm.nih.gov/books/NBK50679/) returned reCAPTCHA; a RefSeq-specific usage statement is **unverified**.
+- **Note:** esummary `genomicinfo` appears 0-based (5225463-5227070 vs Ensembl 1-based 5225464-5227071).
+
+## 10. PDBe API and SIFTS
+
+- **Docs and endpoints:**
+  - https://www.ebi.ac.uk/pdbe/pdbe-rest-api (REST docs moved to `https://www.ebi.ac.uk/pdbe/api/v2/doc`)
+  - Used: `https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/{pdb}` and `mappings/uniprot_segments/{pdb}`
+  - SIFTS: https://www.ebi.ac.uk/pdbe/docs/sifts/
+- **Versioning:** "The information is updated and released every week concurrently with the release of new PDB entries" (SIFTS page).
+- **Rate limits:** PDBe API FAQ: "Currently, there are no hard limits. Rate limiting may be introduced in future." POST batches up to 1000 IDs.
+- **CORS:** documented ("CORS support is enabled on our servers"). Measured preflight 204 and GET 200 with `allow-origin *`.
+- **Licence:**
+  - https://www.ebi.ac.uk/pdbe/about/public-data-access-statement: data "in accordance with the Creative Commons Zero (CC0) designation".
+  - SIFTS asks to cite Dana et al. NAR 2019 and Velankar et al. NAR 2013.
+  - EMBL-EBI terms: https://www.ebi.ac.uk/about/terms-of-use (no additional restrictions beyond original owners; "EMBL-EBI expects attribution"; no implied endorsement; overuse may be blocked).
+- **Redistribution:** yes, with SIFTS citation.
+
+## 11. InterPro API
+
+- **Docs and endpoints:** https://www.ebi.ac.uk/interpro/api/. Used: `/protein/uniprot/{acc}`.
+- **Versioning:** response header `interpro-version: 110.0`.
+- **Rate limits:** not stated. Bulk exports go to FTP (https://interpro-documentation.readthedocs.io/en/latest/download.html).
+- **CORS:** measured `allow-origin *`, exposes `InterPro-Version`.
+- **Licence:** https://interpro-documentation.readthedocs.io/en/latest/license.html: "All of the InterPro, Pfam, PRINTS and SFLD downloadable data provided on the InterPro website is freely available under CC0 1.0". "The included scanning tools and signature collections may be under different license terms."
+- **Redistribution:** InterPro entries yes. Member-database signatures (PANTHER, SMART, CATH-Gene3D, PROSITE, etc.) are not confirmed; store only their accession IDs until each is checked.
+
+## 12. Gene Ontology and QuickGO
+
+- **Docs and endpoints:** https://www.ebi.ac.uk/QuickGO/api/index.html. Used: `https://www.ebi.ac.uk/QuickGO/services/annotation/search?geneProductId={acc}` and `https://current.geneontology.org/metadata/release-date.json`.
+- **Versioning:** GO release 2026-08-05. The response body was `{date: 2026-08-05}`, which is **not valid JSON**; parse defensively.
+- **Rate limits:** not stated.
+- **CORS:** measured `allow-origin *` on QuickGO and current.geneontology.org.
+- **Licence:** https://geneontology.org/docs/go-citation-policy/:
+  - "Gene Ontology Consortium data and data products are licensed under the Creative Commons Attribution 4.0 Unported License".
+  - Tools and services should provide "the GO release date and DOI along with the results".
+- **Redistribution:** yes with attribution, licence notice, and GO release date and DOI. The GO release DOI was **not** retrieved in this session.
+
+## Not covered or unverified
+
+- NCBI pages behind reCAPTCHA: ClinVar programmatic-access and data-use pages, the E-utilities manual (API-key limit), the RefSeq FAQ.
+- UniProt and AlphaFold DB numeric rate limits: not documented on the pages read.
+- Behaviour of CORS on error responses (429/5xx): not tested. If an error response lacks `Access-Control-Allow-Origin`, the browser reports a network error instead of 429.
+- Ensembl "Image Reuse" and "name and logo" policies: listed in the legal index, not read.

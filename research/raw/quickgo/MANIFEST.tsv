@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+annotation_search_P68871.json	2026-11-01T18:18:40Z	200	ce1dee06bb0f3b8cb483fc23d4ed07e3d165ddd568868f6d86dbded248b380c9	11965	GET	https://www.ebi.ac.uk/QuickGO/services/annotation/search?geneProductId=P68871&limit=25	"{""content-type"": ""application/json""}"	

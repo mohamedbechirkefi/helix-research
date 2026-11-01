@@ -1,0 +1,59 @@
+{
+  "cutoff_angstrom": 4.5,
+  "numbering": "auth_asym_id / auth_seq_id",
+  "scope": "asymmetric unit, model 1, no symmetry mates",
+  "chains": {
+    "B": {
+      "residue": "VAL",
+      "contacts": []
+    },
+    "D": {
+      "residue": "VAL",
+      "contacts": []
+    },
+    "F": {
+      "residue": "VAL",
+      "contacts": []
+    },
+    "H": {
+      "residue": "VAL",
+      "contacts": [
+        [
+          "B",
+          70,
+          "ALA"
+        ],
+        [
+          "B",
+          73,
+          "ASP"
+        ],
+        [
+          "B",
+          84,
+          "THR"
+        ],
+        [
+          "B",
+          85,
+          "PHE"
+        ],
+        [
+          "B",
+          88,
+          "LEU"
+        ],
+        [
+          "B",
+          232,
+          "HOH"
+        ],
+        [
+          "B",
+          302,
+          "HOH"
+        ]
+      ]
+    }
+  }
+}

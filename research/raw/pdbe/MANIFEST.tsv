@@ -1,0 +1,3 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+sifts_mappings_uniprot_2hbs.json	2026-11-01T18:18:28Z	200	c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd	2386	GET	https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs	"{""content-type"": ""application/json""}"	
+sifts_mappings_uniprot_segments_2hbs.json	2026-11-01T18:18:29Z	200	ba76d9d11fa0d61cdcf647565c0d667e89e4bf8de59220c008d597ee6c160866	2158	GET	https://www.ebi.ac.uk/pdbe/api/mappings/uniprot_segments/2hbs	"{""content-type"": ""application/json""}"	

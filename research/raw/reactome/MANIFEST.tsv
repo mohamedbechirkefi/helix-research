@@ -1,0 +1,3 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+database_version.txt	2026-11-01T18:18:33Z	200	29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67	2	GET	https://reactome.org/ContentService/data/database/version	"{""content-type"": ""text/plain;charset=UTF-8""}"	
+mapping_UniProt_P68871_pathways.json	2026-11-01T18:18:35Z	200	1607a87618d8e26483293a3caa4d8b5bcd80b2d17c026ae8961b323089190014	3949	GET	https://reactome.org/ContentService/data/mapping/UniProt/P68871/pathways	"{""content-type"": ""application/json;charset=UTF-8""}"	

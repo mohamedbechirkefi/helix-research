@@ -1,0 +1,174 @@
+### ensembl  https://rest.ensembl.org/lookup/id/ENSG00000244734?content-type=application/json  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-expose-headers: 
+access-control-allow-origin: *
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-headers: content-type
+--- GET with Origin
+HTTP/2 200 
+access-control-expose-headers: 
+access-control-allow-origin: *
+### ensembl-grch37  https://grch37.rest.ensembl.org/lookup/id/ENSG00000244734?content-type=application/json  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-expose-headers: 
+access-control-allow-origin: *
+access-control-allow-methods: GET, POST, OPTIONS
+access-control-allow-headers: content-type
+--- GET with Origin
+HTTP/2 200 
+access-control-expose-headers: 
+access-control-allow-origin: *
+### uniprot  https://rest.uniprot.org/uniprotkb/P68871.json  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 204 
+access-control-allow-credentials: true
+access-control-max-age: 1728000
+access-control-allow-origin: *
+access-control-allow-methods: GET, PUT, POST, DELETE, PATCH, OPTIONS
+access-control-allow-headers: DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-credentials: true
+access-control-expose-headers: Link, X-Total-Results, X-UniProt-Release, X-UniProt-Release-Date, X-API-Deployment-Date
+access-control-max-age: 1728000
+access-control-allow-origin: *
+access-control-allow-methods: GET, PUT, POST, DELETE, PATCH, OPTIONS
+access-control-allow-headers: DNT,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range,Authorization
+### rcsb-data  https://data.rcsb.org/rest/v1/core/entry/2HBS  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-methods: GET,POST,PUT,DELETE,OPTIONS
+access-control-max-age: 1800
+access-control-allow-headers: X-Requested-With,Content-Type,Authorization,rcsb-analytics-traffic-origin,rcsb-analytics-traffic-stage
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+### rcsb-files  https://files.rcsb.org/download/2HBS.cif  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 403 
+access-control-allow-origin: *
+access-control-allow-methods: GET,HEAD
+access-control-max-age: 600
+access-control-allow-headers: Origin,rcsb-analytics-traffic-stage,X-Requested-With,rcsb-analytics-traffic-origin,Accept-Encoding,Content-Type
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+### rcsb-models  https://models.rcsb.org/v1/2hbs/full?encoding=cif  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-headers: X-Requested-With,Content-Type,Authorization,rcsb-analytics-traffic-origin,rcsb-analytics-traffic-stage
+### alphafold-api  https://alphafold.ebi.ac.uk/api/prediction/P68871  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-methods: DELETE, GET, HEAD, OPTIONS, PATCH, POST, PUT
+access-control-max-age: 600
+access-control-allow-credentials: true
+access-control-allow-origin: *
+access-control-allow-headers: content-type
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-credentials: true
+### alphafold-files  https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-max-age: 3600
+access-control-allow-methods: GET
+access-control-allow-headers: Content-Type
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-expose-headers: Content-Length, Content-Type, Date, Server, Transfer-Encoding, Warning, X-GUploader-Response-Body-Transformations, X-GUploader-UploadID, X-Google-Trace
+### ncbi-eutils  https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=15333&retmode=json  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-max-age: 86400
+access-control-allow-origin: *
+access-control-allow-headers: NCBI-PHID,NCBI-SID
+access-control-allow-methods: GET,HEAD,POST
+access-control-allow-credentials: true
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-expose-headers: X-RateLimit-Limit,X-RateLimit-Remaining
+### reactome  https://reactome.org/ContentService/data/database/version  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-methods: GET, POST, PUT, DELETE
+access-control-allow-methods: GET, POST, PUT, DELETE
+access-control-allow-headers: Content-Type
+access-control-allow-headers: Content-Type
+access-control-max-age: 1
+access-control-max-age: 1
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+### opentargets POST
+--- OPTIONS
+HTTP/2 200 
+access-control-max-age: 3600
+access-control-allow-origin: https://helix-cors-test.example
+access-control-allow-headers: content-type
+access-control-allow-methods: POST
+access-control-allow-credentials: true
+--- POST with Origin
+HTTP/2 200 
+access-control-allow-origin: https://helix-cors-test.example
+access-control-allow-credentials: true
+### hgnc  https://rest.genenames.org/fetch/symbol/HBB  (preflight method=GET headers=accept)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+### pdbe  https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 204 
+access-control-max-age: 1728000
+access-control-allow-origin: *
+access-control-allow-methods: GET,POST,OPTIONS
+access-control-allow-headers: DNT, User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Range
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+### interpro  https://www.ebi.ac.uk/interpro/api/protein/uniprot/P68871  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-expose-headers: InterPro-Version
+access-control-max-age: 86400
+access-control-allow-origin: *
+access-control-allow-headers: accept, authorization, content-type, user-agent, x-csrftoken, x-requested-with
+access-control-allow-methods: DELETE, GET, OPTIONS, PATCH, POST, PUT
+--- GET with Origin
+HTTP/2 200 
+access-control-expose-headers: InterPro-Version
+access-control-allow-origin: *
+### quickgo  https://www.ebi.ac.uk/QuickGO/services/annotation/search?geneProductId=P68871&limit=1  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-headers: Content-Type
+### go-current  https://current.geneontology.org/metadata/release-date.json  (preflight method=GET headers=content-type)
+--- OPTIONS
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-methods: GET, HEAD
+access-control-allow-headers: content-type
+--- GET with Origin
+HTTP/2 200 
+access-control-allow-origin: *
+access-control-allow-methods: GET, HEAD
+2026-11-01T18:24:14Z

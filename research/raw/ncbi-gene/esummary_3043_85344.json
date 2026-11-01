@@ -1,0 +1,306 @@
+{
+ "header": {
+  "type": "esummary",
+  "version": "0.3"
+ },
+ "result": {
+  "uids": [
+   "3043",
+   "85344"
+  ],
+  "3043": {
+   "uid": "3043",
+   "name": "HBB",
+   "description": "hemoglobin subunit beta",
+   "status": "",
+   "currentid": "",
+   "chromosome": "11",
+   "geneticsource": "genomic",
+   "maplocation": "11p15.4",
+   "otheraliases": "CD113t-C, ECYT6, beta-globin",
+   "otherdesignations": "hemoglobin subunit beta|Hb Monza protein|beta globin chain|hemoglobin beta subunit|hemoglobin, beta",
+   "nomenclaturesymbol": "HBB",
+   "nomenclaturename": "hemoglobin subunit beta",
+   "nomenclaturestatus": "Official",
+   "genomicinfo": [
+    {
+     "chrloc": "11",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463,
+     "exoncount": 3
+    }
+   ],
+   "geneweight": 41624,
+   "summary": "The alpha (HBA) and beta (HBB) loci determine the structure of the 2 types of polypeptide chains in adult hemoglobin, Hb A. The normal adult hemoglobin tetramer consists of two alpha chains and two beta chains. Mutant beta globin causes sickle cell anemia. Absence of beta chain causes beta-zero-thalassemia. Reduced amounts of detectable beta globin causes beta-plus-thalassemia. The order of the genes in the beta-globin cluster is 5'-epsilon -- gamma-G -- gamma-A -- delta -- beta--3'. [provided by RefSeq, Jul 2008]",
+   "chrsort": "11",
+   "chrstart": 5225463,
+   "organism": {
+    "scientificname": "Homo sapiens",
+    "commonname": "human",
+    "taxid": 9606
+   },
+   "locationhist": [
+    {
+     "annotationrelease": "RS_2025_08",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "RS_2025_08",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060935.1",
+     "chrstart": 5286438,
+     "chrstop": 5284831
+    },
+    {
+     "annotationrelease": "RS_2024_08",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "RS_2024_08",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060935.1",
+     "chrstart": 5286438,
+     "chrstop": 5284831
+    },
+    {
+     "annotationrelease": "RS_2023_10",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "RS_2023_10",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060935.1",
+     "chrstart": 5286438,
+     "chrstop": 5284831
+    },
+    {
+     "annotationrelease": "RS_2023_03",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "RS_2023_03",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060935.1",
+     "chrstart": 5286438,
+     "chrstop": 5284831
+    },
+    {
+     "annotationrelease": "110",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "110",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060935.1",
+     "chrstart": 5286438,
+     "chrstop": 5284831
+    },
+    {
+     "annotationrelease": "109.20211119",
+     "assemblyaccver": "GCF_000001405.39",
+     "chraccver": "NC_000011.10",
+     "chrstart": 5227070,
+     "chrstop": 5225463
+    },
+    {
+     "annotationrelease": "RS_2024_09",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000011.9",
+     "chrstart": 5248300,
+     "chrstop": 5246693
+    },
+    {
+     "annotationrelease": "105.20220307",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000011.9",
+     "chrstart": 5248300,
+     "chrstop": 5246693
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000011.9",
+     "chrstart": 5248300,
+     "chrstop": 5246695
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000002125.1",
+     "chraccver": "AC_000143.1",
+     "chrstart": 4907473,
+     "chrstop": 4905868
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000306695.2",
+     "chraccver": "NC_018922.2",
+     "chrstart": 5247235,
+     "chrstop": 5245630
+    }
+   ]
+  },
+  "85344": {
+   "uid": "85344",
+   "name": "KRT89P",
+   "description": "keratin 89, pseudogene",
+   "status": "",
+   "currentid": "",
+   "chromosome": "12",
+   "geneticsource": "genomic",
+   "maplocation": "12q13.13",
+   "otheraliases": "HBB, KRT123P, KRTHBP2, psihHbB",
+   "otherdesignations": "keratin 123 pseudogene|keratin, hair, basic pseudogene 2|psihHbB hair keratin pseudogene",
+   "nomenclaturesymbol": "KRT89P",
+   "nomenclaturename": "keratin 89, pseudogene",
+   "nomenclaturestatus": "Official",
+   "genomicinfo": [
+    {
+     "chrloc": "12",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153,
+     "exoncount": ""
+    }
+   ],
+   "geneweight": 100,
+   "summary": "",
+   "chrsort": "12",
+   "chrstart": 52344218,
+   "organism": {
+    "scientificname": "Homo sapiens",
+    "commonname": "human",
+    "taxid": 9606
+   },
+   "locationhist": [
+    {
+     "annotationrelease": "RS_2025_08",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "RS_2025_08",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060936.1",
+     "chrstart": 52308132,
+     "chrstop": 52317063
+    },
+    {
+     "annotationrelease": "RS_2024_08",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "RS_2024_08",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060936.1",
+     "chrstart": 52308132,
+     "chrstop": 52317063
+    },
+    {
+     "annotationrelease": "RS_2023_10",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "RS_2023_10",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060936.1",
+     "chrstart": 52308132,
+     "chrstop": 52317063
+    },
+    {
+     "annotationrelease": "RS_2023_03",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "RS_2023_03",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060936.1",
+     "chrstart": 52308132,
+     "chrstop": 52317063
+    },
+    {
+     "annotationrelease": "110",
+     "assemblyaccver": "GCF_000001405.40",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "110",
+     "assemblyaccver": "GCF_009914755.1",
+     "chraccver": "NC_060936.1",
+     "chrstart": 52308132,
+     "chrstop": 52317063
+    },
+    {
+     "annotationrelease": "109.20211119",
+     "assemblyaccver": "GCF_000001405.39",
+     "chraccver": "NC_000012.12",
+     "chrstart": 52344218,
+     "chrstop": 52353153
+    },
+    {
+     "annotationrelease": "RS_2024_09",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000012.11",
+     "chrstart": 52738002,
+     "chrstop": 52746937
+    },
+    {
+     "annotationrelease": "105.20220307",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000012.11",
+     "chrstart": 52738002,
+     "chrstop": 52746937
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000001405.25",
+     "chraccver": "NC_000012.11",
+     "chrstart": 52734780,
+     "chrstop": 52748246
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000002125.1",
+     "chraccver": "AC_000144.1",
+     "chrstart": 49778332,
+     "chrstop": 49791798
+    },
+    {
+     "annotationrelease": "105",
+     "assemblyaccver": "GCF_000306695.2",
+     "chraccver": "NC_018923.2",
+     "chrstart": 52701429,
+     "chrstop": 52714895
+    }
+   ]
+  }
+ }
+}
