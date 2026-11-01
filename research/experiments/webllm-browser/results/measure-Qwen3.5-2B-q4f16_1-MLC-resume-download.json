@@ -1,0 +1,114 @@
+{
+ "date": "2026-11-01T20:56:56.567Z",
+ "chromeVersion": "Chrome/156.0.8078.74",
+ "headless": true,
+ "model": "Qwen3.5-2B-q4f16_1-MLC",
+ "warm": true,
+ "worker": false,
+ "gpu": {
+  "webgpu": true,
+  "adapter": true,
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "description": "",
+  "maxBufferSize": 4294967292,
+  "maxStorageBufferBindingSize": 4294967292,
+  "shaderF16": true
+ },
+ "modelRecord": {
+  "model": "https://huggingface.co/mlc-ai/Qwen3.5-2B-q4f16_1-MLC",
+  "model_id": "Qwen3.5-2B-q4f16_1-MLC",
+  "model_lib": "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/main/web-llm-models/v0_2_86/base/Qwen3.5-2B-q4f16_1_cs1k-webgpu.wasm",
+  "vram_required_MB": 2245.44,
+  "low_resource_required": false,
+  "overrides": {
+   "context_window_size": 4096,
+   "max_history_size": 1
+  }
+ },
+ "promptVersion": "helix-plan-prompt-v1",
+ "items": [
+  "S01",
+  "S09",
+  "S11",
+  "S14",
+  "F01",
+  "U01",
+  "U03",
+  "A01",
+  "I01",
+  "FR01"
+ ],
+ "maxTokens": 700,
+ "load": {
+  "loadMs": 2697391,
+  "progressEvents": 65,
+  "progressTail": [
+   {
+    "t": 2696968,
+    "p": 0.9760658084237596,
+    "text": "Loading model from cache[30/31]: 987MB loaded. 97% completed, 2697 secs elapsed."
+   },
+   {
+    "t": 2697040,
+    "p": 1,
+    "text": "Loading model from cache[31/31]: 1011MB loaded. 100% completed, 2697 secs elapsed."
+   },
+   {
+    "t": 2697391,
+    "p": 1,
+    "text": "Loading GPU shader modules[9/9]: 100% completed, 1 secs elapsed."
+   },
+   {
+    "t": 2697391,
+    "p": 1,
+    "text": "Finish loading on WebGPU - apple"
+   }
+  ]
+ },
+ "cache": {
+  "bytes": 1079474163,
+  "entries": 35,
+  "perCache": {
+   "webllm/config": 2358,
+   "webllm/wasm": 7176151,
+   "webllm/model": 1072295654
+  }
+ },
+ "extraBody": {
+  "enable_thinking": false
+ },
+ "generation": {
+  "n": 0,
+  "aggregate": null,
+  "latencyMs": {
+   "firstToken": {
+    "p50": null,
+    "p95": null
+   },
+   "total": {
+    "p50": null,
+    "p95": null
+   }
+  },
+  "decodeTokensPerSec": {
+   "p50": null,
+   "min": null,
+   "max": null
+  },
+  "prefillTokensPerSec": {
+   "p50": null
+  },
+  "errors": 0
+ },
+ "frames": {},
+ "memoryPeakMiB": {
+  "baseline": 859,
+  "load": 1266,
+  "resident-idle": 530
+ },
+ "console": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)"
+ ],
+ "loadOnly": true
+}

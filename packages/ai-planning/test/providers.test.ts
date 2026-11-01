@@ -6,6 +6,7 @@ import {
   ProviderRegistry,
   WebLLMProvider,
   deterministicPlan,
+  stripThinkBlock,
   type PlanProvider,
   type WebLLMEngineLike,
 } from "../src/index.ts";
@@ -97,6 +98,12 @@ function mockEngine(text: string): WebLLMEngineLike & { requests: Record<string,
 }
 
 describe("WebLLMProvider (mock engine)", () => {
+  it("strips the empty think block Qwen templates emit (measured in P3.2.2)", async () => {
+    expect(stripThinkBlock("<think>\n\n</think>\n\n{\"a\":1}")).toBe('{"a":1}');
+    expect(stripThinkBlock('{"reason":"<think>x</think>"}')).toBe('{"reason":"<think>x</think>"}');
+    const p = new WebLLMProvider({ modelId: "m", engineFactory: async () => mockEngine("<think>\n\n</think>\n\n" + planJson), gpu: () => ({ requestAdapter: async () => ({}) }) });
+    expect((await p.plan({ query: "q", context: ctx, requestId: "1" })).raw).toBe(planJson);
+  });
   it("is unavailable without WebGPU (e.g. WKWebView on macOS 15)", async () => {
     const p = new WebLLMProvider({ modelId: "Qwen3-1.7B-q4f16_1-MLC", engineFactory: async () => mockEngine(planJson), gpu: () => undefined });
     expect((await p.detect()).available).toBe(false);

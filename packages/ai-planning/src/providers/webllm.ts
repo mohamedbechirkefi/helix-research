@@ -37,6 +37,14 @@ export interface WebLLMConfig {
   extraBody?: Record<string, unknown>;
 }
 
+/**
+ * Qwen3 and Qwen3.5 chat templates emit an empty `<think>...</think>` block as content even with
+ * enable_thinking false (measured in P3.2.2). It is removed deterministically before validation.
+ */
+export function stripThinkBlock(raw: string): string {
+  return raw.replace(/^\s*<think>[\s\S]*?<\/think>\s*/, "");
+}
+
 export class WebLLMProvider implements PlanProvider {
   readonly id: string;
   readonly kind = "webllm" as const;
@@ -103,6 +111,6 @@ export class WebLLMProvider implements PlanProvider {
       req.signal?.removeEventListener("abort", onAbort);
     }
     if (req.signal?.aborted) throw new ProviderError(this.id, "aborted", "cancelled");
-    return { raw, timings: { firstTokenMs: first, totalMs: now() - t0 }, usage };
+    return { raw: stripThinkBlock(raw), timings: { firstTokenMs: first, totalMs: now() - t0 }, usage, meta: { rawLength: raw.length } };
   }
 }
