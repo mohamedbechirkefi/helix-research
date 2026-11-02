@@ -1,0 +1,70 @@
+// D-H008 routing oracles for the existing items (author decision D-H008, 2026-11-02), written by hand from the rule before any model ran with prompt v4. Context: the app context of the harness (an item with a selection is a follow-up in Protein World, any other a first answer in DNA World). world: where the answer must end; any: one world, either; none: no scene expected.
+{"id": "S01", "set": "questions.jsonl", "world": "protein", "why": "effect cue (affects)"}
+{"id": "S02", "set": "questions.jsonl", "world": "protein", "why": "structure"}
+{"id": "S03", "set": "questions.jsonl", "world": "protein", "why": "3D, protein, structure"}
+{"id": "S04", "set": "questions.jsonl", "world": "protein", "why": "structure"}
+{"id": "S05", "set": "questions.jsonl", "world": "protein", "why": "protein, 3D"}
+{"id": "S06", "set": "questions.jsonl", "world": "protein", "why": "3D structure"}
+{"id": "S07", "set": "questions.jsonl", "world": "protein", "why": "residue"}
+{"id": "S08", "set": "questions.jsonl", "world": "dna", "why": "neutral: hemoglobin is a molecule name, not a cue; stays in DNA World at the start (amended)"}
+{"id": "S09", "set": "questions.jsonl", "world": "dna", "why": "neutral gene question: stays in DNA World (no Protein World scene)"}
+{"id": "S10", "set": "questions.jsonl", "world": "dna", "why": "neutral gene question (hemoglobin subunit beta is a name)"}
+{"id": "S11", "set": "questions.jsonl", "world": "protein", "why": "crystal structure"}
+{"id": "S12", "set": "questions.jsonl", "world": "protein", "why": "crystal structure"}
+{"id": "S13", "set": "questions.jsonl", "world": "protein", "why": "crystal, valine, chain"}
+{"id": "S14", "set": "questions.jsonl", "world": "any", "why": "evidence only; an evidence card shows in any world"}
+{"id": "S15", "set": "questions.jsonl", "world": "any", "why": "evidence only"}
+{"id": "S16", "set": "questions.jsonl", "world": "protein", "why": "protein (Protein World)"}
+{"id": "S17", "set": "questions.jsonl", "world": "protein", "why": "AlphaFold model (structure)"}
+{"id": "S18", "set": "questions.jsonl", "world": "any", "why": "cancel"}
+{"id": "S19", "set": "questions.jsonl", "world": "dna", "why": "neutral at the start: DNA World, the codon change (amended)"}
+{"id": "S20", "set": "questions.jsonl", "world": "any", "why": "mixed (structure and codon): one world, either"}
+{"id": "F01", "set": "questions.jsonl", "world": "protein", "why": "follow-up in Protein World, residue"}
+{"id": "F02", "set": "questions.jsonl", "world": "protein", "why": "follow-up, residue, crystal"}
+{"id": "F03", "set": "questions.jsonl", "world": "protein", "why": "follow-up, residue"}
+{"id": "F04", "set": "questions.jsonl", "world": "protein", "why": "follow-up in Protein World, neutral: stays"}
+{"id": "F05", "set": "questions.jsonl", "world": "protein", "why": "follow-up, residue"}
+{"id": "F06", "set": "questions.jsonl", "world": "protein", "why": "follow-up, residu"}
+{"id": "U01", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U02", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U03", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U04", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U05", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U06", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U07", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U08", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U09", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U10", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U11", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "U12", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "A01", "set": "questions.jsonl", "world": "none", "why": "clarification"}
+{"id": "A02", "set": "questions.jsonl", "world": "none", "why": "clarification"}
+{"id": "A03", "set": "questions.jsonl", "world": "none", "why": "clarification"}
+{"id": "A04", "set": "questions.jsonl", "world": "none", "why": "clarification"}
+{"id": "A05", "set": "questions.jsonl", "world": "none", "why": "clarification"}
+{"id": "I01", "set": "questions.jsonl", "world": "protein", "why": "effect cue (affects)"}
+{"id": "I02", "set": "questions.jsonl", "world": "protein", "why": "follow-up, residue, crystal"}
+{"id": "I03", "set": "questions.jsonl", "world": "any", "why": "evidence only"}
+{"id": "I04", "set": "questions.jsonl", "world": "dna", "why": "neutral gene question"}
+{"id": "I05", "set": "questions.jsonl", "world": "protein", "why": "structure"}
+{"id": "I06", "set": "questions.jsonl", "world": "none", "why": "refusal"}
+{"id": "FR01", "set": "questions.jsonl", "world": "protein", "why": "effect cue (affecte)"}
+{"id": "FR02", "set": "questions.jsonl", "world": "protein", "why": "structure"}
+{"id": "FR03", "set": "questions.jsonl", "world": "dna", "why": "neutral gene question"}
+{"id": "FR04", "set": "questions.jsonl", "world": "any", "why": "evidence only"}
+{"id": "H01", "set": "heldout.jsonl", "world": "protein", "why": "chain (weak cue; interpretation: chain is structure vocabulary)"}
+{"id": "H02", "set": "heldout.jsonl", "world": "protein", "why": "glutamate, valine (amino acids), chain"}
+{"id": "H03", "set": "heldout.jsonl", "world": "dna", "why": "neutral gene question (locus, chromosome are not cues)"}
+{"id": "H04", "set": "heldout.jsonl", "world": "protein", "why": "X-ray structure"}
+{"id": "H05", "set": "heldout.jsonl", "world": "any", "why": "evidence only (names 2HBS, but asks for a record)"}
+{"id": "H06", "set": "heldout.jsonl", "world": "any", "why": "cancel"}
+{"id": "H07", "set": "heldout.jsonl", "world": "none", "why": "refusal"}
+{"id": "H08", "set": "heldout.jsonl", "world": "none", "why": "refusal"}
+{"id": "H09", "set": "heldout.jsonl", "world": "protein", "why": "AlphaFold"}
+{"id": "H10", "set": "heldout.jsonl", "world": "protein", "why": "structure"}
+{"id": "H11", "set": "heldout.jsonl", "world": "protein", "why": "follow-up in Protein World, amino acid"}
+{"id": "H12", "set": "heldout.jsonl", "world": "protein", "why": "follow-up, crystal"}
+{"id": "H13", "set": "heldout.jsonl", "world": "protein", "why": "residue, 3D"}
+{"id": "H14", "set": "heldout.jsonl", "world": "none", "why": "refusal"}
+{"id": "H15", "set": "heldout.jsonl", "world": "any", "why": "evidence only"}
+{"id": "H16", "set": "heldout.jsonl", "world": "none", "why": "clarification"}
