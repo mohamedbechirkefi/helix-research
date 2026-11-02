@@ -60,7 +60,7 @@ Sequences (`/sequence/id/ENST00000335295?type=cds`, `type=cdna`, `/sequence/id/E
 - `clinical_significance` lists: not provided, likely benign, pathogenic, other, protective.
 - **rs334 is multi-allelic.** It is not a synonym for HbS.
 
-`https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json` (a first call without `fields` returned HTTP 500; the retry with `fields` returned 200, both are in the manifest). Per forward-strand allele:
+`https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json` (a first call without `fields` returned HTTP 500; the retry with `fields` returned 200. The HTML error page of the first attempt was later deleted as not needed, so only the retry is in the manifest). Per forward-strand allele:
 
 | Forward allele | hgvsg | SPDI | MANE hgvsc | hgvsp | Name |
 |---|---|---|---|---|---|

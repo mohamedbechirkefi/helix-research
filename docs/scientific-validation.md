@@ -3,6 +3,8 @@
 
 **Status:** Phase 2. **Last run:** live build of `data/curated/hbb/` started 2026-11-01T19:27:28Z from commit `0692bff` (clean tree), Ensembl 116, UniProt 2026_03, PDB 2HBS revision 1.5 (2026-08-12), ClinVar Build261025-1250.1, AlphaFold DB model v6.
 
+> **Commit hashes after the history rewrite (note added 2026-11-02).** On 2026-11-01 the public history was rewritten to remove an email address (see `paper/report.en.md`, chapter 11). The hashes recorded at build time, `0692bff` (also the `generator.gitCommit` in `data/curated/hbb/manifest.json`) and `aeb7b43`, are from before the rewrite and are not on `main`. The same commits on `main`, with identical content and subject, are `3b89a9a` and `701cd57`. The manifest is left as built, because its hashes are checked by the dataset tests; the next rebuild records a current commit.
+
 Every value quoted in the "Last result" column is copied from `data/curated/hbb/manifest.json` (`validation[].detail`), which the build script wrote from the live responses. Nothing in this document is typed from memory.
 
 ## 1. How validation works

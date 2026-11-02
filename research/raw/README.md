@@ -3,7 +3,7 @@
 
 Live API responses fetched on 2026-11-01 for Phase 1 tasks P1.1.3, P1.3.1 and P1.8.1. They are the evidence behind every identifier, position and sequence quoted in `research/hbs-mapping-note.md` and `research/hbb-acquisition-plan.md`.
 
-- **How they were fetched:** `scripts/research/fetch_raw.py` (standard library only), User-Agent `helix-research (Mohamed Bechir Kefi)`, sleeps between calls.
+- **How they were fetched:** `scripts/research/fetch_raw.py` (standard library only), User-Agent `helix-research` followed by the author's name in parentheses at the time (the scripts now send `helix-research` only), sleeps between calls.
 - **Manifest:** each `<source>/MANIFEST.tsv` lists file, UTC retrieval time, HTTP status, sha256, size, method, URL and selected response headers (release headers, rate-limit headers).
 - **Do not edit these files.** They are a frozen snapshot. Phase 2 adapters re-fetch and compare.
 - **`cors/cors-results.txt`** is our own measurement (preflight and Origin-header tests), not a provider record.

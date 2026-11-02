@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import type { KeyValueStore } from "@helix/data-adapters";
 
 export const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../..");
-export const USER_AGENT = "helix-research (Mohamed Bechir Kefi)";
+export const USER_AGENT = "helix-research";
 
 export function gitState(): { commit: string | null; dirty: boolean | null } {
   try {

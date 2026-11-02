@@ -68,7 +68,7 @@ Limits: one data block, no save frames (model files have none), text form only (
 - **Rate limits:** one token bucket per source, below the documented ceilings. Ensembl 10/s (documented 15/s), NCBI 2/s (documented 3/s), HGNC 5/s (documented 10/s), the others 3/s.
 - **Typed errors** (`errors.ts`), each with `code` and `retryable`: `TimeoutError`, `NetworkError`, `AbortedError` (caller cancelled, never retried), `HttpStatusError`, `NotFoundError`, `RateLimitedError`, `MalformedResponseError` (`html-instead-of-json`, `invalid-json`, `empty-body`, `truncated`), `InvalidParameterError`, `ParseError`, `ValidationFailedError`, `ProprietaryContentError`.
 - **Malformed bodies:** a body starting with `<` where JSON, FASTA or mmCIF was expected is rejected even with status 200. This covers the HTML error page seen from Ensembl `variant_recoder`. Invalid JSON (the GO `release-date.json` case) is rejected, never repaired.
-- **User-Agent:** set only by Node scripts (`helix-research (Mohamed Bechir Kefi)`). Browsers forbid it, and custom headers break the CORS preflight of files.rcsb.org and HGNC, so browser callers send simple GETs. Ensembl's content type goes in the query string.
+- **User-Agent:** set only by Node scripts (`helix-research`). Browsers forbid it, and custom headers break the CORS preflight of files.rcsb.org and HGNC, so browser callers send simple GETs. Ensembl's content type goes in the query string.
 - **Parameters** are validated before any request (stable-id, rsID, accession and PDB-id patterns; a 10 kb cap on genomic windows).
 
 ## 5. Cache

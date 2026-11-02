@@ -50,7 +50,7 @@
 
 ## 3. Endpoints to call (Phase 2 adapters)
 
-All with User-Agent `helix-research (Mohamed Bechir Kefi)` from scripts, plus timeouts, retries with exponential back-off, and the per-source rate limits in the registry.
+All with User-Agent `helix-research` from scripts, plus timeouts, retries with exponential back-off, and the per-source rate limits in the registry.
 
 | # | Purpose | Endpoint |
 |---|---|---|
