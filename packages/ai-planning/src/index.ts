@@ -6,6 +6,7 @@ export * from "./prompt.ts";
 export * from "./benchmark.ts";
 export * from "./fallback.ts";
 export * from "./director.ts";
+export * from "./followups.ts";
 export * from "./providers/types.ts";
 export * from "./providers/deterministic.ts";
 export * from "./providers/ollama.ts";

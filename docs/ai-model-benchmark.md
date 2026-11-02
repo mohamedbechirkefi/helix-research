@@ -16,6 +16,7 @@
 | P3.2.2 browser check | WebLLM page, Puppeteer driver, results | `research/experiments/webllm-browser/` |
 | P3.2.3 fallback | Rule-based planner, no model | `packages/ai-planning/src/fallback.ts` |
 | P3.2.4 providers | Deterministic, Ollama and WebLLM providers; registry with capability detection and runtime switching | `packages/ai-planning/src/providers/` |
+| D-H007 follow-up filter (2026-11-02) | Deterministic filter of a plan's `followUps`, whichever planner wrote them: clinical and out-of-scope blocklists, grounding, and a capability allowlist (the rule-based planner must answer the suggestion with a valid plan through an allowed rule). The benchmark scores do not use `followUps`, so the Phase 3 results stand | `packages/ai-planning/src/followups.ts` |
 | P3.3.2 director | Minimal Journey Director, **a reference implementation in helix-research**. The product director belongs in helix-app (`packages/ai-director`) and should be ported from this one | `packages/ai-planning/src/director.ts` |
 
 A new package was justified: `ai-planning` depends on `scientific-core` (gene resolution) and adds a model-facing layer that the data packages must not import. Like the other runtime packages it uses only web APIs (`fetch`, streams, `AbortController`), so it runs in the browser, in the Tauri webview and in Node; the platform scan test in `scientific-core/test/core.test.ts` now covers it.
