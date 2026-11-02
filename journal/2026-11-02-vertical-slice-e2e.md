@@ -11,7 +11,7 @@ hypothesis:    On the running app, (B) a follow-up question causes a second, ver
                structure withheld (labelled test fixture) the app says why and shows the variant on the
                sequence without loading any model; (F) with no reachable model every non-LLM path works; the
                Phase 4 and 5 suites still pass. Contradicted by any failed assertion of the suites.
-git_commit:    helix-app a1cb0c7 (private repository); helix-research packages and data pinned at 0826e68
+git_commit:    helix-app a1cb0c7 (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research packages and data pinned at 0826e68
 config:        helix-app apps/web/e2e/phase6.mjs (--runs=3 --ollama-runs=3 --tag=2026-11-02); Phase 4 suite
                e2e/run.mjs (--runs=5 --ollama-runs=5 default, --tag=2026-11-02-p6reg); Phase 5 suite
                e2e/phase5.mjs (--tag=2026-11-02-p6reg); e2e/demo-record.mjs (provider ollama)
@@ -82,5 +82,5 @@ Supported on this machine: a follow-up question causes a second, verified visual
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/results/phase6-e2e-2026-11-02.json`, `e2e-2026-11-02-p6reg.json`, `phase5-e2e-2026-11-02-p6reg.json`, `demo-recording-2026-11-02.json` (private repository)
+- `helix-app/apps/web/e2e/results/phase6-e2e-2026-11-02.json`, `e2e-2026-11-02-p6reg.json`, `phase5-e2e-2026-11-02-p6reg.json`, `demo-recording-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/docs/reviews/phase-6.md`, `phase-6-shots/`, `phase-6-demo/helix-phase6-demo.webm`

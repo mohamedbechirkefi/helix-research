@@ -1,0 +1,559 @@
+{
+ "date": "2026-11-02T01:46:54.850Z",
+ "repeats": 2,
+ "runs": [
+  {
+   "kind": "dna-idle",
+   "uncapped": false,
+   "loop": "always",
+   "r3fFramesIn2s": 120
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "dna-idle",
+   "uncapped": false,
+   "loop": "demand",
+   "r3fFramesIn2s": 0
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 181,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 182
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 181,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 182
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "dna-idle",
+   "uncapped": true,
+   "loop": "always",
+   "r3fFramesIn2s": 3136
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 849,
+    "meanMs": 3.52,
+    "p95Ms": 4.8,
+    "maxMs": 7.4,
+    "over50": [],
+    "loaf": [],
+    "draws": 850
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 847,
+    "meanMs": 3.53,
+    "p95Ms": 4.7,
+    "maxMs": 7.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 848
+   },
+   "r3fFramesDuringSpin": [
+    867,
+    919
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 851,
+    "meanMs": 3.52,
+    "p95Ms": 4.8,
+    "maxMs": 14.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 852
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 847,
+    "meanMs": 3.52,
+    "p95Ms": 4.8,
+    "maxMs": 7.5,
+    "over50": [],
+    "loaf": [],
+    "draws": 848
+   },
+   "r3fFramesDuringSpin": [
+    868,
+    919
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 952,
+    "meanMs": 3.14,
+    "p95Ms": 4.5,
+    "maxMs": 7.4,
+    "over50": [],
+    "loaf": [],
+    "draws": 953
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 969,
+    "meanMs": 3.09,
+    "p95Ms": 4.6,
+    "maxMs": 7.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 970
+   },
+   "r3fFramesDuringSpin": [
+    969,
+    1040
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 956,
+    "meanMs": 3.13,
+    "p95Ms": 4.5,
+    "maxMs": 7.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 957
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 965,
+    "meanMs": 3.11,
+    "p95Ms": 4.6,
+    "maxMs": 7.6,
+    "over50": [],
+    "loaf": [],
+    "draws": 966
+   },
+   "r3fFramesDuringSpin": [
+    973,
+    1036
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "dna-idle",
+   "uncapped": true,
+   "loop": "demand",
+   "r3fFramesIn2s": 0
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 872,
+    "meanMs": 3.43,
+    "p95Ms": 4.6,
+    "maxMs": 7.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 873
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 870,
+    "meanMs": 3.44,
+    "p95Ms": 4.6,
+    "maxMs": 7.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 871
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 869,
+    "meanMs": 3.44,
+    "p95Ms": 4.6,
+    "maxMs": 7.1,
+    "over50": [],
+    "loaf": [],
+    "draws": 870
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 866,
+    "meanMs": 3.45,
+    "p95Ms": 4.6,
+    "maxMs": 7.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 867
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 985,
+    "meanMs": 3.04,
+    "p95Ms": 4.2,
+    "maxMs": 6.5,
+    "over50": [],
+    "loaf": [],
+    "draws": 986
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 997,
+    "meanMs": 3,
+    "p95Ms": 4.2,
+    "maxMs": 8,
+    "over50": [],
+    "loaf": [],
+    "draws": 998
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 983,
+    "meanMs": 3.04,
+    "p95Ms": 4.2,
+    "maxMs": 6.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 984
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 995,
+    "meanMs": 3,
+    "p95Ms": 4.2,
+    "maxMs": 6.1,
+    "over50": [],
+    "loaf": [],
+    "draws": 996
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  }
+ ],
+ "chrome": "Chrome/156.0.8078.74"
+}

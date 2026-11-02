@@ -1,0 +1,140 @@
+{
+ "date": "2026-11-02T00:49:34.500Z",
+ "chrome": "Chrome/156.0.8078.74",
+ "uncapped": true,
+ "page": "http://localhost:5182/?layout=side",
+ "variants": [
+  {
+   "name": "original-sequence",
+   "repeat": 1,
+   "pointer": "over the Mol* canvas",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3,
+     "meanMs": 1.37,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 288.4,
+     "meanMs": 2.45,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 18781.800000000745,
+       "duration": 298.80000000074506,
+       "blocking": 248.8,
+       "renderStart": 18781.800000000745,
+       "styleAndLayoutStart": 19080.60000000149,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 298.3,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 66
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 2.9,
+     "meanMs": 1.35,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 297.4,
+     "meanMs": 2.5,
+     "p95Ms": 3.9,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 27437.900000002235,
+       "duration": 298.0999999977648,
+       "blocking": 248,
+       "renderStart": 27437.900000002235,
+       "styleAndLayoutStart": 27735.900000002235,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 297.8,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 95.1
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "no-clicks",
+   "repeat": 1,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 4.4,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 38.4,
+     "meanMs": 2.39,
+     "p95Ms": 4,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.2,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 36.7,
+     "meanMs": 2.38,
+     "p95Ms": 4,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    }
+   ]
+  }
+ ]
+}

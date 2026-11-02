@@ -12,7 +12,7 @@ hypothesis:    (1) The DNA World helix drawn in the running app carries, at inst
                no counterpart. Contradicted by any drawn base, colour or position differing from the
                sequence, a click selecting another base, a structure residue computed by offset, or a
                missing explanation.
-git_commit:    helix-app 4962491 (private repository); helix-research packages and data pinned at a13c1ec
+git_commit:    helix-app 4962491 (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research packages and data pinned at a13c1ec
 config:        helix-app apps/web/e2e/phase5.mjs, scenarios dna-render and bridge (--tag=2026-11-02);
                unit tests packages/scene-engine/test/bridge.test.ts, apps/web/test/dna-layout.test.ts
 seeds:         n/a (deterministic); one run per E2E scenario, each in a fresh browser context
@@ -65,6 +65,6 @@ Supported: DNA World draws the real transcript sequence base for base, a click o
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (private repository), scenarios `dna-render`, `bridge`
+- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`), scenarios `dna-render`, `bridge`
 - `helix-app/docs/reviews/phase-5-shots/dna-transcript-overview.jpg`, `dna-codon7.jpg`, `protein-from-codon7.jpg`, `codon1-no-residue.jpg`
 - `helix-app/packages/scene-engine/test/bridge.test.ts`, `helix-app/apps/web/test/dna-layout.test.ts`

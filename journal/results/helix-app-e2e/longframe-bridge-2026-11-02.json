@@ -1,0 +1,800 @@
+{
+ "date": "2026-11-02T00:50:33.601Z",
+ "chrome": "Chrome/156.0.8078.74",
+ "uncapped": true,
+ "page": "http://localhost:5182/?layout=side",
+ "variants": [
+  {
+   "name": "original-sequence",
+   "repeat": 1,
+   "pointer": "over the Mol* canvas",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 2.9,
+     "meanMs": 1.37,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 179.5,
+     "meanMs": 2.39,
+     "p95Ms": 3.9,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 18745.5,
+       "duration": 136.19999999925494,
+       "blocking": 86.2,
+       "renderStart": 18745.5,
+       "styleAndLayoutStart": 18881.300000000745,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "Tne",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 1127406,
+         "ms": 135.7,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 39.1
+      },
+      {
+       "start": 18904,
+       "duration": 196,
+       "blocking": 146,
+       "renderStart": 18904,
+       "styleAndLayoutStart": 19099.89999999851,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 195.6,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 197.6
+      }
+     ],
+     "traced": "helix-app/apps/web/e2e/results/longframe-bridge-trace.json"
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 5.7,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 294.9,
+     "meanMs": 2.48,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 39986.699999999255,
+       "duration": 302,
+       "blocking": 251.9,
+       "renderStart": 39986.699999999255,
+       "styleAndLayoutStart": 40288.5,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 301.6,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 96.3
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "original-sequence",
+   "repeat": 2,
+   "pointer": "over the Mol* canvas",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3.8,
+     "meanMs": 1.35,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 277.3,
+     "meanMs": 2.47,
+     "p95Ms": 3.9,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 18765.800000000745,
+       "duration": 291.4000000022352,
+       "blocking": 241.4,
+       "renderStart": 18765.800000000745,
+       "styleAndLayoutStart": 19057.20000000298,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 291.1,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 62
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.1,
+     "meanMs": 1.35,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 305.3,
+     "meanMs": 2.48,
+     "p95Ms": 3.9,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 27422.300000000745,
+       "duration": 312,
+       "blocking": 262,
+       "renderStart": 27422.300000000745,
+       "styleAndLayoutStart": 27734.300000000745,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 311.8,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 95.8
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "no-clicks",
+   "repeat": 1,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 4.3,
+     "meanMs": 1.46,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 36.5,
+     "meanMs": 2.41,
+     "p95Ms": 4.1,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.2,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 37,
+     "meanMs": 2.4,
+     "p95Ms": 4,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "no-clicks",
+   "repeat": 2,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 4.4,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 36.5,
+     "meanMs": 2.4,
+     "p95Ms": 4,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.4,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 37.8,
+     "meanMs": 2.4,
+     "p95Ms": 4,
+     "over20ms": 1,
+     "loaf": [],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "r3f-click-only",
+   "repeat": 1,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 5.3,
+     "meanMs": 1.5,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 71.4,
+     "meanMs": 2.99,
+     "p95Ms": 6.3,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 9064.300000000745,
+       "duration": 75.19999999925494,
+       "blocking": 25.2,
+       "renderStart": 9064.300000000745,
+       "styleAndLayoutStart": 9139.300000000745,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 74.6,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 34
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.2,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 72.3,
+     "meanMs": 3.01,
+     "p95Ms": 6.3,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17697.699999999255,
+       "duration": 72.89999999850988,
+       "blocking": 22.9,
+       "renderStart": 17697.699999999255,
+       "styleAndLayoutStart": 17770.5,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 72.2,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 35.7
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "r3f-click-only",
+   "repeat": 2,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 5.4,
+     "meanMs": 1.49,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 69.7,
+     "meanMs": 3.01,
+     "p95Ms": 6.3,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 9072,
+       "duration": 72.89999999850988,
+       "blocking": 22.8,
+       "renderStart": 9072,
+       "styleAndLayoutStart": 9144.79999999702,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 72.5,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 34.8
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 3.2,
+     "meanMs": 1.45,
+     "p95Ms": 2.8,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 55.9,
+     "meanMs": 3,
+     "p95Ms": 6.4,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17711.79999999702,
+       "duration": 70.90000000223517,
+       "blocking": 20.9,
+       "renderStart": 17711.79999999702,
+       "styleAndLayoutStart": 17782.599999997765,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 70.3,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 35.1
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "mol-clicks-only",
+   "repeat": 1,
+   "pointer": "over the Mol* canvas",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 287.1,
+     "meanMs": 2.45,
+     "p95Ms": 3.9,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17225.800000000745,
+       "duration": 291.80000000074506,
+       "blocking": 241.6,
+       "renderStart": 17225.900000002235,
+       "styleAndLayoutStart": 17517.5,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 291.2,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 76
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 4.3,
+     "meanMs": 1.34,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 300.6,
+     "meanMs": 2.43,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 25873.20000000298,
+       "duration": 300.8999999985099,
+       "blocking": 250.8,
+       "renderStart": 25873.300000000745,
+       "styleAndLayoutStart": 26174.10000000149,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 300.6,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 93.7
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "mol-clicks-only",
+   "repeat": 2,
+   "pointer": "over the Mol* canvas",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 271.4,
+     "meanMs": 2.4,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17223.39999999851,
+       "duration": 288,
+       "blocking": 238,
+       "renderStart": 17223.39999999851,
+       "styleAndLayoutStart": 17511.29999999702,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 287.6,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 74.6
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 4.5,
+     "meanMs": 1.34,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 301.2,
+     "meanMs": 2.43,
+     "p95Ms": 3.7,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 25873.5,
+       "duration": 301.69999999925494,
+       "blocking": 251.7,
+       "renderStart": 25873.5,
+       "styleAndLayoutStart": 26175.199999999255,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 301.3,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 94.6
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "mol-clicks-pointer-away",
+   "repeat": 1,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3.1,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 288.8,
+     "meanMs": 2.43,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17207.10000000149,
+       "duration": 291.80000000074506,
+       "blocking": 241.8,
+       "renderStart": 17207.10000000149,
+       "styleAndLayoutStart": 17498.800000000745,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 291.2,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 74.1
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 4.1,
+     "meanMs": 1.34,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 305,
+     "meanMs": 2.44,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 25854.20000000298,
+       "duration": 316.0999999977648,
+       "blocking": 266,
+       "renderStart": 25854.300000000745,
+       "styleAndLayoutStart": 26170.20000000298,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 315.4,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 92.7
+      }
+     ],
+     "traced": null
+    }
+   ]
+  },
+  {
+   "name": "mol-clicks-pointer-away",
+   "repeat": 2,
+   "pointer": "elsewhere",
+   "frames": [
+    {
+     "molSpin": false,
+     "r3fSpin": false,
+     "maxMs": 3.1,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": false,
+     "maxMs": 277.1,
+     "meanMs": 2.42,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 17209.099999997765,
+       "duration": 289.70000000298023,
+       "blocking": 239.6,
+       "renderStart": 17209.199999999255,
+       "styleAndLayoutStart": 17498.699999999255,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 289.2,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 75.3
+      }
+     ],
+     "traced": null
+    },
+    {
+     "molSpin": false,
+     "r3fSpin": true,
+     "maxMs": 4.3,
+     "meanMs": 1.36,
+     "p95Ms": 2.7,
+     "over20ms": 0,
+     "loaf": [],
+     "traced": null
+    },
+    {
+     "molSpin": true,
+     "r3fSpin": true,
+     "maxMs": 293.7,
+     "meanMs": 2.43,
+     "p95Ms": 3.8,
+     "over20ms": 1,
+     "loaf": [
+      {
+       "start": 25864.39999999851,
+       "duration": 306.69999999925494,
+       "blocking": 256.7,
+       "renderStart": 25864.5,
+       "styleAndLayoutStart": 26171,
+       "scripts": [
+        {
+         "invoker": "FrameRequestCallback",
+         "fn": "",
+         "url": "index-BBEcgBBt.js",
+         "charPos": 4644673,
+         "ms": 306,
+         "forcedLayout": 0
+        }
+       ],
+       "atMs": 100.9
+      }
+     ],
+     "traced": null
+    }
+   ]
+  }
+ ]
+}

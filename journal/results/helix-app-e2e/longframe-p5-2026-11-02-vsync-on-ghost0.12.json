@@ -1,0 +1,292 @@
+{
+ "date": "2026-11-02T01:54:34.828Z",
+ "repeats": 2,
+ "ghostDna": 0.12,
+ "runs": [
+  {
+   "kind": "dna-idle",
+   "uncapped": false,
+   "loop": "always",
+   "r3fFramesIn2s": 120
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    253
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.4,
+    "frames": 181,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 182
+   },
+   "r3fFramesDuringSpin": [
+    193,
+    254
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "dna-idle",
+   "uncapped": false,
+   "loop": "demand",
+   "r3fFramesIn2s": 0
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.4,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.4,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": false,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.7,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 180,
+    "meanMs": 16.67,
+    "p95Ms": 16.8,
+    "maxMs": 16.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 181
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  }
+ ],
+ "chrome": "Chrome/156.0.8078.74"
+}

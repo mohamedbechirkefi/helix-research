@@ -9,7 +9,7 @@ hypothesis:    Carried from HX-P4-2026-11-02-long-frame: now that an R3F canvas 
                on change) should avoid it, while "always" should reproduce it when both canvases are
                visible and frames are uncapped. Contradicted if "demand" shows long frames, or if "always"
                never does.
-git_commit:    helix-app 4962491 (private repository). The first set (no ghost) ran on the same code minus
+git_commit:    helix-app 4962491 (private repository; public copy in `journal/results/helix-app-e2e/`). The first set (no ghost) ran on the same code minus
                the diagnostics-only `ghostDna` option, which defaults to off.
 config:        helix-app apps/web/e2e/longframe-p5.mjs: R3F frameloop always | demand; with or without
                eight real clicks on the Mol* canvas before the spin; vsync on | off; set 1 with DNA World
@@ -67,4 +67,4 @@ The hypothesis is supported. With R3F rendering every frame on a visible canvas 
 ## Artifacts
 
 - `helix-app/apps/web/e2e/longframe-p5.mjs`
-- `helix-app/apps/web/e2e/results/longframe-p5-2026-11-02.json`, `longframe-p5-2026-11-02-vsync-off-ghost0.12.json`, `longframe-p5-2026-11-02-vsync-on-ghost0.12.json` (private repository)
+- `helix-app/apps/web/e2e/results/longframe-p5-2026-11-02.json`, `longframe-p5-2026-11-02-vsync-off-ghost0.12.json`, `longframe-p5-2026-11-02-vsync-on-ghost0.12.json` (private repository; public copy in `journal/results/helix-app-e2e/`)

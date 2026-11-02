@@ -1,0 +1,544 @@
+{
+ "date": "2026-11-02T01:52:07.510Z",
+ "repeats": 2,
+ "ghostDna": 0.12,
+ "runs": [
+  {
+   "kind": "dna-idle",
+   "uncapped": true,
+   "loop": "always",
+   "r3fFramesIn2s": 3139
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0,
+    "frames": 170,
+    "meanMs": 17.67,
+    "p95Ms": 7.9,
+    "maxMs": 2327.3,
+    "over50": [
+     {
+      "atMs": 2352.3,
+      "ms": 2327.3
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 26.9,
+      "duration": 2329.8,
+      "blockingDuration": 2279.9,
+      "renderMs": 2329.8,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2329.6
+       }
+      ]
+     }
+    ],
+    "draws": 171
+   },
+   "spin2": {
+    "setPropsMs": 0,
+    "frames": 162,
+    "meanMs": 18.54,
+    "p95Ms": 8.9,
+    "maxMs": 2305.7,
+    "over50": [
+     {
+      "atMs": 2331,
+      "ms": 2305.7
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 25.9,
+      "duration": 2312.8,
+      "blockingDuration": 2262.7,
+      "renderMs": 2312.8,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2310.7
+       }
+      ]
+     }
+    ],
+    "draws": 163
+   },
+   "r3fFramesDuringSpin": [
+    1880,
+    2639
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "always",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 192,
+    "meanMs": 15.68,
+    "p95Ms": 7.9,
+    "maxMs": 2208.4,
+    "over50": [
+     {
+      "atMs": 2234.5,
+      "ms": 2208.4
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 27.8,
+      "duration": 2216.5,
+      "blockingDuration": 2166.4,
+      "renderMs": 2216.4,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2215.7
+       }
+      ]
+     }
+    ],
+    "draws": 193
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 153,
+    "meanMs": 19.64,
+    "p95Ms": 8.8,
+    "maxMs": 2363,
+    "over50": [
+     {
+      "atMs": 2388,
+      "ms": 2363
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 26.7,
+      "duration": 2372.6,
+      "blockingDuration": 2322.6,
+      "renderMs": 2372.6,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2372.2
+       }
+      ]
+     }
+    ],
+    "draws": 154
+   },
+   "r3fFramesDuringSpin": [
+    1899,
+    2625
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 240,
+    "meanMs": 12.53,
+    "p95Ms": 7.5,
+    "maxMs": 1935.6,
+    "over50": [
+     {
+      "atMs": 221.2,
+      "ms": 201.6
+     },
+     {
+      "atMs": 2175.5,
+      "ms": 1935.6
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": -2521.7,
+      "duration": 139.8,
+      "blockingDuration": 89.9,
+      "renderMs": 139.8,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 139.7
+       }
+      ]
+     },
+     {
+      "atMs": -2015.4,
+      "duration": 195,
+      "blockingDuration": 145,
+      "renderMs": 195,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 194.8
+       }
+      ]
+     },
+     {
+      "atMs": 20.2,
+      "duration": 202.3,
+      "blockingDuration": 152.3,
+      "renderMs": 202.3,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 201
+       }
+      ]
+     },
+     {
+      "atMs": 243.3,
+      "duration": 1945.3,
+      "blockingDuration": 1895.2,
+      "renderMs": 1945.3,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 1944.9
+       }
+      ]
+     }
+    ],
+    "draws": 241
+   },
+   "spin2": {
+    "setPropsMs": 0,
+    "frames": 209,
+    "meanMs": 14.39,
+    "p95Ms": 6.5,
+    "maxMs": 2275.8,
+    "over50": [
+     {
+      "atMs": 2301.4,
+      "ms": 2275.8
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 27.6,
+      "duration": 2288.1,
+      "blockingDuration": 2238,
+      "renderMs": 2288,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2287.7
+       }
+      ]
+     }
+    ],
+    "draws": 210
+   },
+   "r3fFramesDuringSpin": [
+    1952,
+    2701
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "always",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 242,
+    "meanMs": 12.42,
+    "p95Ms": 7.7,
+    "maxMs": 1944.4,
+    "over50": [
+     {
+      "atMs": 202.7,
+      "ms": 184.8
+     },
+     {
+      "atMs": 2170.3,
+      "ms": 1944.4
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": -2519.9,
+      "duration": 148.2,
+      "blockingDuration": 98.1,
+      "renderMs": 148.1,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 148
+       }
+      ]
+     },
+     {
+      "atMs": -2012.5,
+      "duration": 195.3,
+      "blockingDuration": 145.2,
+      "renderMs": 195.2,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 195.1
+       }
+      ]
+     },
+     {
+      "atMs": 18.3,
+      "duration": 185.6,
+      "blockingDuration": 135.5,
+      "renderMs": 185.5,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 183.9
+       }
+      ]
+     },
+     {
+      "atMs": 226.5,
+      "duration": 1950.7,
+      "blockingDuration": 1900.7,
+      "renderMs": 1950.6,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 1950.4
+       }
+      ]
+     }
+    ],
+    "draws": 243
+   },
+   "spin2": {
+    "setPropsMs": 0,
+    "frames": 221,
+    "meanMs": 13.59,
+    "p95Ms": 6.6,
+    "maxMs": 2234.6,
+    "over50": [
+     {
+      "atMs": 2259.8,
+      "ms": 2234.6
+     }
+    ],
+    "loaf": [
+     {
+      "atMs": 27,
+      "duration": 2242.6,
+      "blockingDuration": 2192.5,
+      "renderMs": 2242.6,
+      "scripts": [
+       {
+        "invoker": "FrameRequestCallback",
+        "fn": "",
+        "url": "scene-DGc9YOfD.js",
+        "ms": 2242.4
+       }
+      ]
+     }
+    ],
+    "draws": 222
+   },
+   "r3fFramesDuringSpin": [
+    1962,
+    2718
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "dna-idle",
+   "uncapped": true,
+   "loop": "demand",
+   "r3fFramesIn2s": 0
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 876,
+    "meanMs": 3.43,
+    "p95Ms": 4.6,
+    "maxMs": 7.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 877
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 866,
+    "meanMs": 3.44,
+    "p95Ms": 4.6,
+    "maxMs": 7.4,
+    "over50": [],
+    "loaf": [],
+    "draws": 867
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": false,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 872,
+    "meanMs": 3.43,
+    "p95Ms": 4.6,
+    "maxMs": 7.4,
+    "over50": [],
+    "loaf": [],
+    "draws": 873
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 871,
+    "meanMs": 3.45,
+    "p95Ms": 4.6,
+    "maxMs": 7,
+    "over50": [],
+    "loaf": [],
+    "draws": 872
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 1,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 1080,
+    "meanMs": 2.77,
+    "p95Ms": 3.8,
+    "maxMs": 6.4,
+    "over50": [],
+    "loaf": [],
+    "draws": 1081
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 1102,
+    "meanMs": 2.72,
+    "p95Ms": 3.9,
+    "maxMs": 7.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 1103
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  },
+  {
+   "kind": "molstar-spin",
+   "ghostDna": 0.12,
+   "uncapped": true,
+   "loop": "demand",
+   "clicks": true,
+   "repeat": 2,
+   "world": "protein",
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 1078,
+    "meanMs": 2.77,
+    "p95Ms": 3.8,
+    "maxMs": 6.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 1079
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 1095,
+    "meanMs": 2.73,
+    "p95Ms": 3.9,
+    "maxMs": 5.9,
+    "over50": [],
+    "loaf": [],
+    "draws": 1096
+   },
+   "r3fFramesDuringSpin": [
+    0,
+    0
+   ],
+   "pageErrors": []
+  }
+ ],
+ "chrome": "Chrome/156.0.8078.74"
+}

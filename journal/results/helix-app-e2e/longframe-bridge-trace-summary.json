@@ -1,0 +1,81 @@
+{
+ "trace": "longframe-bridge-trace.json",
+ "processes": {
+  "16009": "Browser",
+  "16014": "GPU Process",
+  "16019": "Renderer",
+  "16021": "Renderer"
+ },
+ "longestAnimationFrameMs": 195.6,
+ "nextLongestAnimationFramesMs": [
+  7.4,
+  6,
+  6,
+  5.9,
+  5.9
+ ],
+ "rendererEventsInFrame": [
+  {
+   "atMs": 0,
+   "ms": 195.6,
+   "name": "FireAnimationFrame",
+   "args": "{\"data\":{\"frame\":\"39E5B18CE2BFA1B13F00E5BCAA03764C\",\"id\":26791}}"
+  },
+  {
+   "atMs": 0,
+   "ms": 195.6,
+   "name": "AsyncTask Run",
+   "args": "{}"
+  },
+  {
+   "atMs": 0.01,
+   "ms": 195.6,
+   "name": "RunMicrotasks",
+   "args": "{\"microtask_count\":1}"
+  },
+  {
+   "atMs": 0.2,
+   "ms": 194.7,
+   "name": "CommandBufferHelper::WaitForAvailableEntries1",
+   "args": "{}"
+  },
+  {
+   "atMs": 0.2,
+   "ms": 194.7,
+   "name": "CommandBufferProxyImpl::WaitForGetOffset",
+   "args": "{\"end\":219084,\"start\":219088}"
+  }
+ ],
+ "otherThreadsDuringFrame": {
+  "GPU Process / CrGpuMain": {
+   "events": 3565,
+   "longestMs": 0.29,
+   "longest": "RunTask"
+  },
+  "GPU Process / VizCompositorThread": {
+   "events": 41488,
+   "longestMs": 0.09,
+   "longest": "RunTask"
+  },
+  "GPU Process / Chrome_ChildIOThread": {
+   "events": 9,
+   "longestMs": 0.01,
+   "longest": "RunTask"
+  },
+  "GPU Process / PerfettoTrace": {
+   "events": 7,
+   "longestMs": 0.09,
+   "longest": "RunTask"
+  },
+  "Renderer / PerfettoTrace": {
+   "events": 1,
+   "longestMs": 0.04,
+   "longest": "RunTask"
+  },
+  "Browser / PerfettoTrace": {
+   "events": 1,
+   "longestMs": 0.02,
+   "longest": "RunTask"
+  }
+ }
+}
