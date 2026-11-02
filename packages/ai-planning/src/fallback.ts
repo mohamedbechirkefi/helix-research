@@ -11,6 +11,7 @@
 import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
 import { extractIdTokens } from "./validate.ts";
 import { trustedContextJson, type PlanningContext } from "./context.ts";
+import { routeQuestion, type Routing } from "./routing.ts";
 
 export const FALLBACK_VERSION = "helix-fallback-v1";
 
@@ -87,6 +88,8 @@ export interface FallbackResult {
   plan: Plan;
   /** The rule that produced the plan, for transparency in the UI and tests. */
   rule: string;
+  /** D-H008 contexts only (routeByCues): where the question's cue words send the answer. */
+  routing?: Routing;
 }
 
 export function deterministicPlan(query: string, ctx: PlanningContext): FallbackResult {
@@ -100,7 +103,9 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   const contactFeature = ctx.features.find((f) => f.kind === "contact") ?? null;
   const level: Plan["explanationLevel"] = BEGINNER.test(q) ? "intro" : EXPERT.test(q) ? "expert" : "intermediate";
   const symbols = new Set(ctx.genes.flatMap((g) => [g.symbol.toUpperCase(), ...g.aliases.map((a) => a.toUpperCase())]));
-  const r = (plan: Plan, rule: string): FallbackResult => ({ plan, rule });
+  // D-H008 (author, 2026-11-02): the question's cue words route the answer; neutral stays in the current world.
+  const routing = ctx.routeByCues ? routeQuestion(query, ctx.currentWorld) : undefined;
+  const r = (plan: Plan, rule: string): FallbackResult => (routing ? { plan, rule, routing } : { plan, rule });
 
   // 1. Safety refusals.
   if (CLINICAL.test(q)) return r(refuse(ctx, "other", "HELIX is a nonclinical educational tool and cannot give medical, diagnostic or treatment advice. Please ask a qualified health professional."), "clinical");
@@ -192,6 +197,13 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
       },
       "contact",
     );
+  }
+  // D-H008: a variant question that names DNA World, or names no world while DNA World is on screen,
+  // shows the variant on the sequence next to the reference (the codon change), in DNA World only.
+  // A question that names Protein World, or names none in Protein World, keeps the rules below;
+  // a question that names both keeps the rule order of D-H007.
+  if (routing?.world === "dna" && variant && sequenceActions(ctx) && VARIANT.test(q) && !EVIDENCE.test(q) && ctx.worlds.some((w) => w.id === "dna" && w.available)) {
+    return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, null), routing.why === "named" ? "variant-sequence" : "variant-sequence-current-world");
   }
   if (variant && VARIANT.test(q)) {
     if (EVIDENCE.test(q)) {

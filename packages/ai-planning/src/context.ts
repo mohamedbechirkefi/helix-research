@@ -112,6 +112,13 @@ export interface PlanningContext {
   answer?: AnswerKind;
   /** The world on screen when the question was asked (D-H007). Absent in Phase 3 to 6 contexts. */
   currentWorld?: World;
+  /**
+   * Route answers by the question's cue words (author decision D-H008, 2026-11-02; routing.ts): the
+   * prompt is v4, the rule-based planner answers a neutral variant question in the current world,
+   * and validatePlan rejects a first answer that goes to the other world than the one the question
+   * names without doubt. Absent: the D-H007 behaviour (prompt v3), kept reproducible.
+   */
+  routeByCues?: boolean;
   loadedStructureId: string | null;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];

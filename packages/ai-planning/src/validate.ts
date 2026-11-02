@@ -7,12 +7,14 @@
  * trusted context; identifiers mentioned in free text are in the trusted context) ->
  * capabilities (executable action, available world) -> prerequisites (structure loaded before
  * a residue is targeted, the assembly contains the feature, a selection exists) -> one world for
- * a first answer (D-H007, only when the context says the question is a first answer) -> outcome
+ * a first answer (D-H007, only when the context says the question is a first answer) -> the world
+ * the question names, for a first answer (D-H008, only in contexts that route by cues) -> outcome
  * consistency.
  */
 import { Plan, type Action, type SemanticTarget } from "./schema.ts";
 import { allowedIds, trustedContextJson, type PlanningContext } from "./context.ts";
 import { planWorlds } from "./worlds.ts";
+import { unambiguousCueWorld } from "./routing.ts";
 
 export type IssueCode =
   | "invalid-json"
@@ -24,6 +26,7 @@ export type IssueCode =
   | "prerequisite"
   | "variant-on-predicted-model"
   | "world-switch"
+  | "world-cue"
   | "consistency";
 
 export interface ValidationIssue {
@@ -218,6 +221,17 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
     const worlds = planWorlds(plan);
     if (worlds.length > 1) {
       issues.push({ code: "world-switch", path: "actions", value: worlds.join(">"), message: `a first answer stays in one world; this plan visits ${worlds.join(" then ")}` });
+    }
+  }
+
+  // A first answer goes to the world the question names (author decision D-H008, 2026-11-02), checked
+  // conservatively: only when the question names one world without doubt (strong cue words of that
+  // world, none of the other), that world is available, and the plan shows only the other world.
+  if (ctx.routeByCues && ctx.answer === "first" && opts.query !== undefined) {
+    const named = unambiguousCueWorld(opts.query);
+    const worlds = planWorlds(plan);
+    if (named && ids.worlds.has(named) && worlds.length > 0 && !worlds.includes(named)) {
+      issues.push({ code: "world-cue", path: "actions", value: `${named}<${worlds.join(">")}`, message: `the question names ${named === "dna" ? "DNA" : "Protein"} World; this first answer shows ${worlds.join(" then ")}` });
     }
   }
 

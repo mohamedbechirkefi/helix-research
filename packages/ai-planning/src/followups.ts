@@ -27,6 +27,7 @@ import type { Plan } from "./schema.ts";
 import { extractIdTokens, validatePlan } from "./validate.ts";
 import { selectionFeature, trustedContextJson, withSession, type PlanningContext } from "./context.ts";
 import { deterministicPlan } from "./fallback.ts";
+import { planWorlds } from "./worlds.ts";
 
 export const FOLLOWUP_FILTER_VERSION = "helix-followup-filter-v1";
 
@@ -71,6 +72,7 @@ export const CAPABILITY_RULES: ReadonlySet<string> = new Set([
   "contact", // what the curated variant residue touches (curated contacts record)
   "variant-evidence", // the curated records behind the variant
   "variant-sequence", // the DNA-level change, on the sequence next to the reference
+  "variant-sequence-current-world", // the same scene, for a variant question that names no world, asked in DNA World (D-H008)
   "compare-sequence", // the variant compared with the reference sequence
   "compare-selection-sequence", // the selected variant residue compared with the reference
   "selection-explain", // the selected residue, with its curated evidence
@@ -98,6 +100,13 @@ const CAN_YOU = /^(can|could) you\b/;
  */
 export function contextAfterPlan(plan: Plan, ctx: PlanningContext): PlanningContext {
   if (plan.outcome !== "plan") return ctx;
+  // D-H008 contexts (routeByCues): once the plan has run, a suggestion is asked as a follow-up, in
+  // the world the plan ended in, so the cue routing of the rule-based planner reads the right world.
+  if (ctx.routeByCues) {
+    const worlds = planWorlds(plan);
+    const world = worlds.at(-1) ?? ctx.currentWorld;
+    ctx = withSession(ctx, { ...(ctx.answer !== undefined ? { answer: "follow-up" as const } : {}), ...(world !== undefined ? { currentWorld: world } : {}) });
+  }
   const hl = [...plan.actions].reverse().find((a) => a.type === "highlightResidue");
   if (!hl || hl.type !== "highlightResidue" || hl.target.kind !== "feature") return ctx;
   const featureId = hl.target.featureId;

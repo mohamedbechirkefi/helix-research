@@ -3,7 +3,7 @@
 import { readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { execFileSync } from "node:child_process";
-import { buildHbbContext, parseBenchmarkJsonl, type BenchmarkItem, type PlanningContext } from "@helix/ai-planning";
+import { buildHbbContext, contextForItem, parseBenchmarkJsonl, withSession, type BenchmarkItem, type PlanningContext } from "@helix/ai-planning";
 
 export const REPO_ROOT = resolve(import.meta.dirname, "..", "..");
 export const QUESTIONS = join(REPO_ROOT, "research", "benchmark", "questions.jsonl");
@@ -22,6 +22,33 @@ export function loadHbbContext(): PlanningContext {
     contacts: j("contacts-hbs-2HBS.json"),
     predicted: j("predicted-model-AF-P68871-F1.json"),
   });
+}
+
+/**
+ * The benchmark contexts.
+ * - phase3: the Phase 3 context (all worlds of the curated context, Phase 3 actions; prompt v1).
+ * - app-v2: the context as the Phase 6 app restricts it (DNA and Protein World, compareVariants and
+ *   highlightSequenceRegion executable), no answer kind (prompt v2, no world check).
+ * - app-v3 (D-H007): app-v2 plus the answer kind and the world on screen (prompt v3, one-world check).
+ * - app-v4 (D-H008): app-v3 plus routing by cue words (prompt v4, cue routing, world-cue check).
+ * In the app modes, an item's own `session` sets the answer kind, the world on screen and the loaded
+ * structure; without it, an item with a selection is a follow-up in Protein World, any other a first
+ * answer in DNA World (the app's start world).
+ */
+export type ContextMode = "phase3" | "app-v2" | "app-v3" | "app-v4";
+export function benchmarkContext(base: PlanningContext, item: BenchmarkItem, mode: ContextMode): PlanningContext {
+  const c = contextForItem(base, item);
+  if (mode === "phase3") return c;
+  const app: PlanningContext = {
+    ...c,
+    worlds: c.worlds.map((w) => (w.id === "dna" || w.id === "protein" ? w : { ...w, available: false, reason: w.available ? "no scene for this world in the Phase 6 build" : w.reason })),
+    executableActions: [...c.executableActions, "compareVariants", "highlightSequenceRegion"],
+  };
+  if (mode === "app-v2") return app;
+  const routed = mode === "app-v4" ? { ...app, routeByCues: true } : app;
+  const s = item.session;
+  if (s) return withSession(routed, { answer: s.answer, currentWorld: s.currentWorld, ...(s.loadedStructureId !== undefined ? { loadedStructureId: s.loadedStructureId } : {}) });
+  return withSession(routed, item.selection ? { answer: "follow-up", currentWorld: "protein" } : { answer: "first", currentWorld: "dna" });
 }
 
 export function loadQuestions(path = QUESTIONS): BenchmarkItem[] {
