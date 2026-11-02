@@ -2,7 +2,7 @@
 /**
  * D-H008 scoring of stored benchmark runs (no model call).
  *
- *   node scripts/ai-benchmark/dh008-score.ts --run <run-dir-name> --mode app-v3|app-v4 [--questions file.jsonl]
+ *   node scripts/ai-benchmark/dh008-score.ts --run <run-dir-name> --mode app-v3|app-v4|app-v5 [--questions file.jsonl] [--oracles dh010]
  *
  * Scores the temperature-0 outputs of a run in the context it was run in (`--mode`, see lib.ts) and
  * writes `dh008-score.json` into the run directory:
@@ -13,6 +13,12 @@
  *   research/benchmark/routing-dh008-annotations.jsonl), for the model's own output and for the
  *   plan the app would execute (the model's plan if valid, else the rule-based fallback);
  * - refusals, false refusals, injections resisted, and planning time (median and p95).
+ *
+ * --oracles dh010 (author decision D-H010) writes `dh010-score.json` instead, which adds the D-H010
+ * oracles: correct and valid against research/benchmark/amendments-dh010.jsonl (an item listed there
+ * replaces its D-H008 amendment; the others keep it), and routing against the D-H010 routing
+ * oracles (an item's own `expected.world`, else routing-dh010-annotations.jsonl, else the D-H008
+ * annotation). The D-H008 figures are reported next to them.
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
@@ -26,6 +32,9 @@ const opt = (k: string, d?: string) => {
 };
 const run = opt("run");
 const mode = opt("mode", "app-v4") as ContextMode;
+const oracles = opt("oracles", "dh008");
+if (oracles !== "dh008" && oracles !== "dh010") throw new Error(`unknown --oracles ${oracles}`);
+const D10 = oracles === "dh010";
 if (!run) throw new Error("--run is required");
 const BENCH = join(REPO_ROOT, "research", "benchmark");
 const runDir = join(RUNS_DIR, run);
@@ -41,6 +50,8 @@ type Annotation = { id: string; set: string; world: "dna" | "protein" | "any" | 
 type Amendment = { id: string; set: string; amended: BenchmarkItem["expected"] };
 const annotations = jsonl<Annotation>("routing-dh008-annotations.jsonl").filter((a) => a.set === qfile);
 const amendments = jsonl<Amendment>("amendments-dh008.jsonl").filter((a) => a.set === qfile);
+const annotations10 = D10 ? jsonl<Annotation>("routing-dh010-annotations.jsonl").filter((a) => a.set === qfile) : [];
+const amendments10 = D10 ? jsonl<Amendment>("amendments-dh010.jsonl").filter((a) => a.set === qfile) : [];
 
 const base = loadHbbContext();
 const rows = readFileSync(join(runDir, "raw.jsonl"), "utf8")
@@ -60,9 +71,14 @@ type Out = {
   fallbackWorlds: string[] | null;
   routingModel: boolean | null;
   routingExecuted: boolean | null;
+  worldOracle10: string | null;
+  routingModel10: boolean | null;
+  routingExecuted10: boolean | null;
   original: ItemScore | null;
   amended: ItemScore | null;
+  amended10: ItemScore | null;
   amendedItem: boolean;
+  amendedItem10: boolean;
   totalMs: number | null;
   tokens: number | null;
 };
@@ -74,8 +90,12 @@ for (const r of rows) {
   const am = amendments.find((a) => a.id === item.id);
   const amendedItem: BenchmarkItem = am ? { ...item, expected: am.amended } : item;
   const worldOracle = item.expected.world ?? annotations.find((a) => a.id === item.id)?.world ?? null;
+  const worldOracle10 = item.expected.world ?? annotations10.find((a) => a.id === item.id)?.world ?? worldOracle;
+  const am10 = amendments10.find((a) => a.id === item.id);
+  const amendedItem10: BenchmarkItem = am10 ? { ...item, expected: am10.amended } : amendedItem;
   const orig = r.error ? null : scoreItem(item, r.raw, ctx);
   const amd = r.error ? null : scoreItem(amendedItem, r.raw, ctx);
+  const amd10 = r.error ? null : scoreItem(amendedItem10, r.raw, ctx);
   const plan = orig?.validation.plan ?? null;
   // What the app would execute: the model's plan if valid, else the rule-based plan (or nothing if that is invalid too).
   let executed: Plan | null = orig?.validation.ok ? plan : null;
@@ -96,9 +116,14 @@ for (const r of rows) {
     fallbackWorlds,
     routingModel: routingCorrect(worldOracle as never, orig?.validation.schemaValid ? plan : null, ctx),
     routingExecuted: routingCorrect(worldOracle as never, executed, ctx),
+    worldOracle10,
+    routingModel10: routingCorrect(worldOracle10 as never, orig?.validation.schemaValid ? plan : null, ctx),
+    routingExecuted10: routingCorrect(worldOracle10 as never, executed, ctx),
     original: orig?.score ?? null,
     amended: amd?.score ?? null,
+    amended10: amd10?.score ?? null,
     amendedItem: !!am,
+    amendedItem10: !!am10,
     totalMs: r.totalMs,
     tokens: r.usage?.completionTokens ?? null,
   });
@@ -111,7 +136,7 @@ const tri = (f: (o: Out) => boolean | null) => {
   const xs = out.map(f).filter((x): x is boolean => x !== null);
   return frac(xs.filter(Boolean).length, xs.length);
 };
-const scores = (k: "original" | "amended") => ({
+const scores = (k: "original" | "amended" | "amended10") => ({
   correctAndValid: tri((o) => o[k]?.correctAndValid ?? false),
   falseRefusals: tri((o) => o[k]?.falseRefusal ?? null),
   refusalsCorrect: tri((o) => o[k]?.refusalCorrect ?? null),
@@ -142,6 +167,18 @@ const result = {
   original: scores("original"),
   amended: scores("amended"),
   amendedItems: out.filter((o) => o.amendedItem).map((o) => o.id),
+  ...(D10
+    ? {
+        dh010: {
+          note: "D-H010 oracles: amended oracles (amendments-dh010.jsonl over amendments-dh008.jsonl) and routing oracles (routing-dh010-annotations.jsonl over the D-H008 ones)",
+          routingModel: tri((o) => o.routingModel10),
+          routingExecuted: tri((o) => o.routingExecuted10),
+          amended: scores("amended10"),
+          amendedItems: out.filter((o) => o.amendedItem10).map((o) => o.id),
+          routingOracleChanged: out.filter((o) => o.worldOracle10 !== o.worldOracle).map((o) => `${o.id} ${o.worldOracle}>${o.worldOracle10}`),
+        },
+      }
+    : {}),
   totalMs: { median: median(times), p95: percentile(times, 95) },
   tokensMedian: median(out.map((o) => o.tokens).filter((x): x is number => typeof x === "number")),
   items: out.map((o) => ({
@@ -157,9 +194,10 @@ const result = {
     routingExecuted: o.routingExecuted,
     correctAndValidOriginal: o.original?.correctAndValid ?? false,
     correctAndValidAmended: o.amended?.correctAndValid ?? false,
+    ...(D10 ? { worldOracle10: o.worldOracle10, routingModel10: o.routingModel10, routingExecuted10: o.routingExecuted10, correctAndValidAmended10: o.amended10?.correctAndValid ?? false } : {}),
     totalMs: o.totalMs,
   })),
 };
-writeFileSync(join(runDir, "dh008-score.json"), JSON.stringify(result, null, 1) + "\n");
+writeFileSync(join(runDir, D10 ? "dh010-score.json" : "dh008-score.json"), JSON.stringify(result, null, 1) + "\n");
 const { items: _i, ...head } = result;
 console.log(JSON.stringify(head, null, 1));

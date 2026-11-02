@@ -227,8 +227,9 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
   // A first answer goes to the world the question names (author decision D-H008, 2026-11-02), checked
   // conservatively: only when the question names one world without doubt (strong cue words of that
   // world, none of the other), that world is available, and the plan shows only the other world.
+  // D-H010 contexts (cueRules "dh010") read the D-H010 lists: a molecule name alone is strong.
   if (ctx.routeByCues && ctx.answer === "first" && opts.query !== undefined) {
-    const named = unambiguousCueWorld(opts.query);
+    const named = unambiguousCueWorld(opts.query, ctx.cueRules ?? "dh008");
     const worlds = planWorlds(plan);
     if (named && ids.worlds.has(named) && worlds.length > 0 && !worlds.includes(named)) {
       issues.push({ code: "world-cue", path: "actions", value: `${named}<${worlds.join(">")}`, message: `the question names ${named === "dna" ? "DNA" : "Protein"} World; this first answer shows ${worlds.join(" then ")}` });

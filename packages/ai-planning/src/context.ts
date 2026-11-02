@@ -8,6 +8,7 @@
  * untrusted data: it is shown to the model but never counts as grounding.
  */
 import { z } from "zod";
+import type { CueRules } from "./routing.ts";
 
 export const WORLDS = ["overview", "genome", "dna", "protein", "pathway"] as const;
 export type World = (typeof WORLDS)[number];
@@ -119,6 +120,13 @@ export interface PlanningContext {
    * names without doubt. Absent: the D-H007 behaviour (prompt v3), kept reproducible.
    */
   routeByCues?: boolean;
+  /**
+   * Which cue lists a routed context uses (routing.ts): absent or "dh008", the D-H008 lists and
+   * prompt v4 (kept reproducible); "dh010" (author decision D-H010, 2026-11-02), the molecule names
+   * and "chain" are protein cues, an explicit DNA cue beats a molecule name, and the prompt is v5.
+   * Read only when routeByCues is set.
+   */
+  cueRules?: CueRules;
   loadedStructureId: string | null;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];

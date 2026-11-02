@@ -36,6 +36,8 @@ const STRUCTURE_ANY = /\b(structure|3d model|pdb)\b/;
 const PROTEIN_WORLD = /(protein world|monde (de la )?proteine|protein view)/;
 const GENE = /\b(gene|gene for|hbb|locus|genome)\b|hemoglobin subunit beta/;
 const GLOBIN_UNQUALIFIED = /\bglobin\b/;
+// D-H010: a request to see something (the molecule-name rule only).
+const SHOW = /\b(show|display|open|see|view|bring up|take me|go to|montre|affiche|ouvre|voir)\b/;
 const COMPARE = /\b(compare|comparer|versus|vs\.?|side by side)\b/;
 const DOMAINS = /\b(domain|domains|domaine|domaines)\b/;
 const PATHWAY = /\b(pathway|dna repair|reparation|voie)\b/;
@@ -104,7 +106,8 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   const level: Plan["explanationLevel"] = BEGINNER.test(q) ? "intro" : EXPERT.test(q) ? "expert" : "intermediate";
   const symbols = new Set(ctx.genes.flatMap((g) => [g.symbol.toUpperCase(), ...g.aliases.map((a) => a.toUpperCase())]));
   // D-H008 (author, 2026-11-02): the question's cue words route the answer; neutral stays in the current world.
-  const routing = ctx.routeByCues ? routeQuestion(query, ctx.currentWorld) : undefined;
+  // D-H010 contexts (cueRules "dh010") read the D-H010 lists: molecule names and "chain" are protein cues.
+  const routing = ctx.routeByCues ? routeQuestion(query, ctx.currentWorld, ctx.cueRules ?? "dh008") : undefined;
   const r = (plan: Plan, rule: string): FallbackResult => (routing ? { plan, rule, routing } : { plan, rule });
 
   // 1. Safety refusals.
@@ -244,6 +247,13 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   }
   if (protein && PROTEIN_WORLD.test(q)) {
     return r({ ...base(ctx), outcome: "plan", intent: "show_protein", entities: { ...base(ctx).entities, proteinId: protein.id }, actions: [{ type: "enterWorld", world: "protein" }], citations: [], explanationLevel: level, reason: null }, "protein-world");
+  }
+  // D-H010: a request to show the molecule by name ("show me HBB", "open beta-globin") names Protein
+  // World, so it opens Protein World instead of the gene rule below (whose Genome World the app
+  // does not have). A question with a DNA cue ("the HBB gene") is routed to DNA World and keeps
+  // the gene rule.
+  if (protein && ctx.cueRules === "dh010" && routing?.world === "protein" && routing.why === "named" && (routing.cues.molecule?.length ?? 0) > 0 && SHOW.test(q) && ctx.worlds.some((w) => w.id === "protein" && w.available)) {
+    return r({ ...base(ctx), outcome: "plan", intent: "show_protein", entities: { ...base(ctx).entities, proteinId: protein.id }, actions: [{ type: "enterWorld", world: "protein" }], citations: [], explanationLevel: level, reason: null }, "protein-world-named");
   }
   if (GLOBIN_UNQUALIFIED.test(q) && !/(beta|alpha|hbb)/.test(q)) {
     return r(clarify(ctx, "other", "Alpha or beta globin? Only beta-globin (HBB) has curated records here; 2HBS contains both chains."), "globin-ambiguous");
