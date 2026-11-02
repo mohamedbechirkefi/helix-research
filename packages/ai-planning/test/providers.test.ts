@@ -75,6 +75,11 @@ describe("OllamaProvider (mocked HTTP)", () => {
     await new OllamaProvider({ model: "qwen3.5:4b", fetch: f }).plan({ query: "q", context: ctx, requestId: "1" });
     expect("think" in calls.find((c) => c.url.endsWith("/api/chat"))!.body!).toBe(false);
   });
+  it("keeps the model loaded for 60 minutes by default (author, D-H007)", async () => {
+    const { f, calls } = mockOllamaFetch();
+    await new OllamaProvider({ model: "qwen3.5:4b", fetch: f }).plan({ query: "q", context: ctx, requestId: "1" });
+    expect(calls.find((c) => c.url.endsWith("/api/chat"))!.body!.keep_alive).toBe("60m");
+  });
 });
 
 function mockEngine(text: string): WebLLMEngineLike & { requests: Record<string, unknown>[] } {

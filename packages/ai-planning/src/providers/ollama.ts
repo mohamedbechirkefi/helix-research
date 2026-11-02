@@ -19,6 +19,7 @@ export interface OllamaConfig {
   numCtx?: number;
   /** Set false for thinking models (plans are generated without thinking). Omitted for models without the capability. */
   think?: boolean;
+  /** How long Ollama keeps the model loaded after a call. 60m trades about 6 GB of memory for no 4-5 s reload plus uncached prompt after idle (author, D-H007). */
   keepAlive?: string;
   timeoutMs?: number;
   /** Cap on generated tokens (Ollama num_predict). Constrained JSON can otherwise run on in whitespace or repetition. */
@@ -54,7 +55,7 @@ export class OllamaProvider implements PlanProvider {
     this.cfg = {
       baseUrl: "http://127.0.0.1:11434",
       numCtx: 8192,
-      keepAlive: "10m",
+      keepAlive: "60m",
       timeoutMs: 180_000,
       numPredict: 1024,
       ...cfg,
