@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | Author | Mohamed Bechir Kefi |
-| Version | Working draft 0.3, 2026-11-02 |
-| Status | Chapters 1 to 8, 9.1, 10 and 11 drafted (Phases 0 to 4). Sections 9.2 to 9.9 are headed placeholders. |
+| Version | Working draft 0.4, 2026-11-02 |
+| Status | Chapters 1 to 8, 9.1, 9.2, 10 and 11 drafted (Phases 0 to 5). Sections 9.3 to 9.9 are headed placeholders. |
 | Companion files | Claims register `paper/claims.md`; experiment journal `journal/` |
 | French copy | `paper/report.fr.md`, first produced after Phase 4 (see `paper/README.md`) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (see `LICENSE`) |
@@ -696,7 +696,44 @@ All four are handled in code and documented in the product repository.
 
 ### 9.2 Journey engine and two-world integration (Phase 5)
 
-The journey engine, the DNA world and the protein world, and the transitions between them. To report: the journey state model, interruptibility, and measured transition costs.
+**Question.** Can two real representations of HBB, the transcript sequence and the experimental structure, be linked so that users can move both ways, selections stay scientifically consistent, and every action can be cancelled safely?
+
+**Design.**
+- **Worlds as declarations.** Each world is a typed declaration of what it needs and offers: data, interactions, actions, measured costs, fallbacks, an accessibility alternative, and whether its geometry is illustrative. The declarations are checked at compile time and at run time.
+- **Chapters.** A deterministic planner proposes chapters. A matcher offers a chapter only if its world exists in the build and every kind of data it needs is in the subject's curated inventory.
+- **DNA World** is an illustrative helix drawn in React Three Fiber. Its base i is base i of the curated cDNA, and it is labelled "Illustrative geometry, real sequence".
+- **Protein World** is Mol* on 2HBS.
+- **The selection bridge** links codon, protein position and structure residue through the Phase 2 records only, with no offset arithmetic.
+- **One path for every change.** All scene changes, including world switches and chapters, go through the Scene Action Interpreter of section 9.1.
+- **One pointer owner at a time,** and the R3F canvas renders only when something changes.
+
+**Results** (`HX-P5-2026-11-02-dna-world-bridge`, `HX-P5-2026-11-02-transitions`, `HX-P5-2026-11-02-modes-rapid`).
+- **The drawn DNA is the real sequence.** The running page drew all 628 bases as the curated sequence, and real clicks selected the clicked base [C50].
+- **The bridge works both ways.**
+  - Codon 7 linked to P68871 position 7 and to VAL 6 on chains B, D, F and H of 2HBS, as read back from Mol*.
+  - Clicks on those residues linked back to codon 7.
+  - Codon 1, the stop codon and unmapped residues said why they have no counterpart [C51].
+- **Switching worlds.** A warm switch took a median 719 ms, a cold one 1,754 ms. Every round trip kept the selection, both cameras, the structure and the highlight [C52].
+- **Interrupting a switch** returned to the starting world in a median 29 ms [C53].
+- **Chapters need their data.** Over all 4,096 subsets of data kinds, the matcher never offered a chapter without the data it needs [C54].
+- **Guided, free and resume.** Guided mode, free exploration and resuming the narrative passed with both planners [C55].
+- **Rapid interaction.** In six cases, the selection or the gene was changed during a transition or during inference. Every time, the obsolete action was cancelled or rejected before reaching the scene [C55].
+- **A defect found and fixed.** Building that check exposed one consistency defect: a model plan made before the user selected a codon still executed and overwrote the selection. The DNA selection now counts as a change of subject, which makes older plans stale.
+
+**The long frame of sections 5.4 and 9.1** (`HX-P5-2026-11-02-long-frame-reprobe`) [C56].
+- With R3F rendering only on demand, the stall at the start of a Mol* spin did not appear in any condition.
+- A visible, always-rendering R3F canvas with uncapped frames produced stalls of about 2 s.
+- The application therefore renders R3F on demand; always-on rendering is rejected.
+- The stall is now avoided by design, but its trigger inside Mol* is still not isolated and was not traced in this phase.
+
+**Limits.**
+- One machine, headless Chrome, few repeats.
+- Only codon 7 reaches a structure residue, because the dataset holds a mapping record for that position only.
+- Chapter planning is deterministic only.
+- Starting in DNA World adds about 0.73 s to the reference question, for the fade between worlds [C57].
+- Keyboard navigation of the codon strip was not tested end to end. Safari, Firefox and the desktop webview were not run.
+
+**Tests.** After Phase 5, the product repository has 93 passing tests, and this repository 160 (157 pass, 3 opt-in live tests skipped); typecheck is clean in both [C58].
 
 ### 9.3 Complete HBB vertical slice (Phase 6)
 
@@ -748,7 +785,7 @@ The public demonstration, if the author decides to publish it. To report: what w
 - The performance figures are single runs on one fast laptop (Apple M1 Pro), in headless Chrome and in WKWebView.
 - They are main-thread frame intervals, not GPU timers.
 - With vsync on, they only show that no frame was missed.
-- No low-end hardware was tested. The long-frame anomaly is characterised but its trigger is unexplained [C19, C48].
+- No low-end hardware was tested. The long-frame anomaly is characterised but its trigger is unexplained [C19, C48, C56].
 - CORS was measured outside a browser, once per source, and not on error responses [C12].
 
 **AI.** The Phase 1 desktop experiment made a single call to a single model, and its prompt was not stored verbatim [C23]. Phase 3 measured the frequency of such errors on a small, single-gene benchmark; its own limits are in section 8.8.
@@ -886,4 +923,5 @@ All URLs accessed 2026-11-01. The complete reference lists are in `docs/competit
 | 2 Data acquisition and validated domain core | 4, 7 | hbb-dataset-build | verified |
 | 3 Local and browser AI | 8 | ai-benchmark-ollama, webllm-browser | verified |
 | 4 AI-to-World proof | 9.1 | ai-to-world-e2e, cancellation, long-frame | verified |
-| 5 to 12 | 9.2 to 9.9 | to be written as runs happen | not started |
+| 5 Journey engine, two worlds | 9.2 | dna-world-bridge, transitions, modes-rapid, long-frame-reprobe | verified |
+| 6 to 12 | 9.3 to 9.9 | to be written as runs happen | not started |
