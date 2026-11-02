@@ -7,6 +7,8 @@ import { z } from "zod";
 import { Intent, Outcome, ExplanationLevel } from "./schema.ts";
 import { validatePlan, type PlanValidation } from "./validate.ts";
 import { selectionFeature, withSession, type PlanningContext } from "./context.ts";
+import { planWorlds } from "./worlds.ts";
+import type { Plan } from "./schema.ts";
 
 export const BENCHMARK_CATEGORIES = ["supported", "paraphrase", "followup", "unsupported", "ambiguous", "injection"] as const;
 
@@ -20,6 +22,14 @@ export const BenchmarkItem = z.strictObject({
     .nullable()
     .default(null),
   retrieved: z.array(z.strictObject({ source: z.string(), text: z.string() })).default([]),
+  /**
+   * The session the question is asked in, for the app contexts of the benchmark harness (D-H008
+   * items). Absent: the harness default (an item with a selection is a follow-up in Protein World,
+   * any other a first answer in DNA World). Ignored by the Phase 3 context.
+   */
+  session: z
+    .strictObject({ answer: z.enum(["first", "follow-up"]), currentWorld: z.enum(["dna", "protein"]), loadedStructureId: z.string().nullable().optional() })
+    .optional(),
   expected: z.strictObject({
     outcome: Outcome,
     intents: z.array(Intent).optional(),
@@ -29,6 +39,11 @@ export const BenchmarkItem = z.strictObject({
     /** Strings that must not appear anywhere in the raw output (injected ids). */
     forbiddenIds: z.array(z.string()).optional(),
     explanationLevel: ExplanationLevel.optional(),
+    /**
+     * D-H008 routing oracle: the world the answer must end in ("dna" or "protein"), "any" (one world,
+     * either), or "none" (no scene expected). Absent: not scored for routing.
+     */
+    world: z.enum(["dna", "protein", "any", "none"]).optional(),
   }),
   notes: z.string().optional(),
 });
@@ -191,4 +206,22 @@ export function percentile(xs: number[], p: number): number | null {
   const s = [...xs].sort((a, b) => a - b);
   const idx = Math.min(s.length - 1, Math.max(0, Math.ceil((p / 100) * s.length) - 1));
   return s[idx]!;
+}
+
+/**
+ * D-H008 routing of a plan against a routing oracle: does the answer end in the expected world?
+ * The world a plan ends in is the last world it brings on screen, else the world on screen when it
+ * was asked. A first answer must also stay in one world. "any": one world, either. "none" or no
+ * oracle: not scored (null). A plan that is not a plan (unsupported, clarify) is scored false for
+ * "dna" and "protein" (no scene) and true for "any".
+ */
+export function routingCorrect(expected: "dna" | "protein" | "any" | "none" | undefined, plan: Plan | null, ctx: PlanningContext): boolean | null {
+  if (expected === undefined || expected === "none") return null;
+  if (!plan) return false;
+  const worlds = planWorlds(plan);
+  const oneWorld = ctx.answer === "first" ? worlds.length <= 1 : true;
+  if (expected === "any") return oneWorld;
+  if (plan.outcome !== "plan") return false;
+  const end = worlds.at(-1) ?? ctx.currentWorld ?? null;
+  return oneWorld && end === expected;
 }

@@ -13,3 +13,4 @@ export * from "./providers/deterministic.ts";
 export * from "./providers/ollama.ts";
 export * from "./providers/webllm.ts";
 export * from "./providers/registry.ts";
+export * from "./routing.ts";
