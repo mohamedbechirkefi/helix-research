@@ -112,8 +112,12 @@ export function contextAfterPlan(plan: Plan, ctx: PlanningContext): PlanningCont
 
 /** Screens one suggestion against a context (the one the user is in when it would be asked). */
 export function screenFollowUp(text: string, ctx: PlanningContext): FollowUpVerdict {
+  return screenText(text, ctx).verdict;
+}
+
+function screenText(text: string, ctx: PlanningContext): { verdict: FollowUpVerdict; plan: Plan | null } {
   const t = typeof text === "string" ? text.trim() : "";
-  const drop = (reason: FollowUpDropReason, detail: string | null): FollowUpVerdict => ({ text: t, kept: false, reason, detail });
+  const drop = (reason: FollowUpDropReason, detail: string | null) => ({ verdict: { text: t, kept: false, reason, detail }, plan: null });
   if (t.length < 8 || t.length > 160 || FORMAT_BAD.test(t)) return drop("format", t.length === 0 ? "empty" : t.length > 160 ? "too long" : t.length < 8 ? "too short" : "markup, URL or line break");
   const q = fold(t);
   const clinical = q.match(CLINICAL_TERMS);
@@ -129,23 +133,29 @@ export function screenFollowUp(text: string, ctx: PlanningContext): FollowUpVerd
   if (plan.outcome !== "plan" || !CAPABILITY_RULES.has(rule)) return drop("capability", `${rule} (${plan.outcome})`);
   const v = validatePlan(plan, ctx, { query: t });
   if (!v.ok) return drop("capability", `${rule}: ${v.issues.map((i) => i.code).join(", ")}`);
-  return { text: t, kept: true, reason: null, detail: rule };
+  return { verdict: { text: t, kept: true, reason: null, detail: rule }, plan };
 }
 
-/** Screens a list of suggestions; keeps at most `max`, in their order, without duplicates. */
+/**
+ * Screens a list of suggestions; keeps at most `max`, in their order, without duplicates. Two
+ * suggestions are duplicates when their words match or when they would produce the same scene
+ * (the same rule-based plan): one question per scene is offered.
+ */
 export function filterFollowUps(texts: readonly string[], ctx: PlanningContext, max = 3): FollowUpScreen {
   const seen = new Set<string>();
   const verdicts: FollowUpVerdict[] = [];
   const kept: string[] = [];
   for (const raw of texts) {
-    const v = screenFollowUp(raw, ctx);
+    const { verdict: v, plan } = screenText(raw, ctx);
     if (v.kept) {
-      const key = fold(v.text).replace(/[^a-z0-9]+/g, " ").trim();
-      if (seen.has(key)) {
-        verdicts.push({ ...v, kept: false, reason: "duplicate", detail: null });
+      const words = fold(v.text).replace(/[^a-z0-9]+/g, " ").trim();
+      const scene = JSON.stringify([plan?.intent, plan?.actions]);
+      if (seen.has(words) || seen.has(scene)) {
+        verdicts.push({ ...v, kept: false, reason: "duplicate", detail: seen.has(words) ? "same words" : "same scene" });
         continue;
       }
-      seen.add(key);
+      seen.add(words);
+      seen.add(scene);
       if (kept.length >= max) {
         verdicts.push({ ...v, kept: false, reason: "capability", detail: `more than ${max} suggestions` });
         continue;

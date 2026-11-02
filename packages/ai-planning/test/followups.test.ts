@@ -161,6 +161,11 @@ describe("filterFollowUps and contextAfterPlan", () => {
     expect(s.kept).toEqual(["Show the evidence for the sickle-cell variant.", "Show the sickle cell variant (HbS) on the protein.", "What does the HbS residue touch in the crystal?"]);
     expect(s.verdicts.map((v) => v.reason)).toEqual([null, "duplicate", "clinical", null, null, "capability"]);
   });
+  it("two suggestions that would produce the same scene count once", () => {
+    const s = filterFollowUps(["How does the DNA change at this codon?", "How does the DNA change for the sickle-cell variant?"], afterReference);
+    expect(s.kept).toEqual(["How does the DNA change at this codon?"]);
+    expect(s.verdicts[1]).toMatchObject({ reason: "duplicate", detail: "same scene" });
+  });
   it("selects the highlighted variant residue on the resolver's focus chain (H, the contact source)", () => {
     const { plan } = deterministicPlan("Show me where the sickle-cell mutation affects hemoglobin.", ctx6);
     const after = contextAfterPlan(plan, ctx6);
