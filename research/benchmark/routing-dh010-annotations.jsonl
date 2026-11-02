@@ -1,0 +1,26 @@
+// D-H010 routing oracles (author decision D-H010, 2026-11-02), written by hand from the rule before any model ran with prompt v5. Lists every existing item of questions.jsonl, heldout.jsonl and routing-heldout.jsonl that contains a molecule name (hemoglobin, haemoglobin, hemoglobine, beta-globin, beta globin, HBB) or chain/chaine, with its D-H008 world (previous) and its D-H010 world. Items not listed keep their D-H008 routing oracle (routing-dh008-annotations.jsonl or the item's own expected.world). Only S08 changes world. Context: as routing-dh008-annotations.jsonl.
+{"id": "S01", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "affects (effect cue), hemoglobin: Protein World (unchanged)"}
+{"id": "S02", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "structure, beta-globin: Protein World (unchanged)"}
+{"id": "S04", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "structure, hemoglobin: Protein World (unchanged)"}
+{"id": "S05", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "protein, 3D, beta-globin: Protein World (unchanged)"}
+{"id": "S06", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "HBB and 3D structure: Protein World (unchanged)"}
+{"id": "S07", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "residue, hemoglobin: Protein World (unchanged)"}
+{"id": "S08", "set": "questions.jsonl", "world": "protein", "previous": "dna", "why": "hemoglobin is a protein cue (D-H010); no DNA cue: Protein World (amended, back to the original oracle)"}
+{"id": "S09", "set": "questions.jsonl", "world": "dna", "previous": "dna", "why": "HBB is a protein cue but 'gene' is read as a DNA cue, which beats a molecule name: DNA World (unchanged world; interpretation for the author)"}
+{"id": "S10", "set": "questions.jsonl", "world": "dna", "previous": "dna", "why": "'gene' (DNA cue) beats the molecule name (hemoglobin subunit beta): DNA World (unchanged world)"}
+{"id": "S12", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "crystal structure, chains, deoxyhemoglobin: Protein World (unchanged)"}
+{"id": "S13", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "chain is now a full protein cue (was weak); crystal, hemoglobin: Protein World (unchanged)"}
+{"id": "S16", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "protein, beta-globin: Protein World (unchanged)"}
+{"id": "S17", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "AlphaFold, beta-globin: Protein World (unchanged)"}
+{"id": "U11", "set": "questions.jsonl", "world": "none", "previous": "none", "why": "refusal (unchanged)"}
+{"id": "A02", "set": "questions.jsonl", "world": "none", "previous": "none", "why": "clarification; 'globin' alone is not one of the D-H010 names (unchanged)"}
+{"id": "I01", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "as S01"}
+{"id": "I04", "set": "questions.jsonl", "world": "dna", "previous": "dna", "why": "as S09"}
+{"id": "FR01", "set": "questions.jsonl", "world": "protein", "previous": "protein", "why": "affecte (effect cue), hémoglobine: Protein World (unchanged)"}
+{"id": "FR03", "set": "questions.jsonl", "world": "dna", "previous": "dna", "why": "'gène' (DNA cue) beats HBB: DNA World (unchanged world)"}
+{"id": "H01", "set": "heldout.jsonl", "world": "protein", "previous": "protein", "why": "haemoglobin and chain, both protein cues under D-H010 (chain was weak, haemoglobin neutral): Protein World (unchanged)"}
+{"id": "H02", "set": "heldout.jsonl", "world": "protein", "previous": "protein", "why": "chain (now a full protein cue), amino-acid names: Protein World (unchanged)"}
+{"id": "H03", "set": "heldout.jsonl", "world": "dna", "previous": "dna", "why": "HBB is a protein cue but 'locus' and 'chromosome' are read as DNA cues (gene words), which beat a molecule name: DNA World (unchanged world; interpretation for the author)"}
+{"id": "H04", "set": "heldout.jsonl", "world": "protein", "previous": "protein", "why": "X-ray structure, hemoglobin: Protein World (unchanged)"}
+{"id": "H14", "set": "heldout.jsonl", "world": "none", "previous": "none", "why": "refusal (unchanged)"}
+{"id": "RH06", "set": "routing-heldout.jsonl", "world": "protein", "previous": "protein", "why": "what the mutation does (effect cue), hemoglobin: Protein World (unchanged)"}
