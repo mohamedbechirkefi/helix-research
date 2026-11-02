@@ -22,7 +22,7 @@ const fold = (s: string) =>
     .toLowerCase();
 
 const CLINICAL =
-  /\b(should (i|he|she|we|they|my)|am i|do i have|will (i|he|she|we|they) (get|be)|(i|he|she|we|they) (will|would|might|could|am going to|is going to|are going to) (get|be|become|develop|fall)|get sick|fall ill|i carry|my (son|daughter|child|children|kids?|baby|partner|husband|wife|family|parents?|pregnancy|risk|chances?|test|genetic|doctor|results?|medication)|dose|dosage|medication|medicine|treat(ment)?|therap|hydroxyurea|folic|diagnos|prognos|symptom|que dois-je|mon enfant|ma fille|mon fils|medicament|traitement|porteur|porteuse)\b/;
+  /\b(should (i|he|she|we|they|my)|am i|do i have|will (i|he|she|we|they) (get|be)|(i|he|she|we|they) (will|would|might|could|am going to|is going to|are going to) (get|be|become|develop|fall)|get sick|fall ill|make (me|him|her|us|them|my \w+) (sick|ill)|my (h(a)?emoglobin|blood|levels?|an(a)?emia|genes?|dna|cells?)|i carry|my (son|daughter|child|children|kids?|baby|partner|husband|wife|family|parents?|pregnancy|risk|chances?|test|genetic|doctor|results?|medication)|dose|dosage|medication|medicine|treat(ment)?|therap|hydroxyurea|folic|diagnos|prognos|symptom|que dois-je|mon enfant|ma fille|mon fils|medicament|traitement|porteur|porteuse)\b/;
 const CODE = /\b(javascript|typescript|python|code|script|eval|execute|run it|run this|executez?|executer)\b/;
 const CANCEL = /^\s*(stop|cancel|abort|arrete|annule)\b|\bcancel (that|this|it)\b/;
 const SELECTION_REF = /\b(this|that|selected|current) (residue|one|amino acid|position)\b|\bthis one\b|\bce (residu|acide amine)\b|\bcelui-ci\b|\bselected residue\b/;
