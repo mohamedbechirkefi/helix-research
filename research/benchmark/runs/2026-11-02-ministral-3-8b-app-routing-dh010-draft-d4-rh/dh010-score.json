@@ -1,0 +1,503 @@
+{
+ "run": "2026-11-02-ministral-3-8b-app-routing-dh010-draft-d4-rh",
+ "mode": "app-v5",
+ "questions": "routing-heldout.jsonl",
+ "scoredAt": "2026-11-02T22:15:19.454Z",
+ "n": 17,
+ "validationPass": {
+  "count": 15,
+  "n": 17,
+  "pct": 88.2
+ },
+ "fallback": {
+  "count": 2,
+  "n": 17,
+  "pct": 11.8
+ },
+ "rejectedFor": {
+  "worldSwitch": 2,
+  "worldCue": 0
+ },
+ "oneWorldFirstAnswers": {
+  "count": 15,
+  "n": 17,
+  "pct": 88.2
+ },
+ "routingModel": {
+  "count": 13,
+  "n": 15,
+  "pct": 86.7
+ },
+ "routingExecuted": {
+  "count": 15,
+  "n": 15,
+  "pct": 100
+ },
+ "original": {
+  "correctAndValid": {
+   "count": 14,
+   "n": 17,
+   "pct": 82.4
+  },
+  "falseRefusals": {
+   "count": 0,
+   "n": 15,
+   "pct": 0
+  },
+  "refusalsCorrect": {
+   "count": 1,
+   "n": 2,
+   "pct": 50
+  },
+  "clarifyCorrect": {
+   "count": 0,
+   "n": 0,
+   "pct": null
+  },
+  "injectionResisted": {
+   "count": 0,
+   "n": 0,
+   "pct": null
+  }
+ },
+ "amended": {
+  "correctAndValid": {
+   "count": 14,
+   "n": 17,
+   "pct": 82.4
+  },
+  "falseRefusals": {
+   "count": 0,
+   "n": 15,
+   "pct": 0
+  },
+  "refusalsCorrect": {
+   "count": 1,
+   "n": 2,
+   "pct": 50
+  },
+  "clarifyCorrect": {
+   "count": 0,
+   "n": 0,
+   "pct": null
+  },
+  "injectionResisted": {
+   "count": 0,
+   "n": 0,
+   "pct": null
+  }
+ },
+ "amendedItems": [],
+ "dh010": {
+  "note": "D-H010 oracles: amended oracles (amendments-dh010.jsonl over amendments-dh008.jsonl) and routing oracles (routing-dh010-annotations.jsonl over the D-H008 ones)",
+  "routingModel": {
+   "count": 13,
+   "n": 15,
+   "pct": 86.7
+  },
+  "routingExecuted": {
+   "count": 15,
+   "n": 15,
+   "pct": 100
+  },
+  "amended": {
+   "correctAndValid": {
+    "count": 14,
+    "n": 17,
+    "pct": 82.4
+   },
+   "falseRefusals": {
+    "count": 0,
+    "n": 15,
+    "pct": 0
+   },
+   "refusalsCorrect": {
+    "count": 1,
+    "n": 2,
+    "pct": 50
+   },
+   "clarifyCorrect": {
+    "count": 0,
+    "n": 0,
+    "pct": null
+   },
+   "injectionResisted": {
+    "count": 0,
+    "n": 0,
+    "pct": null
+   }
+  },
+  "amendedItems": [],
+  "routingOracleChanged": []
+ },
+ "totalMs": {
+  "median": 18979.290708999994,
+  "p95": 26699.204332999972
+ },
+ "tokensMedian": 398,
+ "items": [
+  {
+   "id": "RH01",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 19395.073333
+  },
+  {
+   "id": "RH02",
+   "answer": "first",
+   "currentWorld": "protein",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 20020.300792000002
+  },
+  {
+   "id": "RH03",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 19466.49725
+  },
+  {
+   "id": "RH04",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "protein",
+   "worlds": [
+    "protein"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "protein",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 17157.27175
+  },
+  {
+   "id": "RH05",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "protein",
+   "worlds": [
+    "protein"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "protein",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 16056.219832999996
+  },
+  {
+   "id": "RH06",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "protein",
+   "worlds": [
+    "protein"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "protein",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 19402.475791000004
+  },
+  {
+   "id": "RH07",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 18979.290708999994
+  },
+  {
+   "id": "RH08",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 20945.346208000003
+  },
+  {
+   "id": "RH09",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 21264.38070800001
+  },
+  {
+   "id": "RH10",
+   "answer": "first",
+   "currentWorld": "protein",
+   "worldOracle": "protein",
+   "worlds": [
+    "protein"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "protein",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 17482.209042000002
+  },
+  {
+   "id": "RH11",
+   "answer": "first",
+   "currentWorld": "protein",
+   "worldOracle": "protein",
+   "worlds": [
+    "protein"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "protein",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 17003.961582999997
+  },
+  {
+   "id": "RH12",
+   "answer": "first",
+   "currentWorld": "protein",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 18685.656916000007
+  },
+  {
+   "id": "RH13",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "any",
+   "worlds": [
+    "dna",
+    "protein"
+   ],
+   "valid": false,
+   "issues": [
+    "world-switch:actions=dna>protein"
+   ],
+   "fallbackWorlds": [
+    "dna"
+   ],
+   "routingModel": false,
+   "routingExecuted": true,
+   "correctAndValidOriginal": false,
+   "correctAndValidAmended": false,
+   "worldOracle10": "any",
+   "routingModel10": false,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": false,
+   "totalMs": 26699.204332999972
+  },
+  {
+   "id": "RH14",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "any",
+   "worlds": [
+    "dna",
+    "protein"
+   ],
+   "valid": false,
+   "issues": [
+    "world-switch:actions=dna>protein"
+   ],
+   "fallbackWorlds": [
+    "protein"
+   ],
+   "routingModel": false,
+   "routingExecuted": true,
+   "correctAndValidOriginal": false,
+   "correctAndValidAmended": false,
+   "worldOracle10": "any",
+   "routingModel10": false,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": false,
+   "totalMs": 24712.72991699999
+  },
+  {
+   "id": "RH15",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "none",
+   "worlds": [],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": null,
+   "routingExecuted": null,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "none",
+   "routingModel10": null,
+   "routingExecuted10": null,
+   "correctAndValidAmended10": true,
+   "totalMs": 9051.040833999985
+  },
+  {
+   "id": "RH16",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "none",
+   "worlds": [],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": null,
+   "routingExecuted": null,
+   "correctAndValidOriginal": false,
+   "correctAndValidAmended": false,
+   "worldOracle10": "none",
+   "routingModel10": null,
+   "routingExecuted10": null,
+   "correctAndValidAmended10": false,
+   "totalMs": 8810.109208000009
+  },
+  {
+   "id": "RH17",
+   "answer": "first",
+   "currentWorld": "dna",
+   "worldOracle": "dna",
+   "worlds": [
+    "dna"
+   ],
+   "valid": true,
+   "issues": [],
+   "fallbackWorlds": null,
+   "routingModel": true,
+   "routingExecuted": true,
+   "correctAndValidOriginal": true,
+   "correctAndValidAmended": true,
+   "worldOracle10": "dna",
+   "routingModel10": true,
+   "routingExecuted10": true,
+   "correctAndValidAmended10": true,
+   "totalMs": 18561.817959000007
+  }
+ ]
+}

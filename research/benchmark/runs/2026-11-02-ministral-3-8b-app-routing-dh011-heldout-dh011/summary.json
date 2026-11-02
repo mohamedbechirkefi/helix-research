@@ -1,0 +1,326 @@
+{
+ "run": "2026-11-02-ministral-3-8b-app-routing-dh011-heldout-dh011",
+ "provider": "ollama",
+ "meta": {
+  "ollamaVersion": "0.40.6",
+  "model": "ministral-3:8b",
+  "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+  "sizeBytes": 6022236616,
+  "details": {
+   "parent_model": "",
+   "format": "gguf",
+   "family": "mistral3",
+   "families": [
+    "mistral3"
+   ],
+   "parameter_size": "8.9B",
+   "quantization_level": "Q4_K_M"
+  },
+  "capabilities": [
+   "completion",
+   "vision",
+   "tools"
+  ],
+  "licenceFirstLine": "Apache License",
+  "licenceSha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+  "think": "not sent (model has no thinking capability)",
+  "numCtx": 8192,
+  "numPredict": 1024,
+  "timeoutMs": 180000
+ },
+ "schemaMode": "generic",
+ "contextMode": "app-v6 (D-H011: as app-v5 with the D-H011 routing instructions, prompt v6)",
+ "promptVersionUsed": "helix-plan-prompt-v6",
+ "promptSystemCharsUsed": 8677,
+ "schemaSha256Used": "a737a251eff854bac1f893de3020d71a5dddd051fb34f28bb29d09852907c6d6",
+ "validationPassPct": 90.5,
+ "fallbackPct": 9.5,
+ "rejectedForWorldSwitch": 0,
+ "oneWorld": {
+  "note": "schema-valid outputs; a plan that brings at most one world on screen (planWorlds)",
+  "all": {
+   "oneWorld": 21,
+   "n": 21
+  },
+  "firstAnswers": {
+   "oneWorld": 21,
+   "n": 21
+  }
+ },
+ "totalMsMedianT0": 19072.807250000013,
+ "questions": "routing-heldout-dh011.jsonl",
+ "warmup": {
+  "wallMs": 20673,
+  "loadMs": 0.799875,
+  "firstTokenMs": 370.64604199999997
+ },
+ "wallClockS": 385,
+ "reps": {
+  "temperature0": 1,
+  "temperature07": 0
+ },
+ "memory": {
+  "peakRunnerRssMiB": 2039,
+  "rssSamples": 807,
+  "ollamaPsAfterWarmup": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-03T00:09:34.335645+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "ollamaPsEnd": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-03T00:15:58.881764+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "note": "Runner RSS from ps; on Apple unified memory, GPU buffers may not be counted in RSS, so /api/ps size and size_vram are reported too."
+ },
+ "date": "2026-11-02T23:00:58.888Z",
+ "promptVersion": "helix-plan-prompt-v1",
+ "fallbackVersion": "helix-fallback-v1",
+ "schemaSha256": "29ca7da53c52b3c5a8fb6586ed3c8d40fffd3d5a7ed5d449a7a57ca37ac3f54e",
+ "promptSystemChars": 6290,
+ "gitCommit": "3fafc88-dirty",
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1",
+  "hostnameHash": "62ff34ba"
+ },
+ "items": 21,
+ "temperature0": {
+  "n": 21,
+  "parsedJsonPct": 100,
+  "schemaValidPct": 100,
+  "validPct": 90.5,
+  "groundednessViolations": 1,
+  "outputsWithViolations": 1,
+  "outcomeCorrectPct": 100,
+  "intentCorrectPct": 94.7,
+  "actionCorrectPct": 85.7,
+  "correctAndValidPct": 85.7,
+  "refusal": {
+   "correct": 2,
+   "n": 2
+  },
+  "clarify": {
+   "correct": 0,
+   "n": 0
+  },
+  "injection": {
+   "resisted": 0,
+   "n": 1
+  },
+  "followUp": {
+   "correct": 0,
+   "n": 0
+  },
+  "falseRefusals": {
+   "count": 0,
+   "n": 19
+  },
+  "explanationLevel": {
+   "correct": 0,
+   "n": 0
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 362.6689999999944,
+    "p95": 504.9277080000029,
+    "max": 654.0322499999893,
+    "n": 21
+   },
+   "total": {
+    "p50": 19072.807250000013,
+    "p95": 22067.399042000005,
+    "max": 22731.052833999973,
+    "n": 21
+   }
+  },
+  "decodeTokensPerSecP50": 21.390819243116496,
+  "errors": 0,
+  "repeatability": {
+   "items": 21,
+   "identicalOutputs": 21,
+   "sameVerdict": 21
+  },
+  "byCategory": {
+   "supported": {
+    "n": 12,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 91.7,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 100,
+    "actionCorrectPct": 83.3,
+    "correctAndValidPct": 83.3,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 12
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "paraphrase": {
+    "n": 6,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 83.3,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 100,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 6
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "unsupported": {
+    "n": 2,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": null,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 100,
+    "refusal": {
+     "correct": 2,
+     "n": 2
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 0
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "injection": {
+    "n": 1,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 0,
+    "groundednessViolations": 1,
+    "outputsWithViolations": 1,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 100,
+    "actionCorrectPct": 0,
+    "correctAndValidPct": 0,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 1
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 1
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   }
+  }
+ },
+ "temperature07": null
+}
