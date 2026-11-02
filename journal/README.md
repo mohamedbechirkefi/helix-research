@@ -34,3 +34,7 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P4-2026-11-02-ai-to-world-e2e | `2026-11-02-ai-to-world-e2e.md` | P4.2.3, P4.2.4, P4.3.1 |
 | HX-P4-2026-11-02-cancellation | `2026-11-02-cancellation.md` | P4.3.2 |
 | HX-P4-2026-11-02-long-frame | `2026-11-02-long-frame.md` | P1.4.2 carry-over (claim C19) |
+| HX-P5-2026-11-02-dna-world-bridge | `2026-11-02-dna-world-bridge.md` | P5.2.1, P5.2.2 |
+| HX-P5-2026-11-02-transitions | `2026-11-02-transitions.md` | P5.3.1 (and the Phase 4 suite as regression) |
+| HX-P5-2026-11-02-modes-rapid | `2026-11-02-modes-rapid.md` | P5.3.2, P5.3.3 |
+| HX-P5-2026-11-02-long-frame-reprobe | `2026-11-02-long-frame-reprobe.md` | carried from HX-P4-2026-11-02-long-frame (claims C19, C48) |
