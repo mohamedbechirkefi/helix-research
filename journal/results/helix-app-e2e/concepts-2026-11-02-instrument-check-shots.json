@@ -1,0 +1,428 @@
+{
+ "date": "2026-11-02T19:36:40.020Z",
+ "tag": "2026-11-02-instrument-check",
+ "dpr": 2,
+ "viewport": [
+  1440,
+  900
+ ],
+ "chrome": "Chrome/156.0.8078.74",
+ "shots": [
+  {
+   "concept": "deep-field",
+   "name": "welcome",
+   "query": "concept=deep-field&screen=welcome",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/welcome.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 98
+  },
+  {
+   "concept": "deep-field",
+   "name": "dna",
+   "query": "concept=deep-field&screen=dna&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/dna.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 104
+  },
+  {
+   "concept": "deep-field",
+   "name": "dna-tour-mid",
+   "query": "concept=deep-field&screen=dna&at=0.5",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/dna-tour-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 105
+  },
+  {
+   "concept": "deep-field",
+   "name": "bridge",
+   "query": "concept=deep-field&screen=bridge&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/bridge.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 104
+  },
+  {
+   "concept": "deep-field",
+   "name": "protein",
+   "query": "concept=deep-field&screen=protein",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/protein.jpg",
+   "errors": [],
+   "mol": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "structures": 1
+   },
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "deep-field",
+   "name": "evidence",
+   "query": "concept=deep-field&screen=evidence",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/evidence.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 104
+  },
+  {
+   "concept": "deep-field",
+   "name": "loading",
+   "query": "concept=deep-field&screen=loading",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/loading.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "deep-field",
+   "name": "error",
+   "query": "concept=deep-field&screen=error",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/error.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 104
+  },
+  {
+   "concept": "deep-field",
+   "name": "empty",
+   "query": "concept=deep-field&screen=empty",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/empty.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 104
+  },
+  {
+   "concept": "deep-field",
+   "name": "dna-low-power",
+   "query": "concept=deep-field&screen=dna&at=end&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/dna-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "deep-field",
+   "name": "dna-reduced-motion",
+   "query": "concept=deep-field&screen=dna&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/dna-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 105
+  },
+  {
+   "concept": "deep-field",
+   "name": "dna-fx-off",
+   "query": "concept=deep-field&screen=dna&at=end&fx=off",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/deep-field/dna-fx-off.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "welcome",
+   "query": "concept=instrument&screen=welcome",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/welcome.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna",
+   "query": "concept=instrument&screen=dna&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/dna.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-tour-mid",
+   "query": "concept=instrument&screen=dna&at=0.5",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/dna-tour-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge",
+   "query": "concept=instrument&screen=bridge&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/bridge.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "protein",
+   "query": "concept=instrument&screen=protein",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/protein.jpg",
+   "errors": [],
+   "mol": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "structures": 1
+   },
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "evidence",
+   "query": "concept=instrument&screen=evidence",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/evidence.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "loading",
+   "query": "concept=instrument&screen=loading",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/loading.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "error",
+   "query": "concept=instrument&screen=error",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/error.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "empty",
+   "query": "concept=instrument&screen=empty",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/empty.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-low-power",
+   "query": "concept=instrument&screen=dna&at=end&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/dna-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-reduced-motion",
+   "query": "concept=instrument&screen=dna&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/dna-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-fx-off",
+   "query": "concept=instrument&screen=dna&at=end&fx=off",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/instrument/dna-fx-off.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "atrium",
+   "name": "welcome",
+   "query": "concept=atrium&screen=welcome",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/welcome.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 107
+  },
+  {
+   "concept": "atrium",
+   "name": "dna",
+   "query": "concept=atrium&screen=dna&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/dna.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 102
+  },
+  {
+   "concept": "atrium",
+   "name": "dna-tour-mid",
+   "query": "concept=atrium&screen=dna&at=0.5",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/dna-tour-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 103
+  },
+  {
+   "concept": "atrium",
+   "name": "bridge",
+   "query": "concept=atrium&screen=bridge&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/bridge.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 102
+  },
+  {
+   "concept": "atrium",
+   "name": "protein",
+   "query": "concept=atrium&screen=protein",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/protein.jpg",
+   "errors": [],
+   "mol": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "structures": 1
+   },
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "atrium",
+   "name": "evidence",
+   "query": "concept=atrium&screen=evidence",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/evidence.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 107
+  },
+  {
+   "concept": "atrium",
+   "name": "loading",
+   "query": "concept=atrium&screen=loading",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/loading.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "atrium",
+   "name": "error",
+   "query": "concept=atrium&screen=error",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/error.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 102
+  },
+  {
+   "concept": "atrium",
+   "name": "empty",
+   "query": "concept=atrium&screen=empty",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/empty.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 101
+  },
+  {
+   "concept": "atrium",
+   "name": "dna-low-power",
+   "query": "concept=atrium&screen=dna&at=end&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/dna-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "atrium",
+   "name": "dna-reduced-motion",
+   "query": "concept=atrium&screen=dna&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/dna-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 102
+  },
+  {
+   "concept": "atrium",
+   "name": "dna-fx-off",
+   "query": "concept=atrium&screen=dna&at=end&fx=off",
+   "action": null,
+   "file": "docs/reviews/phase-7-concepts/atrium/dna-fx-off.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  }
+ ],
+ "perf": [],
+ "failures": []
+}

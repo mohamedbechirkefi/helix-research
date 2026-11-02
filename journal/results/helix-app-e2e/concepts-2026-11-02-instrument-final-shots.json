@@ -1,0 +1,210 @@
+{
+ "date": "2026-11-02T19:13:58.018Z",
+ "tag": "2026-11-02-instrument-final",
+ "dpr": 2,
+ "viewport": [
+  1440,
+  900
+ ],
+ "chrome": "Chrome/156.0.8078.74",
+ "shots": [
+  {
+   "concept": "instrument",
+   "name": "welcome",
+   "query": "concept=instrument&screen=welcome",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/welcome.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna",
+   "query": "concept=instrument&screen=dna&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-tour-mid",
+   "query": "concept=instrument&screen=dna&tour=off",
+   "action": "play",
+   "file": "docs/reviews/phase-7-instrument/dna-tour-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 384
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-hover-select",
+   "query": "concept=instrument&screen=dna&at=end",
+   "action": "hover",
+   "file": "docs/reviews/phase-7-instrument/dna-hover-select.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": {
+    "tip": "G·CcDNA 74c.24codon 8 GAG",
+    "readout": "64"
+   },
+   "frames": 4
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge",
+   "query": "concept=instrument&screen=bridge&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-mid",
+   "query": "concept=instrument&screen=transit&at=0.5",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-end",
+   "query": "concept=instrument&screen=transit&at=1",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-end.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "protein",
+   "query": "concept=instrument&screen=protein",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/protein.jpg",
+   "errors": [],
+   "mol": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "structures": 1
+   },
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "evidence",
+   "query": "concept=instrument&screen=evidence",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/evidence.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "loading",
+   "query": "concept=instrument&screen=loading",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/loading.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "error",
+   "query": "concept=instrument&screen=error",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/error.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "empty",
+   "query": "concept=instrument&screen=empty",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/empty.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-low-power",
+   "query": "concept=instrument&screen=dna&at=end&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "welcome-low-power",
+   "query": "concept=instrument&screen=welcome&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/welcome-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-reduced-motion",
+   "query": "concept=instrument&screen=dna&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-reduced-motion",
+   "query": "concept=instrument&screen=transit&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-fx-off",
+   "query": "concept=instrument&screen=dna&at=end&fx=off",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-fx-off.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "frames": 1
+  }
+ ],
+ "perf": [],
+ "failures": []
+}
