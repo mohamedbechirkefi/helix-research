@@ -42,3 +42,7 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P6-2026-11-02-clinvar-live-smoke | `2026-11-02-clinvar-live-smoke.md` | P6.1.1 (live smoke) |
 | HX-P6-2026-11-02-vertical-slice-e2e | `2026-11-02-vertical-slice-e2e.md` | P6.1.2, P6.2.1 to P6.2.4, P6.3.1, P6.4.1 preparation (E2E, regression, demo) |
 | HX-P6-2026-11-02-start-world-dh007 | `2026-11-02-start-world-dh007.md` | D-H007 product changes: welcome on every visit, DNA World start (start-time cost re-measured), follow-up filter; model-free E2E regression |
+| HX-P6-2026-11-02-planning-time | `2026-11-02-planning-time.md` | D-H007 item 14 (planning-time rise, Phase 3 to 6) |
+| HX-P6-2026-11-02-one-world-first-answer | `2026-11-02-one-world-first-answer.md` | D-H007 item 10 (first answer in one world, no reordering) |
+| HX-P6-2026-11-02-followup-filter-model | `2026-11-02-followup-filter-model.md` | D-H007 item 7 (follow-up filter on the model path) |
+| HX-P6-2026-11-02-model-e2e-oneworld | `2026-11-02-model-e2e-oneworld.md` | D-H007 (model-backed E2E scenarios on the shipped build) |

@@ -1,0 +1,59 @@
+{
+ "condition": "p6-ref-asked",
+ "evalCount": 464,
+ "emptyPromptCount": 1,
+ "generated": {
+  "chars": 1400,
+  "tokens": 463
+ },
+ "compact": {
+  "chars": 1082,
+  "tokens": 347
+ },
+ "fields": {
+  "outcome": 6,
+  "intent": 8,
+  "entities": 64,
+  "actions": 115,
+  "explanationLevel": 8,
+  "citations": 46,
+  "followUps": 43,
+  "reason": 59
+ },
+ "actions": [
+  {
+   "action": "loadStructure",
+   "tokens": 17
+  },
+  {
+   "action": "highlightResidue",
+   "tokens": 22
+  },
+  {
+   "action": "highlightSequenceRegion",
+   "tokens": 40
+  },
+  {
+   "action": "enterWorld",
+   "tokens": 10
+  },
+  {
+   "action": "focusCamera",
+   "tokens": 20
+  }
+ ],
+ "followUps": [
+  {
+   "text": "How does this mutation affect hemoglobin’s function?",
+   "tokens": 9
+  },
+  {
+   "text": "What are the structural consequences of the Glu6Val substitution?",
+   "tokens": 12
+  },
+  {
+   "text": "Can you show the contacts lost or gained due to this mutation?",
+   "tokens": 14
+  }
+ ]
+}

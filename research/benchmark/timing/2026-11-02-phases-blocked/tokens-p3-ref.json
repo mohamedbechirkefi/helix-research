@@ -1,0 +1,55 @@
+{
+ "condition": "p3-ref",
+ "evalCount": 382,
+ "emptyPromptCount": 1,
+ "generated": {
+  "chars": 1111,
+  "tokens": 381
+ },
+ "compact": {
+  "chars": 846,
+  "tokens": 281
+ },
+ "fields": {
+  "outcome": 6,
+  "intent": 8,
+  "entities": 64,
+  "actions": 97,
+  "explanationLevel": 8,
+  "citations": 46,
+  "followUps": 50,
+  "reason": 4
+ },
+ "actions": [
+  {
+   "action": "resolveVariant",
+   "tokens": 33
+  },
+  {
+   "action": "loadStructure",
+   "tokens": 17
+  },
+  {
+   "action": "highlightResidue",
+   "tokens": 22
+  },
+  {
+   "action": "focusCamera",
+   "tokens": 20
+  }
+ ],
+ "followUps": [
+  {
+   "text": "What is the molecular impact of this mutation on hemoglobin function?",
+   "tokens": 12
+  },
+  {
+   "text": "How does the sickle-cell mutation affect the structure of hemoglobin?",
+   "tokens": 13
+  },
+  {
+   "text": "Can you show the contacts made by the mutated residue in the hemoglobin tetramer?",
+   "tokens": 17
+  }
+ ]
+}

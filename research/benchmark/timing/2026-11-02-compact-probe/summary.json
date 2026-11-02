@@ -1,0 +1,113 @@
+{
+ "tag": "compact-probe",
+ "date": "2026-11-02T13:29:58.090Z",
+ "gitCommit": "d0d76f9-dirty",
+ "ollamaVersion": "0.40.6",
+ "conditionsFile": "research/benchmark/timing/prompts/conditions-phases.json",
+ "conditionsSha256": "f022942da2316fa31ed223a7e0161924a99a47d94b17322ed029d5ca91579413",
+ "order": "blocked",
+ "reps": 3,
+ "warmups": 1,
+ "coldFirst": false,
+ "wallClockS": 87,
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1"
+ },
+ "conditions": [
+  {
+   "id": "p6-ref-asked-compact",
+   "label": "Diagnostic: p6-ref-asked with one added rule after rule 12 (\"13. Write the JSON object on one line, with no line breaks or indentation.\")",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 7261,
+   "userChars": 160,
+   "formatChars": 4639,
+   "messagesSha256": "8cc9710944181279b4213dd6d6e7a50495d7ffbc113fe890e48ccc7c2495c78a",
+   "n": 3,
+   "errors": 0,
+   "totalMs": {
+    "median": 18891.7,
+    "min": 18891,
+    "max": 18900.1,
+    "n": 3
+   },
+   "wallMs": {
+    "median": 18893.9,
+    "min": 18893.4,
+    "max": 18902.7,
+    "n": 3
+   },
+   "loadMs": {
+    "median": 1,
+    "min": 0.9,
+    "max": 1.1,
+    "n": 3
+   },
+   "promptEvalCount": {
+    "median": 2436,
+    "min": 2436,
+    "max": 2436,
+    "n": 3
+   },
+   "promptEvalMs": {
+    "median": 60.2,
+    "min": 59.4,
+    "max": 61.9,
+    "n": 3
+   },
+   "evalCount": {
+    "median": 406,
+    "min": 406,
+    "max": 406,
+    "n": 3
+   },
+   "evalMs": {
+    "median": 18809.5,
+    "min": 18806.5,
+    "max": 18813.1,
+    "n": 3
+   },
+   "msPerGeneratedToken": {
+    "median": 46.3,
+    "min": 46.3,
+    "max": 46.3,
+    "n": 3
+   },
+   "firstTokenMs": {
+    "median": 87,
+    "min": 81.7,
+    "max": 103.6,
+    "n": 3
+   },
+   "outputChars": {
+    "median": 1245,
+    "min": 1245,
+    "max": 1245,
+    "n": 3
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": false,
+     "totalMs": 29674.597291,
+     "loadMs": 0.870583,
+     "promptEvalCount": 2436,
+     "promptEvalMs": 10868.49,
+     "evalCount": 406,
+     "evalMs": 18806.781
+    }
+   ],
+   "loadavg1": {
+    "median": 4.4,
+    "min": 4.1,
+    "max": 4.8,
+    "n": 4
+   }
+  }
+ ]
+}

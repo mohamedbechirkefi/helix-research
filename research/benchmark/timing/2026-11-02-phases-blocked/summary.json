@@ -1,0 +1,493 @@
+{
+ "tag": "phases-blocked",
+ "date": "2026-11-02T13:21:04.218Z",
+ "gitCommit": "d0d76f9-dirty",
+ "ollamaVersion": "0.40.6",
+ "conditionsFile": "research/benchmark/timing/prompts/conditions-phases.json",
+ "conditionsSha256": "e7ecc56d57f994ad1ecce6ef9967a0e0bdd40b36b75489f5356b969e08856a58",
+ "order": "blocked",
+ "reps": 5,
+ "warmups": 1,
+ "coldFirst": true,
+ "wallClockS": 664,
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1"
+ },
+ "conditions": [
+  {
+   "id": "p3-ref",
+   "label": "Phase 3 benchmark prompt, item S01 (commit 4912d80), schema v1",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 6290,
+   "userChars": 160,
+   "formatChars": 3949,
+   "messagesSha256": "8f7c4b24b032baba0f308559e44b12b14418944b1699a7de6bdac3648104defe",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 17652.3,
+    "min": 17630.6,
+    "max": 17655.8,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 17653.7,
+    "min": 17632.6,
+    "max": 17658.2,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.8,
+    "min": 0.8,
+    "max": 1.6,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2201,
+    "min": 2201,
+    "max": 2201,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 58.8,
+    "min": 57.9,
+    "max": 59.6,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 382,
+    "min": 382,
+    "max": 382,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 17567.2,
+    "min": 17553,
+    "max": 17574.4,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46,
+    "min": 46,
+    "max": 46,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 78.2,
+    "min": 77.8,
+    "max": 79.9,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1111,
+    "min": 1111,
+    "max": 1111,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": true,
+     "totalMs": 31663.804542,
+     "loadMs": 4333.13325,
+     "promptEvalCount": 2201,
+     "promptEvalMs": 9725.284,
+     "evalCount": 382,
+     "evalMs": 17572.635
+    }
+   ],
+   "loadavg1": {
+    "median": 4.7,
+    "min": 3.4,
+    "max": 5.2,
+    "n": 6
+   }
+  },
+  {
+   "id": "p4-ref",
+   "label": "Phase 4 app prompt (e2e-2026-11-02.json run 1), schema v1",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 6587,
+   "userChars": 160,
+   "formatChars": 3949,
+   "messagesSha256": "0e27057bebd118fd3b46b9df03c06db78d2441dce3f974cf54bcbdb715f817bb",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 15839.1,
+    "min": 15818.6,
+    "max": 15842.4,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 15841.8,
+    "min": 15820.2,
+    "max": 15844.1,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.9,
+    "min": 0.8,
+    "max": 1.8,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2287,
+    "min": 2287,
+    "max": 2287,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 59.5,
+    "min": 59.1,
+    "max": 60,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 342,
+    "min": 342,
+    "max": 342,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 15757.4,
+    "min": 15740.4,
+    "max": 15763.2,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.1,
+    "min": 46,
+    "max": 46.1,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 80.6,
+    "min": 78.1,
+    "max": 84,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1040,
+    "min": 1040,
+    "max": 1040,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": true,
+     "totalMs": 30293.163625,
+     "loadMs": 4403.445958,
+     "promptEvalCount": 2287,
+     "promptEvalMs": 10128.104,
+     "evalCount": 342,
+     "evalMs": 15738.121
+    }
+   ],
+   "loadavg1": {
+    "median": 4.9,
+    "min": 4.2,
+    "max": 6.3,
+    "n": 6
+   }
+  },
+  {
+   "id": "p5-ref",
+   "label": "Phase 5 app prompt (e2e-2026-11-02-p5reg.json run 1), schema v1",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 6527,
+   "userChars": 160,
+   "formatChars": 3949,
+   "messagesSha256": "cf2caa77098a610c070059b2e2b0b1025446917a4b1353918796b01d089385c0",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 15631.4,
+    "min": 15621.7,
+    "max": 15658.8,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 15633.1,
+    "min": 15622.8,
+    "max": 15660,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.8,
+    "min": 0.7,
+    "max": 1.1,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2271,
+    "min": 2271,
+    "max": 2271,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 59.5,
+    "min": 57.9,
+    "max": 60,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 338,
+    "min": 338,
+    "max": 338,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 15553.7,
+    "min": 15547,
+    "max": 15581.9,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46,
+    "min": 46,
+    "max": 46.1,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 78.7,
+    "min": 75.5,
+    "max": 79.9,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1014,
+    "min": 1014,
+    "max": 1014,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": true,
+     "totalMs": 30193.137583,
+     "loadMs": 4607.836041,
+     "promptEvalCount": 2271,
+     "promptEvalMs": 10001.478,
+     "evalCount": 338,
+     "evalMs": 15544.18
+    }
+   ],
+   "loadavg1": {
+    "median": 5.5,
+    "min": 4.9,
+    "max": 6.1,
+    "n": 6
+   }
+  },
+  {
+   "id": "p6-ref",
+   "label": "Phase 6 app prompt (e2e-2026-11-02-p6reg.json run 1), schema v2",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 7278,
+   "userChars": 160,
+   "formatChars": 4639,
+   "messagesSha256": "6c422bb6cac3bb50b8986b2313a5875ffd34a541fa8fe6cac5958677afba8cc5",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 24781.3,
+    "min": 24772.5,
+    "max": 24807.3,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 24782.7,
+    "min": 24773.8,
+    "max": 24808.5,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.9,
+    "min": 0.8,
+    "max": 1.6,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2451,
+    "min": 2451,
+    "max": 2451,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 59.9,
+    "min": 59.5,
+    "max": 61.5,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 533,
+    "min": 533,
+    "max": 533,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 24702.5,
+    "min": 24691.5,
+    "max": 24727.2,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.3,
+    "min": 46.3,
+    "max": 46.4,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 81.6,
+    "min": 79.6,
+    "max": 87.8,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1580,
+    "min": 1580,
+    "max": 1580,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": true,
+     "totalMs": 39923.629417,
+     "loadMs": 4344.649125,
+     "promptEvalCount": 2451,
+     "promptEvalMs": 10854.992,
+     "evalCount": 533,
+     "evalMs": 24693.501
+    }
+   ],
+   "loadavg1": {
+    "median": 4.4,
+    "min": 3.4,
+    "max": 4.6,
+    "n": 6
+   }
+  },
+  {
+   "id": "p6-ref-noformat",
+   "label": "Diagnostic: p6-ref without the JSON schema in format (no constrained decoding)",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 7278,
+   "userChars": 160,
+   "formatChars": 0,
+   "messagesSha256": "6c422bb6cac3bb50b8986b2313a5875ffd34a541fa8fe6cac5958677afba8cc5",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 24427.4,
+    "min": 24413.2,
+    "max": 24451.4,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 24428.6,
+    "min": 24414.3,
+    "max": 24453.8,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.9,
+    "min": 0.8,
+    "max": 2.8,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2451,
+    "min": 2451,
+    "max": 2451,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 46.4,
+    "min": 46.1,
+    "max": 46.5,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 527,
+    "min": 527,
+    "max": 527,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 24361,
+    "min": 24348.8,
+    "max": 24384.7,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.2,
+    "min": 46.2,
+    "max": 46.3,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 66.4,
+    "min": 65.1,
+    "max": 68.7,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1583,
+    "min": 1583,
+    "max": 1583,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": true,
+     "totalMs": 39552.004,
+     "loadMs": 4340.775417,
+     "promptEvalCount": 2451,
+     "promptEvalMs": 10843.736,
+     "evalCount": 527,
+     "evalMs": 24335.227
+    }
+   ],
+   "loadavg1": {
+    "median": 3.6,
+    "min": 2.7,
+    "max": 4.4,
+    "n": 6
+   }
+  }
+ ]
+}
