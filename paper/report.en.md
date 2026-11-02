@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | Author | Mohamed Bechir Kefi |
-| Version | Working draft 0.4, 2026-11-02 |
-| Status | Chapters 1 to 8, 9.1, 9.2, 10 and 11 drafted (Phases 0 to 5). Sections 9.3 to 9.9 are headed placeholders. |
+| Version | Working draft 0.5, 2026-11-02 |
+| Status | Chapters 1 to 8, 9.1 to 9.3, 10 and 11 drafted (Phases 0 to 6). Sections 9.4 to 9.9 are headed placeholders. |
 | Companion files | Claims register `paper/claims.md`; experiment journal `journal/` |
 | French copy | `paper/report.fr.md`, first produced after Phase 4 (see `paper/README.md`) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (see `LICENSE`) |
@@ -237,7 +237,7 @@ Table 4.2. HbS across layers (`journal/2026-11-01-hbs-mapping.md`).
 | UniProt annotation | VAR_002863 at position 7, E to V, dbSNP rs334 | UniProt |
 | Mature numbering | Met1 removed, chain 2-147, so p.7 = mature 6 ("E6V") | UniProt features; 2HBS `pdbx_mutation` |
 | Structure | 2HBS entity 2, beta chains B, D, F, H: label_seq_id 6 = auth_seq_id 6 = VAL [C07] | SIFTS, RCSB alignment, UniProt PDB cross-reference, `atom_site` |
-| Clinical record | VCV000015333.183, Pathogenic (criteria provided, multiple submitters, no conflicts) [C09] | ClinVar |
+| Clinical record | VCV000015333.183, Pathogenic (criteria provided, multiple submitters, no conflicts) [C09]; version .184 at the Phase 6 rebuild (section 9.3) | ClinVar |
 
 Three points deserve emphasis.
 
@@ -728,7 +728,7 @@ All four are handled in code and documented in the product repository.
 
 **Limits.**
 - One machine, headless Chrome, few repeats.
-- Only codon 7 reaches a structure residue, because the dataset holds a mapping record for that position only.
+- Only codon 7 reached a structure residue in Phase 5, because the dataset then held a mapping record for that position only. Phase 6 extended the link to all 146 mapped codons (section 9.3).
 - Chapter planning is deterministic only.
 - Starting in DNA World adds about 0.73 s to the reference question, for the fade between worlds [C57].
 - Keyboard navigation of the codon strip was not tested end to end. Safari, Firefox and the desktop webview were not run.
@@ -737,7 +737,37 @@ All four are handled in code and documented in the product repository.
 
 ### 9.3 Complete HBB vertical slice (Phase 6)
 
-The complete HBB journey. To report: scientific correctness of every displayed statement against the dataset, and the results of the author's review. **Milestone:** second French copy.
+**Question.** Can the whole HBB slice be used end to end, with three properties:
+- every statement shown traces to a record;
+- a follow-up question changes the scene again;
+- the experience degrades honestly when data or AI is missing?
+
+**Design.**
+- **Data.** Two records were added to the curated dataset: the ClinVar record of the HbS allele with its review status, and the full-chain SIFTS residue mapping of P68871 onto 2HBS. The dataset was then rebuilt live.
+- **Actions.** Two validated actions were added: the comparison of the reference and variant sequences, and a sequence-region highlight.
+- **Flows.** Four flows were built: first visit, missing data (a clearly labelled test fixture), no AI, and the known limitations shown in the interface.
+
+**Results** (`HX-P6-2026-11-02-hbb-rebuild`, `HX-P6-2026-11-02-clinvar-live-smoke`, `HX-P6-2026-11-02-vertical-slice-e2e`).
+- **ClinVar.** VCV000015333.184 classifies the HbS allele as Pathogenic: "criteria provided, multiple submitters, no conflicts", 2 of 4 stars, no conflict. The record was at version .183 in Phase 2. The nine other ClinVar records at rs334 are stored separately and never merged [C59].
+- **Rebuild.**
+  - The extended build passed all 53 checks from a clean commit [C60].
+  - A second build differed only in explained fields.
+  - The manifest now names a commit present on the public branch, which closes the provenance gap noted in section 10.
+- **The DNA-to-structure link covers the whole chain.** The full-chain record maps positions 2 to 147 onto all four beta chains. In the application, all 146 mapped codons linked to exactly the recorded residues, by lookup, never by offset. Codon 1 and the stop codon say why they have no counterpart [C61].
+- **The comparison view** is shown only if it reproduces the record (c.20A>T, GAG to GTG, Glu to Val); a corrupted record is refused [C62].
+- **Follow-up questions.** A follow-up question produced a second visual action, verified by read-back, in 3 of 3 runs with each planner. With the rule-based planner the follow-up took a median 775 ms; with ministral-3:8b, 17,116 ms, and the model wrote the plan itself each time [C63].
+- **First visit.** A gene that is not curated (CFTR) was refused without a scene, and "beta-globin" reached the first scene in 1,731 ms [C64].
+- **Missing data.** With the structure records withheld, the variant was shown on the sequence with the reason, and no structure or predicted model was requested [C65].
+- **No AI.** With no reachable model, every path that does not need one worked, and the interface said why no model runs [C66].
+- **Regression.** The Phase 4 and Phase 5 suites still pass. Model planning time rose to a median of 21.5 s, from 15.5 s, which has not been investigated [C67].
+
+**Limits.**
+- One gene. The missing-data fixture is HBB with records withheld, not a real gene with a limited structure.
+- Blueprints A, E and F were run once each, on one machine, in headless Chrome.
+- With the extended prompt, the model's first plans are longer than needed and visit both worlds.
+- The demonstration video shortens pauses longer than 1.2 s, so planning time does not appear at its real length.
+
+**Tests.** After Phase 6, the product repository has 110 passing tests, and this repository 181: 177 pass and 4 opt-in live tests are skipped by default; the 4 live tests pass when run [C68].
 
 ### 9.4 Art direction, branding and UX system (Phase 7)
 
@@ -798,7 +828,7 @@ The public demonstration, if the author decides to publish it. To report: what w
 **Process.**
 - The Phase 0 to 2 journal entries are retrospective, written on the same day from recorded evidence; they were not written during the runs.
 - Several fields are recorded as "not recorded": durations, the exact Ollama model digest, the exact prompt.
-- The dataset manifest names its generating commit by a hash from before the history rewrite of 2026-11-01. The equivalent commit on the public branch is 3b89a9a (`journal/2026-11-01-hbb-dataset-build.md`).
+- The Phase 2 dataset manifest named its generating commit by a hash from before the history rewrite of 2026-11-01 (equivalent on the public branch: 3b89a9a). The Phase 6 rebuild records 4b30c60, which is on the public branch (section 9.3).
 - The work was carried out with substantial AI assistance (chapter 12). AI self-verification is not independent review; external review of the scientific claims is planned for Phase 11.
 
 **Novelty.** The differentiation of section 3.5 is an inference from the sources read, not a measured user benefit. Whether a continuous cross-scale journey helps understanding needs a user study, which is not yet planned.
@@ -924,4 +954,5 @@ All URLs accessed 2026-11-01. The complete reference lists are in `docs/competit
 | 3 Local and browser AI | 8 | ai-benchmark-ollama, webllm-browser | verified |
 | 4 AI-to-World proof | 9.1 | ai-to-world-e2e, cancellation, long-frame | verified |
 | 5 Journey engine, two worlds | 9.2 | dna-world-bridge, transitions, modes-rapid, long-frame-reprobe | verified |
-| 6 to 12 | 9.3 to 9.9 | to be written as runs happen | not started |
+| 6 Complete HBB vertical slice | 9.3 | hbb-rebuild, clinvar-live-smoke, vertical-slice-e2e | built; author review pending |
+| 7 to 12 | 9.4 to 9.9 | to be written as runs happen | not started |
