@@ -79,7 +79,12 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
   const firstChain = [...segments].sort((a, b) => a.labelAsymId.localeCompare(b.labelAsymId))[0]!.labelAsymId;
   const asmId = assemblyOf(mmcif.data, firstChain) ?? "1";
   const asm = await step("P4 assembly", rcsb.assembly(config.pdbId, asmId));
-  const cv = await step("C1 clinvar", clinvar.esummary([config.variant.clinvarUid]));
+  // C0: every ClinVar record that cites the rsID (other alleles, haplotypes), so the curated record
+  // can list them separately; C1 then summarises them all. The configured uid must be among them.
+  const cvSearch = await step("C0 clinvar esearch", clinvar.esearchRs(config.variant.rsId));
+  if (!cvSearch.data.uids.includes(config.variant.clinvarUid)) throw new Error(`ClinVar esearch ${config.variant.rsId} does not return uid ${config.variant.clinvarUid}`);
+  if (cvSearch.data.count > cvSearch.data.uids.length) throw new Error(`ClinVar esearch ${config.variant.rsId} returned ${cvSearch.data.uids.length} of ${cvSearch.data.count} uids`);
+  const cv = await step("C1 clinvar", clinvar.esummary(cvSearch.data.uids));
   const cvInfo = await step("C1 clinvar einfo", clinvar.build());
 
   const inputs: SliceInputs = {
@@ -101,6 +106,7 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
     rcsbPolymerEntity: toRaw(entity.response),
     rcsbAssembly: toRaw(asm.response),
     sifts: toRaw(s1.response),
+    clinvarSearch: toRaw(cvSearch.response),
     clinvar: toRaw(cv.response),
     clinvarEinfo: toRaw(cvInfo.response),
     hgnc: toRaw(hg.response),

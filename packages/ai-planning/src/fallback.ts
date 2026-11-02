@@ -8,7 +8,7 @@
  * selection-dependent follow-ups, ambiguity, and finally the supported commands. Anything
  * not recognised is answered "unsupported" with a reason: the fallback never guesses.
  */
-import type { Action, Plan, Intent } from "./schema.ts";
+import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
 import { extractIdTokens } from "./validate.ts";
 import { trustedContextJson, type PlanningContext } from "./context.ts";
 
@@ -42,9 +42,38 @@ const BEGINNER = /(beginner|simple|simply|debutant|explain like)/;
 const EXPERT = /(expert|detail|in depth|codon|numbering)/;
 const OUT_OF_CONTEXT_GENES = new Set(["CFTR", "BRCA1", "BRCA2", "TP53", "EGFR", "KRAS", "BRAF", "APOE", "HBA1", "HBA2", "HBD", "HBG1", "HBG2", "HTT", "DMD", "MYC", "PTEN", "SMN1", "FBN1"]);
 const OTHER_VARIANTS = /\b(hbc|hbe|f508del|r175h|v600e)\b/;
+// Phase 6: questions about the DNA-level change (gated on the build executing the sequence actions).
+const SEQUENCE_CHANGE = /(codon|nucleotide|\bbase change|which base|dna change|sequence change|change in the (dna|sequence|gene)|changed in the (dna|sequence|gene)|in the dna|on the dna|dna sequence|reference sequence|normal sequence|sequence comparison)/;
 
 function base(ctx: PlanningContext): Pick<Plan, "entities" | "citations" | "followUps" | "explanationLevel"> {
   return { entities: { geneId: null, proteinId: null, variantId: null, structureId: null }, citations: [], followUps: [], explanationLevel: "intermediate" };
+}
+
+/** Phase 6: does this build execute the sequence actions (compareVariants, highlightSequenceRegion)? */
+function sequenceActions(ctx: PlanningContext): boolean {
+  return ctx.executableActions.includes("compareVariants") && ctx.executableActions.includes("highlightSequenceRegion");
+}
+
+/** Phase 6: show a variant on the transcript sequence next to the reference (blueprints B and E). */
+function sequencePlan(ctx: PlanningContext, variant: PlanningContext["variants"][number], target: SequenceTarget, level: Plan["explanationLevel"], reason: string | null): Plan {
+  const hgvsEv = ctx.evidence.find((e) => e.id.startsWith("hgvs:"))?.id ?? null;
+  const dna = ctx.worlds.some((w) => w.id === "dna" && w.available);
+  const actions: Action[] = [
+    ...(dna ? [{ type: "enterWorld" as const, world: "dna" as const }] : []),
+    { type: "highlightSequenceRegion", target },
+    { type: "compareVariants", variantIds: [variant.id] },
+    ...(hgvsEv ? [{ type: "revealEvidence" as const, evidenceId: hgvsEv }] : []),
+  ];
+  return {
+    ...base(ctx),
+    outcome: "plan",
+    intent: "compare_variants",
+    entities: { geneId: variant.geneId, proteinId: variant.proteinId, variantId: variant.id, structureId: null },
+    actions,
+    citations: hgvsEv ? [hgvsEv] : [],
+    explanationLevel: level,
+    reason,
+  };
 }
 
 function refuse(ctx: PlanningContext, intent: Intent, reason: string): Plan {
@@ -83,7 +112,7 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
   const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
   if (geneLike.length > 0) return r(refuse(ctx, "other", `${[...new Set(geneLike)].join(", ")} is not in the curated records available here; only ${[...symbols][0] ?? "the curated gene"} is.`), "foreign-gene");
-  if (OTHER_VARIANTS.test(q)) return r(refuse(ctx, "compare_variants", "Only the HbS variant is in the curated records; other variants are not available, and variant comparison is not executable in this build."), "foreign-variant");
+  if (OTHER_VARIANTS.test(q)) return r(refuse(ctx, "compare_variants", sequenceActions(ctx) ? "Only the HbS variant is in the curated records; other variants are not available." : "Only the HbS variant is in the curated records; other variants are not available, and variant comparison is not executable in this build."), "foreign-variant");
 
   // 3. Cancel.
   if (CANCEL.test(q)) return r({ ...base(ctx), outcome: "plan", intent: "cancel", actions: [{ type: "cancelActions" }], reason: null }, "cancel");
@@ -92,7 +121,12 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   if (SELECTION_REF.test(q) || (/\b(it|ca)\b/.test(q) && COMPARE.test(q))) {
     const sel = ctx.selection;
     if (!sel) return r(clarify(ctx, "explain_selection", "Nothing is selected. Select a residue in the structure first, or name the residue, chain and structure."), "selection-missing");
-    if (COMPARE.test(q)) return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare-selection");
+    if (COMPARE.test(q) || (sequenceActions(ctx) && SEQUENCE_CHANGE.test(q))) {
+      if (!sequenceActions(ctx)) return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare-selection");
+      const selVariant = sel.featureId ? ctx.variants.find((v) => v.featureId === sel.featureId) : undefined;
+      if (!selVariant) return r(clarify(ctx, "compare_variants", `No curated variant is recorded at ${sel.compId} ${sel.chainId}${sel.residueNumber}; only ${ctx.variants.map((v) => v.label).join(", ") || "no variant"} can be compared with the reference.`), "compare-selection-no-variant");
+      return r(sequencePlan(ctx, selVariant, { kind: "selection" }, level, null), "compare-selection-sequence");
+    }
     const selFeature = sel.featureId ? ctx.features.find((f) => f.id === sel.featureId) : null;
     if (CONTACT.test(q) && selFeature && contactFeature && contactFeature.chains[0] === sel.chainId) {
       const t = { kind: "feature" as const, featureId: contactFeature.id };
@@ -124,11 +158,25 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
 
   // 5. Ambiguity.
   if (RESIDUE_NUMBER.test(q)) return r(clarify(ctx, "other", "Which numbering, protein and chain? For beta-globin, translated numbering (Met = 1) and mature numbering differ by one."), "residue-number");
-  if (COMPARE.test(q)) return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare");
+  if (COMPARE.test(q)) {
+    if (sequenceActions(ctx) && variant) return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, null), "compare-sequence");
+    return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare");
+  }
   if (DOMAINS.test(q)) return r(refuse(ctx, "show_domains", "Protein domain display is not executable in this build."), "domains");
   if (PATHWAY.test(q)) return r(refuse(ctx, "other", "No curated pathway records are available in this context."), "pathway");
 
   // 6. Supported commands.
+  // Phase 6: the DNA-level change of the variant, on the sequence next to the reference.
+  if (variant && sequenceActions(ctx) && SEQUENCE_CHANGE.test(q) && (VARIANT.test(q) || /\b(it|this|that)\b/.test(q))) {
+    return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, null), "variant-sequence");
+  }
+  // Phase 6 (blueprint E): no experimental structure with a verified mapping. Say so and show the
+  // variant on the sequence instead; a predicted model is never substituted.
+  if (variant && VARIANT.test(q) && !experimental && !EVIDENCE.test(q)) {
+    const why = "No experimental structure with a verified residue mapping is available for this variant in the curated records here, so it is not placed on a 3D structure; a predicted model is never used instead.";
+    if (sequenceActions(ctx)) return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, `${why} The change is shown on the transcript sequence instead.`), "variant-no-structure-sequence");
+    return r(refuse(ctx, "locate_variant", why), "variant-no-structure");
+  }
   if (variant && experimental && contactFeature && CONTACT.test(q) && (VARIANT.test(q) || /\b(valine|val) ?6\b|\bchain h\b/.test(q))) {
     const t = { kind: "feature" as const, featureId: contactFeature.id };
     return r(
@@ -166,7 +214,7 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
           ],
           citations: varFeature.evidenceIds,
           explanationLevel: level,
-          followUps: ["Why is this residue important?", "What does this residue touch in the crystal?"],
+          followUps: sequenceActions(ctx) ? ["How does the DNA change at this codon?", "What does this residue touch in the crystal?"] : ["Why is this residue important?", "What does this residue touch in the crystal?"],
           reason: null,
         },
         "variant-locate",

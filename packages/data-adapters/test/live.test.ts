@@ -5,7 +5,7 @@
  * is drift to report, not a failure.
  */
 import { describe, expect, it } from "vitest";
-import { EnsemblAdapter, HttpClient, RcsbAdapter, SiftsAdapter, UniprotAdapter, findProprietaryIdentifiers } from "../src/index.ts";
+import { ClinvarAdapter, EnsemblAdapter, HttpClient, RcsbAdapter, SiftsAdapter, UniprotAdapter, findProprietaryIdentifiers } from "../src/index.ts";
 
 const live = process.env.HELIX_LIVE === "1";
 const http = new HttpClient({ userAgent: "helix-research", timeoutMs: 60_000 });
@@ -30,5 +30,18 @@ describe.skipIf(!live)("live smoke", () => {
     expect(s.data.entities.find((e) => e.id === "2")?.strandIds).toEqual(["B", "D", "F", "H"]);
     const m = await new SiftsAdapter(http).uniprotMappings("2HBS");
     expect(m.data.filter((x) => x.uniprotAccession === "P68871")).toHaveLength(4);
+  }, 120_000);
+  it("ClinVar rs334 esearch and the HbS record (Phase 6, P6.1.1)", async () => {
+    const cv = new ClinvarAdapter(http);
+    const s = await cv.esearchRs("rs334");
+    expect(s.data.uids).toContain("15333");
+    expect(s.response.url).not.toMatch(/email/i);
+    const r = await cv.esummary(s.data.uids);
+    const hbs = r.data.find((x) => x.uid === "15333")!;
+    expect(hbs.accession).toBe("VCV000015333");
+    expect(hbs.isHaplotypeOrCompound).toBe(false);
+    expect(hbs.canonicalSpdi).toContain("NC_000011.10:5227001:T:A");
+    expect(hbs.reviewStatus.length).toBeGreaterThan(0);
+    expect(JSON.stringify(hbs)).not.toMatch(/trait_name/);
   }, 120_000);
 });

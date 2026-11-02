@@ -6,6 +6,7 @@ export * from "./normalise.ts";
 export * from "./transcript-selection.ts";
 export * from "./numbering.ts";
 export * from "./evidence.ts";
+export * from "./clinvar.ts";
 export * from "./alignment.ts";
 export * from "./structure-mapping.ts";
 export * from "./contacts.ts";

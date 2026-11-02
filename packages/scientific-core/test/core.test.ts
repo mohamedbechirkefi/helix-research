@@ -155,6 +155,7 @@ async function fixtureFetchFor(overrides: Record<string, () => Response> = {}): 
     if (exact) return new Response(exact.body, { status: 200, headers: exact.headers });
     if (url.includes("/variation/human/rs334")) return new Response(inputs.variation.body);
     if (url.includes("esummary.fcgi")) return new Response(inputs.clinvar.body);
+    if (url.includes("esearch.fcgi") && inputs.clinvarSearch) return new Response(inputs.clinvarSearch.body);
     // Synthetic einfo body (the recorded one was deleted as not needed; research/raw/README.md).
     if (url.includes("einfo.fcgi")) return new Response('{"einforesult":{"dbinfo":[{"dbbuild":"Build261025-1250.1","lastupdate":"2026/10/25 12:50"}]}}');
     return new Response("not recorded", { status: 404 });
@@ -172,6 +173,10 @@ describe("acquisition and graceful errors (P2.5.2)", () => {
     expect(urls.some((u) => u.includes("11:5226982..5227022:1"))).toBe(true); // from hgvsg position +/- 20
     expect(urls.some((u) => u.endsWith("/polymer_entity/2HBS/2"))).toBe(true); // from SIFTS
     expect(urls.some((u) => u.endsWith("/assembly/2HBS/1"))).toBe(true); // assembly containing chain B
+    // Phase 6: the esummary asks for every uid that the rsID esearch returned, never a typed-in list.
+    expect(urls.some((u) => u.includes("esearch.fcgi?db=clinvar&term=rs334&"))).toBe(true);
+    expect(urls.some((u) => u.includes("esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&"))).toBe(true);
+    expect(urls.every((u) => !/email=/i.test(u))).toBe(true);
     const b = await buildSlice(inputs, HBB_CONFIG, { now: "2026-11-01T00:00:00Z" });
     expect(b.validation.every((v) => v.result !== "fail")).toBe(true);
   });
