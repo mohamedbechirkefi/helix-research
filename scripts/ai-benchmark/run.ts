@@ -4,6 +4,13 @@
  *
  *   node scripts/ai-benchmark/run.ts --provider mock|deterministic|ollama [--model qwen3.5:4b]
  *        [--reps0 3] [--reps07 1] [--limit N] [--only S01,F01] [--schema generic|grounded] [--tag x]
+ *        [--context phase3|app] [--num-predict 1024]
+ *
+ * --context app (D-H007): the context as the Phase 6 app restricts it (DNA and Protein World only,
+ * compareVariants and highlightSequenceRegion executable), with the answer kind and the current
+ * world set per item: an item with a selection is a follow-up asked in Protein World, any other
+ * item is a first answer asked in DNA World (the app's start world). The prompt is then v3 and
+ * validatePlan rejects a first answer that visits two worlds. Default: phase3 (unchanged).
  *
  * Each item runs `reps0` times at temperature 0 (seeds 0..) and `reps07` times at 0.7. Every raw
  * output is stored (raw.jsonl), with its validation issues and score; summary.json aggregates.
@@ -12,12 +19,19 @@ import { mkdirSync, writeFileSync, appendFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
 import {
-  contextForItem,
+  buildMessages,
+  contextForItem as phase3ContextForItem,
+  planJsonSchema,
+  planWorlds,
+  promptVersion,
+  schemaFor,
+  withSession,
   deterministicPlan,
   DeterministicProvider,
   OllamaProvider,
   scoreItem,
   type BenchmarkItem,
+  type PlanningContext,
   type PlanProvider,
   type PlanRequest,
   type ProviderOutput,
@@ -40,6 +54,23 @@ const schemaMode = (opt("schema", "generic") as "generic" | "grounded");
 const tag = opt("tag", "");
 const baseUrl = opt("base-url", "http://127.0.0.1:11434")!;
 const questionsFile = opt("questions");
+const contextMode = opt("context", "phase3") as "phase3" | "app";
+const numPredict = Number(opt("num-predict", "1024"));
+const appBefore = args.includes("--app-without-answer");
+
+/** The context of an item, in the selected mode (see the header). */
+function contextForItem(base: PlanningContext, item: BenchmarkItem): PlanningContext {
+  const c = phase3ContextForItem(base, item);
+  if (contextMode === "phase3") return c;
+  const app: PlanningContext = {
+    ...c,
+    worlds: c.worlds.map((w) => (w.id === "dna" || w.id === "protein" ? w : { ...w, available: false, reason: w.available ? "no scene for this world in the Phase 6 build" : w.reason })),
+    executableActions: [...c.executableActions, "compareVariants", "highlightSequenceRegion"],
+  };
+  // --app-without-answer: the Phase 6 app context before D-H007 (v2 prompt, no world check), for the "before" runs.
+  if (appBefore) return app;
+  return withSession(app, item.selection ? { answer: "follow-up", currentWorld: "protein" } : { answer: "first", currentWorld: "dna" });
+}
 
 /** Dry-run mock: answers with the deterministic plan, but injects known failure modes so the scorer is exercised. */
 class MockProvider implements PlanProvider {
@@ -103,15 +134,15 @@ else if (providerKind === "ollama") {
   if (!model) throw new Error("--model is required for ollama");
   meta = await ollamaMeta(model);
   const think = (meta.capabilities as string[]).includes("thinking") ? false : undefined;
-  provider = new OllamaProvider({ model, baseUrl, ...(think !== undefined ? { think } : {}), numCtx: 8192, keepAlive: "15m" });
+  provider = new OllamaProvider({ model, baseUrl, ...(think !== undefined ? { think } : {}), numCtx: 8192, keepAlive: "15m", numPredict });
   meta.think = think ?? "not sent (model has no thinking capability)";
   meta.numCtx = 8192;
-  meta.numPredict = 1024;
+  meta.numPredict = numPredict;
   meta.timeoutMs = 180000;
 } else throw new Error(`unknown provider ${providerKind}`);
 
 const date = new Date().toISOString().slice(0, 10);
-const slug = `${date}-${(model || providerKind).replace(/[^A-Za-z0-9.]+/g, "-")}${schemaMode === "grounded" ? "-grounded" : ""}${tag ? `-${tag}` : ""}`;
+const slug = `${date}-${(model || providerKind).replace(/[^A-Za-z0-9.]+/g, "-")}${schemaMode === "grounded" ? "-grounded" : ""}${contextMode === "app" ? (appBefore ? "-app-v2" : "-app") : ""}${tag ? `-${tag}` : ""}`;
 const outDir = join(RUNS_DIR, slug);
 mkdirSync(outDir, { recursive: true });
 const rawPath = join(outDir, "raw.jsonl");
@@ -163,7 +194,9 @@ for (const item of items) {
       if (partial) error += ` | partial(${partial.length} chars): ${partial.slice(0, 300)} ... ${partial.slice(-200)}`;
     }
     const raw = out?.raw ?? "";
-    const score = out ? scoreItem(item, raw, ctx).score : null;
+    const scored = out ? scoreItem(item, raw, ctx) : null;
+    const score = scored?.score ?? null;
+    const parsed = scored?.validation.plan ?? null;
     const row: Row = {
       item: item.id,
       category: item.category,
@@ -177,6 +210,8 @@ for (const item of items) {
       totalMs: out?.timings.totalMs ?? null,
       usage: out?.usage ?? null,
       score,
+      worlds: parsed ? planWorlds(parsed) : null,
+      answer: ctx.answer ?? null,
     };
     rows.push(row);
     appendFileSync(rawPath, JSON.stringify(row) + "\n");
@@ -186,11 +221,38 @@ for (const item of items) {
 if (sampler) clearInterval(sampler);
 const psEnd = providerKind === "ollama" ? await ollamaPs() : [];
 
+// Prompt and decoding schema actually used (summarise() records the Phase 3 defaults).
+const ctx0 = contextForItem(ctxBase, items[0]!);
+const usedSchema = providerKind === "ollama" ? schemaFor({ query: items[0]!.query, context: ctx0, requestId: "x", schemaMode }) : planJsonSchema();
+const t0Rows = rows.filter((r) => r.temperature === 0);
+const planRows = t0Rows.filter((r) => r.worlds !== null && r.score?.schemaValid);
+const firstRows = t0Rows.filter((r) => r.answer === "first" || (r.answer === null && !items.find((i) => i.id === r.item)?.selection));
+const pctOf = (a: number, n: number) => (n === 0 ? null : Math.round((1000 * a) / n) / 10);
+const used = {
+  contextMode: contextMode === "app" ? (appBefore ? "app-v2 (Phase 6 app context, no answer kind)" : "app (D-H007: answer kind and current world set)") : "phase3",
+  promptVersionUsed: promptVersion(ctx0),
+  promptSystemCharsUsed: buildMessages(items[0]!.query, ctx0)[0]!.content.length,
+  schemaSha256Used: createHash("sha256").update(JSON.stringify(usedSchema)).digest("hex"),
+  // D-H007 measures at temperature 0: validation pass (the director keeps the plan) and fallback (it does not).
+  validationPassPct: pctOf(t0Rows.filter((r) => r.score?.valid).length, t0Rows.length),
+  fallbackPct: pctOf(t0Rows.filter((r) => !r.score?.valid).length, t0Rows.length),
+  rejectedForWorldSwitch: t0Rows.filter((r) => r.score?.issues.some((i) => i.startsWith("world-switch"))).length,
+  oneWorld: {
+    note: "schema-valid outputs; a plan that brings at most one world on screen (planWorlds)",
+    all: { oneWorld: planRows.filter((r) => r.worlds!.length <= 1).length, n: planRows.length },
+    firstAnswers: { oneWorld: planRows.filter((r) => firstRows.includes(r) && r.worlds!.length <= 1).length, n: planRows.filter((r) => firstRows.includes(r)).length },
+  },
+};
+// Total planning time per call at temperature 0, all items.
+const totals = t0Rows.map((r) => r.totalMs).filter((x): x is number => typeof x === "number").sort((a, b) => a - b);
+const medianMs = totals.length ? (totals.length % 2 ? totals[(totals.length - 1) / 2]! : (totals[totals.length / 2 - 1]! + totals[totals.length / 2]!) / 2) : null;
 const summary = summarise(rows, items, {
   run: slug,
   provider: providerKind,
   meta,
   schemaMode,
+  ...used,
+  totalMsMedianT0: medianMs,
   questions: questionsFile ?? "questions.jsonl",
   warmup,
   wallClockS: Math.round((Date.now() - started) / 1000),

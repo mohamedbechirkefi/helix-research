@@ -6,11 +6,13 @@
  * Order: JSON parse -> strict schema -> groundedness (every identifier and citation is in the
  * trusted context; identifiers mentioned in free text are in the trusted context) ->
  * capabilities (executable action, available world) -> prerequisites (structure loaded before
- * a residue is targeted, the assembly contains the feature, a selection exists) -> outcome
+ * a residue is targeted, the assembly contains the feature, a selection exists) -> one world for
+ * a first answer (D-H007, only when the context says the question is a first answer) -> outcome
  * consistency.
  */
 import { Plan, type Action, type SemanticTarget } from "./schema.ts";
 import { allowedIds, trustedContextJson, type PlanningContext } from "./context.ts";
+import { planWorlds } from "./worlds.ts";
 
 export type IssueCode =
   | "invalid-json"
@@ -21,6 +23,7 @@ export type IssueCode =
   | "world-unavailable"
   | "prerequisite"
   | "variant-on-predicted-model"
+  | "world-switch"
   | "consistency";
 
 export interface ValidationIssue {
@@ -207,6 +210,14 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
       const n = normaliseToken(kind, token);
       const known = kind === "pmid" ? trustedPmids.has(n) || query.includes(n) : trusted.includes(n) || query.includes(n);
       if (!known) issues.push({ code: "ungrounded-text-id", path, value: token, message: `${kind} id "${token}" in free text is not in the trusted context` });
+    }
+  }
+
+  // A first answer stays in one world (author decision D-H007, 2026-11-02). Follow-ups may change world.
+  if (ctx.answer === "first") {
+    const worlds = planWorlds(plan);
+    if (worlds.length > 1) {
+      issues.push({ code: "world-switch", path: "actions", value: worlds.join(">"), message: `a first answer stays in one world; this plan visits ${worlds.join(" then ")}` });
     }
   }
 
