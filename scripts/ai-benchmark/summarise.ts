@@ -18,6 +18,10 @@ export interface Row {
   totalMs: number | null;
   usage: ProviderOutput["usage"] | null;
   score: ItemScore | null;
+  /** Worlds the parsed plan brings on screen (run.ts since D-H007; absent in older runs). */
+  worlds?: string[] | null;
+  /** Answer kind set in the context (run.ts --context app), else null. */
+  answer?: string | null;
 }
 
 const failed = (r: Row): ItemScore => ({

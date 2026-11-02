@@ -13,7 +13,7 @@
  */
 import { resolveGeneQuery, type GeneResolution } from "@helix/scientific-core";
 import type { HgncRecord } from "@helix/data-adapters";
-import { withSession, selectionFeature, type PlanningContext, type RetrievedSnippet } from "./context.ts";
+import { withSession, selectionFeature, type AnswerKind, type PlanningContext, type RetrievedSnippet, type World } from "./context.ts";
 import { deterministicPlan } from "./fallback.ts";
 import { validatePlan, type PlanValidation } from "./validate.ts";
 import { screenPlanFollowUps, type FollowUpScreen } from "./followups.ts";
@@ -24,6 +24,10 @@ import type { ProviderRegistry } from "./providers/registry.ts";
 export interface SessionInput {
   selection?: { structureId: string; chainId: string; residueNumber: number; compId: string } | null;
   retrieved?: RetrievedSnippet[];
+  /** First answer of the session or a follow-up (D-H007); a first answer must stay in one world. Omitted: no world check. */
+  answer?: AnswerKind;
+  /** The world on screen when the question was asked (D-H007). */
+  currentWorld?: World;
 }
 
 export interface GeneMention {
@@ -110,7 +114,13 @@ export class JourneyDirector {
     const sel = session.selection
       ? { ...session.selection, numbering: "auth" as const, featureId: selectionFeature(this.baseContext, session.selection.structureId, session.selection.chainId, session.selection.residueNumber) }
       : null;
-    const ctx = withSession(this.baseContext, { selection: sel, loadedStructureId: sel ? sel.structureId : null, retrieved: session.retrieved ?? [] });
+    const ctx = withSession(this.baseContext, {
+      selection: sel,
+      loadedStructureId: sel ? sel.structureId : null,
+      retrieved: session.retrieved ?? [],
+      ...(session.answer !== undefined ? { answer: session.answer } : {}),
+      ...(session.currentWorld !== undefined ? { currentWorld: session.currentWorld } : {}),
+    });
 
     const done = (r: Omit<DirectorResult, "requestId" | "stale" | "geneMentions" | "timings" | "followUpScreen"> & { providerMs: number | null }): DirectorResult => {
       if (this.inflight === ctl) this.inflight = null;

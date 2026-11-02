@@ -11,6 +11,8 @@ import { z } from "zod";
 
 export const WORLDS = ["overview", "genome", "dna", "protein", "pathway"] as const;
 export type World = (typeof WORLDS)[number];
+/** First answer of a session, or a follow-up to an earlier answer (D-H007). */
+export type AnswerKind = "first" | "follow-up";
 
 export interface ContextGene {
   id: string;
@@ -102,6 +104,14 @@ export interface PlanningContext {
   selection: ContextSelection | null;
   /** The DNA-side selection (Phase 6): a codon of the selected transcript. Absent in Phase 3 contexts. */
   sequenceSelection?: { transcriptId: string; codon: number } | null;
+  /**
+   * Whether this question opens the session's answers ("first") or follows an earlier answer
+   * ("follow-up"), set by deterministic code (D-H007: a first answer stays in one world, checked by
+   * validatePlan). Absent in Phase 3 to 6 contexts, whose prompt and validation are then unchanged.
+   */
+  answer?: AnswerKind;
+  /** The world on screen when the question was asked (D-H007). Absent in Phase 3 to 6 contexts. */
+  currentWorld?: World;
   loadedStructureId: string | null;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
@@ -344,11 +354,20 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
 /** Returns a copy of the context with session state and retrieved text set. */
 export function withSession(
   ctx: PlanningContext,
-  s: { selection?: ContextSelection | null; loadedStructureId?: string | null; retrieved?: RetrievedSnippet[]; sequenceSelection?: { transcriptId: string; codon: number } | null },
+  s: {
+    selection?: ContextSelection | null;
+    loadedStructureId?: string | null;
+    retrieved?: RetrievedSnippet[];
+    sequenceSelection?: { transcriptId: string; codon: number } | null;
+    answer?: AnswerKind;
+    currentWorld?: World;
+  },
 ): PlanningContext {
   return {
     ...ctx,
     ...(s.sequenceSelection !== undefined ? { sequenceSelection: s.sequenceSelection } : {}),
+    ...(s.answer !== undefined ? { answer: s.answer } : {}),
+    ...(s.currentWorld !== undefined ? { currentWorld: s.currentWorld } : {}),
     selection: s.selection === undefined ? ctx.selection : s.selection,
     loadedStructureId: s.loadedStructureId === undefined ? (s.selection ? s.selection.structureId : ctx.loadedStructureId) : s.loadedStructureId,
     retrieved: s.retrieved ?? ctx.retrieved,
