@@ -2,7 +2,7 @@
 /**
  * D-H008 scoring of stored benchmark runs (no model call).
  *
- *   node scripts/ai-benchmark/dh008-score.ts --run <run-dir-name> --mode app-v3|app-v4|app-v5 [--questions file.jsonl] [--oracles dh010]
+ *   node scripts/ai-benchmark/dh008-score.ts --run <run-dir-name> --mode app-v3|app-v4|app-v5|app-v6 [--questions file.jsonl] [--oracles dh010]
  *
  * Scores the temperature-0 outputs of a run in the context it was run in (`--mode`, see lib.ts) and
  * writes `dh008-score.json` into the run directory:
