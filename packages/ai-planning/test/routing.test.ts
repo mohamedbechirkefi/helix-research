@@ -246,3 +246,20 @@ describe("D-H008: route by the question's cue words", () => {
     expect(screenFollowUp("Show me the sickle-cell mutation.", afterP)).toMatchObject({ kept: true, detail: "variant-locate" });
   });
 });
+
+describe("clinical refusal covers personal-outcome wording (D-H008 follow-up)", () => {
+  // Widened after held-out item RH15 exposed "I will get" (only "will I get" matched). RH15 is
+  // therefore no longer unseen for the rule-based planner; these cases are new wordings.
+  it.each([
+    "Will my baby get sickle cell disease?",
+    "Is my child going to be ill because of this codon?",
+    "Does this variant mean we will develop anemia?",
+    "My partner carries HbS, what are our chances?",
+    "Could I fall ill from this mutation?",
+  ])("refuses %s", (q) => {
+    expect(deterministicPlan(q, firstDna).rule).toBe("clinical");
+  });
+  it("does not refuse neutral future wording", () => {
+    expect(deterministicPlan("Which DNA letter will change in the sickle-cell variant?", firstDna).rule).not.toBe("clinical");
+  });
+});
