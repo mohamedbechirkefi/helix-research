@@ -6,8 +6,8 @@
 | | |
 |---|---|
 | Author | Mohamed Bechir Kefi |
-| Version | Working draft 0.2, 2026-11-02 |
-| Status | Chapters 1 to 8, 10 and 11 drafted (Phases 0 to 3). Chapter 9 holds headed placeholders. |
+| Version | Working draft 0.3, 2026-11-02 |
+| Status | Chapters 1 to 8, 9.1, 10 and 11 drafted (Phases 0 to 4). Sections 9.2 to 9.9 are headed placeholders. |
 | Companion files | Claims register `paper/claims.md`; experiment journal `journal/` |
 | French copy | `paper/report.fr.md`, first produced after Phase 4 (see `paper/README.md`) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (see `LICENSE`) |
@@ -646,7 +646,53 @@ There is no cloud or paid route.
 
 ### 9.1 AI-to-World proof (Phase 4)
 
-A minimal end-to-end path: a question, a validated plan, the executor, the world-state store, and both renderers. To report: validation and rejection behaviour on adversarial plans; latency from question to rendered change; the long-frame anomaly of section 5.4 (diagnosed or still open). **Milestone:** first French copy of the report.
+**Question.** In the running application, does a typed question cause a validated, verified visual action on the real structure? This is the acceptance chain of the master prompt (§7.5).
+
+**Design.**
+- A product director, ported from the Phase 3 reference (section 8.7), proposes a plan against a context restricted to what the build can show.
+- A Scene Action Interpreter checks the plan before anything runs:
+  - the plan's session epoch;
+  - a second validation of the plan;
+  - each action against a registry of eight typed contracts, each with its capabilities, prerequisites and scientific checks.
+- Targets are resolved only from the Phase 2 SIFTS mapping and contacts records.
+- Highlight and focus count as done only when Mol*'s own selection and focus managers read back the resolved residues.
+- The explanation is written by deterministic code from the curated records. Every sentence that makes a claim cites an evidence identifier with its provenance, and the planner's own text is labelled as such.
+
+**Results** (`HX-P4-2026-11-02-ai-to-world-e2e`).
+- **Read-back.** The reference question was "Show me where the sickle-cell mutation affects hemoglobin." In every run, Mol* read back VAL 6 on chains B, D, F and H of the 2HBS asymmetric unit, with focus on H6: 5 runs with the deterministic planner and 5 with ministral-3:8b [C42].
+- **Time to the verified highlight, deterministic planner:** a median 1,061 ms after the question. That includes a camera move of about 700 ms [C43].
+- **Time to the verified highlight, ministral-3:8b:** a median 15,922 ms, almost all of it planning (median 15,516 ms). The first, cold run took 28.7 s. The warm planning time is longer than the Phase 3 median of 10 s, and this was not investigated.
+- **Validation.** No model plan was rejected. The model chose a different valid order, highlighting before focusing, and had no explicit evidence action [C44].
+- **Evidence.** Every displayed claim cited a sourced evidence identifier [C45].
+- **Other questions.**
+  - A follow-up question about the selection showed the H6 contact with chain B, together with the statement that it lies in the crystal's asymmetric unit.
+  - Unsupported and clinical questions left the scene unchanged.
+
+**Interruption** (`HX-P4-2026-11-02-cancellation`).
+- Stopping during a camera transition took a median 28 ms, and the camera did not move afterwards.
+- Stopping during inference took 13 to 14 ms, and the next model request was not delayed [C46].
+- A plan made before the user clicked a residue was rejected as stale, and a question superseded during inference was discarded [C47].
+
+**The long frame of section 5.4** (`HX-P4-2026-11-02-long-frame`) [C48].
+- It does not occur in the single-canvas application.
+- In the Phase 1 bridge page it recurs at every Mol* spin start with vsync off. It requires both the second, always-rendering canvas and prior clicks on the Mol* canvas.
+- A trace shows the main thread waiting about 195 ms for GPU command-buffer space.
+- This contradicts the Phase 1 guess of a one-off rebuild of components. The trigger inside Mol* remains unexplained, and the probe is carried to Phase 5.
+
+**Mol\* behaviours found during the build.**
+- A draw notification fires immediately when subscribed to.
+- A focus request issued right after a load jumps instead of animating, because Mol* has not finished committing the scene.
+- Mol* skips draws while shaders are being finalised.
+- The camera interrupt relies on a public but undocumented field.
+
+All four are handled in code and documented in the product repository.
+
+**Limits.**
+- One machine, headless Chrome 156, five runs per planner, one structure, and only the protein world.
+- Safari, Firefox and the desktop webview were not run.
+- The raw end-to-end result files are in the private product repository; whether to mirror them into this repository is an open author decision.
+
+**Tests.** After Phase 4, the product repository has 52 passing tests, and this repository 160 (157 pass, 3 opt-in live tests skipped); typecheck is clean in both [C49].
 
 ### 9.2 Journey engine and two-world integration (Phase 5)
 
@@ -702,7 +748,7 @@ The public demonstration, if the author decides to publish it. To report: what w
 - The performance figures are single runs on one fast laptop (Apple M1 Pro), in headless Chrome and in WKWebView.
 - They are main-thread frame intervals, not GPU timers.
 - With vsync on, they only show that no frame was missed.
-- No low-end hardware was tested. The long-frame anomaly is unexplained [C19].
+- No low-end hardware was tested. The long-frame anomaly is characterised but its trigger is unexplained [C19, C48].
 - CORS was measured outside a browser, once per source, and not on error responses [C12].
 
 **AI.** The Phase 1 desktop experiment made a single call to a single model, and its prompt was not stored verbatim [C23]. Phase 3 measured the frequency of such errors on a small, single-gene benchmark; its own limits are in section 8.8.
@@ -839,4 +885,5 @@ All URLs accessed 2026-11-01. The complete reference lists are in `docs/competit
 | 1 Research: science, competitors, data, rendering, desktop | 2 to 6 | raw-snapshot, hbs-mapping, val6-contacts, cors, molstar-embed, molstar-r3f-bridge, tauri-shell | verified |
 | 2 Data acquisition and validated domain core | 4, 7 | hbb-dataset-build | verified |
 | 3 Local and browser AI | 8 | ai-benchmark-ollama, webllm-browser | verified |
-| 4 to 12 | 9.1 to 9.9 | to be written as runs happen | not started |
+| 4 AI-to-World proof | 9.1 | ai-to-world-e2e, cancellation, long-frame | verified |
+| 5 to 12 | 9.2 to 9.9 | to be written as runs happen | not started |
