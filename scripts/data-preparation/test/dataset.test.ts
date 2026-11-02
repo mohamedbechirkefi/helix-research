@@ -7,7 +7,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { findProprietaryIdentifiers } from "@helix/data-adapters";
 import { HBB_CONFIG, buildManifest, buildSlice } from "@helix/scientific-core";
-import { DatasetManifest, Gene, Protein, ResidueMapping, Structure, Variant } from "@helix/shared-types";
+import { ClinvarRecordEntry, DatasetManifest, Gene, Protein, ResidueMapping, ResidueMappingTable, Structure, Variant } from "@helix/shared-types";
 import { loadFixtureInputs } from "../lib/fixtures.ts";
 import { REPO_ROOT } from "../lib/node-env.ts";
 
@@ -56,6 +56,8 @@ describe.skipIf(!existsSync(join(DIR, "manifest.json")))("committed curated data
     Variant.parse(await read("variant-hbs.json"));
     Structure.parse(await read("structure-2HBS.json"));
     ResidueMapping.parse(await read("residue-mapping-hbs-2HBS.json"));
+    ClinvarRecordEntry.parse(await read("clinvar-hbs.json"));
+    ResidueMappingTable.parse(await read("residue-mapping-P68871-2HBS.json"));
     const m = DatasetManifest.parse(await read("manifest.json"));
     for (const f of m.files.filter((x) => x.path.endsWith(".json"))) expect(findProprietaryIdentifiers(await read(f.path)), f.path).toEqual([]);
     expect(findProprietaryIdentifiers(m)).toEqual([]);
@@ -69,5 +71,27 @@ describe.skipIf(!existsSync(join(DIR, "manifest.json")))("committed curated data
       ["F", 6, "F", "6", "VAL"],
       ["H", 6, "H", "6", "VAL"],
     ]);
+  });
+  it("Phase 6: the ClinVar record keeps review status, stars, conflicts and related records apart, without trait names", async () => {
+    const raw = await readFile(join(DIR, "clinvar-hbs.json"), "utf8");
+    const r = ClinvarRecordEntry.parse(JSON.parse(raw));
+    expect([r.accession, r.objectType, r.canonicalSpdi]).toEqual(["VCV000015333", "single nucleotide variant", ["NC_000011.10:5227001:T:A"]]);
+    expect(r.reviewStars).not.toBeNull();
+    expect(r.conflicts.conflicting).toBe(/conflicting/i.test(r.reviewStatus));
+    expect(r.relatedRecords.every((x) => x.accessionVersion !== r.accessionVersion)).toBe(true);
+    expect(raw).not.toMatch(/trait_name|Orphanet|MedGen|OMIM|MIM:/);
+    expect(r.provenance.sources.every((s) => !/email/i.test(s.url))).toBe(true);
+  });
+  it("Phase 6: the full-chain mapping covers P68871 2-147 on B, D, F, H, agrees with the HbS record, and differs from UniProt only at 7", async () => {
+    const t = ResidueMappingTable.parse(JSON.parse(await readFile(join(DIR, "residue-mapping-P68871-2HBS.json"), "utf8")));
+    const hbs = ResidueMapping.parse(JSON.parse(await readFile(join(DIR, "residue-mapping-hbs-2HBS.json"), "utf8")));
+    expect(t.coverage).toEqual({ firstUniprotPosition: 2, lastUniprotPosition: 147, positions: 146 });
+    expect(t.positions.map((p) => p.uniprotPosition)).toEqual(Array.from({ length: 146 }, (_, i) => i + 2));
+    expect(t.positions.every((p) => p.residues.length === 4 && p.unobservedChains.length === 0)).toBe(true);
+    expect(t.positions.find((p) => p.uniprotPosition === 7)!.residues).toEqual(hbs.residues);
+    expect(t.positions.filter((p) => !p.matchesReference).map((p) => p.uniprotPosition)).toEqual([7]);
+    const m = DatasetManifest.parse(JSON.parse(await readFile(join(DIR, "manifest.json"), "utf8")));
+    expect(m.generator.gitCommit).toMatch(/^[0-9a-f]{40}$/);
+    expect(m.generator.gitDirty).toBe(false);
   });
 });

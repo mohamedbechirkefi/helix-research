@@ -87,13 +87,13 @@
   },
   "clinvar": {
     "accession": "VCV000015333",
-    "accessionVersion": "VCV000015333.183",
+    "accessionVersion": "VCV000015333.184",
     "title": "NM_000518.5(HBB):c.20A>T (p.Glu7Val)",
     "classification": "Pathogenic",
     "reviewStatus": "criteria provided, multiple submitters, no conflicts",
     "lastEvaluated": "2026/07/01 00:00",
     "proteinChange": "E7V",
-    "supportingSubmissionCount": 74,
+    "supportingSubmissionCount": 75,
     "traitCount": 32,
     "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers."
   },
@@ -103,12 +103,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:31Z",
+        "retrievedAt": "2026-11-02T02:26:44Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "rs334",
         "recordVersion": null,
         "assembly": "GRCh38.p14",
-        "sha256": "f386752565b25e1e3cb98c5848cb4b9c771a37820d62e9671292ec18dd6d67a9",
+        "sha256": "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -116,12 +116,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/variation/human/rs334?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:32Z",
+        "retrievedAt": "2026-11-02T02:26:59Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "rs334",
         "recordVersion": null,
         "assembly": "GRCh38.p14",
-        "sha256": "f7dbaf43bad5df823df3fd68128e4723fb5ddf59c605bc82280bebb75e121cb5",
+        "sha256": "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -129,12 +129,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000335295.4:c.20A>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:32Z",
+        "retrievedAt": "2026-11-02T02:27:01Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295.4:c.20A>T",
         "recordVersion": null,
         "assembly": "GRCh38.p14",
-        "sha256": "a23ecc28477f0629a91f222c241a5cbdac9ae8e3c8f8cd21f6de9776039e0cb4",
+        "sha256": "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -142,12 +142,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:32Z",
+        "retrievedAt": "2026-11-02T02:26:57Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295 codon 7",
         "recordVersion": "4",
         "assembly": "GRCh38.p14",
-        "sha256": "8eaedfd66ef11a52004b946b89bb6f96b5cd307ed729bd849bc1101e61cfe8eb",
+        "sha256": "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -155,7 +155,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:31Z",
+        "retrievedAt": "2026-11-02T02:26:55Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "chromosome:GRCh38:11:5226982:5227022:1",
         "recordVersion": null,
@@ -168,7 +168,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:31Z",
+        "retrievedAt": "2026-11-02T02:26:14Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295.4",
         "recordVersion": "4",
@@ -181,7 +181,7 @@
         "source": "uniprot",
         "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:31Z",
+        "retrievedAt": "2026-11-02T02:26:24Z",
         "sourceRelease": "UniProt 2026_03",
         "recordId": "P68871",
         "recordVersion": "entry 219, sequence 2",
@@ -192,14 +192,14 @@
       },
       {
         "source": "ncbi-clinvar",
-        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=15333&retmode=json&tool=helix-research",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:36Z",
+        "retrievedAt": "2026-11-02T02:27:04Z",
         "sourceRelease": "ClinVar Build261025-1250.1",
         "recordId": "VCV000015333",
-        "recordVersion": "183",
+        "recordVersion": "184",
         "assembly": "GRCh38",
-        "sha256": "1259fcf4752b78052e70a6db77db5b5bdeb81193929bebf85ea15b96e1e11e84",
+        "sha256": "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
         "licence": "NCBI-public-domain",
         "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
       }
@@ -218,85 +218,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T13-rsid-multiallelic",
         "result": "pass",
         "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T08-codon-span",
         "result": "pass",
         "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T09-forward-and-coding-base",
         "result": "pass",
         "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T11-codon-change",
         "result": "pass",
         "detail": "codon 7 GAG -> GTG; E -> V",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.7: UniProt residue E, HGVS ref E",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
-        "detail": "VCV000015333.183 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
-        "at": "2026-11-01T19:27:28Z"
+        "detail": "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
+        "at": "2026-11-02T02:26:08Z"
       }
     ],
     "evidenceCategory": 2
@@ -306,7 +306,7 @@
       "category": 2,
       "categoryLabel": "Database annotation/submission with review status",
       "basis": "reviewed-clinical-submission",
-      "statement": "ClinVar VCV000015333.183: Pathogenic.",
+      "statement": "ClinVar VCV000015333.184: Pathogenic.",
       "qualifier": "criteria provided, multiple submitters, no conflicts",
       "limitations": [
         "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
