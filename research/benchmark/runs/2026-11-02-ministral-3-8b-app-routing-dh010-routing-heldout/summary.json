@@ -1,0 +1,254 @@
+{
+ "run": "2026-11-02-ministral-3-8b-app-routing-dh010-routing-heldout",
+ "provider": "ollama",
+ "meta": {
+  "ollamaVersion": "0.40.6",
+  "model": "ministral-3:8b",
+  "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+  "sizeBytes": 6022236616,
+  "details": {
+   "parent_model": "",
+   "format": "gguf",
+   "family": "mistral3",
+   "families": [
+    "mistral3"
+   ],
+   "parameter_size": "8.9B",
+   "quantization_level": "Q4_K_M"
+  },
+  "capabilities": [
+   "completion",
+   "vision",
+   "tools"
+  ],
+  "licenceFirstLine": "Apache License",
+  "licenceSha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+  "think": "not sent (model has no thinking capability)",
+  "numCtx": 8192,
+  "numPredict": 1024,
+  "timeoutMs": 180000
+ },
+ "schemaMode": "generic",
+ "contextMode": "app-v5 (D-H010: as app-v4 with the D-H010 cue lists, molecule names and chain are protein cues)",
+ "promptVersionUsed": "helix-plan-prompt-v5",
+ "promptSystemCharsUsed": 8344,
+ "schemaSha256Used": "a737a251eff854bac1f893de3020d71a5dddd051fb34f28bb29d09852907c6d6",
+ "validationPassPct": 94.1,
+ "fallbackPct": 5.9,
+ "rejectedForWorldSwitch": 1,
+ "oneWorld": {
+  "note": "schema-valid outputs; a plan that brings at most one world on screen (planWorlds)",
+  "all": {
+   "oneWorld": 16,
+   "n": 17
+  },
+  "firstAnswers": {
+   "oneWorld": 16,
+   "n": 17
+  }
+ },
+ "totalMsMedianT0": 18050.162790999995,
+ "questions": "routing-heldout.jsonl",
+ "warmup": {
+  "wallMs": 18555,
+  "loadMs": 0.811792,
+  "firstTokenMs": 349.0662910000001
+ },
+ "wallClockS": 294,
+ "reps": {
+  "temperature0": 1,
+  "temperature07": 0
+ },
+ "memory": {
+  "peakRunnerRssMiB": 2050,
+  "rssSamples": 622,
+  "ollamaPsAfterWarmup": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T21:22:28.431494+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "ollamaPsEnd": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T21:27:22.154272+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "note": "Runner RSS from ps; on Apple unified memory, GPU buffers may not be counted in RSS, so /api/ps size and size_vram are reported too."
+ },
+ "date": "2026-11-02T20:12:22.159Z",
+ "promptVersion": "helix-plan-prompt-v1",
+ "fallbackVersion": "helix-fallback-v1",
+ "schemaSha256": "29ca7da53c52b3c5a8fb6586ed3c8d40fffd3d5a7ed5d449a7a57ca37ac3f54e",
+ "promptSystemChars": 6290,
+ "gitCommit": "53acb9d-dirty",
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1",
+  "hostnameHash": "62ff34ba"
+ },
+ "items": 17,
+ "temperature0": {
+  "n": 17,
+  "parsedJsonPct": 100,
+  "schemaValidPct": 100,
+  "validPct": 94.1,
+  "groundednessViolations": 0,
+  "outputsWithViolations": 0,
+  "outcomeCorrectPct": 100,
+  "intentCorrectPct": 76.9,
+  "actionCorrectPct": 100,
+  "correctAndValidPct": 94.1,
+  "refusal": {
+   "correct": 2,
+   "n": 2
+  },
+  "clarify": {
+   "correct": 0,
+   "n": 0
+  },
+  "injection": {
+   "resisted": 0,
+   "n": 0
+  },
+  "followUp": {
+   "correct": 0,
+   "n": 0
+  },
+  "falseRefusals": {
+   "count": 0,
+   "n": 15
+  },
+  "explanationLevel": {
+   "correct": 0,
+   "n": 0
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 341.21804099998553,
+    "p95": 492.6892920000246,
+    "max": 492.6892920000246,
+    "n": 17
+   },
+   "total": {
+    "p50": 18050.162790999995,
+    "p95": 25531.319500000012,
+    "max": 25531.319500000012,
+    "n": 17
+   }
+  },
+  "decodeTokensPerSecP50": 21.65578266872318,
+  "errors": 0,
+  "repeatability": {
+   "items": 17,
+   "identicalOutputs": 17,
+   "sameVerdict": 17
+  },
+  "byCategory": {
+   "supported": {
+    "n": 15,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 93.3,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 76.9,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 93.3,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 15
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "unsupported": {
+    "n": 2,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": null,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 100,
+    "refusal": {
+     "correct": 2,
+     "n": 2
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 0
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   }
+  }
+ },
+ "temperature07": null
+}
