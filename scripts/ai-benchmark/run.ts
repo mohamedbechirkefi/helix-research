@@ -76,7 +76,8 @@ const draftMessages = (q: string, c: PlanningContext) => {
   if (promptVersion(c) !== "helix-plan-prompt-v5" || !sys!.content.startsWith(RULES_V5)) throw new Error("--prompt-draft needs a prompt-v5 context (--context app --routing cues-dh010)");
   return [
     { ...sys!, content: draft!.rules + sys!.content.slice(RULES_V5.length) },
-    { ...user!, content: draft!.answerHint !== undefined ? user!.content.replace(V5_HINT, draft!.answerHint) : user!.content },
+    // A draft's answer hint may name the world on screen ({currentWorld}), as the frozen prompt may later do.
+    { ...user!, content: draft!.answerHint !== undefined ? user!.content.replace(V5_HINT, draft!.answerHint.replace("{currentWorld}", c.currentWorld === "dna" ? "DNA World" : c.currentWorld === "protein" ? "Protein World" : String(c.currentWorld))) : user!.content },
   ];
 };
 
