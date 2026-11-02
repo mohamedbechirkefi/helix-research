@@ -4,7 +4,7 @@
  *
  *   node scripts/ai-benchmark/run.ts --provider mock|deterministic|ollama [--model qwen3.5:4b]
  *        [--reps0 3] [--reps07 1] [--limit N] [--only S01,F01] [--schema generic|grounded] [--tag x]
- *        [--context phase3|app] [--routing cues|cues-dh010] [--num-predict 1024] [--questions file.jsonl]
+ *        [--context phase3|app] [--routing cues|cues-dh010|cues-dh011] [--num-predict 1024] [--questions file.jsonl]
  *
  * --context app (D-H007): the context as the Phase 6 app restricts it (DNA and Protein World only,
  * compareVariants and highlightSequenceRegion executable), with the answer kind and the current
@@ -14,7 +14,8 @@
  * --routing cues (D-H008, with --context app): the context also routes by the question's cue words
  * (prompt v4, routing of the rule-based planner, world-cue check); an item's `session` is honoured.
  * --routing cues-dh010 (D-H010): the same with the D-H010 cue lists (molecule names and chain are
- * protein cues; prompt v5).
+ * protein cues; prompt v5). --routing cues-dh011 (D-H011): the same with the D-H011 routing
+ * instructions (prompt v6).
  * --prompt-draft file.json (D-H011 prompt drafts, with --routing cues-dh010): the model gets the
  * draft's rules in place of RULES_V5 (and its answer hint, if any); the context, validation and the
  * world-cue check are unchanged. The draft's id and sha256 go into summary.json.
@@ -82,9 +83,9 @@ const draftMessages = (q: string, c: PlanningContext) => {
 };
 
 const routingOpt = opt("routing", "");
-if (routingOpt !== "" && routingOpt !== "cues" && routingOpt !== "cues-dh010") throw new Error(`unknown --routing ${routingOpt}`);
+if (routingOpt !== "" && routingOpt !== "cues" && routingOpt !== "cues-dh010" && routingOpt !== "cues-dh011") throw new Error(`unknown --routing ${routingOpt}`);
 const routing = routingOpt !== "";
-const mode: ContextMode = contextMode === "phase3" ? "phase3" : appBefore ? "app-v2" : routingOpt === "cues-dh010" ? "app-v5" : routing ? "app-v4" : "app-v3";
+const mode: ContextMode = contextMode === "phase3" ? "phase3" : appBefore ? "app-v2" : routingOpt === "cues-dh011" ? "app-v6" : routingOpt === "cues-dh010" ? "app-v5" : routing ? "app-v4" : "app-v3";
 /** The context of an item, in the selected mode (see the header and lib.ts benchmarkContext). */
 const contextForItem = (base: PlanningContext, item: BenchmarkItem): PlanningContext => benchmarkContext(base, item, mode);
 
@@ -158,7 +159,7 @@ else if (providerKind === "ollama") {
 } else throw new Error(`unknown provider ${providerKind}`);
 
 const date = new Date().toISOString().slice(0, 10);
-const slug = `${date}-${(model || providerKind).replace(/[^A-Za-z0-9.]+/g, "-")}${schemaMode === "grounded" ? "-grounded" : ""}${contextMode === "app" ? (appBefore ? "-app-v2" : routingOpt === "cues-dh010" ? "-app-routing-dh010" : routing ? "-app-routing" : "-app") : ""}${tag ? `-${tag}` : ""}`;
+const slug = `${date}-${(model || providerKind).replace(/[^A-Za-z0-9.]+/g, "-")}${schemaMode === "grounded" ? "-grounded" : ""}${contextMode === "app" ? (appBefore ? "-app-v2" : routingOpt === "cues-dh011" ? "-app-routing-dh011" : routingOpt === "cues-dh010" ? "-app-routing-dh010" : routing ? "-app-routing" : "-app") : ""}${tag ? `-${tag}` : ""}`;
 const outDir = join(RUNS_DIR, slug);
 mkdirSync(outDir, { recursive: true });
 const rawPath = join(outDir, "raw.jsonl");
@@ -245,7 +246,7 @@ const planRows = t0Rows.filter((r) => r.worlds !== null && r.score?.schemaValid)
 const firstRows = t0Rows.filter((r) => r.answer === "first" || (r.answer === null && !items.find((i) => i.id === r.item)?.selection));
 const pctOf = (a: number, n: number) => (n === 0 ? null : Math.round((1000 * a) / n) / 10);
 const used = {
-  contextMode: mode === "app-v2" ? "app-v2 (Phase 6 app context, no answer kind)" : mode === "app-v3" ? "app (D-H007: answer kind and current world set)" : mode === "app-v4" ? "app-v4 (D-H008: answer kind, current world, routing by cue words)" : mode === "app-v5" ? "app-v5 (D-H010: as app-v4 with the D-H010 cue lists, molecule names and chain are protein cues)" : "phase3",
+  contextMode: mode === "app-v2" ? "app-v2 (Phase 6 app context, no answer kind)" : mode === "app-v3" ? "app (D-H007: answer kind and current world set)" : mode === "app-v4" ? "app-v4 (D-H008: answer kind, current world, routing by cue words)" : mode === "app-v5" ? "app-v5 (D-H010: as app-v4 with the D-H010 cue lists, molecule names and chain are protein cues)" : mode === "app-v6" ? "app-v6 (D-H011: as app-v5 with the D-H011 routing instructions, prompt v6)" : "phase3",
   promptVersionUsed: draft ? `draft ${draft.id} (over ${promptVersion(ctx0)})` : promptVersion(ctx0),
   promptSystemCharsUsed: (draft ? draftMessages : buildMessages)(items[0]!.query, ctx0)[0]!.content.length,
   ...(draft ? { promptDraft: { file: draftFile, id: draft.id, rulesSha256: createHash("sha256").update(draft.rules).digest("hex"), answerHint: draft.answerHint ?? null } } : {}),

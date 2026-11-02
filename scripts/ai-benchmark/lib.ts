@@ -33,11 +33,13 @@ export function loadHbbContext(): PlanningContext {
  * - app-v4 (D-H008): app-v3 plus routing by cue words (prompt v4, cue routing, world-cue check).
  * - app-v5 (D-H010): app-v4 with the D-H010 cue lists (molecule names and chain are protein cues;
  *   prompt v5).
+ * - app-v6 (D-H011): app-v5 with the D-H011 routing instructions (prompt v6; same cue lists, same
+ *   rule-based planner, same world-cue check).
  * In the app modes, an item's own `session` sets the answer kind, the world on screen and the loaded
  * structure; without it, an item with a selection is a follow-up in Protein World, any other a first
  * answer in DNA World (the app's start world).
  */
-export type ContextMode = "phase3" | "app-v2" | "app-v3" | "app-v4" | "app-v5";
+export type ContextMode = "phase3" | "app-v2" | "app-v3" | "app-v4" | "app-v5" | "app-v6";
 export function benchmarkContext(base: PlanningContext, item: BenchmarkItem, mode: ContextMode): PlanningContext {
   const c = contextForItem(base, item);
   if (mode === "phase3") return c;
@@ -47,7 +49,7 @@ export function benchmarkContext(base: PlanningContext, item: BenchmarkItem, mod
     executableActions: [...c.executableActions, "compareVariants", "highlightSequenceRegion"],
   };
   if (mode === "app-v2") return app;
-  const routed: PlanningContext = mode === "app-v4" ? { ...app, routeByCues: true } : mode === "app-v5" ? { ...app, routeByCues: true, cueRules: "dh010" } : app;
+  const routed: PlanningContext = mode === "app-v4" ? { ...app, routeByCues: true } : mode === "app-v5" ? { ...app, routeByCues: true, cueRules: "dh010" } : mode === "app-v6" ? { ...app, routeByCues: true, cueRules: "dh010", routingPrompt: "dh011" } : app;
   const s = item.session;
   if (s) return withSession(routed, { answer: s.answer, currentWorld: s.currentWorld, ...(s.loadedStructureId !== undefined ? { loadedStructureId: s.loadedStructureId } : {}) });
   return withSession(routed, item.selection ? { answer: "follow-up", currentWorld: "protein" } : { answer: "first", currentWorld: "dna" });
