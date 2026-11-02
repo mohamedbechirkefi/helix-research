@@ -50,3 +50,5 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P6-2026-11-02-model-e2e-dh008 | `2026-11-02-model-e2e-dh008.md` | D-H008 (model-backed and rule-based E2E suites on the final build; the bridge chip) |
 | HX-P7-2026-11-02-concept-frame-timing | `2026-11-02-concept-frame-timing.md` | P7.1.1 (frame timings of the three art-direction scenes; Phase 4, 5, 6 E2E regression) |
 | HX-P7-2026-11-02-instrument-frame-timing | `2026-11-02-instrument-frame-timing.md` | D-H009 (frame timings of the refined Instrument scene and the bridge transition; Phase 4, 5, 6 E2E regression) |
+| HX-P7-2026-11-02-routing-dh010 | `2026-11-02-routing-dh010.md` | D-H010 (molecule names and chain as protein cues; benchmark, held-out sets, 16 new routing items, question set) |
+| HX-P7-2026-11-02-model-e2e-dh010 | `2026-11-02-model-e2e-dh010.md` | D-H010 (model-backed and rule-based E2E suites on the D-H010 build; the welcome gene choice) |
