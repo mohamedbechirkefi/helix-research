@@ -1,9 +1,9 @@
 <!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
 # Scientific validation (P2.5.3)
 
-**Status:** Phase 2. **Last run:** live build of `data/curated/hbb/` started 2026-11-01T19:27:28Z from commit `0692bff` (clean tree), Ensembl 116, UniProt 2026_03, PDB 2HBS revision 1.5 (2026-08-12), ClinVar Build261025-1250.1, AlphaFold DB model v6.
+**Status:** Phase 2, updated for Phase 6. **Last run:** live build of `data/curated/hbb/` started 2026-11-02T02:26:08Z from commit `4b30c60` (clean tree), Ensembl 116, UniProt 2026_03, PDB 2HBS revision 1.5 (2026-08-12), ClinVar Build261025-1250.1 (record VCV000015333.184), AlphaFold DB model v6. Journal: HX-P6-2026-11-02-hbb-rebuild. The Phase 2 run (2026-11-01T19:27:28Z, 46 checks) is HX-P2-2026-11-01-hbb-dataset-build.
 
-> **Commit hashes after the history rewrite (note added 2026-11-02).** On 2026-11-01 the public history was rewritten to remove an email address (see `paper/report.en.md`, chapter 11). The hashes recorded at build time, `0692bff` (also the `generator.gitCommit` in `data/curated/hbb/manifest.json`) and `aeb7b43`, are from before the rewrite and are not on `main`. The same commits on `main`, with identical content and subject, are `3b89a9a` and `701cd57`. The manifest is left as built, because its hashes are checked by the dataset tests; the next rebuild records a current commit.
+> **Commit hashes after the history rewrite (note added 2026-11-02, resolved the same day).** On 2026-11-01 the public history was rewritten to remove an email address (see `paper/report.en.md`, chapter 11). The Phase 2 build recorded `0692bff` as its generator commit (and `aeb7b43` for an earlier pair of builds); both are from before the rewrite and are not on `main`, where the same commits are `3b89a9a` and `701cd57`. The Phase 6 rebuild replaced that manifest: `generator.gitCommit` is now `4b30c60`, which is on `main`. The Phase 2 hashes are kept here only to identify the earlier runs.
 
 Every value quoted in the "Last result" column is copied from `data/curated/hbb/manifest.json` (`validation[].detail`), which the build script wrote from the live responses. Nothing in this document is typed from memory.
 
@@ -19,7 +19,7 @@ Every value quoted in the "Last result" column is copied from `data/curated/hbb/
 
 ## 2. Build checks and their last result
 
-All 46 checks passed in the last live run (0 failed, 0 warnings).
+All 53 checks passed in the last live run (0 failed, 0 warnings): the 46 Phase 2 checks and T33 to T39 (Phase 6, last table).
 
 ### Identity, assembly and transcript
 
@@ -60,7 +60,7 @@ All 46 checks passed in the last live run (0 failed, 0 warnings).
 | T15-initiator-met-and-chain | UniProt annotates the initiator Met as removed and a processed chain | Mature numbering exists only because of this | Initiator methionine 1 "Removed"; Chain 2-147 |
 | T17-mature-index | The mature index is derived from the Chain feature | "Glu6Val" is produced by a function, never typed | mature index of 7 = 6 (Glu6Val (mature numbering)) |
 | T16-uniprot-natural-variant | A UniProt natural variant at the position has the same ref/alt and cites the rsID | Independent annotation of the same allele | VAR_002863 at 7: E->V; dbSNP:rs334 |
-| T14-clinvar-record | The ClinVar record is a single variant (not a haplotype), its SPDI equals the allele's, and its GRCh38 position matches | ClinVar is keyed to the allele, not the rsID | VCV000015333.183; SPDI NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts) |
+| T14-clinvar-record | The ClinVar record is a single variant (not a haplotype), its SPDI equals the allele's, and its GRCh38 position matches | ClinVar is keyed to the allele, not the rsID | VCV000015333.184 (Phase 2: .183); SPDI NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts) |
 
 ### Structure and mapping
 
@@ -78,6 +78,18 @@ All 46 checks passed in the last live run (0 failed, 0 warnings).
 | T27-assemblies | The mmCIF assemblies match the RCSB assembly record | The default scene uses the assembly holding the first mapped chain | assembly 1: A,B,C,D (+ I-L, Q-T); assembly 2: E,F,G,H (+ M-P, U-X) |
 | T28-contacts-computed | Inter-chain contacts of the variant side chain within 4.5 A, asymmetric unit | Shows where the variant residue touches another chain | B6: none; D6: none; F6: none; H6: B70, B73, B84, B85, B88 |
 
+### Phase 6: ClinVar review status and the full-chain mapping
+
+| Check | What it verifies | Why | Last result |
+|---|---|---|---|
+| T33-clinvar-search-covered | The esummary covers exactly the uids that esearch returned for the rsID, and esearch returned all of them | The related records are complete, not a sample | esearch rs334: 10 uids; esummary returned the same 10 |
+| T34-clinvar-review-status | The review status has a star level in ClinVar's table, and the conflict status agrees with the evidence class (class 6 if conflicting) | A conflict is never shown as an agreed classification | "criteria provided, multiple submitters, no conflicts" -> 2 stars; conflicting false; class 2 |
+| T35-clinvar-related-records-separate | Other records at the rsID are not the allele's record; another allele's record does not contain this allele | Haplotypes and other alleles are never merged with HbS | 9 other records: 8 haplotypes that include the HbS allele with another variant; 1 other allele (VCV000015175.3, Likely benign) |
+| T36-full-chain-covers-sifts | Every SIFTS-mapped position has a row, on every mapped chain | No silent gap in the table | 146 positions (2-147); B, D, F, H 146/146 each; 0 unobserved |
+| T37-full-chain-agrees-with-variant-mapping | The table row at the variant position equals the HbS mapping record | Two records from the same SIFTS data must agree | position 7: B6, D6, F6, H6 VAL in both |
+| T38-full-chain-residue-names | atom_site residue names equal UniProt everywhere except at the variant position, where the structure carries the alternate residue | A shifted mapping would put many names out of step | equal at 145 of 146; differs at 7 (UniProt E, structure VAL) |
+| T39-full-chain-alignment-agrees | Positions where the entity sequence differs from UniProt are those the independent alignment reports | Second, independent check of the whole table | 7 in both |
+
 ### Predicted model, drift
 
 | Check | What it verifies | Why | Last result |
@@ -90,9 +102,11 @@ All 46 checks passed in the last live run (0 failed, 0 warnings).
 - `struct-ref-seq-numbering-2HBS-{B,D,F,H}` (warning): `_struct_ref_seq` db_align_beg..end = 1..146 for P68871, SIFTS unp_start..unp_end = 2..147. SIFTS is the mapping of record.
 - `label-auth-chain-ids-differ-2HBS` (info): 16 non-polymer label chains have another auth chain id (the eight hemes I-P are auth A-H 153; the waters Q-X are auth A-H).
 
-## 4. Regeneration evidence (P2.5.1)
+## 4. Regeneration evidence (P2.5.1; repeated for Phase 6)
 
-The dataset was built live twice in a row from the same commit (`0692bff`) and compared with `scripts/data-preparation/compare-builds.ts --cache .cache/helix-raw`:
+**Phase 6 (2026-11-02, HX-P6-2026-11-02-hbb-rebuild).** Build 1 from `4b30c60`, committed as `0826e68`; build 2 from `0826e68` (same build code; only a dataset test differs) two minutes later, compared with `compare-builds.ts --cache .cache/helix-raw`: 14 files compared; 2 byte-identical (`2HBS.cif`, `capabilities.json`); 219 allowed differences (timestamps and the hashes that depend on them, one raw-body hash explained by HGNC's `responseHeader.QTime`); 1 other difference, `generator.gitCommit` (the two commits differ by a test file only; the script exits 1 on it). Against the Phase 2 build, every Phase 2 record is identical in content except the ClinVar version (.183 -> .184) and supporting-submission count (74 -> 75) in `variant-hbs.json`; seven Ensembl raw bodies changed bytes, and the two compared field by field parse to identical JSON.
+
+**Phase 2 (2026-11-01).** The dataset was built live twice in a row from the same commit (`0692bff`) and compared with `scripts/data-preparation/compare-builds.ts --cache .cache/helix-raw`:
 
 - 12 files compared; 2 byte-identical (`2HBS.cif`, `capabilities.json`).
 - 193 differences, all allowed: retrieval and validation timestamps, and the manifest hashes and sizes of the 9 record files that embed those timestamps.
@@ -101,7 +115,7 @@ The dataset was built live twice in a row from the same commit (`0692bff`) and c
 
 ## 5. Test suite (last run)
 
-`npm test`: 9 test files, 113 tests. 110 pass, and 3 are skipped. The skipped ones are the opt-in live smoke tests. `npm run test:live` ran them on 2026-11-01: 3 of 3 passed.
+`npm test` (2026-11-02, Phase 6): 14 test files (13 run, 1 opt-in live file skipped), 181 tests. 177 pass, and 4 are skipped: the opt-in live smoke tests. `npm run test:live` ran them on 2026-11-02T02:49:27Z: 4 of 4 passed, including the new ClinVar rs334 test (HX-P6-2026-11-02-clinvar-live-smoke). (Phase 2: 9 files, 113 tests, 110 pass, 3 live skipped and passed on 2026-11-01; Phase 3 added the ai-planning files, Phase 6 `packages/ai-planning/test/phase6.test.ts`.)
 
 | File | What |
 |---|---|
@@ -113,7 +127,7 @@ The dataset was built live twice in a row from the same commit (`0692bff`) and c
 | `packages/data-adapters/test/live.test.ts` | Opt-in live smoke: ENSG00000244734, P68871, 2HBS + SIFTS |
 | `packages/scientific-core/test/hbb-plan.test.ts` | T01-T32 of the acquisition plan |
 | `packages/scientific-core/test/core.test.ts` | Evidence classes, capabilities (including HBBP1, a pseudogene with no protein and no structure), acquisition orchestration and graceful errors, no Node APIs in runtime packages, SPDX headers |
-| `scripts/data-preparation/test/dataset.test.ts` | Build determinism; committed dataset hashes, schemas, absence of proprietary identifiers, the HbS mapping table |
+| `scripts/data-preparation/test/dataset.test.ts` | Build determinism; committed dataset hashes, schemas, absence of proprietary identifiers, the HbS mapping table; Phase 6: the ClinVar record and the full-chain table of the committed dataset, generator commit and clean tree |
 
 ## 6. Not verified here
 

@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
 # Data core: packages, choices and how to run (Phase 2)
 
-**Status:** Phase 2, 2026-11-01. Covers P2.1 to P2.5. The validation results are in `docs/scientific-validation.md`.
+**Status:** Phase 2, 2026-11-01. Covers P2.1 to P2.5. Updated 2026-11-02 for Phase 6 (§10): the ClinVar record and the full-chain residue mapping. The validation results are in `docs/scientific-validation.md`.
 
 ## 1. Layout
 
@@ -94,7 +94,7 @@ npm install                 # exact versions from package-lock.json
 npm test                    # offline: unit, fixture, HTTP, plan T01-T32, dataset tests
 npm run test:live           # opt-in live smoke (HELIX_LIVE=1)
 npm run typecheck
-npm run build:hbb           # live build -> data/curated/hbb (about 23 requests)
+npm run build:hbb           # live build -> data/curated/hbb (24 requests since Phase 6)
 node scripts/data-preparation/build-hbb.ts --offline     # from the last live snapshot
 node scripts/data-preparation/build-hbb.ts --fixtures --out /tmp/hbb
 node scripts/data-preparation/compare-builds.ts <dirA> <dirB> --cache .cache/helix-raw
@@ -111,9 +111,11 @@ On failure the build prints the typed error (code, URL, message), writes nothing
 | `sequences.json` | CDS, cDNA, Ensembl protein, forward-strand genomic window, each with sha256 | 2 |
 | `protein-P68871.json` | UniProt sequence, versions, md5/crc64, processed chain, kept features, MANE/Ensembl/PDB xrefs, FUNCTION/SUBUNIT/TISSUE SPECIFICITY comments | 2 |
 | `variant-hbs.json` | HbS keyed by `NC_000011.10:g.5227002T>A`, all rs334 alleles, HGVS g./c./p., SPDI, codon, translated and mature numbering, VEP consequence, ClinVar summary | 2 (ClinVar), with class 2, 3 and 3 claims for UniProt, the translation and VEP |
+| `clinvar-hbs.json` (Phase 6) | The ClinVar record of the HbS allele: version, build, classification, review status, ClinVar's star level, conflict status with its basis, submission count, last evaluated, somatic classifications (none), and the other ClinVar records at rs334 kept separate (haplotypes, another allele) | 2, or 6 when ClinVar reports a conflict |
 | `structure-2HBS.json` | Entities (mutation numbering tagged), label/auth chains, assemblies, default assembly, citation, model file hash | 1 |
 | `2HBS.cif` | The deposited file, unchanged (CC0), as the render source | |
 | `residue-mapping-hbs-2HBS.json` | UniProt 7 -> 2HBS residues with label and auth ids, residue names from atom_site, three cross-checks | 1 |
+| `residue-mapping-P68871-2HBS.json` (Phase 6) | Full-chain mapping of record: every SIFTS-mapped position (2 to 147) -> residues on B, D, F, H with label and auth ids, unobserved chains, residue-name agreement with UniProt, four cross-checks | 2 (SIFTS), 1 (atom_site names) |
 | `contacts-hbs-2HBS.json` | Inter-chain contacts of the variant side chain (4.5 A, asymmetric unit) | 1, plus a class 4 inference |
 | `predicted-model-AF-P68871-F1.json` | AlphaFold model metadata, disclaimer kept, `usableForVariantPlacement: false` | 3 |
 | `capabilities.json` | What can be shown, and why (a derived index; it names its source records) | |
@@ -129,3 +131,12 @@ ClinVar trait names are deliberately not stored. ClinVar aggregates them across 
 - **UniProt PDB cross-references:** only the selected entry is kept in the protein record. The capability check counts all of them before filtering.
 - **E10 variation** is fetched without `phenotypes=1`. Phenotype text is third-party content and is not used.
 - **HGNC** is used for alias resolution (conditional source), as the plan's H1 says. PDBe SIFTS is the mapping of record (conditional source), as the plan's S1 says. See `docs/data-source-registry.md`, "Phase 2 use of conditional sources".
+
+## 10. Phase 6 additions (2026-11-02)
+
+- **ClinVar (P6.1.1).** `ClinvarAdapter.esearchRs(rsId)` (esearch, `term` restricted to an rsID, `tool=helix-research` only) runs before esummary, so the build sees every ClinVar record that cites the rsID. `clinvarReviewStars` (`packages/scientific-core/src/clinvar.ts`) encodes ClinVar's published review-status-to-stars table and returns null for a status it does not know; `clinvarConflicts` reads the conflict status from ClinVar's own words and quotes them. A conflicting status makes the claim class 6 (`classifyClinvarReview`, unchanged). The other records at the rsID are listed with their own classification and review status and are never merged with the allele's record; a haplotype that contains the allele is flagged as such. Trait names stay out.
+- **Full-chain mapping.** `mapUniprotChain` (`structure-mapping.ts`) runs the steps of `mapUniprotPosition` for every position SIFTS covers, and records a residue without coordinates as unobserved on its chain instead of failing. The record is a lookup table: consumers (the app's selection bridge) read a row, they never add an offset.
+- **Checks T33 to T39** (see `scientific-validation.md` §2): esearch covered by esummary; star level known and conflict status consistent with the evidence class; related records separate; the table covers every SIFTS position on every chain; it equals the HbS record at position 7; residue names equal UniProt except at the variant position; the entity sequence differs from UniProt only where the independent alignment says.
+- **Plan vocabulary (ai-planning).** `highlightSequenceRegion` and a one-variant `compareVariants` are in the schema; the v2 prompt and decoding schema are used only by contexts that execute them, and the Phase 3 prompt and default schema are byte-identical (hash test in `packages/ai-planning/test/phase6.test.ts`). The deterministic fallback's Phase 6 rules are gated on the same condition, so the Phase 3 benchmark results stand.
+- **Fixtures.** `clinvarSearch` points at the frozen `research/raw/ncbi-clinvar/esearch_rs334.json`; the frozen esummary already held all ten rs334 uids, so the fixture build and the live build now summarise the same set.
+
