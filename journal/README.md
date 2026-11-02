@@ -46,3 +46,5 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P6-2026-11-02-one-world-first-answer | `2026-11-02-one-world-first-answer.md` | D-H007 item 10 (first answer in one world, no reordering) |
 | HX-P6-2026-11-02-followup-filter-model | `2026-11-02-followup-filter-model.md` | D-H007 item 7 (follow-up filter on the model path) |
 | HX-P6-2026-11-02-model-e2e-oneworld | `2026-11-02-model-e2e-oneworld.md` | D-H007 (model-backed E2E scenarios on the shipped build) |
+| HX-P6-2026-11-02-routing-dh008 | `2026-11-02-routing-dh008.md` | D-H008 (first answer routed by the question's cue words; benchmark, held-out sets, new routing items, question set) |
+| HX-P6-2026-11-02-model-e2e-dh008 | `2026-11-02-model-e2e-dh008.md` | D-H008 (model-backed and rule-based E2E suites on the final build; the bridge chip) |
