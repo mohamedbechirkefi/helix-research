@@ -1,0 +1,1 @@
+ (asked in {currentWorld}; rule 13: pick the world with the cue table, enterWorld it first, then actions of that world only)
