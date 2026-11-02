@@ -1,0 +1,303 @@
+{
+ "tag": "phases-asked",
+ "date": "2026-11-02T13:27:12.625Z",
+ "gitCommit": "d0d76f9-dirty",
+ "ollamaVersion": "0.40.6",
+ "conditionsFile": "research/benchmark/timing/prompts/conditions-phases.json",
+ "conditionsSha256": "8642f7248f22d5cd6ff75ef90d501b11e9043219c47732ab8748c25d8f4d84a9",
+ "order": "blocked",
+ "reps": 5,
+ "warmups": 1,
+ "coldFirst": false,
+ "wallClockS": 327,
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1"
+ },
+ "conditions": [
+  {
+   "id": "p4-ref-asked",
+   "label": "Phase 4 app prompt with the session of the measured call (nothing selected or loaded), schema v1",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 6470,
+   "userChars": 160,
+   "formatChars": 3949,
+   "messagesSha256": "6361fcb4ba76130742075b17e9e5f2e53b02e2894334dcc1abbf20ed74d96a14",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 15600.6,
+    "min": 15550.9,
+    "max": 15668.2,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 15603,
+    "min": 15552.8,
+    "max": 15670.3,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 1.1,
+    "min": 0.7,
+    "max": 2.2,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2249,
+    "min": 2249,
+    "max": 2249,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 59.1,
+    "min": 58.8,
+    "max": 59.8,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 336,
+    "min": 336,
+    "max": 336,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 15523.5,
+    "min": 15472,
+    "max": 15588.7,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.2,
+    "min": 46,
+    "max": 46.4,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 79.7,
+    "min": 78.3,
+    "max": 80.9,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 991,
+    "min": 991,
+    "max": 991,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": false,
+     "totalMs": 23897.993958,
+     "loadMs": 0.680708,
+     "promptEvalCount": 2249,
+     "promptEvalMs": 8319.317999,
+     "evalCount": 337,
+     "evalMs": 15489.952
+    }
+   ],
+   "loadavg1": {
+    "median": 4.2,
+    "min": 3.5,
+    "max": 4.6,
+    "n": 6
+   }
+  },
+  {
+   "id": "p5-ref-asked",
+   "label": "Phase 5 app prompt with the session of the measured call, schema v1",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 6410,
+   "userChars": 160,
+   "formatChars": 3949,
+   "messagesSha256": "5b8323e00a36ba7465bad99f8b8078c61b3afac2947c7c86a7b5a9cdcacdea1c",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 15645.9,
+    "min": 15619.4,
+    "max": 15654.2,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 15648.8,
+    "min": 15620.7,
+    "max": 15655.7,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.8,
+    "min": 0.8,
+    "max": 3.4,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2233,
+    "min": 2233,
+    "max": 2233,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 60,
+    "min": 58.3,
+    "max": 61.1,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 337,
+    "min": 337,
+    "max": 337,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 15564.6,
+    "min": 15540.1,
+    "max": 15576.8,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.2,
+    "min": 46.1,
+    "max": 46.2,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 80.2,
+    "min": 78.3,
+    "max": 86.9,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 992,
+    "min": 992,
+    "max": 992,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": false,
+     "totalMs": 16223.065833,
+     "loadMs": 0.785458,
+     "promptEvalCount": 2233,
+     "promptEvalMs": 602.453,
+     "evalCount": 337,
+     "evalMs": 15602.608
+    }
+   ],
+   "loadavg1": {
+    "median": 7.7,
+    "min": 5.4,
+    "max": 8,
+    "n": 6
+   }
+  },
+  {
+   "id": "p6-ref-asked",
+   "label": "Phase 6 app prompt with the session of the measured call (sequenceSelection null), schema v2",
+   "model": "ministral-3:8b",
+   "options": {
+    "temperature": 0,
+    "num_ctx": 8192,
+    "num_predict": 1024
+   },
+   "keepAlive": "10m",
+   "systemChars": 7186,
+   "userChars": 160,
+   "formatChars": 4639,
+   "messagesSha256": "da36bdf9cb4aea5a7c0377ba2a2901ddcb0d14fbe9c5d7477da5ff0a968a975a",
+   "n": 5,
+   "errors": 0,
+   "totalMs": {
+    "median": 21660.5,
+    "min": 21640.5,
+    "max": 21689.7,
+    "n": 5
+   },
+   "wallMs": {
+    "median": 21661.9,
+    "min": 21641.9,
+    "max": 21691,
+    "n": 5
+   },
+   "loadMs": {
+    "median": 0.9,
+    "min": 0.9,
+    "max": 0.9,
+    "n": 5
+   },
+   "promptEvalCount": {
+    "median": 2418,
+    "min": 2418,
+    "max": 2418,
+    "n": 5
+   },
+   "promptEvalMs": {
+    "median": 60.5,
+    "min": 60.3,
+    "max": 61.1,
+    "n": 5
+   },
+   "evalCount": {
+    "median": 464,
+    "min": 464,
+    "max": 464,
+    "n": 5
+   },
+   "evalMs": {
+    "median": 21578.5,
+    "min": 21559.7,
+    "max": 21608.7,
+    "n": 5
+   },
+   "msPerGeneratedToken": {
+    "median": 46.5,
+    "min": 46.5,
+    "max": 46.6,
+    "n": 5
+   },
+   "firstTokenMs": {
+    "median": 82.5,
+    "min": 81.3,
+    "max": 83.3,
+    "n": 5
+   },
+   "outputChars": {
+    "median": 1400,
+    "min": 1400,
+    "max": 1400,
+    "n": 5
+   },
+   "distinctOutputs": 1,
+   "warmup": [
+    {
+     "cold": false,
+     "totalMs": 22065.997084,
+     "loadMs": 0.781959,
+     "promptEvalCount": 2418,
+     "promptEvalMs": 336.316,
+     "evalCount": 464,
+     "evalMs": 21562.758
+    }
+   ],
+   "loadavg1": {
+    "median": 5.8,
+    "min": 5,
+    "max": 6.1,
+    "n": 6
+   }
+  }
+ ]
+}
