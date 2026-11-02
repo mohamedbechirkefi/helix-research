@@ -7,7 +7,7 @@
  * A public website cannot reach a visitor's Ollama (403 from its CORS check), so this provider
  * is never offered to web visitors.
  */
-import { buildMessages } from "../prompt.ts";
+import { buildMessages, type ChatMessage } from "../prompt.ts";
 import { groundedPlanJsonSchema, planJsonSchema, usesV2 } from "../schema.ts";
 import { now, ProviderError, type PlanProvider, type PlanRequest, type ProviderCapability, type ProviderOutput } from "./types.ts";
 import type { PlanningContext } from "../context.ts";
@@ -24,6 +24,11 @@ export interface OllamaConfig {
   timeoutMs?: number;
   /** Cap on generated tokens (Ollama num_predict). Constrained JSON can otherwise run on in whitespace or repetition. */
   numPredict?: number;
+  /**
+   * Benchmark only (prompt drafts, D-H011): builds the chat messages instead of buildMessages. The
+   * app never sets it; validation still runs on the unchanged context.
+   */
+  messages?: (query: string, ctx: PlanningContext) => ChatMessage[];
 }
 
 export function contextIdLists(ctx: PlanningContext) {
@@ -49,7 +54,7 @@ export class OllamaProvider implements PlanProvider {
   readonly kind = "ollama" as const;
   readonly label: string;
   readonly local = true as const;
-  private readonly cfg: Required<Omit<OllamaConfig, "think" | "fetch">> & { think?: boolean; fetch: typeof fetch };
+  private readonly cfg: Required<Omit<OllamaConfig, "think" | "fetch" | "messages">> & { think?: boolean; fetch: typeof fetch; messages?: OllamaConfig["messages"] };
 
   constructor(cfg: OllamaConfig) {
     this.cfg = {
@@ -88,7 +93,7 @@ export class OllamaProvider implements PlanProvider {
     const timer = setTimeout(() => ctl.abort(), this.cfg.timeoutMs);
     const body: Record<string, unknown> = {
       model: this.cfg.model,
-      messages: buildMessages(req.query, req.context),
+      messages: (this.cfg.messages ?? buildMessages)(req.query, req.context),
       format: schemaFor(req),
       stream: true,
       keep_alive: this.cfg.keepAlive,

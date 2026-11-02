@@ -15,6 +15,9 @@
  * (prompt v4, routing of the rule-based planner, world-cue check); an item's `session` is honoured.
  * --routing cues-dh010 (D-H010): the same with the D-H010 cue lists (molecule names and chain are
  * protein cues; prompt v5).
+ * --prompt-draft file.json (D-H011 prompt drafts, with --routing cues-dh010): the model gets the
+ * draft's rules in place of RULES_V5 (and its answer hint, if any); the context, validation and the
+ * world-cue check are unchanged. The draft's id and sha256 go into summary.json.
  *
  * Each item runs `reps0` times at temperature 0 (seeds 0..) and `reps07` times at 0.7. Every raw
  * output is stored (raw.jsonl), with its validation issues and score; summary.json aggregates.
@@ -22,7 +25,9 @@
 import { mkdirSync, writeFileSync, appendFileSync } from "node:fs";
 import { join } from "node:path";
 import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
 import {
+  RULES_V5,
   buildMessages,
   planJsonSchema,
   planWorlds,
@@ -59,6 +64,21 @@ const questionsFile = opt("questions");
 const contextMode = opt("context", "phase3") as "phase3" | "app";
 const numPredict = Number(opt("num-predict", "1024"));
 const appBefore = args.includes("--app-without-answer");
+const draftFile = opt("prompt-draft");
+type Draft = { id: string; rules: string; answerHint?: string };
+const draft: Draft | null = draftFile ? (JSON.parse(readFileSync(join(REPO_ROOT, "research", "benchmark", draftFile), "utf8")) as Draft) : null;
+// Integrity (invariant 1): prompt drafts are tuned on development items only, never on the D-H011 held-out set.
+if (draft && (questionsFile ?? "").includes("dh011")) throw new Error("prompt drafts never run on the D-H011 held-out items");
+const V5_HINT = " (rule 13: actions of one world only)";
+/** The messages with the draft's rules (and answer hint) in place of v5's. */
+const draftMessages = (q: string, c: PlanningContext) => {
+  const [sys, user] = buildMessages(q, c);
+  if (promptVersion(c) !== "helix-plan-prompt-v5" || !sys!.content.startsWith(RULES_V5)) throw new Error("--prompt-draft needs a prompt-v5 context (--context app --routing cues-dh010)");
+  return [
+    { ...sys!, content: draft!.rules + sys!.content.slice(RULES_V5.length) },
+    { ...user!, content: draft!.answerHint !== undefined ? user!.content.replace(V5_HINT, draft!.answerHint) : user!.content },
+  ];
+};
 
 const routingOpt = opt("routing", "");
 if (routingOpt !== "" && routingOpt !== "cues" && routingOpt !== "cues-dh010") throw new Error(`unknown --routing ${routingOpt}`);
@@ -129,7 +149,7 @@ else if (providerKind === "ollama") {
   if (!model) throw new Error("--model is required for ollama");
   meta = await ollamaMeta(model);
   const think = (meta.capabilities as string[]).includes("thinking") ? false : undefined;
-  provider = new OllamaProvider({ model, baseUrl, ...(think !== undefined ? { think } : {}), numCtx: 8192, keepAlive: "15m", numPredict });
+  provider = new OllamaProvider({ model, baseUrl, ...(think !== undefined ? { think } : {}), numCtx: 8192, keepAlive: "15m", numPredict, ...(draft ? { messages: draftMessages } : {}) });
   meta.think = think ?? "not sent (model has no thinking capability)";
   meta.numCtx = 8192;
   meta.numPredict = numPredict;
@@ -225,8 +245,9 @@ const firstRows = t0Rows.filter((r) => r.answer === "first" || (r.answer === nul
 const pctOf = (a: number, n: number) => (n === 0 ? null : Math.round((1000 * a) / n) / 10);
 const used = {
   contextMode: mode === "app-v2" ? "app-v2 (Phase 6 app context, no answer kind)" : mode === "app-v3" ? "app (D-H007: answer kind and current world set)" : mode === "app-v4" ? "app-v4 (D-H008: answer kind, current world, routing by cue words)" : mode === "app-v5" ? "app-v5 (D-H010: as app-v4 with the D-H010 cue lists, molecule names and chain are protein cues)" : "phase3",
-  promptVersionUsed: promptVersion(ctx0),
-  promptSystemCharsUsed: buildMessages(items[0]!.query, ctx0)[0]!.content.length,
+  promptVersionUsed: draft ? `draft ${draft.id} (over ${promptVersion(ctx0)})` : promptVersion(ctx0),
+  promptSystemCharsUsed: (draft ? draftMessages : buildMessages)(items[0]!.query, ctx0)[0]!.content.length,
+  ...(draft ? { promptDraft: { file: draftFile, id: draft.id, rulesSha256: createHash("sha256").update(draft.rules).digest("hex"), answerHint: draft.answerHint ?? null } } : {}),
   schemaSha256Used: createHash("sha256").update(JSON.stringify(usedSchema)).digest("hex"),
   // D-H007 measures at temperature 0: validation pass (the director keeps the plan) and fallback (it does not).
   validationPassPct: pctOf(t0Rows.filter((r) => r.score?.valid).length, t0Rows.length),
