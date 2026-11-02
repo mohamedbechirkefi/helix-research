@@ -6,7 +6,7 @@
 | | |
 |---|---|
 | Author | Mohamed Bechir Kefi |
-| Version | Working draft 0.5, 2026-11-02 |
+| Version | Working draft 0.6, 2026-11-02 |
 | Status | Chapters 1 to 8, 9.1 to 9.3, 10 and 11 drafted (Phases 0 to 6). Sections 9.4 to 9.9 are headed placeholders. |
 | Companion files | Claims register `paper/claims.md`; experiment journal `journal/` |
 | French copy | `paper/report.fr.md`, first produced after Phase 4 (see `paper/README.md`) |
@@ -768,6 +768,18 @@ All four are handled in code and documented in the product repository.
 - The demonstration video shortens pauses longer than 1.2 s, so planning time does not appear at its real length.
 
 **Tests.** After Phase 6, the product repository has 110 passing tests, and this repository 181: 177 pass and 4 opt-in live tests are skipped by default; the 4 live tests pass when run [C68].
+
+### 9.3.1 After the Phase 6 review (decisions D-H007 and D-H008)
+
+The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes. Each change was characterised by tests before it was made, and each measurement is journaled.
+
+**Product changes.** The welcome now shows on every visit, and the app opens in DNA World as an explicit rule: the start world is chosen from the data available, with DNA World preferred. Question-to-highlight time with the rule-based planner was 1,775.9 ms (median, n = 5), within the range of Phase 6 (C69). The model's follow-up suggestions now pass a deterministic filter (`helix-followup-filter-v1`): a suggestion is kept only if it is nonclinical, stays within the curated context and is answerable by an allowed rule-based scene. On 816 suggestions recorded in earlier runs it kept 64, none of them clinical (C70).
+
+**Why model planning slowed.** The Phase 3 "10 s" figure was a median over all 53 benchmark items; the reference question itself took 17.5 s in Phase 3 and did not slow before Phase 6. From Phase 5 to Phase 6 it rose by about 6 s, and 97.6% of that rise is output length: the first answer had started visiting both worlds, adding about 128 generated tokens at about 46 ms each. Prompt growth, constrained decoding, context limits and machine load explained none of it (C71). The same study found that the stored "exact messages" of two earlier E2E entries had been captured after the answer; the capture was corrected and the entries annotated.
+
+**One world per first answer.** At the author's request a first answer now stays in one world. The rule is stated in the prompt and enforced by a check that rejects a first answer that switches worlds, with the usual fallback; plans are never reordered. On the reference question planning fell from 21.7 s to 18.8 s, and all 15 first answers of the E2E question set stayed in one world; benchmark validation stayed at 90.6% while correct-and-valid answers fell from 79.2% to 75.5% (C72).
+
+**Routing by the question's words.** A first answer goes to the world the question names (DNA, codon, sequence or letter; protein, structure, 3D, shape or effect); a neutral question stays in the current world, and after a DNA-World variant answer the first suggestion is the bridge to the protein. Seventeen new held-out items and their expected answers were committed before any model saw them. The model chose the right world for 14 of 15 items that have one, the app executed the right world for all 15, and 16 of 17 items were correct and valid (C73). Two existing items whose expected answers the rule changes keep both oracles, and scores are reported against both. Held-out item RH15 exposed a gap in the rule-based clinical pattern ("I will get sick" was not refused); the pattern was widened, no other item changed, and RH15 no longer counts as unseen for the rule-based planner (C74). With routing, the filter kept 10 of 54 model suggestions, none clinical (C75).
 
 ### 9.4 Art direction, branding and UX system (Phase 7)
 
