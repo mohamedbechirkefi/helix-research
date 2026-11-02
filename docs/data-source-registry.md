@@ -224,7 +224,7 @@ The master prompt (§4) allows conditional sources "only for a specific scientif
 - **PDBe SIFTS** (§10), for the UniProt to PDB residue mapping. The need: the 2HBS file's own `_struct_ref_seq` aligns P68871 in mature numbering (db_align_beg 1, where UniProt numbers that residue 2). Trusting it would put the HbS highlight on label 7, a glutamate, instead of label 6, the valine. SIFTS is the mapping of record; RCSB's `rcsb_polymer_entity_align` (provenance SIFTS) and a global alignment are cross-checks (`docs/scientific-validation.md`, T21, T22, T25). Licence CC0, with the SIFTS citation in each dataset's attribution.
 - **HGNC** (§8), for approved symbols and alias resolution (for example "beta-globin"). Ensembl's `lookup/symbol/homo_sapiens/beta-globin` returned HTTP 400 "No valid lookup found for symbol beta-globin" (measured 2026-11-01), so Ensembl alone cannot resolve this alias. Licence CC0.
 
-ClinVar (§5) is used for the variant's aggregate classification only. Requests carry `tool=helix-research` and no `email` parameter. Trait names and trait cross-references are not stored.
+ClinVar (§5) is used for the variant's aggregate classification only. Requests carry `tool=helix-research` and no `email` parameter. Trait names and trait cross-references are not stored. Since Phase 6 (2026-11-02) the build also runs `esearch.fcgi?db=clinvar&term=<rsID>` (restricted to an rsID by the adapter) and summarises every returned record, so the curated `clinvar-hbs.json` can list the other records at the rsID (haplotypes, another allele) separately from the allele's own record, with their classification and review status only.
 
 ## Not covered or unverified
 

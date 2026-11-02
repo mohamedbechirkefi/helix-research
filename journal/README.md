@@ -38,3 +38,6 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P5-2026-11-02-transitions | `2026-11-02-transitions.md` | P5.3.1 (and the Phase 4 suite as regression) |
 | HX-P5-2026-11-02-modes-rapid | `2026-11-02-modes-rapid.md` | P5.3.2, P5.3.3 |
 | HX-P5-2026-11-02-long-frame-reprobe | `2026-11-02-long-frame-reprobe.md` | carried from HX-P4-2026-11-02-long-frame (claims C19, C48) |
+| HX-P6-2026-11-02-hbb-rebuild | `2026-11-02-hbb-rebuild.md` | P6.1.1 and the full-chain mapping (dataset rebuild) |
+| HX-P6-2026-11-02-clinvar-live-smoke | `2026-11-02-clinvar-live-smoke.md` | P6.1.1 (live smoke) |
+| HX-P6-2026-11-02-vertical-slice-e2e | `2026-11-02-vertical-slice-e2e.md` | P6.1.2, P6.2.1 to P6.2.4, P6.3.1, P6.4.1 preparation (E2E, regression, demo) |
