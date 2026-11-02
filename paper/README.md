@@ -8,7 +8,7 @@ This folder holds the written outputs of the Helix research phase. They are draf
 | File | What | Status |
 |---|---|---|
 | `report.en.md` | Detailed technical report, English. The working master. | Drafted for Phases 0 to 2; later chapters are headed placeholders |
-| `report.fr.md` | Full French copy of the report | Not started (first milestone: after Phase 4) |
+| `report.fr.md` | Full French copy of the report | First copy made 2026-11-02 from English draft 0.3; author review of terminology pending; next copy after Phase 6 |
 | `claims.md` | Claims register: every claim in the report and article, with its evidence | Live |
 | `article.en.md`, `article.fr.md` | Short article made from the frozen report | Not started (after Phase 11) |
 
