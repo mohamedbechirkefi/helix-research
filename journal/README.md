@@ -31,3 +31,6 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P2-2026-11-01-hbb-dataset-build | `2026-11-01-hbb-dataset-build.md` | P2.5.1 to P2.5.3 |
 | HX-P3-2026-11-01-ai-benchmark-ollama | `2026-11-01-ai-benchmark-ollama.md` | P3.1.1 to P3.2.4, P3.3.1, P3.3.2 |
 | HX-P3-2026-11-01-webllm-browser | `2026-11-01-webllm-browser.md` | P3.2.2 |
+| HX-P4-2026-11-02-ai-to-world-e2e | `2026-11-02-ai-to-world-e2e.md` | P4.2.3, P4.2.4, P4.3.1 |
+| HX-P4-2026-11-02-cancellation | `2026-11-02-cancellation.md` | P4.3.2 |
+| HX-P4-2026-11-02-long-frame | `2026-11-02-long-frame.md` | P1.4.2 carry-over (claim C19) |
