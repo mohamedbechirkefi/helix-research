@@ -1,0 +1,30 @@
+url	status	final_url	attempts	crossref
+https://alphafold.ebi.ac.uk/entry/P68871	200	https://alphafold.ebi.ac.uk/entry/P68871	1	
+https://doi.org/10.1002/pro.70540	403	https://onlinelibrary.wiley.com/doi/10.1002/pro.70540	1	Slanináková | <scp>MolViewStories</scp> : Interactive molecular storytelling | Protein Science | 35
+https://doi.org/10.1006/jmbi.1997.1253	200	https://linkinghub.elsevier.com/retrieve/pii/S0022283697912535	1	Harrington | The high resolution crystal structure of deoxyhemoglobin S | Journal of Molecular Biology | 272
+https://doi.org/10.1093/nar/gkab314	403	https://academic.oup.com/nar/article/49/W1/W431/6270780	1	Sehnal | Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures | Nucleic Acids Research | 49
+https://doi.org/10.1093/nar/gkad1011	403	https://academic.oup.com/nar/article/52/D1/D368/7337620	1	Varadi | AlphaFold Protein Structure Database in 2024: providing structure coverage for over 214 million protein sequences | Nucleic Acids Research | 52
+https://doi.org/10.1093/nar/gkaf370	403	https://academic.oup.com/nar/article/53/W1/W408/8125619	1	Midlik | MolViewSpec: a Mol* extension for describing and sharing molecular visualizations | Nucleic Acids Research | 53
+https://github.com/molstar/molstar	200	https://github.com/molstar/molstar	1	
+https://github.com/molstar/molstar/blob/master/packages/prism/viewer/_spec/agent.md	200	https://github.com/molstar/molstar/blob/master/packages/prism/viewer/_spec/agent.md	1	
+https://github.com/molstar/molstar/tree/master/packages/ai	200	https://github.com/molstar/molstar/tree/master/packages/ai	1	
+https://hgvs-nomenclature.org/stable/background/numbering/	200	https://hgvs-nomenclature.org/stable/background/numbering/	1	
+https://hgvs-nomenclature.org/stable/background/refseq/	200	https://hgvs-nomenclature.org/stable/background/refseq/	1	
+https://molstar.org/docs/v5/plugin/instance/	200	https://molstar.org/docs/v5/plugin/instance/	1	
+https://molstar.org/mol-view-stories/docs/example-stories/making-of-mom1.html	200	https://molstar.org/mol-view-stories/docs/example-stories/making-of-mom1.html	1	
+https://pdb101.rcsb.org/motm/41	200	https://pdb101.rcsb.org/motm/41	1	
+https://pubmed.ncbi.nlm.nih.gov/9325099/	200	https://pubmed.ncbi.nlm.nih.gov/9325099/	1	
+https://r3f.docs.pmnd.rs/	200	https://r3f.docs.pmnd.rs/	1	
+https://rest.ensembl.org/	200	https://rest.ensembl.org/	3	
+https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json	200	https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json	1	
+https://v2.tauri.app/	200	https://v2.tauri.app/	1	
+https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-116-release/	200	https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-116-release/	1	
+https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-new-website/	200	https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-new-website/	1	
+https://www.ebi.ac.uk/pdbe/docs/sifts/	200	https://www.ebi.ac.uk/pdbe/docs/sifts/	1	
+https://www.ensembl.org/info/genome/genebuild/canonical.html	200	https://jun2026.archive.ensembl.org/info/genome/genebuild/canonical.html	1	
+https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:4827	200	https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:4827	1	
+https://www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.html	200	https://www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.html	1	
+https://www.ncbi.nlm.nih.gov/clinvar/variation/15333/	200	https://www.ncbi.nlm.nih.gov/clinvar/variation/15333/	1	
+https://www.ncbi.nlm.nih.gov/variation/notation/	200	https://www.ncbi.nlm.nih.gov/variation/notation/	1	
+https://www.rcsb.org/structure/2HBS	200	https://www.rcsb.org/structure/2HBS	1	
+https://www.uniprot.org/uniprotkb/P68871/entry	200	https://www.uniprot.org/uniprotkb/P68871/entry	1	

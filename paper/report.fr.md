@@ -834,11 +834,11 @@ Toutes les commandes supposent la chaîne d'outils Node en espace utilisateur (`
 
 ## 14. Bibliographie
 
-Toutes les URL ont été consultées le 2026-11-01. Les listes de références complètes figurent dans `docs/competitor-analysis.md`, `docs/scientific-research.md` et `docs/data-source-registry.md`. Les liens marqués † ont été ajoutés pendant la rédaction et doivent être vérifiés avant publication.
+Toutes les URL ont été consultées le 2026-11-01. Les listes de références complètes figurent dans `docs/competitor-analysis.md`, `docs/scientific-research.md` et `docs/data-source-registry.md`. Tous les liens ont été vérifiés le 2026-11-02 avec `scripts/report/check_links.py` (29 liens, 0 en échec ; DOI confirmés auprès de Crossref ; résultats dans `journal/results/link-check-2026-11-02.tsv`). La vérification est relancée juste avant publication.
 
 **Littérature scientifique primaire**
 
-- Harrington, D. J., Adachi, K. et Royer, W. E. (1997). The high resolution crystal structure of deoxyhemoglobin S. *Journal of Molecular Biology*, 272, 398-407. [doi:10.1006/jmbi.1997.1253](https://doi.org/10.1006/jmbi.1997.1253). PubMed [9325099](https://pubmed.ncbi.nlm.nih.gov/9325099/) †.
+- Harrington, D. J., Adachi, K. et Royer, W. E. (1997). The high resolution crystal structure of deoxyhemoglobin S. *Journal of Molecular Biology*, 272, 398-407. [doi:10.1006/jmbi.1997.1253](https://doi.org/10.1006/jmbi.1997.1253). PubMed [9325099](https://pubmed.ncbi.nlm.nih.gov/9325099/).
 - Sehnal, D. et al. (2021). Mol* Viewer: modern web app for 3D visualization and analysis of large biomolecular structures. *Nucleic Acids Research*. [doi:10.1093/nar/gkab314](https://doi.org/10.1093/nar/gkab314).
 - Midlik, A. et al. (2025). MolViewSpec: a Mol* extension for describing and sharing molecular visualizations. *Nucleic Acids Research*. [doi:10.1093/nar/gkaf370](https://doi.org/10.1093/nar/gkaf370).
 - Slanináková, T. et al. (2026). MolViewStories: Interactive molecular storytelling. *Protein Science*. [doi:10.1002/pro.70540](https://doi.org/10.1002/pro.70540).
@@ -848,12 +848,12 @@ Toutes les URL ont été consultées le 2026-11-01. Les listes de références c
 
 - API REST Ensembl, version 116. [rest.ensembl.org](https://rest.ensembl.org/)
 - Enregistrement du gène HBB ENSG00000244734. [Requête lookup d'Ensembl](https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json)
-- UniProt P68871 (HBB_HUMAN), version 2026_03. [uniprot.org/uniprotkb/P68871](https://www.uniprot.org/uniprotkb/P68871/entry) †
-- Entrée PDB 2HBS. [rcsb.org/structure/2HBS](https://www.rcsb.org/structure/2HBS) †
+- UniProt P68871 (HBB_HUMAN), version 2026_03. [uniprot.org/uniprotkb/P68871](https://www.uniprot.org/uniprotkb/P68871/entry)
+- Entrée PDB 2HBS. [rcsb.org/structure/2HBS](https://www.rcsb.org/structure/2HBS)
 - Correspondance SIFTS au niveau du résidu, PDBe. [ebi.ac.uk/pdbe/docs/sifts](https://www.ebi.ac.uk/pdbe/docs/sifts/)
-- ClinVar VCV000015333. [ncbi.nlm.nih.gov/clinvar/variation/15333](https://www.ncbi.nlm.nih.gov/clinvar/variation/15333/) †
-- Entrée AlphaFold DB AF-P68871-F1. [alphafold.ebi.ac.uk/entry/P68871](https://alphafold.ebi.ac.uk/entry/P68871) †
-- HGNC, HBB. [genenames.org](https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:4827) †
+- ClinVar VCV000015333. [ncbi.nlm.nih.gov/clinvar/variation/15333](https://www.ncbi.nlm.nih.gov/clinvar/variation/15333/)
+- Entrée AlphaFold DB AF-P68871-F1. [alphafold.ebi.ac.uk/entry/P68871](https://alphafold.ebi.ac.uk/entry/P68871)
+- HGNC, HBB. [genenames.org](https://www.genenames.org/data/gene-symbol-report/#!/hgnc_id/HGNC:4827)
 
 **Normes et conventions**
 
@@ -873,8 +873,8 @@ Toutes les URL ont été consultées le 2026-11-01. Les listes de références c
 - NCBI iCn3D. [ncbi.nlm.nih.gov/Structure/icn3d](https://www.ncbi.nlm.nih.gov/Structure/icn3d/icn3d.html)
 - Actualités EMBL-EBI, Ensembl 116 released (11 juin 2026). [ebi.ac.uk](https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-116-release/)
 - Actualités EMBL-EBI, Ensembl rolls out new website (25 août 2026). [ebi.ac.uk](https://www.ebi.ac.uk/about/news/updates-from-data-resources/ensembl-new-website/)
-- Tauri 2. [v2.tauri.app](https://v2.tauri.app/) †
-- React Three Fiber. [r3f.docs.pmnd.rs](https://r3f.docs.pmnd.rs/) †
+- Tauri 2. [v2.tauri.app](https://v2.tauri.app/)
+- React Three Fiber. [r3f.docs.pmnd.rs](https://r3f.docs.pmnd.rs/)
 
 ---
 
