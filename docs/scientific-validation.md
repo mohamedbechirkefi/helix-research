@@ -115,7 +115,7 @@ All 53 checks passed in the last live run (0 failed, 0 warnings): the 46 Phase 2
 
 ## 5. Test suite (last run)
 
-`npm test` (2026-11-02, after the D-H007 follow-up filter): 15 test files (14 run, 1 opt-in live file skipped), 221 tests. 217 pass, and 4 are skipped: the opt-in live smoke tests. (Phase 6 build: 14 files, 181 tests, 177 pass.) `npm run test:live` ran them on 2026-11-02T02:49:27Z: 4 of 4 passed, including the new ClinVar rs334 test (HX-P6-2026-11-02-clinvar-live-smoke). (Phase 2: 9 files, 113 tests, 110 pass, 3 live skipped and passed on 2026-11-01; Phase 3 added the ai-planning files, Phase 6 `packages/ai-planning/test/phase6.test.ts`, D-H007 `packages/ai-planning/test/followups.test.ts`: 40 tests of the follow-up suggestion filter on suggestions recorded in earlier runs, including the clinical one of Phase 5.)
+`npm test` (2026-11-02, after the D-H007 follow-up filter): 15 test files (14 run, 1 opt-in live file skipped), 222 tests. 218 pass, and 4 are skipped: the opt-in live smoke tests. (Phase 6 build: 14 files, 181 tests, 177 pass.) `npm run test:live` ran them on 2026-11-02T02:49:27Z: 4 of 4 passed, including the new ClinVar rs334 test (HX-P6-2026-11-02-clinvar-live-smoke). (Phase 2: 9 files, 113 tests, 110 pass, 3 live skipped and passed on 2026-11-01; Phase 3 added the ai-planning files, Phase 6 `packages/ai-planning/test/phase6.test.ts`, D-H007 `packages/ai-planning/test/followups.test.ts`: 41 tests of the follow-up suggestion filter on suggestions recorded in earlier runs, including the clinical one of Phase 5.)
 
 | File | What |
 |---|---|
