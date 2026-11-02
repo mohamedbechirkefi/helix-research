@@ -8,7 +8,7 @@ import { describe, expect, it } from "vitest";
 import { EnsemblAdapter, HttpClient, RcsbAdapter, SiftsAdapter, UniprotAdapter, findProprietaryIdentifiers } from "../src/index.ts";
 
 const live = process.env.HELIX_LIVE === "1";
-const http = new HttpClient({ userAgent: "helix-research (Mohamed Bechir Kefi)", timeoutMs: 60_000 });
+const http = new HttpClient({ userAgent: "helix-research", timeoutMs: 60_000 });
 
 describe.skipIf(!live)("live smoke", () => {
   it("Ensembl ENSG00000244734", async () => {

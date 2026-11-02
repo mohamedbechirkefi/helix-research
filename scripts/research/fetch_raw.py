@@ -9,7 +9,7 @@ research/raw/<source>/MANIFEST.tsv. Standard library only.
 """
 import argparse, datetime, hashlib, json, pathlib, sys, time, urllib.request, urllib.error
 
-UA = "helix-research (Mohamed Bechir Kefi)"
+UA = "helix-research"
 ROOT = pathlib.Path(__file__).resolve().parents[2] / "research" / "raw"
 KEEP = ["content-type", "x-uniprot-release", "x-uniprot-release-date", "interpro-version",
         "x-ratelimit-limit", "x-ratelimit-remaining", "last-modified", "etag"]

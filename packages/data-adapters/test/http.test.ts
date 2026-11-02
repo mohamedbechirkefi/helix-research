@@ -75,8 +75,8 @@ describe("HttpClient", () => {
   });
 
   it("sends User-Agent only when configured (Node scripts), never by default", async () => {
-    await client({ userAgent: "helix-research (Mohamed Bechir Kefi)" }).http.getJson("ensembl", `${base}/ok`);
-    expect(seenHeaders.get("/ok")?.["user-agent"]).toBe("helix-research (Mohamed Bechir Kefi)");
+    await client({ userAgent: "helix-research" }).http.getJson("ensembl", `${base}/ok`);
+    expect(seenHeaders.get("/ok")?.["user-agent"]).toBe("helix-research");
   });
 
   it("times out each attempt and gives up with TimeoutError after the retries", async () => {
