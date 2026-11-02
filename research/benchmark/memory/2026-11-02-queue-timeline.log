@@ -1,0 +1,17 @@
+start qwen3.5:4b Sun Nov  1 22:25:07 CET 2026
+done qwen3.5:4b Sun Nov  1 22:39:27 CET 2026 exit 0
+start qwen3.5:4b Sun Nov  1 22:39:58 CET 2026
+webllm warm start Sun Nov  1 23:05:42 CET 2026
+webllm warm done Sun Nov  1 23:10:55 CET 2026
+start phi4-mini:3.8b Sun Nov  1 23:10:55 CET 2026
+done phi4-mini:3.8b Sun Nov  1 23:24:39 CET 2026 exit 0
+start ministral-3:8b Sun Nov  1 23:24:39 CET 2026
+done ministral-3:8b Mon Nov  2 00:06:00 CET 2026 exit 0
+all done Mon Nov  2 00:06:00 CET 2026
+q3 start Mon Nov  2 00:06:00 CET 2026
+q3 ollama done Mon Nov  2 00:33:21 CET 2026
+q3 all done Mon Nov  2 00:38:34 CET 2026
+q4 all done Mon Nov  2 01:00:16 CET 2026
+q5 start llama3.1:8b 01:00:23
+q5 start phi4-mini:3.8b 01:01:39
+q5 all done Mon Nov  2 01:02:38 CET 2026

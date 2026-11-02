@@ -1,0 +1,199 @@
+{
+ "date": "2026-11-01T23:33:22.790Z",
+ "chromeVersion": "Chrome/156.0.8078.74",
+ "headless": true,
+ "model": "Qwen3.5-2B-q4f16_1-MLC",
+ "warm": true,
+ "worker": true,
+ "gpu": {
+  "webgpu": true,
+  "adapter": true,
+  "vendor": "apple",
+  "architecture": "metal-3",
+  "description": "",
+  "maxBufferSize": 4294967292,
+  "maxStorageBufferBindingSize": 4294967292,
+  "shaderF16": true
+ },
+ "modelRecord": {
+  "model": "https://huggingface.co/mlc-ai/Qwen3.5-2B-q4f16_1-MLC",
+  "model_id": "Qwen3.5-2B-q4f16_1-MLC",
+  "model_lib": "https://raw.githubusercontent.com/mlc-ai/binary-mlc-llm-libs/main/web-llm-models/v0_2_86/base/Qwen3.5-2B-q4f16_1_cs1k-webgpu.wasm",
+  "vram_required_MB": 2245.44,
+  "low_resource_required": false,
+  "overrides": {
+   "context_window_size": 4096,
+   "max_history_size": 1
+  }
+ },
+ "promptVersion": "helix-plan-prompt-v1",
+ "items": [
+  "S01",
+  "S09",
+  "S11",
+  "S14",
+  "F01",
+  "U01",
+  "U03",
+  "A01",
+  "I01",
+  "FR01"
+ ],
+ "maxTokens": 700,
+ "molstar": {
+  "error": null
+ },
+ "load": {
+  "loadMs": 2293,
+  "progressEvents": 34,
+  "progressTail": [
+   {
+    "t": 2210,
+    "p": 0.9760658084237596,
+    "text": "Loading model from cache[30/31]: 987MB loaded. 97% completed, 2 secs elapsed."
+   },
+   {
+    "t": 2269,
+    "p": 1,
+    "text": "Loading model from cache[31/31]: 1011MB loaded. 100% completed, 2 secs elapsed."
+   },
+   {
+    "t": 2293,
+    "p": 1,
+    "text": "Loading GPU shader modules[9/9]: 100% completed, 1 secs elapsed."
+   },
+   {
+    "t": 2293,
+    "p": 1,
+    "text": "Finish loading on WebGPU - apple"
+   }
+  ]
+ },
+ "cache": {
+  "bytes": 1079474163,
+  "entries": 35,
+  "perCache": {
+   "webllm/config": 2358,
+   "webllm/wasm": 7176151,
+   "webllm/model": 1072295654
+  }
+ },
+ "extraBody": {
+  "enable_thinking": false
+ },
+ "generation": {
+  "n": 10,
+  "aggregate": {
+   "n": 10,
+   "parsedJsonPct": 0,
+   "schemaValidPct": 0,
+   "validPct": 0,
+   "groundednessViolations": 0,
+   "outputsWithViolations": 0,
+   "outcomeCorrectPct": 0,
+   "intentCorrectPct": 0,
+   "actionCorrectPct": 0,
+   "correctAndValidPct": 0,
+   "refusal": {
+    "correct": 0,
+    "n": 2
+   },
+   "clarify": {
+    "correct": 0,
+    "n": 1
+   },
+   "injection": {
+    "resisted": 0,
+    "n": 1
+   },
+   "followUp": {
+    "correct": 0,
+    "n": 1
+   },
+   "falseRefusals": {
+    "count": 0,
+    "n": 7
+   },
+   "explanationLevel": {
+    "correct": 0,
+    "n": 0
+   }
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 9016.89999999851,
+    "p95": 29916.800000000745
+   },
+   "total": {
+    "p50": 25228.5,
+    "p95": 55733
+   }
+  },
+  "decodeTokensPerSec": {
+   "p50": 16.598720328372323,
+   "min": 16.16845662214366,
+   "max": 16.84867394697465
+  },
+  "prefillTokensPerSec": {
+   "p50": 234.81091134529993
+  },
+  "errors": 0
+ },
+ "frames": {
+  "baseline": {
+   "frames": 357,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "over50ms": 0,
+   "meanMs": 16.67
+  },
+  "load": {
+   "frames": 273,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "over50ms": 0,
+   "meanMs": 16.67
+  },
+  "residentIdle": {
+   "frames": 237,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 16.8,
+   "over20ms": 0,
+   "over50ms": 0,
+   "meanMs": 16.67
+  },
+  "generate": {
+   "frames": 17800,
+   "p50Ms": 16.7,
+   "p95Ms": 16.7,
+   "p99Ms": 16.8,
+   "maxMs": 133.3,
+   "over20ms": 13,
+   "over50ms": 1,
+   "meanMs": 16.68
+  }
+ },
+ "memoryPeakMiB": {
+  "start": 1279,
+  "baseline": 1311,
+  "load": 2551,
+  "resident-idle": 2300,
+  "generate": 2556
+ },
+ "console": [
+  "error: Failed to load resource: the server responded with a status of 404 (Not Found)",
+  "error: Permissions policy violation: xr-spatial-tracking is not allowed in this document.",
+  "error: Permissions policy violation: xr-spatial-tracking is not allowed in this document.",
+  "pageerror: ReferenceError: Cannot access 'n' before initialization",
+  "pageerror: ReferenceError: Cannot access 'n' before initialization"
+ ],
+ "loadOnly": false
+}
