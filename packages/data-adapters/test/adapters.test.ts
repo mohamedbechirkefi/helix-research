@@ -113,6 +113,18 @@ describe("RCSB, SIFTS, ClinVar, HGNC, AlphaFold adapters (recorded fixtures)", (
     const hbs = recs.find((r) => r.uid === "15333")!;
     expect(hbs.accessionVersion).toBe("VCV000015333.183");
     expect(JSON.stringify(hbs)).not.toMatch(/trait_name|Orphanet|MedGen/);
+    // Phase 6: somatic classifications are empty strings in ClinVar, read as none.
+    expect([hbs.clinicalImpact, hbs.oncogenicity, hbs.recordStatus]).toEqual([null, null, ""]);
+  });
+  it("ClinVar esearch by rsID (C0, Phase 6): uids and count, tool parameter only, rsID terms only", async () => {
+    let asked = "";
+    const h = new HttpClient({ fetch: async (u) => ((asked = String(u)), new Response(inputs.clinvarSearch!.body)) });
+    const { data } = await new ClinvarAdapter(h).esearchRs("rs334");
+    expect(data.count).toBe(10);
+    expect(data.uids).toContain("15333");
+    expect(asked).toBe("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research");
+    expect(asked).not.toMatch(/email/i);
+    await expect(new ClinvarAdapter(h).esearchRs("HBB[gene] OR 1=1")).rejects.toBeInstanceOf(InvalidParameterError);
   });
   it("HGNC symbol fetch (H1) sends only the CORS-safelisted Accept header", async () => {
     let sent: HeadersInit | undefined;

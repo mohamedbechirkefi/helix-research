@@ -182,6 +182,13 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
           if (!ids.variants.has(v)) ungrounded(`${path}.variantIds.${j}`, v, "variant");
         });
         break;
+      case "highlightSequenceRegion": {
+        const t = a.target;
+        if (t.kind === "variant" && !ids.variants.has(t.variantId)) ungrounded(`${path}.target.variantId`, t.variantId, "variant");
+        if (t.kind === "feature" && !ids.features.has(t.featureId)) ungrounded(`${path}.target.featureId`, t.featureId, "feature");
+        if (t.kind === "selection" && !ctx.selection && !ctx.sequenceSelection) issues.push({ code: "prerequisite", path: `${path}.target`, message: "target is the current selection, but nothing is selected" });
+        break;
+      }
       case "cancelActions":
         break;
     }

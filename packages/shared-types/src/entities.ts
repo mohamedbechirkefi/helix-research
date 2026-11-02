@@ -301,6 +301,95 @@ export const ResidueContacts = z.object({
 });
 export type ResidueContacts = z.infer<typeof ResidueContacts>;
 
+/**
+ * Full-chain residue mapping of record (Phase 6): every UniProt position that SIFTS maps onto a
+ * structure entity, with the residue on each mapped chain. Built by scientific-core from SIFTS,
+ * pdbx_poly_seq_scheme (auth ids) and atom_site (residue names); consumers look a position up,
+ * they never add an offset.
+ */
+export const ResidueMappingTable = z.object({
+  kind: z.literal("residue-mapping-table"),
+  uniprotAccession: z.string(),
+  entryId: z.string(),
+  entityId: z.string(),
+  method: z.literal("sifts"),
+  /** The SIFTS segments the table was built from, verbatim (one per chain and segment). */
+  segments: z.array(
+    z.object({ labelAsymId: z.string(), authAsymId: z.string(), unpStart: z.number().int(), unpEnd: z.number().int(), labelSeqStart: z.number().int(), labelSeqEnd: z.number().int(), identity: z.number().nullable() }),
+  ),
+  chains: z.array(z.string()).min(1),
+  coverage: z.object({ firstUniprotPosition: z.number().int().min(1), lastUniprotPosition: z.number().int().min(1), positions: z.number().int().min(1) }),
+  crossChecks: z.array(z.object({ method: z.string(), agrees: z.boolean(), detail: z.string() })),
+  positions: z.array(
+    z.object({
+      uniprotPosition: z.number().int().min(1),
+      uniprotResidue: z.string().length(1),
+      maturePosition: z.number().int().nullable(),
+      /** One residue per mapped chain that has coordinates for it. */
+      residues: z.array(ResidueRef),
+      /** Mapped chains without coordinates for this residue (unobserved in atom_site). */
+      unobservedChains: z.array(z.string()),
+      /** True when every residue name read from atom_site is the UniProt residue's PDB name. */
+      matchesReference: z.boolean(),
+    }),
+  ),
+  ...Curated,
+});
+export type ResidueMappingTable = z.infer<typeof ResidueMappingTable>;
+
+// ---------------------------------------------------------------- ClinVar (Phase 6)
+
+/**
+ * The ClinVar aggregate record of one allele (Phase 6, ROADMAP P6.1.1): classification, review
+ * status, its documented star level and conflict status, and the other ClinVar records found at
+ * the same rsID, kept separate and never merged. Trait names are never stored (Q-H-LIC-1).
+ */
+export const ClinvarRecordEntry = z.object({
+  kind: z.literal("clinvar-record"),
+  variantKey: z.string(),
+  uid: z.string(),
+  accession: z.string(),
+  accessionVersion: z.string(),
+  recordVersion: z.number().int().min(1),
+  clinvarBuild: z.string().nullable(),
+  objectType: z.string(),
+  title: z.string(),
+  canonicalSpdi: z.array(z.string()),
+  classification: z.string(),
+  reviewStatus: z.string(),
+  /** ClinVar's documented review-status star level (0 to 4); null for a status not in the table. */
+  reviewStars: z.number().int().min(0).max(4).nullable(),
+  conflicts: z.object({
+    /** True when ClinVar reports conflicting classifications for this record. */
+    conflicting: z.boolean(),
+    /** What the value rests on (the review status text and the classification text, verbatim). */
+    basis: z.string(),
+  }),
+  lastEvaluated: z.string().nullable(),
+  supportingSubmissionCount: z.number().int().min(0),
+  traitCount: z.number().int().min(0),
+  traitNote: z.string(),
+  /** Somatic classifications reported on the same record (empty strings in ClinVar mean none). */
+  otherClassifications: z.object({ clinicalImpact: z.string().nullable(), oncogenicity: z.string().nullable() }),
+  /** Other ClinVar records returned for the same rsID: other alleles, haplotypes. Never merged with this one. */
+  relatedRecords: z.array(
+    z.object({
+      uid: z.string(),
+      accessionVersion: z.string(),
+      objectType: z.string(),
+      title: z.string(),
+      classification: z.string(),
+      reviewStatus: z.string(),
+      reviewStars: z.number().int().min(0).max(4).nullable(),
+      relation: z.enum(["haplotype-or-compound", "other-allele-or-variant"]),
+      /** True when one of the record's canonical SPDIs is this allele (a haplotype that contains it). */
+      includesThisAllele: z.boolean(),
+    }),
+  ),
+  ...Curated,
+});
+export type ClinvarRecordEntry = z.infer<typeof ClinvarRecordEntry>;
+
 // ---------------------------------------------------------------- pathway (typed now, adapter later)
 
 export const Pathway = z.object({

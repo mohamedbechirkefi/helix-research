@@ -100,6 +100,8 @@ export interface PlanningContext {
   executableActions: string[];
   /** Session state: what the user has selected, and what is loaded. */
   selection: ContextSelection | null;
+  /** The DNA-side selection (Phase 6): a codon of the selected transcript. Absent in Phase 3 contexts. */
+  sequenceSelection?: { transcriptId: string; codon: number } | null;
   loadedStructureId: string | null;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
@@ -342,10 +344,11 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
 /** Returns a copy of the context with session state and retrieved text set. */
 export function withSession(
   ctx: PlanningContext,
-  s: { selection?: ContextSelection | null; loadedStructureId?: string | null; retrieved?: RetrievedSnippet[] },
+  s: { selection?: ContextSelection | null; loadedStructureId?: string | null; retrieved?: RetrievedSnippet[]; sequenceSelection?: { transcriptId: string; codon: number } | null },
 ): PlanningContext {
   return {
     ...ctx,
+    ...(s.sequenceSelection !== undefined ? { sequenceSelection: s.sequenceSelection } : {}),
     selection: s.selection === undefined ? ctx.selection : s.selection,
     loadedStructureId: s.loadedStructureId === undefined ? (s.selection ? s.selection.structureId : ctx.loadedStructureId) : s.loadedStructureId,
     retrieved: s.retrieved ?? ctx.retrieved,

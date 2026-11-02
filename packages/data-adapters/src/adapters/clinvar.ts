@@ -21,6 +21,11 @@ export const clinvarUrls = {
     return `${EUTILS_BASE}/esummary.fcgi?db=clinvar&id=${uids.join(",")}&retmode=json&tool=helix-research`;
   },
   einfo: (): string => `${EUTILS_BASE}/einfo.fcgi?db=clinvar&retmode=json&tool=helix-research`,
+  /** esearch by rsID (all ClinVar records that cite it: alleles, haplotypes). Only an rsID is accepted. */
+  esearchRs: (rsId: string): string => {
+    if (!/^rs\d{1,12}$/.test(rsId)) throw new InvalidParameterError("ClinVar esearch term must be an rsID such as rs334");
+    return `${EUTILS_BASE}/esearch.fcgi?db=clinvar&term=${rsId}&retmode=json&retmax=100&tool=helix-research`;
+  },
 };
 
 const Loc = z.object({ status: z.string(), assembly_name: z.string(), chr: z.string(), start: z.string(), stop: z.string(), assembly_acc_ver: z.string().optional() });
@@ -38,6 +43,9 @@ const DocRaw = z.object({
     last_evaluated: z.string().default(""),
     trait_set: z.array(z.unknown()).default([]),
   }),
+  clinical_impact_classification: z.object({ description: z.string().default("") }).loose().optional(),
+  oncogenicity_classification: z.object({ description: z.string().default("") }).loose().optional(),
+  record_status: z.string().default(""),
   variation_set: z
     .array(z.object({ cdna_change: z.string().default(""), canonical_spdi: z.string().default(""), variation_loc: z.array(Loc).default([]) }))
     .default([]),
@@ -61,6 +69,11 @@ export interface ClinvarRecord {
   locations: { assembly: string; status: string; chromosome: string; start: number; stop: number }[];
   /** True when the record describes more than one variant (haplotype, compound). Never merged with a single-variant record. */
   isHaplotypeOrCompound: boolean;
+  /** Somatic clinical-impact and oncogenicity classifications (null when ClinVar reports none). */
+  clinicalImpact: string | null;
+  oncogenicity: string | null;
+  /** ClinVar record_status ("" for a current record). */
+  recordStatus: string;
 }
 
 /** Parse an esummary response into one record per uid, in the order of `result.uids`. */
@@ -88,8 +101,20 @@ export function parseClinvarEsummary(json: unknown, url: string | null = null): 
         v.variation_loc.map((l) => ({ assembly: l.assembly_name, status: l.status, chromosome: l.chr, start: Number(l.start), stop: Number(l.stop) })),
       ),
       isHaplotypeOrCompound: d.variation_set.length > 1 || /haplotype|compound|diplotype/i.test(d.obj_type),
+      clinicalImpact: d.clinical_impact_classification?.description || null,
+      oncogenicity: d.oncogenicity_classification?.description || null,
+      recordStatus: d.record_status,
     };
   });
+}
+
+const EsearchRaw = z.object({ esearchresult: z.object({ count: z.string(), idlist: z.array(z.string()) }).loose() });
+
+/** Parse an esearch response: the uids, in ClinVar's order, and the total count. */
+export function parseClinvarEsearch(json: unknown, url: string | null = null): { count: number; uids: string[] } {
+  const r = parseWith(EsearchRaw, json, "ClinVar esearch", url).esearchresult;
+  if (r.idlist.some((u) => !/^\d+$/.test(u))) throw new ParseError("ClinVar esearch", ["non-numeric uid in idlist"], url);
+  return { count: Number(r.count), uids: r.idlist };
 }
 
 export const ClinvarEinfo = z.object({ einforesult: z.object({ dbinfo: z.array(z.object({ dbbuild: z.string(), lastupdate: z.string() })).min(1) }) });
@@ -103,6 +128,11 @@ export class ClinvarAdapter {
     const url = clinvarUrls.esummary(uids);
     const { response, json } = await this.http.getJson("ncbi-clinvar", url, ro);
     return { data: parseClinvarEsummary(json, url), response };
+  }
+  async esearchRs(rsId: string, ro?: RequestOptions): Promise<Fetched<{ count: number; uids: string[] }>> {
+    const url = clinvarUrls.esearchRs(rsId);
+    const { response, json } = await this.http.getJson("ncbi-clinvar", url, ro);
+    return { data: parseClinvarEsearch(json, url), response };
   }
   async build(ro?: RequestOptions): Promise<Fetched<{ dbBuild: string; lastUpdate: string }>> {
     const url = clinvarUrls.einfo();

@@ -16,6 +16,7 @@ import {
   alphafoldDisclaimer,
   assertNoProprietaryIdentifiers,
   parseAlphafoldPrediction,
+  parseClinvarEsearch,
   parseClinvarEsummary,
   parseEnsembl,
   parseFasta,
@@ -29,6 +30,7 @@ import {
 } from "@helix/data-adapters";
 import {
   CapabilityReport,
+  ClinvarRecordEntry,
   type DriftReport,
   type Evidence,
   Gene,
@@ -38,6 +40,7 @@ import {
   type Provenance,
   ResidueContacts,
   ResidueMapping,
+  ResidueMappingTable,
   type ResidueRef,
   Sequence,
   Structure,
@@ -54,11 +57,12 @@ import { interChainContacts } from "../contacts.ts";
 import { cdsLengthFromExons, codonGenomicSpan, fivePrimeUtrLength, hgvsGToSpdi, spdiToHgvsG } from "../coordinates.ts";
 import { detectDrift } from "../drift.ts";
 import { classifyClinvarReview, evidence } from "../evidence.ts";
+import { clinvarConflicts, clinvarReviewStars } from "../clinvar.ts";
 import { resolveGeneQuery } from "../gene-resolution.ts";
 import { classifyPdbxMutation, matureIndex, matureLabel, translatedLabel } from "../numbering.ts";
 import { interval, normaliseTranscript } from "../normalise.ts";
 import { AA_PDB_NAME, complement } from "../sequence.ts";
-import { alignmentCrossCheck, assemblyOf, entityForAccession, labelAuthDivergences, mapUniprotPosition, structRefSeqIssues } from "../structure-mapping.ts";
+import { alignmentCrossCheck, assemblyOf, entityForAccession, labelAuthDivergences, mapUniprotChain, mapUniprotPosition, structRefSeqIssues } from "../structure-mapping.ts";
 import { selectTranscript } from "../transcript-selection.ts";
 import { allelesAtSite, hgvsChangePart, resolveAllele } from "../variant.ts";
 import type { RawRecord, SliceConfig, SliceInputName, SliceInputs } from "./types.ts";
@@ -201,6 +205,36 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
   const cv38 = cv.locations.find((l) => l.assembly === "GRCh38");
   const cv37 = cv.locations.find((l) => l.assembly === "GRCh37");
   check("T14-clinvar-record", !cv.isHaplotypeOrCompound && cv.canonicalSpdi.includes(allele.spdi) && cv38?.start === allele.genomicPosition, `${cv.accessionVersion} ${cv.objectType}; spdi ${cv.canonicalSpdi.join(",")}; GRCh38 ${cv38?.start}; GRCh37 ${cv37?.start}; ${cv.classification} (${cv.reviewStatus})`, ["variant"]);
+  // Phase 6 (P6.1.1): review stars, conflicts, and the other records at the same rsID.
+  if (inputs.clinvarSearch) {
+    const search = parseClinvarEsearch(json(inputs.clinvarSearch), inputs.clinvarSearch.url);
+    const got = clinvarRecords.map((r) => r.uid).sort();
+    check("T33-clinvar-search-covered", search.count === search.uids.length && [...search.uids].sort().join(",") === got.join(","), `esearch ${config.variant.rsId}: ${search.count} uids; esummary returned ${got.length} (${got.join(",")})`, ["clinvar-record"]);
+  }
+  const cvStars = clinvarReviewStars(cv.reviewStatus);
+  const cvConflicts = clinvarConflicts(cv.reviewStatus, cv.classification);
+  const cvBasis = classifyClinvarReview(cv.reviewStatus);
+  check("T34-clinvar-review-status", cvStars !== null && (cvConflicts.conflicting ? cvBasis === "missing-or-conflicting" : cvBasis === "reviewed-clinical-submission"), `${cv.accessionVersion}: "${cv.reviewStatus}" -> ${cvStars} star(s); conflicting ${cvConflicts.conflicting}; evidence basis ${cvBasis}`, ["clinvar-record"]);
+  const related = clinvarRecords
+    .filter((r) => r.uid !== cv.uid)
+    .map((r) => ({
+      uid: r.uid,
+      accessionVersion: r.accessionVersion,
+      objectType: r.objectType,
+      title: r.title,
+      classification: r.classification,
+      reviewStatus: r.reviewStatus,
+      reviewStars: clinvarReviewStars(r.reviewStatus),
+      relation: (r.isHaplotypeOrCompound ? "haplotype-or-compound" : "other-allele-or-variant") as "haplotype-or-compound" | "other-allele-or-variant",
+      includesThisAllele: r.canonicalSpdi.includes(allele.spdi),
+    }))
+    .sort((a, b) => Number(a.uid) - Number(b.uid));
+  check(
+    "T35-clinvar-related-records-separate",
+    related.every((r) => r.accessionVersion !== cv.accessionVersion) && related.filter((r) => r.relation === "other-allele-or-variant").every((r) => !r.includesThisAllele),
+    `${related.length} other record(s) for ${config.variant.rsId}: ${related.filter((r) => r.relation === "haplotype-or-compound").length} haplotype/compound (${related.filter((r) => r.relation === "haplotype-or-compound" && r.includesThisAllele).length} include ${allele.spdi}), ${related.filter((r) => r.relation === "other-allele-or-variant").length} other allele/variant (${related.filter((r) => r.relation === "other-allele-or-variant").map((r) => `${r.accessionVersion} ${r.classification}`).join("; ") || "none"}); none merged`,
+    ["clinvar-record"],
+  );
   const cvBuild = inputs.clinvarEinfo ? (json(inputs.clinvarEinfo) as { einforesult?: { dbinfo?: { dbbuild?: string }[] } }).einforesult?.dbinfo?.[0]?.dbbuild ?? null : null;
 
   // ------------------------------------------------------------ structure
@@ -230,6 +264,36 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
   const refName = AA_PDB_NAME[allele.coding.refAa];
   const carries = residues.every((r) => r.compId === altName && r.authCompId === altName) ? "alternate" : residues.every((r) => r.compId === refName) ? "reference" : "mixed";
   check("T23-residue-from-atom-site", residues.length === siftsChains.length && carries !== "mixed", `${residues.map((r) => `${r.labelAsymId}/${r.authAsymId} label ${r.labelSeqId} auth ${r.authSeqId} ${r.compId}`).join("; ")}; structure carries the ${carries} residue`, ["residue-mapping", "structure"]);
+  // Phase 6: full-chain mapping of record (every SIFTS-mapped position on every mapped chain).
+  const chainMap = mapUniprotChain(struct, sifts, config.uniprotAccession, (a) => assemblyOf(struct, a));
+  const pdbName = (aa: string) => AA_PDB_NAME[aa];
+  const tableRows = chainMap.rows.map((r) => ({
+    uniprotPosition: r.uniprotPosition,
+    uniprotResidue: uni.sequence[r.uniprotPosition - 1]!,
+    maturePosition: matureIndex(r.uniprotPosition, chainRange),
+    residues: r.residues,
+    unobservedChains: r.unobservedChains,
+    matchesReference: r.residues.every((x) => x.compId === pdbName(uni.sequence[r.uniprotPosition - 1]!)),
+  }));
+  const segSpan = segments.map((sg) => sg.unpEnd - sg.unpStart + 1);
+  const expectedPerChain = new Map(siftsChains.map((c) => [c, segments.filter((sg) => sg.labelAsymId === c).reduce((n, sg) => n + sg.unpEnd - sg.unpStart + 1, 0)]));
+  const perChain = new Map(siftsChains.map((c) => [c, tableRows.filter((r) => r.residues.some((x) => x.labelAsymId === c) || r.unobservedChains.includes(c)).length]));
+  const unobservedTotal = tableRows.reduce((n, r) => n + r.unobservedChains.length, 0);
+  check("T36-full-chain-covers-sifts", siftsChains.every((c) => perChain.get(c) === expectedPerChain.get(c)) && tableRows.length === Math.max(...segSpan), `${tableRows.length} positions (${tableRows[0]?.uniprotPosition}-${tableRows.at(-1)?.uniprotPosition}); per chain ${siftsChains.map((c) => `${c} ${perChain.get(c)}/${expectedPerChain.get(c)}`).join(", ")}; ${unobservedTotal} unobserved residue(s)`, ["residue-mapping-table"]);
+  const row7 = tableRows.find((r) => r.uniprotPosition === uniPos);
+  const same = (a: ResidueRef, b: ResidueRef) => a.labelAsymId === b.labelAsymId && a.labelSeqId === b.labelSeqId && a.authAsymId === b.authAsymId && a.authSeqId === b.authSeqId && a.compId === b.compId;
+  check("T37-full-chain-agrees-with-variant-mapping", row7 !== undefined && row7.residues.length === residues.length && row7.residues.every((x, i) => same(x, residues[i]!)), `position ${uniPos}: table ${row7?.residues.map((x) => `${x.authAsymId}${x.authSeqId} ${x.compId}`).join(", ")}; variant mapping record ${residues.map((x) => `${x.authAsymId}${x.authSeqId} ${x.compId}`).join(", ")}`, ["residue-mapping-table", "residue-mapping"]);
+  const nameMismatch = tableRows.filter((r) => !r.matchesReference);
+  check(
+    "T38-full-chain-residue-names",
+    nameMismatch.length === (carries === "alternate" ? 1 : 0) && nameMismatch.every((r) => r.uniprotPosition === uniPos && r.residues.every((x) => x.compId === altName)),
+    `atom_site residue = UniProt residue at ${tableRows.length - nameMismatch.length} of ${tableRows.length} positions; differs at ${nameMismatch.map((r) => `${r.uniprotPosition} (UniProt ${r.uniprotResidue}, structure ${[...new Set(r.residues.map((x) => x.compId))].join("/")})`).join(", ") || "none"}`,
+    ["residue-mapping-table"],
+  );
+  const entSeq = ent.sequenceCanonical;
+  const seqMismatch = tableRows.filter((r) => r.residues.some((x) => x.labelSeqId === null || entSeq[x.labelSeqId - 1] !== r.uniprotResidue)).map((r) => r.uniprotPosition);
+  const alnMismatch = xc.alignment.mismatches.map((m) => m.referencePos);
+  check("T39-full-chain-alignment-agrees", xc.agrees && seqMismatch.join(",") === alnMismatch.join(","), `entity sequence at the mapped label_seq_id differs from UniProt at ${seqMismatch.join(", ") || "none"}; the independent alignment reports ${alnMismatch.join(", ") || "none"}`, ["residue-mapping-table"]);
   const naive = struct.polySeqScheme.find((r) => r.labelAsymId === residues[0]!.labelAsymId && r.labelSeqId === uniPos);
   check("T24-wrong-numbering-detectable", naive !== undefined && naive.monId !== residues[0]!.compId && uni.sequence[mature! - 1] !== allele.coding.refAa, `label ${uniPos} in ${residues[0]!.labelAsymId} is ${naive?.monId} (not ${residues[0]!.compId}); UniProt position ${mature} is ${uni.sequence[mature! - 1]} (not ${allele.coding.refAa})`, ["residue-mapping"]);
   const mutNumbering = ent.mutation ? classifyPdbxMutation(ent.mutation, uni.sequence, chainRange) : "unknown";
@@ -332,7 +396,8 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     C1: prov("clinvar", cv.accession, cv.accessionVersion.split(".")[1] ?? null, cvBuild ? `ClinVar ${cvBuild}` : null, "GRCh38"),
     H1: prov("hgnc", hgnc.hgncId, null, null, null),
   };
-  const sourcesUsed: Provenance[] = Object.values(P);
+  const C0 = inputs.clinvarSearch ? prov("clinvarSearch", `esearch ${config.variant.rsId}`, null, cvBuild ? `ClinVar ${cvBuild}` : null, null) : null;
+  const sourcesUsed: Provenance[] = [...Object.values(P), ...(C0 ? [C0] : [])];
   if (af && inputs.alphafoldPrediction && inputs.alphafoldModel) {
     sourcesUsed.push(prov("alphafoldPrediction", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
     sourcesUsed.push(prov("alphafoldModel", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
@@ -472,6 +537,44 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     });
     add(`variant-${config.variant.slug}.json`, "variant", varRec);
 
+    const versionNo = Number(cv.accessionVersion.split(".")[1]);
+    const haplos = related.filter((r) => r.relation === "haplotype-or-compound");
+    const others = related.filter((r) => r.relation === "other-allele-or-variant");
+    const cvEv = [
+      evidence(cvBasis, `ClinVar ${cv.accessionVersion} review status: ${cv.reviewStatus}${cvStars === null ? "" : ` (${cvStars} of 4 review stars in ClinVar's scale)`}; ${cvConflicts.conflicting ? "ClinVar reports conflicting classifications" : "ClinVar reports no conflicting classifications for this record"}.`, {
+        qualifier: `classification ${cv.classification}; ${cv.supportingSubmissionCount} supporting submissions; last evaluated ${cv.lastEvaluated ?? "not given"}`,
+        limitations: ["The review status describes how the submissions were assessed, not the strength of any clinical claim; HELIX is nonclinical."],
+      }),
+      evidence("curated-database-annotation", `ClinVar returns ${related.length} other record(s) for ${config.variant.rsId}: ${haplos.length} haplotype or compound record(s), of which ${haplos.filter((r) => r.includesThisAllele).length} include this allele together with another variant, and ${others.length} record(s) of a different allele or variant. They are listed separately and never merged with ${cv.accession}.`, {
+        limitations: ["A haplotype record classifies the combination of variants, not this allele alone."],
+      }),
+    ];
+    const cvRec = ClinvarRecordEntry.parse({
+      kind: "clinvar-record",
+      variantKey: allele.hgvsg,
+      uid: cv.uid,
+      accession: cv.accession,
+      accessionVersion: cv.accessionVersion,
+      recordVersion: versionNo,
+      clinvarBuild: cvBuild,
+      objectType: cv.objectType,
+      title: cv.title,
+      canonicalSpdi: cv.canonicalSpdi,
+      classification: cv.classification,
+      reviewStatus: cv.reviewStatus,
+      reviewStars: cvStars,
+      conflicts: cvConflicts,
+      lastEvaluated: cv.lastEvaluated,
+      supportingSubmissionCount: cv.supportingSubmissionCount,
+      traitCount: cv.traitCount,
+      traitNote: "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers.",
+      otherClassifications: { clinicalImpact: cv.clinicalImpact, oncogenicity: cv.oncogenicity },
+      relatedRecords: related,
+      evidence: cvEv,
+      provenance: rp("clinvar-record", [...(C0 ? [C0] : []), P.C1], ["esearch-by-rsid", "esummary-all-uids", "drop-trait-names", "review-stars-from-clinvar-table", "conflicts-from-review-status", "related-records-kept-separate"], cvEv),
+    });
+    add(`clinvar-${config.variant.slug}.json`, "clinvar-record", cvRec);
+
     const structEv = [
       evidence("experimental-structure-observation", `${struct.entryId}: ${struct.method}, ${struct.resolution} A resolution, deposited ${struct.depositionDate}.`),
     ];
@@ -536,6 +639,38 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       provenance: rp("residue-mapping", [P.S1, P.P1, P.P3, P.U1], ["sifts-segment-lookup", "poly-seq-scheme-auth-ids", "atom-site-residue-name", "alignment-cross-check"], mapEv),
     });
     add(`residue-mapping-${config.variant.slug}-${struct.entryId}.json`, "residue-mapping", mapRec);
+
+    const tblEv = [
+      evidence(
+        "curated-database-annotation",
+        `Full-chain mapping of record: SIFTS maps ${config.uniprotAccession} positions ${tableRows[0]!.uniprotPosition}-${tableRows.at(-1)!.uniprotPosition} onto ${struct.entryId} entity ${entityId}, chains ${chainMap.chains.join(", ")}; auth ids from pdbx_poly_seq_scheme, residue names from atom_site.`,
+        { qualifier: segments.map((sg) => `${sg.labelAsymId}: identity ${sg.identity}, coverage ${sg.coverage}`).join("; ") },
+      ),
+      evidence(
+        "experimental-structure-observation",
+        `In the deposited coordinates of ${struct.entryId}, the residue at every mapped position equals the UniProt residue except at ${nameMismatch.map((r) => `position ${r.uniprotPosition} (${[...new Set(r.residues.map((x) => x.compId))].join("/")}, the ${config.variant.commonName ?? "variant"} residue)`).join(", ") || "no position"}.`,
+      ),
+    ];
+    const tblRec = ResidueMappingTable.parse({
+      kind: "residue-mapping-table",
+      uniprotAccession: config.uniprotAccession,
+      entryId: struct.entryId,
+      entityId,
+      method: "sifts",
+      segments: segments.map((sg) => ({ labelAsymId: sg.labelAsymId, authAsymId: sg.authAsymId, unpStart: sg.unpStart, unpEnd: sg.unpEnd, labelSeqStart: sg.labelSeqStart, labelSeqEnd: sg.labelSeqEnd, identity: sg.identity })).sort((a, b) => a.labelAsymId.localeCompare(b.labelAsymId)),
+      chains: chainMap.chains,
+      coverage: { firstUniprotPosition: tableRows[0]!.uniprotPosition, lastUniprotPosition: tableRows.at(-1)!.uniprotPosition, positions: tableRows.length },
+      crossChecks: [
+        { method: "global alignment of entity sequence to UniProt", agrees: xc.agrees && seqMismatch.join(",") === alnMismatch.join(","), detail: `offset ${xc.alignment.constantOffset}; mismatching positions ${alnMismatch.join(", ") || "none"}, the same as the table's` },
+        { method: "RCSB rcsb_polymer_entity_align (SIFTS provenance)", agrees: rRegion !== undefined && rRegion.ref_beg_seq_id - rRegion.entity_beg_seq_id === xc.siftsOffset, detail: `ref_beg ${rRegion?.ref_beg_seq_id} <-> entity_beg ${rRegion?.entity_beg_seq_id}, length ${rRegion?.length}` },
+        { method: "variant mapping record (same SIFTS record, one position)", agrees: row7 !== undefined && row7.residues.every((x, i) => same(x, residues[i]!)), detail: `position ${uniPos} identical in both records` },
+        { method: "mmCIF _struct_ref_seq (not used)", agrees: knownIssues.every((k) => !k.id.startsWith("struct-ref-seq")), detail: knownIssues.filter((k) => k.id.startsWith("struct-ref-seq")).map((k) => k.detail)[0] ?? "agrees with SIFTS" },
+      ],
+      positions: tableRows,
+      evidence: tblEv,
+      provenance: rp("residue-mapping-table", [P.S1, P.P1, P.P3, P.U1], ["sifts-segment-lookup-per-position", "poly-seq-scheme-auth-ids", "atom-site-residue-name", "alignment-cross-check", "unobserved-residues-recorded"], tblEv),
+    });
+    add(`residue-mapping-${config.uniprotAccession}-${struct.entryId}.json`, "residue-mapping-table", tblRec);
 
     const withContacts = contactChains.filter((c) => c.contacts.some((x) => x.compId !== "HOH"));
     const without = contactChains.filter((c) => !c.contacts.some((x) => x.compId !== "HOH"));
@@ -613,6 +748,8 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         uniprot: `${uni.accession} entry ${uni.entryVersion} seq ${uni.sequenceVersion} (${uniRelease})`,
         variant: { hgvsg: allele.hgvsg, hgvsc: allele.hgvsc, hgvsp: allele.hgvsp, mature: mLabel },
         clinvar: `${cv.accessionVersion} ${cv.classification} (${cv.reviewStatus})`,
+        clinvarReview: { stars: cvStars, conflicting: cvConflicts.conflicting, relatedRecords: related.length },
+        fullChainMapping: { positions: tableRows.length, chains: chainMap.chains, residueNameDiffers: nameMismatch.map((r) => r.uniprotPosition) },
         structure: `${struct.entryId} rev ${struct.latestRevision.version}`,
         mapping: residues.map((r) => ({ uniprot: uniPos, mature, labelAsym: r.labelAsymId, labelSeq: r.labelSeqId, authAsym: r.authAsymId, authSeq: r.authSeqId, residue: r.compId, assembly: r.assemblyId })),
         drift: drift.map((d) => d.id),

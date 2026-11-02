@@ -19,6 +19,7 @@
     "rcsbPolymerEntity": { "source": "rcsb", "path": "research/raw/rcsb/polymer_entity_2HBS_2.json" },
     "rcsbAssembly": { "source": "rcsb", "path": "research/raw/rcsb/assembly_2HBS_1.json" },
     "sifts": { "source": "pdbe-sifts", "path": "research/raw/pdbe/sifts_mappings_uniprot_2hbs.json" },
+    "clinvarSearch": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-clinvar/esearch_rs334.json" },
     "clinvar": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-clinvar/esummary_rs334_ids.json" },
     "hgnc": { "source": "hgnc", "path": "research/raw/hgnc/fetch_symbol_HBB.json" },
     "alphafoldPrediction": { "source": "alphafold", "path": "research/raw/alphafold/prediction_P68871.json" },

@@ -39,6 +39,9 @@ import {
   hgvsGToSpdi,
   interChainContacts,
   labelAuthDivergences,
+  clinvarConflicts,
+  clinvarReviewStars,
+  mapUniprotChain,
   mapUniprotPosition,
   matureIndex,
   matureLabel,
@@ -378,3 +381,80 @@ async function sha(s: string): Promise<string> {
   const { sha256Hex } = await import("@helix/data-adapters");
   return sha256Hex(s);
 }
+
+describe("Phase 6: ClinVar review status, conflicts and related records (P6.1.1)", () => {
+  it("maps review statuses to ClinVar's documented stars and never guesses an unknown one", () => {
+    expect(clinvarReviewStars("practice guideline")).toBe(4);
+    expect(clinvarReviewStars("reviewed by expert panel")).toBe(3);
+    expect(clinvarReviewStars("criteria provided, multiple submitters, no conflicts")).toBe(2);
+    expect(clinvarReviewStars("criteria provided, conflicting classifications")).toBe(1);
+    expect(clinvarReviewStars("criteria provided, conflicting interpretations")).toBe(1);
+    expect(clinvarReviewStars("criteria provided, single submitter")).toBe(1);
+    expect(clinvarReviewStars("no assertion criteria provided")).toBe(0);
+    expect(clinvarReviewStars("a status ClinVar never published")).toBeNull();
+  });
+  it("reads conflicts from ClinVar's words, quoting the basis", () => {
+    expect(clinvarConflicts("criteria provided, multiple submitters, no conflicts", "Pathogenic")).toMatchObject({ conflicting: false });
+    expect(clinvarConflicts("criteria provided, conflicting classifications", "Conflicting classifications of pathogenicity").conflicting).toBe(true);
+    expect(clinvarConflicts("criteria provided, single submitter", "Likely benign").basis).toMatch(/does not assert agreement/);
+  });
+  it("writes clinvar-hbs.json: 2 stars, no conflicts, 9 related records kept separate, no trait names", () => {
+    const f = build.files.find((x) => x.path === "clinvar-hbs.json")!;
+    const r = JSON.parse(f.content);
+    expect([r.accessionVersion, r.classification, r.reviewStars, r.conflicts.conflicting]).toEqual(["VCV000015333.183", "Pathogenic", 2, false]);
+    expect(r.relatedRecords).toHaveLength(9);
+    expect(r.relatedRecords.filter((x: { relation: string }) => x.relation === "haplotype-or-compound")).toHaveLength(8);
+    expect(r.relatedRecords.filter((x: { includesThisAllele: boolean }) => x.includesThisAllele)).toHaveLength(8);
+    const other = r.relatedRecords.find((x: { relation: string }) => x.relation === "other-allele-or-variant");
+    expect([other.accessionVersion, other.classification, other.includesThisAllele]).toEqual(["VCV000015175.3", "Likely benign", false]);
+    expect(f.content).not.toMatch(/trait_name|Orphanet|MedGen|OMIM/);
+    expect(r.evidence[0].category).toBe(2);
+    expect(r.provenance.sources.map((x: { recordId: string }) => x.recordId)).toEqual(["esearch rs334", "VCV000015333"]);
+    for (const id of ["T33-clinvar-search-covered", "T34-clinvar-review-status", "T35-clinvar-related-records-separate"]) expect(build.validation.find((v) => v.check === id)?.result, id).toBe("pass");
+  });
+  it("a conflicting review status becomes evidence class 6 and conflicting true", async () => {
+    const body = JSON.parse(inputs.clinvar.body);
+    body.result["15333"].germline_classification.review_status = "criteria provided, conflicting classifications";
+    body.result["15333"].germline_classification.description = "Conflicting classifications of pathogenicity";
+    const text = JSON.stringify(body);
+    const { sha256Hex } = await import("@helix/data-adapters");
+    const b = await buildSlice({ ...inputs, clinvar: { ...inputs.clinvar, body: text, sha256: await sha256Hex(text) } }, HBB_CONFIG, { now: "2026-11-02T00:00:00Z" });
+    const r = JSON.parse(b.files.find((x) => x.path === "clinvar-hbs.json")!.content);
+    expect([r.reviewStars, r.conflicts.conflicting, r.evidence[0].category]).toEqual([1, true, 6]);
+  });
+});
+
+describe("Phase 6: full-chain residue mapping of record", () => {
+  it("maps P68871 2-147 onto 2HBS B, D, F, H with label = auth = position - 1, read from the records", () => {
+    const t = JSON.parse(build.files.find((x) => x.path === "residue-mapping-P68871-2HBS.json")!.content);
+    expect(t.kind).toBe("residue-mapping-table");
+    expect(t.coverage).toEqual({ firstUniprotPosition: 2, lastUniprotPosition: 147, positions: 146 });
+    expect(t.chains).toEqual(["B", "D", "F", "H"]);
+    for (const p of t.positions) {
+      expect(p.residues.map((r: { labelAsymId: string }) => r.labelAsymId)).toEqual(["B", "D", "F", "H"]);
+      for (const r of p.residues) expect([r.labelSeqId, r.authSeqId, r.authAsymId]).toEqual([p.uniprotPosition - 1, String(p.uniprotPosition - 1), r.labelAsymId]);
+      expect(p.unobservedChains).toEqual([]);
+    }
+    expect(t.positions.filter((p: { matchesReference: boolean }) => !p.matchesReference).map((p: { uniprotPosition: number }) => p.uniprotPosition)).toEqual([7]);
+    const p7 = t.positions.find((p: { uniprotPosition: number }) => p.uniprotPosition === 7);
+    expect(p7.residues.map((r: { compId: string }) => r.compId)).toEqual(["VAL", "VAL", "VAL", "VAL"]);
+    expect(t.crossChecks.filter((c: { method: string; agrees: boolean }) => !/not used/.test(c.method)).every((c: { agrees: boolean }) => c.agrees)).toBe(true);
+    for (const id of ["T36-full-chain-covers-sifts", "T37-full-chain-agrees-with-variant-mapping", "T38-full-chain-residue-names", "T39-full-chain-alignment-agrees"]) expect(build.validation.find((v) => v.check === id)?.result, id).toBe("pass");
+  });
+  it("every row equals mapUniprotPosition at the same position (same steps, one record)", () => {
+    const t = mapUniprotChain(struct, sifts, "P68871");
+    for (const p of [2, 7, 50, 147]) expect(t.rows.find((r) => r.uniprotPosition === p)!.residues).toEqual(mapUniprotPosition(struct, sifts, "P68871", p));
+  });
+  it("records an unobserved residue on its chain instead of failing the table", () => {
+    const scheme = struct.polySeqScheme.map((r) => (r.labelAsymId === "D" && r.labelSeqId === 145 ? { ...r, authSeqNum: null } : r));
+    const t = mapUniprotChain({ ...struct, polySeqScheme: scheme }, sifts, "P68871");
+    const row = t.rows.find((r) => r.uniprotPosition === 146)!;
+    expect(row.unobservedChains).toEqual(["D"]);
+    expect(row.residues.map((r) => r.labelAsymId)).toEqual(["B", "F", "H"]);
+  });
+  it("reads residue names from atom_site, so a changed name shows in its row (the input of T38)", () => {
+    const t = mapUniprotChain({ ...struct, atoms: struct.atoms.map((a) => (a.labelAsymId === "B" && a.labelSeqId === 50 ? { ...a, labelCompId: "ALA" } : a)) }, sifts, "P68871");
+    const row = t.rows.find((r) => r.uniprotPosition === 51)!;
+    expect(row.residues.find((r) => r.labelAsymId === "B")!.compId).toBe("ALA");
+  });
+});

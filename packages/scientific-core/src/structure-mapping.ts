@@ -75,6 +75,62 @@ export function mapUniprotPosition(
   return out;
 }
 
+/** One row of a full-chain mapping: a UniProt position and its residue on each mapped chain. */
+export interface ChainMappingRow {
+  uniprotPosition: number;
+  residues: ResidueRef[];
+  /** Mapped chains whose residue has no coordinates (unobserved). */
+  unobservedChains: string[];
+}
+
+/**
+ * Map every UniProt position that SIFTS covers on the entity (Phase 6 full-chain record). Each
+ * position goes through the same steps as `mapUniprotPosition` (SIFTS segment -> label_seq_id,
+ * pdbx_poly_seq_scheme -> auth ids, atom_site -> residue name). A residue without coordinates is
+ * recorded as unobserved on its chain rather than failing the whole table; any other
+ * inconsistency throws.
+ */
+export function mapUniprotChain(
+  structure: MmcifStructure,
+  sifts: SiftsSegment[],
+  accession: string,
+  assemblyIdFor: (labelAsymId: string) => string | null = () => null,
+): { entityId: string; chains: string[]; rows: ChainMappingRow[] } {
+  const { entityId, segments } = entityForAccession(sifts, accession);
+  const chains = [...new Set(segments.map((s) => s.labelAsymId))].sort();
+  const first = Math.min(...segments.map((s) => s.unpStart));
+  const last = Math.max(...segments.map((s) => s.unpEnd));
+  const rows: ChainMappingRow[] = [];
+  for (let p = first; p <= last; p++) {
+    const residues: ResidueRef[] = [];
+    const unobserved: string[] = [];
+    for (const labelAsymId of chains) {
+      const seg = segments.find((s) => s.labelAsymId === labelAsymId && p >= s.unpStart && p <= s.unpEnd);
+      if (!seg) continue;
+      const labelSeqId = seg.labelSeqStart + (p - seg.unpStart);
+      const scheme = structure.polySeqScheme.find((r) => r.labelAsymId === labelAsymId && r.labelSeqId === labelSeqId);
+      if (!scheme) throw new StructureMappingError(`pdbx_poly_seq_scheme has no row for ${labelAsymId} ${labelSeqId}`);
+      if (scheme.entityId !== entityId) throw new StructureMappingError(`scheme row ${labelAsymId} ${labelSeqId} is entity ${scheme.entityId}, SIFTS says ${entityId}`);
+      if (scheme.authSeqNum === null) {
+        unobserved.push(labelAsymId);
+        continue;
+      }
+      const atoms = structure.atoms.filter((a) => a.model === 1 && a.labelAsymId === labelAsymId && a.labelSeqId === labelSeqId);
+      const ca = atoms.find((a) => a.atomName === "CA") ?? atoms[0];
+      if (!ca) {
+        unobserved.push(labelAsymId);
+        continue;
+      }
+      if (ca.authSeqId !== scheme.authSeqNum || ca.authAsymId !== scheme.authAsymId) {
+        throw new StructureMappingError(`atom_site auth ids (${ca.authAsymId} ${ca.authSeqId}) disagree with pdbx_poly_seq_scheme (${scheme.authAsymId} ${scheme.authSeqNum})`);
+      }
+      residues.push({ entryId: structure.entryId, assemblyId: assemblyIdFor(labelAsymId), entityId, labelAsymId, labelSeqId, authAsymId: scheme.authAsymId, authSeqId: scheme.authSeqNum, insCode: scheme.insCode, compId: ca.labelCompId, authCompId: ca.authCompId });
+    }
+    if (residues.length > 0 || unobserved.length > 0) rows.push({ uniprotPosition: p, residues, unobservedChains: unobserved });
+  }
+  return { entityId, chains, rows };
+}
+
 /** The assembly that contains a label asym (first by id). */
 export function assemblyOf(structure: MmcifStructure, labelAsymId: string): string | null {
   return [...structure.assemblies].sort((a, b) => a.id.localeCompare(b.id)).find((a) => a.asymIds.includes(labelAsymId))?.id ?? null;

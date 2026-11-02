@@ -72,6 +72,8 @@ export interface SliceInputs {
   rcsbPolymerEntity: RawRecord; // P3
   rcsbAssembly: RawRecord; // P4
   sifts: RawRecord; // S1
+  /** C0: esearch by rsID (Phase 6). Optional so that Phase 2 snapshots still load. */
+  clinvarSearch?: RawRecord;
   clinvar: RawRecord; // C1
   clinvarEinfo?: RawRecord;
   hgnc: RawRecord; // H1
