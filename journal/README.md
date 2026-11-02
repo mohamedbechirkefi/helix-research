@@ -49,3 +49,4 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P6-2026-11-02-routing-dh008 | `2026-11-02-routing-dh008.md` | D-H008 (first answer routed by the question's cue words; benchmark, held-out sets, new routing items, question set) |
 | HX-P6-2026-11-02-model-e2e-dh008 | `2026-11-02-model-e2e-dh008.md` | D-H008 (model-backed and rule-based E2E suites on the final build; the bridge chip) |
 | HX-P7-2026-11-02-concept-frame-timing | `2026-11-02-concept-frame-timing.md` | P7.1.1 (frame timings of the three art-direction scenes; Phase 4, 5, 6 E2E regression) |
+| HX-P7-2026-11-02-instrument-frame-timing | `2026-11-02-instrument-frame-timing.md` | D-H009 (frame timings of the refined Instrument scene and the bridge transition; Phase 4, 5, 6 E2E regression) |
