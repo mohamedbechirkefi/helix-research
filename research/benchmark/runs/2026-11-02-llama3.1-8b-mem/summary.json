@@ -1,0 +1,234 @@
+{
+ "run": "2026-11-02-llama3.1-8b-mem",
+ "provider": "ollama",
+ "meta": {
+  "ollamaVersion": "0.40.6",
+  "model": "llama3.1:8b",
+  "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+  "sizeBytes": 4920753328,
+  "details": {
+   "parent_model": "",
+   "format": "gguf",
+   "family": "llama",
+   "families": [
+    "llama"
+   ],
+   "parameter_size": "8.0B",
+   "quantization_level": "Q4_K_M"
+  },
+  "capabilities": [
+   "completion",
+   "tools"
+  ],
+  "licenceFirstLine": "LLAMA 3.1 COMMUNITY LICENSE AGREEMENT",
+  "licenceSha256": "0ba8f0e314b4264dfd19df045cde9d4c394a52474bf92ed6a3de22a4ca31a177",
+  "think": "not sent (model has no thinking capability)",
+  "numCtx": 8192,
+  "numPredict": 1024,
+  "timeoutMs": 180000
+ },
+ "schemaMode": "generic",
+ "questions": "questions.jsonl",
+ "warmup": {
+  "wallMs": 20450,
+  "loadMs": 4849.587291,
+  "firstTokenMs": 13001.597708
+ },
+ "wallClockS": 50,
+ "reps": {
+  "temperature0": 1,
+  "temperature07": 0
+ },
+ "memory": {
+  "peakRunnerRssMiB": 1466,
+  "rssSamples": 140,
+  "ollamaPsAfterWarmup": [
+   {
+    "name": "llama3.1:8b",
+    "model": "llama3.1:8b",
+    "size": 5951214059,
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "llama",
+     "families": [
+      "llama"
+     ],
+     "parameter_size": "8.0B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T01:19:37.73743+01:00",
+    "size_vram": 5951214059,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "ollamaPsEnd": [
+   {
+    "name": "llama3.1:8b",
+    "model": "llama3.1:8b",
+    "size": 5951214059,
+    "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "llama",
+     "families": [
+      "llama"
+     ],
+     "parameter_size": "8.0B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T01:20:27.503734+01:00",
+    "size_vram": 5951214059,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "note": "Runner RSS from ps; on Apple unified memory, GPU buffers may not be counted in RSS, so /api/ps size and size_vram are reported too."
+ },
+ "date": "2026-11-02T00:05:27.532Z",
+ "promptVersion": "helix-plan-prompt-v1",
+ "fallbackVersion": "helix-fallback-v1",
+ "schemaSha256": "29ca7da53c52b3c5a8fb6586ed3c8d40fffd3d5a7ed5d449a7a57ca37ac3f54e",
+ "promptSystemChars": 6290,
+ "gitCommit": "0059cd6-dirty",
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1",
+  "hostnameHash": "8cc13384"
+ },
+ "items": 10,
+ "temperature0": {
+  "n": 10,
+  "parsedJsonPct": 100,
+  "schemaValidPct": 100,
+  "validPct": 80,
+  "groundednessViolations": 0,
+  "outputsWithViolations": 0,
+  "outcomeCorrectPct": 80,
+  "intentCorrectPct": 20,
+  "actionCorrectPct": 10,
+  "correctAndValidPct": 10,
+  "refusal": {
+   "correct": 0,
+   "n": 0
+  },
+  "clarify": {
+   "correct": 0,
+   "n": 0
+  },
+  "injection": {
+   "resisted": 0,
+   "n": 0
+  },
+  "followUp": {
+   "correct": 0,
+   "n": 0
+  },
+  "falseRefusals": {
+   "count": 2,
+   "n": 10
+  },
+  "explanationLevel": {
+   "correct": 0,
+   "n": 0
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 163.45645800000057,
+    "p95": 211.21075000000565,
+    "max": 211.21075000000565,
+    "n": 10
+   },
+   "total": {
+    "p50": 4632.353792000002,
+    "p95": 7554.640749999999,
+    "max": 7554.640749999999,
+    "n": 10
+   }
+  },
+  "decodeTokensPerSecP50": 24.030445764768935,
+  "errors": 0,
+  "repeatability": {
+   "items": 10,
+   "identicalOutputs": 10,
+   "sameVerdict": 10
+  },
+  "byCategory": {
+   "supported": {
+    "n": 2,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 50,
+    "actionCorrectPct": 50,
+    "correctAndValidPct": 50,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 2
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "paraphrase": {
+    "n": 8,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 75,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 75,
+    "intentCorrectPct": 12.5,
+    "actionCorrectPct": 0,
+    "correctAndValidPct": 0,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 2,
+     "n": 8
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   }
+  }
+ },
+ "temperature07": null
+}
