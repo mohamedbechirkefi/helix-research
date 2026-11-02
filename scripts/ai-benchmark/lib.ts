@@ -31,11 +31,13 @@ export function loadHbbContext(): PlanningContext {
  *   highlightSequenceRegion executable), no answer kind (prompt v2, no world check).
  * - app-v3 (D-H007): app-v2 plus the answer kind and the world on screen (prompt v3, one-world check).
  * - app-v4 (D-H008): app-v3 plus routing by cue words (prompt v4, cue routing, world-cue check).
+ * - app-v5 (D-H010): app-v4 with the D-H010 cue lists (molecule names and chain are protein cues;
+ *   prompt v5).
  * In the app modes, an item's own `session` sets the answer kind, the world on screen and the loaded
  * structure; without it, an item with a selection is a follow-up in Protein World, any other a first
  * answer in DNA World (the app's start world).
  */
-export type ContextMode = "phase3" | "app-v2" | "app-v3" | "app-v4";
+export type ContextMode = "phase3" | "app-v2" | "app-v3" | "app-v4" | "app-v5";
 export function benchmarkContext(base: PlanningContext, item: BenchmarkItem, mode: ContextMode): PlanningContext {
   const c = contextForItem(base, item);
   if (mode === "phase3") return c;
@@ -45,7 +47,7 @@ export function benchmarkContext(base: PlanningContext, item: BenchmarkItem, mod
     executableActions: [...c.executableActions, "compareVariants", "highlightSequenceRegion"],
   };
   if (mode === "app-v2") return app;
-  const routed = mode === "app-v4" ? { ...app, routeByCues: true } : app;
+  const routed: PlanningContext = mode === "app-v4" ? { ...app, routeByCues: true } : mode === "app-v5" ? { ...app, routeByCues: true, cueRules: "dh010" } : app;
   const s = item.session;
   if (s) return withSession(routed, { answer: s.answer, currentWorld: s.currentWorld, ...(s.loadedStructureId !== undefined ? { loadedStructureId: s.loadedStructureId } : {}) });
   return withSession(routed, item.selection ? { answer: "follow-up", currentWorld: "protein" } : { answer: "first", currentWorld: "dna" });
