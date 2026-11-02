@@ -9,7 +9,7 @@ hypothesis:    A user can stop a running request during the camera transition (S
                unverified highlight remains, the scene is unchanged when inference is cancelled, and the
                next request works. Contradicted if the camera keeps moving, a highlight remains, or the next
                request fails or waits behind the cancelled generation.
-git_commit:    helix-app 1ce822f (private repository); helix-research a13c1ec
+git_commit:    helix-app 1ce822f (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research a13c1ec
 config:        helix-app apps/web/e2e/run.mjs, scenarios cancel-camera (camera 3,000 ms, ?cameraMs=3000)
                and cancel-inference; same run as HX-P4-2026-11-02-ai-to-world-e2e
 seeds:         n/a; 6 camera runs (3 Stop, 3 pointer), 3 inference runs

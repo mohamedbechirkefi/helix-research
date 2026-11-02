@@ -12,7 +12,7 @@ hypothesis:    A world switch between DNA World (R3F) and Protein World (Mol*) c
                Contradicted by a lost or changed state, a frame over 50 ms in a fade, two pointer owners,
                an interrupted transition that ends in the target world, or a cancelled load that leaves a
                structure.
-git_commit:    helix-app 4962491 (private repository); helix-research packages and data pinned at a13c1ec
+git_commit:    helix-app 4962491 (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research packages and data pinned at a13c1ec
 config:        helix-app apps/web/e2e/phase5.mjs scenarios transitions (--runs=5, fade 700 ms, camera
                700 ms) and interrupts (?fadeMs=3000); Phase 4 suite apps/web/e2e/run.mjs as regression
                (--runs=5 --ollama-runs=3 --tag=2026-11-02-p5reg)
@@ -68,5 +68,5 @@ Supported on this machine: a warm world switch costs the fade (about 0.72 s), a 
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (scenarios `transitions`, `interrupts`), `e2e-2026-11-02-p5reg.json` (private repository)
+- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (scenarios `transitions`, `interrupts`), `e2e-2026-11-02-p5reg.json` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/docs/reviews/phase-5-shots/protein-after-round-trip.jpg`, `transition-mid-fade.jpg`, `transition-interrupted.jpg`, `phase4-regression/*.jpg`

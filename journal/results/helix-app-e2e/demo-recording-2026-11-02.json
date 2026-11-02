@@ -1,0 +1,78 @@
+{
+ "date": "2026-11-02T03:04:45.778Z",
+ "provider": "ollama:ministral-3:8b",
+ "output": "docs/reviews/phase-6-demo/helix-phase6-demo.webm",
+ "mimeType": "video/webm;codecs=vp9",
+ "bytes": 2759707,
+ "frames": 575,
+ "recordedWallMs": 73539,
+ "videoMs": 26899.376708984375,
+ "maxGapMs": 1200,
+ "marks": [
+  {
+   "label": "welcome",
+   "atMs": 0
+  },
+  {
+   "label": "gene chosen",
+   "atMs": 2285
+  },
+  {
+   "label": "journey next 2",
+   "atMs": 5983
+  },
+  {
+   "label": "journey next 3",
+   "atMs": 9523
+  },
+  {
+   "label": "journey next 4",
+   "atMs": 13139
+  },
+  {
+   "label": "question 1 (ministral-3:8b)",
+   "atMs": 15809
+  },
+  {
+   "label": "follow-up",
+   "atMs": 46499
+  },
+  {
+   "label": "evidence world",
+   "atMs": 66170
+  },
+  {
+   "label": "limitations",
+   "atMs": 71021
+  }
+ ],
+ "questions": [
+  {
+   "query": "Show me where the sickle-cell mutation affects hemoglobin.",
+   "outcome": "executed",
+   "source": "ollama:ministral-3:8b",
+   "usedFallback": false,
+   "actions": [
+    "loadStructure",
+    "enterWorld",
+    "focusCamera",
+    "highlightResidue",
+    "highlightSequenceRegion",
+    "compareVariants"
+   ],
+   "plannedMs": 24954.29999999702
+  },
+  {
+   "query": "Compare it with the reference sequence.",
+   "outcome": "executed",
+   "source": "ollama:ministral-3:8b",
+   "usedFallback": false,
+   "actions": [
+    "highlightSequenceRegion",
+    "compareVariants"
+   ],
+   "plannedMs": 15926.69999999553
+  }
+ ],
+ "pageErrors": []
+}

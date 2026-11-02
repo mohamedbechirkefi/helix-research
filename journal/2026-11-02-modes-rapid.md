@@ -10,7 +10,7 @@ hypothesis:    (D) A user can follow the guided journey, leave it, orbit, select
                middle of a world transition or of model inference never lets the obsolete action reach
                the scene: the final state follows the last input, the shown world is the store's world,
                and Mol*'s emphasis equals the store's. Contradicted by any of these failing.
-git_commit:    helix-app 4962491 (private repository); helix-research packages and data pinned at a13c1ec
+git_commit:    helix-app 4962491 (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research packages and data pinned at a13c1ec
 config:        helix-app apps/web/e2e/phase5.mjs scenarios modes and rapid (--tag=2026-11-02)
 seeds:         n/a (temperature 0); one run per case, each in a fresh browser context
 data_version:  data/curated/hbb at a13c1ec
@@ -65,5 +65,5 @@ Supported within this perimeter: blueprint D works end to end with both planners
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (private repository), scenarios `modes`, `rapid`
+- `helix-app/apps/web/e2e/results/phase5-e2e-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`), scenarios `modes`, `rapid`
 - `helix-app/docs/reviews/phase-5-shots/free-mode-question-fallback.jpg`, `free-mode-question-ollama.jpg`, `resumed-chapter3-fallback.jpg`, `resumed-chapter3-ollama.jpg`, `rapid-burst-final.jpg`

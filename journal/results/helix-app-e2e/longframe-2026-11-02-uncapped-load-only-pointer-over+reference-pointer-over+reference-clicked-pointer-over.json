@@ -1,0 +1,164 @@
+{
+ "date": "2026-11-02T00:47:59.762Z",
+ "chrome": "Chrome/156.0.8078.74",
+ "uncapped": true,
+ "repeats": 2,
+ "conditions": [
+  {
+   "name": "load-only-pointer-over",
+   "repeat": 1,
+   "spin1": {
+    "setPropsMs": 0.1,
+    "frames": 1134,
+    "meanMs": 2.64,
+    "p95Ms": 3.8,
+    "maxMs": 7.5,
+    "over50": [],
+    "loaf": [],
+    "draws": 1135
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 1147,
+    "meanMs": 2.61,
+    "p95Ms": 3.7,
+    "maxMs": 4.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 1148
+   },
+   "traced": null,
+   "pageErrors": []
+  },
+  {
+   "name": "load-only-pointer-over",
+   "repeat": 2,
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 1130,
+    "meanMs": 2.65,
+    "p95Ms": 3.7,
+    "maxMs": 7.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 1131
+   },
+   "spin2": {
+    "setPropsMs": 0.2,
+    "frames": 1146,
+    "meanMs": 2.62,
+    "p95Ms": 3.8,
+    "maxMs": 4.8,
+    "over50": [],
+    "loaf": [],
+    "draws": 1147
+   },
+   "traced": null,
+   "pageErrors": []
+  },
+  {
+   "name": "reference-pointer-over",
+   "repeat": 1,
+   "spin1": {
+    "setPropsMs": 0.4,
+    "frames": 872,
+    "meanMs": 3.43,
+    "p95Ms": 4.6,
+    "maxMs": 7.1,
+    "over50": [],
+    "loaf": [],
+    "draws": 873
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 869,
+    "meanMs": 3.43,
+    "p95Ms": 4.7,
+    "maxMs": 7.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 870
+   },
+   "traced": null,
+   "pageErrors": []
+  },
+  {
+   "name": "reference-pointer-over",
+   "repeat": 2,
+   "spin1": {
+    "setPropsMs": 0.4,
+    "frames": 874,
+    "meanMs": 3.42,
+    "p95Ms": 4.6,
+    "maxMs": 7.2,
+    "over50": [],
+    "loaf": [],
+    "draws": 875
+   },
+   "spin2": {
+    "setPropsMs": 0,
+    "frames": 869,
+    "meanMs": 3.43,
+    "p95Ms": 4.6,
+    "maxMs": 7.1,
+    "over50": [],
+    "loaf": [],
+    "draws": 870
+   },
+   "traced": null,
+   "pageErrors": []
+  },
+  {
+   "name": "reference-clicked-pointer-over",
+   "repeat": 1,
+   "spin1": {
+    "setPropsMs": 0.2,
+    "frames": 1102,
+    "meanMs": 2.72,
+    "p95Ms": 4,
+    "maxMs": 7.3,
+    "over50": [],
+    "loaf": [],
+    "draws": 1103
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 1103,
+    "meanMs": 2.72,
+    "p95Ms": 4,
+    "maxMs": 5.5,
+    "over50": [],
+    "loaf": [],
+    "draws": 1104
+   },
+   "traced": null,
+   "pageErrors": []
+  },
+  {
+   "name": "reference-clicked-pointer-over",
+   "repeat": 2,
+   "spin1": {
+    "setPropsMs": 0.3,
+    "frames": 1089,
+    "meanMs": 2.74,
+    "p95Ms": 4,
+    "maxMs": 7,
+    "over50": [],
+    "loaf": [],
+    "draws": 1090
+   },
+   "spin2": {
+    "setPropsMs": 0.1,
+    "frames": 1095,
+    "meanMs": 2.74,
+    "p95Ms": 4.1,
+    "maxMs": 4.7,
+    "over50": [],
+    "loaf": [],
+    "draws": 1096
+   },
+   "traced": null,
+   "pageErrors": []
+  }
+ ]
+}

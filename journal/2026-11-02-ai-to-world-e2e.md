@@ -9,7 +9,7 @@ hypothesis:    In the running app, the typed question "Show me where the sickle-
                own state reads back as the mapped residues, an evidence card and a sourced explanation,
                with the deterministic planner and with ministral-3:8b. Contradicted by any wrong read-back,
                an unsourced claim, a fallback to the deterministic plan on the model path, or a page error.
-git_commit:    helix-app 1ce822f (private repository); helix-research packages and data pinned at a13c1ec
+git_commit:    helix-app 1ce822f (private repository; public copy in `journal/results/helix-app-e2e/`); helix-research packages and data pinned at a13c1ec
 config:        helix-app apps/web/e2e/run.mjs (default scenarios, --tag=2026-11-02); camera transition 700 ms
 seeds:         n/a (temperature 0); 5 runs per planner, each in a fresh browser context
 data_version:  data/curated/hbb at a13c1ec, every file sha256-checked against manifest.json in the page
@@ -86,6 +86,6 @@ Supported on this machine: the §7.5 chain holds on the running app with both pl
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/results/e2e-2026-11-02.json` (private repository)
+- `helix-app/apps/web/e2e/results/e2e-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/docs/reviews/phase-4-shots/fallback-reference.jpg`, `ollama-reference.jpg`, `follow-up-contacts.jpg`, `unsupported.jpg`, `stale-rejected.jpg`, `after-cancel-recovered.jpg`
 - earlier development run: `helix-app/apps/web/e2e/results/e2e-dev-fallback+follow-up+unsupported+cancel-camera.json`

@@ -69,5 +69,5 @@ The P1 guess is **contradicted**: the long frame is not a one-off rebuild of the
 
 ## Artifacts
 
-- `helix-app/apps/web/e2e/longframe.mjs`, `longframe-bridge.mjs`, `analyze-trace.mjs` (private repository)
+- `helix-app/apps/web/e2e/longframe.mjs`, `longframe-bridge.mjs`, `analyze-trace.mjs` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/apps/web/e2e/results/longframe-*.json`, `longframe-bridge-trace-summary.json`
