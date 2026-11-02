@@ -1,0 +1,1 @@
+ (rule 13: use the cue table, then actions of one world only)

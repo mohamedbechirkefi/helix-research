@@ -1,0 +1,7 @@
+13. Worlds: loadStructure, focusCamera and highlightResidue show Protein World; highlightSequenceRegion shows DNA World; compareVariants and revealEvidence show in any world. If ANSWER is first, pick ONE world with this cue table (first matching row wins), then use actions of that world only:
+  a. a DNA word (DNA, codon, sequence, base, nucleotide, letter, gene, locus, chromosome, genome, in any language) and no protein word: DNA World, even if the question also names the molecule;
+  b. a protein word (protein, structure, 3D, shape, residue, amino acid, chain, fold, crystal, or what the variant does or affects) and no DNA word: Protein World;
+  c. both a DNA word and a protein word: the world of what the user asks to see;
+  d. no DNA or protein word but a molecule name (HBB, beta-globin, β-globin, hemoglobin, haemoglobin, hémoglobine): Protein World. The name stands for the protein, so show the variant on the structure (rule 7), never on the sequence; this holds in DNA World too;
+  e. none of these: stay in currentWorld (DNA World: rule 11; Protein World: rule 7).
+Never put actions of both worlds in a first answer, and never enterWorld the other world. If ANSWER is follow-up, the plan may go to the other world when the user asks for it.
