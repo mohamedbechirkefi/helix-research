@@ -6,11 +6,11 @@
 | | |
 |---|---|
 | Auteur | Mohamed Bechir Kefi |
-| Version | Version de travail 0.3, 2026-11-02 |
-| Statut | Chapitres 1 à 8, 9.1, 10 et 11 rédigés (phases 0 à 4). Les sections 9.2 à 9.9 sont des sections d'attente comportant uniquement leur titre. |
+| Version | Version de travail 0.6, 2026-11-02 |
+| Statut | Chapitres 1 à 8, 9.1 à 9.3, 10 et 11 rédigés (phases 0 à 6). Les sections 9.4 à 9.9 sont des sections d'attente comportant uniquement leur titre. |
 | Fichiers associés | Registre des affirmations `paper/claims.md` ; journal des expériences `journal/` |
 | Copie française | `paper/report.fr.md`, produite pour la première fois après la phase 4 (voir `paper/README.md`) |
-| Statut de cette copie | Copie française de la version anglaise de travail 0.3 du 2026-11-02 ; en cas de divergence, la version anglaise fait foi jusqu'à la relecture de l'auteur. |
+| Statut de cette copie | Deuxième copie française, établie à partir de la version anglaise de travail 0.6 du 2026-11-02 ; en cas de divergence, la version anglaise fait foi jusqu'à la relecture de l'auteur. |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (voir `LICENSE`) |
 
 **Avertissement non clinique.** Helix est un projet de recherche et d'enseignement. Rien dans ce rapport ne constitue un diagnostic, une interprétation de variant pour une personne ou un avis médical. Les classifications ClinVar sont rapportées en tant qu'enregistrements, et non en tant que recommandations.
@@ -238,7 +238,7 @@ Tableau 4.2. HbS à travers les couches (`journal/2026-11-01-hbs-mapping.md`).
 | Annotation UniProt | VAR_002863 en position 7, E vers V, dbSNP rs334 | UniProt |
 | Numérotation mature | Met1 retirée, chaîne 2-147, donc p.7 = mature 6 (« E6V ») | Caractéristiques UniProt ; `pdbx_mutation` de 2HBS |
 | Structure | 2HBS entité 2, chaînes bêta B, D, F, H : label_seq_id 6 = auth_seq_id 6 = VAL [C07] | SIFTS, alignement RCSB, référence croisée PDB d'UniProt, `atom_site` |
-| Enregistrement clinique | VCV000015333.183, Pathogenic (critères fournis, plusieurs soumetteurs, aucun conflit) [C09] | ClinVar |
+| Enregistrement clinique | VCV000015333.183, Pathogenic (critères fournis, plusieurs soumetteurs, aucun conflit) [C09] ; version .184 lors de la reconstruction de la phase 6 (section 9.3) | ClinVar |
 
 Trois points méritent d'être soulignés.
 
@@ -697,11 +697,90 @@ Ces quatre comportements sont gérés dans le code et documentés dans le dépô
 
 ### 9.2 Moteur de parcours et intégration des deux mondes (phase 5)
 
-Le moteur de parcours, le monde de l'ADN et le monde des protéines, et les transitions entre eux. À rapporter : le modèle d'état du parcours, la possibilité d'interruption et les coûts de transition mesurés.
+**Question.** Peut-on relier deux représentations réelles de HBB, la séquence du transcrit et la structure expérimentale, de sorte que l'utilisateur puisse circuler de l'une à l'autre dans les deux sens, que les sélections restent scientifiquement cohérentes et que chaque action puisse être annulée sans risque ?
+
+**Conception.**
+- **Les mondes comme déclarations.** Chaque monde est une déclaration typée de ce dont il a besoin et de ce qu'il offre : données, interactions, actions, coûts mesurés, replis, alternative accessible, et caractère illustratif ou non de sa géométrie. Les déclarations sont vérifiées à la compilation et à l'exécution.
+- **Chapitres.** Un planificateur déterministe propose des chapitres. Un module d'appariement ne propose un chapitre que si son monde existe dans la version et si chaque type de données dont il a besoin figure dans l'inventaire curé du sujet.
+- **DNA World** (le monde de l'ADN) est une hélice illustrative dessinée avec React Three Fiber. Sa base i est la base i de l'ADNc curé, et elle porte la mention « Illustrative geometry, real sequence » (géométrie illustrative, séquence réelle).
+- **Protein World** (le monde des protéines) est Mol* appliqué à 2HBS.
+- **Le pont de sélection** relie le codon, la position dans la protéine et le résidu de la structure uniquement au moyen des enregistrements de la phase 2, sans aucune arithmétique de décalage.
+- **Un seul chemin pour chaque changement.** Tous les changements de scène, y compris les changements de monde et les chapitres, passent par le Scene Action Interpreter de la section 9.1.
+- **Un seul propriétaire du pointeur à la fois,** et le canevas R3F n'effectue un rendu que lorsque quelque chose change.
+
+**Résultats** (`HX-P5-2026-11-02-dna-world-bridge`, `HX-P5-2026-11-02-transitions`, `HX-P5-2026-11-02-modes-rapid`).
+- **L'ADN dessiné est la séquence réelle.** La page en fonctionnement a dessiné les 628 bases conformément à la séquence curée, et des clics réels ont sélectionné la base cliquée [C50].
+- **Le pont fonctionne dans les deux sens.**
+  - Le codon 7 a été relié à la position 7 de P68871 et à VAL 6 sur les chaînes B, D, F et H de 2HBS, d'après la relecture de Mol*.
+  - Des clics sur ces résidus ont ramené au codon 7.
+  - Le codon 1, le codon stop et les résidus sans correspondance ont indiqué pourquoi ils n'ont pas d'équivalent [C51].
+- **Changement de monde.** Un changement à chaud a pris une médiane de 719 ms, un changement à froid 1,754 ms. Chaque aller-retour a conservé la sélection, les deux caméras, la structure et la mise en évidence [C52].
+- **Interruption d'un changement de monde.** Elle a ramené au monde de départ en une médiane de 29 ms [C53].
+- **Les chapitres exigent leurs données.** Sur l'ensemble des 4,096 sous-ensembles de types de données, le module d'appariement n'a jamais proposé un chapitre sans les données dont il a besoin [C54].
+- **Mode guidé, exploration libre et reprise.** Le mode guidé, l'exploration libre et la reprise du récit ont réussi avec les deux planificateurs [C55].
+- **Interaction rapide.** Dans six cas, la sélection ou le gène a été modifié pendant une transition ou pendant l'inférence. À chaque fois, l'action devenue obsolète a été annulée ou rejetée avant d'atteindre la scène [C55].
+- **Un défaut trouvé et corrigé.** La mise au point de cette vérification a révélé un défaut de cohérence : un plan du modèle produit avant que l'utilisateur ne sélectionne un codon s'exécutait quand même et écrasait la sélection. La sélection dans l'ADN compte désormais comme un changement de sujet, ce qui rend périmés les plans antérieurs.
+
+**L'image longue des sections 5.4 et 9.1** (`HX-P5-2026-11-02-long-frame-reprobe`) [C56].
+- Avec un rendu R3F effectué uniquement à la demande, le blocage au début d'une rotation de Mol* n'est apparu dans aucune condition.
+- Un canevas R3F visible, effectuant un rendu en continu sans limitation de la fréquence d'images, a produit des blocages d'environ 2 s.
+- L'application effectue donc le rendu R3F à la demande ; le rendu permanent est écarté.
+- Le blocage est désormais évité par conception, mais son déclencheur interne à Mol* n'est toujours pas isolé et n'a pas été tracé au cours de cette phase.
+
+**Limites.**
+- Une seule machine, Chrome sans interface, peu de répétitions.
+- Seul le codon 7 atteignait un résidu de la structure lors de la phase 5, car le jeu de données ne contenait alors un enregistrement de correspondance que pour cette position. La phase 6 a étendu le lien aux 146 codons mis en correspondance (section 9.3).
+- La planification des chapitres est uniquement déterministe.
+- Démarrer dans DNA World ajoute environ 0.73 s à la question de référence, pour le fondu entre les mondes [C57].
+- La navigation au clavier dans la bande des codons n'a pas été testée de bout en bout. Safari, Firefox et la webview de bureau n'ont pas été exécutés.
+
+**Tests.** Après la phase 5, le dépôt produit compte 93 tests qui réussissent, et ce dépôt 160 (157 réussissent, 3 tests en ligne facultatifs ignorés) ; la vérification des types est sans erreur dans les deux [C58].
 
 ### 9.3 Tranche verticale HBB complète (phase 6)
 
-Le parcours HBB complet. À rapporter : l'exactitude scientifique de chaque énoncé affiché par rapport au jeu de données, et les résultats de la revue de l'auteur. **Jalon :** deuxième copie française.
+**Question.** La tranche HBB peut-elle être utilisée de bout en bout dans son ensemble, avec trois propriétés :
+- chaque énoncé affiché remonte à un enregistrement ;
+- une question de suivi modifie de nouveau la scène ;
+- l'expérience se dégrade honnêtement lorsque des données ou l'IA font défaut ?
+
+**Conception.**
+- **Données.** Deux enregistrements ont été ajoutés au jeu de données curé : l'enregistrement ClinVar de l'allèle HbS avec son statut de revue, et la correspondance SIFTS résidu par résidu de la chaîne complète de P68871 sur 2HBS. Le jeu de données a ensuite été reconstruit en ligne.
+- **Actions.** Deux actions validées ont été ajoutées : la comparaison des séquences de référence et variante, et la mise en évidence d'une région de la séquence.
+- **Parcours.** Quatre parcours ont été construits : première visite, données manquantes (des données de test clairement étiquetées comme telles), absence d'IA, et limites connues affichées dans l'interface.
+
+**Résultats** (`HX-P6-2026-11-02-hbb-rebuild`, `HX-P6-2026-11-02-clinvar-live-smoke`, `HX-P6-2026-11-02-vertical-slice-e2e`).
+- **ClinVar.** VCV000015333.184 classe l'allèle HbS comme Pathogenic : « criteria provided, multiple submitters, no conflicts » (critères fournis, plusieurs soumetteurs, aucun conflit), 2 étoiles sur 4, aucun conflit. L'enregistrement en était à la version .183 lors de la phase 2. Les neuf autres enregistrements ClinVar associés à rs334 sont stockés séparément et ne sont jamais fusionnés [C59].
+- **Reconstruction.**
+  - La construction étendue a réussi les 53 vérifications à partir d'un commit propre [C60].
+  - Une seconde construction ne différait que par des champs expliqués.
+  - Le manifeste désigne désormais un commit présent sur la branche publique, ce qui comble la lacune de provenance signalée à la section 10.
+- **Le lien entre l'ADN et la structure couvre toute la chaîne.** L'enregistrement de chaîne complète fait correspondre les positions 2 à 147 aux quatre chaînes bêta. Dans l'application, les 146 codons mis en correspondance ont été reliés exactement aux résidus enregistrés, par consultation et jamais par décalage. Le codon 1 et le codon stop indiquent pourquoi ils n'ont pas d'équivalent [C61].
+- **La vue de comparaison** n'est affichée que si elle reproduit l'enregistrement (c.20A>T, GAG en GTG, Glu en Val) ; un enregistrement corrompu est refusé [C62].
+- **Questions de suivi.** Une question de suivi a produit une seconde action visuelle, vérifiée par relecture, dans 3 exécutions sur 3 avec chaque planificateur. Avec le planificateur à base de règles, la question de suivi a pris une médiane de 775 ms ; avec ministral-3:8b, 17,116 ms, et le modèle a rédigé lui-même le plan à chaque fois [C63].
+- **Première visite.** Un gène non curé (CFTR) a été refusé sans scène, et « beta-globin » a atteint la première scène en 1,731 ms [C64].
+- **Données manquantes.** Les enregistrements de structure ayant été retirés, le variant a été montré sur la séquence avec la raison de cette absence, et aucune structure ni aucun modèle prédit n'a été demandé [C65].
+- **Sans IA.** En l'absence de tout modèle joignable, chaque parcours qui n'en a pas besoin a fonctionné, et l'interface a indiqué pourquoi aucun modèle ne s'exécute [C66].
+- **Régression.** Les suites des phases 4 et 5 réussissent toujours. Le temps de planification du modèle est passé à une médiane de 21.5 s, contre 15.5 s auparavant, ce qui n'a pas été étudié [C67].
+
+**Limites.**
+- Un seul gène. Les données de test du cas de données manquantes sont HBB dont des enregistrements ont été retirés, et non un gène réel dont la structure est limitée.
+- Les scénarios (blueprints) A, E et F ont été exécutés une fois chacun, sur une seule machine, dans Chrome sans interface.
+- Avec le prompt étendu, les premiers plans du modèle sont plus longs que nécessaire et visitent les deux mondes.
+- La vidéo de démonstration raccourcit les pauses de plus de 1.2 s, si bien que le temps de planification n'y apparaît pas avec sa durée réelle.
+
+**Tests.** Après la phase 6, le dépôt produit compte 110 tests qui réussissent, et ce dépôt 181 : 177 réussissent et 4 tests en ligne facultatifs sont ignorés par défaut ; ces 4 tests en ligne réussissent lorsqu'on les exécute [C68].
+
+### 9.3.1 Après la revue de la phase 6 (décisions D-H007 et D-H008)
+
+L'auteur a validé le passage de la phase 6 le 2026-11-02 et a demandé un ensemble de modifications. Chaque modification a été caractérisée par des tests avant d'être effectuée, et chaque mesure est consignée dans le journal.
+
+**Modifications du produit.** L'écran d'accueil s'affiche désormais à chaque visite, et l'application s'ouvre dans DNA World en vertu d'une règle explicite : le monde de départ est choisi d'après les données disponibles, DNA World ayant la préférence. Le temps entre la question et la mise en évidence avec le planificateur à base de règles a été de 1,775.9 ms (médiane, n = 5), dans la plage observée lors de la phase 6 (C69). Les suggestions de suivi du modèle passent désormais par un filtre déterministe (`helix-followup-filter-v1`) : une suggestion n'est conservée que si elle est non clinique, reste dans le contexte curé et peut recevoir une réponse par une scène autorisée du planificateur à base de règles. Sur 816 suggestions consignées lors d'exécutions antérieures, le filtre en a conservé 64, dont aucune n'est clinique (C70).
+
+**Pourquoi la planification du modèle a ralenti.** Le chiffre de « 10 s » de la phase 3 était une médiane sur l'ensemble des 53 éléments du banc d'essai ; la question de référence elle-même prenait 17.5 s lors de la phase 3 et n'avait pas ralenti avant la phase 6. De la phase 5 à la phase 6, ce temps a augmenté d'environ 6 s, et 97.6% de cette hausse s'explique par la longueur de la sortie : la première réponse s'était mise à visiter les deux mondes, ce qui ajoutait environ 128 jetons générés, à environ 46 ms chacun. La croissance du prompt, le décodage contraint, les limites de contexte et la charge de la machine n'en expliquaient aucune part (C71). La même étude a établi que les « exact messages » (messages exacts) conservés dans deux entrées antérieures de bout en bout (E2E) avaient été capturés après la réponse ; la capture a été corrigée et les entrées annotées.
+
+**Un seul monde par première réponse.** À la demande de l'auteur, une première réponse reste désormais dans un seul monde. La règle est énoncée dans le prompt et appliquée par une vérification qui rejette toute première réponse changeant de monde, avec le repli habituel ; les plans ne sont jamais réordonnés. Sur la question de référence, la planification est passée de 21.7 s à 18.8 s, et les 15 premières réponses du jeu de questions de bout en bout (E2E) sont toutes restées dans un seul monde ; la validation sur le banc d'essai est restée à 90.6%, tandis que les réponses correctes et valides sont passées de 79.2% à 75.5% (C72).
+
+**Routage selon les mots de la question.** Une première réponse va vers le monde que la question nomme (DNA, codon, sequence ou letter pour l'ADN ; protein, structure, 3D, shape ou effect pour la protéine) ; une question neutre reste dans le monde courant, et après une réponse sur le variant dans DNA World, la première suggestion est le pont vers la protéine. Dix-sept nouveaux éléments réservés et leurs réponses attendues ont été enregistrés dans le dépôt avant qu'aucun modèle ne les voie. Le modèle a choisi le bon monde pour 14 des 15 éléments qui en désignent un, l'application a exécuté le bon monde pour les 15, et 16 des 17 éléments ont été corrects et valides (C73). Deux éléments existants dont la règle modifie les réponses attendues conservent leurs deux oracles, et les scores sont rapportés par rapport à chacun d'eux. L'élément réservé RH15 a révélé une lacune dans le motif clinique du planificateur à base de règles (« I will get sick », je vais tomber malade, n'était pas refusé) ; le motif a été élargi, aucun autre élément n'a changé, et RH15 ne compte plus comme inédit pour le planificateur à base de règles (C74). Avec le routage, le filtre a conservé 10 des 54 suggestions du modèle, dont aucune n'est clinique (C75).
 
 ### 9.4 Direction artistique, identité visuelle et système d'expérience utilisateur (phase 7)
 
@@ -749,7 +828,7 @@ La démonstration publique, si l'auteur décide de la publier. À rapporter : ce
 - Les chiffres de performance proviennent d'exécutions uniques sur un seul ordinateur portable rapide (Apple M1 Pro), dans Chrome sans interface et dans WKWebView.
 - Ce sont des intervalles entre images sur le fil principal, et non des minuteries GPU.
 - Avec la vsync activée, ils montrent seulement qu'aucune image n'a été manquée.
-- Aucun matériel d'entrée de gamme n'a été testé. L'anomalie d'image longue est caractérisée, mais son déclencheur reste inexpliqué [C19, C48].
+- Aucun matériel d'entrée de gamme n'a été testé. L'anomalie d'image longue est caractérisée, mais son déclencheur reste inexpliqué [C19, C48, C56].
 - CORS a été mesuré hors d'un navigateur, une fois par source, et non sur des réponses d'erreur [C12].
 
 **IA.** L'expérience de bureau de la phase 1 a effectué un seul appel à un seul modèle, et son prompt n'a pas été conservé mot pour mot [C23]. La phase 3 a mesuré la fréquence de telles erreurs sur un petit banc d'essai portant sur un seul gène ; ses propres limites figurent à la section 8.8.
@@ -762,7 +841,7 @@ La démonstration publique, si l'auteur décide de la publier. À rapporter : ce
 **Processus.**
 - Les entrées de journal des phases 0 à 2 sont rétrospectives, rédigées le même jour à partir des preuves consignées ; elles n'ont pas été rédigées pendant les exécutions.
 - Plusieurs champs sont consignés comme « not recorded » (non consigné) : les durées, l'empreinte exacte du modèle Ollama, le prompt exact.
-- Le manifeste du jeu de données désigne son commit générateur par une empreinte antérieure à la réécriture d'historique du 2026-11-01. Le commit équivalent sur la branche publique est 3b89a9a (`journal/2026-11-01-hbb-dataset-build.md`).
+- Le manifeste du jeu de données de la phase 2 désignait son commit générateur par une empreinte antérieure à la réécriture d'historique du 2026-11-01 (équivalent sur la branche publique : 3b89a9a). La reconstruction de la phase 6 consigne 4b30c60, qui figure sur la branche publique (section 9.3).
 - Le travail a été mené avec une assistance substantielle de l'IA (chapitre 12). L'auto-vérification par l'IA ne constitue pas une revue indépendante ; une revue externe des affirmations scientifiques est prévue pour la phase 11.
 
 **Nouveauté.** La différenciation de la section 3.5 est une inférence tirée des sources lues, et non un bénéfice mesuré pour les utilisateurs. Savoir si un parcours continu entre les échelles aide la compréhension nécessite une étude auprès d'utilisateurs, qui n'est pas encore planifiée.
@@ -887,4 +966,6 @@ Toutes les URL ont été consultées le 2026-11-01. Les listes de références c
 | 2 Acquisition des données et noyau de domaine validé | 4, 7 | hbb-dataset-build | vérifiée |
 | 3 IA locale et dans le navigateur | 8 | ai-benchmark-ollama, webllm-browser | vérifiée |
 | 4 Preuve AI-to-World | 9.1 | ai-to-world-e2e, cancellation, long-frame | vérifiée |
-| 5 à 12 | 9.2 à 9.9 | à rédiger au fil des exécutions | non commencée |
+| 5 Moteur de parcours, deux mondes | 9.2 | dna-world-bridge, transitions, modes-rapid, long-frame-reprobe | vérifiée |
+| 6 Tranche verticale HBB complète | 9.3 | hbb-rebuild, clinvar-live-smoke, vertical-slice-e2e | construite ; relecture de l'auteur en attente |
+| 7 à 12 | 9.4 à 9.9 | à rédiger au fil des exécutions | non commencée |
