@@ -127,6 +127,13 @@ export interface PlanningContext {
    * Read only when routeByCues is set.
    */
   cueRules?: CueRules;
+  /**
+   * The routing instructions the model gets (author decision D-H011, 2026-11-02): "dh011" sends
+   * prompt v6 (rule 13 rewritten as a cue table, so that the model itself routes the molecule names
+   * to Protein World). Read only when routeByCues is set and cueRules is "dh010"; absent, prompt v5
+   * (kept reproducible). The cue lists, the rule-based planner and the world-cue check are unchanged.
+   */
+  routingPrompt?: "dh011";
   loadedStructureId: string | null;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
