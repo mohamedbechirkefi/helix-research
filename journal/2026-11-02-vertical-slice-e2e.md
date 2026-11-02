@@ -84,3 +84,7 @@ Supported on this machine: a follow-up question causes a second, verified visual
 
 - `helix-app/apps/web/e2e/results/phase6-e2e-2026-11-02.json`, `e2e-2026-11-02-p6reg.json`, `phase5-e2e-2026-11-02-p6reg.json`, `demo-recording-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/docs/reviews/phase-6.md`, `phase-6-shots/`, `phase-6-demo/helix-phase6-demo.webm`
+
+## Correction (2026-11-02, HX-P6-2026-11-02-planning-time)
+
+The stored "exact messages" were captured after the model answered, so their context shows the state after the plan ran (VAL H6 selected, 2HBS loaded), not the context the model saw. Replayed with the context of the real call, they reproduce the measured planning times within 0.7%. The capture now happens before the question (helix-app 871699e). Timings and outcomes in this entry are unaffected; only the description of the stored prompt was wrong.

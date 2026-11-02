@@ -89,3 +89,7 @@ Supported on this machine: the §7.5 chain holds on the running app with both pl
 - `helix-app/apps/web/e2e/results/e2e-2026-11-02.json` (private repository; public copy in `journal/results/helix-app-e2e/`)
 - `helix-app/docs/reviews/phase-4-shots/fallback-reference.jpg`, `ollama-reference.jpg`, `follow-up-contacts.jpg`, `unsupported.jpg`, `stale-rejected.jpg`, `after-cancel-recovered.jpg`
 - earlier development run: `helix-app/apps/web/e2e/results/e2e-dev-fallback+follow-up+unsupported+cancel-camera.json`
+
+## Correction (2026-11-02, HX-P6-2026-11-02-planning-time)
+
+The stored "exact messages" were captured after the model answered, so their context shows the state after the plan ran (VAL H6 selected, 2HBS loaded), not the context the model saw. Replayed with the context of the real call, they reproduce the measured planning times within 0.7%. The capture now happens before the question (helix-app 871699e). Timings and outcomes in this entry are unaffected; only the description of the stored prompt was wrong.
