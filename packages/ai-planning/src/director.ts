@@ -16,6 +16,7 @@ import type { HgncRecord } from "@helix/data-adapters";
 import { withSession, selectionFeature, type PlanningContext, type RetrievedSnippet } from "./context.ts";
 import { deterministicPlan } from "./fallback.ts";
 import { validatePlan, type PlanValidation } from "./validate.ts";
+import { screenPlanFollowUps, type FollowUpScreen } from "./followups.ts";
 import type { Plan } from "./schema.ts";
 import { ProviderError } from "./providers/types.ts";
 import type { ProviderRegistry } from "./providers/registry.ts";
@@ -44,6 +45,8 @@ export interface DirectorResult {
   validation: PlanValidation;
   geneMentions: GeneMention[];
   rejectedRaw: string | null;
+  /** The plan's follow-up suggestions as screened (D-H007); the returned plan keeps only the passed ones. */
+  followUpScreen: FollowUpScreen;
   timings: { totalMs: number; providerMs: number | null };
 }
 
@@ -109,10 +112,12 @@ export class JourneyDirector {
       : null;
     const ctx = withSession(this.baseContext, { selection: sel, loadedStructureId: sel ? sel.structureId : null, retrieved: session.retrieved ?? [] });
 
-    const done = (r: Omit<DirectorResult, "requestId" | "stale" | "geneMentions" | "timings"> & { providerMs: number | null }): DirectorResult => {
+    const done = (r: Omit<DirectorResult, "requestId" | "stale" | "geneMentions" | "timings" | "followUpScreen"> & { providerMs: number | null }): DirectorResult => {
       if (this.inflight === ctl) this.inflight = null;
-      const { providerMs, ...rest } = r;
-      return { ...rest, requestId, stale: !this.isLatest(requestId), geneMentions, timings: { totalMs: Date.now() - t0, providerMs } };
+      const { providerMs, plan, ...rest } = r;
+      // Every suggestion passes the same filter, whichever planner wrote it (D-H007).
+      const screened = screenPlanFollowUps(plan, ctx);
+      return { ...rest, plan: screened.plan, followUpScreen: screened.screen, requestId, stale: !this.isLatest(requestId), geneMentions, timings: { totalMs: Date.now() - t0, providerMs } };
     };
     const fallback = (reason: string | null, providerValidation: PlanValidation | null, rejectedRaw: string | null, providerMs: number | null) => {
       const { plan } = deterministicPlan(query, ctx);
