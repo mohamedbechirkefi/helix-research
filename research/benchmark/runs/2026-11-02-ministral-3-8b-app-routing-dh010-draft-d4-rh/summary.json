@@ -1,0 +1,260 @@
+{
+ "run": "2026-11-02-ministral-3-8b-app-routing-dh010-draft-d4-rh",
+ "provider": "ollama",
+ "meta": {
+  "ollamaVersion": "0.40.6",
+  "model": "ministral-3:8b",
+  "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+  "sizeBytes": 6022236616,
+  "details": {
+   "parent_model": "",
+   "format": "gguf",
+   "family": "mistral3",
+   "families": [
+    "mistral3"
+   ],
+   "parameter_size": "8.9B",
+   "quantization_level": "Q4_K_M"
+  },
+  "capabilities": [
+   "completion",
+   "vision",
+   "tools"
+  ],
+  "licenceFirstLine": "Apache License",
+  "licenceSha256": "43070e2d4e532684de521b885f385d0841030efa2b1a20bafb76133a5e1379c1",
+  "think": "not sent (model has no thinking capability)",
+  "numCtx": 8192,
+  "numPredict": 1024,
+  "timeoutMs": 180000
+ },
+ "schemaMode": "generic",
+ "contextMode": "app-v5 (D-H010: as app-v4 with the D-H010 cue lists, molecule names and chain are protein cues)",
+ "promptVersionUsed": "draft d4 (over helix-plan-prompt-v5)",
+ "promptSystemCharsUsed": 8616,
+ "promptDraft": {
+  "file": "prompt-drafts-dh011/d4.json",
+  "id": "d4",
+  "rulesSha256": "fc907dcb9d6c2d502bcb397c1ab21d503478d05f16d072b4cfa1924ed8d672ad",
+  "answerHint": " (rule 13: enterWorld the world the question names first, then actions of that world only)"
+ },
+ "schemaSha256Used": "a737a251eff854bac1f893de3020d71a5dddd051fb34f28bb29d09852907c6d6",
+ "validationPassPct": 88.2,
+ "fallbackPct": 11.8,
+ "rejectedForWorldSwitch": 2,
+ "oneWorld": {
+  "note": "schema-valid outputs; a plan that brings at most one world on screen (planWorlds)",
+  "all": {
+   "oneWorld": 15,
+   "n": 17
+  },
+  "firstAnswers": {
+   "oneWorld": 15,
+   "n": 17
+  }
+ },
+ "totalMsMedianT0": 18979.290708999994,
+ "questions": "routing-heldout.jsonl",
+ "warmup": {
+  "wallMs": 19559,
+  "loadMs": 0.846041,
+  "firstTokenMs": 360.99058299999996
+ },
+ "wallClockS": 314,
+ "reps": {
+  "temperature0": 1,
+  "temperature07": 0
+ },
+ "memory": {
+  "peakRunnerRssMiB": 2017,
+  "rssSamples": 664,
+  "ollamaPsAfterWarmup": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T23:25:05.472753+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "ollamaPsEnd": [
+   {
+    "name": "ministral-3:8b",
+    "model": "ministral-3:8b",
+    "size": 1776906402,
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M"
+    },
+    "expires_at": "2026-11-02T23:30:19.210801+01:00",
+    "size_vram": 1776906402,
+    "context_length": 8192,
+    "runner": "llamacpp"
+   }
+  ],
+  "note": "Runner RSS from ps; on Apple unified memory, GPU buffers may not be counted in RSS, so /api/ps size and size_vram are reported too."
+ },
+ "date": "2026-11-02T22:15:19.216Z",
+ "promptVersion": "helix-plan-prompt-v1",
+ "fallbackVersion": "helix-fallback-v1",
+ "schemaSha256": "29ca7da53c52b3c5a8fb6586ed3c8d40fffd3d5a7ed5d449a7a57ca37ac3f54e",
+ "promptSystemChars": 6290,
+ "gitCommit": "74bd5e5-dirty",
+ "host": {
+  "machine": "Apple M1 Pro, 16 GB, macOS 15.3.1",
+  "hostnameHash": "62ff34ba"
+ },
+ "items": 17,
+ "temperature0": {
+  "n": 17,
+  "parsedJsonPct": 100,
+  "schemaValidPct": 100,
+  "validPct": 88.2,
+  "groundednessViolations": 0,
+  "outputsWithViolations": 0,
+  "outcomeCorrectPct": 94.1,
+  "intentCorrectPct": 76.9,
+  "actionCorrectPct": 94.1,
+  "correctAndValidPct": 82.4,
+  "refusal": {
+   "correct": 1,
+   "n": 2
+  },
+  "clarify": {
+   "correct": 0,
+   "n": 0
+  },
+  "injection": {
+   "resisted": 0,
+   "n": 0
+  },
+  "followUp": {
+   "correct": 0,
+   "n": 0
+  },
+  "falseRefusals": {
+   "count": 0,
+   "n": 15
+  },
+  "explanationLevel": {
+   "correct": 0,
+   "n": 0
+  },
+  "latencyMs": {
+   "firstToken": {
+    "p50": 357.5169579999929,
+    "p95": 506.7505409999867,
+    "max": 506.7505409999867,
+    "n": 17
+   },
+   "total": {
+    "p50": 18979.290708999994,
+    "p95": 26699.204332999972,
+    "max": 26699.204332999972,
+    "n": 17
+   }
+  },
+  "decodeTokensPerSecP50": 21.39284193208647,
+  "errors": 0,
+  "repeatability": {
+   "items": 17,
+   "identicalOutputs": 17,
+   "sameVerdict": 17
+  },
+  "byCategory": {
+   "supported": {
+    "n": 15,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 86.7,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 100,
+    "intentCorrectPct": 76.9,
+    "actionCorrectPct": 100,
+    "correctAndValidPct": 86.7,
+    "refusal": {
+     "correct": 0,
+     "n": 0
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 15
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   },
+   "unsupported": {
+    "n": 2,
+    "parsedJsonPct": 100,
+    "schemaValidPct": 100,
+    "validPct": 100,
+    "groundednessViolations": 0,
+    "outputsWithViolations": 0,
+    "outcomeCorrectPct": 50,
+    "intentCorrectPct": null,
+    "actionCorrectPct": 50,
+    "correctAndValidPct": 50,
+    "refusal": {
+     "correct": 1,
+     "n": 2
+    },
+    "clarify": {
+     "correct": 0,
+     "n": 0
+    },
+    "injection": {
+     "resisted": 0,
+     "n": 0
+    },
+    "followUp": {
+     "correct": 0,
+     "n": 0
+    },
+    "falseRefusals": {
+     "count": 0,
+     "n": 0
+    },
+    "explanationLevel": {
+     "correct": 0,
+     "n": 0
+    }
+   }
+  }
+ },
+ "temperature07": null
+}
