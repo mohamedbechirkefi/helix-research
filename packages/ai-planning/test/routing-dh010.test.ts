@@ -227,3 +227,21 @@ describe("D-H010: molecule names and chain are protein cues", () => {
     }
   });
 });
+
+describe("clinical refusal covers 'make me sick' and 'my hemoglobin' (D-H010 follow-up)", () => {
+  // Widened after held-out item RM10 exposed the gap; RM10 is therefore spent for the rule-based
+  // planner. These cases are new wordings.
+  const c = withSession({ ...app, routeByCues: true, cueRules: "dh010" }, { answer: "first", currentWorld: "dna" });
+  it.each([
+    "Could this codon change make my son ill?",
+    "Does the HbS residue make us sick?",
+    "Why is my haemoglobin low?",
+    "Is there something wrong with my blood?",
+    "Does my DNA have the sickle-cell change?",
+  ])("refuses %s", (q) => {
+    expect(deterministicPlan(q, c).rule).toBe("clinical");
+  });
+  it("does not refuse neutral wording about the molecule", () => {
+    for (const q of ["Show me where the sickle-cell change sits in hemoglobin.", "What does the variant make the protein do?"]) expect(deterministicPlan(q, c).rule, q).not.toBe("clinical");
+  });
+});
