@@ -127,12 +127,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:30Z",
+        "retrievedAt": "2026-11-02T02:26:11Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295",
         "recordVersion": "4",
         "assembly": "GRCh38.p14",
-        "sha256": "775086731dbf73a2f3a0321cae8cea8ed0e7799d374504d0aa3f2d3263b79b4a",
+        "sha256": "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -140,12 +140,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:30Z",
+        "retrievedAt": "2026-11-02T02:26:11Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENSG00000244734",
         "recordVersion": "6",
         "assembly": "GRCh38.p14",
-        "sha256": "2462861934df05de1c8d581e9359b4d9e654b4209ec9b429357c0a36f91819b5",
+        "sha256": "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       }
@@ -160,37 +160,37 @@
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "transcript-lookup-matches-selection",
         "result": "pass",
         "detail": "ENST00000335295.4",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T05-exon-lengths-sum",
         "result": "pass",
         "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T06-cds-length",
         "result": "pass",
         "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       }
     ],
     "evidenceCategory": 2

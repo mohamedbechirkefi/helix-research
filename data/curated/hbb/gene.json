@@ -40,12 +40,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:30Z",
+        "retrievedAt": "2026-11-02T02:26:11Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENSG00000244734",
         "recordVersion": "6",
         "assembly": "GRCh38.p14",
-        "sha256": "2462861934df05de1c8d581e9359b4d9e654b4209ec9b429357c0a36f91819b5",
+        "sha256": "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -53,12 +53,12 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:30Z",
+        "retrievedAt": "2026-11-02T02:26:09Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "homo_sapiens",
         "recordVersion": "GRCh38.p14",
         "assembly": "GRCh38.p14",
-        "sha256": "5e4f219596dea847466c30a3bbe464c9234aebcec797c58c332f31a409b30a88",
+        "sha256": "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785",
         "licence": "Ensembl-no-restrictions",
         "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
       },
@@ -66,12 +66,12 @@
         "source": "hgnc",
         "url": "https://rest.genenames.org/fetch/symbol/HBB",
         "method": "GET",
-        "retrievedAt": "2026-11-01T19:27:32Z",
+        "retrievedAt": "2026-11-02T02:27:01Z",
         "sourceRelease": null,
         "recordId": "HGNC:4827",
         "recordVersion": null,
         "assembly": null,
-        "sha256": "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+        "sha256": "5c1b37931b746314dc2040a355f3b6c4c05d7c22fe58ae959ef6a782a0c6c49a",
         "licence": "CC0-1.0",
         "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
       }
@@ -87,43 +87,43 @@
         "check": "T01-gene-identity",
         "result": "pass",
         "detail": "ENSG00000244734.6 HBB",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T04-hgnc-resolution",
         "result": "pass",
         "detail": "HBB -> HGNC:4827 ENSG00000244734",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T04-alias-CD113t-C",
         "result": "pass",
         "detail": "alias CD113t-C -> ENSG00000244734",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T04-alias-beta-globin",
         "result": "pass",
         "detail": "alias beta-globin -> ENSG00000244734",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
-        "at": "2026-11-01T19:27:28Z"
+        "at": "2026-11-02T02:26:08Z"
       }
     ],
     "evidenceCategory": 2

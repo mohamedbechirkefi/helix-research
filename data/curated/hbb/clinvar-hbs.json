@@ -1,0 +1,213 @@
+{
+  "kind": "clinvar-record",
+  "variantKey": "NC_000011.10:g.5227002T>A",
+  "uid": "15333",
+  "accession": "VCV000015333",
+  "accessionVersion": "VCV000015333.184",
+  "recordVersion": 184,
+  "clinvarBuild": "Build261025-1250.1",
+  "objectType": "single nucleotide variant",
+  "title": "NM_000518.5(HBB):c.20A>T (p.Glu7Val)",
+  "canonicalSpdi": [
+    "NC_000011.10:5227001:T:A"
+  ],
+  "classification": "Pathogenic",
+  "reviewStatus": "criteria provided, multiple submitters, no conflicts",
+  "reviewStars": 2,
+  "conflicts": {
+    "conflicting": false,
+    "basis": "review status \"criteria provided, multiple submitters, no conflicts\"; classification \"Pathogenic\" (ClinVar states no conflicts)"
+  },
+  "lastEvaluated": "2026/07/01 00:00",
+  "supportingSubmissionCount": 75,
+  "traitCount": 32,
+  "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers.",
+  "otherClassifications": {
+    "clinicalImpact": null,
+    "oncogenicity": null
+  },
+  "relatedRecords": [
+    {
+      "uid": "15175",
+      "accessionVersion": "VCV000015175.3",
+      "objectType": "single nucleotide variant",
+      "title": "NM_000518.4(HBB):c.20A>C (p.Glu7Ala)",
+      "classification": "Likely benign",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "relation": "other-allele-or-variant",
+      "includesThisAllele": false
+    },
+    {
+      "uid": "446730",
+      "accessionVersion": "VCV000446730.3",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;220G>A]",
+      "classification": "other",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446731",
+      "accessionVersion": "VCV000446731.3",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[176C>G;20A>T]",
+      "classification": "other",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446735",
+      "accessionVersion": "VCV000446735.2",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;70G>A]",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446736",
+      "accessionVersion": "VCV000446736.2",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;364G>A]",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446737",
+      "accessionVersion": "VCV000446737.2",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;249G>Y]",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446738",
+      "accessionVersion": "VCV000446738.2",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;428C>T]",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446747",
+      "accessionVersion": "VCV000446747.2",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[20A>T;271G>A]",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    },
+    {
+      "uid": "446748",
+      "accessionVersion": "VCV000446748.3",
+      "objectType": "Haplotype",
+      "title": "NM_000518.4(HBB):c.[205C>T;20A>T]",
+      "classification": "other",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-02T02:27:03Z",
+        "sourceRelease": "ClinVar Build261025-1250.1",
+        "recordId": "esearch rs334",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "6068d4bd3c1beb897d7745937505d481bcc05307eaed38fc0e46911de00fddf6",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      },
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-02T02:27:04Z",
+        "sourceRelease": "ClinVar Build261025-1250.1",
+        "recordId": "VCV000015333",
+        "recordVersion": "184",
+        "assembly": "GRCh38",
+        "sha256": "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      }
+    ],
+    "transformations": [
+      "esearch-by-rsid",
+      "esummary-all-uids",
+      "drop-trait-names",
+      "review-stars-from-clinvar-table",
+      "conflicts-from-review-status",
+      "related-records-kept-separate"
+    ],
+    "validation": [
+      {
+        "check": "T33-clinvar-search-covered",
+        "result": "pass",
+        "detail": "esearch rs334: 10 uids; esummary returned 10 (15175,15333,446730,446731,446735,446736,446737,446738,446747,446748)",
+        "at": "2026-11-02T02:26:08Z"
+      },
+      {
+        "check": "T34-clinvar-review-status",
+        "result": "pass",
+        "detail": "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission",
+        "at": "2026-11-02T02:26:08Z"
+      },
+      {
+        "check": "T35-clinvar-related-records-separate",
+        "result": "pass",
+        "detail": "9 other record(s) for rs334: 8 haplotype/compound (8 include NC_000011.10:5227001:T:A), 1 other allele/variant (VCV000015175.3 Likely benign); none merged",
+        "at": "2026-11-02T02:26:08Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "reviewed-clinical-submission",
+      "statement": "ClinVar VCV000015333.184 review status: criteria provided, multiple submitters, no conflicts (2 of 4 review stars in ClinVar's scale); ClinVar reports no conflicting classifications for this record.",
+      "qualifier": "classification Pathogenic; 75 supporting submissions; last evaluated 2026/07/01 00:00",
+      "limitations": [
+        "The review status describes how the submissions were assessed, not the strength of any clinical claim; HELIX is nonclinical.",
+        "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
+      ]
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "ClinVar returns 9 other record(s) for rs334: 8 haplotype or compound record(s), of which 8 include this allele together with another variant, and 1 record(s) of a different allele or variant. They are listed separately and never merged with VCV000015333.",
+      "qualifier": null,
+      "limitations": [
+        "A haplotype record classifies the combination of variants, not this allele alone.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

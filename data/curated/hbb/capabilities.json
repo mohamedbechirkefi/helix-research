@@ -6,8 +6,10 @@
     "sequences.json",
     "protein-P68871.json",
     "variant-hbs.json",
+    "clinvar-hbs.json",
     "structure-2HBS.json",
     "residue-mapping-hbs-2HBS.json",
+    "residue-mapping-P68871-2HBS.json",
     "contacts-hbs-2HBS.json",
     "predicted-model-AF-P68871-F1.json"
   ],
