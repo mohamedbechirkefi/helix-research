@@ -231,7 +231,10 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
   if (ctx.routeByCues && ctx.answer === "first" && opts.query !== undefined) {
     const named = unambiguousCueWorld(opts.query, ctx.cueRules ?? "dh008");
     const worlds = planWorlds(plan);
-    if (named && ids.worlds.has(named) && worlds.length > 0 && !worlds.includes(named)) {
+    // Phase 9 (P9.1.2): the cue lists name DNA World and Protein World only; a plan that shows Pathway
+    // World (membership, no cue list of its own) is not "the other world" and is left to the world rule above.
+    const cueWorlds = worlds.filter((w) => w === "dna" || w === "protein");
+    if (named && ids.worlds.has(named) && cueWorlds.length > 0 && !cueWorlds.includes(named)) {
       issues.push({ code: "world-cue", path: "actions", value: `${named}<${worlds.join(">")}`, message: `the question names ${named === "dna" ? "DNA" : "Protein"} World; this first answer shows ${worlds.join(" then ")}` });
     }
   }

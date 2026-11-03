@@ -107,6 +107,7 @@ export const HBB_CONFIG: SliceConfig = {
     { text: "How does the DNA change for the sickle-cell variant?", requires: ["variantHighlight"] },
     { text: "What does the HbS residue touch in the crystal?", requires: ["variantHighlight", "experimentalStructure"] },
     { text: "Show the evidence for the sickle-cell variant.", requires: ["variantHighlight"] },
+    { text: "Which pathways list HBB?", requires: ["pathwayView"] },
   ],
   bridgeQuestion: "See the sickle-cell mutation on the protein.",
 };

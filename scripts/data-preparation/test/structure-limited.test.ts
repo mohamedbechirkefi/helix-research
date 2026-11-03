@@ -236,8 +236,8 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
       "https://reactome.org/ContentService/data/participants/R-HSA-2142753",
     ]);
   });
-  it("writes the gene, transcript, sequence, protein, predicted-model, pathways and capability records and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "sequences.json", "transcript.json"]);
+  it("writes the gene, transcript, sequence, protein, predicted-model, pathways, capability and questions records (the pathway question, P9.1.2) and nothing that needs a structure or a variant", () => {
+    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "questions.json", "sequences.json", "transcript.json"]);
   });
   it("capabilities: structure, mapping and variant unavailable with the builder's reasons; transcript and protein views available; the prediction as found", () => {
     expect(cap.symbol).toBe("FAAH2");

@@ -50,3 +50,31 @@ export function cftrContext(): PlanningContext {
 export function questionsRecord(dataset: string): { questions: { text: string; requires: string[] }[]; bridgeQuestion: string | null } {
   return JSON.parse(readFileSync(join(REPO_ROOT, "data", "curated", dataset, "questions.json"), "utf8")) as { questions: { text: string; requires: string[] }[]; bridgeQuestion: string | null };
 }
+
+/** The set's pathway-memberships record (pathways.json, Phase 9 P9.1.2). */
+export function pathwaysRecord(dataset: string): unknown {
+  return JSON.parse(readFileSync(join(REPO_ROOT, "data", "curated", dataset, "pathways.json"), "utf8")) as unknown;
+}
+
+/** The set's capability report (capabilities.json). */
+export function capabilitiesRecord(dataset: string): unknown {
+  return JSON.parse(readFileSync(join(REPO_ROOT, "data", "curated", dataset, "capabilities.json"), "utf8")) as unknown;
+}
+
+/** The HBB bundle with its capability report and pathway-memberships record (the app's bundle once the record is loaded). */
+export function hbbBundleWithPathways(): HbbBundle {
+  const dir = join(REPO_ROOT, "data", "curated", "hbb");
+  const j = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf8")) as unknown;
+  return {
+    gene: j("gene.json"),
+    transcript: j("transcript.json"),
+    protein: j("protein-P68871.json"),
+    variant: j("variant-hbs.json"),
+    structure: j("structure-2HBS.json"),
+    mapping: j("residue-mapping-hbs-2HBS.json"),
+    contacts: j("contacts-hbs-2HBS.json"),
+    predicted: j("predicted-model-AF-P68871-F1.json"),
+    capabilities: j("capabilities.json"),
+    pathways: j("pathways.json"),
+  };
+}

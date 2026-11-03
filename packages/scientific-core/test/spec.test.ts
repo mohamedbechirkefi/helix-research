@@ -53,7 +53,8 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
   it("validates the questions: text and capability keys only; an empty list is allowed, an unknown key or a stray field is not", async () => {
     const json = await hbbSpec();
     const config = loadGeneSpec(json);
-    expect(config.questions).toHaveLength(4);
+    expect(config.questions).toHaveLength(5);
+    expect(config.questions[4]).toStrictEqual({ text: "Which pathways list HBB?", requires: ["pathwayView"] });
     expect(config.questions[0]).toStrictEqual({ text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] });
     expect(config.bridgeQuestion).toBe("See the sickle-cell mutation on the protein.");
     const { bridgeQuestion, ...noBridge } = json;

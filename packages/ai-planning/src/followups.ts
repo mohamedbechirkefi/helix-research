@@ -80,7 +80,11 @@ export const CAPABILITY_RULES: ReadonlySet<string> = new Set([
   "selection-evidence", // the records behind the selected residue
   "experimental-structure", // the curated experimental structure
   "protein-world", // Protein World
+  "pathway-world", // Pathway World (Phase 9, P9.1.2): the Reactome memberships of the set's protein, membership only
 ]);
+
+/** Phase 9: the pathway words of the scope blocklist are a capability when the context has Pathway World; they are read as "membership" before the scope check then. */
+const PATHWAY_WORDS = /\bpathways?\b/g;
 
 const FORMAT_BAD = /(https?:|www\.|[<>{}`\\|]|\n|\r)/i;
 /** The interface is in English; a suggestion in another language is not shown (French is the one models produced). */
@@ -132,7 +136,8 @@ function screenText(text: string, ctx: PlanningContext): { verdict: FollowUpVerd
   const clinical = q.match(CLINICAL_TERMS);
   if (clinical) return drop("clinical", clinical[0]);
   if (NOT_ENGLISH.test(q)) return drop("format", "not English");
-  const scope = q.replace(CAN_YOU, "please").replace(WHERE_AFFECTS, "where$1is in").replace(COMPARE_REFERENCE, "show$1reference sequence").match(OUT_OF_SCOPE_TERMS);
+  const pathwayWorld = ctx.worlds.some((w) => w.id === "pathway" && w.available);
+  const scope = (pathwayWorld ? q.replace(PATHWAY_WORDS, "membership") : q).replace(CAN_YOU, "please").replace(WHERE_AFFECTS, "where$1is in").replace(COMPARE_REFERENCE, "show$1reference sequence").match(OUT_OF_SCOPE_TERMS);
   if (scope) return drop("scope", scope[0]);
   const trusted = trustedContextJson(ctx).toLowerCase();
   const foreignId = extractIdTokens(t).find((x) => !trusted.includes(x.token.toLowerCase()));

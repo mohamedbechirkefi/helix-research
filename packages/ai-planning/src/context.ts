@@ -75,6 +75,21 @@ export interface ContextEvidence {
   category: number;
   statement: string;
 }
+/**
+ * One Reactome pathway that lists the set's protein (Phase 9, P9.1.2; plan section 12 rule 6): a
+ * database annotation, class 2, membership only. `isOpening` marks the membership Pathway World
+ * opens on, the rule's choice (fewest participants among non-disease pathways with a diagram),
+ * never an importance. `membership` is one sentence an explanation may quote, composed from the
+ * record by deterministic code.
+ */
+export interface ContextPathway {
+  stableId: string;
+  name: string;
+  topLevelPathway: string | null;
+  isOpening: boolean;
+  isDisease: boolean;
+  membership: string;
+}
 export interface ContextSelection {
   structureId: string;
   chainId: string;
@@ -98,6 +113,12 @@ export interface PlanningContext {
   structures: ContextStructure[];
   features: ContextFeature[];
   evidence: ContextEvidence[];
+  /**
+   * The Reactome memberships of the set's protein, by stable id (Phase 9, P9.1.2), present only when
+   * the pathways record was given to the builder (the app loads that record on first need, so a
+   * context may gain this field after it was built; Phase 3 to 8 contexts never carry it).
+   */
+  pathways?: ContextPathway[];
   worlds: { id: World; available: boolean; reason: string }[];
   /** Actions in the vocabulary that this build can execute. */
   executableActions: string[];
@@ -246,6 +267,8 @@ export interface HbbBundle {
   contacts: unknown | null;
   predicted: unknown | null;
   capabilities?: unknown | null;
+  /** Phase 9 (P9.1.2): the pathway-memberships record (pathways.json), when it has been loaded. */
+  pathways?: unknown | null;
 }
 
 const CapabilitiesIn = z
@@ -253,8 +276,80 @@ const CapabilitiesIn = z
     experimentalStructure: z.object({ available: z.boolean(), reason: z.string() }).loose(),
     predictedStructure: z.object({ available: z.boolean(), reason: z.string() }).loose().optional(),
     verifiedResidueMapping: z.object({ available: z.boolean(), reason: z.string() }).loose().optional(),
+    pathwayView: z.object({ available: z.boolean(), reason: z.string() }).loose().optional(),
   })
   .loose();
+
+/** The fields of the pathway-memberships record the context reads (the record itself is validated by shared-types at build time). */
+const PathwaysIn = z
+  .object({
+    kind: z.literal("pathway-memberships"),
+    accession: z.string(),
+    release: z.string(),
+    membershipCount: z.number(),
+    memberships: z.array(
+      z
+        .object({
+          stableId: z.string(),
+          name: z.string(),
+          isDisease: z.boolean(),
+          isOpening: z.boolean(),
+          participantCount: z.number().nullable(),
+          topLevelPathways: z.array(z.object({ stableId: z.string(), name: z.string() }).loose()),
+        })
+        .loose(),
+    ),
+    openingPathway: z.object({ stableId: z.string(), name: z.string() }).loose().nullable(),
+    evidence: z.array(Ev),
+  })
+  .loose();
+
+/** The evidence id of a set's pathway-memberships record in the context. */
+export const pathwayEvidenceId = (accession: string): string => `reactome:${accession}`;
+
+/**
+ * The context's pathway entries and the record's evidence, from the pathway-memberships record
+ * (Phase 9, P9.1.2). Used by the builder when the record is in the bundle, and by the app when the
+ * record is loaded later (it is fetched on first need, never at start). Every word comes from the
+ * record; no membership is called primary or important.
+ */
+export function pathwayContext(record: unknown): { accession: string; pathways: ContextPathway[]; evidence: ContextEvidence[] } {
+  const p = PathwaysIn.parse(record);
+  const pathways: ContextPathway[] = p.memberships.map((m) => {
+    const top = m.topLevelPathways[0]?.name ?? null;
+    const flags = [m.isDisease ? "a disease pathway" : null, m.isOpening ? "the membership Pathway World opens on, by rule (fewest participants among non-disease pathways with a diagram)" : null].filter((x): x is string => x !== null);
+    return {
+      stableId: m.stableId,
+      name: m.name,
+      topLevelPathway: top,
+      isOpening: m.isOpening,
+      isDisease: m.isDisease,
+      membership: `${m.name} (${m.stableId}${top ? `, under ${top}` : ""}) lists ${p.accession} in Reactome ${p.release}: database annotation, class 2, membership only${flags.length ? `; ${flags.join("; ")}` : ""}.`,
+    };
+  });
+  const evidence: ContextEvidence[] = [];
+  const e = p.evidence[0];
+  if (e) evidence.push({ id: pathwayEvidenceId(p.accession), category: e.category, statement: e.statement });
+  return { accession: p.accession, pathways, evidence };
+}
+
+/**
+ * Whether Pathway World is available for a set and why (plan section 12 rule 4): from the record
+ * when it is in the bundle (a null opening pathway means no membership qualifies), else from the
+ * capability report's `pathwayView` (the app has the report at start and the record only on first
+ * need), else the Phase 3 to 8 wording.
+ */
+export function pathwayWorldReason(b: Pick<HbbBundle, "capabilities" | "pathways">): { available: boolean; reason: string } {
+  const cap = b.capabilities ? CapabilitiesIn.safeParse(b.capabilities) : null;
+  const view = cap?.success ? (cap.data.pathwayView ?? null) : null;
+  if (b.pathways) {
+    const p = PathwaysIn.parse(b.pathways);
+    if (p.openingPathway) return { available: true, reason: view?.available ? view.reason : `${p.membershipCount} Reactome membership${p.membershipCount === 1 ? "" : "s"}; opens on ${p.openingPathway.name}, ${p.openingPathway.stableId} (the rule's choice)` };
+    return { available: false, reason: view && !view.available ? view.reason : p.membershipCount === 0 ? "no Reactome pathway lists this protein" : "no membership qualifies for the opening rule" };
+  }
+  if (view) return { available: view.available, reason: view.reason };
+  return { available: false, reason: "no curated pathway records in this context" };
+}
 
 const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
 
@@ -423,7 +518,12 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
     });
   }
 
+  // Phase 9 (P9.1.2): the pathway memberships, when the record is in the bundle (membership only, class 2).
+  const pathways = b.pathways ? pathwayContext(b.pathways) : null;
+  if (pathways) evidence.push(...pathways.evidence);
+
   const proteinWorld = proteinWorldReason(b);
+  const pathwayWorld = pathwayWorldReason(b);
   return {
     contextId: `curated-${gene.symbol.toLowerCase()}`,
     genes: [{ id: geneId, symbol: gene.symbol, name: gene.description.replace(/\s*\[Source:.*$/, ""), hgncId: gene.hgncId, aliases: gene.aliases }],
@@ -440,12 +540,13 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
     structures,
     features,
     evidence,
+    ...(pathways ? { pathways: pathways.pathways } : {}),
     worlds: [
       { id: "overview", available: true, reason: "always" },
       { id: "genome", available: true, reason: "gene locus on GRCh38" },
       { id: "dna", available: true, reason: "reference sequence of the selected transcript" },
       { id: "protein", available: proteinWorld.available, reason: proteinWorld.reason },
-      { id: "pathway", available: false, reason: "no curated pathway records in this context" },
+      { id: "pathway", available: pathwayWorld.available, reason: pathwayWorld.reason },
     ],
     executableActions: ["resolveGene", "resolveVariant", "loadStructure", "enterWorld", "focusCamera", "highlightResidue", "revealEvidence", "cancelActions"],
     selection: null,
