@@ -104,49 +104,49 @@
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P38398 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T21-alignment-cross-check",
         "result": "pass",
         "detail": "entity 112 aa vs UniProt 1863 aa: offset 0, identity 0.9821, mismatches entity 111 G / UniProt 111 E; entity 112 K / UniProt 112 N; SIFTS offset 0",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T22-rcsb-align-agrees",
         "result": "pass",
         "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 61 auth 61 CYS; structure carries the reference residue",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 61: table A61 CYS; variant mapping record A61 CYS",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T24-wrong-numbering-detectable",
         "result": "pass",
         "detail": "label numbering of A equals UniProt numbering at 61 (CYS); no distinct mature numbering, so no other numbering exists to land elsewhere",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T25-struct-ref-seq-not-trusted",
         "result": "pass",
         "detail": "SIFTS selects label 61 (CYS); _struct_ref_seq would select label 61 (CYS); 0 disagreement(s) recorded as known issues",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       }
     ],
     "evidenceCategory": 1

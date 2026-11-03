@@ -2347,25 +2347,25 @@
         "check": "T36-full-chain-covers-sifts",
         "result": "pass",
         "detail": "110 positions (1-110); per chain A 110/110; 7 unobserved residue(s)",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 61: table A61 CYS; variant mapping record A61 CYS",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T38-full-chain-residue-names",
         "result": "pass",
         "detail": "atom_site residue = UniProt residue at 110 of 110 positions; differs at none",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T39-full-chain-alignment-agrees",
         "result": "pass",
         "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none; outside the mapped positions the entity differs at 111 (UniProt E, entity G, cloning artifact), 112 (UniProt N, entity K, cloning artifact)",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       }
     ],
     "evidenceCategory": 2

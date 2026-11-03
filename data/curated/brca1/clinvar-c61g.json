@@ -92,19 +92,19 @@
         "check": "T33-clinvar-search-covered",
         "result": "pass",
         "detail": "esearch rs28897672: 3 uids; esummary returned 3 (17661,54359,54360)",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T34-clinvar-review-status",
         "result": "pass",
         "detail": "VCV000017661.165: \"reviewed by expert panel\" -> 3 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       },
       {
         "check": "T35-clinvar-related-records-separate",
         "result": "pass",
         "detail": "2 other record(s) for rs28897672: 0 haplotype/compound (0 include NC_000017.11:43106486:A:C), 2 other allele/variant (VCV000054359.9 Pathogenic; VCV000054360.18 Pathogenic/Likely pathogenic); none merged",
-        "at": "2026-11-03T22:05:59Z"
+        "at": "2026-11-03T22:12:13Z"
       }
     ],
     "evidenceCategory": 2
