@@ -22798,37 +22798,37 @@
         "check": "T41-pathway-accession",
         "result": "pass",
         "detail": "memberships requested for P68871; protein record P68871; specification P68871",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T42-pathway-memberships-human",
         "result": "pass",
         "detail": "10 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T43-pathway-top-level",
         "result": "pass",
         "detail": "R-HSA-983231 -> R-HSA-109582; R-HSA-1237044 -> R-HSA-382551; R-HSA-1247673 -> R-HSA-382551; R-HSA-2168880 -> R-HSA-5653656; R-HSA-6798695 -> R-HSA-168256; R-HSA-9613829 -> R-HSA-9612973; R-HSA-9615710 -> R-HSA-9612973; R-HSA-9707564 -> R-HSA-8953897; R-HSA-9707616 -> R-HSA-8953897; R-HSA-9927020 -> R-HSA-1643685",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T44-opening-pathway-rule",
         "result": "pass",
         "detail": "R-HSA-9615710 (Late endosomal microautophagy) has the fewest participants (8) among the 8 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-9615710 8, R-HSA-1247673 18, R-HSA-6798695 20, R-HSA-1237044 25, R-HSA-9613829 28, R-HSA-9707564 61, R-HSA-9707616 64, R-HSA-983231 120; excluded: R-HSA-2168880 (no diagram), R-HSA-9927020 (a disease pathway, no diagram)",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T45-opening-pathway-participants",
         "result": "pass",
         "detail": "R-HSA-9615710 (Late endosomal microautophagy): 8 participating physical entities, 34 distinct UniProt proteins; the set's protein P68871 is among them as P68871 in Substrates for chaperone mediated autophagy [cytosol] (DefinedSet); HSPA8 bound autophagic substrates [cytosol] (Complex); PL:HSPA8:Autophagy substrate [late endosome membrane] (Complex); PL:HSPA8:Autophagy substrate [late endosome lumen] (Complex)",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T46-candidate-participants",
         "result": "pass",
         "detail": "8 candidate(s): R-HSA-983231 120 entities, 160 proteins, set's protein listed; R-HSA-1237044 25 entities, 12 proteins, set's protein listed; R-HSA-1247673 18 entities, 8 proteins, set's protein listed; R-HSA-6798695 20 entities, 478 proteins, set's protein listed; R-HSA-9613829 28 entities, 22 proteins, set's protein listed; R-HSA-9615710 8 entities, 34 proteins, set's protein listed; R-HSA-9707564 61 entities, 59 proteins, set's protein listed; R-HSA-9707616 64 entities, 47 proteins, set's protein listed",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       }
     ],
     "evidenceCategory": 2

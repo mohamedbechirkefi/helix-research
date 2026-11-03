@@ -12,7 +12,8 @@
     "residue-mapping-P68871-2HBS.json",
     "contacts-hbs-2HBS.json",
     "predicted-model-AF-P68871-F1.json",
-    "pathways.json"
+    "pathways.json",
+    "associations.json"
   ],
   "geneId": "ENSG00000244734",
   "symbol": "HBB",
@@ -49,6 +50,11 @@
   "pathwayView": {
     "available": true,
     "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  },
+  "associationView": {
+    "available": true,
+    "reason": "552 Open Targets associations, 25 kept by score; top: beta thalassemia (score 0.8419637829866822); association, never causal",
     "evidenceCategory": 2
   }
 }

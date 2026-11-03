@@ -37,6 +37,12 @@
       "requires": [
         "pathwayView"
       ]
+    },
+    {
+      "text": "What diseases are associated with HBB?",
+      "requires": [
+        "associationView"
+      ]
     }
   ],
   "bridgeQuestion": "See the sickle-cell mutation on the protein."

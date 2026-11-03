@@ -56,7 +56,7 @@
         "check": "T32-alphafold-labelled",
         "result": "pass",
         "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       }
     ],
     "evidenceCategory": 3
