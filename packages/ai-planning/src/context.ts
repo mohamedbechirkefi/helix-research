@@ -206,12 +206,22 @@ const VariantIn = z
     evidence: z.array(Ev),
   })
   .loose();
+/**
+ * The structure record's coverage of the mapped chain (Phase 9, P9.2.2; plan section 13 rule 3):
+ * present on every set built after that rule, absent on older records. The sentence and the
+ * numbers are the record's; the app and the context repeat them and never recompute them.
+ */
+const CoverageIn = z.object({ fraction: z.number(), text: z.string(), proteinLength: z.number(), observedPositions: z.number(), firstObservedPosition: z.number(), lastObservedPosition: z.number() }).loose();
 const StructureIn = z
   .object({
     entryId: z.string(),
     title: z.string(),
     method: z.string(),
     resolutionAngstrom: z.number().nullable(),
+    /** Models in the deposited entry (an NMR ensemble has several) and the one mapped, measured and shown; absent on records written before P9.2.2 (one model). */
+    modelCount: z.number().optional(),
+    modelShown: z.number().optional(),
+    coverage: CoverageIn.optional(),
     assemblies: z.array(z.object({ id: z.string(), polymerAsymIds: z.array(z.string()) }).loose()),
     chains: z.array(z.object({ labelAsymId: z.string() }).loose()).optional(),
     entities: z.array(z.object({ type: z.string(), strandIds: z.array(z.string()), siftsUniprot: z.array(z.string()) }).loose()),
@@ -353,6 +363,27 @@ export function pathwayWorldReason(b: Pick<HbbBundle, "capabilities" | "pathways
 
 const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
 
+/**
+ * Below this fraction of the protein's residues observed in the entry, the set states its coverage
+ * everywhere the structure is named (plan section 13 rule 3): the context carries the record's
+ * coverage evidence, and the app's caption, Protein World card and known limitations repeat the
+ * record's sentence. At or above it (2HBS, 99.3 %) nothing is added, so the HBB context and its
+ * measured prompts are byte-identical to Phase 8.
+ */
+export const COVERAGE_STATED_BELOW = 0.9;
+export const coverageIsStated = (fraction: number): boolean => fraction < COVERAGE_STATED_BELOW;
+
+/** The evidence id of a structure record's coverage sentence in the context. */
+export const coverageEvidenceId = (entryId: string, accession: string): string => `coverage:${entryId}-${accession}`;
+
+/**
+ * The Phase 3 descriptive name of the curated HBB substitution, kept in its context for the
+ * measured Phase 3 to 8 prompts (the system message is pinned byte for byte). Keyed by the
+ * variant record's common name, so that no other set's variant ever receives it (Phase 9,
+ * P9.2.2: BRCA1's C61G carries the record's names only).
+ */
+const PHASE3_DESCRIPTIVE_NAMES: Record<string, string> = { "HbS (sickle haemoglobin)": "sickle-cell variant" };
+
 /** The record's common name without its parenthesised gloss: "HbS (sickle haemoglobin)" is "HbS", "F508del (p.Phe508del)" is "F508del". */
 export function variantShortName(commonName: string): string {
   return commonName.replace(/\s*\(.*\)$/, "");
@@ -476,10 +507,19 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
         });
       }
     }
+    // Phase 9 (P9.2.2): an entry whose coverage of the protein is partial carries the record's
+    // coverage evidence (its own category and sentence; SIFTS and the atom records), so that a plan
+    // may cite it and the explanation can repeat it. The models clause names an ensemble (NMR).
+    const coverage = structure.coverage ?? null;
+    if (coverage && coverageIsStated(coverage.fraction)) {
+      const accession = mapping?.uniprotAccession ?? protein.accession;
+      addEv(coverageEvidenceId(structure.entryId, accession), structure.evidence.find((e) => e.statement.startsWith(coverage.text)));
+    }
+    const models = structure.modelCount !== undefined && structure.modelCount > 1 ? `, ${structure.modelCount} models, model ${structure.modelShown ?? 1} shown` : "";
     structures.push({
       id: structure.entryId,
       origin: "experimental",
-      title: `${structure.title} (${structure.method}${structure.resolutionAngstrom ? `, ${structure.resolutionAngstrom} A` : ""})`,
+      title: `${structure.title} (${structure.method}${structure.resolutionAngstrom ? `, ${structure.resolutionAngstrom} A` : ""}${models})`,
       proteinIds: [...new Set(structure.entities.flatMap((e) => e.siftsUniprot))],
       assemblies,
       variantPlacement: featureId !== null,
@@ -505,8 +545,8 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
         ? // Phase 9: a deletion's names are the record's own (its short name, the computed protein
           // change, its identifiers and its numbering label); no descriptive literal is written here.
           [variantShortName(variant.commonName), variant.proteinChangeComputed ?? null, variant.rsId, ...variant.hgvs.coding, ...variant.hgvs.protein, variant.numbering.translatedLabel, clinvarLine]
-        : // The short name and the Phase 3 descriptive name of the curated substitution (kept for the measured prompts), then the record's identifiers.
-          [variantShortName(variant.commonName), "sickle-cell variant", `${variant.rsId} allele ${variant.allele.alternate}`, ...variant.hgvs.coding, ...variant.hgvs.protein, variant.numbering.matureLabel, clinvarLine];
+        : // The short name, the Phase 3 descriptive name when the record is the one it was written for (kept for the measured prompts), then the record's identifiers.
+          [variantShortName(variant.commonName), PHASE3_DESCRIPTIVE_NAMES[variant.commonName] ?? null, `${variant.rsId} allele ${variant.allele.alternate}`, ...variant.hgvs.coding, ...variant.hgvs.protein, variant.numbering.matureLabel, clinvarLine];
     variants.push({
       id: variant.key,
       label: variant.commonName,
