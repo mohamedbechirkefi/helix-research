@@ -1,0 +1,598 @@
+{
+ "date": "2026-11-03T00:09:17.388Z",
+ "tag": "2026-11-03-dh011-model",
+ "chrome": "Chrome/156.0.8078.80",
+ "scenarios": {
+  "modes": {
+   "fallback": {
+    "provider": "deterministic",
+    "steps": [
+     {
+      "name": "start",
+      "mode": "guided",
+      "chapter": "transcript",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": null,
+      "readback": [],
+      "focus": []
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-codon",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": 7,
+      "readback": [],
+      "focus": []
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "explore-free",
+      "mode": "free",
+      "chapter": "variant-residue",
+      "resumeIndex": 2,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "asked",
+      "mode": "free",
+      "chapter": "variant-residue",
+      "resumeIndex": 2,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ],
+      "q": "Why is this residue important?",
+      "picked": {
+       "structureId": "2HBS",
+       "chainId": "H",
+       "residueNumber": 6,
+       "compId": "VAL"
+      },
+      "outcome": "executed",
+      "source": "deterministic",
+      "usedFallback": false,
+      "fallbackReason": null,
+      "plan": {
+       "entities": {
+        "geneId": null,
+        "proteinId": null,
+        "variantId": null,
+        "structureId": "2HBS"
+       },
+       "citations": [
+        "clinvar:VCV000015333",
+        "uniprot:VAR_002863"
+       ],
+       "followUps": [],
+       "explanationLevel": "intermediate",
+       "outcome": "plan",
+       "intent": "explain_selection",
+       "actions": [
+        {
+         "type": "focusCamera",
+         "target": {
+          "kind": "selection"
+         }
+        },
+        {
+         "type": "highlightResidue",
+         "target": {
+          "kind": "selection"
+         }
+        },
+        {
+         "type": "revealEvidence",
+         "evidenceId": "clinvar:VCV000015333"
+        }
+       ],
+       "reason": null
+      },
+      "wallMs": 787,
+      "sources": 20
+     },
+     {
+      "name": "resume",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-contact",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "ALA B70",
+       "ASP B73",
+       "LEU B88",
+       "PHE B85",
+       "THR B84",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "back",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "revisit-1",
+      "mode": "guided",
+      "chapter": "transcript",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": null,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "implicit-free",
+      "mode": "free",
+      "chapter": "transcript",
+      "resumeIndex": 0,
+      "world": "dna",
+      "codon": 3,
+      "readback": [],
+      "focus": []
+     }
+    ],
+    "resumeText": "Resume journey at chapter 3",
+    "orbitMovedA": 31.9,
+    "owner": {
+     "samples": 836,
+     "both": 0,
+     "duringTransition": 0
+    },
+    "pageErrors": []
+   },
+   "ollama": {
+    "provider": "ollama:ministral-3:8b",
+    "steps": [
+     {
+      "name": "start",
+      "mode": "guided",
+      "chapter": "transcript",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": null,
+      "readback": [],
+      "focus": []
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-codon",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": 7,
+      "readback": [],
+      "focus": []
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "explore-free",
+      "mode": "free",
+      "chapter": "variant-residue",
+      "resumeIndex": 2,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "asked",
+      "mode": "free",
+      "chapter": "variant-residue",
+      "resumeIndex": 2,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL H6"
+      ],
+      "focus": [],
+      "q": "Why is this residue important?",
+      "picked": {
+       "structureId": "2HBS",
+       "chainId": "H",
+       "residueNumber": 6,
+       "compId": "VAL"
+      },
+      "outcome": "executed",
+      "source": "ollama:ministral-3:8b",
+      "usedFallback": false,
+      "fallbackReason": null,
+      "plan": {
+       "outcome": "plan",
+       "intent": "explain_selection",
+       "entities": {
+        "geneId": "ENSG00000244734",
+        "proteinId": "P68871",
+        "variantId": "NC_000011.10:g.5227002T>A",
+        "structureId": "2HBS"
+       },
+       "actions": [
+        {
+         "type": "highlightResidue",
+         "target": {
+          "kind": "selection"
+         }
+        },
+        {
+         "type": "revealEvidence",
+         "evidenceId": "contacts:2HBS-H6"
+        },
+        {
+         "type": "revealEvidence",
+         "evidenceId": "clinvar:VCV000015333"
+        }
+       ],
+       "explanationLevel": "intermediate",
+       "citations": [
+        "contacts:2HBS-H6",
+        "clinvar:VCV000015333"
+       ],
+       "followUps": [
+        "Can you show the DNA sequence change for this variant?"
+       ],
+       "reason": "The residue (VAL at position 6 in chain H of 2HBS) is highlighted as the HbS substitution (Glu6Val). Its importance stems from its altered interactions and the clinical significance of the mutation. Evidence about its contacts and the ClinVar classification are shown."
+      },
+      "wallMs": 17133,
+      "sources": 21
+     },
+     {
+      "name": "resume",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "next",
+      "mode": "guided",
+      "chapter": "variant-contact",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "ALA B70",
+       "ASP B73",
+       "LEU B88",
+       "PHE B85",
+       "THR B84",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "back",
+      "mode": "guided",
+      "chapter": "variant-residue",
+      "resumeIndex": null,
+      "world": "protein",
+      "codon": 7,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "revisit-1",
+      "mode": "guided",
+      "chapter": "transcript",
+      "resumeIndex": null,
+      "world": "dna",
+      "codon": null,
+      "readback": [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      "focus": [
+       "VAL H6"
+      ]
+     },
+     {
+      "name": "implicit-free",
+      "mode": "free",
+      "chapter": "transcript",
+      "resumeIndex": 0,
+      "world": "dna",
+      "codon": 3,
+      "readback": [],
+      "focus": []
+     }
+    ],
+    "resumeText": "Resume journey at chapter 3",
+    "orbitMovedA": 31.9,
+    "owner": {
+     "samples": 1822,
+     "both": 0,
+     "duringTransition": 0
+    },
+    "pageErrors": []
+   }
+  },
+  "rapid": {
+   "a": {
+    "nav": {
+     "status": "cancelled",
+     "reason": "the scene changed under the request (epoch 2 -> 3)"
+    },
+    "after": {
+     "world": "dna",
+     "visible": "dna",
+     "owner": "r3f",
+     "codon": 1,
+     "link": "none",
+     "highlighted": [],
+     "readback": [],
+     "structures": 0,
+     "structure": null,
+     "request": "cancelled"
+    },
+    "recovery": {
+     "world": "protein",
+     "visible": "protein",
+     "owner": "molstar",
+     "codon": 1,
+     "link": "none",
+     "highlighted": [],
+     "readback": [],
+     "structures": 1,
+     "structure": "2HBS",
+     "request": "completed"
+    },
+    "pageErrors": []
+   },
+   "b": {
+    "endDna": {
+     "world": "dna",
+     "visible": "dna",
+     "owner": "r3f",
+     "codon": 7,
+     "link": "mapped",
+     "highlighted": [],
+     "readback": [],
+     "structures": 0,
+     "structure": null,
+     "request": "completed"
+    },
+    "endProtein": {
+     "world": "protein",
+     "visible": "protein",
+     "owner": "molstar",
+     "codon": 7,
+     "link": "mapped",
+     "highlighted": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "structures": 1,
+     "structure": "2HBS",
+     "request": "completed"
+    },
+    "pageErrors": [],
+    "owner": {
+     "samples": 403,
+     "both": 0,
+     "duringTransition": 0
+    }
+   },
+   "c": {
+    "final": {
+     "world": "protein",
+     "visible": "protein",
+     "owner": "molstar",
+     "codon": 7,
+     "link": "mapped",
+     "highlighted": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "structures": 1,
+     "structure": "2HBS",
+     "request": "completed"
+    },
+    "pageErrors": []
+   },
+   "d": {
+    "nav": {
+     "status": "cancelled",
+     "reason": "superseded by request q1"
+    },
+    "answer": {
+     "outcome": "unsupported",
+     "reason": "CFTR is not in the curated records available here; only HBB is."
+    },
+    "after": {
+     "world": "dna",
+     "visible": "dna",
+     "owner": "r3f",
+     "codon": 7,
+     "link": "mapped",
+     "highlighted": [],
+     "readback": [],
+     "structures": 0,
+     "structure": null,
+     "request": "cancelled"
+    },
+    "pageErrors": []
+   },
+   "e": {
+    "first": {
+     "outcome": "rejected",
+     "reason": "stale plan: made for session epoch 1, the session is now at epoch 2",
+     "stale": false,
+     "cancelled": false,
+     "providerMs": 18048.5
+    },
+    "second": null,
+    "after": {
+     "world": "dna",
+     "visible": "dna",
+     "owner": "r3f",
+     "codon": 1,
+     "link": "none",
+     "highlighted": [],
+     "readback": [],
+     "structures": 0,
+     "structure": null,
+     "request": "rejected"
+    },
+    "pageErrors": []
+   },
+   "f": {
+    "first": {
+     "outcome": "stale-discarded",
+     "reason": null,
+     "stale": true,
+     "cancelled": true,
+     "providerMs": null
+    },
+    "second": {
+     "outcome": "answered",
+     "plan": "unsupported"
+    },
+    "after": {
+     "world": "dna",
+     "visible": "dna",
+     "owner": "r3f",
+     "codon": null,
+     "link": null,
+     "highlighted": [],
+     "readback": [],
+     "structures": 0,
+     "structure": null,
+     "request": "completed"
+    },
+    "pageErrors": []
+   }
+  }
+ },
+ "failures": []
+}
