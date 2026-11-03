@@ -87,43 +87,43 @@
         "check": "T01-gene-identity",
         "result": "pass",
         "detail": "ENSG00000244734.6 HBB",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T04-hgnc-resolution",
         "result": "pass",
         "detail": "HBB -> HGNC:4827 ENSG00000244734",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T04-alias-CD113t-C",
         "result": "pass",
         "detail": "alias CD113t-C -> ENSG00000244734",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T04-alias-beta-globin",
         "result": "pass",
         "detail": "alias beta-globin -> ENSG00000244734",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
-        "at": "2026-11-03T20:53:42Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 2

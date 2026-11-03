@@ -2,10 +2,10 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "hbb",
   "description": "HBB (beta-globin) vertical slice: gene, MANE Select transcript, sequences, UniProt P68871, the HbS variant, PDB 2HBS and its residue mapping.",
-  "generatedAt": "2026-11-03T20:53:42Z",
+  "generatedAt": "2026-11-03T21:36:02Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "40655bcffa740616b776cad5cdd9a94c1e31206e",
+    "gitCommit": "ee7a74bf96ade5fcba6add41fac4c5afee3718f1",
     "gitDirty": false,
     "node": "v22.23.3"
   },
@@ -575,43 +575,43 @@
   "files": [
     {
       "path": "gene.json",
-      "sha256": "cc1fc59b4f047d46c917ecf7e7d15f47ffc331db9e473e3dc363db07d0b1d87b",
+      "sha256": "f8d3f14d93fc4b8d56e717586e19a62c0062b8e6fed8833a117fba8f78373c4a",
       "bytes": 4770,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "60e1ea9179fd936876a89b4cb4df4e72ad19c15bb2eb42a3e1b8df4c4343486a",
+      "sha256": "a2c4193b93f14789f5fa22631b7952bd01b233c7e33b95663970ed6f0fc2d00b",
       "bytes": 5871,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "f8d88b5907238907219f89f2e0fc7e704ef488000626ec43bb519eb6c416ed06",
+      "sha256": "71436770bb3452db17c3259ac08e313a060a1aac84a4be52c8468d21d88f5831",
       "bytes": 15309,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-P68871.json",
-      "sha256": "e7fb8f710267f096b52837155d90c35a29540a2584805d7f3f0dd63128bd22df",
+      "sha256": "216820bda6e62f8314bcdab734da2af9b622d4897a1c765a7f685a086996ecdd",
       "bytes": 13402,
       "recordKind": "protein"
     },
     {
       "path": "variant-hbs.json",
-      "sha256": "9f21ed95780d0f464661a1718510d36b3460ee4d5b4e4c395bac1dfdb084e2ad",
+      "sha256": "bdaf9f1110bc05a7aa08f52e10f873014e56e7b795993ff38f1eee0a9ae8363e",
       "bytes": 13049,
       "recordKind": "variant"
     },
     {
       "path": "clinvar-hbs.json",
-      "sha256": "07b165753d11c164ee9c2506f4b904353eab1bd2bac378b336fae115cbca5309",
+      "sha256": "fdf0f5d739f342067d383761fdadb48991df28e22a725d70c44b16ce16c0e219",
       "bytes": 8578,
       "recordKind": "clinvar-record"
     },
     {
       "path": "structure-2HBS.json",
-      "sha256": "5acb2594937b16a4ef68780f92429718b979763cbdde141c6282c4faa285b1ca",
+      "sha256": "67f6319cb396f03510386d71d5b58a9e24b01850adcfedbfc3fe05e1fa4b123a",
       "bytes": 10917,
       "recordKind": "structure"
     },
@@ -623,31 +623,31 @@
     },
     {
       "path": "residue-mapping-hbs-2HBS.json",
-      "sha256": "ba751bd0a4e12905179e60d677d2f3a3a7ecfc4da7253ec57482c6d90d952b10",
+      "sha256": "5166c968cd1bd8fa6da427eddf38fd9914ece15c867c035cfef54b37a0aafe9b",
       "bytes": 6912,
       "recordKind": "residue-mapping"
     },
     {
       "path": "residue-mapping-P68871-2HBS.json",
-      "sha256": "79cc21de4281143aefe83909a0fea257457ac5e7026b2fbb22888973f3424b7b",
+      "sha256": "fd75a26e029c543131a7f0abe8e9010531968bac506583a1acb7cbd43c6f65a0",
       "bytes": 213077,
       "recordKind": "residue-mapping-table"
     },
     {
       "path": "contacts-hbs-2HBS.json",
-      "sha256": "bec20fb1de191807268b5da757be37e6989c8b9bc766580f8b42167d3e70bfd3",
+      "sha256": "3cd8e132bba2a178c464b469df47a0e690b9b532742b4952d3460aac648a0222",
       "bytes": 4326,
       "recordKind": "residue-contacts"
     },
     {
       "path": "predicted-model-AF-P68871-F1.json",
-      "sha256": "af010ad7467ed5e896cc2bcb07a7bec27c8edbd45a62db1c2f6167b9b6226000",
+      "sha256": "4377fd055c3777f666c2cd0798d606a0ca70a1b3a57d7dc3f7573cee6c040637",
       "bytes": 3053,
       "recordKind": "predicted-model"
     },
     {
       "path": "pathways.json",
-      "sha256": "3333aca10dbfd56a13304aef1922e5331380bdcd5c0600dafd42ec363a58d4f1",
+      "sha256": "88e94bf6d2756df19709e8478681e8c25376923c804705dc938ae83a09e4fdf2",
       "bytes": 708022,
       "recordKind": "pathway-memberships"
     },
@@ -659,8 +659,8 @@
     },
     {
       "path": "questions.json",
-      "sha256": "9685bf12de620e2efd7c74a1dc8e66be60c78266d3b8c3f7649612e633ef151c",
-      "bytes": 826,
+      "sha256": "34c647a56fe9beaae943614c81aebe5fb15840c608b6cee6961c85ba24fe506c",
+      "bytes": 931,
       "recordKind": "questions"
     }
   ],
@@ -669,355 +669,355 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000244734.6 HBB",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000335295.4",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 628 vs transcript 628",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "P68871 HBB_HUMAN, reviewed true",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 444, starts ATG, ends TAA",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 147 aa vs Ensembl 147 aa",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 147 aa vs UniProt 147 aa",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "HBB -> HGNC:4827 ENSG00000244734",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T04-alias-CD113t-C",
       "result": "pass",
       "detail": "alias CD113t-C -> ENSG00000244734",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T04-alias-beta-globin",
       "result": "pass",
       "detail": "alias beta-globin -> ENSG00000244734",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T13-rsid-multiallelic",
       "result": "pass",
       "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T08-exon-walk-genomic",
       "result": "pass",
       "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T08-codon-span",
       "result": "pass",
       "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T09-forward-and-coding-base",
       "result": "pass",
       "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T10-spdi-roundtrip",
       "result": "pass",
       "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T11-codon-change",
       "result": "pass",
       "detail": "codon 7 GAG -> GTG; E -> V",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T12-hgvsp-agrees",
       "result": "pass",
       "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T12-vep-agrees",
       "result": "pass",
       "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "cdna-position",
       "result": "pass",
       "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T18-hgvsp-equals-uniprot-position",
       "result": "pass",
       "detail": "p.7: UniProt residue E, HGVS ref E",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T17-mature-index",
       "result": "pass",
       "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T16-uniprot-natural-variant",
       "result": "pass",
       "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T14-clinvar-record",
       "result": "pass",
       "detail": "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T33-clinvar-search-covered",
       "result": "pass",
       "detail": "esearch rs334: 10 uids; esummary returned 10 (15175,15333,446730,446731,446735,446736,446737,446738,446747,446748)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T34-clinvar-review-status",
       "result": "pass",
       "detail": "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T35-clinvar-related-records-separate",
       "result": "pass",
       "detail": "9 other record(s) for rs334: 8 haplotype/compound (8 include NC_000011.10:5227001:T:A), 1 other allele/variant (VCV000015175.3 Likely benign); none merged",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "structure-entry",
       "result": "pass",
       "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "structure-revision-agrees",
       "result": "pass",
       "detail": "Data API rev 1.5; mmCIF rev 1.5",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T20-entity-by-sifts",
       "result": "pass",
       "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T20-rcsb-entity-agrees",
       "result": "pass",
       "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T21-alignment-cross-check",
       "result": "pass",
       "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T22-rcsb-align-agrees",
       "result": "pass",
       "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T23-residue-from-atom-site",
       "result": "pass",
       "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T36-full-chain-covers-sifts",
       "result": "pass",
       "detail": "146 positions (2-147); per chain B 146/146, D 146/146, F 146/146, H 146/146; 0 unobserved residue(s)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T37-full-chain-agrees-with-variant-mapping",
       "result": "pass",
       "detail": "position 7: table B6 VAL, D6 VAL, F6 VAL, H6 VAL; variant mapping record B6 VAL, D6 VAL, F6 VAL, H6 VAL",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T38-full-chain-residue-names",
       "result": "pass",
       "detail": "atom_site residue = UniProt residue at 145 of 146 positions; differs at 7 (UniProt E, structure VAL)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T39-full-chain-alignment-agrees",
       "result": "pass",
       "detail": "entity sequence at the mapped label_seq_id differs from UniProt at 7; the independent alignment reports 7",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T24-wrong-numbering-detectable",
       "result": "pass",
       "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T19-pdbx-mutation-numbering",
       "result": "pass",
       "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T25-struct-ref-seq-not-trusted",
       "result": "pass",
       "detail": "SIFTS selects label 6 (VAL); _struct_ref_seq would select label 7 (GLU); 4 disagreement(s) recorded as known issues",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T26-label-auth-kept",
       "result": "pass",
       "detail": "24 label chains, all with an auth chain id from the scheme tables; 16 non-polymer chains have label != auth (e.g. label I = auth A HEM 153)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T27-assemblies",
       "result": "pass",
       "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T28-contacts-computed",
       "result": "pass",
       "detail": "B6: none; D6: none; F6: none; H6: B70,B73,B84,B85,B88",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T41-pathway-accession",
       "result": "pass",
       "detail": "memberships requested for P68871; protein record P68871; specification P68871",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T42-pathway-memberships-human",
       "result": "pass",
       "detail": "10 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T43-pathway-top-level",
       "result": "pass",
       "detail": "R-HSA-983231 -> R-HSA-109582; R-HSA-1237044 -> R-HSA-382551; R-HSA-1247673 -> R-HSA-382551; R-HSA-2168880 -> R-HSA-5653656; R-HSA-6798695 -> R-HSA-168256; R-HSA-9613829 -> R-HSA-9612973; R-HSA-9615710 -> R-HSA-9612973; R-HSA-9707564 -> R-HSA-8953897; R-HSA-9707616 -> R-HSA-8953897; R-HSA-9927020 -> R-HSA-1643685",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T44-opening-pathway-rule",
       "result": "pass",
       "detail": "R-HSA-9615710 (Late endosomal microautophagy) has the fewest participants (8) among the 8 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-9615710 8, R-HSA-1247673 18, R-HSA-6798695 20, R-HSA-1237044 25, R-HSA-9613829 28, R-HSA-9707564 61, R-HSA-9707616 64, R-HSA-983231 120; excluded: R-HSA-2168880 (no diagram), R-HSA-9927020 (a disease pathway, no diagram)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T45-opening-pathway-participants",
       "result": "pass",
       "detail": "R-HSA-9615710 (Late endosomal microautophagy): 8 participating physical entities, 34 distinct UniProt proteins; the set's protein P68871 is among them as P68871 in Substrates for chaperone mediated autophagy [cytosol] (DefinedSet); HSPA8 bound autophagic substrates [cytosol] (Complex); PL:HSPA8:Autophagy substrate [late endosome membrane] (Complex); PL:HSPA8:Autophagy substrate [late endosome lumen] (Complex)",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T46-candidate-participants",
       "result": "pass",
       "detail": "8 candidate(s): R-HSA-983231 120 entities, 160 proteins, set's protein listed; R-HSA-1237044 25 entities, 12 proteins, set's protein listed; R-HSA-1247673 18 entities, 8 proteins, set's protein listed; R-HSA-6798695 20 entities, 478 proteins, set's protein listed; R-HSA-9613829 28 entities, 22 proteins, set's protein listed; R-HSA-9615710 8 entities, 34 proteins, set's protein listed; R-HSA-9707564 61 entities, 59 proteins, set's protein listed; R-HSA-9707616 64 entities, 47 proteins, set's protein listed",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
-      "at": "2026-11-03T20:53:42Z"
+      "at": "2026-11-03T21:36:02Z"
     }
   ],
   "knownIssues": [
