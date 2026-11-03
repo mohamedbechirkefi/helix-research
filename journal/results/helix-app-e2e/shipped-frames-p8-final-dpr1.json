@@ -1,0 +1,995 @@
+{
+ "date": "2026-11-03T13:58:32.021Z",
+ "tag": "p8-final",
+ "base": "http://localhost:5190/",
+ "repeats": 3,
+ "query": "",
+ "dpr": 1,
+ "chrome": "Chrome/156.0.8078.80",
+ "pages": [
+  {
+   "vsync": "on",
+   "repeat": 1,
+   "moves": {
+    "tour": {
+     "wallMs": 12007,
+     "r3fFrames": 721,
+     "frame": {
+      "n": 721,
+      "median": 16.7,
+      "p95": 18.4,
+      "max": 21.2,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 721,
+      "median": 0.9,
+      "p95": 2.4,
+      "max": 5.2
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 11
+    },
+    "codonFocus": {
+     "wallMs": 1389,
+     "r3fFrames": 82,
+     "frame": {
+      "n": 83,
+      "median": 16.7,
+      "p95": 18.2,
+      "max": 18.6,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 93,
+      "median": 0.8,
+      "p95": 1.9,
+      "max": 2.6
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.7,
+      "p95": 19.8,
+      "max": 21.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 1.7,
+      "p95": 2.2,
+      "max": 3.1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 252,
+     "frame": {
+      "n": 252,
+      "median": 16.7,
+      "p95": 17.9,
+      "max": 19.7,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 252,
+      "median": 1.1,
+      "p95": 2.4,
+      "max": 6.5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1935,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 704.6,
+      "frames": 43,
+      "maxFrameMs": 19.8
+     }
+    },
+    "toDna": {
+     "wallMs": 785,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 718.4,
+      "frames": 43,
+      "maxFrameMs": 32.7
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 751,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 715.1,
+      "frames": 43,
+      "maxFrameMs": 22.1
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 1,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "on",
+   "repeat": 2,
+   "moves": {
+    "tour": {
+     "wallMs": 12011,
+     "r3fFrames": 721,
+     "frame": {
+      "n": 721,
+      "median": 16.7,
+      "p95": 17.9,
+      "max": 19.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 721,
+      "median": 1.2,
+      "p95": 2.6,
+      "max": 5.6
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 11
+    },
+    "codonFocus": {
+     "wallMs": 1408,
+     "r3fFrames": 83,
+     "frame": {
+      "n": 84,
+      "median": 16.7,
+      "p95": 18.4,
+      "max": 18.7,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 94,
+      "median": 0.6,
+      "p95": 1.4,
+      "max": 1.9
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.7,
+      "p95": 20.6,
+      "max": 21.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 1.4,
+      "p95": 2.3,
+      "max": 3.9
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 252,
+     "frame": {
+      "n": 252,
+      "median": 16.7,
+      "p95": 18.6,
+      "max": 19.9,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 252,
+      "median": 0.8,
+      "p95": 2.2,
+      "max": 3.3
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1900,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 706.5,
+      "frames": 43,
+      "maxFrameMs": 20.8
+     }
+    },
+    "toDna": {
+     "wallMs": 740,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 712.9,
+      "frames": 43,
+      "maxFrameMs": 30.7
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 751,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 713.9,
+      "frames": 43,
+      "maxFrameMs": 19.1
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 1,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "on",
+   "repeat": 3,
+   "moves": {
+    "tour": {
+     "wallMs": 12020,
+     "r3fFrames": 721,
+     "frame": {
+      "n": 721,
+      "median": 16.7,
+      "p95": 17.9,
+      "max": 18.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 721,
+      "median": 1.1,
+      "p95": 2.5,
+      "max": 3.9
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 11
+    },
+    "codonFocus": {
+     "wallMs": 1397,
+     "r3fFrames": 82,
+     "frame": {
+      "n": 83,
+      "median": 16.7,
+      "p95": 18.3,
+      "max": 19,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 93,
+      "median": 0.8,
+      "p95": 2.3,
+      "max": 2.5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.7,
+      "p95": 19.8,
+      "max": 22.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 1.6,
+      "p95": 2.3,
+      "max": 3.2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 253,
+     "frame": {
+      "n": 253,
+      "median": 16.7,
+      "p95": 18.1,
+      "max": 20,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 253,
+      "median": 1.2,
+      "p95": 2.4,
+      "max": 4.2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1925,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 704.7,
+      "frames": 43,
+      "maxFrameMs": 20.1
+     }
+    },
+    "toDna": {
+     "wallMs": 779,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 701.7,
+      "frames": 43,
+      "maxFrameMs": 23.3
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 741,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 711.5,
+      "frames": 43,
+      "maxFrameMs": 17.7
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 1,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 1,
+   "moves": {
+    "tour": {
+     "wallMs": 12007,
+     "r3fFrames": 4887,
+     "frame": {
+      "n": 4888,
+      "median": 2.8,
+      "p95": 3.7,
+      "max": 18.6,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 2891,
+      "median": 2.5,
+      "p95": 3.2,
+      "max": 5.4
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 91
+    },
+    "codonFocus": {
+     "wallMs": 1390,
+     "r3fFrames": 789,
+     "frame": {
+      "n": 791,
+      "median": 2.3,
+      "p95": 3.2,
+      "max": 18.5,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 881,
+      "median": 2.1,
+      "p95": 2.8,
+      "max": 5.1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 1545,
+      "median": 0.2,
+      "p95": 19.8,
+      "max": 23.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 0.8,
+      "p95": 2,
+      "max": 2.6
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 1434,
+     "frame": {
+      "n": 1435,
+      "median": 2.6,
+      "p95": 3.1,
+      "max": 19.1,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 1434,
+      "median": 2.4,
+      "p95": 2.8,
+      "max": 5.7
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1937,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.6,
+      "frames": 472,
+      "maxFrameMs": 5.4
+     }
+    },
+    "toDna": {
+     "wallMs": 765,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 702.7,
+      "frames": 454,
+      "maxFrameMs": 29.3
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 769,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 703,
+      "frames": 369,
+      "maxFrameMs": 13.9
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 2,
+   "moves": {
+    "tour": {
+     "wallMs": 12006,
+     "r3fFrames": 4851,
+     "frame": {
+      "n": 4852,
+      "median": 2.9,
+      "p95": 3.8,
+      "max": 18.6,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 2853,
+      "median": 2.5,
+      "p95": 3.3,
+      "max": 6.7
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 94
+    },
+    "codonFocus": {
+     "wallMs": 1394,
+     "r3fFrames": 796,
+     "frame": {
+      "n": 798,
+      "median": 2.5,
+      "p95": 3.1,
+      "max": 18.7,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 891,
+      "median": 2.1,
+      "p95": 2.8,
+      "max": 5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 1554,
+      "median": 0.2,
+      "p95": 19.6,
+      "max": 23.5,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 0.7,
+      "p95": 2.2,
+      "max": 2.6
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 1442,
+     "frame": {
+      "n": 1443,
+      "median": 2.6,
+      "p95": 3.1,
+      "max": 18.6,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 1442,
+      "median": 2.3,
+      "p95": 2.8,
+      "max": 5.4
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1936,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 701.8,
+      "frames": 465,
+      "maxFrameMs": 6.6
+     }
+    },
+    "toDna": {
+     "wallMs": 778,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 700.1,
+      "frames": 475,
+      "maxFrameMs": 7.6
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 787,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.6,
+      "frames": 367,
+      "maxFrameMs": 14.9
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 3,
+   "moves": {
+    "tour": {
+     "wallMs": 12015,
+     "r3fFrames": 4859,
+     "frame": {
+      "n": 4860,
+      "median": 2.8,
+      "p95": 3.8,
+      "max": 18.7,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 2861,
+      "median": 2.5,
+      "p95": 3.4,
+      "max": 5.6
+     },
+     "fxMid": {
+      "dof": 1,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 90
+    },
+    "codonFocus": {
+     "wallMs": 1394,
+     "r3fFrames": 800,
+     "frame": {
+      "n": 802,
+      "median": 2.3,
+      "p95": 3.1,
+      "max": 18.9,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 891,
+      "median": 2,
+      "p95": 2.8,
+      "max": 5.2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 1554,
+      "median": 0.2,
+      "p95": 20.4,
+      "max": 22.3,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 0.8,
+      "p95": 2.3,
+      "max": 3.2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 1423,
+     "frame": {
+      "n": 1424,
+      "median": 2.6,
+      "p95": 3.1,
+      "max": 20.2,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "renderMs": {
+      "n": 1423,
+      "median": 2.4,
+      "p95": 2.8,
+      "max": 5.5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": 1,
+      "effects": true,
+      "dpr": 1
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1931,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.4,
+      "frames": 473,
+      "maxFrameMs": 6.9
+     }
+    },
+    "toDna": {
+     "wallMs": 783,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 702.8,
+      "frames": 470,
+      "maxFrameMs": 16.7
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 766,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 701.8,
+      "frames": 364,
+      "maxFrameMs": 14.5
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "GLN B39"
+   ]
+  }
+ ]
+}

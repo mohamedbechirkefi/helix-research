@@ -1,0 +1,787 @@
+{
+ "date": "2026-11-03T13:43:56.950Z",
+ "tag": "p8-final",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": {
+  "transcriptRest": {
+   "file": "transcript-rest.jpg",
+   "scale": {
+    "name": "transcript",
+    "progress": 0.5207636811406554,
+    "distance": 110,
+    "goal": "transcript",
+    "current": 110,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 109.99999999999999,
+    "hairlines": false,
+    "calipers": false,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": false,
+    "cdsInlay": false,
+    "sleeves": false,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 2.000223910415099
+    }
+   },
+   "labels": {
+    "scale": "transcript",
+    "visible": true,
+    "texts": [
+     "CDS start · c.1",
+     "exon 1 · 142 nt",
+     "exon 2 · 223 nt"
+    ],
+    "dropped": [
+     "cds-end",
+     "exon-3"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 28,
+   "rig": {
+    "centre": -14.110000000000001,
+    "distance": 110,
+    "moving": false
+   }
+  },
+  "transcriptToCodonMove": {
+   "file": "transcript-to-codon-move.jpg",
+   "scale": {
+    "name": "transcript",
+    "progress": 0.34403862753600317,
+    "distance": 110,
+    "goal": "codon",
+    "current": 88.23640758737261,
+    "flying": true,
+    "moving": true
+   },
+   "lod": {
+    "distance": 88.2364075873726,
+    "hairlines": false,
+    "calipers": false,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": false,
+    "cdsInlay": false,
+    "sleeves": false,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "transcript",
+    "visible": false,
+    "texts": [
+     "CDS start · c.1",
+     "exon 1 · 142 nt",
+     "exon 2 · 223 nt"
+    ],
+    "dropped": [
+     "cds-end",
+     "exon-3"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 52,
+   "rig": {
+    "centre": -20.50848821085375,
+    "distance": 88.23640758737261,
+    "moving": true
+   }
+  },
+  "codonRest": {
+   "file": "codon-rest.jpg",
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 10.200000000000001,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "codon",
+    "visible": true,
+    "texts": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 110,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 10.2,
+    "moving": false
+   }
+  },
+  "codonToOverviewMove": {
+   "file": "codon-to-overview-move.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.38115876562672246,
+    "distance": 30,
+    "goal": "overview",
+    "current": 27.522613603937636,
+    "flying": true,
+    "moving": true
+   },
+   "lod": {
+    "distance": 27.522613603937636,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "codon",
+    "visible": false,
+    "texts": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 134,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 27.522613603937636,
+    "moving": true
+   }
+  },
+  "overviewMarker": {
+   "file": "overview-variant-marker.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.45364492565600356,
+    "distance": 30,
+    "goal": "overview",
+    "current": 30,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 30,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "overview",
+    "visible": true,
+    "texts": [
+     "codon 7",
+     "codon 10",
+     "codon 20"
+    ],
+    "dropped": [
+     "junction-2",
+     "junction-3",
+     "codon-30",
+     "codon-40",
+     "codon-50",
+     "codon-60",
+     "codon-70",
+     "codon-80",
+     "codon-90",
+     "codon-100",
+     "codon-110",
+     "codon-120",
+     "codon-130",
+     "codon-140"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 143,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 30,
+    "moving": false
+   }
+  },
+  "overviewToBasePairMove": {
+   "file": "overview-to-base-pair-move.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.23173132774420152,
+    "distance": 30,
+    "goal": "base-pair",
+    "current": 23.042304075316956,
+    "flying": true,
+    "moving": true
+   },
+   "lod": {
+    "distance": 23.04230407531696,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "overview",
+    "visible": false,
+    "texts": [
+     "codon 7",
+     "codon 10",
+     "codon 20"
+    ],
+    "dropped": [
+     "junction-2",
+     "junction-3",
+     "codon-30",
+     "codon-40",
+     "codon-50",
+     "codon-60",
+     "codon-70",
+     "codon-80",
+     "codon-90",
+     "codon-100",
+     "codon-110",
+     "codon-120",
+     "codon-130",
+     "codon-140"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 166,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 23.042304075316956,
+    "moving": true
+   }
+  },
+  "basePairRest": {
+   "file": "base-pair-rest.jpg",
+   "scale": {
+    "name": "base-pair",
+    "progress": 0.20128656604569836,
+    "distance": 2.4,
+    "goal": "base-pair",
+    "current": 2.4,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 2.3999999999999995,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "base-pair",
+    "visible": true,
+    "texts": [
+     "A · T",
+     "c.20 · cDNA 70 · codon 7"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 219,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 2.4,
+    "moving": false
+   }
+  },
+  "escapeStopped": {
+   "file": "escape-stopped-mid-flight.jpg",
+   "scale": {
+    "name": "base-pair",
+    "progress": 0.7941331341300213,
+    "distance": 2.4,
+    "goal": "base-pair",
+    "current": 4.106035330866153,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 4.106035330866153,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "base-pair",
+    "visible": true,
+    "texts": [
+     "A · T",
+     "c.20 · cDNA 70 · codon 7"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 249,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 4.106035330866153,
+    "moving": false
+   }
+  },
+  "scalesPageErrors": [],
+  "overviewRest": {
+   "file": "overview-rest.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.45364492565600356,
+    "distance": 30,
+    "goal": "overview",
+    "current": 30,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 30,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "overview",
+    "visible": true,
+    "texts": [
+     "codon 60",
+     "codon 70",
+     "codon 80"
+    ],
+    "dropped": [
+     "junction-2",
+     "junction-3",
+     "codon-10",
+     "codon-20",
+     "codon-30",
+     "codon-40",
+     "codon-50",
+     "codon-90",
+     "codon-100",
+     "codon-110",
+     "codon-120",
+     "codon-130",
+     "codon-140"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 2,
+   "rig": {
+    "centre": -14.110000000000001,
+    "distance": 30,
+    "moving": false
+   }
+  },
+  "overviewDrag": {
+   "file": "overview-drag.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.45364492565600356,
+    "distance": 30,
+    "goal": "overview",
+    "current": 30,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 30,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "overview",
+    "visible": false,
+    "texts": [
+     "codon 60",
+     "codon 70",
+     "codon 80"
+    ],
+    "dropped": [
+     "junction-2",
+     "junction-3",
+     "codon-10",
+     "codon-20",
+     "codon-30",
+     "codon-40",
+     "codon-50",
+     "codon-90",
+     "codon-100",
+     "codon-110",
+     "codon-120",
+     "codon-130",
+     "codon-140"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 14,
+   "rig": {
+    "centre": -6.097804878048779,
+    "distance": 30,
+    "moving": false
+   }
+  },
+  "codonComparison": {
+   "file": "codon-comparison-and-region.jpg",
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 10.200000000000001,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "codon",
+    "visible": true,
+    "texts": [
+     "codon 7 · Glu",
+     "GAG → GTG · Glu → Val",
+     "marked c.19 to c.21",
+     "A",
+     "G"
+    ],
+    "dropped": [
+     "base-68"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 111,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 10.2,
+    "moving": false
+   },
+   "actions": [
+    "enterWorld",
+    "highlightSequenceRegion",
+    "compareVariants",
+    "revealEvidence"
+   ]
+  },
+  "idleFramesAtRest": 0,
+  "reducedMotion": {
+   "file": "reduced-motion-codon.jpg",
+   "framesForTheMove": 2,
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 10.200000000000001,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "codon",
+    "visible": true,
+    "texts": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": 1,
+    "effects": true,
+    "dpr": 1
+   },
+   "frames": 3,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 10.2,
+    "moving": false
+   }
+  },
+  "lowPowerOverview": {
+   "file": "low-power-overview.jpg",
+   "scale": {
+    "name": "overview",
+    "progress": 0.45364492565600356,
+    "distance": 30,
+    "goal": "overview",
+    "current": 30,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 30,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": false,
+    "hoverRings": false,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": false,
+    "marker": {
+     "visible": true,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "overview",
+    "visible": true,
+    "texts": [
+     "codon 60",
+     "codon 70",
+     "codon 80"
+    ],
+    "dropped": [
+     "junction-2",
+     "junction-3",
+     "codon-10",
+     "codon-20",
+     "codon-30",
+     "codon-40",
+     "codon-50",
+     "codon-90",
+     "codon-100",
+     "codon-110",
+     "codon-120",
+     "codon-130",
+     "codon-140"
+    ]
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 1
+   },
+   "frames": 2,
+   "rig": {
+    "centre": -14.110000000000001,
+    "distance": 30,
+    "moving": false
+   }
+  },
+  "lowPowerCodon": {
+   "file": "low-power-codon.jpg",
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   },
+   "lod": {
+    "distance": 10.200000000000001,
+    "hairlines": true,
+    "calipers": true,
+    "caliperTicks": true,
+    "hoverRings": true,
+    "selectionRings": true,
+    "cdsInlay": true,
+    "sleeves": true,
+    "knurlDetail": true,
+    "marker": {
+     "visible": false,
+     "radius": 1.7
+    }
+   },
+   "labels": {
+    "scale": "codon",
+    "visible": true,
+    "texts": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "dropped": []
+   },
+   "fx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 1
+   },
+   "frames": 85,
+   "rig": {
+    "centre": -83.13000000000001,
+    "distance": 10.2,
+    "moving": false
+   }
+  }
+ },
+ "failures": []
+}

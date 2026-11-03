@@ -1,0 +1,390 @@
+{
+ "date": "2026-11-03T13:44:17.130Z",
+ "tag": "p8-final",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": {
+  "proteinOverview": {
+   "file": "protein-overview.jpg",
+   "coldMs": 1584,
+   "prefetched": {
+    "created": false,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 182.90000000596046,
+    "prefetchEndedAt": 544.1999999880791,
+    "chunkMs": 361.2,
+    "createMs": null,
+    "firstNeed": null,
+    "prefetchError": null
+   },
+   "scene": {
+    "created": true,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 182.90000000596046,
+    "prefetchEndedAt": 544.1999999880791,
+    "chunkMs": 361.2,
+    "createMs": 92.7,
+    "firstNeed": "loadStructure 2HBS",
+    "prefetchError": null
+   },
+   "structures": 1,
+   "theme": {
+    "fallback": null,
+    "focusFallback": null
+   },
+   "gl": 2,
+   "focus": {
+    "target": {
+     "name": "uniform",
+     "params": {
+      "value": 14673646,
+      "saturation": 0,
+      "lightness": 0
+     }
+    },
+    "surroundings": {
+     "name": "uniform",
+     "params": {
+      "value": 9344931,
+      "saturation": 0,
+      "lightness": 0
+     }
+    }
+   },
+   "readback": {
+    "selection": [],
+    "focus": []
+   },
+   "world": "protein",
+   "caption": {
+    "present": true,
+    "text": "Mol*Mol*2HBS · asymmetric unit, as deposited2HBS · asymmetric unit, as depositedExperimental · class 1MethodX-ray diffractionResolution2.05 ÅDeposited1997-05-06Predicted · class 3AF-P68871-F1 · AlphaFold DB v6pLDDT 97.2 · listed, not loaded",
+    "experimentalChip": "Experimental · class 1",
+    "predictedChip": "Predicted · class 3",
+    "predictedId": "AF-P68871-F1 · AlphaFold DB v6",
+    "predictedNote": "pLDDT 97.2 · listed, not loaded",
+    "chain": [],
+    "kickerSr": [
+     "Mol*",
+     "2HBS · asymmetric unit, as deposited"
+    ]
+   },
+   "pageErrors": []
+  },
+  "proteinReference": {
+   "file": "protein-reference.jpg",
+   "wallMs": 1085,
+   "timings": {
+    "askedAt": 4183.4000000059605,
+    "plannedAt": 4185.699999988079,
+    "validatedAt": 4186.0999999940395,
+    "structureDrawnAt": 4397.4000000059605,
+    "highlightDrawnAt": 5215.5999999940395,
+    "endedAt": 5215.800000011921
+   },
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ],
+   "focus": {
+    "target": {
+     "name": "uniform",
+     "params": {
+      "value": 14673646,
+      "saturation": 0,
+      "lightness": 0
+     }
+    },
+    "surroundings": {
+     "name": "uniform",
+     "params": {
+      "value": 9344931,
+      "saturation": 0,
+      "lightness": 0
+     }
+    }
+   },
+   "caption": {
+    "present": true,
+    "text": "Mol*Mol*2HBS · asymmetric unit, as deposited2HBS · asymmetric unit, as depositedExperimental · class 1MethodX-ray diffractionResolution2.05 ÅDeposited1997-05-06Chain · residueH · VAL 6Predicted · class 3AF-P68871-F1 · AlphaFold DB v6pLDDT 97.2 · listed, not loadedGAG → GTGCodon 7p.Glu7ValTranslation7 → 6NumberingVAL 62HBS chain H",
+    "experimentalChip": "Experimental · class 1",
+    "predictedChip": "Predicted · class 3",
+    "predictedId": "AF-P68871-F1 · AlphaFold DB v6",
+    "predictedNote": "pLDDT 97.2 · listed, not loaded",
+    "chain": [
+     "GAG → GTG",
+     "p.Glu7Val",
+     "7 → 6",
+     "VAL 6"
+    ],
+    "kickerSr": [
+     "Mol*",
+     "2HBS · asymmetric unit, as deposited"
+    ]
+   },
+   "molstar": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false
+   },
+   "label": "HbS: VAL H6"
+  },
+  "proteinContact": {
+   "file": "protein-contact.jpg",
+   "wallMs": 953,
+   "readback": [
+    "ALA B70",
+    "ASP B73",
+    "LEU B88",
+    "PHE B85",
+    "THR B84",
+    "VAL H6"
+   ],
+   "label": "Contact: VAL H6 with chain B"
+  },
+  "proteinSelection": {
+   "file": "protein-selection.jpg",
+   "readback": [
+    "GLN B39"
+   ],
+   "label": "GLN B39: GLN B39",
+   "intent": "explain_selection",
+   "pageErrors": []
+  },
+  "proteinBridgeEnd": {
+   "file": "protein-bridge-end.jpg",
+   "wallMs": 5195,
+   "sceneBeforeBridge": {
+    "created": false,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 173.2000000178814,
+    "prefetchEndedAt": 520.5,
+    "chunkMs": 347.3,
+    "createMs": null,
+    "firstNeed": null,
+    "prefetchError": null
+   },
+   "scene": {
+    "created": true,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 173.2000000178814,
+    "prefetchEndedAt": 520.5,
+    "chunkMs": 347.3,
+    "createMs": 100.2,
+    "firstNeed": "loadStructure 2HBS",
+    "prefetchError": null
+   },
+   "bridge": {
+    "requestId": "q2",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "played",
+    "reason": null,
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 2513.300000011921,
+    "endedAt": 5731.200000017881,
+    "interacted": false,
+    "reduced": false
+   },
+   "pageErrors": []
+  },
+  "bridgeWidths": {
+   "1100": {
+    "width": 1100,
+    "stageW": 700,
+    "rep": [
+     193,
+     658,
+     314,
+     88
+    ],
+    "stations": [
+     [
+      32,
+      390,
+      153,
+      252
+     ],
+     [
+      193,
+      390,
+      153,
+      252
+     ],
+     [
+      354,
+      390,
+      153,
+      252
+     ],
+     [
+      515,
+      390,
+      153,
+      252
+     ]
+    ],
+    "overlaps": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "clipped": 0,
+    "mode": "under-chain",
+    "file": "bridge-1100.jpg"
+   },
+   "1400": {
+    "width": 1400,
+    "stageW": 1000,
+    "rep": [
+     268,
+     694,
+     464,
+     52
+    ],
+    "stations": [
+     [
+      32,
+      498,
+      228,
+      180
+     ],
+     [
+      268,
+      498,
+      228,
+      180
+     ],
+     [
+      504,
+      498,
+      228,
+      180
+     ],
+     [
+      740,
+      498,
+      228,
+      180
+     ]
+    ],
+    "overlaps": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "clipped": 0,
+    "mode": "under-chain",
+    "file": "bridge-1400.jpg"
+   },
+   "1600": {
+    "width": 1600,
+    "stageW": 1200,
+    "rep": [
+     500,
+     579,
+     200,
+     138
+    ],
+    "stations": [
+     [
+      32,
+      550,
+      226,
+      196
+     ],
+     [
+      266,
+      550,
+      226,
+      196
+     ],
+     [
+      708,
+      550,
+      226,
+      196
+     ],
+     [
+      942,
+      550,
+      226,
+      196
+     ]
+    ],
+    "overlaps": [
+     false,
+     false,
+     false,
+     false
+    ],
+    "clipped": 0,
+    "mode": "column",
+    "file": "bridge-1600.jpg"
+   }
+  },
+  "proteinReducedMotion": {
+   "file": "protein-reduced-motion.jpg",
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ],
+   "scene": {
+    "created": true,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 175.69999998807907,
+    "prefetchEndedAt": 540.0999999940395,
+    "chunkMs": 364.4,
+    "createMs": 99.5,
+    "firstNeed": "loadStructure 2HBS",
+    "prefetchError": null
+   },
+   "pageErrors": []
+  },
+  "proteinLowPower": {
+   "file": "protein-low-power.jpg",
+   "wallMs": 1931,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ],
+   "occlusion": "off",
+   "scene": {
+    "created": true,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 178.39999997615814,
+    "prefetchEndedAt": 450.09999999403954,
+    "chunkMs": 271.6,
+    "createMs": 94.9,
+    "firstNeed": "loadStructure 2HBS",
+    "prefetchError": null
+   },
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}
