@@ -32,6 +32,26 @@ export function matureLabel(ref: string, uniprotPosition: number, alt: string, c
   return `${AA_THREE_LETTER[ref]}${m}${AA_THREE_LETTER[alt]} (mature numbering)`;
 }
 
+/** "p.Phe508del (translated numbering, Met = 1)": the computed protein change of a deletion, labelled. */
+export function translatedDeletionLabel(proteinChange: string): string {
+  return `${proteinChange} (translated numbering, Met = 1)`;
+}
+
+/**
+ * "Phe6del (mature numbering)" for a deletion whose residues lie inside a processed chain that
+ * starts after position 1; null when there is no mature numbering (chain starts at 1 or none).
+ */
+export function matureDeletionLabel(deleted: { position: number; aminoAcid: string }[], chain: ProcessedChainRange | null): string | null {
+  const first = deleted[0];
+  const last = deleted[deleted.length - 1];
+  if (!first || !last) return null;
+  const m1 = matureIndex(first.position, chain);
+  const m2 = matureIndex(last.position, chain);
+  if (m1 === null || m2 === null) return null;
+  const range = first === last ? `${AA_THREE_LETTER[first.aminoAcid]}${m1}` : `${AA_THREE_LETTER[first.aminoAcid]}${m1}_${AA_THREE_LETTER[last.aminoAcid]}${m2}`;
+  return `${range}del (mature numbering)`;
+}
+
 /** Classify the numbering a structure file uses for its _entity.pdbx_mutation text. */
 export function classifyPdbxMutation(
   text: string,

@@ -53,8 +53,13 @@ export function assertNoProprietaryIdentifiers(value: unknown): void {
 
 /** Object keys that carry a proprietary identifier by name (HGNC `omim_id`, and any key naming OMIM/MIM/HGMD). */
 const PROPRIETARY_KEYS = /^(omim|mim|hgmd)([_-]?(id|ids|number|accession))?$/i;
-/** Fields whose value names the database an object belongs to (UniProt cross-references and evidences, HGNC/Ensembl xrefs). */
-const DATABASE_FIELDS = ["database", "source", "db", "dbname", "db_name"];
+/**
+ * Fields whose value names the database an object belongs to (UniProt cross-references and
+ * evidences, HGNC/Ensembl xrefs, ClinVar esummary `variation_xrefs` and `trait_xrefs` with
+ * `db_source`, and the ClinVar einfo description, whose field list names a MIM field by `name`
+ * and whose link list names OMIM by `menu` and `dbto`).
+ */
+const DATABASE_FIELDS = ["database", "source", "db", "dbname", "db_name", "db_source", "name", "menu", "dbto"];
 
 function namesProprietaryDatabase(v: unknown): boolean {
   if (!v || typeof v !== "object" || Array.isArray(v)) return false;

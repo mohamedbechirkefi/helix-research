@@ -1,0 +1,102 @@
+{
+  "description": "Offline fixtures for the cftr set, recorded by scripts/data-preparation/build-gene.ts --gene cftr --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/info_data.json"
+    },
+    "ensemblAssembly": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/info_assembly_homo_sapiens.json"
+    },
+    "geneLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json"
+    },
+    "transcriptLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/lookup_id_ENST00000003084_expand_1_utr_1_mane_1.json"
+    },
+    "cds": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/sequence_id_ENST00000003084_type_cds.fa"
+    },
+    "cdna": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/sequence_id_ENST00000003084_type_cdna.fa"
+    },
+    "ensemblProtein": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/sequence_id_ENSP00000003084.fa"
+    },
+    "genomicWindow": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/sequence_region_human_7_117559572..117559614_1.json"
+    },
+    "codonMap": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/map_cds_ENST00000003084_1521..1523.json"
+    },
+    "variation": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/variation_human_rs113993960.json"
+    },
+    "variantRecoder": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/variant_recoder_human_rs113993960_fields_id_hgvsg_hgvsc_hgvsp_spdi.json"
+    },
+    "vep": {
+      "source": "ensembl",
+      "path": "data/fixtures/cftr/ensembl/vep_human_hgvs_ENST00000003084.11_c.1521_1523del_hgvs_1_mane_1_canonical_1_uniprot_1.json"
+    },
+    "uniprot": {
+      "source": "uniprot",
+      "path": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json"
+    },
+    "mmcif": {
+      "source": "rcsb-files",
+      "path": "data/fixtures/cftr/rcsb-files/download_5UAK.cif"
+    },
+    "rcsbEntry": {
+      "source": "rcsb",
+      "path": "data/fixtures/cftr/rcsb/rest_v1_core_entry_5UAK.json"
+    },
+    "rcsbPolymerEntity": {
+      "source": "rcsb",
+      "path": "data/fixtures/cftr/rcsb/rest_v1_core_polymer_entity_5UAK_1.json"
+    },
+    "rcsbAssembly": {
+      "source": "rcsb",
+      "path": "data/fixtures/cftr/rcsb/rest_v1_core_assembly_5UAK_1.json"
+    },
+    "sifts": {
+      "source": "pdbe-sifts",
+      "path": "data/fixtures/cftr/pdbe-sifts/pdbe_api_mappings_uniprot_5uak.json"
+    },
+    "clinvarSearch": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs113993960_retmode_json_retmax_100_tool_helix-research.json"
+    },
+    "clinvar": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json"
+    },
+    "clinvarEinfo": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_einfo.fcgi_db_clinvar_retmode_json_tool_helix-research.json"
+    },
+    "hgnc": {
+      "source": "hgnc",
+      "path": "data/fixtures/cftr/hgnc/fetch_symbol_CFTR.json"
+    },
+    "alphafoldPrediction": {
+      "source": "alphafold",
+      "path": "data/fixtures/cftr/alphafold/api_prediction_P13569.json"
+    },
+    "alphafoldModel": {
+      "source": "alphafold",
+      "path": "data/fixtures/cftr/alphafold/files_AF-P13569-F1-model_v6.cif"
+    }
+  },
+  "extra": {}
+}

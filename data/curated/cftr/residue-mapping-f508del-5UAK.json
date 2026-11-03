@@ -1,0 +1,174 @@
+{
+  "kind": "residue-mapping",
+  "uniprotAccession": "P13569",
+  "uniprotPosition": 508,
+  "uniprotResidue": "F",
+  "maturePosition": null,
+  "entryId": "5UAK",
+  "entityId": "1",
+  "method": "sifts",
+  "crossChecks": [
+    {
+      "method": "global alignment of entity sequence to UniProt",
+      "agrees": true,
+      "detail": "offset 0, identity 1.0000, 0 mismatch(es): "
+    },
+    {
+      "method": "RCSB rcsb_polymer_entity_align (SIFTS provenance)",
+      "agrees": true,
+      "detail": "ref_beg 1 <-> entity_beg 1, length 1480"
+    },
+    {
+      "method": "mmCIF _struct_ref_seq (not used)",
+      "agrees": true,
+      "detail": "agrees with SIFTS"
+    }
+  ],
+  "residues": [
+    {
+      "entryId": "5UAK",
+      "assemblyId": "1",
+      "entityId": "1",
+      "labelAsymId": "A",
+      "labelSeqId": 508,
+      "authAsymId": "A",
+      "authSeqId": "508",
+      "insCode": null,
+      "compId": "PHE",
+      "authCompId": "PHE"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/5uak",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:41Z",
+        "sourceRelease": null,
+        "recordId": "5uak",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "0d26c8a2e5016ea1be08372757985d89ed6d50b3f89968da064afc42edf95779",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      },
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/5UAK.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:40Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/5UAK/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:41Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "1115beaeec4c5de6df425d76d69cf267a802a06eef4a6638f1d186bda580e5ff",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P13569.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:35Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P13569",
+        "recordVersion": "entry 286, sequence 3",
+        "assembly": null,
+        "sha256": "2b7b2ea3cabf7d9bf660b5e7bf70a420f46b5e8c26016d542ebd8dcb1c38dcd8",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "sifts-segment-lookup",
+      "poly-seq-scheme-auth-ids",
+      "atom-site-residue-name",
+      "alignment-cross-check"
+    ],
+    "validation": [
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P13569 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T21-alignment-cross-check",
+        "result": "pass",
+        "detail": "entity 1489 aa vs UniProt 1480 aa: offset 0, identity 1.0000, mismatches ; SIFTS offset 0",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T22-rcsb-align-agrees",
+        "result": "pass",
+        "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "5UAK residue F508 (deleted in F508del (p.Phe508del)): A observed (label 508, auth 508, PHE); structurePreference variant-residue-observed",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 508 auth 508 PHE; structure carries the reference residue",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T37-full-chain-agrees-with-variant-mapping",
+        "result": "pass",
+        "detail": "position 508: table A508 PHE; variant mapping record A508 PHE",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T24-wrong-numbering-detectable",
+        "result": "pass",
+        "detail": "label numbering of A equals UniProt numbering at 508 (PHE); no distinct mature numbering, so no other numbering exists to land elsewhere",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T25-struct-ref-seq-not-trusted",
+        "result": "pass",
+        "detail": "SIFTS selects label 508 (PHE); _struct_ref_seq would select label 508 (PHE); 0 disagreement(s) recorded as known issues",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "Residue A 508 is PHE in the deposited coordinates of 5UAK (atom_site).",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "SIFTS maps P13569 1-1480 to 5UAK entity 1 residues 1-1480.",
+      "qualifier": "identity 1, coverage 1",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

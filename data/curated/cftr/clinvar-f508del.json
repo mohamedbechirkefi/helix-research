@@ -1,0 +1,125 @@
+{
+  "kind": "clinvar-record",
+  "variantKey": "NC_000007.14:g.117559592_117559594del",
+  "uid": "7105",
+  "accession": "VCV000007105",
+  "accessionVersion": "VCV000007105.214",
+  "recordVersion": 214,
+  "clinvarBuild": "Build261101-1245.1",
+  "objectType": "Deletion",
+  "title": "NM_000492.3(CFTR):c.1521_1523del (p.Phe508del)",
+  "canonicalSpdi": [
+    "NC_000007.14:117559590:TCTT:T"
+  ],
+  "classification": "Pathogenic",
+  "reviewStatus": "practice guideline",
+  "reviewStars": 4,
+  "conflicts": {
+    "conflicting": false,
+    "basis": "review status \"practice guideline\"; classification \"Pathogenic\" (ClinVar does not report a conflict; this status does not assert agreement among several submitters)"
+  },
+  "lastEvaluated": "2004/03/03 00:00",
+  "supportingSubmissionCount": 102,
+  "traitCount": 1,
+  "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers.",
+  "otherClassifications": {
+    "clinicalImpact": null,
+    "oncogenicity": null
+  },
+  "relatedRecords": [
+    {
+      "uid": "634837",
+      "accessionVersion": "VCV000634837.2",
+      "objectType": "Haplotype",
+      "title": "NM_000492.3(CFTR):c.[1521_1523delCTT;3080T>C]",
+      "classification": "Pathogenic",
+      "reviewStatus": "reviewed by expert panel",
+      "reviewStars": 3,
+      "relation": "haplotype-or-compound",
+      "includesThisAllele": true
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs113993960&retmode=json&retmax=100&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:42Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "esearch rs113993960",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "96f73ee016699953e08b6473679bc63b09c9506dbaad2988a63683625385b47f",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      },
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=634837,7105&retmode=json&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:42Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "VCV000007105",
+        "recordVersion": "214",
+        "assembly": "GRCh38",
+        "sha256": "7b725d0d1d234e74eacc2bd61986bb526b96abcf317a1b665c6ba12886c30a66",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      }
+    ],
+    "transformations": [
+      "esearch-by-rsid",
+      "esummary-all-uids",
+      "drop-trait-names",
+      "review-stars-from-clinvar-table",
+      "conflicts-from-review-status",
+      "related-records-kept-separate"
+    ],
+    "validation": [
+      {
+        "check": "T33-clinvar-search-covered",
+        "result": "pass",
+        "detail": "esearch rs113993960: 2 uids; esummary returned 2 (634837,7105)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T34-clinvar-review-status",
+        "result": "pass",
+        "detail": "VCV000007105.214: \"practice guideline\" -> 4 star(s); conflicting false; evidence basis reviewed-clinical-submission",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T35-clinvar-related-records-separate",
+        "result": "pass",
+        "detail": "1 other record(s) for rs113993960: 1 haplotype/compound (1 include NC_000007.14:117559590:TCTT:T), 0 other allele/variant (none); none merged",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "reviewed-clinical-submission",
+      "statement": "ClinVar VCV000007105.214 review status: practice guideline (4 of 4 review stars in ClinVar's scale); ClinVar reports no conflicting classifications for this record.",
+      "qualifier": "classification Pathogenic; 102 supporting submissions; last evaluated 2004/03/03 00:00",
+      "limitations": [
+        "The review status describes how the submissions were assessed, not the strength of any clinical claim; HELIX is nonclinical.",
+        "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
+      ]
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "ClinVar returns 1 other record(s) for rs113993960: 1 haplotype or compound record(s), of which 1 include this allele together with another variant, and 0 record(s) of a different allele or variant. They are listed separately and never merged with VCV000007105.",
+      "qualifier": null,
+      "limitations": [
+        "A haplotype record classifies the combination of variants, not this allele alone.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

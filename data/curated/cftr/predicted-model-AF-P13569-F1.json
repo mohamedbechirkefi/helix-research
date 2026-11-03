@@ -1,0 +1,70 @@
+{
+  "kind": "predicted-model",
+  "modelId": "AF-P13569-F1",
+  "modelVersion": 6,
+  "uniprotAccession": "P13569",
+  "uniprotRange": {
+    "start": 1,
+    "end": 1480
+  },
+  "modelCreatedDate": "2025-08-01T00:00:00Z",
+  "globalPlddt": 75.62,
+  "sequenceChecksumMatchesUniprot": true,
+  "disclaimer": "Data in this file is available under a CC-BY-4.0 license.\n\nALPHAFOLD DATA, COPYRIGHT (2021) DEEPMIND TECHNOLOGIES LIMITED. THE INFORMATION\nPROVIDED IS THEORETICAL MODELLING ONLY AND CAUTION SHOULD BE EXERCISED IN ITS\nUSE. IT IS PROVIDED \"AS-IS\" WITHOUT ANY WARRANTY OF ANY KIND, WHETHER EXPRESSED\nOR IMPLIED. NO WARRANTY IS GIVEN THAT USE OF THE INFORMATION SHALL NOT INFRINGE\nTHE RIGHTS OF ANY THIRD PARTY. DISCLAIMER: THE INFORMATION IS NOT INTENDED TO BE\nA SUBSTITUTE FOR PROFESSIONAL MEDICAL ADVICE, DIAGNOSIS, OR TREATMENT, AND DOES\nNOT CONSTITUTE MEDICAL OR OTHER PROFESSIONAL ADVICE. IT IS AVAILABLE FOR\nACADEMIC AND COMMERCIAL PURPOSES, UNDER CC-BY 4.0 LICENCE.",
+  "usableForVariantPlacement": false,
+  "provenance": {
+    "sources": [
+      {
+        "source": "alphafold",
+        "url": "https://alphafold.ebi.ac.uk/api/prediction/P13569",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:43Z",
+        "sourceRelease": "AlphaFold DB model v6",
+        "recordId": "AF-P13569-F1",
+        "recordVersion": "6",
+        "assembly": null,
+        "sha256": "defdf4427b9d9420ad9e9033106ddf4cc541cb930abb693e412cd213e4de4207",
+        "licence": "CC-BY-4.0",
+        "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+      },
+      {
+        "source": "alphafold",
+        "url": "https://alphafold.ebi.ac.uk/files/AF-P13569-F1-model_v6.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:43Z",
+        "sourceRelease": "AlphaFold DB model v6",
+        "recordId": "AF-P13569-F1",
+        "recordVersion": "6",
+        "assembly": null,
+        "sha256": "12525bdff67442baa038db09fe07d236f91c1f2e0e794f44eb33fe773b4b6590",
+        "licence": "CC-BY-4.0",
+        "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "keep-in-file-disclaimer"
+    ],
+    "validation": [
+      {
+        "check": "T32-alphafold-labelled",
+        "result": "pass",
+        "detail": "AF-P13569-F1 v6; md5 match true; residue 508 in model = F (reference), so never used to show the deletion of F508",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 3
+  },
+  "evidence": [
+    {
+      "category": 3,
+      "categoryLabel": "Computational prediction with confidence/limitations",
+      "basis": "computational-prediction",
+      "statement": "AF-P13569-F1 is a predicted model (AlphaFold DB v6, AlphaFold Monomer v2.0 pipeline), global pLDDT 75.62.",
+      "qualifier": "global pLDDT 75.62",
+      "limitations": [
+        "Computational prediction; not an experimental observation."
+      ]
+    }
+  ]
+}

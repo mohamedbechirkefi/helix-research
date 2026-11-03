@@ -1,0 +1,91 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "date_approved_reserved": "1986-01-01T00:00:00Z",
+    "ena": [
+     "M28668"
+    ],
+    "status": "Approved",
+    "gene_group": [
+     "Chloride channels, ATP-gated CFTR",
+     "ATP binding cassette subfamily C"
+    ],
+    "mgd_id": [
+     "MGI:88388"
+    ],
+    "vega_id": "OTTHUMG00000023076",
+    "lsdb": [
+     "Cystic Fibrosis|http://www.genet.sickkids.on.ca/cftr/",
+     "LRG_663|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_663.xml"
+    ],
+    "alias_symbol": [
+     "MRP7",
+     "ABC35",
+     "TNR-CFTR",
+     "dJ760C5.1",
+     "CFTR/MRP"
+    ],
+    "hgnc_id": "HGNC:1884",
+    "pubmed_id": [
+     2772657
+    ],
+    "enzyme_id": [
+     "5.6.1.6"
+    ],
+    "uniprot_ids": [
+     "P13569"
+    ],
+    "entrez_id": "1080",
+    "mane_select": [
+     "ENST00000003084.11",
+     "NM_000492.4"
+    ],
+    "symbol": "CFTR",
+    "prev_name": [
+     "cystic fibrosis transmembrane conductance regulator, ATP-binding cassette (sub-family C, member 7)"
+    ],
+    "locus_group": "protein-coding gene",
+    "ccds_id": [
+     "CCDS5773"
+    ],
+    "name": "CF transmembrane conductance regulator",
+    "gencc": "HGNC:1884",
+    "prev_symbol": [
+     "CF",
+     "ABCC7"
+    ],
+    "locus_type": "gene with protein product",
+    "refseq_accession": [
+     "NM_000492"
+    ],
+    "ensembl_gene_id": "ENSG00000001626",
+    "uuid": "b9b3e381-8ebc-49ec-bef2-2f12d17450da",
+    "iuphar": "HGNC:1884",
+    "agr": "HGNC:1884",
+    "location": "7q31.2",
+    "alias_name": [
+     "ATP-binding cassette sub-family C, member 7"
+    ],
+    "date_name_changed": "2019-05-16T00:00:00Z",
+    "gene_group_id": [
+     309,
+     807
+    ],
+    "orphanet": 119382,
+    "rgd_id": [
+     "RGD:2332"
+    ],
+    "date_modified": "2025-10-02T00:00:00Z",
+    "ucsc_id": "uc003vjd.4"
+   }
+  ]
+ }
+}

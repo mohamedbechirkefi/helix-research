@@ -1,0 +1,19 @@
+files compared: 15
+byte-identical files: 1
+allowed differences (timestamps and dependent hashes): 158
+  clinvar-hbs.json: 3
+  contacts-hbs-2HBS.json: 1
+  gene.json: 7
+  manifest.json: 65
+  predicted-model-AF-P68871-F1.json: 1
+  protein-P68871.json: 10
+  residue-mapping-P68871-2HBS.json: 4
+  residue-mapping-hbs-2HBS.json: 7
+  sequences.json: 32
+  structure-2HBS.json: 8
+  transcript.json: 6
+  variant-hbs.json: 14
+other differences: 3
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.files: 13 != 14 (array length)
+  questions.json : false != true (file present in one build only)

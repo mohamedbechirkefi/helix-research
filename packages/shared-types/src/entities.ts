@@ -169,7 +169,8 @@ export const ProteinNumbering = z.object({
 });
 export type ProteinNumbering = z.infer<typeof ProteinNumbering>;
 
-export const Variant = z.object({
+/** Fields every variant record carries, whatever its kind. */
+const VariantCommon = {
   kind: z.literal("variant"),
   /** Stable HELIX key: the allele-level genomic HGVS, never an rsID alone. */
   key: z.string(),
@@ -177,16 +178,18 @@ export const Variant = z.object({
   rsId: z.string().nullable(),
   /** All alleles at the rsID, so a lookup by rsID cannot silently pick one. */
   rsAlleles: z.array(z.string()),
+  /** Forward-strand alleles: one base each for a substitution; the deleted bases and an empty alternate for a deletion. */
   allele: z.object({ reference: z.string(), alternate: z.string(), strand: z.literal(1) }),
+  /** The changed base for a substitution; the deleted bases, as one closed interval, for a deletion. */
   location: GenomicInterval,
   locationGRCh37: GenomicInterval.nullable(),
   hgvs: z.object({ genomic: z.string(), coding: z.array(z.string()), protein: z.array(z.string()) }),
   spdi: z.string(),
   transcript: VersionedId,
+  /** The c. position of a substitution; the first deleted c. position of a deletion. */
   cdsPosition: z.number().int().min(1),
   cdnaPosition: z.number().int().min(1).nullable(),
-  codon: z.object({ number: z.number().int().min(1), reference: z.string().length(3), alternate: z.string().length(3), genomic: GenomicInterval }),
-  aminoAcids: z.object({ reference: z.string().length(1), alternate: z.string().length(1) }),
+  /** HGVS p. in three-letter form, computed by translating the codons (never copied from a source). */
   proteinChangeComputed: z.string(),
   numbering: ProteinNumbering,
   consequence: z.object({ terms: z.array(z.string()), codons: z.string(), source: z.string() }).nullable(),
@@ -205,8 +208,56 @@ export const Variant = z.object({
     })
     .nullable(),
   ...Curated,
+};
+
+/**
+ * A single-base substitution (Phases 2 to 8). `variantKind` is absent on the records written
+ * before Phase 9 and read as "substitution"; the record's `kind` stays the record kind.
+ */
+export const SubstitutionVariant = z.object({
+  ...VariantCommon,
+  variantKind: z.literal("substitution").optional(),
+  codon: z.object({ number: z.number().int().min(1), reference: z.string().length(3), alternate: z.string().length(3), genomic: GenomicInterval }),
+  aminoAcids: z.object({ reference: z.string().length(1), alternate: z.string().length(1) }),
 });
+export type SubstitutionVariant = z.infer<typeof SubstitutionVariant>;
+
+/** One codon the deleted span touches: its reference bases, its bases after the deletion (null when it disappears) and both amino acids. */
+export const AffectedCodon = z.object({
+  number: z.number().int().min(1),
+  reference: z.string().length(3),
+  afterDeletion: z.string().length(3).nullable(),
+  referenceAminoAcid: z.string().length(1),
+  aminoAcidAfterDeletion: z.string().length(1).nullable(),
+  genomic: GenomicInterval,
+});
+export type AffectedCodon = z.infer<typeof AffectedCodon>;
+
+/**
+ * An in-frame deletion (Phase 9, docs/phase-9-generalisation.md section 11 rule 2): the deleted
+ * cDNA span, every codon it touches, the residue(s) the protein loses and the protein change
+ * computed by translation. A frameshift is never written (the builder refuses it).
+ */
+export const DeletionVariant = z.object({
+  ...VariantCommon,
+  variantKind: z.literal("deletion"),
+  /** Deleted CDS span, 1-based closed, with its forward-strand genomic interval. */
+  deletedSpan: z.object({ cdsStart: z.number().int().min(1), cdsEnd: z.number().int().min(1), length: z.number().int().min(3), genomic: GenomicInterval }),
+  affectedCodons: z.array(AffectedCodon).min(1),
+  /** UniProt position of the (first) deleted residue, after 3' normalisation at the protein level. */
+  residue: z.number().int().min(1),
+  deletedResidues: z.array(z.object({ position: z.number().int().min(1), aminoAcid: z.string().length(1) })).min(1),
+});
+export type DeletionVariant = z.infer<typeof DeletionVariant>;
+
+/** A variant record of either kind. The deletion schema is tried first because it is the one with a required discriminator. */
+export const Variant = z.union([DeletionVariant, SubstitutionVariant]);
 export type Variant = z.infer<typeof Variant>;
+
+/** The kind of a variant record, with the pre-Phase 9 records read as substitutions. */
+export function variantKindOf(v: Pick<Variant, "variantKind">): "substitution" | "deletion" {
+  return v.variantKind ?? "substitution";
+}
 
 // ---------------------------------------------------------------- structure
 
@@ -466,3 +517,30 @@ export const CapabilityReport = z.object({
   variantHighlight: Capability,
 });
 export type CapabilityReport = z.infer<typeof CapabilityReport>;
+
+/** The capability keys a question may require (the Capability-valued fields of the report). */
+export const CAPABILITY_KEYS = ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight"] as const;
+export type CapabilityKey = (typeof CAPABILITY_KEYS)[number];
+
+/** One curated question with the capabilities the set must have for it to be askable at all. */
+export const CuratedQuestion = z.object({
+  text: z.string().min(1),
+  requires: z.array(z.enum(CAPABILITY_KEYS)),
+});
+export type CuratedQuestion = z.infer<typeof CuratedQuestion>;
+
+/**
+ * The set's questions (Phase 9, docs/phase-9-generalisation.md section 11 rule 6): curator
+ * text copied from the gene specification, not a claim-bearing record (no provenance of its
+ * own; it names the capability record its `requires` keys refer to). `bridgeQuestion` is the
+ * question offered first after a DNA World variant answer; null when the set has none.
+ */
+export const QuestionsRecord = z.object({
+  kind: z.literal("questions"),
+  derivedFrom: z.array(z.string()).default([]),
+  geneId: z.string(),
+  symbol: z.string(),
+  questions: z.array(CuratedQuestion),
+  bridgeQuestion: z.string().min(1).nullable(),
+});
+export type QuestionsRecord = z.infer<typeof QuestionsRecord>;

@@ -1,0 +1,48 @@
+{
+  "kind": "capabilities",
+  "derivedFrom": [
+    "gene.json",
+    "transcript.json",
+    "sequences.json",
+    "protein-P13569.json",
+    "variant-f508del.json",
+    "clinvar-f508del.json",
+    "structure-5UAK.json",
+    "residue-mapping-f508del-5UAK.json",
+    "residue-mapping-P13569-5UAK.json",
+    "contacts-f508del-5UAK.json",
+    "predicted-model-AF-P13569-F1.json"
+  ],
+  "geneId": "ENSG00000001626",
+  "symbol": "CFTR",
+  "transcriptView": {
+    "available": true,
+    "reason": "transcript ENST00000003084.11 selected by rule mane_select",
+    "evidenceCategory": 2
+  },
+  "proteinView": {
+    "available": true,
+    "reason": "UniProt P13569; sequence equals the translated CDS",
+    "evidenceCategory": 2
+  },
+  "experimentalStructure": {
+    "available": true,
+    "reason": "58 experimental entries (e.g. 1XMI, X-ray)",
+    "evidenceCategory": 1
+  },
+  "predictedStructure": {
+    "available": true,
+    "reason": "AF-P13569-F1 v6; computational prediction, never shown as experimental",
+    "evidenceCategory": 3
+  },
+  "verifiedResidueMapping": {
+    "available": true,
+    "reason": "verified SIFTS + atom_site mapping for 5UAK",
+    "evidenceCategory": 1
+  },
+  "variantHighlight": {
+    "available": true,
+    "reason": "variant position(s) 508 mapped to observed residues in an experimental structure",
+    "evidenceCategory": 1
+  }
+}

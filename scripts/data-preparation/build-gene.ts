@@ -7,6 +7,7 @@
  *   node scripts/data-preparation/build-gene.ts --gene hbb --fixtures     build from the recorded fixtures (data/fixtures/<gene>/)
  *   node scripts/data-preparation/build-gene.ts --gene <id> --record-fixtures   live build that also records
  *        every input, redacted (Q-H-LIC-1), as data/fixtures/<id>/ with MANIFEST.tsv files and index.json
+ *        (with --offline: the same recording from the snapshot of the last live acquisition)
  *   options: --out <dir> (default data/curated/<datasetId>)
  *
  * The specification is data/specs/<gene>.json (packages/scientific-core/src/slice/spec.ts);

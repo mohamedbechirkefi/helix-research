@@ -1,0 +1,996 @@
+[
+ {
+  "end": 117559594,
+  "most_severe_consequence": "inframe_deletion",
+  "id": "ENST00000003084.11:c.1521_1523del",
+  "colocated_variants": [
+   {
+    "clin_sig": [
+     "likely_pathogenic",
+     "pathogenic",
+     "drug_response",
+     "risk_factor"
+    ],
+    "clin_sig_allele": ":risk_factor;:pathogenic;:drug_response;:likely_pathogenic",
+    "clin_sig_ref_allele": "CTT",
+    "pubmed": [
+     25741868,
+     24033266,
+     31019283,
+     22992668,
+     23757202,
+     34288589,
+     29193749,
+     15367919,
+     26249223,
+     26831755,
+     22981120,
+     34086412,
+     2236053,
+     26436105,
+     27917292,
+     32143663,
+     18507830,
+     30996306,
+     23974870,
+     35573065,
+     15371902,
+     22293084,
+     25514096,
+     11280952,
+     21416780,
+     32971794,
+     33623413,
+     15948195,
+     33718573,
+     19774621,
+     19846789,
+     22942289,
+     1937486,
+     1536179,
+     15141088,
+     1377276,
+     1370875,
+     1381146,
+     1384321,
+     1673094,
+     1756602,
+     1997384,
+     2210767,
+     2220803,
+     2300168,
+     2475911,
+     2570460,
+     7509564,
+     7537148,
+     9135274,
+     9439669,
+     15246977,
+     17206681,
+     17413420,
+     17692578,
+     20595578,
+     20705837,
+     21602569,
+     21825083,
+     21976485,
+     22383668,
+     24559724,
+     24973281,
+     25981758,
+     26968770,
+     27214033,
+     27298017,
+     32109416,
+     36552859,
+     33613790,
+     27899611,
+     35663788,
+     29655499,
+     35338580,
+     30770838,
+     35328596,
+     36819667,
+     35627274,
+     37175647,
+     35887629,
+     22140107,
+     37389024,
+     34012112,
+     34860163,
+     27636560,
+     29581887,
+     32398304,
+     24958810,
+     26618866,
+     34996830,
+     1380673,
+     37457734,
+     37628659,
+     37510311,
+     37588055,
+     38515211,
+     38254935,
+     38933898,
+     36192438,
+     39124666,
+     39498263,
+     39657951,
+     37801035,
+     39458161,
+     39881831,
+     39252935,
+     39930085,
+     40817859,
+     34117883
+    ],
+    "start": 117559591,
+    "strand": 1,
+    "frequencies": {
+     "-": {
+      "gnomade_eas": 0.00002524,
+      "gnomadg": 0.007884,
+      "gnomadg_remaining": 0.007583,
+      "gnomade_amr": 0.003958,
+      "gnomade_nfe": 0.01498,
+      "gnomade_fin": 0.002757,
+      "gnomadg_asj": 0.004032,
+      "gnomade_mid": 0.001735,
+      "amr": 0.0101,
+      "gnomadg_sas": 0.003108,
+      "gnomadg_afr": 0.002599,
+      "sas": 0.0041,
+      "gnomadg_eas": 0,
+      "gnomadg_ami": 0.001096,
+      "gnomade_remaining": 0.01009,
+      "gnomade_afr": 0.002302,
+      "gnomade": 0.01235,
+      "af": 0.004,
+      "eur": 0.0089,
+      "gnomade_sas": 0.00247,
+      "gnomadg_amr": 0.003728,
+      "afr": 0,
+      "gnomade_asj": 0.006319,
+      "eas": 0,
+      "gnomadg_mid": 0.003401,
+      "gnomadg_fin": 0.001508,
+      "gnomadg_nfe": 0.0143
+     }
+    },
+    "allele_string": "TCTT/T/TCTTCTT",
+    "phenotype_or_disease": 1,
+    "end": 117559594,
+    "id": "rs113993960",
+    "var_synonyms": {
+     "PharmGKB": [
+      "PA166157536",
+      "PA166157525"
+     ],
+     "ClinVar": [
+      "RCV003227599",
+      "RCV002251888",
+      "RCV002243627",
+      "RCV000785641",
+      "VCV000634837",
+      "RCV000626693",
+      "RCV000626692",
+      "RCV000624683",
+      "RCV001004459",
+      "RCV001000022",
+      "RCV002490332",
+      "RCV001787371",
+      "RCV001787370",
+      "RCV001642198",
+      "RCV001831519",
+      "RCV003444054",
+      "RCV003398459",
+      "RCV000007524",
+      "RCV000007523",
+      "VCV000007105",
+      "RCV000119038",
+      "RCV000058929"
+     ]
+    },
+    "seq_region_name": "7"
+   },
+   {
+    "seq_region_name": "7",
+    "end": 117559594,
+    "var_synonyms": {
+     "COSMIC": [
+      "COSM1684119"
+     ]
+    },
+    "id": "COSV50043929",
+    "allele_string": "COSMIC_MUTATION",
+    "phenotype_or_disease": 1,
+    "somatic": 1,
+    "start": 117559592,
+    "strand": 1
+   }
+  ],
+  "strand": 1,
+  "input": "ENST00000003084.11:c.1521_1523del",
+  "start": 117559592,
+  "transcript_consequences": [
+   {
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 508,
+    "cdna_start": 1591,
+    "cdna_end": 1593,
+    "uniprot_isoform": [
+     "P13569-1"
+    ],
+    "hgvsc": "ENST00000003084.11:c.1521_1523del",
+    "hgvsp": "ENSP00000003084.6:p.Phe508del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "impact": "MODERATE",
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I",
+    "cds_start": 1521,
+    "swissprot": [
+     "P13569.283"
+    ],
+    "uniparc": [
+     "UPI000013C4D4"
+    ],
+    "canonical": 1,
+    "protein_start": 507,
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "mane": [
+     "MANE_Select"
+    ],
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000003084",
+    "gene_id": "ENSG00000001626",
+    "mane_select": "NM_000492.4",
+    "strand": 1,
+    "cds_end": 1523
+   },
+   {
+    "cdna_start": 1431,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1433,
+    "protein_end": 478,
+    "hgvsp": "ENSP00000389119.1:p.Phe478del",
+    "hgvsc": "ENST00000426809.5:c.1431_1433del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "cds_start": 1431,
+    "impact": "MODERATE",
+    "uniparc": [
+     "UPI000155D689"
+    ],
+    "protein_start": 477,
+    "trembl": [
+     "E7EPB6.109"
+    ],
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000426809",
+    "gene_id": "ENSG00000001626",
+    "flags": [
+     "cds_end_NF"
+    ],
+    "strand": 1,
+    "cds_end": 1433
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "strand": -1,
+    "distance": 1139,
+    "gene_id": "ENSG00000232661",
+    "transcript_id": "ENST00000441019",
+    "biotype": "lncRNA",
+    "variant_allele": "-",
+    "gene_symbol": "CFTR-AS1",
+    "consequence_terms": [
+     "downstream_gene_variant"
+    ],
+    "canonical": 1,
+    "hgnc_id": "HGNC:40144",
+    "impact": "MODIFIER"
+   },
+   {
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODIFIER",
+    "consequence_terms": [
+     "upstream_gene_variant"
+    ],
+    "gene_symbol": "CFTR",
+    "variant_allele": "-",
+    "biotype": "protein_coding_CDS_not_defined",
+    "transcript_id": "ENST00000472848",
+    "gene_id": "ENSG00000001626",
+    "distance": 44,
+    "strand": 1,
+    "gene_symbol_source": "HGNC"
+   },
+   {
+    "cds_end": 1523,
+    "strand": 1,
+    "gene_id": "ENSG00000001626",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000647720",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A3B3ITE0.32"
+    ],
+    "biotype": "nonsense_mediated_decay",
+    "protein_start": 507,
+    "uniparc": [
+     "UPI0020B0233F"
+    ],
+    "cds_start": 1521,
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "amino_acids": "IF/I",
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000497673.2:p.Phe508del",
+    "hgvsc": "ENST00000647720.2:c.1521_1523del",
+    "protein_end": 508,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "cdna_end": 1630,
+    "cdna_start": 1628
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "hgvsc": "ENST00000647978.2:c.*1235_*1237del",
+    "gene_symbol": "CFTR",
+    "cdna_end": 1498,
+    "consequence_terms": [
+     "3_prime_UTR_variant",
+     "NMD_transcript_variant"
+    ],
+    "cdna_start": 1496,
+    "strand": 1,
+    "transcript_id": "ENST00000647978",
+    "gene_id": "ENSG00000001626",
+    "biotype": "nonsense_mediated_decay",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A3B3IT97.27"
+    ],
+    "uniparc": [
+     "UPI000E6EAF22"
+    ],
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODIFIER"
+   },
+   {
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1476,
+    "cdna_start": 1474,
+    "protein_end": 447,
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsc": "ENST00000648260.2:c.1338_1340del",
+    "hgvsp": "ENSP00000497957.1:p.Phe447del",
+    "protein_start": 446,
+    "uniparc": [
+     "UPI000E6F2483"
+    ],
+    "amino_acids": "IF/I",
+    "cds_start": 1338,
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "strand": 1,
+    "cds_end": 1340,
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000648260",
+    "codons": "atCTTt/att",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A3B3ITW0.36"
+    ],
+    "biotype": "protein_coding"
+   },
+   {
+    "gene_symbol": "CFTR",
+    "hgvsc": "ENST00000649406.2:c.1338_1340del",
+    "hgvsp": "ENSP00000497965.1:p.Phe447del",
+    "gene_symbol_source": "HGNC",
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 447,
+    "cdna_end": 1476,
+    "cdna_start": 1474,
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000649406",
+    "codons": "atCTTt/att",
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A3B3ITW5.38"
+    ],
+    "cds_end": 1340,
+    "strand": 1,
+    "amino_acids": "IF/I",
+    "impact": "MODERATE",
+    "cds_start": 1338,
+    "hgnc_id": "HGNC:1884",
+    "protein_start": 446,
+    "uniparc": [
+     "UPI000E6E7AF4"
+    ]
+   },
+   {
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000649781",
+    "gene_id": "ENSG00000001626",
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "cds_end": 1340,
+    "strand": 1,
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "cds_start": 1338,
+    "protein_start": 446,
+    "uniparc": [
+     "UPI000150AECE"
+    ],
+    "swissprot": [
+     "P13569.283"
+    ],
+    "hgvsp": "ENSP00000497203.1:p.Phe447del",
+    "hgvsc": "ENST00000649781.3:c.1338_1340del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "uniprot_isoform": [
+     "P13569-2"
+    ],
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 447,
+    "cdna_end": 1476,
+    "cdna_start": 1474
+   },
+   {
+    "protein_end": 508,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "cdna_end": 1630,
+    "cdna_start": 1628,
+    "hgvsc": "ENST00000685018.2:c.1521_1523del",
+    "hgvsp": "ENSP00000510194.2:p.Phe508del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "IF/I",
+    "cds_start": 1521,
+    "impact": "MODERATE",
+    "hgnc_id": "HGNC:1884",
+    "uniparc": [
+     "UPI0020B03DF5"
+    ],
+    "protein_start": 507,
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "trembl": [
+     "A0A8I5KVV2.18"
+    ],
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000685018",
+    "gene_id": "ENSG00000001626",
+    "strand": 1,
+    "cds_end": 1523
+   },
+   {
+    "protein_end": 508,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "cdna_end": 1630,
+    "cdna_start": 1628,
+    "hgvsp": "ENSP00000509593.2:p.Phe508del",
+    "hgvsc": "ENST00000687278.2:c.1521_1523del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "protein_start": 507,
+    "uniparc": [
+     "UPI0020B0FA1F"
+    ],
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000687278",
+    "gene_id": "ENSG00000001626",
+    "trembl": [
+     "A0A8I5KVL1.18"
+    ],
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "strand": 1,
+    "cds_end": 1523
+   },
+   {
+    "uniparc": [
+     "UPI0020B0233F"
+    ],
+    "protein_start": 507,
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "strand": 1,
+    "cds_end": 1523,
+    "trembl": [
+     "A0A3B3ITE0.32"
+    ],
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000699585",
+    "gene_id": "ENSG00000001626",
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "protein_end": 508,
+    "cdna_start": 1628,
+    "cdna_end": 1630,
+    "gene_symbol_source": "HGNC",
+    "hgvsc": "ENST00000699585.1:c.1521_1523del",
+    "hgvsp": "ENSP00000514456.1:p.Phe508del",
+    "gene_symbol": "CFTR"
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000514465.1:p.Phe508del",
+    "hgvsc": "ENST00000699596.2:c.1521_1523del",
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1659,
+    "protein_end": 508,
+    "cdna_start": 1657,
+    "cds_end": 1523,
+    "strand": 1,
+    "gene_id": "ENSG00000001626",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000699596",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A8V8TQ89.15"
+    ],
+    "biotype": "protein_coding",
+    "protein_start": 507,
+    "uniparc": [
+     "UPI0020B0348B"
+    ],
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "amino_acids": "IF/I",
+    "cds_start": 1521
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "hgvsc": "ENST00000699597.2:c.*79_*81del",
+    "gene_symbol": "CFTR",
+    "cdna_end": 1654,
+    "consequence_terms": [
+     "3_prime_UTR_variant"
+    ],
+    "cdna_start": 1652,
+    "strand": 1,
+    "transcript_id": "ENST00000699597",
+    "gene_id": "ENSG00000001626",
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "trembl": [
+     "A0A8V8TNG7.15"
+    ],
+    "uniparc": [
+     "UPI0020B0719D"
+    ],
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODIFIER"
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000514467.1:p.Phe508del",
+    "hgvsc": "ENST00000699598.1:c.1521_1523del",
+    "cdna_start": 1628,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "protein_end": 508,
+    "cdna_end": 1630,
+    "strand": 1,
+    "cds_end": 1523,
+    "trembl": [
+     "A0A8V8TNN0.15"
+    ],
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000699598",
+    "codons": "atCTTt/att",
+    "uniparc": [
+     "UPI0020B0077A"
+    ],
+    "protein_start": 507,
+    "hgnc_id": "HGNC:1884",
+    "cds_start": 1521,
+    "impact": "MODERATE",
+    "amino_acids": "IF/I"
+   },
+   {
+    "cdna_end": 1630,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "cdna_start": 1628,
+    "protein_end": 508,
+    "gene_symbol": "CFTR",
+    "hgvsc": "ENST00000699599.1:c.1521_1523del",
+    "hgvsp": "ENSP00000514468.1:p.Phe508del",
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "IF/I",
+    "cds_start": 1521,
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "uniparc": [
+     "UPI0020B03DF5"
+    ],
+    "protein_start": 507,
+    "trembl": [
+     "A0A8I5KVV2.18"
+    ],
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000699599",
+    "codons": "atCTTt/att",
+    "cds_end": 1523,
+    "strand": 1
+   },
+   {
+    "cdna_end": 1630,
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "protein_end": 508,
+    "cdna_start": 1628,
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsc": "ENST00000699600.1:c.1521_1523del",
+    "hgvsp": "ENSP00000514469.1:p.Phe508del",
+    "protein_start": 507,
+    "uniparc": [
+     "UPI0020B0FA1F"
+    ],
+    "amino_acids": "IF/I",
+    "cds_start": 1521,
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "strand": 1,
+    "cds_end": 1523,
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000699600",
+    "codons": "atCTTt/att",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A8I5KVL1.18"
+    ],
+    "biotype": "nonsense_mediated_decay"
+   },
+   {
+    "cds_end": 1523,
+    "strand": 1,
+    "trembl": [
+     "A0A8V8TQ94.15"
+    ],
+    "variant_allele": "-",
+    "biotype": "nonsense_mediated_decay",
+    "gene_id": "ENSG00000001626",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000699601",
+    "uniparc": [
+     "UPI0020B0C4A0"
+    ],
+    "protein_start": 507,
+    "cds_start": 1521,
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000514470.1:p.Phe508del",
+    "hgvsc": "ENST00000699601.1:c.1521_1523del",
+    "consequence_terms": [
+     "inframe_deletion",
+     "NMD_transcript_variant"
+    ],
+    "cdna_end": 1630,
+    "cdna_start": 1628,
+    "protein_end": 508
+   },
+   {
+    "hgvsp": "ENSP00000514471.1:p.Phe508del",
+    "hgvsc": "ENST00000699602.2:c.1521_1523del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 508,
+    "cdna_start": 1657,
+    "cdna_end": 1659,
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A8V8TNH2.15"
+    ],
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000699602",
+    "gene_id": "ENSG00000001626",
+    "strand": 1,
+    "cds_end": 1523,
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I",
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "uniparc": [
+     "UPI0020B0DCD4"
+    ],
+    "protein_start": 507
+   },
+   {
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODIFIER",
+    "uniparc": [
+     "UPI0020B0EA9D"
+    ],
+    "variant_allele": "-",
+    "trembl": [
+     "A0A8V8TNN7.15"
+    ],
+    "biotype": "nonsense_mediated_decay",
+    "transcript_id": "ENST00000699604",
+    "gene_id": "ENSG00000001626",
+    "strand": 1,
+    "consequence_terms": [
+     "3_prime_UTR_variant",
+     "NMD_transcript_variant"
+    ],
+    "cdna_start": 1603,
+    "cdna_end": 1605,
+    "hgvsc": "ENST00000699604.1:c.*1345_*1347del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC"
+   },
+   {
+    "hgvsp": "ENSP00000514473.1:p.Phe366del",
+    "hgvsc": "ENST00000699605.2:c.1095_1097del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "cdna_end": 1519,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 366,
+    "cdna_start": 1517,
+    "transcript_id": "ENST00000699605",
+    "codons": "atCTTt/att",
+    "gene_id": "ENSG00000001626",
+    "variant_allele": "-",
+    "trembl": [
+     "A0A8V8TPV6.15"
+    ],
+    "biotype": "protein_coding",
+    "cds_end": 1097,
+    "strand": 1,
+    "hgnc_id": "HGNC:1884",
+    "cds_start": 1095,
+    "amino_acids": "IF/I",
+    "impact": "MODERATE",
+    "protein_start": 365,
+    "uniparc": [
+     "UPI0020B047DD"
+    ]
+   },
+   {
+    "amino_acids": "IF/I",
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "protein_start": 507,
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "gene_id": "ENSG00000001626",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000889206",
+    "cds_end": 1523,
+    "strand": 1,
+    "protein_end": 508,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_start": 1657,
+    "cdna_end": 1659,
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000559265.1:p.Phe508del",
+    "hgvsc": "ENST00000889206.2:c.1521_1523del",
+    "gene_symbol_source": "HGNC"
+   },
+   {
+    "protein_end": 447,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1476,
+    "cdna_start": 1474,
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000559266.1:p.Phe447del",
+    "hgvsc": "ENST00000889207.2:c.1338_1340del",
+    "gene_symbol_source": "HGNC",
+    "hgnc_id": "HGNC:1884",
+    "impact": "MODERATE",
+    "cds_start": 1338,
+    "amino_acids": "IF/I",
+    "protein_start": 446,
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000889207",
+    "codons": "atCTTt/att",
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "cds_end": 1340,
+    "strand": 1
+   },
+   {
+    "cds_start": 1521,
+    "impact": "MODERATE",
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I",
+    "protein_start": 507,
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000889208",
+    "gene_id": "ENSG00000001626",
+    "strand": 1,
+    "cds_end": 1523,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1659,
+    "protein_end": 508,
+    "cdna_start": 1657,
+    "hgvsc": "ENST00000889208.2:c.1521_1523del",
+    "hgvsp": "ENSP00000559267.1:p.Phe508del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC"
+   },
+   {
+    "protein_start": 507,
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I",
+    "strand": 1,
+    "cds_end": 1523,
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00000889209",
+    "codons": "atCTTt/att",
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 508,
+    "cdna_end": 1659,
+    "cdna_start": 1657,
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000559268.1:p.Phe508del",
+    "hgvsc": "ENST00000889209.2:c.1521_1523del"
+   },
+   {
+    "codons": "atCTTt/att",
+    "transcript_id": "ENST00000889210",
+    "gene_id": "ENSG00000001626",
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "strand": 1,
+    "cds_end": 1340,
+    "amino_acids": "IF/I",
+    "cds_start": 1338,
+    "impact": "MODERATE",
+    "hgnc_id": "HGNC:1884",
+    "protein_start": 446,
+    "hgvsp": "ENSP00000559269.1:p.Phe447del",
+    "hgvsc": "ENST00000889210.2:c.1338_1340del",
+    "gene_symbol": "CFTR",
+    "gene_symbol_source": "HGNC",
+    "cdna_end": 1476,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_start": 1474,
+    "protein_end": 447
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "hgvsp": "ENSP00000620858.1:p.Phe508del",
+    "hgvsc": "ENST00000950799.2:c.1521_1523del",
+    "gene_symbol": "CFTR",
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "protein_end": 508,
+    "cdna_start": 1657,
+    "cdna_end": 1659,
+    "cds_end": 1523,
+    "strand": 1,
+    "variant_allele": "-",
+    "biotype": "protein_coding",
+    "transcript_id": "ENST00000950799",
+    "codons": "atCTTt/att",
+    "gene_id": "ENSG00000001626",
+    "protein_start": 507,
+    "cds_start": 1521,
+    "impact": "MODERATE",
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I"
+   },
+   {
+    "protein_end": 508,
+    "consequence_terms": [
+     "inframe_deletion"
+    ],
+    "cdna_end": 1659,
+    "cdna_start": 1657,
+    "gene_symbol": "CFTR",
+    "hgvsp": "ENSP00000801201.1:p.Phe508del",
+    "hgvsc": "ENST00001140285.1:c.1521_1523del",
+    "gene_symbol_source": "HGNC",
+    "hgnc_id": "HGNC:1884",
+    "amino_acids": "IF/I",
+    "impact": "MODERATE",
+    "cds_start": 1521,
+    "uniparc": [
+     "UPI000013C4D4"
+    ],
+    "protein_start": 507,
+    "biotype": "protein_coding",
+    "variant_allele": "-",
+    "gene_id": "ENSG00000001626",
+    "transcript_id": "ENST00001140285",
+    "codons": "atCTTt/att",
+    "strand": 1,
+    "cds_end": 1523
+   }
+  ],
+  "assembly_name": "GRCh38",
+  "allele_string": "CTT/-",
+  "seq_region_name": "7"
+ }
+]

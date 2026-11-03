@@ -1,0 +1,4 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+rest_v1_core_entry_5UAK.json	2026-11-03T18:56:40Z	200	f718412b3ca990f4a2ba386d9d6a2c01f0adc54f83e8a2f99c883eb64346d362	8950	GET	https://data.rcsb.org/rest/v1/core/entry/5UAK	"{""content-type"":""application/json""}"	
+rest_v1_core_polymer_entity_5UAK_1.json	2026-11-03T18:56:41Z	200	1115beaeec4c5de6df425d76d69cf267a802a06eef4a6638f1d186bda580e5ff	108654	GET	https://data.rcsb.org/rest/v1/core/polymer_entity/5UAK/1	"{""content-type"":""application/json""}"	
+rest_v1_core_assembly_5UAK_1.json	2026-11-03T18:56:41Z	200	589df7824a500401cb6b47c07a485de36be3fde7b659b2f459c8bb7ccf65d9fd	2874	GET	https://data.rcsb.org/rest/v1/core/assembly/5UAK/1	"{""content-type"":""application/json""}"	

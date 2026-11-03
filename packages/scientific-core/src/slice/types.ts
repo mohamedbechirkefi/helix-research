@@ -13,14 +13,38 @@ export interface RawRecord {
   headers: Record<string, string>;
 }
 
-/** The reference variant a journey may tell: a selection, not data (every position is read from the responses). */
-export interface SliceVariant {
+/** A single-base substitution selected by its forward-strand alternate allele (rs334 is multi-allelic). */
+export interface SliceSubstitution {
+  kind: "substitution";
   slug: string;
   commonName: string;
   rsId: string;
-  /** Forward-strand alternate allele that defines the variant (rs334 is multi-allelic). */
+  /** Forward-strand alternate allele that defines the variant at a multi-allelic site. */
   forwardAllele: string;
   clinvarUid: string;
+}
+
+/** An in-frame deletion selected by its transcript-level HGVS, which the recoder must confirm (Phase 9, plan section 11 rule 1). */
+export interface SliceDeletion {
+  kind: "deletion";
+  slug: string;
+  commonName: string;
+  rsId: string;
+  /** "c.<start>_<end>del" on the MANE Select transcript; the builder prefixes the versioned transcript id it selected. */
+  hgvsC: string;
+  clinvarUid: string;
+}
+
+/** The reference variant a journey may tell: a selection, not data (every position is read from the responses). */
+export type SliceVariant = SliceSubstitution | SliceDeletion;
+
+/** How experimental entries are ranked when several exist (plan section 2); recorded as the reason for the `pdbId` selection. */
+export type StructurePreference = "variant-residue-observed" | "highest-resolution" | "largest-coverage";
+
+/** A curated question and the capability keys the set must have for it to be askable at all (plan section 11 rule 6). */
+export interface SliceQuestion {
+  text: string;
+  requires: string[];
 }
 
 /**
@@ -44,10 +68,16 @@ export interface SliceConfig {
   pdbId?: string;
   /** Reference variant selected for the journey; absent when none is selected. */
   variant?: SliceVariant;
+  /** The recorded reason for the `pdbId` selection; absent when the specification gives none. */
+  structurePreference?: StructurePreference;
   /** Half-width of the genomic DNA window around the variant, in bases. */
   genomicWindowFlank: number;
   contactCutoffAngstrom: number;
   includeAlphafold: boolean;
+  /** The set's curated questions, written to questions.json (empty when the set offers none). */
+  questions: SliceQuestion[];
+  /** The question offered first after a DNA World variant answer; absent when the set has none. */
+  bridgeQuestion?: string;
 }
 
 /**
@@ -61,10 +91,17 @@ export const HBB_CONFIG: SliceConfig = {
   hgncSymbol: "HBB",
   uniprotAccession: "P68871",
   pdbId: "2HBS",
-  variant: { slug: "hbs", commonName: "HbS (sickle haemoglobin)", rsId: "rs334", forwardAllele: "A", clinvarUid: "15333" },
+  variant: { kind: "substitution", slug: "hbs", commonName: "HbS (sickle haemoglobin)", rsId: "rs334", forwardAllele: "A", clinvarUid: "15333" },
   genomicWindowFlank: 20,
   contactCutoffAngstrom: 4.5,
   includeAlphafold: true,
+  questions: [
+    { text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] },
+    { text: "How does the DNA change for the sickle-cell variant?", requires: ["variantHighlight"] },
+    { text: "What does the HbS residue touch in the crystal?", requires: ["variantHighlight", "experimentalStructure"] },
+    { text: "Show the evidence for the sickle-cell variant.", requires: ["variantHighlight"] },
+  ],
+  bridgeQuestion: "See the sickle-cell mutation on the protein.",
 };
 
 /**

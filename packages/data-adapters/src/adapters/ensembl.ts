@@ -56,8 +56,9 @@ export const ensemblUrls = {
     if (!RSID.test(rsId)) throw new InvalidParameterError(`Not an rsID: ${rsId}`);
     return `${ENSEMBL_BASE}/variant_recoder/human/${rsId}?fields=id,hgvsg,hgvsc,hgvsp,spdi;${JSON_CT}`;
   },
+  /** A substitution (c.20A>T) or a deletion of a CDS span (c.1521_1523del, Phase 9) on a versioned Ensembl transcript. */
   vepHgvs: (hgvs: string): string => {
-    if (!/^ENST\d{11}\.\d+:c\.\d+[ACGT]>[ACGT]$/.test(hgvs)) throw new InvalidParameterError(`Unsupported HGVS for VEP: ${hgvs}`);
+    if (!/^ENST\d{11}\.\d+:c\.(\d+[ACGT]>[ACGT]|\d+_\d+del)$/.test(hgvs)) throw new InvalidParameterError(`Unsupported HGVS for VEP: ${hgvs}`);
     return `${ENSEMBL_BASE}/vep/human/hgvs/${hgvs}?hgvs=1;mane=1;canonical=1;uniprot=1;${JSON_CT}`;
   },
 };
@@ -155,8 +156,11 @@ export const EnsemblVepTranscriptConsequence = z.object({
   codons: z.string().optional(),
   amino_acids: z.string().optional(),
   protein_start: z.number().int().optional(),
+  protein_end: z.number().int().optional(),
   cds_start: z.number().int().optional(),
+  cds_end: z.number().int().optional(),
   cdna_start: z.number().int().optional(),
+  cdna_end: z.number().int().optional(),
   hgvsc: z.string().optional(),
   hgvsp: z.string().optional(),
   swissprot: z.array(z.string()).optional(),

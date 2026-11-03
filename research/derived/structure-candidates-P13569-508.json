@@ -1,0 +1,111 @@
+{
+  "purpose": "Phase 9 plan section 11 rule 4: candidate experimental entries checked in order for whether the mapped chain observes the variant residue in atom_site through the SIFTS mapping; the first that does, with no sequence difference a selected variant does not explain, is the selection. The gene specification's notes cite this report.",
+  "script": "scripts/data-preparation/check-structure-candidates.ts",
+  "startedAt": "2026-11-03T18:35:04Z",
+  "finishedAt": "2026-11-03T18:35:08Z",
+  "gitCommit": "88e794ccc5e2181ec90a0c3ad9e87c2dd8093eb6",
+  "gitDirty": true,
+  "userAgent": "helix-research",
+  "uniprot": {
+    "accession": "P13569",
+    "release": "2026_03",
+    "length": 1480
+  },
+  "residue": 508,
+  "order": [
+    "6MSM",
+    "5UAK"
+  ],
+  "candidates": [
+    {
+      "entryId": "6MSM",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.2,
+      "rcsbResolutionCombined": [
+        3.2
+      ],
+      "entityId": "1",
+      "chains": [
+        "A"
+      ],
+      "entityMutation": "E1371Q",
+      "entityLength": 1489,
+      "siftsSegments": [
+        {
+          "labelAsymId": "A",
+          "unpStart": 1,
+          "unpEnd": 1480,
+          "labelSeqStart": 1,
+          "labelSeqEnd": 1480
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 508,
+        "uniprotResidue": "F",
+        "observedOn": [
+          {
+            "labelAsymId": "A",
+            "authAsymId": "A",
+            "labelSeqId": 508,
+            "authSeqId": "508",
+            "compId": "PHE"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [
+        {
+          "entityPos": 1371,
+          "entity": "Q",
+          "uniprotPos": 1371,
+          "uniprot": "E"
+        }
+      ],
+      "observed": true,
+      "verdict": "residue 508 observed, but the entity differs from UniProt at 1371 (E to Q) and declares pdbx_mutation \"E1371Q\"; the builder refuses a difference no selected variant explains (T38)"
+    },
+    {
+      "entryId": "5UAK",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.87,
+      "rcsbResolutionCombined": [
+        3.87
+      ],
+      "entityId": "1",
+      "chains": [
+        "A"
+      ],
+      "entityMutation": null,
+      "entityLength": 1489,
+      "siftsSegments": [
+        {
+          "labelAsymId": "A",
+          "unpStart": 1,
+          "unpEnd": 1480,
+          "labelSeqStart": 1,
+          "labelSeqEnd": 1480
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 508,
+        "uniprotResidue": "F",
+        "observedOn": [
+          {
+            "labelAsymId": "A",
+            "authAsymId": "A",
+            "labelSeqId": 508,
+            "authSeqId": "508",
+            "compId": "PHE"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [],
+      "observed": true,
+      "verdict": "residue 508 observed on A508 PHE; the entity equals UniProt over the mapped segments"
+    }
+  ],
+  "chosen": "5UAK"
+}
