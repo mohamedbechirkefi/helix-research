@@ -1,0 +1,2171 @@
+{
+ "date": "2026-11-03T16:35:23.994Z",
+ "tag": "chrome-polish",
+ "chrome": "Chrome/156.0.8078.80",
+ "axe": {
+  "version": "4.14.0",
+  "license": "MPL-2.0"
+ },
+ "screens": {
+  "welcome": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 38,
+      "sample": [
+       ".welcome-spec > div:nth-child(1) > .hx-kicker > span[aria-hidden=\"true\"]",
+       "div:nth-child(1) > strong",
+       ".welcome-spec > div:nth-child(2) > .hx-kicker > span[aria-hidden=\"true\"]",
+       "div:nth-child(2) > strong"
+      ]
+     }
+    ],
+    "passes": 40
+   },
+   "tree": {
+    "file": "tree/welcome.txt",
+    "lines": 165
+   },
+   "shot": "welcome.jpg",
+   "geneChoice": {
+    "tour": {
+     "state": "playing",
+     "progress": 0.0009833333318432173,
+     "durationMs": 12000,
+     "reduced": false
+    },
+    "journey": "transcript",
+    "mode": "guided",
+    "world": "dna",
+    "variantCard": true,
+    "focus": "body",
+    "tourStartedAfterMs": 32,
+    "asks": 0
+   }
+  },
+  "dna-world": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 158,
+      "sample": [
+       "span[data-id=\"codon-60\"] > .slabel-text.hx-num",
+       "span[data-id=\"codon-70\"] > .slabel-text.hx-num",
+       "span[data-id=\"codon-80\"] > .slabel-text.hx-num",
+       ".dna-label"
+      ]
+     }
+    ],
+    "passes": 47
+   },
+   "tree": {
+    "file": "tree/dna-world.txt",
+    "lines": 1604
+   },
+   "shot": "dna-world.jpg"
+  },
+  "dna-world-side-panel": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 49,
+      "sample": [
+       ".hx-brand-crumb",
+       ".notice",
+       ".hx-ask-label > span[aria-hidden=\"true\"]",
+       ".hx-btn--primary"
+      ]
+     }
+    ],
+    "passes": 33
+   },
+   "note": "contrast incomplete on 49 nodes of the side panel (axe cannot resolve translucent panels; the token tests cover 190 pairs)"
+  },
+  "selection": {
+   "shot": "selection.jpg",
+   "readout": {
+    "codon": "7",
+    "link": "mapped",
+    "live": "polite",
+    "text": "Selected codonSelected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Stru",
+    "pressed": "true",
+    "tabStop": "7"
+   },
+   "tree": {
+    "file": "tree/selection.txt",
+    "lines": 1669
+   },
+   "treeHas": {
+    "region": true,
+    "pair": true,
+    "variantCard": true,
+    "codonChange": true
+   }
+  },
+  "bridge-mid": {
+   "shot": "bridge-sequence-mid.jpg",
+   "state": {
+    "progress": "0.30",
+    "playing": "true",
+    "reached": 1,
+    "live": "Step 1 of 4: Codon 7, GAG → GTG. c.20A>T: base 2 of the codon, A to T",
+    "current": "GAG → GTG"
+   },
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 269,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-label",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 53
+   },
+   "tree": {
+    "file": "tree/bridge-mid.txt",
+    "lines": 2052
+   }
+  },
+  "bridge-paused": {
+   "shot": "bridge-sequence-paused.jpg",
+   "state": {
+    "progress": "0.46",
+    "playing": "false",
+    "reached": 2,
+    "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+    "current": "p.Glu7Val"
+   }
+  },
+  "protein-world": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 201,
+      "sample": [
+       ".msp-highlight-simple-row",
+       ".msp-highlight-simple-row > small:nth-child(2)",
+       ".msp-highlight-simple-row > small:nth-child(3)",
+       "small:nth-child(4)"
+      ]
+     }
+    ],
+    "passes": 50
+   },
+   "tree": {
+    "file": "tree/protein-world.txt",
+    "lines": 916
+   },
+   "shot": "protein-world.jpg",
+   "treeHas": {
+    "structureGroup": true,
+    "selection": true,
+    "molstarButtons": 6
+   }
+  },
+  "evidence-world": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 279,
+      "sample": [
+       ".msp-highlight-simple-row",
+       ".msp-highlight-simple-row > small:nth-child(2)",
+       ".msp-highlight-simple-row > small:nth-child(3)",
+       "small:nth-child(4)"
+      ]
+     }
+    ],
+    "passes": 50
+   },
+   "tree": {
+    "file": "tree/evidence-world.txt",
+    "lines": 2317
+   },
+   "shot": "evidence-world.jpg"
+  },
+  "known-limitations": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 25,
+      "sample": [
+       ".hx-limits-title > span[aria-hidden=\"true\"]",
+       "li[data-limit=\"nonclinical\"] > .hx-limits-n.hx-num[aria-hidden=\"true\"]",
+       "li[data-limit=\"nonclinical\"] > span:nth-child(2)",
+       "li[data-limit=\"one-gene\"] > .hx-limits-n.hx-num[aria-hidden=\"true\"]"
+      ]
+     }
+    ],
+    "passes": 6
+   },
+   "shot": "known-limitations.jpg"
+  },
+  "dev-panel": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 11,
+      "sample": [
+       ".dev > .hx-panel-head > .hx-panel-titles > .hx-kicker > span[aria-hidden=\"true\"]",
+       ".dev > .hx-panel-head > .hx-panel-titles > h2",
+       ".status-line > .hx-kicker > span[aria-hidden=\"true\"]",
+       "b"
+      ]
+     }
+    ],
+    "passes": 21
+   },
+   "tree": {
+    "file": "tree/dev-panel.txt",
+    "lines": 1677
+   },
+   "shot": "dev-panel.jpg"
+  },
+  "bridge-reduced-motion": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 267,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-label",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 53
+   }
+  },
+  "low-power": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 158,
+      "sample": [
+       "span[data-id=\"codon-60\"] > .slabel-text.hx-num",
+       "span[data-id=\"codon-70\"] > .slabel-text.hx-num",
+       "span[data-id=\"codon-80\"] > .slabel-text.hx-num",
+       ".dna-label"
+      ]
+     }
+    ],
+    "passes": 47
+   }
+  },
+  "loading": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 3,
+      "sample": [
+       "span[aria-hidden=\"true\"]",
+       "h1",
+       "p"
+      ]
+     }
+    ],
+    "passes": 28
+   },
+   "tree": {
+    "file": "tree/loading.txt",
+    "lines": 13
+   },
+   "shot": "loading.jpg",
+   "state": {
+    "busy": "true",
+    "gauge": "Waiting for the dataset manifest",
+    "h1": "Checking every record before it is shown"
+   }
+  },
+  "error": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 4,
+      "sample": [
+       "span[aria-hidden=\"true\"]",
+       "h1",
+       "pre",
+       "button"
+      ]
+     }
+    ],
+    "passes": 22
+   },
+   "tree": {
+    "file": "tree/error.txt",
+    "lines": 15
+   },
+   "shot": "error.jpg"
+  }
+ },
+ "keyboard": {
+  "welcome": {
+   "tab": {
+    "stops": [
+     {
+      "el": "input[welcome-gene]",
+      "name": "Gene symbol or nameGene symbol or name",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-explore]",
+      "name": "Explore",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-question]",
+      "name": "Show me where the sickle-cell mutation affects hemoglobin.",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-skip]",
+      "name": "Skip and explore freely",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "QuestionQuestion",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "1. The HBB transcript(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "2. Codon 7(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "3. The mapped residue(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "4. A contact in the crystal(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-back]",
+      "name": "Back",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-next]",
+      "name": "Next",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[start-journey]",
+      "name": "Start the journey",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Known limitations (12)Known limitations (12)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=known-limitations]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 14,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "dialogNamed": true,
+   "variantCardOnWelcome": false,
+   "ringGene": {
+    "el": "input[welcome-gene]",
+    "name": "Gene symbol or nameGene symbol or name",
+    "inside": [
+     "[data-testid=welcome]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     48,
+     428,
+     426,
+     48
+    ],
+    "codon": null,
+    "shot": "focus-welcome-gene.png"
+   },
+   "ringSkip": {
+    "el": "button[welcome-skip]",
+    "name": "Skip and explore freely",
+    "inside": [
+     "[data-testid=welcome]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     48,
+     576,
+     157,
+     32
+    ],
+    "codon": null,
+    "shot": "focus-welcome-skip.png"
+   }
+  },
+  "tourPlate": {
+   "shotPaused": "dna-tour-paused.jpg",
+   "ring": {
+    "el": "button",
+    "name": "Pause",
+    "inside": [
+     "[data-testid=tour]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     387,
+     79,
+     54,
+     26
+    ],
+    "codon": null,
+    "shot": "focus-tour-pause.png"
+   },
+   "paused": {
+    "state": "interrupted",
+    "plate": "interrupted",
+    "label": "Tour paused",
+    "buttons": [
+     "Resume",
+     "Replay"
+    ]
+   },
+   "resumed": {
+    "state": "playing",
+    "plate": "playing",
+    "label": "Tour playing",
+    "buttons": [
+     "Pause",
+     "Replay"
+    ]
+   },
+   "escaped": {
+    "state": "interrupted",
+    "plate": "interrupted"
+   }
+  },
+  "dnaWorld": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button[sound]",
+      "name": "SoundSound",
+      "inside": [],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-dna]",
+      "name": "DNA",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-protein]",
+      "name": "Protein",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-evidence]",
+      "name": "Evidence",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Replay",
+      "inside": [
+       "[data-testid=tour]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "ATG 1, codon 1, Met",
+      "inside": [
+       "[data-testid=codon-strip]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "QuestionQuestion",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "Show me where the sickle-cell mutation affects hemoglobin.",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "How does the DNA change for the sickle-cell variant?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "What does the HbS residue touch in the crystal?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "Show the evidence for the sickle-cell variant.",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "1. The HBB transcript(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "2. Codon 7(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "3. The mapped residue(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "4. A contact in the crystal(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-back]",
+      "name": "Back",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-next]",
+      "name": "Next",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[start-journey]",
+      "name": "Start the journey",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Known limitations (12)Known limitations (12)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=known-limitations]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 20,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "codonTabStops": 1
+  },
+  "worldSwitcher": {
+   "keys": [
+    "ArrowRight",
+    "ArrowRight",
+    "Home",
+    "End",
+    "ArrowLeft"
+   ],
+   "focus": [
+    "button[world-protein]",
+    "button[world-evidence]",
+    "button[world-dna]",
+    "button[world-evidence]",
+    "button[world-protein]"
+   ],
+   "shot": "focus-world-switcher.png"
+  },
+  "codonTape": {
+   "keys": [
+    "ArrowRight",
+    "ArrowRight",
+    "End",
+    "Home",
+    "ArrowLeft"
+   ],
+   "focus": [
+    "2",
+    "3",
+    "148",
+    "1",
+    "1"
+   ],
+   "after6Right": "7",
+   "selection": {
+    "codon": "7",
+    "link": "mapped",
+    "live": "polite",
+    "text": "Selected codonSelected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Stru",
+    "pressed": "true",
+    "tabStop": "7"
+   },
+   "ringShot": "focus-codon-7.png"
+  },
+  "askBar": {
+   "ringShot": "focus-ask-input.png",
+   "outcome": "executed",
+   "wallMs": 69,
+   "status": {
+    "live": "polite",
+    "text": ""
+   }
+  },
+  "chips": {
+   "keys": [
+    "ArrowRight",
+    "ArrowDown",
+    "Home",
+    "End",
+    "ArrowUp"
+   ],
+   "focus": [
+    "What does the HbS residue touc",
+    "Show the evidence for the sick",
+    "See the sickle-cell mutation o",
+    "Show the evidence for the sick",
+    "What does the HbS residue touc"
+   ],
+   "texts": [
+    "See the sickle-cell mutation o",
+    "What does the HbS residue touc",
+    "Show the evidence for the sick"
+   ],
+   "ringShot": "focus-chip.png"
+  },
+  "bridge": {
+   "chipFocusedBefore": "See the sickle-cell mutation on the protein.",
+   "focusOnOpen": {
+    "el": "button",
+    "name": "Pause",
+    "inside": [
+     "[data-testid=bridge-sequence]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     129,
+     762,
+     54,
+     26
+    ],
+    "codon": null
+   },
+   "mid": {
+    "progress": "0.30",
+    "playing": "true",
+    "reached": 1,
+    "live": "Step 1 of 4: Codon 7, GAG → GTG. c.20A>T: base 2 of the codon, A to T",
+    "current": "GAG → GTG"
+   },
+   "afterSpace": {
+    "focus": {
+     "el": "button",
+     "name": "Resume",
+     "inside": [
+      "[data-testid=bridge-sequence]"
+     ],
+     "visible": true,
+     "opacity": 1,
+     "focusVisible": true,
+     "outline": "solid 1px rgb(63, 216, 232)",
+     "ring": true,
+     "rect": [
+      129,
+      762,
+      64,
+      26
+     ],
+     "codon": null
+    },
+    "state": {
+     "progress": "0.46",
+     "playing": "false",
+     "reached": 2,
+     "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+     "current": "p.Glu7Val"
+    },
+    "ringShot": "focus-bridge-resume.png"
+   },
+   "afterArrowRight": {
+    "progress": "0.62",
+    "playing": "false",
+    "reached": 3,
+    "live": "Step 3 of 4: Numbering, 7 → 6. Met1 is removed in the mature chain, so UniProt 7 is residue 6 (SIFTS)",
+    "current": "7 → 6"
+   },
+   "afterArrowLeft": {
+    "progress": "0.30",
+    "playing": "false",
+    "reached": 2,
+    "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+    "current": "p.Glu7Val"
+   },
+   "tabInsideThenOut": [
+    {
+     "el": "button",
+     "name": "Previous step",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Resume",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Next step",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Replay",
+     "ring": true
+    },
+    {
+     "el": "button[bridge-continue]",
+     "name": "Continue to Protein World",
+     "ring": true
+    },
+    {
+     "el": "button[bridge-skip]",
+     "name": "Skip",
+     "ring": true
+    },
+    {
+     "left": "input[question]",
+     "name": "QuestionQuestion"
+    }
+   ],
+   "afterContinue": {
+    "world": "protein",
+    "overlay": false,
+    "last": {
+     "requestId": "q2",
+     "query": "See the sickle-cell mutation on the protein.",
+     "status": "played",
+     "reason": "continued by the visitor",
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ],
+     "startedAt": 5434.799999982119,
+     "endedAt": 7345.0999999940395,
+     "interacted": true,
+     "reduced": false
+    },
+    "focus": "button[world-dna] DNA"
+   },
+   "outcome": "executed",
+   "bridgeRecord": {
+    "requestId": "q2",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "played",
+    "reason": "continued by the visitor",
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 5434.799999982119,
+    "endedAt": 7345.0999999940395,
+    "interacted": true,
+    "reduced": false
+   }
+  },
+  "proteinWorld": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button",
+      "name": "Reset Zoom",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Screenshot / State Snapshot",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Controls Panel",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Expanded Viewport",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Settings / Controls Info",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Illumination",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Selection Mode",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[sound]",
+      "name": "SoundSound",
+      "inside": [],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-dna]",
+      "name": "DNA",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-protein]",
+      "name": "Protein",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-evidence]",
+      "name": "Evidence",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "QuestionQuestion",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "How does the DNA change at this codon?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "What does this residue touch in the crystal?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "Show me where the sickle-cell mutation affects hemoglobin.",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "What does the HbS residue touch in the crystal?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "1. The HBB transcript(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "2. Codon 7(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "3. The mapped residue(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "4. A contact in the crystal(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-back]",
+      "name": "Back",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-next]",
+      "name": "Next",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[resume]",
+      "name": "Resume journey at chapter 1",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "aside.panel",
+       "[data-testid=evidence]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "aside.panel",
+       "[data-testid=evidence]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 26,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "molstarTabStops": [
+    {
+     "el": "button",
+     "name": "Reset Zoom"
+    },
+    {
+     "el": "button",
+     "name": "Screenshot / State Snapshot"
+    },
+    {
+     "el": "button",
+     "name": "Toggle Controls Panel"
+    },
+    {
+     "el": "button",
+     "name": "Toggle Expanded Viewport"
+    },
+    {
+     "el": "button",
+     "name": "Settings / Controls Info"
+    },
+    {
+     "el": "button",
+     "name": "Illumination"
+    },
+    {
+     "el": "button",
+     "name": "Toggle Selection Mode"
+    }
+   ],
+   "molstarDom": {
+    "present": true,
+    "buttons": [
+     {
+      "title": "Reset Zoom",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Set camera zoom to fit the visible scene into view",
+      "label": null,
+      "text": "Reset Zoom",
+      "tabIndex": 0
+     },
+     {
+      "title": "Align principal component axes of the loaded structures to the screen axes (“lay flat”)",
+      "label": null,
+      "text": "Orient Axes",
+      "tabIndex": 0
+     },
+     {
+      "title": "Align Cartesian axes to the screen axes",
+      "label": null,
+      "text": "Reset Axes",
+      "tabIndex": 0
+     },
+     {
+      "title": "Screenshot / State Snapshot",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Controls Panel",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Expanded Viewport",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": null,
+      "label": null,
+      "text": "Fullscreen",
+      "tabIndex": 0
+     },
+     {
+      "title": "Settings / Controls Info",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Illumination",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Augmented/Virtual Reality unavailable",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Selection Mode",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     }
+    ],
+    "layerVisible": "visible",
+    "canvasTabIndex": -1
+   },
+   "text": {
+    "caption": "Mol*Mol*2HBS · asymmetric unit, as deposited2HBS · asymmetric unit, as depositedExperimental · class 1MethodX-ray diffractionResolution2.05 ÅDeposited1997-05-06Chain · residueH · VAL 6Predicted · class 3AF-P68871-F1 · AlphaFold DB v6pLDDT 97.2 · listed, not loadedGAG → GTGCodon 7p.Glu7ValTranslation7 → 6NumberingVAL 62HBS chain H",
+    "link": "Structure: VAL B6, VAL D6, VAL F6, VAL H6 in 2HBS (label = auth, mapping of record)",
+    "selection": "Selected codonSelected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Structure: VAL B6, VAL D",
+    "readback": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ]
+   }
+  },
+  "evidenceWorld": {
+   "focusOnOpen": {
+    "el": "button[evidence-world-close]",
+    "name": "Back to the scene",
+    "inside": [
+     "[data-testid=evidence-world]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     839,
+     52,
+     129,
+     32
+    ],
+    "codon": null
+   },
+   "toggle": {
+    "pressed": "true",
+    "coveredBy": "evworld-head"
+   },
+   "tab": {
+    "stops": [
+     {
+      "el": "button",
+      "name": "Reset Zoom",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Screenshot / State Snapshot",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Controls Panel",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Expanded Viewport",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Settings / Controls Info",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Illumination",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Toggle Selection Mode",
+      "inside": [
+       ".msp-plugin"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[sound]",
+      "name": "SoundSound",
+      "inside": [],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-dna]",
+      "name": "DNA",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-protein]",
+      "name": "Protein",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-evidence]",
+      "name": "Evidence",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[evidence-world-close]",
+      "name": "Back to the scene",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 3 sources, record gene.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 1 source, record protein-P68871.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 5 sources, record structure-2HBS.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 4 sources, record residue-mapping-hbs-2HBS.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 4 sources, record residue-mapping-hbs-2HBS.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 1 source, record contacts-hbs-2HBS.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 2 sources, record predicted-model-AF-P68871-F1.j",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "QuestionQuestion",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "How does the DNA change at this codon?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "What does this residue touch in the crystal?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "Show me where the sickle-cell mutation affects hemoglobin.",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "What does the HbS residue touch in the crystal?",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "1. The HBB transcript(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "2. Codon 7(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "3. The mapped residue(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "4. A contact in the crystal(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-back]",
+      "name": "Back",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-next]",
+      "name": "Next",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[resume]",
+      "name": "Resume journey at chapter 1",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "aside.panel",
+       "[data-testid=evidence]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "aside.panel",
+       "[data-testid=evidence]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 37,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "stopsInside": 11,
+   "ringClose": "focus-evidence-close.png",
+   "ledger": {
+    "open": true,
+    "links": 3,
+    "summaries": 10
+   },
+   "afterSummaryEnterTab": {
+    "el": "a",
+    "name": "ensembl"
+   },
+   "escapeCloses": true,
+   "afterEscape": {
+    "open": false,
+    "focus": "button[world-evidence]"
+   },
+   "afterClose": {
+    "open": false,
+    "focus": "button[world-evidence]"
+   }
+  },
+  "knownLimitations": {
+   "ringShot": "focus-limitations.png",
+   "open": true,
+   "items": 12,
+   "summary": "Known limitations (12)"
+  },
+  "bridgeEscape": {
+   "shown": true,
+   "focusOnOpen": {
+    "el": "button",
+    "name": "Pause",
+    "inside": [
+     "[data-testid=bridge-sequence]"
+    ]
+   },
+   "world": "protein",
+   "last": {
+    "requestId": "q3",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "skipped",
+    "reason": "skipped by the visitor",
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 13539.299999982119,
+    "endedAt": 13747.199999988079,
+    "interacted": false,
+    "reduced": false
+   },
+   "focus": "input[question]",
+   "outcome": "executed"
+  },
+  "devPanel": {
+   "stopsInside": [
+    {
+     "el": "select[provider]",
+     "name": "PlannerPlanner"
+    }
+   ]
+  },
+  "error": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button",
+      "name": "Reload",
+      "inside": [],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 1,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "ringShot": "focus-error-reload.png"
+  }
+ },
+ "reducedMotion": {
+  "appSwitch": {
+   "css": {
+    "motion": "reduced",
+    "panel": "0s",
+    "anchor": "0s",
+    "btn": "0s",
+    "gaugeAnim": null,
+    "media": false
+   },
+   "afterSkip": {
+    "tour": {
+     "state": "done",
+     "progress": 1,
+     "durationMs": 12000,
+     "reduced": true
+    },
+    "moving": false,
+    "plate": "done",
+    "label": "Tour: cut to the end (reduced motion)",
+    "buttons": [
+     "Replay"
+    ],
+    "fx": {
+     "dof": 0,
+     "fxDpr": 2,
+     "effects": true,
+     "dpr": 2
+    }
+   },
+   "idleFrames2s": 0,
+   "shot": "reduced-motion-dna-world.jpg"
+  },
+  "bridgeShot": "reduced-motion-bridge.jpg",
+  "bridge": {
+   "on": [
+    "true",
+    "true",
+    "true",
+    "true"
+   ],
+   "progress": "1.00",
+   "playing": "false",
+   "live": "Step 4 of 4: 2HBS chain H, VAL 6. Residue 6 is VAL in the deposited coordinates",
+   "buttons": [
+    {
+     "t": "Previous step",
+     "disabled": false
+    },
+    {
+     "t": "Resume",
+     "disabled": true
+    },
+    {
+     "t": "Next step",
+     "disabled": true
+    },
+    {
+     "t": "Replay",
+     "disabled": false
+    },
+    {
+     "t": "Continue to Protein World",
+     "disabled": false
+    },
+    {
+     "t": "Skip",
+     "disabled": false
+    }
+   ],
+   "focus": "Previous step",
+   "stationOpacity": [
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "dwellMs": 2815,
+   "recordDwellMs": 2810.7000000178814,
+   "after": {
+    "world": "protein",
+    "last": {
+     "requestId": "q2",
+     "query": "See the sickle-cell mutation on the protein.",
+     "status": "played",
+     "reason": null,
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ],
+     "startedAt": 5027.299999982119,
+     "endedAt": 7838,
+     "interacted": false,
+     "reduced": true
+    }
+   },
+   "outcome": "executed"
+  },
+  "osSetting": {
+   "media": true,
+   "motion": "reduced",
+   "panel": "0s",
+   "afterSkip": {
+    "state": "done",
+    "reduced": true,
+    "label": "Tour: cut to the end (reduced motion)"
+   }
+  }
+ },
+ "lowPower": {
+  "rest": {
+   "power": "low",
+   "lowClass": true,
+   "fx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "canvasRatio": 1,
+   "panel": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "seqdock": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "dnaLabel": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "tourPlate": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "labelText": "Illustrative geometry, real sequenceENST00000335295.4 cDNA, 628 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "labelColor": "rgb(243, 245, 248)",
+   "shot": "low-power-dna-world.jpg"
+  },
+  "tour": {
+   "shot": "low-power-tour-mid.jpg",
+   "midFx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "frames": 722,
+   "renderMs": {
+    "median": 0.4,
+    "p95": 0.8,
+    "max": 1.4
+   },
+   "over16_7": 0,
+   "over33_4": 0,
+   "idleFramesAfter": 0
+  },
+  "tab": {
+   "count": 20,
+   "trapped": false,
+   "noRing": []
+  }
+ },
+ "pageErrors": {
+  "welcome": [],
+  "main": [],
+  "dev-panel": [],
+  "reduced-motion": [],
+  "reduced-motion-os": [],
+  "low-power": [],
+  "loading": []
+ },
+ "failures": [],
+ "axeSummary": {
+  "welcome": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x38"
+   ]
+  },
+  "dna-world": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x158"
+   ]
+  },
+  "dna-world-side-panel": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x49"
+   ]
+  },
+  "bridge-mid": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x269"
+   ]
+  },
+  "protein-world": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x201"
+   ]
+  },
+  "evidence-world": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x279"
+   ]
+  },
+  "known-limitations": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x25"
+   ]
+  },
+  "dev-panel": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x11"
+   ]
+  },
+  "bridge-reduced-motion": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x267"
+   ]
+  },
+  "low-power": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x158"
+   ]
+  },
+  "loading": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x3"
+   ]
+  },
+  "error": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x4"
+   ]
+  }
+ }
+}
