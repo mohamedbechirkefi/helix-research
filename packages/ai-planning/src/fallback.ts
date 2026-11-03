@@ -236,6 +236,14 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
       );
     }
   }
+  // Phase 9 (P9.2.4): a set without an experimental structure. A request for the structure, the
+  // predicted model or Protein World is refused with the set's own reason (the capability report's
+  // words, carried by the context's protein world); a predicted model is never substituted.
+  const proteinWorld = ctx.worlds.find((w) => w.id === "protein") ?? null;
+  if (!experimental && proteinWorld && !proteinWorld.available && (STRUCTURE_ANY.test(q) || PREDICTED.test(q) || PROTEIN_WORLD.test(q) || (routing?.world === "protein" && SHOW.test(q)))) {
+    const model = predicted ? ` The predicted model ${predicted.id} is listed as a computational prediction and is not loaded.` : "";
+    return r(refuse(ctx, "show_structure", `No experimental structure can be shown for ${gene?.symbol ?? "this gene"}: ${proteinWorld.reason}.${model} A predicted model is never shown as an experimental structure.`), "structure-unavailable");
+  }
   if (predicted && PREDICTED.test(q)) {
     return r({ ...base(ctx), outcome: "plan", intent: "show_structure", entities: { ...base(ctx).entities, proteinId: predicted.proteinIds[0] ?? null, structureId: predicted.id }, actions: [{ type: "loadStructure", structureId: predicted.id, assembly: "model" }], citations: ctx.evidence.filter((e) => e.id.endsWith(predicted.id)).map((e) => e.id), explanationLevel: level, reason: null }, "predicted-structure");
   }

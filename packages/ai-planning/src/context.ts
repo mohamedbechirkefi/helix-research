@@ -220,29 +220,61 @@ const PredictedIn = z
   .object({ modelId: z.string(), uniprotAccession: z.string(), globalPlddt: z.number(), usableForVariantPlacement: z.boolean(), evidence: z.array(Ev) })
   .loose();
 
+/**
+ * The curated records of one set, as the app's loader finds them by manifest kind. Phase 9: a set
+ * may lack a variant, a structure, a residue mapping, a contacts record or a predicted model; such
+ * a record is null and the context is built without it. `capabilities` is the set's capability
+ * report (capabilities.json): its reasons are the words the context carries for what is missing.
+ * The name is kept from Phase 3 (every consumer imports it); the bundle is not HBB-specific.
+ */
 export interface HbbBundle {
   gene: unknown;
   transcript: unknown;
   protein: unknown;
-  variant: unknown;
-  structure: unknown;
-  mapping: unknown;
-  contacts: unknown;
-  predicted: unknown;
+  variant: unknown | null;
+  structure: unknown | null;
+  mapping: unknown | null;
+  contacts: unknown | null;
+  predicted: unknown | null;
+  capabilities?: unknown | null;
 }
+
+const CapabilitiesIn = z
+  .object({
+    experimentalStructure: z.object({ available: z.boolean(), reason: z.string() }).loose(),
+    predictedStructure: z.object({ available: z.boolean(), reason: z.string() }).loose().optional(),
+    verifiedResidueMapping: z.object({ available: z.boolean(), reason: z.string() }).loose().optional(),
+  })
+  .loose();
 
 const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
 
-/** Builds the HBB planning context from the curated records. Throws if a record does not parse. */
+/** Why Protein World is unavailable for a set without an experimental structure: the capability report's words, else a generic reason. */
+export function proteinWorldReason(b: Pick<HbbBundle, "structure" | "mapping" | "capabilities">): { available: boolean; reason: string } {
+  if (b.structure && b.mapping) return { available: true, reason: "experimental structure with a verified residue mapping" };
+  if (b.structure) return { available: true, reason: "experimental structure without a verified residue mapping" };
+  const cap = b.capabilities ? CapabilitiesIn.safeParse(b.capabilities) : null;
+  if (cap?.success && !cap.data.experimentalStructure.available) return { available: false, reason: cap.data.experimentalStructure.reason };
+  return { available: false, reason: "no experimental structure record in this dataset" };
+}
+
+/**
+ * Builds the planning context of a curated set from its records. Throws if a record does not
+ * parse. The gene, transcript and protein records are required; the variant, structure, mapping,
+ * contacts and predicted model are optional (Phase 9): without a structure there is no structure
+ * entry, no feature and no structure evidence, and Protein World is unavailable with the reason;
+ * without a variant there is no variant entry. Nothing about any gene is written here: every
+ * name, label and identifier is read from the records.
+ */
 export function buildHbbContext(b: HbbBundle): PlanningContext {
   const gene = GeneIn.parse(b.gene);
   const tx = TranscriptIn.parse(b.transcript);
   const protein = ProteinIn.parse(b.protein);
-  const variant = VariantIn.parse(b.variant);
-  const structure = StructureIn.parse(b.structure);
-  const mapping = MappingIn.parse(b.mapping);
-  const contacts = ContactsIn.parse(b.contacts);
-  const predicted = PredictedIn.parse(b.predicted);
+  const variant = b.variant ? VariantIn.parse(b.variant) : null;
+  const structure = b.structure ? StructureIn.parse(b.structure) : null;
+  const mapping = structure && b.mapping ? MappingIn.parse(b.mapping) : null;
+  const contacts = structure && b.contacts ? ContactsIn.parse(b.contacts) : null;
+  const predicted = b.predicted ? PredictedIn.parse(b.predicted) : null;
 
   const geneId = gene.id.id;
   const evidence: ContextEvidence[] = [];
@@ -251,63 +283,122 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
   };
   addEv(`ensembl:${geneId}`, gene.evidence?.[0]);
   addEv(`uniprot:${protein.accession}`, protein.evidence[0]);
-  const clinvarEvId = `clinvar:${variant.clinvar.accession}`;
-  const uniprotVarId = `uniprot:${(variant.evidence[1]?.statement.match(/VAR_\d+/) ?? ["VAR_unknown"])[0]}`;
-  addEv(clinvarEvId, variant.evidence[0]);
-  addEv(uniprotVarId, variant.evidence[1]);
-  addEv(`hgvs:${variant.hgvs.coding[0]}`, variant.evidence[2]);
-  const structEvId = `pdb:${structure.entryId}`;
-  const citation = structure.citation;
-  evidence.push({
-    id: structEvId,
-    category: structure.evidence[0]?.category ?? 1,
-    statement: `${structure.evidence[0]?.statement ?? structure.entryId}${citation?.pubmedId ? ` Primary citation PMID ${citation.pubmedId}.` : ""}`,
-  });
-  const mappingEvId = `sifts:${mapping.entryId}-${mapping.uniprotAccession}`;
-  addEv(mappingEvId, mapping.evidence[1]);
-  addEv(`atom_site:${mapping.entryId}-val6`, mapping.evidence[0]);
-  const contactEvId = `contacts:${contacts.entryId}-H6`;
-  addEv(contactEvId, contacts.evidence[0]);
-  addEv(`alphafold:${predicted.modelId}`, predicted.evidence[0]);
 
-  const featureId = "HbS_substitution";
-  const variantChains = mapping.residues.map((r) => r.authAsymId);
-  const assemblies: ContextAssembly[] = [
-    { id: "model", label: "asymmetric unit (both tetramers, all chains)", chains: [...new Set(structure.entities.flatMap((e) => (e.type === "polymer" ? e.strandIds : [])))] },
-    ...structure.assemblies.map((a) => ({ id: a.id, label: `biological assembly ${a.id}`, chains: a.polymerAsymIds })),
-  ];
-  const assembliesContaining = (chains: string[]) => assemblies.filter((a) => chains.every((c) => a.chains.includes(c))).map((a) => a.id);
-  const contactChain = contacts.chains.find((c) => c.contacts.some((x) => !WATER_OR_LIGAND.has(x.compId)));
-  const features: ContextFeature[] = [
-    {
-      id: featureId,
-      kind: "residue",
-      label: `${variant.commonName}: ${variant.numbering.translatedLabel}; ${variant.numbering.matureLabel}; in ${structure.entryId} chains ${variantChains.join("/")} residue ${mapping.maturePosition} is VAL`,
-      proteinId: protein.accession,
-      structureId: structure.entryId,
-      chains: variantChains,
-      authSeqId: mapping.residues[0] ? Number(mapping.residues[0].authSeqId) : null,
-      assemblies: assemblies.filter((a) => variantChains.some((c) => a.chains.includes(c))).map((a) => a.id),
-      evidenceIds: [clinvarEvId, uniprotVarId, mappingEvId],
-    },
-  ];
-  if (contactChain) {
-    const partners = contactChain.contacts.filter((x) => !WATER_OR_LIGAND.has(x.compId));
-    const partnerChains = [...new Set(partners.map((p) => p.authAsymId))];
-    const chains = [contactChain.residue.authAsymId, ...partnerChains];
-    features.push({
-      id: `HbS_contact_${contactChain.residue.authAsymId}${contactChain.residue.authSeqId}_${partnerChains.join("")}`,
-      kind: "contact",
-      label: `${contactChain.residue.compId} ${contactChain.residue.authAsymId}${contactChain.residue.authSeqId} contacts ${partners.map((p) => `${p.compId} ${p.authAsymId}${p.authSeqId}`).join(", ")} within ${contacts.cutoffAngstrom} A (${contacts.scope})`,
-      proteinId: protein.accession,
-      structureId: contacts.entryId,
-      chains,
-      authSeqId: null,
-      assemblies: assembliesContaining(chains),
-      evidenceIds: [contactEvId],
+  // The variant: its ClinVar, UniProt and HGVS evidence (the record's first three entries).
+  let clinvarEvId: string | null = null;
+  let uniprotVarId: string | null = null;
+  if (variant) {
+    clinvarEvId = `clinvar:${variant.clinvar.accession}`;
+    uniprotVarId = `uniprot:${(variant.evidence[1]?.statement.match(/VAR_\d+/) ?? ["VAR_unknown"])[0]}`;
+    addEv(clinvarEvId, variant.evidence[0]);
+    addEv(uniprotVarId, variant.evidence[1]);
+    addEv(`hgvs:${variant.hgvs.coding[0]}`, variant.evidence[2]);
+  }
+
+  // The experimental structure, its mapping of record and its contacts.
+  const structures: ContextStructure[] = [];
+  const features: ContextFeature[] = [];
+  let featureId: string | null = null;
+  if (structure) {
+    const structEvId = `pdb:${structure.entryId}`;
+    const citation = structure.citation;
+    evidence.push({
+      id: structEvId,
+      category: structure.evidence[0]?.category ?? 1,
+      statement: `${structure.evidence[0]?.statement ?? structure.entryId}${citation?.pubmedId ? ` Primary citation PMID ${citation.pubmedId}.` : ""}`,
+    });
+    const assemblies: ContextAssembly[] = [
+      { id: "model", label: "asymmetric unit (both tetramers, all chains)", chains: [...new Set(structure.entities.flatMap((e) => (e.type === "polymer" ? e.strandIds : [])))] },
+      ...structure.assemblies.map((a) => ({ id: a.id, label: `biological assembly ${a.id}`, chains: a.polymerAsymIds })),
+    ];
+    const assembliesContaining = (chains: string[]) => assemblies.filter((a) => chains.every((c) => a.chains.includes(c))).map((a) => a.id);
+    let mappingEvId: string | null = null;
+    if (mapping) {
+      mappingEvId = `sifts:${mapping.entryId}-${mapping.uniprotAccession}`;
+      addEv(mappingEvId, mapping.evidence[1]);
+      const first = mapping.residues[0];
+      addEv(`atom_site:${mapping.entryId}-${first ? `${first.compId.toLowerCase()}${first.authSeqId}` : mapping.maturePosition}`, mapping.evidence[0]);
+    }
+    const contactChain = contacts?.chains.find((c) => c.contacts.some((x) => !WATER_OR_LIGAND.has(x.compId))) ?? null;
+    const contactEvId = contacts ? `contacts:${contacts.entryId}-${contactChain ? `${contactChain.residue.authAsymId}${contactChain.residue.authSeqId}` : "none"}` : null;
+    if (contacts && contactEvId) addEv(contactEvId, contacts.evidence[0]);
+    if (variant && mapping && clinvarEvId && uniprotVarId && mappingEvId) {
+      // The variant's residue feature: the mapped residue of record on the experimental structure.
+      featureId = `${variant.commonName.replace(/\s*\(.*\)$/, "").replace(/[^A-Za-z0-9]+/g, "_")}_substitution`;
+      const variantChains = mapping.residues.map((r) => r.authAsymId);
+      const comp = mapping.residues[0]?.compId ?? "?";
+      features.push({
+        id: featureId,
+        kind: "residue",
+        label: `${variant.commonName}: ${variant.numbering.translatedLabel}; ${variant.numbering.matureLabel}; in ${structure.entryId} chains ${variantChains.join("/")} residue ${mapping.maturePosition} is ${comp}`,
+        proteinId: protein.accession,
+        structureId: structure.entryId,
+        chains: variantChains,
+        authSeqId: mapping.residues[0] ? Number(mapping.residues[0].authSeqId) : null,
+        assemblies: assemblies.filter((a) => variantChains.some((c) => a.chains.includes(c))).map((a) => a.id),
+        evidenceIds: [clinvarEvId, uniprotVarId, mappingEvId],
+      });
+      if (contactChain && contacts && contactEvId) {
+        const partners = contactChain.contacts.filter((x) => !WATER_OR_LIGAND.has(x.compId));
+        const partnerChains = [...new Set(partners.map((p) => p.authAsymId))];
+        const chains = [contactChain.residue.authAsymId, ...partnerChains];
+        features.push({
+          id: `${featureId.replace(/_substitution$/, "")}_contact_${contactChain.residue.authAsymId}${contactChain.residue.authSeqId}_${partnerChains.join("")}`,
+          kind: "contact",
+          label: `${contactChain.residue.compId} ${contactChain.residue.authAsymId}${contactChain.residue.authSeqId} contacts ${partners.map((p) => `${p.compId} ${p.authAsymId}${p.authSeqId}`).join(", ")} within ${contacts.cutoffAngstrom} A (${contacts.scope})`,
+          proteinId: protein.accession,
+          structureId: contacts.entryId,
+          chains,
+          authSeqId: null,
+          assemblies: assembliesContaining(chains),
+          evidenceIds: [contactEvId],
+        });
+      }
+    }
+    structures.push({
+      id: structure.entryId,
+      origin: "experimental",
+      title: `${structure.title} (${structure.method}${structure.resolutionAngstrom ? `, ${structure.resolutionAngstrom} A` : ""})`,
+      proteinIds: [...new Set(structure.entities.flatMap((e) => e.siftsUniprot))],
+      assemblies,
+      variantPlacement: featureId !== null,
+    });
+  }
+  if (predicted) {
+    addEv(`alphafold:${predicted.modelId}`, predicted.evidence[0]);
+    structures.push({
+      id: predicted.modelId,
+      origin: "predicted",
+      title: `AlphaFold DB predicted model of ${predicted.uniprotAccession} (pLDDT ${predicted.globalPlddt}); computational prediction`,
+      proteinIds: [predicted.uniprotAccession],
+      assemblies: [{ id: "model", label: "single predicted chain", chains: ["A"] }],
+      variantPlacement: predicted.usableForVariantPlacement,
     });
   }
 
+  const variants: ContextVariant[] = [];
+  if (variant && clinvarEvId && uniprotVarId) {
+    variants.push({
+      id: variant.key,
+      label: variant.commonName,
+      geneId,
+      proteinId: protein.accession,
+      names: [
+        // The short name and the Phase 3 descriptive name of the curated variant (kept for the measured prompts), then the record's identifiers.
+        variant.commonName.replace(/\s*\(.*\)$/, ""),
+        "sickle-cell variant",
+        `${variant.rsId} allele ${variant.allele.alternate}`,
+        ...variant.hgvs.coding,
+        ...variant.hgvs.protein,
+        variant.numbering.matureLabel,
+        `ClinVar ${variant.clinvar.accession}: ${variant.clinvar.classification} (${variant.clinvar.reviewStatus})`,
+      ],
+      featureId: featureId ?? `${variant.commonName.replace(/\s*\(.*\)$/, "").replace(/[^A-Za-z0-9]+/g, "_")}_substitution`,
+      evidenceIds: [clinvarEvId, uniprotVarId],
+    });
+  }
+
+  const proteinWorld = proteinWorldReason(b);
   return {
     contextId: `curated-${gene.symbol.toLowerCase()}`,
     genes: [{ id: geneId, symbol: gene.symbol, name: gene.description.replace(/\s*\[Source:.*$/, ""), hgncId: gene.hgncId, aliases: gene.aliases }],
@@ -320,50 +411,15 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
       },
     ],
     proteins: [{ id: protein.accession, geneId, name: protein.entryName, length: protein.length }],
-    variants: [
-      {
-        id: variant.key,
-        label: variant.commonName,
-        geneId,
-        proteinId: protein.accession,
-        names: [
-          "HbS",
-          "sickle-cell variant",
-          `${variant.rsId} allele ${variant.allele.alternate}`,
-          ...variant.hgvs.coding,
-          ...variant.hgvs.protein,
-          variant.numbering.matureLabel,
-          `ClinVar ${variant.clinvar.accession}: ${variant.clinvar.classification} (${variant.clinvar.reviewStatus})`,
-        ],
-        featureId,
-        evidenceIds: [clinvarEvId, uniprotVarId],
-      },
-    ],
-    structures: [
-      {
-        id: structure.entryId,
-        origin: "experimental",
-        title: `${structure.title} (${structure.method}${structure.resolutionAngstrom ? `, ${structure.resolutionAngstrom} A` : ""})`,
-        proteinIds: [...new Set(structure.entities.flatMap((e) => e.siftsUniprot))],
-        assemblies,
-        variantPlacement: true,
-      },
-      {
-        id: predicted.modelId,
-        origin: "predicted",
-        title: `AlphaFold DB predicted model of ${predicted.uniprotAccession} (pLDDT ${predicted.globalPlddt}); computational prediction`,
-        proteinIds: [predicted.uniprotAccession],
-        assemblies: [{ id: "model", label: "single predicted chain", chains: ["A"] }],
-        variantPlacement: predicted.usableForVariantPlacement,
-      },
-    ],
+    variants,
+    structures,
     features,
     evidence,
     worlds: [
       { id: "overview", available: true, reason: "always" },
       { id: "genome", available: true, reason: "gene locus on GRCh38" },
       { id: "dna", available: true, reason: "reference sequence of the selected transcript" },
-      { id: "protein", available: true, reason: "experimental structure with a verified residue mapping" },
+      { id: "protein", available: proteinWorld.available, reason: proteinWorld.reason },
       { id: "pathway", available: false, reason: "no curated pathway records in this context" },
     ],
     executableActions: ["resolveGene", "resolveVariant", "loadStructure", "enterWorld", "focusCamera", "highlightResidue", "revealEvidence", "cancelActions"],
