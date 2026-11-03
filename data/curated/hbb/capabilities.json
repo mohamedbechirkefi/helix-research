@@ -28,7 +28,7 @@
   },
   "experimentalStructure": {
     "available": true,
-    "reason": "348 experimental entries (e.g. 1A00, X-ray)",
+    "reason": "2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A); 348 experimental entries cross-referenced (e.g. 1A00, X-ray)",
     "evidenceCategory": 1
   },
   "predictedStructure": {

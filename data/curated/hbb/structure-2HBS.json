@@ -5,6 +5,9 @@
   "method": "X-RAY DIFFRACTION",
   "origin": "experimental",
   "resolutionAngstrom": 2.05,
+  "modelCount": 1,
+  "modelShown": 1,
+  "nmrEnsemble": null,
   "revision": {
     "version": "1.5",
     "date": "2026-08-12"
@@ -33,7 +36,11 @@
       ],
       "siftsUniprot": [
         "P69905"
-      ]
+      ],
+      "uniprotFromEntry": [
+        "P69905"
+      ],
+      "sequenceDifferences": []
     },
     {
       "entityId": "2",
@@ -53,6 +60,43 @@
       ],
       "siftsUniprot": [
         "P68871"
+      ],
+      "uniprotFromEntry": [
+        "P68871"
+      ],
+      "sequenceDifferences": [
+        {
+          "strandId": "B",
+          "labelSeqId": 6,
+          "residue": "VAL",
+          "referenceResidue": "GLU",
+          "referencePosition": 6,
+          "details": "variant"
+        },
+        {
+          "strandId": "D",
+          "labelSeqId": 6,
+          "residue": "VAL",
+          "referenceResidue": "GLU",
+          "referencePosition": 6,
+          "details": "variant"
+        },
+        {
+          "strandId": "F",
+          "labelSeqId": 6,
+          "residue": "VAL",
+          "referenceResidue": "GLU",
+          "referencePosition": 6,
+          "details": "variant"
+        },
+        {
+          "strandId": "H",
+          "labelSeqId": 6,
+          "residue": "VAL",
+          "referenceResidue": "GLU",
+          "referencePosition": 6,
+          "details": "variant"
+        }
       ]
     },
     {
@@ -63,7 +107,9 @@
       "mutation": null,
       "sequence": null,
       "strandIds": [],
-      "siftsUniprot": []
+      "siftsUniprot": [],
+      "uniprotFromEntry": [],
+      "sequenceDifferences": []
     },
     {
       "entityId": "4",
@@ -73,7 +119,42 @@
       "mutation": null,
       "sequence": null,
       "strandIds": [],
-      "siftsUniprot": []
+      "siftsUniprot": [],
+      "uniprotFromEntry": [],
+      "sequenceDifferences": []
+    }
+  ],
+  "mappedEntityId": "2",
+  "coverage": {
+    "uniprotAccession": "P68871",
+    "chains": [
+      "B",
+      "D",
+      "F",
+      "H"
+    ],
+    "firstObservedPosition": 2,
+    "lastObservedPosition": 147,
+    "observedPositions": 146,
+    "mappedPositions": 146,
+    "proteinLength": 147,
+    "fraction": 0.9932,
+    "text": "2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A)"
+  },
+  "partners": [
+    {
+      "entityId": "1",
+      "description": "HEMOGLOBIN S (DEOXY), ALPHA CHAIN",
+      "strandIds": [
+        "A",
+        "C",
+        "E",
+        "G"
+      ],
+      "uniprotAccession": "P69905",
+      "siftsUniprot": [
+        "P69905"
+      ]
     }
   ],
   "chains": [
@@ -351,56 +432,70 @@
       "parse-mmcif",
       "field-select",
       "sifts-entity-selection",
-      "classify-pdbx-mutation-numbering"
+      "classify-pdbx-mutation-numbering",
+      "coverage-from-sifts-and-atom-site",
+      "partners-from-struct-ref"
     ],
     "validation": [
       {
         "check": "structure-entry",
         "result": "pass",
         "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.5; mmCIF rev 1.5",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "24 label chains, all with an auth chain id from the scheme tables; 16 non-polymer chains have label != auth (e.g. label I = auth A HEM 153)",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
+      },
+      {
+        "check": "T47-structure-method",
+        "result": "pass",
+        "detail": "2HBS method X-RAY DIFFRACTION; resolution 2.05 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
+        "at": "2026-11-03T22:12:11Z"
+      },
+      {
+        "check": "T48-structure-coverage",
+        "result": "pass",
+        "detail": "146 of 146 mapped positions observed in model 1 on chain(s) B,D,F,H, 2-147; protein length 147; fraction 0.9932 = 146/147; words match the numbers",
+        "at": "2026-11-03T22:12:11Z"
       }
     ],
     "evidenceCategory": 1
@@ -413,6 +508,17 @@
       "statement": "2HBS: X-RAY DIFFRACTION, 2.05 A resolution, deposited 1997-05-06.",
       "qualifier": null,
       "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A); SIFTS maps 146 position(s) of P68871 onto chain(s) B, D, F, H.",
+      "qualifier": null,
+      "limitations": [
+        "The entry covers 146 of the protein's 147 residues; the rest has no experimental coordinates in this set, and a predicted model never stands in for it.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
     }
   ]
 }
