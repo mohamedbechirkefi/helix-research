@@ -1,0 +1,535 @@
+{
+ "date": "2026-11-03T18:20:41.505Z",
+ "tag": "p924-final",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": [
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p9-shots/faah2-welcome-message.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p9-shots/faah2-dna-world.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p9-shots/faah2-evidence-world.jpg"
+ ],
+ "scenarios": {
+  "faah2-welcome": {
+   "messageShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p9-shots/faah2-welcome-message.jpg",
+   "message": {
+    "text": "FAAH2 resolves to FAAH2 (HGNC:26440), a curated set of this build; opening it.",
+    "status": "switching"
+   },
+   "pageErrorsBlocked": [],
+   "after": {
+    "url": "http://localhost:5190/?welcome=on&fadeMs=0&dataset=faah2",
+    "search": "?welcome=on&fadeMs=0&dataset=faah2",
+    "dataset": {
+     "id": "faah2",
+     "symbol": "FAAH2",
+     "datasets": [
+      "faah2",
+      "hbb"
+     ],
+     "kinds": [
+      "gene",
+      "transcript",
+      "sequence-set",
+      "protein",
+      "predicted-model",
+      "capabilities"
+     ]
+    },
+    "welcomeOpen": true,
+    "world": "dna",
+    "pageErrors": []
+   }
+  },
+  "faah2-dna-world": {
+   "dataset": {
+    "id": "faah2",
+    "symbol": "FAAH2",
+    "datasets": [
+     "faah2",
+     "hbb"
+    ],
+    "kinds": [
+     "gene",
+     "transcript",
+     "sequence-set",
+     "protein",
+     "predicted-model",
+     "capabilities"
+    ]
+   },
+   "dnaReady": true,
+   "codonTape": 533,
+   "variantCodonsOnTape": 0,
+   "plate": "Illustrative geometry, real sequenceENST00000374900.5 cDNA, 1980 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "protein": {
+    "disabled": true,
+    "title": "no experimental structure is cross-referenced for this protein"
+   },
+   "unavailableNote": "Protein World not available: no experimental structure is cross-referenced for this protein",
+   "reasonCard": "no experimental structure is cross-referenced for this protein",
+   "reasonSentence": "There is no Protein World for FAAH2: no experimental structure is cross-referenced for this protein.",
+   "predicted": {
+    "model": "AF-Q6GMR7-F1",
+    "text": "Predicted · class 3AF-Q6GMR7-F1 · AlphaFold DB v6pLDDT 93.9 · listed, not loaded"
+   },
+   "variantCard": false,
+   "annotation": false,
+   "comparison": false,
+   "nextBranches": [],
+   "chapters": {
+    "offered": [
+     "transcript",
+     "first-codon"
+    ],
+    "refused": []
+   },
+   "journey": {
+    "planId": "faah2-overview-journey",
+    "chapterId": "transcript",
+    "index": 0,
+    "resumeIndex": null,
+    "chapterIds": [
+     "transcript",
+     "first-codon"
+    ]
+   },
+   "mode": "guided",
+   "world": "dna",
+   "context": {
+    "structures": [
+     "AF-Q6GMR7-F1"
+    ],
+    "features": [],
+    "worlds": [
+     {
+      "id": "overview",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "genome",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "dna",
+      "available": true,
+      "reason": "reference sequence of the selected transcript"
+     },
+     {
+      "id": "protein",
+      "available": false,
+      "reason": "no experimental structure is cross-referenced for this protein"
+     },
+     {
+      "id": "pathway",
+      "available": false,
+      "reason": "no curated pathway records in this context"
+     }
+    ],
+    "executableActions": [
+     "resolveGene",
+     "resolveVariant",
+     "loadStructure",
+     "enterWorld",
+     "focusCamera",
+     "highlightResidue",
+     "revealEvidence",
+     "cancelActions",
+     "compareVariants",
+     "highlightSequenceRegion"
+    ]
+   },
+   "structures": 0,
+   "scene": {
+    "created": false,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 198.2000000178814,
+    "prefetchEndedAt": 544.4000000059605,
+    "chunkMs": 346.2,
+    "createMs": null,
+    "firstNeed": null,
+    "prefetchError": null
+   },
+   "limits": [
+    {
+     "id": "nonclinical",
+     "text": "01Helix is nonclinical: not a diagnostic, variant classification or medical advice tool. ClinVar's classification is shown as a database record with its review status, not as advice."
+    },
+    {
+     "id": "one-gene",
+     "text": "02The curated sets of this build are FAAH2 and HBB; other genes are refused rather than built from uncurated data. This set (FAAH2) carries the gene, its MANE Select transcript and sequences, the protein record and a predicted model (listed, not loaded)."
+    },
+    {
+     "id": "no-structure",
+     "text": "03No experimental structure is curated for FAAH2: no experimental structure is cross-referenced for this protein. There is no Protein World, no residue mapping and no variant placement in this set; Helix shows the transcript, its sequence and the protein record, and never substitutes a predicted model."
+    },
+    {
+     "id": "snapshot",
+     "text": "04The data are a snapshot of public records with a retrieval date and record versions (see Evidence World), not a live feed. Records change between builds."
+    },
+    {
+     "id": "illustrative-dna",
+     "text": "05The DNA helix is illustrative geometry: the bases, their order and the exons are real, the shape and spacing are not to scale."
+    },
+    {
+     "id": "predicted-model",
+     "text": "06The AlphaFold model of Q6GMR7 (AF-Q6GMR7-F1) is listed as a computational prediction; it is not loaded and is never shown as an experimental structure."
+    },
+    {
+     "id": "ai",
+     "text": "07A language model, when one is available, only proposes a plan of fixed actions; deterministic code checks every identifier and executes. Its wording is never a scientific claim. Its suggested next questions are shown only when a fixed filter finds them nonclinical and answerable with the curated data. Without a model, a rule-based planner answers a limited set of questions."
+    },
+    {
+     "id": "evidence-world",
+     "text": "08Evidence World v1 is a page layer, not yet a world the planner can enter: the plan vocabulary has no evidence world, and adding one would change the Phase 3 prompt."
+    },
+    {
+     "id": "browsers",
+     "text": "09Tested in headless Chrome on one Mac. Safari, Firefox and the desktop webview were not run in this phase."
+    }
+   ],
+   "crumb": "FAAH2",
+   "firstCodon": {
+    "snap": {
+     "version": 18,
+     "epoch": 2,
+     "gene": null,
+     "transcript": null,
+     "variant": null,
+     "protein": null,
+     "structure": null,
+     "chain": null,
+     "selectedPosition": null,
+     "world": "dna",
+     "chapter": null,
+     "cameraTarget": null,
+     "highlighted": null,
+     "focus": [],
+     "evidence": [],
+     "activeActions": [
+      {
+       "index": 0,
+       "type": "enterWorld",
+       "status": "completed",
+       "feedback": "In the dna world",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 1013.3000000119209
+        },
+        {
+         "status": "validated",
+         "at": 1013.6000000238419
+        },
+        {
+         "status": "preparing",
+         "at": 1013.7000000178814,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "executing",
+         "at": 1013.8000000119209,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "completed",
+         "at": 1018.2000000178814,
+         "detail": "In the dna world"
+        }
+       ],
+       "result": {
+        "world": "dna"
+       }
+      }
+     ],
+     "request": {
+      "id": "ch2",
+      "query": "",
+      "source": "journey:first-codon",
+      "status": "completed",
+      "epoch": 1,
+      "startedAt": 1013.3000000119209,
+      "endedAt": 1018.2000000178814
+     },
+     "knowledgeLevel": "intermediate",
+     "interests": [],
+     "pointerOwner": "r3f",
+     "statusMessage": null,
+     "sequenceSelection": {
+      "transcriptId": "ENST00000374900.5",
+      "index": 120,
+      "unit": "codon",
+      "codon": 1
+     },
+     "selectionLink": {
+      "codon": 1,
+      "proteinPosition": 1,
+      "structureResidues": [],
+      "status": "none",
+      "reason": "no curated residue mapping of record for Q6GMR7 position 1 in this dataset; no structure residue is shown rather than one computed by offset",
+      "from": "dna"
+     },
+     "transition": null,
+     "mode": "guided",
+     "journey": {
+      "planId": "faah2-overview-journey",
+      "chapterId": "first-codon",
+      "index": 1,
+      "resumeIndex": null,
+      "chapterIds": [
+       "transcript",
+       "first-codon"
+      ]
+     },
+     "sequenceHighlight": null,
+     "comparison": null
+    },
+    "text": "Codon 1 of ENST00000374900.5: the first of the 533 codons of the coding sequence (stop codon included), shown as recorded in the CDS. No curated variant is recorded for FAAH2 in this set."
+   },
+   "tour": {
+    "start": {
+     "state": "playing",
+     "progress": 0.024649999998509885,
+     "durationMs": 12000,
+     "reduced": false
+    },
+    "end": {
+     "state": "done",
+     "progress": 1,
+     "durationMs": 12000,
+     "reduced": false
+    }
+   },
+   "cifRequests": [],
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p9-shots/faah2-dna-world.jpg",
+   "promptRulesHbbWords": [
+    "hemoglobin",
+    "globin",
+    "HBB"
+   ],
+   "pageErrors": []
+  },
+  "faah2-protein-question": {
+   "rows": [
+    {
+     "q": "Show me the protein structure of FAAH2",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    },
+    {
+     "q": "Show me where the sickle-cell mutation affects hemoglobin.",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    },
+    {
+     "q": "Open Protein World",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    }
+   ],
+   "cifRequests": [],
+   "pageErrors": []
+  },
+  "faah2-evidence": {
+   "sources": [
+    [
+     "ensembl",
+     "info/data",
+     "none",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "homo_sapiens",
+     "GRCh38.p14",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENSG00000165591",
+     "9",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900.5",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900.5",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENSP00000364035.4",
+     "4",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "uniprot",
+     "Q6GMR7",
+     "entry 167, sequence 1",
+     "UniProt 2026_03",
+     "2026-11-03"
+    ],
+    [
+     "hgnc",
+     "HGNC:26440",
+     "none",
+     "not published",
+     "2026-11-03"
+    ],
+    [
+     "alphafold",
+     "AF-Q6GMR7-F1",
+     "6",
+     "AlphaFold DB model v6",
+     "2026-11-03"
+    ],
+    [
+     "alphafold",
+     "AF-Q6GMR7-F1",
+     "6",
+     "AlphaFold DB model v6",
+     "2026-11-03"
+    ]
+   ],
+   "clinvarNone": "No curated variant is recorded for this set, so there is no ClinVar record to show (no curated variant record).",
+   "mappingNone": "No residue mapping of record: no residue mapping record. No codon reaches a structure residue.",
+   "evidenceIndex": "Evidence in this journey (3)",
+   "focus": "evidence-world-close",
+   "pageErrors": []
+  },
+  "faah2-axe": {
+   "dnaWorld": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 148
+     }
+    ],
+    "pageErrors": []
+   },
+   "welcome": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 32
+     }
+    ],
+    "pageErrors": []
+   }
+  },
+  "hbb-unchanged": {
+   "dataset": {
+    "id": "hbb",
+    "symbol": "HBB",
+    "datasets": [
+     "faah2",
+     "hbb"
+    ],
+    "kinds": [
+     "gene",
+     "transcript",
+     "sequence-set",
+     "protein",
+     "variant",
+     "clinvar-record",
+     "structure",
+     "mmcif",
+     "residue-mapping",
+     "residue-mapping-table",
+     "residue-contacts",
+     "predicted-model",
+     "capabilities"
+    ]
+   },
+   "codonTape": 148,
+   "protein": {
+    "disabled": false,
+    "title": ""
+   },
+   "chapters": {
+    "offered": [
+     "transcript",
+     "variant-codon",
+     "variant-residue",
+     "variant-contact"
+    ],
+    "refused": []
+   },
+   "limits": [
+    "nonclinical",
+    "one-gene",
+    "snapshot",
+    "hbs-crystal",
+    "asymmetric-unit",
+    "numbering",
+    "mapping-coverage",
+    "illustrative-dna",
+    "predicted-model",
+    "ai",
+    "evidence-world",
+    "browsers"
+   ],
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}
