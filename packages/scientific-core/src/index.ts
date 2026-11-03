@@ -16,6 +16,7 @@ export * from "./capabilities.ts";
 export * from "./drift.ts";
 export * from "./gene-resolution.ts";
 export * from "./slice/types.ts";
+export * from "./slice/spec.ts";
 export * from "./slice/build.ts";
 export * from "./slice/acquire.ts";
 export * from "./slice/manifest.ts";

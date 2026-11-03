@@ -1,0 +1,21 @@
+{
+  "datasetId": "hbb",
+  "description": "HBB (beta-globin) vertical slice: gene, MANE Select transcript, sequences, UniProt P68871, the HbS variant, PDB 2HBS and its residue mapping.",
+  "identifiers": {
+    "ensemblGeneId": "ENSG00000244734",
+    "hgncSymbol": "HBB",
+    "uniprotAccession": "P68871"
+  },
+  "pdbId": "2HBS",
+  "variant": {
+    "slug": "hbs",
+    "commonName": "HbS (sickle haemoglobin)",
+    "rsId": "rs334",
+    "forwardAllele": "A",
+    "clinvarUid": "15333"
+  },
+  "genomicWindowFlank": 20,
+  "contactCutoffAngstrom": 4.5,
+  "includeAlphafold": true,
+  "notes": "First gene (Phases 1 to 8). 2HBS is the deoxy sickle haemoglobin entry in which the variant residue (HbS, beta 6 Val in mature numbering, UniProt position 7) is observed; the HBB_CONFIG constant in packages/scientific-core/src/slice/types.ts mirrors this file and a test keeps them equal."
+}

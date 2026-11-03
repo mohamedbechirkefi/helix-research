@@ -16,7 +16,8 @@ Helix is a nonclinical, research-grounded exploration of genes, variants and pro
 
 ```
 npm install && npm test        # Node >= 22.18
-npm run build:hbb              # live rebuild of data/curated/hbb
+npm run build:hbb              # live rebuild of data/curated/hbb (wrapper around build-gene.ts --gene hbb)
+npm run build:gene -- --gene hbb --fixtures --out /tmp/hbb   # any gene with a data/specs/<gene>.json, from the recorded fixtures
 ```
 
 ## License

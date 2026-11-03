@@ -1,0 +1,18 @@
+files compared: 14
+byte-identical files: 2
+allowed differences (timestamps and dependent hashes): 158
+  clinvar-hbs.json: 3
+  contacts-hbs-2HBS.json: 1
+  gene.json: 7
+  manifest.json: 65
+  predicted-model-AF-P68871-F1.json: 1
+  protein-P68871.json: 10
+  residue-mapping-P68871-2HBS.json: 4
+  residue-mapping-hbs-2HBS.json: 7
+  sequences.json: 32
+  structure-2HBS.json: 8
+  transcript.json: 6
+  variant-hbs.json: 14
+other differences: 2
+  manifest.json $.generator.script: "scripts/data-preparation/build-hbb.ts (fixtures)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitDirty: false != true (value)

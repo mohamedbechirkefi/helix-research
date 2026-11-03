@@ -23,7 +23,7 @@ export const clinvarUrls = {
   einfo: (): string => `${EUTILS_BASE}/einfo.fcgi?db=clinvar&retmode=json&tool=helix-research`,
   /** esearch by rsID (all ClinVar records that cite it: alleles, haplotypes). Only an rsID is accepted. */
   esearchRs: (rsId: string): string => {
-    if (!/^rs\d{1,12}$/.test(rsId)) throw new InvalidParameterError("ClinVar esearch term must be an rsID such as rs334");
+    if (!/^rs\d{1,12}$/.test(rsId)) throw new InvalidParameterError("ClinVar esearch term must be an rsID (rs followed by digits)");
     return `${EUTILS_BASE}/esearch.fcgi?db=clinvar&term=${rsId}&retmode=json&retmax=100&tool=helix-research`;
   },
 };
