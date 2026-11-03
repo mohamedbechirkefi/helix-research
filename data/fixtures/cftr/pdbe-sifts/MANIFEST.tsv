@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+pdbe_api_mappings_uniprot_5uak.json	2026-11-03T18:56:41Z	200	0d26c8a2e5016ea1be08372757985d89ed6d50b3f89968da064afc42edf95779	374	GET	https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/5uak	"{""content-type"":""application/json""}"	

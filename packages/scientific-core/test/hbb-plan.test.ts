@@ -318,7 +318,12 @@ describe("provenance and failure handling", () => {
     // capabilities.json is a derived index (no claims of its own); it names the records it derives from.
     const cap = JSON.parse(build.files.find((f) => f.recordKind === "capabilities")!.content);
     expect(cap.derivedFrom).toContain("variant-hbs.json");
-    for (const f of build.files.filter((x) => x.recordKind !== "mmcif" && x.recordKind !== "capabilities")) {
+    // questions.json (Phase 9) is curator text from the specification, not a claim-bearing record; it names the capability record its keys refer to.
+    const questions = JSON.parse(build.files.find((f) => f.recordKind === "questions")!.content);
+    expect(questions).toMatchObject({ kind: "questions", derivedFrom: ["capabilities.json"], symbol: "HBB", bridgeQuestion: "See the sickle-cell mutation on the protein." });
+    expect(questions.questions).toHaveLength(4);
+    expect(Object.keys(questions)).not.toContain("provenance");
+    for (const f of build.files.filter((x) => x.recordKind !== "mmcif" && x.recordKind !== "capabilities" && x.recordKind !== "questions")) {
       const rec = JSON.parse(f.content);
       const records = rec.kind === "sequence-set" ? rec.records : [rec];
       for (const r of records) {

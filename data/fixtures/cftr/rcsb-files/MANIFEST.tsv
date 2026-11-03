@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+download_5UAK.cif	2026-11-03T18:56:40Z	200	9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23	977761	GET	https://files.rcsb.org/download/5UAK.cif	"{""content-type"":""chemical/x-cif"",""last-modified"":""Thu, 25 Sep 2025 17:44:16 GMT"",""etag"":""\""7ccf8d0019c59e7dcbb7d6c0045a3cd0-enc\""""}"	

@@ -11,7 +11,7 @@ import { join, relative } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { ValidationFailedError } from "@helix/data-adapters";
 import { HBB_CONFIG, type SliceConfig, buildSlice, inputsFor, loadGeneSpec } from "@helix/scientific-core";
-import { CapabilityReport, DatasetManifest, Gene, Protein } from "@helix/shared-types";
+import { CapabilityReport, DatasetManifest, DeletionVariant, Gene, Protein, QuestionsRecord, ResidueContacts, ResidueMapping, Structure, Variant } from "@helix/shared-types";
 import { GENERATOR_SCRIPT, buildGene, parseBuildArgs, readSpec } from "../lib/build-gene.ts";
 import { loadFixtureInputs } from "../lib/fixtures.ts";
 import { REPO_ROOT } from "../lib/node-env.ts";
@@ -20,7 +20,7 @@ import { REPO_ROOT } from "../lib/node-env.ts";
 async function noStructureSpec(): Promise<SliceConfig> {
   const json = JSON.parse(await readFile(join(REPO_ROOT, "data/specs/hbb.json"), "utf8")) as Record<string, unknown>;
   const { pdbId, variant, notes, ...rest } = json;
-  expect([pdbId, variant, typeof notes]).toEqual(["2HBS", HBB_CONFIG.variant, "string"]);
+  expect([pdbId, { kind: "substitution", ...(variant as object) }, typeof notes]).toEqual(["2HBS", HBB_CONFIG.variant, "string"]);
   return loadGeneSpec({ ...rest, datasetId: "hbb-no-structure", description: "HBB with no experimental structure and no reference variant selected (test specification).", notes: "Built by the dataset tests from the HBB fixtures; never a curated set." });
 }
 
@@ -56,8 +56,8 @@ describe("generic builder: a specification without pdbId and without variant (fi
     if (out) await rm(join(out, ".."), { recursive: true, force: true });
   });
 
-  it("writes the gene, transcript, sequence, protein, predicted-model and capability records and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "sequences.json", "transcript.json"]);
+  it("writes the gene, transcript, sequence, protein, predicted-model, capability and questions records and nothing that needs a structure or a variant", () => {
+    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "questions.json", "sequences.json", "transcript.json"]);
     expect(files.filter((f) => /^(structure|contacts|variant|clinvar|residue-mapping)-|\.cif$/.test(f))).toEqual([]);
   });
   it("the capability file says what is missing, in the specification's terms", () => {
@@ -118,9 +118,99 @@ describe("generic builder: a specification without pdbId and without variant (fi
   });
 });
 
+describe("the CFTR set (P9.2.1): an in-frame deletion built from its recorded fixtures (plan §11)", () => {
+  let out: string;
+  let files: string[];
+  let manifest: DatasetManifest;
+  let variant: DeletionVariant;
+  beforeAll(async () => {
+    const dir = await mkdtemp(join(tmpdir(), "helix-cftr-build-"));
+    out = join(dir, "cftr");
+    await buildGene({ config: await readSpec("cftr"), mode: "fixtures", outDir: out, log: () => undefined });
+    files = (await readdir(out)).sort();
+    manifest = DatasetManifest.parse(JSON.parse(await readFile(join(out, "manifest.json"), "utf8")));
+    const v = Variant.parse(JSON.parse(await readFile(join(out, "variant-f508del.json"), "utf8")));
+    if (v.variantKind !== "deletion") throw new Error("expected a deletion record");
+    variant = v;
+  });
+  afterAll(async () => {
+    if (out) await rm(join(out, ".."), { recursive: true, force: true });
+  });
+  it("the specification selects a deletion by its HGVS c. and no forward allele", async () => {
+    const spec = await readSpec("cftr");
+    expect(spec.variant).toStrictEqual({ kind: "deletion", slug: "f508del", commonName: "F508del (p.Phe508del)", rsId: "rs113993960", hgvsC: "c.1521_1523del", clinvarUid: "7105" });
+    expect(spec.structurePreference).toBe("variant-residue-observed");
+    expect(spec.pdbId).toBe("5UAK");
+  });
+  it("the variant record (rule 2): span c.1521 to c.1523, codons 507 ATC to ATT (Ile) and 508 TTT deleted (Phe), p.Phe508del, residue 508", () => {
+    expect(variant.variantKind).toBe("deletion");
+    expect(variant.deletedSpan).toMatchObject({ cdsStart: 1521, cdsEnd: 1523, length: 3 });
+    expect(variant.cdsPosition).toBe(1521);
+    expect(variant.affectedCodons.map((c) => [c.number, c.reference, c.afterDeletion, c.referenceAminoAcid, c.aminoAcidAfterDeletion])).toEqual([
+      [507, "ATC", "ATT", "I", "I"],
+      [508, "TTT", null, "F", null],
+    ]);
+    expect(variant.proteinChangeComputed).toBe("p.Phe508del");
+    expect(variant.residue).toBe(508);
+    expect(variant.deletedResidues).toEqual([{ position: 508, aminoAcid: "F" }]);
+    expect(variant.numbering).toMatchObject({ translatedPosition: 508, maturePosition: null, matureLabel: null, translatedLabel: "p.Phe508del (translated numbering, Met = 1)" });
+    expect(variant.allele).toEqual({ reference: "CTT", alternate: "", strand: 1 });
+    expect(variant.location.end - variant.location.start + 1).toBe(3);
+    expect(variant.location.start).toBe(variant.deletedSpan.genomic.start);
+    // The deleted span is the third base of codon 507 and the first two of codon 508, as the plan says.
+    expect(variant.affectedCodons[0]!.genomic.end).toBe(variant.location.start);
+    expect(variant.affectedCodons[1]!.genomic.start).toBe(variant.location.start + 1);
+    expect(variant.hgvs.coding).toContain("ENST00000003084.11:c.1521_1523del");
+    expect(variant.hgvs.protein.every((p) => p.endsWith(":p.Phe508del"))).toBe(true);
+    expect(variant.consequence?.terms).toEqual(["inframe_deletion"]);
+    expect(variant.provenance.transformations).toContain("apply-deletion-to-cds");
+    expect(variant.clinvar?.accession).toBe("VCV000007105");
+  });
+  it("the checks: the deletion branch and T40 pass, nothing fails, and the substitution-only checks did not run", () => {
+    expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
+    const ids = manifest.validation.map((v) => v.check);
+    for (const id of ["T40-variant-residue-observed", "T13-rsid-deletion-allele", "T08-deleted-span", "T09-forward-and-coding-bases", "T11-deletion-in-frame", "T12-hgvsp-agrees", "T12-vep-agrees", "T18-hgvsp-equals-uniprot-position", "T14-clinvar-record", "T23-residue-from-atom-site", "T28-contacts-computed"]) expect(ids, id).toContain(id);
+    for (const id of ["T13-rsid-multiallelic", "T08-codon-span", "T09-forward-and-coding-base", "T11-codon-change"]) expect(ids, id).not.toContain(id);
+    const t40 = manifest.validation.find((v) => v.check === "T40-variant-residue-observed")!;
+    expect(t40.result).toBe("pass");
+    expect(t40.detail).toMatch(/A observed \(label 508, auth 508, PHE\)/);
+    expect(manifest.validation.find((v) => v.check === "T23-residue-from-atom-site")!.detail).toMatch(/structure carries the reference residue/);
+  });
+  it("the structure, mapping and contacts: 5UAK observes Phe 508 on chain A; the contacts name the residue as deleted", async () => {
+    const s = Structure.parse(JSON.parse(await readFile(join(out, "structure-5UAK.json"), "utf8")));
+    expect([s.entryId, s.method, s.origin]).toEqual(["5UAK", "ELECTRON MICROSCOPY", "experimental"]);
+    expect(s.resolutionAngstrom).not.toBeNull();
+    const m = ResidueMapping.parse(JSON.parse(await readFile(join(out, "residue-mapping-f508del-5UAK.json"), "utf8")));
+    expect([m.uniprotPosition, m.uniprotResidue, m.maturePosition]).toEqual([508, "F", null]);
+    expect(m.residues.map((r) => [r.labelAsymId, r.labelSeqId, r.authAsymId, r.authSeqId, r.compId])).toEqual([["A", 508, "A", "508", "PHE"]]);
+    const c = ResidueContacts.parse(JSON.parse(await readFile(join(out, "contacts-f508del-5UAK.json"), "utf8")));
+    expect(c.scope).toMatch(/own chain included/);
+    expect(c.chains).toHaveLength(1);
+    expect(c.chains[0]!.contacts.length).toBeGreaterThan(0);
+    expect(c.chains[0]!.contacts.every((x) => Math.abs(x.authSeqId - 508) > 1)).toBe(true);
+    expect(c.evidence[0]!.statement).toMatch(/the residue deleted in F508del/);
+  });
+  it("the questions record (rule 6) is listed in the manifest with its hash and carries CFTR's four questions and bridge question", async () => {
+    expect(files).toContain("questions.json");
+    const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
+    expect(q).toMatchObject({ kind: "questions", symbol: "CFTR", derivedFrom: ["capabilities.json"], bridgeQuestion: "See the F508del mutation on the protein." });
+    expect(q.questions.map((x) => x.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"]]);
+    const entry = manifest.files.find((f) => f.path === "questions.json")!;
+    expect(entry.recordKind).toBe("questions");
+    expect(entry.sha256).toMatch(/^[0-9a-f]{64}$/);
+    const cap = CapabilityReport.parse(JSON.parse(await readFile(join(out, "capabilities.json"), "utf8")));
+    expect(cap.derivedFrom).not.toContain("questions.json");
+    for (const k of ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight"] as const) expect(cap[k].available, k).toBe(true);
+  });
+  it("a frameshift in the specification is refused before anything is fetched", async () => {
+    const json = JSON.parse(await readFile(join(REPO_ROOT, "data/specs/cftr.json"), "utf8")) as { variant: Record<string, unknown> };
+    expect(() => loadGeneSpec({ ...json, variant: { ...json.variant, hgvsC: "c.1521_1522del" } })).toThrow(/frameshift is out of scope/);
+  });
+});
+
 describe("no gene is hardcoded in the packages' sources (plan §9)", () => {
   /** Known HBB identifiers; the only place they may appear in code is the in-code mirror of data/specs/hbb.json. */
-  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"'];
+  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"', "ENSG00000001626", "P13569", "rs113993960", "5UAK", '"CFTR"'];
   const ALLOWED: Record<string, string> = {
     "packages/scientific-core/src/slice/types.ts": "HBB_CONFIG, the in-code mirror of data/specs/hbb.json (a test proves they are equal)",
     "packages/ai-planning/src/fallback.ts": "the Phase 7 fallback planner's HBB cue tables (rs334, 2HBS); generalised with the app in P9.3, outside the builder",

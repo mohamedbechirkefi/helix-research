@@ -5,28 +5,59 @@
  * reviewed like any curated record.
  *
  * A specification holds selections only (which gene, which UniProt entry, which
- * experimental entry, which variant allele) and build parameters; it never holds a
+ * experimental entry, which variant allele or HGVS) and build parameters; it never holds a
  * position, a sequence or a version, and it may not name a world, a chapter, a camera or
  * a colour: presentation is chosen from the built set's capability report, never from the
- * specification. Unknown keys are rejected so that a misspelt selection cannot be
- * silently ignored.
+ * specification. The curated questions (§11 rule 6) are text the set offers, not
+ * presentation: which of them a set can take is decided by its capability report.
+ * Unknown keys are rejected so that a misspelt selection cannot be silently ignored.
  */
+import { CAPABILITY_KEYS } from "@helix/shared-types";
 import { z } from "zod";
-import type { SliceConfig } from "./types.ts";
+import { parseHgvsCDeletion } from "../coordinates.ts";
+import type { SliceConfig, SliceVariant } from "./types.ts";
 
 /** Keys a specification may not carry at any depth (plan §2). Compared case-insensitively. */
 export const FORBIDDEN_SPEC_KEYS: readonly string[] = ["world", "worlds", "chapter", "chapters", "camera", "colour", "color"];
 
 const identifier = (pattern: RegExp, what: string) => z.string().regex(pattern, `${what} has an unexpected form`);
 
-export const GeneSpecVariantSchema = z.strictObject({
+const variantCommon = {
   /** File-name stem of the variant's records (variant-<slug>.json, clinvar-<slug>.json). */
   slug: identifier(/^[a-z0-9][a-z0-9-]*$/, "variant slug"),
   commonName: z.string().min(1),
   rsId: identifier(/^rs\d{1,12}$/, "dbSNP id"),
+  clinvarUid: identifier(/^\d+$/, "ClinVar uid"),
+};
+
+/** A single-base substitution; `kind` may be omitted (the pre-Phase 9 form, hbb.json). */
+export const GeneSpecSubstitutionSchema = z.strictObject({
+  kind: z.literal("substitution").optional(),
+  ...variantCommon,
   /** Forward-strand alternate allele that defines the variant at a multi-allelic site. */
   forwardAllele: identifier(/^[ACGT]+$/, "forward allele"),
-  clinvarUid: identifier(/^\d+$/, "ClinVar uid"),
+});
+
+/** An in-frame deletion named by its transcript-level HGVS on the MANE Select transcript (plan §11 rule 1). */
+export const GeneSpecDeletionSchema = z.strictObject({
+  kind: z.literal("deletion"),
+  ...variantCommon,
+  /** "c.<start>_<end>del" (no transcript prefix: the builder adds the versioned MANE Select id it selected, and the recoder must confirm it). */
+  hgvsC: identifier(/^c\.\d+(_\d+)?del$/, "coding HGVS deletion (c.<start>_<end>del)").superRefine((h, ctx) => {
+    const { start, end } = parseHgvsCDeletion(h);
+    const length = end - start + 1;
+    if (length % 3 !== 0) ctx.addIssue({ code: "custom", message: `${h} deletes ${length} base(s), not a multiple of three: a frameshift is out of scope for this phase (plan §11 rule 1)` });
+  }),
+});
+
+export const GeneSpecVariantSchema = z.union([GeneSpecDeletionSchema, GeneSpecSubstitutionSchema]);
+
+export const StructurePreferenceSchema = z.enum(["variant-residue-observed", "highest-resolution", "largest-coverage"]);
+
+/** A curated question and the capability keys the set must have for it to be askable (plan §11 rule 6). */
+export const GeneSpecQuestionSchema = z.strictObject({
+  text: z.string().min(1),
+  requires: z.array(z.enum(CAPABILITY_KEYS)),
 });
 
 export const GeneSpecSchema = z.strictObject({
@@ -39,12 +70,18 @@ export const GeneSpecSchema = z.strictObject({
   }),
   /** Experimental entry selected for the journey. Absent: no experimental structure selected. */
   pdbId: identifier(/^[1-9][A-Za-z0-9]{3}$/, "PDB id").optional(),
+  /** The recorded reason for the `pdbId` selection (plan §2, §11 rule 4). */
+  structurePreference: StructurePreferenceSchema.optional(),
   /** Reference variant selected for the journey. Absent: no reference variant selected. */
   variant: GeneSpecVariantSchema.optional(),
   /** Half-width of the genomic DNA window around the variant, in bases. */
   genomicWindowFlank: z.int().positive(),
   contactCutoffAngstrom: z.number().positive(),
   includeAlphafold: z.boolean(),
+  /** The set's curated questions, written to questions.json; empty when the set offers none. */
+  questions: z.array(GeneSpecQuestionSchema),
+  /** The question offered first after a DNA World variant answer. */
+  bridgeQuestion: z.string().min(1).optional(),
   /** Curator notes, shown nowhere, kept for provenance. */
   notes: z.string().optional(),
 });
@@ -87,6 +124,12 @@ export function parseGeneSpec(json: unknown): GeneSpec {
   return r.data;
 }
 
+/** The variant selection in the builder's form: the kind is always explicit. */
+function variantOf(v: NonNullable<GeneSpec["variant"]>): SliceVariant {
+  if (v.kind === "deletion") return { kind: "deletion", slug: v.slug, commonName: v.commonName, rsId: v.rsId, hgvsC: v.hgvsC, clinvarUid: v.clinvarUid };
+  return { kind: "substitution", slug: v.slug, commonName: v.commonName, rsId: v.rsId, forwardAllele: v.forwardAllele, clinvarUid: v.clinvarUid };
+}
+
 /** The builder's configuration for a specification. Notes are dropped: they are shown nowhere. */
 export function loadGeneSpec(json: unknown): SliceConfig {
   const s = parseGeneSpec(json);
@@ -99,22 +142,29 @@ export function loadGeneSpec(json: unknown): SliceConfig {
     genomicWindowFlank: s.genomicWindowFlank,
     contactCutoffAngstrom: s.contactCutoffAngstrom,
     includeAlphafold: s.includeAlphafold,
+    questions: s.questions.map((q) => ({ text: q.text, requires: [...q.requires] })),
   };
   if (s.pdbId !== undefined) config.pdbId = s.pdbId;
-  if (s.variant !== undefined) config.variant = { ...s.variant };
+  if (s.structurePreference !== undefined) config.structurePreference = s.structurePreference;
+  if (s.variant !== undefined) config.variant = variantOf(s.variant);
+  if (s.bridgeQuestion !== undefined) config.bridgeQuestion = s.bridgeQuestion;
   return config;
 }
 
-/** The specification that a configuration mirrors (the inverse of loadGeneSpec, without notes). */
+/** The specification that a configuration mirrors (the inverse of loadGeneSpec, without notes). A substitution is written without `kind`, as hbb.json is. */
 export function specOf(config: SliceConfig): GeneSpec {
+  const variant = config.variant === undefined ? undefined : config.variant.kind === "substitution" ? (({ kind, ...rest }) => rest)(config.variant) : config.variant;
   return GeneSpecSchema.parse({
     datasetId: config.datasetId,
     description: config.description,
     identifiers: { ensemblGeneId: config.ensemblGeneId, hgncSymbol: config.hgncSymbol, uniprotAccession: config.uniprotAccession },
     ...(config.pdbId !== undefined ? { pdbId: config.pdbId } : {}),
-    ...(config.variant !== undefined ? { variant: config.variant } : {}),
+    ...(config.structurePreference !== undefined ? { structurePreference: config.structurePreference } : {}),
+    ...(variant !== undefined ? { variant } : {}),
     genomicWindowFlank: config.genomicWindowFlank,
     contactCutoffAngstrom: config.contactCutoffAngstrom,
     includeAlphafold: config.includeAlphafold,
+    questions: config.questions,
+    ...(config.bridgeQuestion !== undefined ? { bridgeQuestion: config.bridgeQuestion } : {}),
   });
 }

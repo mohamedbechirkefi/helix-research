@@ -226,6 +226,17 @@ The master prompt (§4) allows conditional sources "only for a specific scientif
 
 ClinVar (§5) is used for the variant's aggregate classification only. Requests carry `tool=helix-research` and no `email` parameter. Trait names and trait cross-references are not stored. Since Phase 6 (2026-11-02) the build also runs `esearch.fcgi?db=clinvar&term=<rsID>` (restricted to an rsID by the adapter) and summarises every returned record, so the curated `clinvar-hbs.json` can list the other records at the rsID (haplotypes, another allele) separately from the allele's own record, with their classification and review status only.
 
+## Phase 9 use for a deletion (2026-11-03, P9.2.1)
+
+Endpoints already registered, used with new inputs; shapes observed in the recorded CFTR fixtures (`data/fixtures/cftr/`):
+
+- **Ensembl `variant_recoder/human/rs113993960`:** for an indel the alleles are keyed as Ensembl writes them with the base before (`TCTT` reference, `T` deletion, `TCTTCTT` insertion); the deletion entry lists `hgvsc` on the MANE transcript (`ENST00000003084.11:c.1521_1523del`), `hgvsg` in the 3' form (`NC_000007.14:g.117559592_117559594del`) and the SPDI in its contextual form (`NC_000007.14:117559590:TCTT:T`). `variation/human/rs113993960` maps the indel anchored on the base before (7:117559591-117559594, `allele_string` TCTT/T/TCTTCTT, `var_class` indel).
+- **Ensembl `vep/human/hgvs/<ENST>.<version>:c.<start>_<end>del`:** accepted; the transcript consequence carries `protein_start`/`protein_end` (507/508), `cds_start`/`cds_end` (1521/1523), `cdna_start`, `amino_acids` `IF/I`, `codons` with the deleted bases in capitals (`atCTTt/att`), `hgvsp` `ENSP00000003084.6:p.Phe508del`, term `inframe_deletion`. The `colocated_variants` block (dropped by the schema) carried a `var_synonyms` key naming OMIM, redacted.
+- **Ensembl `map/cds/<ENST>/1521..1523`:** one mapping over the span, strand 1.
+- **NCBI ClinVar esearch/esummary (tool parameter only):** `esearch` by rsID returned 2 uids (7105, the VCV000007105 record; 634837, a haplotype). The esummary's `variation_set[].variation_loc` gives the left-aligned placement (GRCh38 117559591-117559593); `variation_xrefs[].db_source` and `germline_classification.trait_set[].trait_xrefs[].db_source` name OMIM and are redacted; `einfo` lists a MIM field and an OMIM link, redacted. ClinVar build seen: Build261101-1245.1.
+- **RCSB / PDBe SIFTS for 5UAK (cryo-EM):** `_refine` absent, resolution in `_em_3d_reconstruction.resolution` (3.87); SIFTS maps P13569 1-1480 to entity 1, chain A, label 1-1480; 341 residues have no coordinates. 6MSM was fetched once by `check-structure-candidates.ts` (not kept as a fixture) and declares `_entity.pdbx_mutation` E1371Q.
+- **UniProt P13569:** the natural variant VAR_000171 at 508 has an `alternativeSequence` block with no alternative sequence (a missing residue) and cites dbSNP rs113993960; five objects were redacted (three cross-references and two disease cross-references).
+
 ## Not covered or unverified
 
 - NCBI pages behind reCAPTCHA: ClinVar programmatic-access and data-use pages, the E-utilities manual (API-key limit), the RefSeq FAQ.

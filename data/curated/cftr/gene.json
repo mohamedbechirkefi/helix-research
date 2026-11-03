@@ -1,0 +1,164 @@
+{
+  "kind": "gene",
+  "id": {
+    "id": "ENSG00000001626",
+    "version": 20
+  },
+  "symbol": "CFTR",
+  "description": "CF transmembrane conductance regulator [Source:HGNC Symbol;Acc:HGNC:1884]",
+  "biotype": "protein_coding",
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "7",
+    "refSeqAccession": null,
+    "start": 117287120,
+    "end": 117715971,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "hgncId": "HGNC:1884",
+  "aliases": [
+    "ABC35",
+    "CFTR/MRP",
+    "MRP7",
+    "TNR-CFTR",
+    "dJ760C5.1"
+  ],
+  "ncbiGeneId": "1080",
+  "transcriptCount": 45,
+  "selection": {
+    "rule": "mane_select",
+    "selected": {
+      "id": "ENST00000003084",
+      "version": 11
+    },
+    "candidatesConsidered": 45,
+    "reason": "only transcript with MANE[].type == MANE_Select",
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000001626?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:00Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000001626",
+        "recordVersion": "20",
+        "assembly": "GRCh38.p14",
+        "sha256": "d1632174e6cd6161b95b5e7f0ec21edafe51102079b15396f376b223abe0fbb3",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:53:06Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "homo_sapiens",
+        "recordVersion": "GRCh38.p14",
+        "assembly": "GRCh38.p14",
+        "sha256": "2d8e6ea1b25df837cd3b1c29d9057a3fe44f8af276deb6419210a922e26ac109",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "hgnc",
+        "url": "https://rest.genenames.org/fetch/symbol/CFTR",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:38Z",
+        "sourceRelease": null,
+        "recordId": "HGNC:1884",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "6f7ceddd51e45b2dcea64cf49784ae0142217821bb1e27ac1bd5cd3d8b5ecc32",
+        "licence": "CC0-1.0",
+        "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "select-transcript",
+      "hgnc-resolve"
+    ],
+    "validation": [
+      {
+        "check": "T01-gene-identity",
+        "result": "pass",
+        "detail": "ENSG00000001626.20 CFTR",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000003084.11 (only transcript with MANE[].type == MANE_Select); 45 candidates",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-hgnc-resolution",
+        "result": "pass",
+        "detail": "CFTR -> HGNC:1884 ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-alias-MRP7",
+        "result": "pass",
+        "detail": "alias MRP7 -> ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-alias-ABC35",
+        "result": "pass",
+        "detail": "alias ABC35 -> ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-alias-TNR-CFTR",
+        "result": "pass",
+        "detail": "alias TNR-CFTR -> ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-alias-dJ760C5.1",
+        "result": "pass",
+        "detail": "alias dJ760C5.1 -> ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T04-alias-CFTR/MRP",
+        "result": "pass",
+        "detail": "alias CFTR/MRP -> ENSG00000001626",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "CFTR (ENSG00000001626.20) is annotated on GRCh38 chromosome 7:117287120-117715971, strand 1.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

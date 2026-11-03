@@ -12,12 +12,22 @@ export interface Contact {
   compId: string;
 }
 
+export interface ContactOptions {
+  /**
+   * Also report residues of the probe's own chain (Phase 9: a single-chain entry has no other
+   * chain to contact), excluding the probe residue and the residues within this many auth
+   * sequence positions of it (1 excludes only the covalently bonded neighbours).
+   */
+  intraChainMinSeparation?: number;
+}
+
 export function interChainContacts(
   structure: MmcifStructure,
   authAsymId: string,
   authSeqId: string,
   atomNames: readonly string[],
   cutoffAngstrom: number,
+  options: ContactOptions = {},
 ): { residue: string; contacts: Contact[] } {
   const model = structure.atoms.filter((a) => a.model === 1);
   const probe = model.filter((a) => a.authAsymId === authAsymId && a.authSeqId === authSeqId);
@@ -25,9 +35,15 @@ export function interChainContacts(
   const centres = probe.filter((a) => atomNames.includes(a.atomName));
   const c2 = cutoffAngstrom * cutoffAngstrom;
   const hits = new Map<string, Contact>();
+  const sep = options.intraChainMinSeparation;
+  const probeSeq = Number(authSeqId);
   for (const p of centres) {
     for (const a of model) {
-      if (a.authAsymId === authAsymId) continue;
+      if (a.authAsymId === authAsymId) {
+        if (sep === undefined) continue;
+        const d = Number(a.authSeqId);
+        if (!Number.isFinite(d) || !Number.isFinite(probeSeq) || Math.abs(d - probeSeq) <= sep) continue;
+      }
       const dx = a.x - p.x;
       const dy = a.y - p.y;
       const dz = a.z - p.z;

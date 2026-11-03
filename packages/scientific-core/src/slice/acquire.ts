@@ -26,7 +26,7 @@ import { formatVersioned } from "@helix/shared-types";
 import { normaliseTranscript } from "../normalise.ts";
 import { assemblyOf, entityForAccession } from "../structure-mapping.ts";
 import { selectTranscript } from "../transcript-selection.ts";
-import { resolveAllele } from "../variant.ts";
+import { resolveAllele, resolveDeletion } from "../variant.ts";
 import type { RawRecord, SliceConfig, SliceInputs } from "./types.ts";
 
 export function toRaw(r: FetchedResponse): RawRecord {
@@ -66,18 +66,40 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
   if (config.variant) {
     const v = config.variant;
     const recoder = await step("E11 variant_recoder", ens.variantRecoder(v.rsId));
-    const allele = resolveAllele(recoder.data, v.forwardAllele, {
+    const vctx = {
       transcript,
       cds: cds.data.sequence,
       refSeqTranscript: transcript.refSeqMatch,
       refSeqProtein: uniprot.data.maneSelect?.refSeqProtein ?? null,
-    });
+    };
+    // The forward-strand span the window is centred on, the CDS span map/cds covers and the HGVS VEP
+    // is asked about: one base and one codon for a substitution; the deleted span for a deletion
+    // (plan section 11 rule 3), after the recoder confirmed the specification's HGVS c.
+    let gStart: number;
+    let gEnd: number;
+    let cdsStart: number;
+    let cdsEnd: number;
+    let ensC: string;
+    if (v.kind === "deletion") {
+      const d = resolveDeletion(recoder.data, v.hgvsC, vctx);
+      gStart = d.genomicStart;
+      gEnd = d.genomicEnd;
+      cdsStart = d.coding.cdsStart;
+      cdsEnd = d.coding.cdsEnd;
+      ensC = `${formatVersioned(transcript.id)}:${v.hgvsC}`;
+    } else {
+      const allele = resolveAllele(recoder.data, v.forwardAllele, vctx);
+      gStart = allele.genomicPosition;
+      gEnd = allele.genomicPosition;
+      const codon = allele.coding.codonNumber;
+      cdsStart = codon * 3 - 2;
+      cdsEnd = codon * 3;
+      ensC = allele.hgvsc.find((h) => h.startsWith(`${formatVersioned(transcript.id)}:`))!;
+    }
     const f = config.genomicWindowFlank;
-    const window = await step("E8 genomic window", ens.region(transcript.interval.seqRegion, allele.genomicPosition - f, allele.genomicPosition + f, 1));
-    const codon = allele.coding.codonNumber;
-    const codonMap = await step("E9 map/cds", ens.mapCds(tId, codon * 3 - 2, codon * 3));
+    const window = await step("E8 genomic window", ens.region(transcript.interval.seqRegion, gStart - f, gEnd + f, 1));
+    const codonMap = await step("E9 map/cds", ens.mapCds(tId, cdsStart, cdsEnd));
     const variation = await step("E10 variation", ens.variation(v.rsId));
-    const ensC = allele.hgvsc.find((h) => h.startsWith(`${formatVersioned(transcript.id)}:`))!;
     const vep = await step("E12 vep", ens.vep(ensC));
     variantGroup.genomicWindow = toRaw(window.response);
     variantGroup.codonMap = toRaw(codonMap.response);

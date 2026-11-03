@@ -195,7 +195,9 @@ export function structureFromBlock(block: CifBlock, source: string | null = null
     entryId: one("entry", "id") ?? "",
     title: one("struct", "title") ?? "",
     method: one("exptl", "method") ?? "",
-    resolution: num(rowsOf(block, "refine")[0]?.ls_d_res_high),
+    // Crystallographic entries state their resolution in _refine; electron-microscopy entries
+    // (Phase 9, CFTR) state it in _em_3d_reconstruction, which is read only when _refine has none.
+    resolution: num(rowsOf(block, "refine")[0]?.ls_d_res_high) ?? num(rowsOf(block, "em_3d_reconstruction")[0]?.resolution),
     latestRevision: last ? { version: `${last.major}.${last.minor}`, date: last.date } : { version: "unknown", date: "" },
     depositionDate: one("pdbx_database_status", "recvd_initial_deposition_date"),
     primaryCitation: cit

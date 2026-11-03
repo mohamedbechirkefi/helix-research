@@ -1,0 +1,386 @@
+{
+  "kind": "variant",
+  "key": "NC_000007.14:g.117559592_117559594del",
+  "commonName": "F508del (p.Phe508del)",
+  "rsId": "rs113993960",
+  "rsAlleles": [
+    "TCTT",
+    "T",
+    "TCTTCTT"
+  ],
+  "allele": {
+    "reference": "CTT",
+    "alternate": "",
+    "strand": 1
+  },
+  "location": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "7",
+    "refSeqAccession": "NC_000007.14",
+    "start": 117559592,
+    "end": 117559594,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "locationGRCh37": {
+    "assembly": "GRCh37",
+    "assemblyPatch": null,
+    "seqRegion": "7",
+    "refSeqAccession": null,
+    "start": 117199645,
+    "end": 117199647,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "hgvs": {
+    "genomic": "NC_000007.14:g.117559592_117559594del",
+    "coding": [
+      "ENST00000003084.11:c.1521_1523del",
+      "NM_000492.4:c.1521_1523del"
+    ],
+    "protein": [
+      "ENSP00000003084.6:p.Phe508del",
+      "NP_000483.3:p.Phe508del"
+    ]
+  },
+  "spdi": "NC_000007.14:117559590:TCTT:T",
+  "transcript": {
+    "id": "ENST00000003084",
+    "version": 11
+  },
+  "cdsPosition": 1521,
+  "cdnaPosition": 1591,
+  "proteinChangeComputed": "p.Phe508del",
+  "numbering": {
+    "translatedPosition": 508,
+    "maturePosition": null,
+    "matureLabel": null,
+    "translatedLabel": "p.Phe508del (translated numbering, Met = 1)"
+  },
+  "consequence": {
+    "terms": [
+      "inframe_deletion"
+    ],
+    "codons": "atCTTt/att",
+    "source": "Ensembl VEP (Ensembl 116)"
+  },
+  "clinvar": {
+    "accession": "VCV000007105",
+    "accessionVersion": "VCV000007105.214",
+    "title": "NM_000492.3(CFTR):c.1521_1523del (p.Phe508del)",
+    "classification": "Pathogenic",
+    "reviewStatus": "practice guideline",
+    "lastEvaluated": "2004/03/03 00:00",
+    "proteinChange": null,
+    "supportingSubmissionCount": 102,
+    "traitCount": 1,
+    "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers."
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/variant_recoder/human/rs113993960?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:06Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "rs113993960",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "2d7d8a6e9d1cdcce724111946e997ebe42b99470d6c24de54f453503687f3c7e",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/variation/human/rs113993960?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:33Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "rs113993960",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "50aacc8b079938457ef3dba4616f06b77fd248165c27bbabd6bb8f034dec113c",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000003084.11:c.1521_1523del?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:38Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000003084.11:c.1521_1523del",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "6e04f9694af41f7ee7f564948ea524f86cddfee14a860773638a55a58feb00ec",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/map/cds/ENST00000003084/1521..1523?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:24Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000003084 c.1521_1523",
+        "recordVersion": "11",
+        "assembly": "GRCh38.p14",
+        "sha256": "8ed35572b5b5ca47b724087ac29688642509917c6b00681ba6baa3f85d383f79",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/sequence/region/human/7:117559572..117559614:1?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:11Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "chromosome:GRCh38:7:117559572:117559614:1",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "663426315ec0e523674e7f074214ff06abc8a6aeb08ff12222e75a1a4c2b522f",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/sequence/id/ENST00000003084?type=cds;content-type=text/x-fasta",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:24Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000003084.11",
+        "recordVersion": "11",
+        "assembly": "GRCh38.p14",
+        "sha256": "3952913983111caf9afe4ed1f739f5eff1a94f85421c39423b99df207c84f38f",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P13569.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:35Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P13569",
+        "recordVersion": "entry 286, sequence 3",
+        "assembly": null,
+        "sha256": "2b7b2ea3cabf7d9bf660b5e7bf70a420f46b5e8c26016d542ebd8dcb1c38dcd8",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      },
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=634837,7105&retmode=json&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:42Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "VCV000007105",
+        "recordVersion": "214",
+        "assembly": "GRCh38",
+        "sha256": "7b725d0d1d234e74eacc2bd61986bb526b96abcf317a1b665c6ba12886c30a66",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      }
+    ],
+    "transformations": [
+      "select-allele-by-hgvsc",
+      "filter-hgvs-to-selected-transcript",
+      "apply-deletion-to-cds",
+      "translate-affected-codons",
+      "protein-level-three-prime-normalisation",
+      "exon-walk",
+      "mature-index",
+      "drop-trait-names"
+    ],
+    "validation": [
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1480",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T13-rsid-deletion-allele",
+        "result": "pass",
+        "detail": "rs113993960 alleles TCTT/T/TCTTCTT (indel); variant_recoder lists ENST00000003084.11:c.1521_1523del under allele \"T\" (1 entry), 3 bases shorter than the reference allele TCTT",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T08-exon-walk-genomic",
+        "result": "pass",
+        "detail": "exon walk c.1521_1523 -> 117559592-117559594; hgvsg 117559592-117559594; variation 117559591-117559594 (anchored on the base before: TCTT/T)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T08-deleted-span",
+        "result": "pass",
+        "detail": "own walk c.1521_1523 -> 117559592-117559594; Ensembl map/cds 117559592-117559594 strand 1; codons 507-508",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T09-forward-and-coding-bases",
+        "result": "pass",
+        "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T10-spdi-roundtrip",
+        "result": "pass",
+        "detail": "NC_000007.14:117559590:TCTT:T -> net deletion 117559592-117559594 CTT, shifted 3' on the forward strand to 117559592-117559594 <-> NC_000007.14:g.117559592_117559594del",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T11-deletion-in-frame",
+        "result": "pass",
+        "detail": "c.1521_1523del deletes 3 bases (CTT); codon 507 ATC -> ATT (I -> I); codon 508 TTT -> deleted (F -> deleted); p.Phe508del by translation",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T12-hgvsp-agrees",
+        "result": "pass",
+        "detail": "computed p.Phe508del; variant_recoder ENSP00000003084.6:p.Phe508del, NP_000483.3:p.Phe508del",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T12-vep-agrees",
+        "result": "pass",
+        "detail": "VEP ENSP00000003084.6:p.Phe508del protein 507-508 cds 1521-1523 amino_acids IF/I codons atCTTt/att; computed IF/I, ATCTTT/ATT",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "cdna-position",
+        "result": "pass",
+        "detail": "c.1521 + 5' UTR 70 = 1591; VEP cdna_start 1591",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "codons 507-508: UniProt IF, reference codons translate to IF; deleted residue(s) F508 as in UniProt",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T17-mature-index",
+        "result": "pass",
+        "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "VAR_000171 at 508: F missing (no alternative sequence); in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T14-clinvar-record",
+        "result": "pass",
+        "detail": "VCV000007105.214 Deletion; spdi NC_000007.14:117559590:TCTT:T (recoder NC_000007.14:117559590:TCTT:T, the same net deletion); GRCh38 117559591-117559593 (left-aligned; equivalent placements 117559591-117559593 and 117559592-117559594, HGVS g. 117559592-117559594); GRCh37 117199645-117199647; Pathogenic (practice guideline)",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "reviewed-clinical-submission",
+      "statement": "ClinVar VCV000007105.214: Pathogenic.",
+      "qualifier": "practice guideline",
+      "limitations": [
+        "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
+      ]
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "UniProt VAR_000171: F missing at position 508 (in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960).",
+      "qualifier": "ECO:0000269 PubMed:12394343; ECO:0000269 PubMed:12529365; ECO:0000269 PubMed:1284548; ECO:0000269 PubMed:1379210; ECO:0000269 PubMed:15528182; ECO:0000269 PubMed:15716351; ECO:0000269 PubMed:1699669; ECO:0000269 PubMed:17098864; ECO:0000269 PubMed:1710600; ECO:0000269 PubMed:17329263; ECO:0000269 PubMed:20008117; ECO:0000269 PubMed:20150177; ECO:0000269 PubMed:20691141; ECO:0000269 PubMed:21884936; ECO:0000269 PubMed:23818989; ECO:0000269 PubMed:25330774; ECO:0000269 PubMed:27241308; ECO:0000269 PubMed:28001373; ECO:0000269 PubMed:28067262; ECO:0000269 PubMed:28087700",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    },
+    {
+      "category": 3,
+      "categoryLabel": "Computational prediction with confidence/limitations",
+      "basis": "reference-sequence-derivation",
+      "statement": "ENST00000003084.11:c.1521_1523del deletes 3 bases (CTT) across codons 507 to 508: codon 507 ATC becomes ATT (Ile, unchanged), codon 508 TTT (Phe) is deleted; translating the CDS before and after gives p.Phe508del, the reading frame is kept.",
+      "qualifier": null,
+      "limitations": [
+        "Theoretically deduced from the reference sequence (HGVS writes such consequences in parentheses)."
+      ]
+    },
+    {
+      "category": 3,
+      "categoryLabel": "Computational prediction with confidence/limitations",
+      "basis": "computational-prediction",
+      "statement": "VEP consequence on ENST00000003084: inframe_deletion.",
+      "qualifier": null,
+      "limitations": [
+        "Computational prediction; not an experimental observation."
+      ]
+    }
+  ],
+  "variantKind": "deletion",
+  "deletedSpan": {
+    "cdsStart": 1521,
+    "cdsEnd": 1523,
+    "length": 3,
+    "genomic": {
+      "assembly": "GRCh38",
+      "assemblyPatch": "GRCh38.p14",
+      "seqRegion": "7",
+      "refSeqAccession": null,
+      "start": 117559592,
+      "end": 117559594,
+      "strand": 1,
+      "convention": "1-based-closed"
+    }
+  },
+  "affectedCodons": [
+    {
+      "number": 507,
+      "reference": "ATC",
+      "afterDeletion": "ATT",
+      "referenceAminoAcid": "I",
+      "aminoAcidAfterDeletion": "I",
+      "genomic": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117559590,
+        "end": 117559592,
+        "strand": 1,
+        "convention": "1-based-closed"
+      }
+    },
+    {
+      "number": 508,
+      "reference": "TTT",
+      "afterDeletion": null,
+      "referenceAminoAcid": "F",
+      "aminoAcidAfterDeletion": null,
+      "genomic": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117559593,
+        "end": 117559595,
+        "strand": 1,
+        "convention": "1-based-closed"
+      }
+    }
+  ],
+  "residue": 508,
+  "deletedResidues": [
+    {
+      "position": 508,
+      "aminoAcid": "F"
+    }
+  ]
+}

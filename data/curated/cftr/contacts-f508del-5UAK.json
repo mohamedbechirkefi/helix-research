@@ -1,0 +1,111 @@
+{
+  "kind": "residue-contacts",
+  "entryId": "5UAK",
+  "scope": "asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain)",
+  "cutoffAngstrom": 4.5,
+  "numbering": "auth_asym_id / auth_seq_id",
+  "chains": [
+    {
+      "residue": {
+        "entryId": "5UAK",
+        "assemblyId": "1",
+        "entityId": "1",
+        "labelAsymId": "A",
+        "labelSeqId": 508,
+        "authAsymId": "A",
+        "authSeqId": "508",
+        "insCode": null,
+        "compId": "PHE",
+        "authCompId": "PHE"
+      },
+      "probeAtoms": [
+        "CD1",
+        "CD2",
+        "CE1",
+        "CE2",
+        "CG",
+        "CZ"
+      ],
+      "contacts": [
+        {
+          "authAsymId": "A",
+          "authSeqId": 498,
+          "compId": "MET"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 504,
+          "compId": "GLU"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 505,
+          "compId": "ASN"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 560,
+          "compId": "ARG"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 1068,
+          "compId": "PHE"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 1070,
+          "compId": "ARG"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 1074,
+          "compId": "PHE"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/5UAK.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:40Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "side-chain-atoms-beyond-cb",
+      "distance-cutoff"
+    ],
+    "validation": [
+      {
+        "check": "T28-contacts-computed",
+        "result": "pass",
+        "detail": "A508: A498,A504,A505,A560,A1068,A1070,A1074",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "computed-from-experimental-data",
+      "statement": "Within 4.5 A of the PHE side chain (F508, the residue deleted in F508del (p.Phe508del)), in the asymmetric unit (the residue's own chain included beyond its covalent neighbours, since the entry has one mapped chain): chain A contacts residue(s) A498 MET, A504 GLU, A505 ASN, A560 ARG, A1068 PHE, A1070 ARG, A1074 PHE.",
+      "qualifier": null,
+      "limitations": [
+        "Computed by HELIX from deposited coordinates; depends on the deposited model and the stated cutoff."
+      ]
+    }
+  ]
+}

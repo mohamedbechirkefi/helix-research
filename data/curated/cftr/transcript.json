@@ -1,0 +1,618 @@
+{
+  "id": {
+    "id": "ENST00000003084",
+    "version": 11
+  },
+  "displayName": "CFTR-201",
+  "biotype": "protein_coding",
+  "isCanonical": true,
+  "maneSelect": true,
+  "refSeqMatch": {
+    "id": "NM_000492",
+    "version": 4
+  },
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "7",
+    "refSeqAccession": null,
+    "start": 117480025,
+    "end": 117668665,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "length": 6070,
+  "exons": [
+    {
+      "id": {
+        "id": "ENSE00001343851",
+        "version": 2
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117480025,
+        "end": 117480147,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 1
+    },
+    {
+      "id": {
+        "id": "ENSE00003976987",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117504253,
+        "end": 117504363,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 2
+    },
+    {
+      "id": {
+        "id": "ENSE00003976975",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117509034,
+        "end": 117509142,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 3
+    },
+    {
+      "id": {
+        "id": "ENSE00000718611",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117530899,
+        "end": 117531114,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 4
+    },
+    {
+      "id": {
+        "id": "ENSE00000718620",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117534276,
+        "end": 117534365,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 5
+    },
+    {
+      "id": {
+        "id": "ENSE00000718626",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117535248,
+        "end": 117535411,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 6
+    },
+    {
+      "id": {
+        "id": "ENSE00000718630",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117536548,
+        "end": 117536673,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 7
+    },
+    {
+      "id": {
+        "id": "ENSE00000718634",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117540100,
+        "end": 117540346,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 8
+    },
+    {
+      "id": {
+        "id": "ENSE00000718637",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117542016,
+        "end": 117542108,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 9
+    },
+    {
+      "id": {
+        "id": "ENSE00003976986",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117548641,
+        "end": 117548823,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 10
+    },
+    {
+      "id": {
+        "id": "ENSE00003977079",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117559464,
+        "end": 117559655,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 11
+    },
+    {
+      "id": {
+        "id": "ENSE00003977066",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117587739,
+        "end": 117587833,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 12
+    },
+    {
+      "id": {
+        "id": "ENSE00003977041",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117590353,
+        "end": 117590439,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 13
+    },
+    {
+      "id": {
+        "id": "ENSE00003977038",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117591934,
+        "end": 117592657,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 14
+    },
+    {
+      "id": {
+        "id": "ENSE00003977072",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117594930,
+        "end": 117595058,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 15
+    },
+    {
+      "id": {
+        "id": "ENSE00003977044",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117602826,
+        "end": 117602863,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 16
+    },
+    {
+      "id": {
+        "id": "ENSE00003977055",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117603532,
+        "end": 117603782,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 17
+    },
+    {
+      "id": {
+        "id": "ENSE00003977054",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117606674,
+        "end": 117606753,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 18
+    },
+    {
+      "id": {
+        "id": "ENSE00003977056",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117610519,
+        "end": 117610669,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 19
+    },
+    {
+      "id": {
+        "id": "ENSE00000977443",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117611581,
+        "end": 117611808,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 20
+    },
+    {
+      "id": {
+        "id": "ENSE00000718699",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117614613,
+        "end": 117614713,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 21
+    },
+    {
+      "id": {
+        "id": "ENSE00003936498",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117627522,
+        "end": 117627770,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 22
+    },
+    {
+      "id": {
+        "id": "ENSE00003925242",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117642438,
+        "end": 117642593,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 23
+    },
+    {
+      "id": {
+        "id": "ENSE00003833777",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117652842,
+        "end": 117652931,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 24
+    },
+    {
+      "id": {
+        "id": "ENSE00003840813",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117664688,
+        "end": 117664860,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 25
+    },
+    {
+      "id": {
+        "id": "ENSE00003835972",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117665459,
+        "end": 117665564,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 26
+    },
+    {
+      "id": {
+        "id": "ENSE00004796618",
+        "version": 1
+      },
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117666908,
+        "end": 117668665,
+        "strand": 1,
+        "convention": "1-based-closed"
+      },
+      "rank": 27
+    }
+  ],
+  "utrs": [
+    {
+      "type": "five_prime_utr",
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117480025,
+        "end": 117480094,
+        "strand": 1,
+        "convention": "1-based-closed"
+      }
+    },
+    {
+      "type": "three_prime_utr",
+      "interval": {
+        "assembly": "GRCh38",
+        "assemblyPatch": "GRCh38.p14",
+        "seqRegion": "7",
+        "refSeqAccession": null,
+        "start": 117667109,
+        "end": 117668665,
+        "strand": 1,
+        "convention": "1-based-closed"
+      }
+    }
+  ],
+  "translation": {
+    "id": {
+      "id": "ENSP00000003084",
+      "version": 6
+    },
+    "length": 1480,
+    "interval": {
+      "assembly": "GRCh38",
+      "assemblyPatch": "GRCh38.p14",
+      "seqRegion": "7",
+      "refSeqAccession": null,
+      "start": 117480095,
+      "end": 117667108,
+      "strand": 1,
+      "convention": "1-based-closed"
+    }
+  },
+  "kind": "transcript",
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENST00000003084?expand=1;utr=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:11Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000003084",
+        "recordVersion": "11",
+        "assembly": "GRCh38.p14",
+        "sha256": "c4f0ee3cb9255e74aea6904d0a012a14a95941e365ae1ac423412a7179763507",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000001626?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:00Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000001626",
+        "recordVersion": "20",
+        "assembly": "GRCh38.p14",
+        "sha256": "d1632174e6cd6161b95b5e7f0ec21edafe51102079b15396f376b223abe0fbb3",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "rank-exons"
+    ],
+    "validation": [
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000003084.11 (only transcript with MANE[].type == MANE_Select); 45 candidates",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "transcript-lookup-matches-selection",
+        "result": "pass",
+        "detail": "ENST00000003084.11",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T05-exon-lengths-sum",
+        "result": "pass",
+        "detail": "sum of exon lengths 6070 vs transcript length 6070 (1-based closed)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T06-cds-length",
+        "result": "pass",
+        "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000003084.11 / ENSP00000003084.6 / NM_000492.4",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "ENST00000003084.11 is the MANE Select transcript (RefSeq match NM_000492.4).",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

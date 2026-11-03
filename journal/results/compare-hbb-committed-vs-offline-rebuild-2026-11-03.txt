@@ -1,0 +1,22 @@
+files compared: 15
+byte-identical files: 1
+allowed differences (timestamps and dependent hashes): 219
+  clinvar-hbs.json: 5
+  contacts-hbs-2HBS.json: 2
+  gene.json: 11
+  manifest.json: 89
+  predicted-model-AF-P68871-F1.json: 3
+  protein-P68871.json: 11
+  residue-mapping-P68871-2HBS.json: 8
+  residue-mapping-hbs-2HBS.json: 11
+  sequences.json: 36
+  structure-2HBS.json: 13
+  transcript.json: 8
+  variant-hbs.json: 22
+  explained hash difference: raw bodies identical except volatile hgnc field responseHeader.QTime
+other differences: 5
+  manifest.json $.generator.script: "scripts/data-preparation/build-hbb.ts (live)" != "scripts/data-preparation/build-gene.ts (offline)" (value)
+  manifest.json $.generator.gitCommit: "4b30c608473822e7ef483bf9ddb0f4f5d4eb26b5" != "88e794ccc5e2181ec90a0c3ad9e87c2dd8093eb6" (value)
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.files: 13 != 14 (array length)
+  questions.json : false != true (file present in one build only)

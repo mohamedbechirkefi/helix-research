@@ -1,0 +1,225 @@
+{
+  "kind": "structure",
+  "entryId": "5UAK",
+  "title": "Dephosphorylated, ATP-free human cystic fibrosis transmembrane conductance regulator (CFTR)",
+  "method": "ELECTRON MICROSCOPY",
+  "origin": "experimental",
+  "resolutionAngstrom": 3.87,
+  "revision": {
+    "version": "1.4",
+    "date": "2024-03-06"
+  },
+  "depositionDate": "2016-12-19",
+  "citation": {
+    "title": "Molecular Structure of the Human CFTR Ion Channel.",
+    "journal": "Cell",
+    "year": 2017,
+    "pubmedId": "28340353",
+    "doi": "10.1016/j.cell.2017.02.024"
+  },
+  "entities": [
+    {
+      "entityId": "1",
+      "type": "polymer",
+      "description": "Cystic fibrosis transmembrane conductance regulator",
+      "moleculeCount": 1,
+      "mutation": null,
+      "sequence": "MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLINALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHPAIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVALLMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEAMEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAVTRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRKTSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISFCSQFSWIMPGTIKENIIFGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRLSNSLEVLFQ",
+      "strandIds": [
+        "A"
+      ],
+      "siftsUniprot": [
+        "P13569"
+      ]
+    },
+    {
+      "entityId": "2",
+      "type": "polymer",
+      "description": "Cystic fibrosis transmembrane conductance regulator",
+      "moleculeCount": 1,
+      "mutation": null,
+      "sequence": "XXXXXXXXXXXXXXXXXXX",
+      "strandIds": [
+        "R"
+      ],
+      "siftsUniprot": []
+    }
+  ],
+  "chains": [
+    {
+      "labelAsymId": "A",
+      "authAsymId": "A",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "B",
+      "authAsymId": "R",
+      "entityId": "2",
+      "entityType": "polymer"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "1",
+      "details": "author_defined_assembly",
+      "asymIds": [
+        "A",
+        "B"
+      ],
+      "polymerAsymIds": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "defaultAssemblyId": "1",
+  "modelFile": {
+    "path": "5UAK.cif",
+    "format": "mmcif",
+    "sha256": "9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23",
+    "bytes": 977761
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/5UAK.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:40Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/entry/5UAK",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:40Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "f718412b3ca990f4a2ba386d9d6a2c01f0adc54f83e8a2f99c883eb64346d362",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/5UAK/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:41Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "1115beaeec4c5de6df425d76d69cf267a802a06eef4a6638f1d186bda580e5ff",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/assembly/5UAK/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:41Z",
+        "sourceRelease": "PDB rev 1.4 2024-03-06",
+        "recordId": "5UAK-1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "589df7824a500401cb6b47c07a485de36be3fde7b659b2f459c8bb7ccf65d9fd",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/5uak",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:56:41Z",
+        "sourceRelease": null,
+        "recordId": "5uak",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "0d26c8a2e5016ea1be08372757985d89ed6d50b3f89968da064afc42edf95779",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "field-select",
+      "sifts-entity-selection",
+      "classify-pdbx-mutation-numbering"
+    ],
+    "validation": [
+      {
+        "check": "structure-entry",
+        "result": "pass",
+        "detail": "5UAK ELECTRON MICROSCOPY 3.87 A, rev 1.4",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "structure-revision-agrees",
+        "result": "pass",
+        "detail": "Data API rev 1.4; mmCIF rev 1.4",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P13569 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T20-rcsb-entity-agrees",
+        "result": "pass",
+        "detail": "RCSB polymer_entity 5UAK_1 uniprot P13569",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "5UAK residue F508 (deleted in F508del (p.Phe508del)): A observed (label 508, auth 508, PHE); structurePreference variant-residue-observed",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 508 auth 508 PHE; structure carries the reference residue",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T19-pdbx-mutation-numbering",
+        "result": "pass",
+        "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T26-label-auth-kept",
+        "result": "pass",
+        "detail": "2 label chains, all with an auth chain id from the scheme tables; 0 non-polymer chains have label != auth (e.g. none)",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T27-assemblies",
+        "result": "pass",
+        "detail": "assembly 1: A,B",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "5UAK: ELECTRON MICROSCOPY, 3.87 A resolution, deposited 2016-12-19.",
+      "qualifier": null,
+      "limitations": []
+    }
+  ]
+}

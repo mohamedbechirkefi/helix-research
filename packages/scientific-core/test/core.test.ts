@@ -65,7 +65,7 @@ describe("evidence classification (§5)", () => {
   it("every record of the HBB build carries claim-level evidence with a valid class", async () => {
     const b = await buildSlice(await loadFixtureInputs(), HBB_CONFIG, { now: "2026-11-01T00:00:00Z" });
     const seen = new Set<number>();
-    for (const f of b.files.filter((x) => x.recordKind !== "mmcif" && x.recordKind !== "capabilities")) {
+    for (const f of b.files.filter((x) => x.recordKind !== "mmcif" && x.recordKind !== "capabilities" && x.recordKind !== "questions")) {
       const rec = JSON.parse(f.content);
       for (const r of rec.kind === "sequence-set" ? rec.records : [rec]) {
         expect(r.evidence.length, f.path).toBeGreaterThan(0);

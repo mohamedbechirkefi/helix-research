@@ -122,7 +122,8 @@ export async function writeFixtureSet(datasetId: string, redacted: Record<string
     const sha256 = createHash("sha256").update(bytes).digest("hex");
     if (sha256 !== r.sha256) throw new Error(`${name}: body sha256 ${sha256} differs from the record's ${r.sha256}`);
     await writeFile(join(folder, file), bytes);
-    const redaction = x.removed.length > 0 ? `redacted ${r.retrievedAt.slice(0, 10)}: OMIM/MIM/HGMD identifiers removed (Q-H-LIC-1, ${x.removed.length} removal${x.removed.length === 1 ? "" : "s"}); original sha256 ${x.originalSha256}` : "";
+    // The wording names no database: the identifier guard runs over fixture manifests too.
+    const redaction = x.removed.length > 0 ? `redacted ${r.retrievedAt.slice(0, 10)}: proprietary database identifiers removed (Q-H-LIC-1, ${x.removed.length} removal${x.removed.length === 1 ? "" : "s"}); original sha256 ${x.originalSha256}` : "";
     const row = `${file}\t${r.retrievedAt}\t200\t${sha256}\t${bytes.byteLength}\t${r.method}\t${r.url}\t${tsvQuote(JSON.stringify(r.headers))}\t${redaction}\n`;
     if (!manifests.has(r.source)) manifests.set(r.source, []);
     manifests.get(r.source)!.push(row);

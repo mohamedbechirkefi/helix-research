@@ -21,9 +21,54 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
   });
   it("holds selections only: no position, sequence or version is in the file", async () => {
     const json = await hbbSpec();
-    expect(Object.keys(json).sort()).toEqual(["contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pdbId", "variant"]);
+    expect(Object.keys(json).sort()).toEqual(["bridgeQuestion", "contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pdbId", "questions", "variant"]);
     expect(Object.keys(json.identifiers as object).sort()).toEqual(["ensemblGeneId", "hgncSymbol", "uniprotAccession"]);
     expect(Object.keys(json.variant as object).sort()).toEqual(["clinvarUid", "commonName", "forwardAllele", "rsId", "slug"]);
+  });
+  it("a variant without kind is a substitution (hbb.json is unchanged); a deletion names its HGVS c. instead of a forward allele (plan §11 rule 1)", async () => {
+    const json = await hbbSpec();
+    expect(loadGeneSpec(json).variant).toMatchObject({ kind: "substitution", forwardAllele: "A" });
+    expect(loadGeneSpec({ ...json, variant: { ...(json.variant as object), kind: "substitution" } })).toStrictEqual(HBB_CONFIG);
+    const del = { kind: "deletion", slug: "f508del", commonName: "F508del (p.Phe508del)", rsId: "rs113993960", hgvsC: "c.1521_1523del", clinvarUid: "7105" };
+    const config = loadGeneSpec({ ...json, variant: del });
+    expect(config.variant).toStrictEqual(del);
+    expect("forwardAllele" in config.variant!).toBe(false);
+    expect(specOf(config).variant).toStrictEqual(del);
+    // A deletion may not carry a forward allele, and a substitution may not carry an HGVS c.
+    expect(() => loadGeneSpec({ ...json, variant: { ...del, forwardAllele: "A" } })).toThrow(GeneSpecError);
+    expect(() => loadGeneSpec({ ...json, variant: { ...(json.variant as object), hgvsC: "c.20_22del" } })).toThrow(GeneSpecError);
+    // The HGVS must be a CDS span without a transcript prefix (the builder adds the versioned id it selected).
+    expect(() => loadGeneSpec({ ...json, variant: { ...del, hgvsC: "ENST00000003084.11:c.1521_1523del" } })).toThrow(/coding HGVS deletion/);
+    expect(() => loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521A>T" } })).toThrow(/coding HGVS deletion/);
+    expect(loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521_1526del" } }).variant).toMatchObject({ hgvsC: "c.1521_1526del" });
+  });
+  it("refuses a frameshift deletion with a message that says so", async () => {
+    const json = await hbbSpec();
+    const del = { kind: "deletion", slug: "x", commonName: "x", rsId: "rs1", hgvsC: "c.1521_1522del", clinvarUid: "1" };
+    expect(() => loadGeneSpec({ ...json, variant: del })).toThrow(GeneSpecError);
+    expect(() => loadGeneSpec({ ...json, variant: del })).toThrow(/deletes 2 base\(s\), not a multiple of three: a frameshift is out of scope/);
+    expect(() => loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521del" } })).toThrow(/deletes 1 base\(s\)/);
+    expect(() => loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521_1524del" } })).toThrow(/deletes 4 base\(s\)/);
+  });
+  it("validates the questions: text and capability keys only; an empty list is allowed, an unknown key or a stray field is not", async () => {
+    const json = await hbbSpec();
+    const config = loadGeneSpec(json);
+    expect(config.questions).toHaveLength(4);
+    expect(config.questions[0]).toStrictEqual({ text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] });
+    expect(config.bridgeQuestion).toBe("See the sickle-cell mutation on the protein.");
+    const { bridgeQuestion, ...noBridge } = json;
+    expect(typeof bridgeQuestion).toBe("string");
+    expect(loadGeneSpec({ ...noBridge, questions: [] })).toMatchObject({ questions: [] });
+    expect("bridgeQuestion" in loadGeneSpec({ ...noBridge, questions: [] })).toBe(false);
+    const { questions, ...noQuestions } = json;
+    expect(Array.isArray(questions)).toBe(true);
+    expect(() => loadGeneSpec(noQuestions)).toThrow(/questions/);
+    expect(() => loadGeneSpec({ ...json, questions: [{ text: "x", requires: ["structureView"] }] })).toThrow(/requires/);
+    expect(() => loadGeneSpec({ ...json, questions: [{ text: "", requires: [] }] })).toThrow(/text/);
+    expect(() => loadGeneSpec({ ...json, questions: [{ text: "x", requires: [], answer: "y" }] })).toThrow(/answer/);
+    expect(() => loadGeneSpec({ ...json, bridgeQuestion: "" })).toThrow(/bridgeQuestion/);
+    // A question may not smuggle presentation in (the forbidden-key rule applies at any depth).
+    expect(() => parseGeneSpec({ ...json, questions: [{ text: "x", requires: [], world: "protein" }] })).toThrow(/key "questions.0.world"/);
   });
   it("rejects unknown keys at the top level and inside groups", async () => {
     const json = await hbbSpec();

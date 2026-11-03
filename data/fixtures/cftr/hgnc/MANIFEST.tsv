@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_CFTR.json	2026-11-03T18:56:38Z	200	6f7ceddd51e45b2dcea64cf49784ae0142217821bb1e27ac1bd5cd3d8b5ecc32	1911	GET	https://rest.genenames.org/fetch/symbol/CFTR	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-03: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 fb863bf120b9a700ee3383584fcfc0506f37a50909881742e07068041a3f8ce5

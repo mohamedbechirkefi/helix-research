@@ -1,0 +1,37 @@
+{
+  "kind": "questions",
+  "derivedFrom": [
+    "capabilities.json"
+  ],
+  "geneId": "ENSG00000001626",
+  "symbol": "CFTR",
+  "questions": [
+    {
+      "text": "Show me where the F508del mutation affects the CFTR protein.",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "How does the DNA change for the F508del variant?",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "What does the F508del variant residue touch in the structure?",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "Show the evidence for the F508del variant.",
+      "requires": [
+        "variantHighlight"
+      ]
+    }
+  ],
+  "bridgeQuestion": "See the F508del mutation on the protein."
+}

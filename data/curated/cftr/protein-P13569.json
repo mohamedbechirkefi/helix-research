@@ -1,0 +1,663 @@
+{
+  "kind": "protein",
+  "accession": "P13569",
+  "entryName": "CFTR_HUMAN",
+  "reviewed": true,
+  "isoform": {
+    "isoformId": "canonical",
+    "isCanonical": true
+  },
+  "entryVersion": 286,
+  "sequenceVersion": 3,
+  "sequence": "MQRSPLEKASVVSKLFFSWTRPILRKGYRQRLELSDIYQIPSVDSADNLSEKLEREWDRELASKKNPKLINALRRCFFWRFMFYGIFLYLGEVTKAVQPLLLGRIIASYDPDNKEERSIAIYLGIGLCLLFIVRTLLLHPAIFGLHHIGMQMRIAMFSLIYKKTLKLSSRVLDKISIGQLVSLLSNNLNKFDEGLALAHFVWIAPLQVALLMGLIWELLQASAFCGLGFLIVLALFQAGLGRMMMKYRDQRAGKISERLVITSEMIENIQSVKAYCWEEAMEKMIENLRQTELKLTRKAAYVRYFNSSAFFFSGFFVVFLSVLPYALIKGIILRKIFTTISFCIVLRMAVTRQFPWAVQTWYDSLGAINKIQDFLQKQEYKTLEYNLTTTEVVMENVTAFWEEGFGELFEKAKQNNNNRKTSNGDDSLFFSNFSLLGTPVLKDINFKIERGQLLAVAGSTGAGKTSLLMVIMGELEPSEGKIKHSGRISFCSQFSWIMPGTIKENIIFGVSYDEYRYRSVIKACQLEEDISKFAEKDNIVLGEGGITLSGGQRARISLARAVYKDADLYLLDSPFGYLDVLTEKEIFESCVCKLMANKTRILVTSKMEHLKKADKILILHEGSSYFYGTFSELQNLQPDFSSKLMGCDSFDQFSAERRNSILTETLHRFSLEGDAPVSWTETKKQSFKQTGEFGEKRKNSILNPINSIRKFSIVQKTPLQMNGIEEDSDEPLERRLSLVPDSEQGEAILPRISVISTGPTLQARRRQSVLNLMTHSVNQGQNIHRKTTASTRKVSLAPQANLTELDIYSRRLSQETGLEISEEINEEDLKECFFDDMESIPAVTTWNTYLRYITVHKSLIFVLIWCLVIFLAEVAASLVVLWLLGNTPLQDKGNSTHSRNNSYAVIITSTSSYYVFYIYVGVADTLLAMGFFRGLPLVHTLITVSKILHHKMLHSVLQAPMSTLNTLKAGGILNRFSKDIAILDDLLPLTIFDFIQLLLIVIGAIAVVAVLQPYIFVATVPVIVAFIMLRAYFLQTSQQLKQLESEGRSPIFTHLVTSLKGLWTLRAFGRQPYFETLFHKALNLHTANWFLYLSTLRWFQMRIEMIFVIFFIAVTFISILTTGEGEGRVGIILTLAMNIMSTLQWAVNSSIDVDSLMRSVSRVFKFIDMPTEGKPTKSTKPYKNGQLSKVMIIENSHVKKDDIWPSGGQMTVKDLTAKYTEGGNAILENISFSISPGQRVGLLGRTGSGKSTLLSAFLRLLNTEGEIQIDGVSWDSITLQQWRKAFGVIPQKVFIFSGTFRKNLDPYEQWSDQEIWKVADEVGLRSVIEQFPGKLDFVLVDGGCVLSHGHKQLMCLARSVLSKAKILLLDEPSAHLDPVTYQIIRRTLKQAFADCTVILCEHRIEAMLECQQFLVIEENKVRQYDSIQKLLNERSLFRQAISPSDRVKLFPHRNSSKCKSKPQIAALKEETEEEVQDTRL",
+  "length": 1480,
+  "md5": "F29B8C0A9056A0F7680F3290D259B6AC",
+  "crc64": "8D082AA2E768C065",
+  "numbering": "translated",
+  "processedChain": {
+    "start": 1,
+    "end": 1480,
+    "featureId": "PRO_0000093419"
+  },
+  "initiatorMethionineRemoved": false,
+  "features": [
+    {
+      "type": "Chain",
+      "start": 1,
+      "end": 1480,
+      "description": "Cystic fibrosis transmembrane conductance regulator",
+      "featureId": "PRO_0000093419",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 81,
+      "end": 365,
+      "description": "ABC transmembrane type-1 1",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00441"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 423,
+      "end": 646,
+      "description": "ABC transporter 1",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00434"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 859,
+      "end": 1155,
+      "description": "ABC transmembrane type-1 2",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00441"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 1210,
+      "end": 1443,
+      "description": "ABC transporter 2",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00434"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 401,
+      "end": 401,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:15528182",
+        "ECO:0000269 PubMed:20150177",
+        "ECO:0007744 PDB:1XMI",
+        "ECO:0007744 PDB:1XMJ",
+        "ECO:0007744 PDB:2BBO",
+        "ECO:0007744 PDB:2BBS",
+        "ECO:0007744 PDB:2BBT",
+        "ECO:0007744 PDB:2PZE",
+        "ECO:0007744 PDB:2PZF",
+        "ECO:0007744 PDB:2PZG"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 434,
+      "end": 434,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:20150177",
+        "ECO:0007744 PDB:2PZE",
+        "ECO:0007744 PDB:2PZF",
+        "ECO:0007744 PDB:2PZG"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 458,
+      "end": 465,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00434",
+        "ECO:0000269 PubMed:15528182",
+        "ECO:0007744 PDB:1XMI",
+        "ECO:0007744 PDB:1XMJ",
+        "ECO:0007744 PDB:2BBO",
+        "ECO:0007744 PDB:2BBS",
+        "ECO:0007744 PDB:2BBT"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 493,
+      "end": 493,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:15528182",
+        "ECO:0007744 PDB:1XMI",
+        "ECO:0007744 PDB:2BBO",
+        "ECO:0007744 PDB:2BBS"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 1219,
+      "end": 1219,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PDB:3GD7"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 1244,
+      "end": 1251,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00434",
+        "ECO:0007744 PDB:3GD7"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 549,
+      "end": 549,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 660,
+      "end": 660,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:22119790",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 670,
+      "end": 670,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:25330774"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 686,
+      "end": 686,
+      "description": "Phosphoserine; by PKC",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:22119790"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 700,
+      "end": 700,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:22119790",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 712,
+      "end": 712,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:22119790",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 717,
+      "end": 717,
+      "description": "Phosphothreonine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:22119790"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 737,
+      "end": 737,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:22119790",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 753,
+      "end": 753,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 768,
+      "end": 768,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 790,
+      "end": 790,
+      "description": "Phosphoserine; by PKC",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 795,
+      "end": 795,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:22119790",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 813,
+      "end": 813,
+      "description": "Phosphoserine; by PKA",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:1377674",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:9385646"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1444,
+      "end": 1444,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:22119790"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1456,
+      "end": 1456,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:22119790"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Natural variant",
+      "start": 220,
+      "end": 1480,
+      "description": "in CF",
+      "featureId": "VAR_080302",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:20691141"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Natural variant",
+      "start": 508,
+      "end": 508,
+      "description": "in dbSNP:rs74571530",
+      "featureId": "VAR_000172",
+      "originalSequence": "F",
+      "alternativeSequences": [
+        "C"
+      ],
+      "evidences": [
+        "ECO:0000269 PubMed:1379210"
+      ],
+      "xrefs": [
+        "dbSNP:rs74571530"
+      ]
+    },
+    {
+      "type": "Natural variant",
+      "start": 508,
+      "end": 508,
+      "description": "in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
+      "featureId": "VAR_000171",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:12394343",
+        "ECO:0000269 PubMed:12529365",
+        "ECO:0000269 PubMed:1284548",
+        "ECO:0000269 PubMed:1379210",
+        "ECO:0000269 PubMed:15528182",
+        "ECO:0000269 PubMed:15716351",
+        "ECO:0000269 PubMed:1699669",
+        "ECO:0000269 PubMed:17098864",
+        "ECO:0000269 PubMed:1710600",
+        "ECO:0000269 PubMed:17329263",
+        "ECO:0000269 PubMed:20008117",
+        "ECO:0000269 PubMed:20150177",
+        "ECO:0000269 PubMed:20691141",
+        "ECO:0000269 PubMed:21884936",
+        "ECO:0000269 PubMed:23818989",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:27241308",
+        "ECO:0000269 PubMed:28001373",
+        "ECO:0000269 PubMed:28067262",
+        "ECO:0000269 PubMed:28087700"
+      ],
+      "xrefs": [
+        "dbSNP:rs113993960"
+      ]
+    }
+  ],
+  "xrefs": {
+    "maneSelect": {
+      "transcript": "ENST00000003084.11",
+      "protein": "ENSP00000003084.6",
+      "refSeqNucleotide": "NM_000492.4",
+      "refSeqProtein": "NP_000483.3"
+    },
+    "ensembl": [
+      {
+        "transcript": "ENST00000003084.11",
+        "protein": "ENSP00000003084.6",
+        "gene": "ENSG00000001626.19"
+      },
+      {
+        "transcript": "ENST00000649781.2",
+        "protein": "ENSP00000497203.1",
+        "gene": "ENSG00000001626.19"
+      }
+    ],
+    "pdb": [
+      {
+        "id": "5UAK",
+        "method": "EM",
+        "resolution": "3.87 A",
+        "chains": "A=1-1480"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "type": "FUNCTION",
+      "text": "Epithelial ion channel that plays an important role in the regulation of epithelial ion and water transport and fluid homeostasis (PubMed:26823428). Mediates the transport of chloride ions across the cell membrane (PubMed:10792060, PubMed:11524016, PubMed:11707463, PubMed:12519745, PubMed:12529365, PubMed:12588899, PubMed:12727866, PubMed:15010471, PubMed:17036051, PubMed:1712898, PubMed:17182731, PubMed:19398555, PubMed:19621064, PubMed:22178883, PubMed:25330774, PubMed:26846474, PubMed:28087700, PubMed:8910473, PubMed:9804160). Possesses an intrinsic ATPase activity and utilizes ATP to gate its channel; the passive flow of anions through the channel is gated by cycles of ATP binding and hydrolysis by the ATP-binding domains (PubMed:11524016, PubMed:15284228, PubMed:26627831, PubMed:8910473). The ion channel is also permeable to HCO(3)(-); selectivity depends on the extracellular chloride concentration (PubMed:15010471, PubMed:19019741). In vitro, mediates ATP-dependent glutathione flux (PubMed:12727866). Exerts its function also by modulating the activity of other ion channels and transporters (PubMed:12403779, PubMed:22121115, PubMed:22178883, PubMed:27941075). Plays an important role in airway fluid homeostasis (PubMed:16645176, PubMed:19621064, PubMed:26823428). Contributes to the regulation of the pH and the ion content of the airway surface fluid layer and thereby plays an important role in defense against pathogens (PubMed:14668433, PubMed:16645176, PubMed:26823428). Modulates the activity of the epithelial sodium channel (ENaC) complex, in part by regulating the cell surface expression of the ENaC complex (PubMed:17182731, PubMed:17434346, PubMed:27941075). Inhibits the activity of the ENaC channel containing subunits SCNN1A, SCNN1B and SCNN1G (PubMed:17182731). Inhibits the activity of the ENaC channel containing subunits SCNN1D, SCNN1B and SCNN1G, but not of the ENaC channel containing subunits SCNN1A, SCNN1B and SCNN1G (PubMed:17182731, PubMed:27941075). May regulate bicarbonate secretion and salvage in epithelial cells by regulating the transporter SLC4A7 (PubMed:12403779). Can inhibit the chloride channel activity of ANO1 (PubMed:22178883). Plays a role in the chloride and bicarbonate homeostasis during sperm epididymal maturation and capacitation (PubMed:19923167, PubMed:27714810, PubMed:29393851)",
+      "evidences": [
+        "ECO:0000269 PubMed:10792060",
+        "ECO:0000269 PubMed:11524016",
+        "ECO:0000269 PubMed:11707463",
+        "ECO:0000269 PubMed:12403779",
+        "ECO:0000269 PubMed:12519745",
+        "ECO:0000269 PubMed:12529365",
+        "ECO:0000269 PubMed:12588899",
+        "ECO:0000269 PubMed:12727866",
+        "ECO:0000269 PubMed:14668433",
+        "ECO:0000269 PubMed:15010471",
+        "ECO:0000269 PubMed:15284228",
+        "ECO:0000269 PubMed:16645176",
+        "ECO:0000269 PubMed:17036051",
+        "ECO:0000269 PubMed:1712898",
+        "ECO:0000269 PubMed:17182731",
+        "ECO:0000269 PubMed:19019741",
+        "ECO:0000269 PubMed:19398555",
+        "ECO:0000269 PubMed:19621064",
+        "ECO:0000269 PubMed:22178883",
+        "ECO:0000269 PubMed:25330774",
+        "ECO:0000269 PubMed:26627831",
+        "ECO:0000269 PubMed:26823428",
+        "ECO:0000269 PubMed:26846474",
+        "ECO:0000269 PubMed:27714810",
+        "ECO:0000269 PubMed:27941075",
+        "ECO:0000269 PubMed:28087700",
+        "ECO:0000269 PubMed:29393851",
+        "ECO:0000269 PubMed:8910473",
+        "ECO:0000269 PubMed:9804160",
+        "ECO:0000305 PubMed:19923167"
+      ]
+    },
+    {
+      "type": "SUBUNIT",
+      "text": "Monomer; does not require oligomerization for channel activity (PubMed:11524016). May form oligomers in the membrane (PubMed:11524016). Interacts with SLC26A3, SLC26A6 and SHANK2 (By similarity). Interacts with NHERF1 and MYO6 (PubMed:11304524, PubMed:12403779, PubMed:15247260). Interacts (via C-terminus) with GOPC (via PDZ domain); this promotes CFTR internalization and thereby decreases channel activity (PubMed:11707463, PubMed:16331976). Interacts with SLC4A7 through NHERF1 (PubMed:12403779). Found in a complex with MYO5B and RAB11A (PubMed:17462998). Interacts with ANO1 (PubMed:22178883). Interacts with SLC26A8 (PubMed:22121115). Interacts with AHCYL1; the interaction increases CFTR activity (By similarity). Interacts with CSE1L (PubMed:20933420). The core-glycosylated form interacts with GORASP2 (via PDZ GRASP-type 1 domain) in respone to ER stress (PubMed:21884936). Interacts with MARCHF2; the interaction leads to CFTR ubiquitination and degradation (PubMed:23818989). Interacts with ADGRG2 (PubMed:29393851)",
+      "evidences": [
+        "ECO:0000250 UniProtKB:P26361",
+        "ECO:0000250 UniProtKB:P34158",
+        "ECO:0000269 PubMed:11304524",
+        "ECO:0000269 PubMed:11524016",
+        "ECO:0000269 PubMed:11707463",
+        "ECO:0000269 PubMed:12403779",
+        "ECO:0000269 PubMed:15247260",
+        "ECO:0000269 PubMed:16331976",
+        "ECO:0000269 PubMed:17462998",
+        "ECO:0000269 PubMed:20933420",
+        "ECO:0000269 PubMed:21884936",
+        "ECO:0000269 PubMed:22121115",
+        "ECO:0000269 PubMed:22178883",
+        "ECO:0000269 PubMed:23818989",
+        "ECO:0000269 PubMed:29393851"
+      ]
+    },
+    {
+      "type": "TISSUE SPECIFICITY",
+      "text": "Expressed in the respiratory airway, including bronchial epithelium, and in the female reproductive tract, including oviduct (at protein level) (PubMed:15716351, PubMed:22207244). Detected in pancreatic intercalated ducts in the exocrine tissue, on epithelial cells in intralobular striated ducts in sublingual salivary glands, on apical membranes of crypt cells throughout the small and large intestine, and on the reabsorptive duct in eccrine sweat glands (PubMed:1284548, PubMed:28130590). Detected on the equatorial segment of the sperm head (at protein level) (PubMed:19923167). Detected in nasal and bronchial superficial epithelium (PubMed:15716351). Expressed by the central cells on the sebaceous glands, dermal adipocytes and, at lower levels, by epithelial cells (PubMed:28130590)",
+      "evidences": [
+        "ECO:0000269 PubMed:1284548",
+        "ECO:0000269 PubMed:15716351",
+        "ECO:0000269 PubMed:19923167",
+        "ECO:0000269 PubMed:22207244",
+        "ECO:0000269 PubMed:28130590"
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P13569.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T18:54:35Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P13569",
+        "recordVersion": "entry 286, sequence 3",
+        "assembly": null,
+        "sha256": "2b7b2ea3cabf7d9bf660b5e7bf70a420f46b5e8c26016d542ebd8dcb1c38dcd8",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-proprietary-xrefs",
+      "natural-variants-at-position-only",
+      "pdb-xrefs-of-selected-entry-only"
+    ],
+    "validation": [
+      {
+        "check": "uniprot-accession",
+        "result": "pass",
+        "detail": "P13569 CFTR_HUMAN, reviewed true",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T06-cds-shape",
+        "result": "pass",
+        "detail": "length 4443, starts ATG, ends TAG",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T07-translation-equals-ensembl-protein",
+        "result": "pass",
+        "detail": "translated 1480 aa vs Ensembl 1480 aa",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T07-translation-equals-uniprot",
+        "result": "pass",
+        "detail": "translated 1480 aa vs UniProt 1480 aa",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T07-uniprot-md5",
+        "result": "pass",
+        "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000003084.11 / ENSP00000003084.6 / NM_000492.4",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1480",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "codons 507-508: UniProt IF, reference codons translate to IF; deleted residue(s) F508 as in UniProt",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "VAR_000171 at 508: F missing (no alternative sequence); in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
+        "at": "2026-11-03T19:03:58Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4",
+        "at": "2026-11-03T19:03:58Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "P13569 (CFTR_HUMAN) canonical sequence, 1480 aa; initiator Met not annotated as removed; chain 1-1480.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

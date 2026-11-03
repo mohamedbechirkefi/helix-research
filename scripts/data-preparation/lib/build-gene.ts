@@ -35,7 +35,8 @@ export interface GeneBuildOptions {
   /** Name of the fixture set under data/fixtures/ for `fixtures` mode (default the datasetId). */
   fixtureSet?: string;
   /**
-   * Live mode only: record every acquired input, redacted (Q-H-LIC-1), as
+   * Live or offline mode: record every acquired input (offline: the snapshot of the last live
+   * acquisition, same bodies and retrieval times), redacted (Q-H-LIC-1), as
    * data/fixtures/<datasetId>/ and build from those redacted records, so the curated
    * manifest cites the bytes on disk (lib/fixture-recorder.ts).
    */
@@ -81,7 +82,7 @@ export function parseBuildArgs(args: string[]): { gene: string | null; mode: Bui
     return v;
   };
   const recordFixtures = args.includes("--record-fixtures");
-  if (recordFixtures && mode !== "live") throw new Error("--record-fixtures records a live acquisition; it cannot be combined with --offline or --fixtures");
+  if (recordFixtures && mode === "fixtures") throw new Error("--record-fixtures records a live acquisition (or the snapshot of the last one, with --offline); it cannot be combined with --fixtures");
   return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures };
 }
 
@@ -118,7 +119,7 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
   const generatedAt = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
   const store = new FsStore(cacheRoot);
   const cache = new RecordCache(store, { maxEntries: 200 });
-  if (o.recordFixtures && o.mode !== "live") throw new Error("recordFixtures needs live mode");
+  if (o.recordFixtures && o.mode === "fixtures") throw new Error("recordFixtures needs live or offline mode");
   let inputs: SliceInputs;
   let toRecord: ReturnType<typeof redactInputs>["redacted"] | null = null;
   if (o.mode === "live") {
@@ -141,6 +142,15 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
     }
   } else if (o.mode === "offline") {
     inputs = await loadSnapshot(cache, store, config.datasetId);
+    if (o.recordFixtures) {
+      // The snapshot holds the live responses of the last acquisition (same bodies, same retrieval times), so a
+      // recording from it cites exactly what the network returned, without asking the sources again.
+      const r = redactInputs(inputsFor(inputs, config));
+      inputs = r.inputs;
+      toRecord = r.redacted;
+      const changed = Object.entries(r.redacted).filter(([, x]) => x.removed.length > 0);
+      log(`redaction (Q-H-LIC-1) of the last live snapshot: ${changed.length} of ${Object.keys(r.redacted).length} records changed${changed.length ? `: ${changed.map(([n, x]) => `${n} (${x.removed.length})`).join(", ")}` : ""}`);
+    }
   } else {
     inputs = await loadFixtureInputs(o.fixtureSet ?? config.datasetId);
   }
@@ -173,7 +183,7 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
     fixtures = await writeFixtureSet(
       config.datasetId,
       toRecord,
-      `Offline fixtures for the ${config.datasetId} set, recorded by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --record-fixtures on ${generatedAt.slice(0, 10)} from the live responses, redacted under Q-H-LIC-1 (OMIM/MIM/HGMD identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.`,
+      `Offline fixtures for the ${config.datasetId} set, recorded by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --record-fixtures on ${generatedAt.slice(0, 10)} from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.`,
     );
     log(`recorded ${relative(REPO_ROOT, fixtures.dir)}: ${fixtures.files.length} files (${fixtures.files.filter((f) => f.redacted).length} redacted)`);
   }
