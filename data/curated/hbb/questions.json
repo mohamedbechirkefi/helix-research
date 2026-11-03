@@ -1,0 +1,37 @@
+{
+  "kind": "questions",
+  "derivedFrom": [
+    "capabilities.json"
+  ],
+  "geneId": "ENSG00000244734",
+  "symbol": "HBB",
+  "questions": [
+    {
+      "text": "Show me where the sickle-cell mutation affects hemoglobin.",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "How does the DNA change for the sickle-cell variant?",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "What does the HbS residue touch in the crystal?",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "Show the evidence for the sickle-cell variant.",
+      "requires": [
+        "variantHighlight"
+      ]
+    }
+  ],
+  "bridgeQuestion": "See the sickle-cell mutation on the protein."
+}

@@ -124,7 +124,7 @@
         "source": "rcsb-files",
         "url": "https://files.rcsb.org/download/2HBS.cif",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:02Z",
+        "retrievedAt": "2026-11-02T02:28:18Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS",
         "recordVersion": "1.5",
@@ -144,7 +144,7 @@
         "check": "T28-contacts-computed",
         "result": "pass",
         "detail": "B6: none; D6: none; F6: none; H6: B70,B73,B84,B85,B88",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       }
     ],
     "evidenceCategory": 1

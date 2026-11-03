@@ -52,25 +52,6 @@
   },
   "cdsPosition": 20,
   "cdnaPosition": 70,
-  "codon": {
-    "number": 7,
-    "reference": "GAG",
-    "alternate": "GTG",
-    "genomic": {
-      "assembly": "GRCh38",
-      "assemblyPatch": "GRCh38.p14",
-      "seqRegion": "11",
-      "refSeqAccession": null,
-      "start": 5227001,
-      "end": 5227003,
-      "strand": -1,
-      "convention": "1-based-closed"
-    }
-  },
-  "aminoAcids": {
-    "reference": "E",
-    "alternate": "V"
-  },
   "proteinChangeComputed": "p.Glu7Val",
   "numbering": {
     "translatedPosition": 7,
@@ -103,7 +84,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:44Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "rs334",
         "recordVersion": null,
@@ -116,7 +97,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/variation/human/rs334?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:59Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "rs334",
         "recordVersion": null,
@@ -129,7 +110,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000335295.4:c.20A>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:01Z",
+        "retrievedAt": "2026-11-02T02:28:18Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295.4:c.20A>T",
         "recordVersion": null,
@@ -142,7 +123,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:57Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295 codon 7",
         "recordVersion": "4",
@@ -155,7 +136,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:55Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "chromosome:GRCh38:11:5226982:5227022:1",
         "recordVersion": null,
@@ -168,7 +149,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:14Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295.4",
         "recordVersion": "4",
@@ -181,7 +162,7 @@
         "source": "uniprot",
         "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:24Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "UniProt 2026_03",
         "recordId": "P68871",
         "recordVersion": "entry 219, sequence 2",
@@ -194,7 +175,7 @@
         "source": "ncbi-clinvar",
         "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:04Z",
+        "retrievedAt": "2026-11-02T02:28:20Z",
         "sourceRelease": "ClinVar Build261025-1250.1",
         "recordId": "VCV000015333",
         "recordVersion": "184",
@@ -218,85 +199,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T13-rsid-multiallelic",
         "result": "pass",
         "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T08-codon-span",
         "result": "pass",
         "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T09-forward-and-coding-base",
         "result": "pass",
         "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T11-codon-change",
         "result": "pass",
         "detail": "codon 7 GAG -> GTG; E -> V",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.7: UniProt residue E, HGVS ref E",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
         "detail": "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       }
     ],
     "evidenceCategory": 2
@@ -342,5 +323,24 @@
         "Computational prediction; not an experimental observation."
       ]
     }
-  ]
+  ],
+  "codon": {
+    "number": 7,
+    "reference": "GAG",
+    "alternate": "GTG",
+    "genomic": {
+      "assembly": "GRCh38",
+      "assemblyPatch": "GRCh38.p14",
+      "seqRegion": "11",
+      "refSeqAccession": null,
+      "start": 5227001,
+      "end": 5227003,
+      "strand": -1,
+      "convention": "1-based-closed"
+    }
+  },
+  "aminoAcids": {
+    "reference": "E",
+    "alternate": "V"
+  }
 }
