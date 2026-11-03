@@ -31,6 +31,12 @@
       "requires": [
         "variantHighlight"
       ]
+    },
+    {
+      "text": "Which pathways list HBB?",
+      "requires": [
+        "pathwayView"
+      ]
     }
   ],
   "bridgeQuestion": "See the sickle-cell mutation on the protein."
