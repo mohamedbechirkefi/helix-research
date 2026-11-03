@@ -50,7 +50,7 @@
         "check": "T32-alphafold-labelled",
         "result": "pass",
         "detail": "AF-Q6GMR7-F1 v6; md5 match true; no reference variant selected, so the model is never used to place one",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       }
     ],
     "evidenceCategory": 3
