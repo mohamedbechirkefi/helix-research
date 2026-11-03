@@ -1,0 +1,222 @@
+{
+ "date": "2026-11-02T23:36:43.737Z",
+ "tag": "2026-11-03-ds",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": {
+  "welcome": {
+   "file": "welcome.jpg",
+   "wordmarks": [
+    {
+     "complete": true,
+     "h": 48
+    }
+   ],
+   "headline": "Follow a gene from its DNA to the protein it makes.",
+   "open": true,
+   "world": "dna",
+   "pageErrors": []
+  },
+  "dnaWorld": {
+   "file": "dna-world.jpg",
+   "idleFrames": 0,
+   "label": "Illustrative geometry, real sequenceENST00000335295.4 cDNA, 628 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "wordmarks": 1
+  },
+  "selection": {
+   "file": "selection.jpg",
+   "codon": "7",
+   "link": "mapped",
+   "text": "Selected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; "
+  },
+  "bridgeChip": {
+   "file": "bridge-chip.jpg",
+   "question": {
+    "outcome": "executed",
+    "wallMs": 19442,
+    "actions": [
+     "highlightSequenceRegion",
+     "compareVariants"
+    ]
+   },
+   "offers": [
+    {
+     "text": "See the sickle-cell mutation on the protein.",
+     "source": "bridge"
+    },
+    {
+     "text": "What does this DNA change mean for the amino acid sequence?",
+     "source": "plan"
+    },
+    {
+     "text": "What does the HbS residue touch in the crystal?",
+     "source": "supported"
+    },
+    {
+     "text": "Show the evidence for the sickle-cell variant.",
+     "source": "supported"
+    }
+   ]
+  },
+  "bridgeSequenceMid": {
+   "file": "bridge-sequence-mid.jpg",
+   "shownAfterMs": 16566,
+   "progress": "0.45",
+   "playing": "true",
+   "stations": [
+    [
+     "codon",
+     "true",
+     "GAG → GTG"
+    ],
+    [
+     "translation",
+     "true",
+     "p.Glu7Val"
+    ],
+    [
+     "numbering",
+     "false",
+     "7 → 6"
+    ],
+    [
+     "structure",
+     "false",
+     "VAL 6"
+    ]
+   ],
+   "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+   "buttons": [
+    "Previous step",
+    "Pause",
+    "Next step",
+    "Replay",
+    "Continue to Protein World",
+    "Skip"
+   ],
+   "focusInOverlay": true,
+   "stageBridge": "true",
+   "world": "dna",
+   "transition": null
+  },
+  "proteinWorld": {
+   "file": "protein-world.jpg",
+   "outcome": "executed",
+   "wallMs": 21512,
+   "world": "protein",
+   "readback": [
+    "VAL H6"
+   ],
+   "bridge": {
+    "requestId": "q2",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "played",
+    "reason": null,
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 42984.89999999106,
+    "endedAt": 46207.59999999404,
+    "interacted": false,
+    "reduced": false
+   },
+   "molstar": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "overlay": false
+   },
+   "timings": {
+    "askedAt": 26457.20000000298,
+    "plannedAt": 42715.5,
+    "validatedAt": 42716.39999999106,
+    "structureDrawnAt": 47022,
+    "highlightDrawnAt": 47914.5,
+    "endedAt": 47914.70000000298
+   }
+  },
+  "evidenceWorld": {
+   "file": "evidence-world.jpg",
+   "cards": 10,
+   "key": 7,
+   "chips": [
+    "Database annotation · class 2",
+    "Database annotation · class 2",
+    "Database annotation · class 2",
+    "Database annotation · class 2",
+    "Derived · class 3",
+    "Experimental · class 1",
+    "Database annotation · class 2",
+    "Experimental · class 1",
+    "Experimental · class 1",
+    "Predicted · class 3"
+   ]
+  },
+  "knownLimitations": {
+   "file": "known-limitations.jpg",
+   "limits": [
+    "nonclinical",
+    "one-gene",
+    "snapshot",
+    "hbs-crystal",
+    "asymmetric-unit",
+    "numbering",
+    "mapping-coverage",
+    "illustrative-dna",
+    "predicted-model",
+    "ai",
+    "evidence-world",
+    "browsers"
+   ]
+  },
+  "pageErrors": [],
+  "bridgeSequenceReducedMotion": {
+   "file": "bridge-sequence-reduced-motion.jpg",
+   "on": [
+    "true",
+    "true",
+    "true",
+    "true"
+   ],
+   "progress": "1.00",
+   "playing": "false",
+   "motion": "reduced",
+   "wallMs": 20837,
+   "bridge": {
+    "requestId": "q2",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "played",
+    "reason": null,
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 37888.90000000596,
+    "endedAt": 40693.60000000894,
+    "interacted": false,
+    "reduced": true
+   },
+   "pageErrors": []
+  },
+  "loading": {
+   "file": "loading.jpg",
+   "gauge": "Waiting for the dataset manifest",
+   "title": "Checking every record before it is shown"
+  },
+  "error": {
+   "file": "error.jpg",
+   "role": "alert",
+   "text": "Helix could not start: Failed to fetch",
+   "kicker": "hx-kicker hx-kicker--fault"
+  }
+ },
+ "failures": [
+  "bridge: executed world protein read-back [\"VAL H6\"]",
+  "reduced-motion bridge: {\"outcome\":\"executed\",\"world\":\"protein\",\"last\":{\"requestId\":\"q2\",\"query\":\"See the sickle-cell mutation on the protein.\",\"status\":\"played\",\"reason\":null,\"stations\":[\"codon\",\"translation\",\"numbering\",\"structure\"],\"startedAt\":37888.90000000596,\"endedAt\":40693.60000000894,\"interacted\":false,\"reduced\":true}}"
+ ]
+}

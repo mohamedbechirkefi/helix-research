@@ -50,6 +50,7 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P6-2026-11-02-model-e2e-dh008 | `2026-11-02-model-e2e-dh008.md` | D-H008 (model-backed and rule-based E2E suites on the final build; the bridge chip) |
 | HX-P7-2026-11-02-concept-frame-timing | `2026-11-02-concept-frame-timing.md` | P7.1.1 (frame timings of the three art-direction scenes; Phase 4, 5, 6 E2E regression) |
 | HX-P7-2026-11-02-instrument-frame-timing | `2026-11-02-instrument-frame-timing.md` | D-H009 (frame timings of the refined Instrument scene and the bridge transition; Phase 4, 5, 6 E2E regression) |
+| HX-P7-2026-11-03-phase7-adoption-frame-timing | `2026-11-03-phase7-adoption-frame-timing.md` | P7.3.1, D-H012, D-H013 (frame timings of the shipped DNA World before and after the design system, the D-H012 Instrument scene with the effects pixel ratio check; Phase 4, 5, 6 rule-based E2E and the shipped shot pass) |
 | HX-P7-2026-11-02-routing-dh010 | `2026-11-02-routing-dh010.md` | D-H010 (molecule names and chain as protein cues; benchmark, held-out sets, 16 new routing items, question set) |
 | HX-P7-2026-11-02-model-e2e-dh010 | `2026-11-02-model-e2e-dh010.md` | D-H010 (model-backed and rule-based E2E suites on the D-H010 build; the welcome gene choice) |
 | HX-P7-2026-11-02-routing-dh011 | `2026-11-02-routing-dh011.md` | D-H011 (prompt v6: the model itself routes the molecule names; five drafts on development items, 21 new held-out items run once, benchmark and question set against v5) |

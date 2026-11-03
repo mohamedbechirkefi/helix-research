@@ -1,0 +1,347 @@
+{
+ "date": "2026-11-02T23:20:00.342Z",
+ "tag": "2026-11-03-ds",
+ "dpr": 2,
+ "viewport": [
+  1440,
+  900
+ ],
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": [
+  {
+   "concept": "instrument",
+   "name": "welcome",
+   "query": "concept=instrument&screen=welcome",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/welcome.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 48,
+    "top": 120.125,
+    "left": 94,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna",
+   "query": "concept=instrument&screen=dna&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-tour-mid",
+   "query": "concept=instrument&screen=dna&tour=off",
+   "action": "play",
+   "file": "docs/reviews/phase-7-instrument/dna-tour-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": null,
+   "frames": 383
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-hover-select",
+   "query": "concept=instrument&screen=dna&at=end",
+   "action": "hover",
+   "file": "docs/reviews/phase-7-instrument/dna-hover-select.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": {
+    "tip": "G·CcDNA 74c.24codon 8 GAG",
+    "readout": "64"
+   },
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 4
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge",
+   "query": "concept=instrument&screen=bridge&at=end",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-mid",
+   "query": "concept=instrument&screen=transit&at=0.5",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-mid.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-end",
+   "query": "concept=instrument&screen=transit&at=1",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-end.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "protein",
+   "query": "concept=instrument&screen=protein",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/protein.jpg",
+   "errors": [],
+   "mol": {
+    "toolbar": true,
+    "toolbarCovered": false,
+    "hover": "HEMOGLOBIN S (DEOXY), BETA CHAIN2HBS | Model 1 | Instance 1_555 | H | VAL 6",
+    "hoverCovered": false,
+    "structures": 1
+   },
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "evidence",
+   "query": "concept=instrument&screen=evidence",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/evidence.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "loading",
+   "query": "concept=instrument&screen=loading",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/loading.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": null,
+   "frames": 0
+  },
+  {
+   "concept": "instrument",
+   "name": "error",
+   "query": "concept=instrument&screen=error",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/error.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "empty",
+   "query": "concept=instrument&screen=empty",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/empty.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-low-power",
+   "query": "concept=instrument&screen=dna&at=end&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "welcome-low-power",
+   "query": "concept=instrument&screen=welcome&power=low",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/welcome-low-power.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 48,
+    "top": 120.125,
+    "left": 94,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-reduced-motion",
+   "query": "concept=instrument&screen=dna&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "bridge-transition-reduced-motion",
+   "query": "concept=instrument&screen=transit&motion=reduced",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/bridge-transition-reduced-motion.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  },
+  {
+   "concept": "instrument",
+   "name": "dna-fx-off",
+   "query": "concept=instrument&screen=dna&at=end&fx=off",
+   "action": null,
+   "file": "docs/reviews/phase-7-instrument/dna-fx-off.jpg",
+   "errors": [],
+   "mol": null,
+   "hover": null,
+   "brand": {
+    "loaded": true,
+    "alt": "Helix",
+    "height": 24,
+    "top": 28,
+    "left": 32,
+    "icon": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAEm0lEQVR4nMRXa1BUZRh+ztlz9uwFNmhARi4LrMgtlIsIhTFkNF76gdE0hAPZjwINrT/NhMIkYk2jOf5ohswhc0bGQrvRZaYbSCFOMxIotOAlTNJNaIFsBQX2drb3nIJBXdjdAnlmdvZ857zzvs/33r7v5TANGk1QqAP2MojIA4MH6BWLuYEIF3pI2xcc+ANjY8P9kx+YyQdeFbCJYVy19ChgfmF1uZhS+4SlTloophk/Qo8c5h8cwyCf5dR9omOii5Hd7rJfxvzv/E5YOYY3KBieL6fFatx7cCIjTrBywi0UyDajVN/nxNxlu88UOHfGNxYXI0DnP7W2jIyi/uhReIuEtDSMORwIiU+AUlBCQVk3aDTi/Nmzd4qykgdc7pSUvrQN20pKptbXzEOoLH8FZzrOYDbkFBVBs7UMJip8C0tV7nLBerAWQ0fq3MorFLxql7sPHafbIPIcMlaskNcq2knumjXoaO+A2Wx2q2zrgbcRvCEPFrI7QmuNUgBTsgWmb7/DTJiRwHQS6ampGLfZMWGzIXv1ozB2dWFocHBKLlQfhZ01b0GbkowRUYSFfDp66RLGd1Sil2Rnw6wEJkmERERCr4+AlQjY7E5k5TyCHuPPGB4ako2/89ExcOHhGHGK/xD45SKMe/dhgOLuCR4JSGhpPoGQ8AiEhoUTATuslGDpq7Kh5Hm8tn8fFgcHwUaGTVcuo/Xrb2B8vx6W7m54gxmT0B2q9+zFkrh4OMiYISoCGn8tGnvOYU99PWzpabjR8DnitP7oa2ryVqVvBCR3l1fvBqMWMMG60NB2Gq1UFeLYLcDpBBMQCL6pGb7Ap8On/+pv+Or7JvTptDhHO/fb/jKi8zdg2GRCkYOBmUL1JXyDTwRyCzeCT07C9fsDEVr4FIJ0Ovx59Xfc+uA4mLVrEb1oMXyF1wT0MUuhXpmKTxs+o7gp5XdmrRbrH8rCh1VVMPWbIUTHQKWswpu7q71V610VSFh1sAaNlP2BzxSS2/ORTU3m9YIC2PquQNBooWRZqKgqkhLiiAQvN6w5I6Bbvw4X/hiA3u7A/pUZiL02gPjgRaipqMAndXXU61kkp6TAT62Cln452Q+DoTbc1vaTJ9WeCYhLY/DiqxV4IS8P65Ytw3KK/+iNUVQ+X4refxvNefrXRxuQSLvXqgTwHIfMzAwwjESiDf+ZgOGxXOw6/B4C/HUQSJkfnQetP7Sg7IkncdPy122yP55sQaRhCZKTEsFSOFiSzyASDocT7e3t8JlAVsHTyNmxHQw1HZWC4ktKTzW34I3SzTMqkzpmWGQUEuNj5d3b6PxIIq/1Dw6j9+IF7wnkPrsJ4Vs2Q0OGNQoFgtRqnHz3EGp3VsETTjQ2IiwqGvEUOisRkM6PBzMz5et3Z2fnXfJ3dUIDtdqY5OUQRZfsyoFfe2H0cAdwh1i6jKSmpUItCLg5Ni6/+/j4MbcEFvRKxsoTy0KBbLPSuISFAtle8MGElQZFaVbDPYZkU7Itz4bSjCbNalS6j2P+50NpOH3utuF0koSg9D8sjUuUHIFUuMGYNj3/T0jjeTfF/BC5vdg6fv3U5Ie/AQAA//9JJvHaAAAABklEQVQDAPkwq3/kLt5cAAAAAElFTkSuQmCC",
+    "idleFrames": 0
+   },
+   "frames": 1
+  }
+ ],
+ "perf": [],
+ "failures": []
+}

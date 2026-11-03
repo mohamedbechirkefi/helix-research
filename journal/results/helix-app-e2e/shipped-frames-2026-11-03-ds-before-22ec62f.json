@@ -1,0 +1,567 @@
+{
+ "date": "2026-11-02T23:33:31.727Z",
+ "tag": "2026-11-03-ds-before-22ec62f",
+ "base": "http://localhost:5191/",
+ "repeats": 3,
+ "chrome": "Chrome/156.0.8078.80",
+ "pages": [
+  {
+   "vsync": "on",
+   "repeat": 1,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 1645,
+     "r3fFrames": 98,
+     "frame": {
+      "n": 98,
+      "median": 16.7,
+      "p95": 17.6,
+      "max": 17.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.7,
+      "p95": 18.1,
+      "max": 19.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 297,
+     "frame": {
+      "n": 297,
+      "median": 16.7,
+      "p95": 19.5,
+      "max": 21.2,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1850,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 701.2,
+      "frames": 43,
+      "maxFrameMs": 19
+     }
+    },
+    "toDna": {
+     "wallMs": 1324,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 715.5,
+      "frames": 43,
+      "maxFrameMs": 33.7
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1320,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 717.2,
+      "frames": 43,
+      "maxFrameMs": 22.4
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  },
+  {
+   "vsync": "on",
+   "repeat": 2,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 1645,
+     "r3fFrames": 98,
+     "frame": {
+      "n": 98,
+      "median": 16.7,
+      "p95": 17.7,
+      "max": 18.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.7,
+      "p95": 18.2,
+      "max": 20.7,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 297,
+     "frame": {
+      "n": 297,
+      "median": 16.6,
+      "p95": 19.4,
+      "max": 22.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1857,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 714.3,
+      "frames": 44,
+      "maxFrameMs": 19.5
+     }
+    },
+    "toDna": {
+     "wallMs": 1345,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 709.5,
+      "frames": 43,
+      "maxFrameMs": 25.1
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1290,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 714.4,
+      "frames": 43,
+      "maxFrameMs": 19.2
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  },
+  {
+   "vsync": "on",
+   "repeat": 3,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 1650,
+     "r3fFrames": 98,
+     "frame": {
+      "n": 98,
+      "median": 16.6,
+      "p95": 17.8,
+      "max": 18.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 480,
+      "median": 16.7,
+      "p95": 18.3,
+      "max": 20.1,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 297,
+     "frame": {
+      "n": 297,
+      "median": 16.6,
+      "p95": 19.5,
+      "max": 21.3,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1822,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 709.1,
+      "frames": 44,
+      "maxFrameMs": 18.1
+     }
+    },
+    "toDna": {
+     "wallMs": 1359,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 712.1,
+      "frames": 43,
+      "maxFrameMs": 18
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1287,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 711.5,
+      "frames": 43,
+      "maxFrameMs": 20.1
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 1,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 3365,
+     "r3fFrames": 3635,
+     "frame": {
+      "n": 3637,
+      "median": 0.1,
+      "p95": 2.4,
+      "max": 1811.8,
+      "over33": 1,
+      "over50": 1,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 703,
+      "median": 18,
+      "p95": 18.9,
+      "max": 21.3,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 3740,
+     "frame": {
+      "n": 3741,
+      "median": 0.2,
+      "p95": 2.4,
+      "max": 23.5,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 2437,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 702.1,
+      "frames": 1586,
+      "maxFrameMs": 14.1
+     }
+    },
+    "toDna": {
+     "wallMs": 1301,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 701,
+      "frames": 1585,
+      "maxFrameMs": 15.6
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1326,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 702,
+      "frames": 585,
+      "maxFrameMs": 15.9
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 2,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 3274,
+     "r3fFrames": 3635,
+     "frame": {
+      "n": 3637,
+      "median": 0.1,
+      "p95": 2.3,
+      "max": 1723.3,
+      "over33": 1,
+      "over50": 1,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 637,
+      "median": 17.6,
+      "p95": 18.9,
+      "max": 21.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 3765,
+     "frame": {
+      "n": 3769,
+      "median": 0.2,
+      "p95": 2.4,
+      "max": 19.5,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 2404,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.6,
+      "frames": 1587,
+      "maxFrameMs": 10.1
+     }
+    },
+    "toDna": {
+     "wallMs": 1300,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 701.9,
+      "frames": 1590,
+      "maxFrameMs": 15.2
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1295,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.8,
+      "frames": 576,
+      "maxFrameMs": 11.8
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  },
+  {
+   "vsync": "off",
+   "repeat": 3,
+   "moves": {
+    "codonFocus": {
+     "wallMs": 3259,
+     "r3fFrames": 3622,
+     "frame": {
+      "n": 3624,
+      "median": 0.1,
+      "p95": 2.4,
+      "max": 1702.3,
+      "over33": 1,
+      "over50": 1,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 660,
+      "median": 17.8,
+      "p95": 19,
+      "max": 20.1,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 3777,
+     "frame": {
+      "n": 3781,
+      "median": 0.2,
+      "p95": 2.4,
+      "max": 21.2,
+      "over33": 0,
+      "over50": 0,
+      "capped": false
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 2402,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.8,
+      "frames": 1582,
+      "maxFrameMs": 10.1
+     }
+    },
+    "toDna": {
+     "wallMs": 1301,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 702.3,
+      "frames": 1592,
+      "maxFrameMs": 14.4
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1325,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 700.3,
+      "frames": 580,
+      "maxFrameMs": 15.7
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "VAL B6",
+    "VAL D6",
+    "VAL F6",
+    "VAL H6"
+   ]
+  }
+ ]
+}
