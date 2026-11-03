@@ -28,7 +28,7 @@
   },
   "experimentalStructure": {
     "available": true,
-    "reason": "58 experimental entries (e.g. 1XMI, X-ray)",
+    "reason": "5UAK covers residues 5 to 1436 of 1,480 (1139 observed positions, 77.0 %; ELECTRON MICROSCOPY, 3.87 A); 58 experimental entries cross-referenced (e.g. 1XMI, X-ray)",
     "evidenceCategory": 1
   },
   "predictedStructure": {

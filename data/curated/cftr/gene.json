@@ -90,61 +90,61 @@
         "check": "T01-gene-identity",
         "result": "pass",
         "detail": "ENSG00000001626.20 CFTR",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000003084.11 (only transcript with MANE[].type == MANE_Select); 45 candidates",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-hgnc-resolution",
         "result": "pass",
         "detail": "CFTR -> HGNC:1884 ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-alias-MRP7",
         "result": "pass",
         "detail": "alias MRP7 -> ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-alias-ABC35",
         "result": "pass",
         "detail": "alias ABC35 -> ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-alias-TNR-CFTR",
         "result": "pass",
         "detail": "alias TNR-CFTR -> ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-alias-dJ760C5.1",
         "result": "pass",
         "detail": "alias dJ760C5.1 -> ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T04-alias-CFTR/MRP",
         "result": "pass",
         "detail": "alias CFTR/MRP -> ENSG00000001626",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:12Z"
       }
     ],
     "evidenceCategory": 2
