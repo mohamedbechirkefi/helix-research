@@ -10,7 +10,7 @@
  */
 import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
 import { extractIdTokens } from "./validate.ts";
-import { trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
+import { pathwayEvidenceId, trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
 import { routeQuestion, type Routing } from "./routing.ts";
 
 export const FALLBACK_VERSION = "helix-fallback-v1";
@@ -40,7 +40,12 @@ const GLOBIN_UNQUALIFIED = /\bglobin\b/;
 const SHOW = /\b(show|display|open|see|view|bring up|take me|go to|montre|affiche|ouvre|voir)\b/;
 const COMPARE = /\b(compare|comparer|versus|vs\.?|side by side)\b/;
 const DOMAINS = /\b(domain|domains|domaine|domaines)\b/;
-const PATHWAY = /\b(pathway|dna repair|reparation|voie)\b/;
+const PATHWAY = /\b(pathways?|dna repair|reparation|voies?)\b/;
+
+/** Phase 9 (P9.1.2): does the question ask about pathways (the word list of the pathway rule)? The app reads it to load the pathway record before planning. */
+export function asksPathway(query: string): boolean {
+  return PATHWAY.test(fold(query));
+}
 const BEGINNER = /(beginner|simple|simply|debutant|explain like)/;
 const EXPERT = /(expert|detail|in depth|codon|numbering)/;
 const OUT_OF_CONTEXT_GENES = new Set(["CFTR", "BRCA1", "BRCA2", "TP53", "EGFR", "KRAS", "BRAF", "APOE", "HBA1", "HBA2", "HBD", "HBG1", "HBG2", "HTT", "DMD", "MYC", "PTEN", "SMN1", "FBN1"]);
@@ -183,7 +188,18 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
     return r(refuse(ctx, "compare_variants", "Variant comparison is not executable in this build."), "compare");
   }
   if (DOMAINS.test(q)) return r(refuse(ctx, "show_domains", "Protein domain display is not executable in this build."), "domains");
-  if (PATHWAY.test(q)) return r(refuse(ctx, "other", "No curated pathway records are available in this context."), "pathway");
+  // Phase 9 (P9.1.2): a pathway question opens Pathway World when the set has Reactome memberships
+  // (membership only, class 2); the citation is the record's evidence, so the explanation names the
+  // memberships with their class. Without the world, the Phase 3 refusal.
+  if (PATHWAY.test(q)) {
+    const pathwayWorld = ctx.worlds.find((w) => w.id === "pathway") ?? null;
+    if (pathwayWorld?.available) {
+      const evId = protein ? pathwayEvidenceId(protein.id) : null;
+      const cited = evId && ctx.evidence.some((e) => e.id === evId) ? [evId] : [];
+      return r({ ...base(ctx), outcome: "plan", intent: "other", entities: { ...base(ctx).entities, geneId: gene?.id ?? null, proteinId: protein?.id ?? null }, actions: [{ type: "enterWorld", world: "pathway" }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], citations: cited, explanationLevel: level, reason: null }, "pathway-world");
+    }
+    return r(refuse(ctx, "other", "No curated pathway records are available in this context."), "pathway");
+  }
 
   // 6. Supported commands.
   // Phase 6: the DNA-level change of the variant, on the sequence next to the reference.

@@ -198,11 +198,12 @@ describe("the CFTR set (P9.2.1): an in-frame deletion built from its recorded fi
     expect(c.chains[0]!.contacts.every((x) => Math.abs(x.authSeqId - 508) > 1)).toBe(true);
     expect(c.evidence[0]!.statement).toMatch(/the residue deleted in F508del/);
   });
-  it("the questions record (rule 6) is listed in the manifest with its hash and carries CFTR's four questions and bridge question", async () => {
+  it("the questions record (rule 6) is listed in the manifest with its hash and carries CFTR's five questions (the pathway question last, P9.1.2) and bridge question", async () => {
     expect(files).toContain("questions.json");
     const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
     expect(q).toMatchObject({ kind: "questions", symbol: "CFTR", derivedFrom: ["capabilities.json"], bridgeQuestion: "See the F508del mutation on the protein." });
-    expect(q.questions.map((x) => x.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"]]);
+    expect(q.questions.map((x) => x.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"]]);
+    expect(q.questions.at(-1)!.text).toBe("Which pathways list CFTR?");
     const entry = manifest.files.find((f) => f.path === "questions.json")!;
     expect(entry.recordKind).toBe("questions");
     expect(entry.sha256).toMatch(/^[0-9a-f]{64}$/);
