@@ -108,7 +108,7 @@
 
 - **Docs and endpoints:**
   - https://alphafold.ebi.ac.uk/api-docs (OpenAPI at https://alphafold.ebi.ac.uk/api/openapi.json)
-  - Used: `https://alphafold.ebi.ac.uk/api/prediction/{uniprot}` and `https://alphafold.ebi.ac.uk/files/AF-{acc}-F1-model_v6.cif`
+  - Used: `https://alphafold.ebi.ac.uk/api/prediction/{uniprot}` and `https://alphafold.ebi.ac.uk/files/AF-{acc}-F1-model_v6.cif`; since Phase 9 (P9.1.1) also the PAE file the prediction record names, `https://alphafold.ebi.ac.uk/files/AF-{acc}-F1-predicted_aligned_error_v6.json` (recorded for P68871 on 2026-11-03: 44,028 bytes, a 147 by 147 matrix, maximum 31.75 Å stated by the file). Per-residue pLDDT is read from the model file's `_ma_qa_metric_local` table, never fetched separately.
 - **Versioning:** P68871: `latestVersion` 6, `modelCreatedDate` 2025-08-01, `toolUsed` "AlphaFold Monomer v2.0 pipeline".
 - **Rate limits:** not stated. EMBL-EBI terms of use apply.
 - **CORS:** measured `allow-origin *` on the API (preflight and GET) and on files (preflight allows GET and Content-Type).

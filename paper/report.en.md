@@ -818,7 +818,11 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 
 ### 9.6 Multi-gene personalisation (Phase 9)
 
-Generalisation beyond HBB. To report: which genes, which checks generalised and which failed, and the variation metric across genes.
+*In progress; this section is written as the phase advances (invariant 14).*
+
+**The plan first.** Phase 9 opened on 2026-11-03 when the author closed Phase 8 (helix D-H018). Its plan (`docs/phase-9-generalisation.md`) fixes what must be true at the end before any gene is added: one builder produces a curated set for any recognised human protein-coding gene from a short gene specification, with HBB as one instance of it; five sets exist (HBB, CFTR, BRCA1, SLC6A3 and one structure-limited gene chosen by a capability check run over sampled candidates, not by hand); every world and chapter is chosen from the set's capability file and no code path tests a gene symbol; a recognised gene without a curated set gets a journey from a live retrieval through the same builder; a variation metric (mean pairwise Jaccard distance on the scene inventory, the journey and the capability vector) puts numbers under the claim that the journeys differ; and no fictitious asset or claim appears (a domain structure states its coverage, a predicted model its confidence bands, a pathway a membership, an Open Targets record an association). The order of work puts the honest fallback early: the AlphaFold confidence extension, the generic builder with a byte-identical HBB check, the structure-limited gene, then CFTR with its deletion, Reactome and a Pathway World, BRCA1, Open Targets, SLC6A3, dynamic mode and the metric.
+
+**AlphaFold confidence (P9.1.1).** The AlphaFold adapter now reads the per-residue pLDDT from the model file's own quality table (one contiguous row per residue, banded with AlphaFold DB's thresholds), the predicted aligned error matrix from the file the prediction record names, and the record's band fractions and reviewed flag. On P68871 the per-residue mean lands within 0.012 of the record's global pLDDT of 97.19 and the band shares equal the record's fractions to three decimals; the PAE matrix is 147 by 147 with a diagonal below 1.5 Å and no value above the file's stated maximum (HX-P9-2026-11-03-alphafold-confidence; C93). One live request recorded the PAE file as a fixture with its headers and hash; every test runs offline against it.
 
 ### 9.7 Advanced contextual AI explorer (Phase 10)
 

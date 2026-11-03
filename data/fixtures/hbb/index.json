@@ -30,6 +30,7 @@
     "goReleaseDate": { "source": "ensembl", "path": "research/raw/geneontology/release-date.json" },
     "ncbiGeneEsummary": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-gene/esummary_3043_85344.json" },
     "pdbeSegments": { "source": "pdbe-sifts", "path": "research/raw/pdbe/sifts_mappings_uniprot_segments_2hbs.json" },
-    "valContactsDerived": { "source": "rcsb-files", "path": "research/derived/val6_contacts_2HBS.json" }
+    "valContactsDerived": { "source": "rcsb-files", "path": "research/derived/val6_contacts_2HBS.json" },
+    "alphafoldPae": { "source": "alphafold", "path": "research/raw/alphafold/AF-P68871-F1-predicted_aligned_error_v6.json" }
   }
 }

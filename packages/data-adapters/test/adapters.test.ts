@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0
 /** Recorded-fixture tests for each adapter, through the real HttpClient with a fetch mock. */
 import { describe, expect, it } from "vitest";
-import { fixtureJson, fixtureText, loadFixtureInputs } from "../../../scripts/data-preparation/lib/fixtures.ts";
+import { fixtureIndex, fixtureJson, fixtureText, loadFixtureInputs, loadRaw } from "../../../scripts/data-preparation/lib/fixtures.ts";
 import {
   AlphafoldAdapter,
   ClinvarAdapter,
@@ -14,7 +14,10 @@ import {
   RcsbAdapter,
   SiftsAdapter,
   UniprotAdapter,
+  alphafoldLocalPlddt,
   assertNoProprietaryIdentifiers,
+  parseAlphafoldPae,
+  plddtBand,
   ensemblUrls,
   findProprietaryIdentifiers,
   parseUniprotEntry,
@@ -23,12 +26,14 @@ import {
 } from "../src/index.ts";
 
 const inputs = await loadFixtureInputs();
+// Extra recorded files the adapters fetch but the slice build does not list as inputs (the AlphaFold PAE file, P9.1.1).
+const extras = [await loadRaw((await fixtureIndex()).extra.alphafoldPae!)];
 
 /** fetch mock serving the recorded fixtures by URL, with their recorded headers. */
 const fixtureFetch: typeof fetch = async (u) => {
   const url = typeof u === "string" ? u : u instanceof URL ? u.href : u.url;
   const decoded = decodeURI(url);
-  const r = Object.values(inputs).find((x) => x && (x.url === url || x.url === decoded));
+  const r = [...Object.values(inputs), ...extras].find((x) => x && (x.url === url || x.url === decoded));
   if (!r) return new Response("not recorded", { status: 404 });
   return new Response(r.body, { status: 200, headers: r.headers });
 };
@@ -140,6 +145,39 @@ describe("RCSB, SIFTS, ClinVar, HGNC, AlphaFold adapters (recorded fixtures)", (
     const m = await af.modelFile(p.data.cifUrl);
     expect(m.data.disclaimer).toMatch(/CC-BY-4.0/);
     await expect(af.modelFile("https://example.org/x.cif")).rejects.toBeInstanceOf(InvalidParameterError);
+  });
+  it("AlphaFold confidence (P9.1.1): the record's PAE file and bands, per-residue pLDDT from the model file, the PAE matrix", async () => {
+    const af = new AlphafoldAdapter(http);
+    const p = await af.prediction("P68871");
+    expect(p.data.paeDocUrl).toBe("https://alphafold.ebi.ac.uk/files/AF-P68871-F1-predicted_aligned_error_v6.json");
+    expect(p.data.paeImageUrl).toMatch(/predicted_aligned_error_v6\.png$/);
+    expect(p.data.plddtFractions).toEqual({ veryLow: 0, low: 0.007, confident: 0.02, veryHigh: 0.973 });
+    expect(p.data.uniprotReviewed).toBe(true);
+    expect(p.data.chainId).toBe("A");
+    // Per-residue pLDDT: one row per residue, contiguous from 1, mean equal to the record's global value, bands equal to its fractions.
+    const m = await af.modelFile(p.data.cifUrl);
+    const l = m.data.localPlddt;
+    expect(l).toHaveLength(147);
+    expect(l[0]).toEqual({ seqId: 1, compId: "MET", plddt: 61.09, band: "low" });
+    expect(l.at(-1)!.seqId).toBe(147);
+    const mean = l.reduce((a, r) => a + r.plddt, 0) / l.length;
+    // The record states the global value to two decimals from its own computation; the mean of the per-residue values lands within 0.05 of it (0.012 on this model).
+    expect(Math.abs(mean - p.data.globalPlddt!)).toBeLessThan(0.05);
+    const share = (b: string) => +(l.filter((r) => r.band === b).length / l.length).toFixed(3);
+    expect([share("very-low"), share("low"), share("confident"), share("very-high")]).toEqual([0, 0.007, 0.02, 0.973]);
+    // The PAE matrix: square, residues in model order, diagonal near zero, within the stated maximum.
+    const pae = await af.pae(p.data.paeDocUrl!);
+    expect(pae.data.size).toBe(147);
+    expect(pae.data.matrix.every((row) => row.length === 147)).toBe(true);
+    expect(Math.max(...pae.data.matrix.map((row, i) => row[i]!))).toBeLessThan(1.5);
+    expect(Math.max(...pae.data.matrix.flat())).toBeLessThanOrEqual(pae.data.maxPae);
+    await expect(af.pae("https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif")).rejects.toBeInstanceOf(InvalidParameterError);
+    // Malformed inputs fail loudly.
+    expect(() => parseAlphafoldPae([{ predicted_aligned_error: [[0, 1], [2]], max_predicted_aligned_error: 3 }])).toThrow(ParseError);
+    expect(() => alphafoldLocalPlddt("data_x\n_entry.id x\n")).toThrow(ParseError);
+    expect(plddtBand(90.01)).toBe("very-high");
+    expect(plddtBand(90)).toBe("confident");
+    expect(plddtBand(50)).toBe("very-low");
   });
 });
 
