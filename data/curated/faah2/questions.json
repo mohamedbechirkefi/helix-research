@@ -1,0 +1,17 @@
+{
+  "kind": "questions",
+  "derivedFrom": [
+    "capabilities.json"
+  ],
+  "geneId": "ENSG00000165591",
+  "symbol": "FAAH2",
+  "questions": [
+    {
+      "text": "Which pathways list FAAH2?",
+      "requires": [
+        "pathwayView"
+      ]
+    }
+  ],
+  "bridgeQuestion": null
+}

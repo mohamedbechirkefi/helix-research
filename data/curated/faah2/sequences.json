@@ -35,43 +35,43 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 1980 vs transcript 1980",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 1599, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 532 aa vs Ensembl 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 532 aa vs UniProt 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           }
         ],
         "evidenceCategory": 2
@@ -123,43 +123,43 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 1980 vs transcript 1980",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 1599, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 532 aa vs Ensembl 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 532 aa vs UniProt 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           }
         ],
         "evidenceCategory": 2
@@ -211,43 +211,43 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 1980 vs transcript 1980",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 1599, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 532 aa vs Ensembl 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 532 aa vs UniProt 532 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:03Z"
           }
         ],
         "evidenceCategory": 2
