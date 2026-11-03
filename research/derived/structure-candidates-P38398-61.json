@@ -1,0 +1,1477 @@
+{
+  "purpose": "Phase 9 plan section 11 rule 4 (and section 13 rule 2): candidate experimental entries checked in order for whether the mapped chain observes the variant residue in atom_site (model 1) through the SIFTS mapping; the first that does, with no sequence difference inside the mapped segments that a selected variant does not explain and no declared mutation, is the selection. Differences outside the mapped segments are reported with the entry's own _struct_ref_seq_dif explanation. The gene specification's notes cite this report.",
+  "script": "scripts/data-preparation/check-structure-candidates.ts",
+  "startedAt": "2026-11-03T21:52:43Z",
+  "finishedAt": "2026-11-03T21:52:47Z",
+  "gitCommit": "c53b4a0f97ad7155d7473fabd921d9a857198581",
+  "gitDirty": true,
+  "userAgent": "helix-research",
+  "uniprot": {
+    "accession": "P38398",
+    "release": "2026_03",
+    "length": 1863
+  },
+  "residue": 61,
+  "order": [
+    "1JM7",
+    "7JZV",
+    "7LYB",
+    "8GRQ"
+  ],
+  "candidates": [
+    {
+      "entryId": "1JM7",
+      "method": "SOLUTION NMR",
+      "resolutionAngstrom": null,
+      "rcsbResolutionCombined": null,
+      "modelCount": 14,
+      "nmrEnsemble": {
+        "conformersCalculated": 25,
+        "conformersSubmitted": 14,
+        "representativeConformer": 2,
+        "representativeSelectionCriteria": "closest to the average"
+      },
+      "entityId": "1",
+      "chains": [
+        "A"
+      ],
+      "entityMutation": null,
+      "entityLength": 112,
+      "siftsSegments": [
+        {
+          "labelAsymId": "A",
+          "unpStart": 1,
+          "unpEnd": 110,
+          "labelSeqStart": 1,
+          "labelSeqEnd": 110
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 61,
+        "uniprotResidue": "C",
+        "observedOn": [
+          {
+            "labelAsymId": "A",
+            "authAsymId": "A",
+            "labelSeqId": 61,
+            "authSeqId": "61",
+            "compId": "CYS"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [
+        {
+          "entityPos": 111,
+          "entity": "G",
+          "uniprotPos": 111,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "cloning artifact"
+        },
+        {
+          "entityPos": 112,
+          "entity": "K",
+          "uniprotPos": 112,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "cloning artifact"
+        }
+      ],
+      "coverage": {
+        "firstObserved": 1,
+        "lastObserved": 103,
+        "observedPositions": 103,
+        "mappedPositions": 110,
+        "proteinLength": 1863,
+        "fraction": 0.0553
+      },
+      "otherPolymerEntities": [
+        {
+          "entityId": "2",
+          "description": "BRCA1-ASSOCIATED RING DOMAIN PROTEIN 1",
+          "strandIds": [
+            "B"
+          ],
+          "uniprotFromEntry": "Q99728"
+        }
+      ],
+      "observed": true,
+      "verdict": "residue 61 observed on A61 CYS; the entity equals UniProt over the mapped segments; outside the mapped segments the entity differs at 111 (E to G, cloning artifact), 112 (N to K, cloning artifact)"
+    },
+    {
+      "entryId": "7JZV",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.9,
+      "rcsbResolutionCombined": [
+        3.9
+      ],
+      "modelCount": 1,
+      "nmrEnsemble": null,
+      "entityId": "1",
+      "chains": [
+        "A"
+      ],
+      "entityMutation": "UbcH5c C85K",
+      "entityLength": 258,
+      "siftsSegments": [
+        {
+          "labelAsymId": "A",
+          "unpStart": 2,
+          "unpEnd": 104,
+          "labelSeqStart": 3,
+          "labelSeqEnd": 105
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 61,
+        "uniprotResidue": "C",
+        "observedOn": [
+          {
+            "labelAsymId": "A",
+            "authAsymId": "A",
+            "labelSeqId": 62,
+            "authSeqId": "61",
+            "compId": "CYS"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [
+        {
+          "entityPos": 2,
+          "entity": "P",
+          "uniprotPos": 1,
+          "uniprot": "M",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "expression tag"
+        },
+        {
+          "entityPos": 106,
+          "entity": "G",
+          "uniprotPos": 106,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 107,
+          "entity": "S",
+          "uniprotPos": 107,
+          "uniprot": "F",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 108,
+          "entity": "G",
+          "uniprotPos": 108,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 109,
+          "entity": "S",
+          "uniprotPos": 109,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 110,
+          "entity": "G",
+          "uniprotPos": 110,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 111,
+          "entity": "S",
+          "uniprotPos": 111,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 112,
+          "entity": "G",
+          "uniprotPos": 112,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "linker"
+        },
+        {
+          "entityPos": 113,
+          "entity": "A",
+          "uniprotPos": 113,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 114,
+          "entity": "L",
+          "uniprotPos": 114,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 115,
+          "entity": "K",
+          "uniprotPos": 115,
+          "uniprot": "P",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 116,
+          "entity": "R",
+          "uniprotPos": 116,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 117,
+          "entity": "I",
+          "uniprotPos": 117,
+          "uniprot": "H",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 118,
+          "entity": "N",
+          "uniprotPos": 118,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 121,
+          "entity": "L",
+          "uniprotPos": 122,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 123,
+          "entity": "D",
+          "uniprotPos": 126,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 124,
+          "entity": "L",
+          "uniprotPos": 127,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 125,
+          "entity": "A",
+          "uniprotPos": 128,
+          "uniprot": "M",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 126,
+          "entity": "R",
+          "uniprotPos": 129,
+          "uniprot": "G",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 127,
+          "entity": "D",
+          "uniprotPos": 130,
+          "uniprot": "Y",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 128,
+          "entity": "P",
+          "uniprotPos": 131,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 129,
+          "entity": "P",
+          "uniprotPos": 132,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 130,
+          "entity": "A",
+          "uniprotPos": 133,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 131,
+          "entity": "Q",
+          "uniprotPos": 134,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 132,
+          "entity": "C",
+          "uniprotPos": 135,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 133,
+          "entity": "S",
+          "uniprotPos": 136,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 134,
+          "entity": "A",
+          "uniprotPos": 137,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 135,
+          "entity": "G",
+          "uniprotPos": 138,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 136,
+          "entity": "P",
+          "uniprotPos": 139,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 137,
+          "entity": "V",
+          "uniprotPos": 140,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 138,
+          "entity": "G",
+          "uniprotPos": 141,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 139,
+          "entity": "D",
+          "uniprotPos": 142,
+          "uniprot": "P",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 140,
+          "entity": "D",
+          "uniprotPos": 143,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 141,
+          "entity": "M",
+          "uniprotPos": 144,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 142,
+          "entity": "F",
+          "uniprotPos": 145,
+          "uniprot": "P",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 143,
+          "entity": "H",
+          "uniprotPos": 146,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 144,
+          "entity": "W",
+          "uniprotPos": 147,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 146,
+          "entity": "A",
+          "uniprotPos": 149,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 148,
+          "entity": "I",
+          "uniprotPos": 151,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 149,
+          "entity": "M",
+          "uniprotPos": 152,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 150,
+          "entity": "G",
+          "uniprotPos": 153,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 151,
+          "entity": "P",
+          "uniprotPos": 154,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 152,
+          "entity": "N",
+          "uniprotPos": 155,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 153,
+          "entity": "D",
+          "uniprotPos": 156,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 156,
+          "entity": "Y",
+          "uniprotPos": 158,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 157,
+          "entity": "Q",
+          "uniprotPos": 159,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 159,
+          "entity": "G",
+          "uniprotPos": 161,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 161,
+          "entity": "F",
+          "uniprotPos": 163,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 162,
+          "entity": "F",
+          "uniprotPos": 164,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 165,
+          "entity": "I",
+          "uniprotPos": 166,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 166,
+          "entity": "H",
+          "uniprotPos": 167,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 167,
+          "entity": "F",
+          "uniprotPos": 168,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 168,
+          "entity": "P",
+          "uniprotPos": 169,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 169,
+          "entity": "T",
+          "uniprotPos": 170,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 170,
+          "entity": "D",
+          "uniprotPos": 171,
+          "uniprot": "I",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 171,
+          "entity": "Y",
+          "uniprotPos": 172,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 173,
+          "entity": "F",
+          "uniprotPos": 174,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 175,
+          "entity": "P",
+          "uniprotPos": 177,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 176,
+          "entity": "P",
+          "uniprotPos": 178,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 177,
+          "entity": "K",
+          "uniprotPos": 179,
+          "uniprot": "Y",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 178,
+          "entity": "V",
+          "uniprotPos": 180,
+          "uniprot": "I",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 179,
+          "entity": "A",
+          "uniprotPos": 181,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 180,
+          "entity": "F",
+          "uniprotPos": 182,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 181,
+          "entity": "T",
+          "uniprotPos": 183,
+          "uniprot": "G",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 182,
+          "entity": "T",
+          "uniprotPos": 184,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 183,
+          "entity": "R",
+          "uniprotPos": 185,
+          "uniprot": "D",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 184,
+          "entity": "I",
+          "uniprotPos": 186,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 185,
+          "entity": "Y",
+          "uniprotPos": 187,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 186,
+          "entity": "H",
+          "uniprotPos": 188,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 187,
+          "entity": "P",
+          "uniprotPos": 189,
+          "uniprot": "D",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 188,
+          "entity": "N",
+          "uniprotPos": 190,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 189,
+          "entity": "I",
+          "uniprotPos": 191,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 191,
+          "entity": "S",
+          "uniprotPos": 194,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 192,
+          "entity": "N",
+          "uniprotPos": 195,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 193,
+          "entity": "G",
+          "uniprotPos": 196,
+          "uniprot": "Y",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 194,
+          "entity": "S",
+          "uniprotPos": 197,
+          "uniprot": "C",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 195,
+          "entity": "I",
+          "uniprotPos": 198,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 196,
+          "entity": "K",
+          "uniprotPos": 199,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": "engineered mutation"
+        },
+        {
+          "entityPos": 197,
+          "entity": "L",
+          "uniprotPos": 200,
+          "uniprot": "G",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 199,
+          "entity": "I",
+          "uniprotPos": 202,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 200,
+          "entity": "L",
+          "uniprotPos": 203,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 201,
+          "entity": "R",
+          "uniprotPos": 204,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 202,
+          "entity": "S",
+          "uniprotPos": 205,
+          "uniprot": "L",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 204,
+          "entity": "W",
+          "uniprotPos": 207,
+          "uniprot": "I",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 205,
+          "entity": "S",
+          "uniprotPos": 208,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 207,
+          "entity": "A",
+          "uniprotPos": 210,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 208,
+          "entity": "L",
+          "uniprotPos": 211,
+          "uniprot": "G",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 210,
+          "entity": "I",
+          "uniprotPos": 214,
+          "uniprot": "D",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 211,
+          "entity": "S",
+          "uniprotPos": 215,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 212,
+          "entity": "K",
+          "uniprotPos": 216,
+          "uniprot": "I",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 213,
+          "entity": "V",
+          "uniprotPos": 217,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 215,
+          "entity": "L",
+          "uniprotPos": 219,
+          "uniprot": "D",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 217,
+          "entity": "I",
+          "uniprotPos": 221,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 218,
+          "entity": "C",
+          "uniprotPos": 222,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 219,
+          "entity": "S",
+          "uniprotPos": 223,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 220,
+          "entity": "L",
+          "uniprotPos": 224,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 221,
+          "entity": "L",
+          "uniprotPos": 225,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 223,
+          "entity": "D",
+          "uniprotPos": 227,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 224,
+          "entity": "P",
+          "uniprotPos": 228,
+          "uniprot": "F",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 225,
+          "entity": "N",
+          "uniprotPos": 229,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 226,
+          "entity": "P",
+          "uniprotPos": 230,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 227,
+          "entity": "D",
+          "uniprotPos": 231,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 229,
+          "entity": "P",
+          "uniprotPos": 233,
+          "uniprot": "V",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 230,
+          "entity": "L",
+          "uniprotPos": 234,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 231,
+          "entity": "V",
+          "uniprotPos": 235,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 232,
+          "entity": "P",
+          "uniprotPos": 236,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 234,
+          "entity": "I",
+          "uniprotPos": 238,
+          "uniprot": "H",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 235,
+          "entity": "A",
+          "uniprotPos": 239,
+          "uniprot": "H",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 236,
+          "entity": "R",
+          "uniprotPos": 240,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 237,
+          "entity": "I",
+          "uniprotPos": 241,
+          "uniprot": "P",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 238,
+          "entity": "Y",
+          "uniprotPos": 242,
+          "uniprot": "S",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 239,
+          "entity": "K",
+          "uniprotPos": 243,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 240,
+          "entity": "T",
+          "uniprotPos": 244,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 242,
+          "entity": "R",
+          "uniprotPos": 247,
+          "uniprot": "N",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 243,
+          "entity": "D",
+          "uniprotPos": 248,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 244,
+          "entity": "K",
+          "uniprotPos": 249,
+          "uniprot": "T",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 245,
+          "entity": "Y",
+          "uniprotPos": 250,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 246,
+          "entity": "N",
+          "uniprotPos": 251,
+          "uniprot": "K",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 248,
+          "entity": "I",
+          "uniprotPos": 253,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 249,
+          "entity": "S",
+          "uniprotPos": 254,
+          "uniprot": "A",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 250,
+          "entity": "R",
+          "uniprotPos": 255,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 251,
+          "entity": "E",
+          "uniprotPos": 256,
+          "uniprot": "R",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 252,
+          "entity": "W",
+          "uniprotPos": 257,
+          "uniprot": "H",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 253,
+          "entity": "T",
+          "uniprotPos": 258,
+          "uniprot": "P",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 254,
+          "entity": "Q",
+          "uniprotPos": 259,
+          "uniprot": "E",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 257,
+          "entity": "A",
+          "uniprotPos": 262,
+          "uniprot": "Q",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        },
+        {
+          "entityPos": 258,
+          "entity": "M",
+          "uniprotPos": 263,
+          "uniprot": "G",
+          "insideMappedSegments": false,
+          "structRefSeqDif": null
+        }
+      ],
+      "coverage": {
+        "firstObserved": 5,
+        "lastObserved": 104,
+        "observedPositions": 100,
+        "mappedPositions": 103,
+        "proteinLength": 1863,
+        "fraction": 0.0537
+      },
+      "otherPolymerEntities": [
+        {
+          "entityId": "2",
+          "description": "BRCA1-associated RING domain protein 1",
+          "strandIds": [
+            "B"
+          ],
+          "uniprotFromEntry": "Q99728"
+        },
+        {
+          "entityId": "3",
+          "description": "Histone H2A type 2-A",
+          "strandIds": [
+            "N",
+            "n"
+          ],
+          "uniprotFromEntry": "Q6FI13"
+        },
+        {
+          "entityId": "4",
+          "description": "Histone H2B type 1-K",
+          "strandIds": [
+            "O",
+            "o"
+          ],
+          "uniprotFromEntry": "O60814"
+        },
+        {
+          "entityId": "5",
+          "description": "Histone H3.2",
+          "strandIds": [
+            "P",
+            "p"
+          ],
+          "uniprotFromEntry": "Q71DI3"
+        },
+        {
+          "entityId": "6",
+          "description": "Histone H4",
+          "strandIds": [
+            "Q",
+            "q"
+          ],
+          "uniprotFromEntry": "P62805"
+        },
+        {
+          "entityId": "7",
+          "description": "Widom 601 153-bp",
+          "strandIds": [
+            "X"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "8",
+          "description": "Widom 601 153-bp",
+          "strandIds": [
+            "Y"
+          ],
+          "uniprotFromEntry": null
+        }
+      ],
+      "observed": true,
+      "verdict": "residue 61 observed, but the entity differs from UniProt inside the mapped segments at no position and declares pdbx_mutation \"UbcH5c C85K\"; the builder refuses a difference no selected variant explains (T38, T19); outside the mapped segments the entity differs at 1 (M to P, expression tag), 106 (N to G, linker), 107 (F to S, linker), 108 (A to G, linker), 109 (K to S, linker), 110 (K to G, linker), 111 (E to S, linker), 112 (N to G, linker), 113 (N to A, not explained by _struct_ref_seq_dif), 114 (S to L, not explained by _struct_ref_seq_dif), 115 (P to K, not explained by _struct_ref_seq_dif), 116 (E to R, not explained by _struct_ref_seq_dif), 117 (H to I, not explained by _struct_ref_seq_dif), 118 (L to N, not explained by _struct_ref_seq_dif), 122 (V to L, not explained by _struct_ref_seq_dif), 126 (Q to D, not explained by _struct_ref_seq_dif), 127 (S to L, not explained by _struct_ref_seq_dif), 128 (M to A, not explained by _struct_ref_seq_dif), 129 (G to R, not explained by _struct_ref_seq_dif), 130 (Y to D, not explained by _struct_ref_seq_dif), 131 (R to P, not explained by _struct_ref_seq_dif), 132 (N to P, not explained by _struct_ref_seq_dif), 133 (R to A, not explained by _struct_ref_seq_dif), 134 (A to Q, not explained by _struct_ref_seq_dif), 135 (K to C, not explained by _struct_ref_seq_dif), 136 (R to S, not explained by _struct_ref_seq_dif), 137 (L to A, not explained by _struct_ref_seq_dif), 138 (L to G, not explained by _struct_ref_seq_dif), 139 (Q to P, not explained by _struct_ref_seq_dif), 140 (S to V, not explained by _struct_ref_seq_dif), 141 (E to G, not explained by _struct_ref_seq_dif), 142 (P to D, not explained by _struct_ref_seq_dif), 143 (E to D, not explained by _struct_ref_seq_dif), 144 (N to M, not explained by _struct_ref_seq_dif), 145 (P to F, not explained by _struct_ref_seq_dif), 146 (S to H, not explained by _struct_ref_seq_dif), 147 (L to W, not explained by _struct_ref_seq_dif), 149 (E to A, not explained by _struct_ref_seq_dif), 151 (S to I, not explained by _struct_ref_seq_dif), 152 (L to M, not explained by _struct_ref_seq_dif), 153 (S to G, not explained by _struct_ref_seq_dif), 154 (V to P, not explained by _struct_ref_seq_dif), 155 (Q to N, not explained by _struct_ref_seq_dif), 156 (L to D, not explained by _struct_ref_seq_dif), 158 (N to Y, not explained by _struct_ref_seq_dif), 159 (L to Q, not explained by _struct_ref_seq_dif), 161 (T to G, not explained by _struct_ref_seq_dif), 163 (R to F, not explained by _struct_ref_seq_dif), 164 (T to F, not explained by _struct_ref_seq_dif), 166 (R to I, not explained by _struct_ref_seq_dif), 167 (T to H, not explained by _struct_ref_seq_dif), 168 (K to F, not explained by _struct_ref_seq_dif), 169 (Q to P, not explained by _struct_ref_seq_dif), 170 (R to T, not explained by _struct_ref_seq_dif), 171 (I to D, not explained by _struct_ref_seq_dif), 172 (Q to Y, not explained by _struct_ref_seq_dif), 174 (Q to F, not explained by _struct_ref_seq_dif), 177 (S to P, not explained by _struct_ref_seq_dif), 178 (V to P, not explained by _struct_ref_seq_dif), 179 (Y to K, not explained by _struct_ref_seq_dif), 180 (I to V, not explained by _struct_ref_seq_dif), 181 (E to A, not explained by _struct_ref_seq_dif), 182 (L to F, not explained by _struct_ref_seq_dif), 183 (G to T, not explained by _struct_ref_seq_dif), 184 (S to T, not explained by _struct_ref_seq_dif), 185 (D to R, not explained by _struct_ref_seq_dif), 186 (S to I, not explained by _struct_ref_seq_dif), 187 (S to Y, not explained by _struct_ref_seq_dif), 188 (E to H, not explained by _struct_ref_seq_dif), 189 (D to P, not explained by _struct_ref_seq_dif), 190 (T to N, not explained by _struct_ref_seq_dif), 191 (V to I, not explained by _struct_ref_seq_dif), 194 (A to S, not explained by _struct_ref_seq_dif), 195 (T to N, not explained by _struct_ref_seq_dif), 196 (Y to G, not explained by _struct_ref_seq_dif), 197 (C to S, not explained by _struct_ref_seq_dif), 198 (S to I, not explained by _struct_ref_seq_dif), 199 (V to K, engineered mutation), 200 (G to L, not explained by _struct_ref_seq_dif), 202 (Q to I, not explained by _struct_ref_seq_dif), 203 (E to L, not explained by _struct_ref_seq_dif), 204 (L to R, not explained by _struct_ref_seq_dif), 205 (L to S, not explained by _struct_ref_seq_dif), 207 (I to W, not explained by _struct_ref_seq_dif), 208 (T to S, not explained by _struct_ref_seq_dif), 210 (Q to A, not explained by _struct_ref_seq_dif), 211 (G to L, not explained by _struct_ref_seq_dif), 214 (D to I, not explained by _struct_ref_seq_dif), 215 (E to S, not explained by _struct_ref_seq_dif), 216 (I to K, not explained by _struct_ref_seq_dif), 217 (S to V, not explained by _struct_ref_seq_dif), 219 (D to L, not explained by _struct_ref_seq_dif), 221 (A to I, not explained by _struct_ref_seq_dif), 222 (K to C, not explained by _struct_ref_seq_dif), 223 (K to S, not explained by _struct_ref_seq_dif), 224 (A to L, not explained by _struct_ref_seq_dif), 225 (A to L, not explained by _struct_ref_seq_dif), 227 (E to D, not explained by _struct_ref_seq_dif), 228 (F to P, not explained by _struct_ref_seq_dif), 229 (S to N, not explained by _struct_ref_seq_dif), 230 (E to P, not explained by _struct_ref_seq_dif), 231 (T to D, not explained by _struct_ref_seq_dif), 233 (V to P, not explained by _struct_ref_seq_dif), 234 (T to L, not explained by _struct_ref_seq_dif), 235 (N to V, not explained by _struct_ref_seq_dif), 236 (T to P, not explained by _struct_ref_seq_dif), 238 (H to I, not explained by _struct_ref_seq_dif), 239 (H to A, not explained by _struct_ref_seq_dif), 240 (Q to R, not explained by _struct_ref_seq_dif), 241 (P to I, not explained by _struct_ref_seq_dif), 242 (S to Y, not explained by _struct_ref_seq_dif), 243 (N to K, not explained by _struct_ref_seq_dif), 244 (N to T, not explained by _struct_ref_seq_dif), 247 (N to R, not explained by _struct_ref_seq_dif), 248 (T to D, not explained by _struct_ref_seq_dif), 249 (T to K, not explained by _struct_ref_seq_dif), 250 (E to Y, not explained by _struct_ref_seq_dif), 251 (K to N, not explained by _struct_ref_seq_dif), 253 (A to I, not explained by _struct_ref_seq_dif), 254 (A to S, not explained by _struct_ref_seq_dif), 255 (E to R, not explained by _struct_ref_seq_dif), 256 (R to E, not explained by _struct_ref_seq_dif), 257 (H to W, not explained by _struct_ref_seq_dif), 258 (P to T, not explained by _struct_ref_seq_dif), 259 (E to Q, not explained by _struct_ref_seq_dif), 262 (Q to A, not explained by _struct_ref_seq_dif), 263 (G to M, not explained by _struct_ref_seq_dif)"
+    },
+    {
+      "entryId": "7LYB",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.28,
+      "rcsbResolutionCombined": [
+        3.28
+      ],
+      "modelCount": 1,
+      "nmrEnsemble": null,
+      "entityId": "6",
+      "chains": [
+        "I"
+      ],
+      "entityMutation": null,
+      "entityLength": 124,
+      "siftsSegments": [
+        {
+          "labelAsymId": "I",
+          "unpStart": 1,
+          "unpEnd": 100,
+          "labelSeqStart": 25,
+          "labelSeqEnd": 124
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 61,
+        "uniprotResidue": "C",
+        "observedOn": [
+          {
+            "labelAsymId": "I",
+            "authAsymId": "M",
+            "labelSeqId": 85,
+            "authSeqId": "61",
+            "compId": "CYS"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [],
+      "coverage": {
+        "firstObserved": 4,
+        "lastObserved": 97,
+        "observedPositions": 94,
+        "mappedPositions": 100,
+        "proteinLength": 1863,
+        "fraction": 0.0505
+      },
+      "otherPolymerEntities": [
+        {
+          "entityId": "1",
+          "description": "Histone H3.1",
+          "strandIds": [
+            "A",
+            "E"
+          ],
+          "uniprotFromEntry": "P68431"
+        },
+        {
+          "entityId": "2",
+          "description": "Histone H4",
+          "strandIds": [
+            "B",
+            "F"
+          ],
+          "uniprotFromEntry": "P62805"
+        },
+        {
+          "entityId": "3",
+          "description": "Histone H2B type 1-J",
+          "strandIds": [
+            "D",
+            "H"
+          ],
+          "uniprotFromEntry": "P06899"
+        },
+        {
+          "entityId": "4",
+          "description": "DNA (147-MER)",
+          "strandIds": [
+            "I"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "5",
+          "description": "DNA (146-MER)",
+          "strandIds": [
+            "J"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "7",
+          "description": "Ubiquitin-conjugating enzyme E2 D3",
+          "strandIds": [
+            "P"
+          ],
+          "uniprotFromEntry": "P61077"
+        },
+        {
+          "entityId": "8",
+          "description": "BRCA1-associated RING domain protein 1",
+          "strandIds": [
+            "N"
+          ],
+          "uniprotFromEntry": "Q99728"
+        },
+        {
+          "entityId": "9",
+          "description": "Histone H2A type 1-B/E",
+          "strandIds": [
+            "C",
+            "G"
+          ],
+          "uniprotFromEntry": "P04908"
+        }
+      ],
+      "observed": true,
+      "verdict": "residue 61 observed on M61 CYS; the entity equals UniProt over the mapped segments"
+    },
+    {
+      "entryId": "8GRQ",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.87,
+      "rcsbResolutionCombined": [
+        3.87
+      ],
+      "modelCount": 1,
+      "nmrEnsemble": null,
+      "entityId": "7",
+      "chains": [
+        "K"
+      ],
+      "entityMutation": null,
+      "entityLength": 92,
+      "siftsSegments": [
+        {
+          "labelAsymId": "K",
+          "unpStart": 6,
+          "unpEnd": 97,
+          "labelSeqStart": 1,
+          "labelSeqEnd": 92
+        }
+      ],
+      "residue": {
+        "uniprotPosition": 61,
+        "uniprotResidue": "C",
+        "observedOn": [
+          {
+            "labelAsymId": "K",
+            "authAsymId": "K",
+            "labelSeqId": 56,
+            "authSeqId": "61",
+            "compId": "CYS"
+          }
+        ],
+        "unobservedOn": [],
+        "coveredBySifts": true
+      },
+      "sequenceMismatches": [],
+      "coverage": {
+        "firstObserved": 6,
+        "lastObserved": 97,
+        "observedPositions": 92,
+        "mappedPositions": 92,
+        "proteinLength": 1863,
+        "fraction": 0.0494
+      },
+      "otherPolymerEntities": [
+        {
+          "entityId": "1",
+          "description": "Histone H3",
+          "strandIds": [
+            "A",
+            "E"
+          ],
+          "uniprotFromEntry": "A0A653DHJ5"
+        },
+        {
+          "entityId": "2",
+          "description": "Histone H4",
+          "strandIds": [
+            "B",
+            "F"
+          ],
+          "uniprotFromEntry": "A0A0P9AXL3"
+        },
+        {
+          "entityId": "3",
+          "description": "Histone H2A type 1-H",
+          "strandIds": [
+            "C",
+            "G"
+          ],
+          "uniprotFromEntry": "Q8CGP6"
+        },
+        {
+          "entityId": "4",
+          "description": "H2B",
+          "strandIds": [
+            "D",
+            "H"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "5",
+          "description": "DNA (147-MER)",
+          "strandIds": [
+            "I"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "6",
+          "description": "DNA (147-MER)",
+          "strandIds": [
+            "J"
+          ],
+          "uniprotFromEntry": null
+        },
+        {
+          "entityId": "8",
+          "description": "BRCA1-associated RING domain protein 1",
+          "strandIds": [
+            "M"
+          ],
+          "uniprotFromEntry": "Q99728"
+        },
+        {
+          "entityId": "9",
+          "description": "Ubiquitin-conjugating enzyme E2D 3 (UBC4/5 homolog, yeast), isoform CRA_a",
+          "strandIds": [
+            "N"
+          ],
+          "uniprotFromEntry": null
+        }
+      ],
+      "observed": true,
+      "verdict": "residue 61 observed on K61 CYS; the entity equals UniProt over the mapped segments"
+    }
+  ],
+  "chosen": "1JM7"
+}

@@ -347,7 +347,7 @@ describe("redactProprietaryIdentifiers (the research/raw redaction, Q-H-LIC-1, a
         { database: "Ensembl", id: "ENST00000000001" },
       ],
       comments: [{ commentType: "DISEASE", disease: { diseaseId: "X", diseaseCrossReference: { database: "MIM", id: "603902" }, evidences: [{ evidenceCode: "ECO:0000269", source: "PubMed", id: "1" }, { evidenceCode: "ECO:0000269", source: "MIM", id: "603902" }] } }],
-      colocated_variants: [{ id: "rs1", allele_string: "T/A" }, { id: "CM900001", allele_string: "HGMD_MUTATION", source: "HGMD-PUBLIC" }],
+      colocated_variants: [{ id: "rs1", allele_string: "T/A" }, { id: "CM900001", allele_string: "HGMD_MUTATION", source: "HGMD-PUBLIC" }, { id: "CM900002", allele_string: "HGMD_MUTATION", strand: 1 }],
     };
     const before = JSON.stringify(body);
     const r = redactProprietaryIdentifiers(body);
@@ -368,6 +368,7 @@ describe("redactProprietaryIdentifiers (the research/raw redaction, Q-H-LIC-1, a
       "$.comments[0].disease.diseaseCrossReference (object of a proprietary database)",
       "$.comments[0].disease.evidences[1] (object of a proprietary database)",
       "$.colocated_variants[1] (object of a proprietary database)",
+      "$.colocated_variants[2] (object of a proprietary database)",
     ]);
     expect(findProprietaryIdentifiers(r.value)).toEqual([]);
     // An identifier in free text is not removed: the caller must refuse to record such a body.

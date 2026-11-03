@@ -67,6 +67,7 @@ import {
   type ResidueRef,
   Sequence,
   Structure,
+  type StructureCoverage,
   TranscriptRecord,
   type ValidationResult,
   Variant,
@@ -76,7 +77,7 @@ import {
 import type { z } from "zod";
 import { capabilities } from "../capabilities.ts";
 import { type CheckOutcome, translationChecks } from "../checks.ts";
-import { interChainContacts } from "../contacts.ts";
+import { hasHydrogens, interChainContacts } from "../contacts.ts";
 import { cdsLengthFromExons, codonGenomicSpan, fivePrimeUtrLength, hgvsGDeletion, hgvsGToSpdi, shiftDeletionThreePrime, spdiNetDeletion, spdiToHgvsG } from "../coordinates.ts";
 import { detectDrift } from "../drift.ts";
 import { classifyClinvarReview, evidence } from "../evidence.ts";
@@ -118,6 +119,27 @@ function stable(value: unknown): string {
 }
 
 const sameResidue = (a: ResidueRef, b: ResidueRef) => a.labelAsymId === b.labelAsymId && a.labelSeqId === b.labelSeqId && a.authAsymId === b.authAsymId && a.authSeqId === b.authSeqId && a.compId === b.compId;
+
+/** 1863 -> "1,863": a thousands separator that does not depend on the runtime's locale data. */
+const withThousands = (n: number): string => String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+/**
+ * The words of a structure's coverage (P9.2.2, plan section 13 rule 3), composed from the numbers
+ * alone so that T48 can recompose them: "2HBS covers residues 2 to 147 of 147 (146 observed
+ * positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A)"; for an NMR entry the method part names the
+ * ensemble size and the model shown instead of a resolution.
+ */
+export function coverageText(c: { entryId: string; firstObservedPosition: number; lastObservedPosition: number; observedPositions: number; proteinLength: number; method: string; resolution: number | null; modelCount: number }): string {
+  const pct = `${(Math.round((c.observedPositions / c.proteinLength) * 1000) / 10).toFixed(1)} %`;
+  const how = c.resolution === null ? `${c.method}, ${c.modelCount} model${c.modelCount === 1 ? "" : "s"}, model 1 shown` : `${c.method}, ${c.resolution} A`;
+  return `${c.entryId} covers residues ${c.firstObservedPosition} to ${c.lastObservedPosition} of ${withThousands(c.proteinLength)} (${c.observedPositions} observed position${c.observedPositions === 1 ? "" : "s"}, ${pct}; ${how})`;
+}
+
+/** The fraction of the protein the entry covers, four decimals, as the record stores it. */
+export const coverageFraction = (observed: number, length: number): number => Math.round((observed / length) * 10000) / 10000;
+
+/** The methods a selected entry may have (T47); solution NMR is the one without a resolution. */
+export const ACCEPTED_METHODS = ["X-RAY DIFFRACTION", "ELECTRON MICROSCOPY", "SOLUTION NMR"] as const;
 
 export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: { now: string }): Promise<SliceBuild> {
   // Every body must hash to the sha256 recorded at retrieval (T29).
@@ -471,9 +493,12 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         let carries: "alternate" | "reference" | "mixed" | null = null;
         let altName: string | undefined;
         if (V) {
-          if (V.kind === "deletion") {
-            // T40 (plan section 11 rule 4): the deleted residue must be observed in atom_site, on every mapped chain,
-            // through the verified SIFTS mapping; otherwise the entry cannot show where the deletion sits and the set is refused.
+          // T40 (plan section 11 rule 4, section 13 rule 2): the variant residue must be observed in atom_site (model 1),
+          // on every mapped chain, through the verified SIFTS mapping; otherwise the entry cannot show where it sits and
+          // the set is refused. It runs for a deletion (the mapping would not refuse an unobserved deleted residue by
+          // itself) and whenever the specification records the preference "variant-residue-observed", so that the
+          // recorded reason for the selection is checked; the HBB specification records no preference and keeps its rows.
+          if (V.kind === "deletion" || config.structurePreference === "variant-residue-observed") {
             const perChain = siftsChains.map((c) => {
               const seg = segments.find((s) => s.labelAsymId === c && V.uniPos >= s.unpStart && V.uniPos <= s.unpEnd);
               if (!seg) return { chain: c, state: "not covered by SIFTS" };
@@ -484,7 +509,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
               return { chain: c, state: hasAtoms ? `observed (label ${labelSeqId}, auth ${row.authSeqNum}, ${row.monId})` : `label ${labelSeqId} ${row.monId} unobserved (no coordinates)` };
             });
             const observedAll = perChain.length > 0 && perChain.every((p) => p.state.startsWith("observed"));
-            const detail = `${struct.entryId} residue ${V.refAa}${V.uniPos} (deleted in ${V.sel.commonName}): ${perChain.map((p) => `${p.chain} ${p.state}`).join("; ")}; structurePreference ${config.structurePreference ?? "not stated"}`;
+            const detail = `${struct.entryId} residue ${V.refAa}${V.uniPos} (${V.kind === "deletion" ? `deleted in ${V.sel.commonName}` : `the ${V.sel.commonName} position`}): ${perChain.map((p) => `${p.chain} ${p.state}`).join("; ")}; structurePreference ${config.structurePreference ?? "not stated"}`;
             check("T40-variant-residue-observed", observedAll, detail, ["residue-mapping", "structure"]);
             if (!observedAll) throw new ValidationFailedError("T40-variant-residue-observed", detail);
           }
@@ -524,8 +549,16 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         );
         const entSeq = ent.sequenceCanonical;
         const seqMismatch = tableRows.filter((r) => r.residues.some((x) => x.labelSeqId === null || entSeq[x.labelSeqId - 1] !== r.uniprotResidue)).map((r) => r.uniprotPosition);
-        const alnMismatch = xc.alignment.mismatches.map((m) => m.referencePos);
-        check("T39-full-chain-alignment-agrees", xc.agrees && seqMismatch.join(",") === alnMismatch.join(","), `entity sequence at the mapped label_seq_id differs from UniProt at ${seqMismatch.join(", ") || "none"}; the independent alignment reports ${alnMismatch.join(", ") || "none"}`, ["residue-mapping-table"]);
+        // The table holds the SIFTS-mapped positions only, so the alignment is compared with it there; a difference
+        // outside the mapped segments (P9.2.2: 1JM7's cloning artifact at 111 and 112) is reported with the entry's own
+        // _struct_ref_seq_dif explanation and is not a disagreement about the mapping.
+        const inMapped = (pos: number): boolean => segments.some((sg) => pos >= sg.unpStart && pos <= sg.unpEnd);
+        const alnMismatch = xc.alignment.mismatches.filter((m) => inMapped(m.referencePos)).map((m) => m.referencePos);
+        const entStrands = new Set(ent.strandIds);
+        const difOf = (labelSeqId: number): string | null => struct.structRefSeqDif.find((d) => entStrands.has(d.strandId) && d.seqNum === labelSeqId)?.details ?? null;
+        const outsideMapped = xc.alignment.mismatches.filter((m) => !inMapped(m.referencePos));
+        const outsideText = outsideMapped.length > 0 ? `; outside the mapped positions the entity differs at ${outsideMapped.map((m) => `${m.referencePos} (UniProt ${m.reference}, entity ${m.query}, ${difOf(m.queryPos) ?? "not explained by _struct_ref_seq_dif"})`).join(", ")}` : "";
+        check("T39-full-chain-alignment-agrees", xc.agrees && seqMismatch.join(",") === alnMismatch.join(","), `entity sequence at the mapped label_seq_id differs from UniProt at ${seqMismatch.join(", ") || "none"}; the independent alignment reports ${alnMismatch.join(", ") || "none"}${outsideText}`, ["residue-mapping-table"]);
         if (V && residues) {
           const vres = residues;
           const naive = struct.polySeqScheme.find((r) => r.labelAsymId === vres[0]!.labelAsymId && r.labelSeqId === V.uniPos);
@@ -582,6 +615,24 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const defaultAssembly = [...struct.assemblies].sort((a, b) => a.id.localeCompare(b.id)).find((a) => anchorChains.some((c) => a.asymIds.includes(c)));
         if (!defaultAssembly) throw new ValidationFailedError("assembly", "no assembly contains a mapped chain");
 
+        // Coverage (P9.2.2, plan section 13 rule 3): the mapped UniProt positions observed in model 1 on at least one
+        // mapped chain, against the protein's length; the words are composed from the numbers and T48 recomposes them.
+        const observedRows = tableRows.filter((r) => r.residues.length > 0);
+        if (observedRows.length === 0) throw new ValidationFailedError("coverage", `${struct.entryId}: no mapped position of ${config.uniprotAccession} is observed in model 1`);
+        const coverageNumbers = { entryId: struct.entryId, firstObservedPosition: observedRows[0]!.uniprotPosition, lastObservedPosition: observedRows.at(-1)!.uniprotPosition, observedPositions: observedRows.length, proteinLength: uni.length, method: struct.method, resolution: struct.resolution, modelCount: struct.modelCount };
+        const coverage: StructureCoverage = {
+          uniprotAccession: config.uniprotAccession,
+          chains: siftsChains,
+          firstObservedPosition: coverageNumbers.firstObservedPosition,
+          lastObservedPosition: coverageNumbers.lastObservedPosition,
+          observedPositions: coverageNumbers.observedPositions,
+          mappedPositions: tableRows.length,
+          proteinLength: uni.length,
+          fraction: coverageFraction(observedRows.length, uni.length),
+          text: coverageText(coverageNumbers),
+        };
+        const hydrogens = hasHydrogens(struct);
+
         // contacts of the variant residue (side-chain atoms beyond CB)
         let contactChains: { residue: ResidueRef; probeAtoms: string[]; contacts: ReturnType<typeof interChainContacts>["contacts"] }[] | null = null;
         if (residues) {
@@ -595,7 +646,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
           const cc = contactChains;
           check("T28-contacts-computed", cc.every((c) => c.probeAtoms.length > 0), cc.map((c) => `${c.residue.authAsymId}${c.residue.authSeqId}: ${c.contacts.filter((x) => x.compId !== "HOH").map((x) => `${x.authAsymId}${x.authSeqId}`).join(",") || "none"}`).join("; "), ["residue-contacts"]);
         }
-        return { pdbId, struct, sifts, rEntry, rEntity, rAsm, pdbRelease, entityId, segments, ent, siftsChains, xc, rRegion, residues, chainMap, tableRows, row7, nameMismatch, seqMismatch, alnMismatch, knownIssues, polymerAsyms, defaultAssembly, contactChains };
+        return { pdbId, struct, sifts, rEntry, rEntity, rAsm, pdbRelease, entityId, segments, ent, siftsChains, xc, rRegion, residues, chainMap, tableRows, row7, nameMismatch, seqMismatch, alnMismatch, knownIssues, polymerAsyms, defaultAssembly, contactChains, coverage, coverageNumbers, hydrogens };
       })(config.pdbId)
     : null;
   const knownIssues: KnownIssue[] = S ? S.knownIssues : [];
@@ -709,6 +760,28 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         return { release, memberships, participantSets, opening, choice };
       })()
     : null;
+
+  // ------------------------------------------------------------ method and coverage of the selected entry (P9.2.2, plan section 13 rule 7)
+  if (S) {
+    const { struct, coverage, coverageNumbers, tableRows } = S;
+    const isNmr = struct.method === "SOLUTION NMR";
+    const methodOk = (ACCEPTED_METHODS as readonly string[]).includes(struct.method);
+    const ensembleAgrees = struct.nmrEnsemble?.conformersSubmitted === null || struct.nmrEnsemble?.conformersSubmitted === undefined || struct.nmrEnsemble.conformersSubmitted === struct.modelCount;
+    check(
+      "T47-structure-method",
+      methodOk && (isNmr ? struct.resolution === null && struct.modelCount >= 1 && ensembleAgrees : struct.resolution !== null && struct.modelCount === 1),
+      `${struct.entryId} method ${struct.method}${methodOk ? "" : " (not one of X-ray diffraction, electron microscopy, solution NMR)"}; resolution ${struct.resolution === null ? "none" : `${struct.resolution} A`}; ${struct.modelCount} model(s) in atom_site${struct.nmrEnsemble ? `; _pdbx_nmr_ensemble: ${struct.nmrEnsemble.conformersSubmitted ?? "?"} submitted of ${struct.nmrEnsemble.conformersCalculated ?? "?"} calculated${struct.nmrEnsemble.representativeConformer === null ? "" : `, representative conformer ${struct.nmrEnsemble.representativeConformer}${struct.nmrEnsemble.representativeSelectionCriteria ? ` (${struct.nmrEnsemble.representativeSelectionCriteria})` : ""}`}` : ""}; model 1 is the one mapped, measured and shown`,
+      ["structure"],
+    );
+    const recomposed = coverageText(coverageNumbers);
+    const fractionOk = coverage.fraction === coverageFraction(coverage.observedPositions, coverage.proteinLength);
+    check(
+      "T48-structure-coverage",
+      fractionOk && coverage.firstObservedPosition <= coverage.lastObservedPosition && coverage.observedPositions <= coverage.mappedPositions && coverage.mappedPositions === tableRows.length && coverage.proteinLength === uni.length && coverage.text === recomposed,
+      `${coverage.observedPositions} of ${coverage.mappedPositions} mapped positions observed in model 1 on chain(s) ${coverage.chains.join(",")}, ${coverage.firstObservedPosition}-${coverage.lastObservedPosition}; protein length ${coverage.proteinLength}; fraction ${coverage.fraction} = ${coverage.observedPositions}/${coverage.proteinLength}; words ${coverage.text === recomposed ? "match the numbers" : `do not match: "${coverage.text}" against "${recomposed}"`}`,
+      ["structure"],
+    );
+  }
 
   // ------------------------------------------------------------ drift
   const drift = detectDrift({
@@ -1034,20 +1107,40 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     }
 
     if (S && PS) {
-      const { struct, sifts, entityId, segments, ent, xc, rRegion, residues, chainMap, tableRows, row7, nameMismatch, seqMismatch, alnMismatch, polymerAsyms, defaultAssembly, contactChains } = S;
+      const { struct, sifts, entityId, segments, ent, xc, rRegion, residues, chainMap, tableRows, row7, nameMismatch, seqMismatch, alnMismatch, polymerAsyms, defaultAssembly, contactChains, coverage, hydrogens } = S;
+      // An NMR entry states no resolution: the statement names the ensemble and the model shown instead (P9.2.2 rule 2).
       const structEv = [
-        evidence("experimental-structure-observation", `${struct.entryId}: ${struct.method}, ${struct.resolution} A resolution, deposited ${struct.depositionDate}.`),
+        evidence(
+          "experimental-structure-observation",
+          struct.resolution === null
+            ? `${struct.entryId}: ${struct.method}, no resolution (an ensemble of ${struct.modelCount} models; model 1 is the one shown), deposited ${struct.depositionDate}.`
+            : `${struct.entryId}: ${struct.method}, ${struct.resolution} A resolution, deposited ${struct.depositionDate}.`,
+        ),
+        evidence("curated-database-annotation", `${coverage.text}; SIFTS maps ${coverage.mappedPositions} position(s) of ${coverage.uniprotAccession} onto chain(s) ${coverage.chains.join(", ")}.`, {
+          limitations: coverage.fraction < 1 ? [`The entry covers ${coverage.observedPositions} of the protein's ${coverage.proteinLength} residues; the rest has no experimental coordinates in this set, and a predicted model never stands in for it.`] : [],
+        }),
       ];
-      const entities = struct.entities.map((e) => ({
-        entityId: e.id,
-        type: e.type,
-        description: e.description,
-        moleculeCount: e.moleculeCount,
-        mutation: e.mutation ? { text: e.mutation, numbering: classifyPdbxMutation(e.mutation, e.id === entityId ? uni.sequence : "", e.id === entityId ? chainRange : null) } : null,
-        sequence: e.sequenceCanonical,
-        strandIds: e.strandIds,
-        siftsUniprot: [...new Set(sifts.filter((s) => s.entityId === e.id).map((s) => s.uniprotAccession))].sort(),
-      }));
+      const uniprotFromEntry = (e: { id: string }): string[] => [...new Set(struct.structRef.filter((r) => r.entityId === e.id && r.dbName === "UNP" && r.dbAccession !== null).map((r) => r.dbAccession!))].sort();
+      const entities = struct.entities.map((e) => {
+        const strands = new Set(e.strandIds);
+        return {
+          entityId: e.id,
+          type: e.type,
+          description: e.description,
+          moleculeCount: e.moleculeCount,
+          mutation: e.mutation ? { text: e.mutation, numbering: classifyPdbxMutation(e.mutation, e.id === entityId ? uni.sequence : "", e.id === entityId ? chainRange : null) } : null,
+          sequence: e.sequenceCanonical,
+          strandIds: e.strandIds,
+          siftsUniprot: [...new Set(sifts.filter((s) => s.entityId === e.id).map((s) => s.uniprotAccession))].sort(),
+          uniprotFromEntry: uniprotFromEntry(e),
+          sequenceDifferences: struct.structRefSeqDif
+            .filter((d) => strands.has(d.strandId))
+            .map((d) => ({ strandId: d.strandId, labelSeqId: d.seqNum, residue: d.monId, referenceResidue: d.dbMonId, referencePosition: d.dbSeqNum, details: d.details })),
+        };
+      });
+      const partners = struct.entities
+        .filter((e) => e.type === "polymer" && e.id !== entityId)
+        .map((e) => ({ entityId: e.id, description: e.description, strandIds: e.strandIds, uniprotAccession: uniprotFromEntry(e)[0] ?? null, siftsUniprot: [...new Set(sifts.filter((s) => s.entityId === e.id).map((s) => s.uniprotAccession))].sort() }));
       const authOf = new Map<string, string>();
       for (const r of struct.polySeqScheme) authOf.set(r.labelAsymId, r.authAsymId);
       for (const r of struct.nonpolyScheme) if (!authOf.has(r.labelAsymId)) authOf.set(r.labelAsymId, r.authAsymId);
@@ -1063,16 +1156,22 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         method: struct.method,
         origin: "experimental",
         resolutionAngstrom: struct.resolution,
+        modelCount: struct.modelCount,
+        modelShown: 1,
+        nmrEnsemble: struct.nmrEnsemble,
         revision: struct.latestRevision,
         depositionDate: struct.depositionDate,
         citation: struct.primaryCitation,
         entities,
+        mappedEntityId: entityId,
+        coverage,
+        partners,
         chains,
         assemblies: struct.assemblies.map((a) => ({ ...a, polymerAsymIds: a.asymIds.filter((x) => polymerAsyms.has(x)) })),
         defaultAssemblyId: defaultAssembly.id,
         modelFile: { path: cifPath, format: "mmcif", sha256: mmcifBody.sha256, bytes: new TextEncoder().encode(mmcifBody.body).byteLength },
         evidence: structEv,
-        provenance: rp("structure", [PS.P1, PS.P2, PS.P3, PS.P4, PS.S1], ["parse-mmcif", "field-select", "sifts-entity-selection", "classify-pdbx-mutation-numbering"], structEv),
+        provenance: rp("structure", [PS.P1, PS.P2, PS.P3, PS.P4, PS.S1], ["parse-mmcif", "field-select", "sifts-entity-selection", "classify-pdbx-mutation-numbering", "coverage-from-sifts-and-atom-site", "partners-from-struct-ref"], structEv),
       });
       add(`structure-${struct.entryId}.json`, "structure", structRec);
       add(cifPath, "mmcif", mmcifBody.body);
@@ -1143,7 +1242,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const isDiffraction = /DIFFRACTION/i.test(struct.method);
         // Phase 9: a deleted residue is named as such; a single-chain entry lists the residues of its own chain.
         const sideChain = V.del ? `${residues[0]!.compId} side chain (${V.refAa}${V.uniPos}, the residue deleted in ${V.sel.commonName})` : `${residues[0]!.compId} side chain`;
-        const scopeNote = singleChain ? " (the residue's own chain included beyond its covalent neighbours, since the entry has one mapped chain)" : "";
+        const scopeNote = `${singleChain ? " (the residue's own chain included beyond its covalent neighbours, since the entry has one mapped chain)" : ""}${hydrogens ? " (heavy atoms on both sides; the entry's hydrogen atoms are not counted)" : ""}`;
         const contactText = (c: (typeof contactChains)[number]): string => {
           const prot = c.contacts.filter((x) => x.compId !== "HOH");
           return singleChain ? `chain ${c.residue.authAsymId} contacts residue(s) ${prot.map((x) => `${x.authAsymId}${x.authSeqId} ${x.compId}`).join(", ")}` : `chain ${c.residue.authAsymId} contacts chain(s) ${[...new Set(prot.map((x) => x.authAsymId))].join(",")}`;
@@ -1160,7 +1259,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const conRec = ResidueContacts.parse({
           kind: "residue-contacts",
           entryId: struct.entryId,
-          scope: singleChain ? "asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain)" : "asymmetric unit, model 1, no symmetry mates",
+          scope: `${singleChain ? "asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain)" : "asymmetric unit, model 1, no symmetry mates"}${hydrogens ? "; heavy atoms only (the entry deposits hydrogen atoms, which are not counted)" : ""}`,
           cutoffAngstrom: config.contactCutoffAngstrom,
           numbering: "auth_asym_id / auth_seq_id",
           chains: contactChains,
@@ -1182,6 +1281,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         uniprotRange: { start: af.uniprotStart, end: af.uniprotEnd },
         modelCreatedDate: af.modelCreatedDate,
         globalPlddt: af.globalPlddt,
+        plddtFractions: af.plddtFractions,
         sequenceChecksumMatchesUniprot: af.sequenceChecksumMd5 === uni.md5.toUpperCase(),
         disclaimer: afDisclaimer,
         usableForVariantPlacement: false,
@@ -1236,7 +1336,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         hasTranslation: transcript.translation !== null,
         protein: { accession: uni.accession, sequenceVerified: true },
         experimentalStructures: uni.pdb.map((p) => ({ entryId: p.id, method: p.method })).sort((a, b) => a.entryId.localeCompare(b.entryId)),
-        selectedStructure: S ? { entryId: S.struct.entryId } : null,
+        selectedStructure: S ? { entryId: S.struct.entryId, coverage: S.coverage.text } : null,
         verifiedMappings,
         predictedModel: pmRec ? { modelId: pmRec.modelId, version: pmRec.modelVersion } : null,
         variantPositions: V ? [V.uniPos] : [],
@@ -1282,6 +1382,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         clinvarReview: V ? { stars: V.cvStars, conflicting: V.cvConflicts.conflicting, relatedRecords: V.related.length } : null,
         fullChainMapping: S ? { positions: S.tableRows.length, chains: S.chainMap.chains, residueNameDiffers: S.nameMismatch.map((r) => r.uniprotPosition) } : null,
         structure: S ? `${S.struct.entryId} rev ${S.struct.latestRevision.version}` : null,
+        structureCoverage: S ? { ...S.coverage, modelCount: S.struct.modelCount, nmrEnsemble: S.struct.nmrEnsemble, partners: S.struct.entities.filter((e) => e.type === "polymer" && e.id !== S.entityId).map((e) => e.id) } : null,
         mapping: S && V && S.residues ? S.residues.map((r) => ({ uniprot: V.uniPos, mature: V.mature, labelAsym: r.labelAsymId, labelSeq: r.labelSeqId, authAsym: r.authAsymId, authSeq: r.authSeqId, residue: r.compId, assembly: r.assemblyId })) : null,
         drift: drift.map((d) => d.id),
         knownIssues: knownIssues.map((k) => k.id),

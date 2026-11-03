@@ -42,6 +42,20 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
     expect(() => loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521A>T" } })).toThrow(/coding HGVS deletion/);
     expect(loadGeneSpec({ ...json, variant: { ...del, hgvsC: "c.1521_1526del" } }).variant).toMatchObject({ hgvsC: "c.1521_1526del" });
   });
+  it("data/specs/brca1.json (P9.2.2, plan §13): a substitution on the reverse strand named by its forward-strand allele, the NMR entry the candidate check chose, the recorded preference, and five questions in BRCA1's words", async () => {
+    const json = JSON.parse(await readFile(join(REPO_ROOT, "data/specs/brca1.json"), "utf8")) as Record<string, unknown>;
+    const config = loadGeneSpec(json);
+    expect([config.datasetId, config.ensemblGeneId, config.hgncSymbol, config.uniprotAccession]).toEqual(["brca1", "ENSG00000012048", "BRCA1", "P38398"]);
+    // c.181T>G on a reverse-strand gene is A>C on the forward strand, as HBB's c.20A>T is T>A: the forward allele is C.
+    expect(config.variant).toStrictEqual({ kind: "substitution", slug: "c61g", commonName: "C61G (p.Cys61Gly)", rsId: "rs28897672", forwardAllele: "C", clinvarUid: "17661" });
+    expect([config.pdbId, config.structurePreference, config.includeAlphafold, config.pathways]).toEqual(["1JM7", "variant-residue-observed", true, true]);
+    expect(config.questions.map((q) => q.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"]]);
+    expect(config.questions.every((q) => /C61G|BRCA1/.test(q.text))).toBe(true);
+    expect(config.bridgeQuestion).toBe("See the C61G mutation on the protein.");
+    // The notes cite the candidate check and name no position that the builder reads from a response as a selection.
+    expect(String(json.notes)).toMatch(/check-structure-candidates\.ts --uniprot P38398 --residue 61/);
+    expect(specOf(config)).toStrictEqual((({ notes, ...rest }) => rest)(json));
+  });
   it("refuses a frameshift deletion with a message that says so", async () => {
     const json = await hbbSpec();
     const del = { kind: "deletion", slug: "x", commonName: "x", rsId: "rs1", hgvsC: "c.1521_1522del", clinvarUid: "1" };

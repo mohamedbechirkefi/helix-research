@@ -1,0 +1,4 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+rest_v1_core_entry_1JM7.json	2026-11-03T22:04:12Z	200	8c6c9d4fbde65cf7b05fd80c7a59f0ad702834a97859c8c5336de82782093aaa	15080	GET	https://data.rcsb.org/rest/v1/core/entry/1JM7	"{""content-type"":""application/json""}"	
+rest_v1_core_polymer_entity_1JM7_1.json	2026-11-03T22:04:13Z	200	84882618023e7d8770f4e665aff0b73ebc68b26c4386798e9d1b55bb991a11d2	96802	GET	https://data.rcsb.org/rest/v1/core/polymer_entity/1JM7/1	"{""content-type"":""application/json""}"	
+rest_v1_core_assembly_1JM7_1.json	2026-11-03T22:04:13Z	200	c612a9b8b6f8dfe165e847c0fc48cffa87e52e34b0eae42a399f4d59538b07be	3598	GET	https://data.rcsb.org/rest/v1/core/assembly/1JM7/1	"{""content-type"":""application/json""}"	

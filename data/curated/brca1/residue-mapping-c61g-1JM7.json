@@ -1,0 +1,174 @@
+{
+  "kind": "residue-mapping",
+  "uniprotAccession": "P38398",
+  "uniprotPosition": 61,
+  "uniprotResidue": "C",
+  "maturePosition": null,
+  "entryId": "1JM7",
+  "entityId": "1",
+  "method": "sifts",
+  "crossChecks": [
+    {
+      "method": "global alignment of entity sequence to UniProt",
+      "agrees": true,
+      "detail": "offset 0, identity 0.9821, 2 mismatch(es): entity 111 G vs UniProt 111 E; entity 112 K vs UniProt 112 N"
+    },
+    {
+      "method": "RCSB rcsb_polymer_entity_align (SIFTS provenance)",
+      "agrees": true,
+      "detail": "ref_beg 1 <-> entity_beg 1, length 110"
+    },
+    {
+      "method": "mmCIF _struct_ref_seq (not used)",
+      "agrees": true,
+      "detail": "agrees with SIFTS"
+    }
+  ],
+  "residues": [
+    {
+      "entryId": "1JM7",
+      "assemblyId": "1",
+      "entityId": "1",
+      "labelAsymId": "A",
+      "labelSeqId": 61,
+      "authAsymId": "A",
+      "authSeqId": "61",
+      "insCode": null,
+      "compId": "CYS",
+      "authCompId": "CYS"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/1jm7",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": null,
+        "recordId": "1jm7",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "453c35fbe84717c8cd202624a096b17c8b6625516dd6323af0ed4bb790d91fae",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      },
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/1JM7.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:11Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1JM7/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "84882618023e7d8770f4e665aff0b73ebc68b26c4386798e9d1b55bb991a11d2",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P38398.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:00:18Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P38398",
+        "recordVersion": "entry 285, sequence 2",
+        "assembly": null,
+        "sha256": "c5a914de75ea088c6fd36f1cfbab444d7a24bf1e19ba2390e229cc3afb252c73",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "sifts-segment-lookup",
+      "poly-seq-scheme-auth-ids",
+      "atom-site-residue-name",
+      "alignment-cross-check"
+    ],
+    "validation": [
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P38398 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T21-alignment-cross-check",
+        "result": "pass",
+        "detail": "entity 112 aa vs UniProt 1863 aa: offset 0, identity 0.9821, mismatches entity 111 G / UniProt 111 E; entity 112 K / UniProt 112 N; SIFTS offset 0",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T22-rcsb-align-agrees",
+        "result": "pass",
+        "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 61 auth 61 CYS; structure carries the reference residue",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T37-full-chain-agrees-with-variant-mapping",
+        "result": "pass",
+        "detail": "position 61: table A61 CYS; variant mapping record A61 CYS",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T24-wrong-numbering-detectable",
+        "result": "pass",
+        "detail": "label numbering of A equals UniProt numbering at 61 (CYS); no distinct mature numbering, so no other numbering exists to land elsewhere",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T25-struct-ref-seq-not-trusted",
+        "result": "pass",
+        "detail": "SIFTS selects label 61 (CYS); _struct_ref_seq would select label 61 (CYS); 0 disagreement(s) recorded as known issues",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "Residue A 61 is CYS in the deposited coordinates of 1JM7 (atom_site).",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "SIFTS maps P38398 1-110 to 1JM7 entity 1 residues 1-110.",
+      "qualifier": "identity 1, coverage 0.059",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

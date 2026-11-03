@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_BRCA1.json	2026-11-03T22:04:11Z	200	7ad75eee598fff2701d02d243480ef74043a1123aae36016e511e631da4027d0	2413	GET	https://rest.genenames.org/fetch/symbol/BRCA1	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-03: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 a26cd6a80d699803e8e9f92909d1e5d1e4db145f0b29c28703abfdc7c131b56d

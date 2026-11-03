@@ -1,0 +1,136 @@
+{
+  "kind": "clinvar-record",
+  "variantKey": "NC_000017.11:g.43106487A>C",
+  "uid": "17661",
+  "accession": "VCV000017661",
+  "accessionVersion": "VCV000017661.165",
+  "recordVersion": 165,
+  "clinvarBuild": "Build261101-1245.1",
+  "objectType": "single nucleotide variant",
+  "title": "NM_007294.4(BRCA1):c.181T>G (p.Cys61Gly)",
+  "canonicalSpdi": [
+    "NC_000017.11:43106486:A:C"
+  ],
+  "classification": "Pathogenic",
+  "reviewStatus": "reviewed by expert panel",
+  "reviewStars": 3,
+  "conflicts": {
+    "conflicting": false,
+    "basis": "review status \"reviewed by expert panel\"; classification \"Pathogenic\" (ClinVar does not report a conflict; this status does not assert agreement among several submitters)"
+  },
+  "lastEvaluated": "2015/08/10 00:00",
+  "supportingSubmissionCount": 77,
+  "traitCount": 1,
+  "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers.",
+  "otherClassifications": {
+    "clinicalImpact": null,
+    "oncogenicity": null
+  },
+  "relatedRecords": [
+    {
+      "uid": "54359",
+      "accessionVersion": "VCV000054359.9",
+      "objectType": "single nucleotide variant",
+      "title": "NM_007294.4(BRCA1):c.181T>A (p.Cys61Ser)",
+      "classification": "Pathogenic",
+      "reviewStatus": "criteria provided, multiple submitters, no conflicts",
+      "reviewStars": 2,
+      "relation": "other-allele-or-variant",
+      "includesThisAllele": false
+    },
+    {
+      "uid": "54360",
+      "accessionVersion": "VCV000054360.18",
+      "objectType": "single nucleotide variant",
+      "title": "NM_007294.4(BRCA1):c.181T>C (p.Cys61Arg)",
+      "classification": "Pathogenic/Likely pathogenic",
+      "reviewStatus": "criteria provided, multiple submitters, no conflicts",
+      "reviewStars": 2,
+      "relation": "other-allele-or-variant",
+      "includesThisAllele": false
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs28897672&retmode=json&retmax=100&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "esearch rs28897672",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "e4b9393d1dfb5c39505c9c2827ca77bd85b4ecf922d003d8e0ddfb8a8519ec4f",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      },
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=54360,54359,17661&retmode=json&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:14Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "VCV000017661",
+        "recordVersion": "165",
+        "assembly": "GRCh38",
+        "sha256": "9b53d25732c39a559b9bc3ce4f3405e27275cc3d3f3aca2d833756cca2796f7b",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      }
+    ],
+    "transformations": [
+      "esearch-by-rsid",
+      "esummary-all-uids",
+      "drop-trait-names",
+      "review-stars-from-clinvar-table",
+      "conflicts-from-review-status",
+      "related-records-kept-separate"
+    ],
+    "validation": [
+      {
+        "check": "T33-clinvar-search-covered",
+        "result": "pass",
+        "detail": "esearch rs28897672: 3 uids; esummary returned 3 (17661,54359,54360)",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T34-clinvar-review-status",
+        "result": "pass",
+        "detail": "VCV000017661.165: \"reviewed by expert panel\" -> 3 star(s); conflicting false; evidence basis reviewed-clinical-submission",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T35-clinvar-related-records-separate",
+        "result": "pass",
+        "detail": "2 other record(s) for rs28897672: 0 haplotype/compound (0 include NC_000017.11:43106486:A:C), 2 other allele/variant (VCV000054359.9 Pathogenic; VCV000054360.18 Pathogenic/Likely pathogenic); none merged",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "reviewed-clinical-submission",
+      "statement": "ClinVar VCV000017661.165 review status: reviewed by expert panel (3 of 4 review stars in ClinVar's scale); ClinVar reports no conflicting classifications for this record.",
+      "qualifier": "classification Pathogenic; 77 supporting submissions; last evaluated 2015/08/10 00:00",
+      "limitations": [
+        "The review status describes how the submissions were assessed, not the strength of any clinical claim; HELIX is nonclinical.",
+        "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
+      ]
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "ClinVar returns 2 other record(s) for rs28897672: 0 haplotype or compound record(s), of which 0 include this allele together with another variant, and 2 record(s) of a different allele or variant. They are listed separately and never merged with VCV000017661.",
+      "qualifier": null,
+      "limitations": [
+        "A haplotype record classifies the combination of variants, not this allele alone.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

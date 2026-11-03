@@ -1,0 +1,1810 @@
+[
+ {
+  "assembly_name": "GRCh38",
+  "transcript_consequences": [
+   {
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "strand": -1,
+    "transcript_id": "ENST00000352993",
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.781,
+    "gene_symbol": "BRCA1",
+    "uniprot_isoform": [
+     "P38398-5"
+    ],
+    "uniparc": [
+     "UPI000013ECD3"
+    ],
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "polyphen_prediction": "possibly_damaging",
+    "variant_allele": "G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "swissprot": [
+     "P38398.282"
+    ],
+    "hgvsp": "ENSP00000312236.5:p.Cys61Gly",
+    "cdna_end": 300,
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000352993.8:c.181T>G",
+    "cdna_start": 300,
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding"
+   },
+   {
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048",
+    "transcript_id": "ENST00000354071",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "consequence_terms": [
+     "non_coding_transcript_exon_variant"
+    ],
+    "cdna_end": 245,
+    "impact": "MODIFIER",
+    "hgvsc": "ENST00000354071.8:n.245T>G",
+    "cdna_start": 245,
+    "gene_symbol_source": "HGNC",
+    "biotype": "retained_intron"
+   },
+   {
+    "gene_symbol": "BRCA1",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000357654",
+    "strand": -1,
+    "polyphen_score": 0.027,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "mane_select": "NM_007294.4",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniprot_isoform": [
+     "P38398-1"
+    ],
+    "canonical": 1,
+    "variant_allele": "G",
+    "polyphen_prediction": "benign",
+    "mane": [
+     "MANE_Select"
+    ],
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cds_start": 181,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000350283.3:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 294,
+    "hgvsc": "ENST00000357654.9:c.181T>G",
+    "cdna_start": 294
+   },
+   {
+    "protein_end": 61,
+    "biotype": "nonsense_mediated_decay",
+    "cds_start": 181,
+    "consequence_terms": [
+     "missense_variant",
+     "NMD_transcript_variant"
+    ],
+    "hgvsp": "ENSP00000418548.1:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 307,
+    "hgvsc": "ENST00000461221.5:c.181T>G",
+    "cdna_start": 307,
+    "variant_allele": "G",
+    "polyphen_prediction": "benign",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000145115"
+    ],
+    "uniprot_isoform": [
+     "P38398-2"
+    ],
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000461221",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.027,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "sift_prediction": "deleterious_low_confidence",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181
+   },
+   {
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 300,
+    "hgvsp": "ENSP00000417241.2:p.Cys61Gly",
+    "hgvsc": "ENST00000461574.3:c.181T>G",
+    "cdna_start": 300,
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "trembl": [
+     "H0Y850.82"
+    ],
+    "uniparc": [
+     "UPI0003EAFBCD"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "transcript_id": "ENST00000461574",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.005,
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "protein_end": 61,
+    "biotype": "nonsense_mediated_decay",
+    "cds_start": 181,
+    "swissprot": [
+     "P38398.282"
+    ],
+    "consequence_terms": [
+     "missense_variant",
+     "NMD_transcript_variant"
+    ],
+    "hgvsp": "ENSP00000417988.1:p.Cys61Gly",
+    "cdna_end": 294,
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000461798.5:c.181T>G",
+    "cdna_start": 294,
+    "variant_allele": "G",
+    "polyphen_prediction": "benign",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI0000145115"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniprot_isoform": [
+     "P38398-2"
+    ],
+    "gene_symbol": "BRCA1",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000461798",
+    "strand": -1,
+    "polyphen_score": 0.027,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "sift_prediction": "deleterious_low_confidence",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt"
+   },
+   {
+    "variant_allele": "G",
+    "polyphen_prediction": "probably_damaging",
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cds_start": 181,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 375,
+    "swissprot": [
+     "P38398.282"
+    ],
+    "hgvsp": "ENSP00000417148.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000468300.6:c.181T>G",
+    "cdna_start": 375,
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000468300",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.978,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI000037834E"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniprot_isoform": [
+     "P38398-6"
+    ]
+   },
+   {
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "transcript_id": "ENST00000470026",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.027,
+    "gene_symbol": "BRCA1",
+    "uniprot_isoform": [
+     "P38398-1"
+    ],
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "trembl": [
+     "E7EWN5.100"
+    ],
+    "impact": "MODERATE",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000419274.2:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "cdna_end": 362,
+    "cdna_start": 362,
+    "hgvsc": "ENST00000470026.7:c.181T>G",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61
+   },
+   {
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000E0360B"
+    ],
+    "uniprot_isoform": [
+     "P38398-7"
+    ],
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000471181",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.086,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cds_start": 181,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000418960.2:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "cdna_end": 413,
+    "cdna_start": 413,
+    "hgvsc": "ENST00000471181.8:c.181T>G",
+    "variant_allele": "G",
+    "polyphen_prediction": "benign"
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI00202B422C"
+    ],
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "gene_symbol": "BRCA1",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000473961",
+    "strand": -1,
+    "polyphen_score": 0.058,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 294,
+    "hgvsp": "ENSP00000420201.2:p.Cys61Gly",
+    "impact": "MODERATE",
+    "cdna_start": 294,
+    "hgvsc": "ENST00000473961.7:c.181T>G",
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cds_start": 181,
+    "variant_allele": "G",
+    "polyphen_prediction": "benign",
+    "trembl": [
+     "H0Y8D8.83"
+    ]
+   },
+   {
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI00202A1DAB"
+    ],
+    "gene_symbol_source": "HGNC",
+    "polyphen_score": 0.056,
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000476777",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cdna_start": 290,
+    "hgvsc": "ENST00000476777.7:c.181T>G",
+    "hgvsp": "ENSP00000417554.2:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 290,
+    "impact": "MODERATE",
+    "trembl": [
+     "E7EQW4.94"
+    ],
+    "polyphen_prediction": "benign",
+    "variant_allele": "G"
+   },
+   {
+    "gene_id": "ENSG00000012048",
+    "variant_allele": "G",
+    "transcript_id": "ENST00000477152",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "trembl": [
+     "E7ENB7.92"
+    ],
+    "gene_symbol": "BRCA1",
+    "hgvsc": "ENST00000477152.7:c.135-1531T>G",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "impact": "MODIFIER",
+    "uniparc": [
+     "UPI0003E6C4CA"
+    ],
+    "gene_symbol_source": "HGNC",
+    "biotype": "protein_coding"
+   },
+   {
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "gene_symbol": "BRCA1",
+    "polyphen_score": 0.998,
+    "transcript_id": "ENST00000478531",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "uniparc": [
+     "UPI0003EB05DF"
+    ],
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "variant_allele": "G",
+    "polyphen_prediction": "probably_damaging",
+    "trembl": [
+     "E7EUM2.100"
+    ],
+    "hgvsc": "ENST00000478531.7:c.181T>G",
+    "cdna_start": 283,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 283,
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000420412.2:p.Cys61Gly",
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cds_start": 181
+   },
+   {
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 273,
+    "hgvsp": "ENSP00000419481.2:p.Cys61Gly",
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000484087.7:c.181T>G",
+    "cdna_start": 273,
+    "trembl": [
+     "H0Y8B8.87"
+    ],
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "uniparc": [
+     "UPI0020B05D7D"
+    ],
+    "gene_symbol_source": "HGNC",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000484087",
+    "strand": -1,
+    "polyphen_score": 0.994,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "impact": "MODIFIER",
+    "hgvsc": "ENST00000489037.3:c.135-1531T>G",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003E6C4CA"
+    ],
+    "biotype": "protein_coding",
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048",
+    "transcript_id": "ENST00000489037",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "trembl": [
+     "E7ENB7.92"
+    ],
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "polyphen_score": 0.998,
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000491747",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "uniprot_isoform": [
+     "P38398-3"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI000013C85E"
+    ],
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "cdna_start": 280,
+    "hgvsc": "ENST00000491747.6:c.181T>G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000420705.2:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 280,
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding"
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000160BFA"
+    ],
+    "gene_id": "ENSG00000012048",
+    "strand": -1,
+    "transcript_id": "ENST00000492859",
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "consequence_terms": [
+     "3_prime_UTR_variant",
+     "NMD_transcript_variant"
+    ],
+    "impact": "MODIFIER",
+    "cdna_end": 346,
+    "cdna_start": 346,
+    "hgvsc": "ENST00000492859.5:c.*117T>G",
+    "biotype": "nonsense_mediated_decay",
+    "variant_allele": "G",
+    "trembl": [
+     "E9PC22.85"
+    ]
+   },
+   {
+    "amino_acids": "C/G",
+    "protein_start": 14,
+    "uniprot_isoform": [
+     "P38398-8"
+    ],
+    "uniparc": [
+     "UPI000013C860"
+    ],
+    "gene_symbol_source": "HGNC",
+    "polyphen_score": 0.027,
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000493795",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "codons": "Tgt/Ggt",
+    "cds_end": 40,
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "cds_start": 40,
+    "protein_end": 14,
+    "biotype": "protein_coding",
+    "hgvsc": "ENST00000493795.6:c.40T>G",
+    "cdna_start": 272,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "swissprot": [
+     "P38398.282"
+    ],
+    "hgvsp": "ENSP00000418775.1:p.Cys14Gly",
+    "impact": "MODERATE",
+    "cdna_end": 272,
+    "trembl": [
+     "A0A9Y1QQK3.10"
+    ],
+    "polyphen_prediction": "benign",
+    "variant_allele": "G"
+   },
+   {
+    "cds_start": 40,
+    "biotype": "protein_coding",
+    "protein_end": 14,
+    "cdna_start": 272,
+    "hgvsc": "ENST00000493919.7:c.40T>G",
+    "cdna_end": 272,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000418819.2:p.Cys14Gly",
+    "impact": "MODERATE",
+    "trembl": [
+     "A0A9Y1QPT7.10"
+    ],
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "amino_acids": "C/G",
+    "protein_start": 14,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI002044D4B3"
+    ],
+    "polyphen_score": 0.994,
+    "strand": -1,
+    "transcript_id": "ENST00000493919",
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "cds_end": 40,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "cdna_start": 374,
+    "hgvsc": "ENST00000494123.7:c.181T>G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000419103.2:p.Cys61Gly",
+    "cdna_end": 374,
+    "swissprot": [
+     "P38398.282"
+    ],
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "trembl": [
+     "Q3B891.148"
+    ],
+    "uniprot_isoform": [
+     "P38398-1"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "polyphen_score": 0.027,
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000494123",
+    "strand": -1,
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "biotype": "protein_coding",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "impact": "MODIFIER",
+    "hgvsc": "ENST00000497488.3:c.-218-11627T>G",
+    "uniparc": [
+     "UPI000014170B"
+    ],
+    "gene_symbol_source": "HGNC",
+    "transcript_id": "ENST00000497488",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "trembl": [
+     "C9IZW4.106"
+    ],
+    "gene_symbol": "BRCA1",
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "uniparc": [
+     "UPI0001B065E7"
+    ],
+    "gene_symbol_source": "HGNC",
+    "hgvsc": "ENST00000586385.6:c.4+18695T>G",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "impact": "MODIFIER",
+    "biotype": "protein_coding",
+    "gene_id": "ENSG00000012048",
+    "variant_allele": "G",
+    "trembl": [
+     "C6YB45.99"
+    ],
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000586385",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1
+   },
+   {
+    "hgvsc": "ENST00000591534.6:c.-44+18784T>G",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "impact": "MODIFIER",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0002840F63"
+    ],
+    "biotype": "protein_coding",
+    "gene_id": "ENSG00000012048",
+    "variant_allele": "G",
+    "strand": -1,
+    "transcript_id": "ENST00000591534",
+    "hgnc_id": "HGNC:1100",
+    "trembl": [
+     "K7EPC7.86"
+    ],
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "hgvsc": "ENST00000591849.6:c.-99+18784T>G",
+    "impact": "MODIFIER",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "uniparc": [
+     "UPI0002840F64"
+    ],
+    "gene_symbol_source": "HGNC",
+    "biotype": "protein_coding",
+    "gene_id": "ENSG00000012048",
+    "variant_allele": "G",
+    "strand": -1,
+    "transcript_id": "ENST00000591849",
+    "hgnc_id": "HGNC:1100",
+    "trembl": [
+     "K7EJW3.76"
+    ],
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cdna_start": 828,
+    "hgvsc": "ENST00000618469.3:c.181T>G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000478114.2:p.Cys61Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "cdna_end": 828,
+    "impact": "MODERATE",
+    "trembl": [
+     "G1UI37.73"
+    ],
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniprot_isoform": [
+     "P38398-1"
+    ],
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "gene_symbol_source": "HGNC",
+    "polyphen_score": 0.027,
+    "transcript_id": "ENST00000618469",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "hgvsc": "ENST00000634433.3:c.181T>G",
+    "cdna_start": 320,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 320,
+    "hgvsp": "ENSP00000489431.2:p.Cys61Gly",
+    "impact": "MODERATE",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "polyphen_prediction": "possibly_damaging",
+    "variant_allele": "G",
+    "trembl": [
+     "A0A0U1RRA9.56"
+    ],
+    "uniparc": [
+     "UPI0000141712"
+    ],
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "polyphen_score": 0.861,
+    "strand": -1,
+    "transcript_id": "ENST00000634433",
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "transcript_id": "ENST00000642945",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "gene_id": "ENSG00000012048",
+    "uniparc": [
+     "UPI000D18ECC9"
+    ],
+    "gene_symbol_source": "HGNC",
+    "trembl": [
+     "A0A2R8Y6Y9.30"
+    ],
+    "variant_allele": "G",
+    "biotype": "nonsense_mediated_decay",
+    "hgvsc": "ENST00000642945.1:c.*55T>G",
+    "cdna_start": 387,
+    "cdna_end": 387,
+    "consequence_terms": [
+     "3_prime_UTR_variant",
+     "NMD_transcript_variant"
+    ],
+    "impact": "MODIFIER"
+   },
+   {
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "hgvsc": "ENST00000644379.3:c.181T>G",
+    "cdna_start": 294,
+    "hgvsp": "ENSP00000496570.2:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 294,
+    "trembl": [
+     "A0A2R8Y7V5.36"
+    ],
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "uniparc": [
+     "UPI0001B79083"
+    ],
+    "gene_symbol_source": "HGNC",
+    "polyphen_score": 0.997,
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000644379",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0
+   },
+   {
+    "protein_end": 14,
+    "biotype": "protein_coding",
+    "cds_start": 40,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 445,
+    "hgvsp": "ENSP00000494614.2:p.Cys14Gly",
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000644555.3:c.40T>G",
+    "cdna_start": 445,
+    "trembl": [
+     "A0A9Y1QPT7.10"
+    ],
+    "variant_allele": "G",
+    "polyphen_prediction": "probably_damaging",
+    "amino_acids": "C/G",
+    "protein_start": 14,
+    "uniparc": [
+     "UPI002044D4B3"
+    ],
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000644555",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.994,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 40
+   },
+   {
+    "protein_start": 14,
+    "amino_acids": "C/G",
+    "uniprot_isoform": [
+     "P38398-8"
+    ],
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI000013C860"
+    ],
+    "transcript_id": "ENST00000652672",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.027,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 40,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "cds_start": 40,
+    "protein_end": 14,
+    "biotype": "protein_coding",
+    "cdna_end": 526,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000498906.2:p.Cys14Gly",
+    "swissprot": [
+     "P38398.282"
+    ],
+    "cdna_start": 526,
+    "hgvsc": "ENST00000652672.3:c.40T>G",
+    "trembl": [
+     "A0A494C182.34",
+     "A0A9Y1QQK3.10"
+    ],
+    "polyphen_prediction": "benign",
+    "variant_allele": "G"
+   },
+   {
+    "gene_symbol": "BRCA1",
+    "strand": -1,
+    "transcript_id": "ENST00000700083",
+    "hgnc_id": "HGNC:1100",
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048",
+    "biotype": "retained_intron",
+    "distance": 348,
+    "gene_symbol_source": "HGNC",
+    "consequence_terms": [
+     "upstream_gene_variant"
+    ],
+    "impact": "MODIFIER"
+   },
+   {
+    "trembl": [
+     "A0A8V8TPY7.15"
+    ],
+    "gene_symbol": "BRCA1",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000700182",
+    "strand": -1,
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048",
+    "biotype": "protein_coding",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0020B02B1C"
+    ],
+    "impact": "MODIFIER",
+    "consequence_terms": [
+     "intron_variant"
+    ],
+    "hgvsc": "ENST00000700182.1:c.135-1531T>G"
+   },
+   {
+    "variant_allele": "G",
+    "trembl": [
+     "E9PC22.85"
+    ],
+    "cdna_end": 389,
+    "consequence_terms": [
+     "3_prime_UTR_variant",
+     "NMD_transcript_variant"
+    ],
+    "impact": "MODIFIER",
+    "cdna_start": 389,
+    "hgvsc": "ENST00000700183.1:c.*117T>G",
+    "biotype": "nonsense_mediated_decay",
+    "gene_id": "ENSG00000012048",
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000700183",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000160BFA"
+    ]
+   },
+   {
+    "strand": -1,
+    "transcript_id": "ENST00000700184",
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "variant_allele": "G",
+    "gene_id": "ENSG00000012048",
+    "biotype": "retained_intron",
+    "impact": "MODIFIER",
+    "consequence_terms": [
+     "non_coding_transcript_exon_variant"
+    ],
+    "cdna_end": 424,
+    "hgvsc": "ENST00000700184.1:n.424T>G",
+    "cdna_start": 424,
+    "gene_symbol_source": "HGNC"
+   },
+   {
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 254,
+    "swissprot": [
+     "P38398.282"
+    ],
+    "hgvsp": "ENSP00000518978.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000713676.2:c.181T>G",
+    "cdna_start": 254,
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "uniprot_isoform": [
+     "P38398-1"
+    ],
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "strand": -1,
+    "transcript_id": "ENST00000713676",
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.027,
+    "gene_symbol": "BRCA1"
+   },
+   {
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000899954",
+    "strand": -1,
+    "polyphen_score": 0.994,
+    "gene_symbol": "BRCA1",
+    "uniparc": [
+     "UPI0020B05D7D"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "impact": "MODERATE",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000570013.1:p.Cys61Gly",
+    "cdna_end": 407,
+    "hgvsc": "ENST00000899954.2:c.181T>G",
+    "cdna_start": 407,
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding"
+   },
+   {
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00000921914",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.998,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI000013C85E"
+    ],
+    "gene_symbol_source": "HGNC",
+    "variant_allele": "G",
+    "polyphen_prediction": "probably_damaging",
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cds_start": 181,
+    "hgvsp": "ENSP00000591973.1:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 406,
+    "impact": "MODERATE",
+    "hgvsc": "ENST00000921914.1:c.181T>G",
+    "cdna_start": 406
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EB05DF"
+    ],
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "polyphen_score": 0.998,
+    "transcript_id": "ENST00000921915",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "hgvsc": "ENST00000921915.2:c.181T>G",
+    "cdna_start": 831,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 831,
+    "hgvsp": "ENSP00000591974.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G"
+   },
+   {
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI000013C85E"
+    ],
+    "polyphen_score": 0.998,
+    "transcript_id": "ENST00000921916",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "hgvsc": "ENST00000921916.2:c.181T>G",
+    "cdna_start": 277,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000591975.1:p.Cys61Gly",
+    "cdna_end": 277,
+    "impact": "MODERATE",
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G"
+   },
+   {
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "impact": "MODERATE",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000615327.1:p.Cys61Gly",
+    "cdna_end": 334,
+    "cdna_start": 334,
+    "hgvsc": "ENST00000945268.2:c.181T>G",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00000945268",
+    "strand": -1,
+    "polyphen_score": 0.005,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EAFBCD"
+    ]
+   },
+   {
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "hgvsc": "ENST00000945269.2:c.181T>G",
+    "cdna_start": 417,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "cdna_end": 417,
+    "hgvsp": "ENSP00000615328.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EB05DF"
+    ],
+    "polyphen_score": 0.998,
+    "transcript_id": "ENST00000945269",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0
+   },
+   {
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000680385.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "cdna_end": 480,
+    "cdna_start": 480,
+    "hgvsc": "ENST00001010568.1:c.181T>G",
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "cds_start": 181,
+    "variant_allele": "G",
+    "polyphen_prediction": "benign",
+    "uniparc": [
+     "UPI00202A161D"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "gene_symbol": "BRCA1",
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00001010568",
+    "strand": -1,
+    "polyphen_score": 0.058
+   },
+   {
+    "hgvsc": "ENST00001010569.1:c.181T>G",
+    "cdna_start": 417,
+    "impact": "MODERATE",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000680386.1:p.Cys61Gly",
+    "cdna_end": 417,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cds_start": 181,
+    "variant_allele": "G",
+    "polyphen_prediction": "probably_damaging",
+    "trembl": [
+     "A0A9Y1VVE2.10"
+    ],
+    "uniparc": [
+     "UPI00017E130D"
+    ],
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "gene_symbol": "BRCA1",
+    "polyphen_score": 0.994,
+    "transcript_id": "ENST00001010569",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100"
+   },
+   {
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cds_start": 181,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000680387.1:p.Cys61Gly",
+    "cdna_end": 411,
+    "hgvsc": "ENST00001010570.1:c.181T>G",
+    "cdna_start": 411,
+    "variant_allele": "G",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_symbol_source": "HGNC",
+    "gene_symbol": "BRCA1",
+    "transcript_id": "ENST00001010570",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt"
+   },
+   {
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "cdna_start": 416,
+    "hgvsc": "ENST00001076718.1:c.181T>G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "hgvsp": "ENSP00000746524.1:p.Cys61Gly",
+    "impact": "MODERATE",
+    "cdna_end": 416,
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EB00AE"
+    ],
+    "polyphen_score": 0.007,
+    "transcript_id": "ENST00001076718",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00001076719",
+    "strand": -1,
+    "polyphen_score": 0.861,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "uniparc": [
+     "UPI0000141712"
+    ],
+    "gene_symbol_source": "HGNC",
+    "polyphen_prediction": "possibly_damaging",
+    "variant_allele": "G",
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "hgvsp": "ENSP00000746525.1:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 312,
+    "hgvsc": "ENST00001076719.1:c.181T>G",
+    "cdna_start": 312
+   },
+   {
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "trembl": [
+     "A0A9Y1VVE2.10"
+    ],
+    "cdna_start": 307,
+    "hgvsc": "ENST00001076720.1:c.181T>G",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 307,
+    "hgvsp": "ENSP00000746526.1:p.Cys61Gly",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_prediction": "deleterious",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "polyphen_score": 0.994,
+    "transcript_id": "ENST00001076720",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "uniparc": [
+     "UPI00017E130D"
+    ],
+    "gene_symbol_source": "HGNC",
+    "protein_start": 61,
+    "amino_acids": "C/G"
+   },
+   {
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EAF9EB"
+    ],
+    "protein_start": 61,
+    "amino_acids": "C/G",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048",
+    "transcript_id": "ENST00001076721",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "polyphen_score": 0.09,
+    "gene_symbol": "BRCA1",
+    "hgvsp": "ENSP00000746527.1:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 306,
+    "cdna_start": 306,
+    "hgvsc": "ENST00001076721.1:c.181T>G",
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "polyphen_prediction": "benign",
+    "variant_allele": "G"
+   },
+   {
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "polyphen_score": 0.996,
+    "strand": -1,
+    "transcript_id": "ENST00001076722",
+    "hgnc_id": "HGNC:1100",
+    "gene_symbol": "BRCA1",
+    "uniparc": [
+     "UPI000013C642"
+    ],
+    "gene_symbol_source": "HGNC",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "polyphen_prediction": "probably_damaging",
+    "variant_allele": "G",
+    "cdna_start": 305,
+    "hgvsc": "ENST00001076722.1:c.181T>G",
+    "cdna_end": 305,
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000746528.1:p.Cys61Gly",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61
+   },
+   {
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "nonsense_mediated_decay",
+    "hgvsc": "ENST00001076723.1:c.181T>G",
+    "cdna_start": 280,
+    "hgvsp": "ENSP00000746529.1:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant",
+     "NMD_transcript_variant"
+    ],
+    "cdna_end": 280,
+    "impact": "MODERATE",
+    "polyphen_score": 0.027,
+    "transcript_id": "ENST00001076723",
+    "hgnc_id": "HGNC:1100",
+    "strand": -1,
+    "gene_symbol": "BRCA1",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "sift_prediction": "deleterious_low_confidence",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0000145115"
+    ]
+   },
+   {
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000746530.1:p.Cys61Gly",
+    "cdna_end": 293,
+    "cdna_start": 293,
+    "hgvsc": "ENST00001076724.1:c.181T>G",
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "uniparc": [
+     "UPI0003EB0424"
+    ],
+    "gene_symbol_source": "HGNC",
+    "transcript_id": "ENST00001076724",
+    "strand": -1,
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.058,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "sift_score": 0,
+    "gene_id": "ENSG00000012048"
+   },
+   {
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "gene_symbol_source": "HGNC",
+    "uniparc": [
+     "UPI0003EB00AE"
+    ],
+    "hgnc_id": "HGNC:1100",
+    "transcript_id": "ENST00001076725",
+    "strand": -1,
+    "polyphen_score": 0.007,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "codons": "Tgt/Ggt",
+    "cds_end": 181,
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "cds_start": 181,
+    "protein_end": 61,
+    "biotype": "protein_coding",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "hgvsp": "ENSP00000746531.1:p.Cys61Gly",
+    "cdna_end": 817,
+    "hgvsc": "ENST00001076725.1:c.181T>G",
+    "cdna_start": 817,
+    "polyphen_prediction": "benign",
+    "variant_allele": "G"
+   },
+   {
+    "polyphen_prediction": "benign",
+    "variant_allele": "G",
+    "cds_start": 181,
+    "biotype": "protein_coding",
+    "protein_end": 61,
+    "hgvsp": "ENSP00000808586.1:p.Cys61Gly",
+    "consequence_terms": [
+     "missense_variant"
+    ],
+    "impact": "MODERATE",
+    "cdna_end": 294,
+    "cdna_start": 294,
+    "hgvsc": "ENST00001136804.1:c.181T>G",
+    "strand": -1,
+    "transcript_id": "ENST00001136804",
+    "hgnc_id": "HGNC:1100",
+    "polyphen_score": 0.027,
+    "gene_symbol": "BRCA1",
+    "sift_prediction": "deleterious",
+    "cds_end": 181,
+    "codons": "Tgt/Ggt",
+    "gene_id": "ENSG00000012048",
+    "sift_score": 0,
+    "amino_acids": "C/G",
+    "protein_start": 61,
+    "uniparc": [
+     "UPI0000126AC8"
+    ],
+    "gene_symbol_source": "HGNC"
+   }
+  ],
+  "input": "ENST00000357654.9:c.181T>G",
+  "id": "ENST00000357654.9:c.181T>G",
+  "most_severe_consequence": "missense_variant",
+  "strand": -1,
+  "allele_string": "T/G",
+  "seq_region_name": "17",
+  "colocated_variants": [
+   {
+    "start": 43106487,
+    "end": 43106487,
+    "seq_region_name": "17",
+    "var_synonyms": {
+     "COSMIC": [
+      "COSM9996592"
+     ]
+    },
+    "somatic": 1,
+    "strand": 1,
+    "id": "COSV105897801",
+    "phenotype_or_disease": 1,
+    "allele_string": "COSMIC_MUTATION"
+   },
+   {
+    "id": "rs28897672",
+    "strand": 1,
+    "clin_sig_allele": "G:pathogenic/likely_pathogenic;T:pathogenic;G:likely_pathogenic;C:pathogenic",
+    "frequencies": {
+     "G": {
+      "gnomade_sas": 0,
+      "gnomade_amr": 0,
+      "gnomadg_remaining": 0,
+      "gnomadg_sas": 0,
+      "gnomadg_fin": 0,
+      "gnomadg_eas": 0,
+      "gnomadg_amr": 0,
+      "gnomade_fin": 0.00001874,
+      "gnomadg_mid": 0,
+      "gnomadg_ami": 0,
+      "gnomadg_asj": 0,
+      "gnomade_mid": 0,
+      "gnomade_nfe": 0.00002082,
+      "gnomade_afr": 0,
+      "gnomadg_afr": 0,
+      "gnomade": 0.00001721,
+      "gnomade_asj": 0,
+      "gnomade_eas": 0,
+      "gnomadg_nfe": 0.00007349,
+      "gnomadg": 0.00003285,
+      "gnomade_remaining": 0.00001666
+     }
+    },
+    "allele_string": "A/C/G/T",
+    "phenotype_or_disease": 1,
+    "pubmed": [
+     25741868,
+     24033266,
+     18414213,
+     26467025,
+     18974877,
+     21232165,
+     21520273,
+     21990134,
+     11389159,
+     23469205,
+     24884479,
+     21965345,
+     15290653,
+     21324516,
+     26295337,
+     20683152,
+     16168118,
+     12601471,
+     15024741,
+     19329713,
+     15235020,
+     30820179,
+     23867111,
+     18680205,
+     17719744,
+     7894493,
+     7795652,
+     8944023,
+     9159158,
+     9525870,
+     10788334,
+     10945975,
+     11320250,
+     12732733,
+     14976165,
+     15383404,
+     15569676,
+     16403807,
+     19543972,
+     19770520,
+     20103620,
+     20345474,
+     20507347,
+     20569256,
+     21503673,
+     21922593,
+     22172724,
+     25971625,
+     36531003,
+     33230308,
+     31658756,
+     35886069,
+     35393538,
+     29254167,
+     30441849,
+     37047678,
+     35165121,
+     36230495,
+     31336956,
+     36171877,
+     32438681,
+     37685988,
+     37719058,
+     38069422,
+     38785549,
+     38918649,
+     39684352,
+     40002208,
+     39590369,
+     39301547,
+     40427638
+    ],
+    "clin_sig": [
+     "likely_pathogenic",
+     "pathogenic"
+    ],
+    "var_synonyms": {
+     "UniProt": [
+      "VAR_007757"
+     ],
+     "ClinVar": [
+      "RCV001328445",
+      "RCV000759499",
+      "RCV000111959",
+      "VCV000054360",
+      "RCV001270967",
+      "RCV000763010",
+      "RCV000785199",
+      "RCV000415051",
+      "RCV000412714",
+      "RCV000159935",
+      "RCV000019229",
+      "VCV000017661",
+      "RCV000131902",
+      "RCV000047597",
+      "RCV000258244",
+      "VCV000054359",
+      "RCV000239114",
+      "RCV004802937",
+      "RCV005003390",
+      "RCV004601098"
+     ]
+    },
+    "start": 43106487,
+    "end": 43106487,
+    "clin_sig_ref_allele": "A",
+    "seq_region_name": "17"
+   }
+  ],
+  "start": 43106487,
+  "end": 43106487
+ }
+]

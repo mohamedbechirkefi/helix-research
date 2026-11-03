@@ -1,0 +1,13 @@
+files compared: 9
+byte-identical files: 2
+allowed differences (timestamps and dependent hashes): 85
+  gene.json: 8
+  manifest.json: 35
+  pathways.json: 6
+  predicted-model-AF-Q6GMR7-F1.json: 1
+  protein-Q6GMR7.json: 8
+  sequences.json: 21
+  transcript.json: 6
+other differences: 2
+  manifest.json $.generator.gitDirty: false != true (value)
+  predicted-model-AF-Q6GMR7-F1.json $.plddtFractions: undefined != {"veryLow":0.004,"low":0.032,"confident":0.113,"veryHigh":0.852} (value)

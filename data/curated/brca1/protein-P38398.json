@@ -1,0 +1,754 @@
+{
+  "kind": "protein",
+  "accession": "P38398",
+  "entryName": "BRCA1_HUMAN",
+  "reviewed": true,
+  "isoform": {
+    "isoformId": "canonical",
+    "isCanonical": true
+  },
+  "entryVersion": 285,
+  "sequenceVersion": 2,
+  "sequence": "MDLSALRVEEVQNVINAMQKILECPICLELIKEPVSTKCDHIFCKFCMLKLLNQKKGPSQCPLCKNDITKRSLQESTRFSQLVEELLKIICAFQLDTGLEYANSYNFAKKENNSPEHLKDEVSIIQSMGYRNRAKRLLQSEPENPSLQETSLSVQLSNLGTVRTLRTKQRIQPQKTSVYIELGSDSSEDTVNKATYCSVGDQELLQITPQGTRDEISLDSAKKAACEFSETDVTNTEHHQPSNNDLNTTEKRAAERHPEKYQGSSVSNLHVEPCGTNTHASSLQHENSSLLLTKDRMNVEKAEFCNKSKQPGLARSQHNRWAGSKETCNDRRTPSTEKKVDLNADPLCERKEWNKQKLPCSENPRDTEDVPWITLNSSIQKVNEWFSRSDELLGSDDSHDGESESNAKVADVLDVLNEVDEYSGSSEKIDLLASDPHEALICKSERVHSKSVESNIEDKIFGKTYRKKASLPNLSHVTENLIIGAFVTEPQIIQERPLTNKLKRKRRPTSGLHPEDFIKKADLAVQKTPEMINQGTNQTEQNGQVMNITNSGHENKTKGDSIQNEKNPNPIESLEKESAFKTKAEPISSSISNMELELNIHNSKAPKKNRLRRKSSTRHIHALELVVSRNLSPPNCTELQIDSCSSSEEIKKKKYNQMPVRHSRNLQLMEGKEPATGAKKSNKPNEQTSKRHDSDTFPELKLTNAPGSFTKCSNTSELKEFVNPSLPREEKEEKLETVKVSNNAEDPKDLMLSGERVLQTERSVESSSISLVPGTDYGTQESISLLEVSTLGKAKTEPNKCVSQCAAFENPKGLIHGCSKDNRNDTEGFKYPLGHEVNHSRETSIEMEESELDAQYLQNTFKVSKRQSFAPFSNPGNAEEECATFSAHSGSLKKQSPKVTFECEQKEENQGKNESNIKPVQTVNITAGFPVVGQKDKPVDNAKCSIKGGSRFCLSSQFRGNETGLITPNKHGLLQNPYRIPPLFPIKSFVKTKCKKNLLEENFEEHSMSPEREMGNENIPSTVSTISRNNIRENVFKEASSSNINEVGSSTNEVGSSINEIGSSDENIQAELGRNRGPKLNAMLRLGVLQPEVYKQSLPGSNCKHPEIKKQEYEEVVQTVNTDFSPYLISDNLEQPMGSSHASQVCSETPDDLLDDGEIKEDTSFAENDIKESSAVFSKSVQKGELSRSPSPFTHTHLAQGYRRGAKKLESSEENLSSEDEELPCFQHLLFGKVNNIPSQSTRHSTVATECLSKNTEENLLSLKNSLNDCSNQVILAKASQEHHLSEETKCSASLFSSQCSELEDLTANTNTQDPFLIGSSKQMRHQSESQGVGLSDKELVSDDEERGTGLEENNQEEQSMDSNLGEAASGCESETSVSEDCSGLSSQSDILTTQQRDTMQHNLIKLQQEMAELEAVLEQHGSQPSNSYPSIISDSSALEDLRNPEQSTSEKAVLTSQKSSEYPISQNPEGLSADKFEVSADSSTSKNKEPGVERSSPSKCPSLDDRWYMHSCSGSLQNRNYPSQEELIKVVDVEEQQLEESGPHDLTETSYLPRQDLEGTPYLESGISLFSDDPESDPSEDRAPESARVGNIPSSTSALKVPQLKVAESAQSPAAAHTTDTAGYNAMEESVSREKPELTASTERVNKRMSMVVSGLTPEEFMLVYKFARKHHITLTNLITEETTHVVMKTDAEFVCERTLKYFLGIAGGKWVVSYFWVTQSIKERKMLNEHDFEVRGDVVNGRNHQGPKRARESQDRKIFRGLEICCYGPFTNMPTDQLEWMVQLCGASVVKELSSFTLGTGVHPIVVVQPDAWTEDNGFHAIGQMCEAPVVTREWVLDSVALYQCQELDTYLIPQIPHSHY",
+  "length": 1863,
+  "md5": "E40F752DEDF675E2F7C99142EBB2607A",
+  "crc64": "89C6D83FF56312AF",
+  "numbering": "translated",
+  "processedChain": {
+    "start": 1,
+    "end": 1863,
+    "featureId": "PRO_0000055830"
+  },
+  "initiatorMethionineRemoved": false,
+  "features": [
+    {
+      "type": "Chain",
+      "start": 1,
+      "end": 1863,
+      "description": "Breast cancer type 1 susceptibility protein",
+      "featureId": "PRO_0000055830",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 1642,
+      "end": 1736,
+      "description": "BRCT 1",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00033"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Domain",
+      "start": 1756,
+      "end": 1855,
+      "description": "BRCT 2",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000255 PROSITE-ProRule:PRU00033"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1,
+      "end": 1,
+      "description": "N-acetylmethionine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:22814378"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 114,
+      "end": 114,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231",
+        "ECO:0007744 PubMed:21406692",
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 395,
+      "end": 395,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648",
+        "ECO:0007744 PubMed:19690332"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 398,
+      "end": 398,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648",
+        "ECO:0007744 PubMed:19690332"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 423,
+      "end": 423,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 434,
+      "end": 434,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 551,
+      "end": 551,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 694,
+      "end": 694,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231",
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 708,
+      "end": 708,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 725,
+      "end": 725,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000250 UniProtKB:P48754"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 753,
+      "end": 753,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 840,
+      "end": 840,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000250 UniProtKB:P48754"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 988,
+      "end": 988,
+      "description": "Phosphoserine; by CHEK2",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:10724175",
+        "ECO:0000269 PubMed:20364141"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1009,
+      "end": 1009,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1143,
+      "end": 1143,
+      "description": "Phosphoserine; by ATR; in vitro",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1189,
+      "end": 1189,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1191,
+      "end": 1191,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1211,
+      "end": 1211,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1217,
+      "end": 1217,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1218,
+      "end": 1218,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:18669648",
+        "ECO:0007744 PubMed:21406692"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1280,
+      "end": 1280,
+      "description": "Phosphoserine; by ATR; in vitro",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1328,
+      "end": 1328,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1336,
+      "end": 1336,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:17081983",
+        "ECO:0007744 PubMed:20068231",
+        "ECO:0007744 PubMed:21406692"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1342,
+      "end": 1342,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:20068231",
+        "ECO:0007744 PubMed:21406692"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1387,
+      "end": 1387,
+      "description": "Phosphoserine; by ATM and ATR",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1394,
+      "end": 1394,
+      "description": "Phosphothreonine; by ATR; in vitro",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1423,
+      "end": 1423,
+      "description": "Phosphoserine; by ATM and ATR",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1457,
+      "end": 1457,
+      "description": "Phosphoserine; by ATR; in vitro",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:11114888"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1524,
+      "end": 1524,
+      "description": "Phosphoserine; by ATM",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:21144835"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Modified residue",
+      "start": 1542,
+      "end": 1542,
+      "description": "Phosphoserine",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0007744 PubMed:23186163"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Natural variant",
+      "start": 61,
+      "end": 61,
+      "description": "in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672",
+      "featureId": "VAR_007757",
+      "originalSequence": "C",
+      "alternativeSequences": [
+        "G"
+      ],
+      "evidences": [
+        "ECO:0000269 PubMed:12938098",
+        "ECO:0000269 PubMed:14746861",
+        "ECO:0000269 PubMed:23867111",
+        "ECO:0000269 PubMed:7894493",
+        "ECO:0000269 PubMed:8554067",
+        "ECO:0000269 PubMed:9528852",
+        "ECO:0000269 PubMed:9760198"
+      ],
+      "xrefs": [
+        "dbSNP:rs28897672"
+      ]
+    }
+  ],
+  "xrefs": {
+    "maneSelect": {
+      "transcript": "ENST00000357654.9",
+      "protein": "ENSP00000350283.3",
+      "refSeqNucleotide": "NM_007294.4",
+      "refSeqProtein": "NP_009225.1"
+    },
+    "ensembl": [
+      {
+        "transcript": "ENST00000352993.7",
+        "protein": "ENSP00000312236.5",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000357654.9",
+        "protein": "ENSP00000350283.3",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000461221.5",
+        "protein": "ENSP00000418548.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000461798.5",
+        "protein": "ENSP00000417988.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000468300.5",
+        "protein": "ENSP00000417148.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000470026.6",
+        "protein": "ENSP00000419274.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000471181.7",
+        "protein": "ENSP00000418960.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000491747.6",
+        "protein": "ENSP00000420705.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000493795.5",
+        "protein": "ENSP00000418775.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000494123.6",
+        "protein": "ENSP00000419103.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000618469.2",
+        "protein": "ENSP00000478114.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000652672.2",
+        "protein": "ENSP00000498906.2",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000713676.1",
+        "protein": "ENSP00000518978.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000921914.1",
+        "protein": "ENSP00000591973.1",
+        "gene": "ENSG00000012048.27"
+      },
+      {
+        "transcript": "ENST00000921916.1",
+        "protein": "ENSP00000591975.1",
+        "gene": "ENSG00000012048.27"
+      }
+    ],
+    "pdb": [
+      {
+        "id": "1JM7",
+        "method": "NMR",
+        "resolution": "-",
+        "chains": "A=1-110"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "type": "FUNCTION",
+      "text": "E3 ubiquitin-protein ligase that specifically mediates the formation of 'Lys-6'-linked polyubiquitin chains and plays a central role in DNA repair by facilitating cellular responses to DNA damage (PubMed:10500182, PubMed:12887909, PubMed:12890688, PubMed:14976165, PubMed:16818604, PubMed:17525340, PubMed:19261748). It is unclear whether it also mediates the formation of other types of polyubiquitin chains (PubMed:12890688). The BRCA1-BARD1 heterodimer coordinates a diverse range of cellular pathways such as DNA damage repair, ubiquitination and transcriptional regulation to maintain genomic stability (PubMed:12890688, PubMed:14976165, PubMed:20351172). Regulates centrosomal microtubule nucleation (PubMed:18056443). Required for appropriate cell cycle arrests after ionizing irradiation in both the S-phase and the G2 phase of the cell cycle (PubMed:10724175, PubMed:11836499, PubMed:12183412, PubMed:19261748). Required for FANCD2 targeting to sites of DNA damage (PubMed:12887909). Inhibits lipid synthesis by binding to inactive phosphorylated ACACA and preventing its dephosphorylation (PubMed:16326698). Contributes to homologous recombination repair (HRR) via its direct interaction with PALB2, fine-tunes recombinational repair partly through its modulatory role in the PALB2-dependent loading of BRCA2-RAD51 repair machinery at DNA breaks (PubMed:19369211). Component of the BRCA1-RBBP8 complex which regulates CHEK1 activation and controls cell cycle G2/M checkpoints on DNA damage via BRCA1-mediated ubiquitination of RBBP8 (PubMed:16818604). Acts as a transcriptional activator (PubMed:20160719)",
+      "evidences": [
+        "ECO:0000269 PubMed:10500182",
+        "ECO:0000269 PubMed:10724175",
+        "ECO:0000269 PubMed:11836499",
+        "ECO:0000269 PubMed:12183412",
+        "ECO:0000269 PubMed:12887909",
+        "ECO:0000269 PubMed:12890688",
+        "ECO:0000269 PubMed:14976165",
+        "ECO:0000269 PubMed:16326698",
+        "ECO:0000269 PubMed:16818604",
+        "ECO:0000269 PubMed:17525340",
+        "ECO:0000269 PubMed:18056443",
+        "ECO:0000269 PubMed:19261748",
+        "ECO:0000269 PubMed:19369211",
+        "ECO:0000269 PubMed:20160719",
+        "ECO:0000269 PubMed:20351172"
+      ]
+    },
+    {
+      "type": "SUBUNIT",
+      "text": "Heterodimer with BARD1 (PubMed:11573085, PubMed:12890688, PubMed:14976165). Part of the BRCA1-associated genome surveillance complex (BASC), which contains BRCA1, MSH2, MSH6, MLH1, ATM, BLM, PMS2 and the MRE11-RAD50-NBN protein (MRN) complex (PubMed:10783165). This association could be a dynamic process changing throughout the cell cycle and within subnuclear domains (PubMed:10783165). Component of the BRCA1-A complex, at least composed of BRCA1, BARD1, UIMC1/RAP80, ABRAXAS1, BRCC3/BRCC36, BABAM2 and BABAM1/NBA1 (PubMed:19261746, PubMed:19261748, PubMed:19261749, PubMed:20351172). Interacts (via the BRCT domains) with ABRAXAS1 (phosphorylated form); this is important for recruitment to sites of DNA damage (PubMed:17525340, PubMed:17643121, PubMed:17643122, PubMed:23269703, PubMed:24316840, PubMed:26778126). Can form a heterotetramer with two molecules of ABRAXAS1 (phosphorylated form) (PubMed:26778126). Component of the BRCA1-RBBP8 complex (PubMed:16101277). Interacts (via the BRCT domains) with RBBP8 ('Ser-327' phosphorylated form); the interaction ubiquitinates RBBP8, regulates CHEK1 activation, and involves RBBP8 in BRCA1-dependent G2/M checkpoint control on DNA damage (PubMed:16818604, PubMed:9811458). Associates with RNA polymerase II holoenzyme (PubMed:9662397). Interacts with SMC1A, NELFB, DCLRE1C, CLSPN (PubMed:11739404, PubMed:11877377, PubMed:15096610, PubMed:15456891). Interacts with CHEK1, CHEK2, BAP1, BRCC3, UBXN1 and PCLAF (PubMed:10724175, PubMed:11836499, PubMed:14636569, PubMed:20351172, PubMed:21673012). Interacts (via BRCT domains) with BRIP1 (phosphorylated form) (PubMed:11301010, PubMed:15133502, PubMed:21473589). Interacts with FANCD2 (ubiquitinated form) (PubMed:11239454). Interacts with H2AX (phosphorylated on 'Ser-140') (PubMed:12419185). Interacts (via the BRCT domains) with ACACA (phosphorylated form); the interaction prevents dephosphorylation of ACACA (PubMed:12360400, PubMed:16326698, PubMed:16698035, PubMed:18452305). Part of a BRCA complex containing BRCA1, BRCA2 and PALB2 (PubMed:19369211). Interacts directly with PALB2; the interaction is essential for its function in HRR (PubMed:19369211, PubMed:28319063). Interacts directly with BRCA2; the interaction occurs only in the presence of PALB2 which serves as the bridging protein (PubMed:19369211). Interacts (via the BRCT domains) with LMO4; the interaction represses the transcriptional activity of BRCA1 (PubMed:11751867). Interacts (via the BRCT domains) with CCAR2 (via N-terminus); the interaction represses the transcriptional activator activity of BRCA1 (PubMed:20160719). Interacts with EXD2 (PubMed:26807646). Interacts (via C-terminus) with DHX9; this interaction is direct and links BRCA1 to the RNA polymerase II holoenzyme (PubMed:9662397). Interacts with DNA helicase ZGRF1; the interaction is increased following DNA damage induction (PubMed:34552057). Interacts with FBXO44; this interaction mediates BRCA1 ubiquitination and subsequent degradation (PubMed:23086937)",
+      "evidences": [
+        "ECO:0000269 PubMed:10724175",
+        "ECO:0000269 PubMed:10783165",
+        "ECO:0000269 PubMed:11239454",
+        "ECO:0000269 PubMed:11301010",
+        "ECO:0000269 PubMed:11573085",
+        "ECO:0000269 PubMed:11739404",
+        "ECO:0000269 PubMed:11751867",
+        "ECO:0000269 PubMed:11836499",
+        "ECO:0000269 PubMed:11877377",
+        "ECO:0000269 PubMed:12360400",
+        "ECO:0000269 PubMed:12419185",
+        "ECO:0000269 PubMed:12890688",
+        "ECO:0000269 PubMed:14636569",
+        "ECO:0000269 PubMed:14976165",
+        "ECO:0000269 PubMed:15096610",
+        "ECO:0000269 PubMed:15133502",
+        "ECO:0000269 PubMed:15456891",
+        "ECO:0000269 PubMed:16101277",
+        "ECO:0000269 PubMed:16326698",
+        "ECO:0000269 PubMed:16698035",
+        "ECO:0000269 PubMed:16818604",
+        "ECO:0000269 PubMed:17525340",
+        "ECO:0000269 PubMed:17643121",
+        "ECO:0000269 PubMed:17643122",
+        "ECO:0000269 PubMed:18452305",
+        "ECO:0000269 PubMed:19261746",
+        "ECO:0000269 PubMed:19261748",
+        "ECO:0000269 PubMed:19261749",
+        "ECO:0000269 PubMed:19369211",
+        "ECO:0000269 PubMed:20159462",
+        "ECO:0000269 PubMed:20160719",
+        "ECO:0000269 PubMed:20351172",
+        "ECO:0000269 PubMed:21473589",
+        "ECO:0000269 PubMed:21673012",
+        "ECO:0000269 PubMed:23086937",
+        "ECO:0000269 PubMed:23269703",
+        "ECO:0000269 PubMed:24316840",
+        "ECO:0000269 PubMed:26778126",
+        "ECO:0000269 PubMed:26807646",
+        "ECO:0000269 PubMed:28319063",
+        "ECO:0000269 PubMed:34552057",
+        "ECO:0000269 PubMed:9528852",
+        "ECO:0000269 PubMed:9662397",
+        "ECO:0000269 PubMed:9811458"
+      ]
+    },
+    {
+      "type": "TISSUE SPECIFICITY",
+      "text": "Isoform 1 and isoform 3 are widely expressed. Isoform 3 is reduced or absent in several breast and ovarian cancer cell lines",
+      "evidences": []
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P38398.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:00:18Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P38398",
+        "recordVersion": "entry 285, sequence 2",
+        "assembly": null,
+        "sha256": "c5a914de75ea088c6fd36f1cfbab444d7a24bf1e19ba2390e229cc3afb252c73",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-proprietary-xrefs",
+      "natural-variants-at-position-only",
+      "pdb-xrefs-of-selected-entry-only"
+    ],
+    "validation": [
+      {
+        "check": "uniprot-accession",
+        "result": "pass",
+        "detail": "P38398 BRCA1_HUMAN, reviewed true",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T06-cds-shape",
+        "result": "pass",
+        "detail": "length 5592, starts ATG, ends TGA",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T07-translation-equals-ensembl-protein",
+        "result": "pass",
+        "detail": "translated 1863 aa vs Ensembl 1863 aa",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T07-translation-equals-uniprot",
+        "result": "pass",
+        "detail": "translated 1863 aa vs UniProt 1863 aa",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T07-uniprot-md5",
+        "result": "pass",
+        "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000357654.9 / ENSP00000350283.3 / NM_007294.4",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1863",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "p.61: UniProt residue C, HGVS ref C",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "VAR_007757 at 61: C->G; in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000012048.27 vs ENSG00000012048.28; vep-swissprot-entry-version: P38398.282 vs P38398.285",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "P38398 (BRCA1_HUMAN) canonical sequence, 1863 aa; initiator Met not annotated as removed; chain 1-1863.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

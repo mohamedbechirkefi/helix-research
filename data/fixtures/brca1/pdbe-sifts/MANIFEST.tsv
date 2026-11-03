@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+pdbe_api_mappings_uniprot_1jm7.json	2026-11-03T22:04:13Z	200	453c35fbe84717c8cd202624a096b17c8b6625516dd6323af0ed4bb790d91fae	726	GET	https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/1jm7	"{""content-type"":""application/json""}"	

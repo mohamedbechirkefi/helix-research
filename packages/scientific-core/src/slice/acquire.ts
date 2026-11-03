@@ -104,7 +104,11 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
   const variantGroup: Pick<SliceInputs, "genomicWindow" | "codonMap" | "variation" | "variantRecoder" | "vep"> = {};
   if (config.variant) {
     const v = config.variant;
-    const recoder = await step("E11 variant_recoder", ens.variantRecoder(v.rsId));
+    // The recoder answers for every transcript of the gene and every allele of the site; on a gene with many
+    // transcripts (Phase 9, BRCA1 rs28897672: measured 2026-11-03, over 30 s and a 503 under load) the default
+    // 30 s attempt times out, so this request and VEP's get the longer budget the mmCIF download already has.
+    const slow = { timeoutMs: 120_000 };
+    const recoder = await step("E11 variant_recoder", ens.variantRecoder(v.rsId, slow));
     const vctx = {
       transcript,
       cds: cds.data.sequence,
@@ -139,7 +143,7 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
     const window = await step("E8 genomic window", ens.region(transcript.interval.seqRegion, gStart - f, gEnd + f, 1));
     const codonMap = await step("E9 map/cds", ens.mapCds(tId, cdsStart, cdsEnd));
     const variation = await step("E10 variation", ens.variation(v.rsId));
-    const vep = await step("E12 vep", ens.vep(ensC));
+    const vep = await step("E12 vep", ens.vep(ensC, slow));
     variantGroup.genomicWindow = toRaw(window.response);
     variantGroup.codonMap = toRaw(codonMap.response);
     variantGroup.variation = toRaw(variation.response);

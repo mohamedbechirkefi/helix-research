@@ -1,0 +1,40 @@
+files compared: 16
+byte-identical files: 2
+allowed differences (timestamps and dependent hashes): 175
+  clinvar-hbs.json: 3
+  contacts-hbs-2HBS.json: 1
+  gene.json: 7
+  manifest.json: 76
+  pathways.json: 6
+  predicted-model-AF-P68871-F1.json: 1
+  protein-P68871.json: 10
+  residue-mapping-P68871-2HBS.json: 4
+  residue-mapping-hbs-2HBS.json: 7
+  sequences.json: 32
+  structure-2HBS.json: 8
+  transcript.json: 6
+  variant-hbs.json: 14
+other differences: 23
+  capabilities.json $.experimentalStructure.reason: "348 experimental entries (e.g. 1A00, X-ray)" != "2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A); 348 experimental entries cross-referenced (e.g. 1A00, X-ray)" (value)
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.validation: 59 != 61 (array length)
+  manifest.json $.validation[58].check: "T31-drift-recorded" != "T47-structure-method" (value)
+  manifest.json $.validation[58].detail: "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219" != "2HBS method X-RAY DIFFRACTION; resolution 2.05 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown" (value)
+  predicted-model-AF-P68871-F1.json $.plddtFractions: undefined != {"veryLow":0,"low":0.007,"confident":0.02,"veryHigh":0.973} (value)
+  structure-2HBS.json $.entities[0].uniprotFromEntry: undefined != ["P69905"] (value)
+  structure-2HBS.json $.entities[0].sequenceDifferences: undefined != [] (value)
+  structure-2HBS.json $.entities[1].uniprotFromEntry: undefined != ["P68871"] (value)
+  structure-2HBS.json $.entities[1].sequenceDifferences: undefined != [{"strandId":"B","labelSeqId":6,"residue":"VAL","referenceResidue":"GLU","referencePosition":6,"details":"variant"},{"strandId":"D","labelSeqId":6,"residue":"VAL","referenceResidue":"GLU","referencePosition":6,"details":"variant"},{"strandId":"F","labelSeqId":6,"residue":"VAL","referenceResidue":"GLU","referencePosition":6,"details":"variant"},{"strandId":"H","labelSeqId":6,"residue":"VAL","referenceResidue":"GLU","referencePosition":6,"details":"variant"}] (value)
+  structure-2HBS.json $.entities[2].uniprotFromEntry: undefined != [] (value)
+  structure-2HBS.json $.entities[2].sequenceDifferences: undefined != [] (value)
+  structure-2HBS.json $.entities[3].uniprotFromEntry: undefined != [] (value)
+  structure-2HBS.json $.entities[3].sequenceDifferences: undefined != [] (value)
+  structure-2HBS.json $.provenance.transformations: 4 != 6 (array length)
+  structure-2HBS.json $.provenance.validation: 8 != 10 (array length)
+  structure-2HBS.json $.evidence: 1 != 2 (array length)
+  structure-2HBS.json $.modelCount: undefined != 1 (value)
+  structure-2HBS.json $.modelShown: undefined != 1 (value)
+  structure-2HBS.json $.nmrEnsemble: undefined != null (value)
+  structure-2HBS.json $.mappedEntityId: undefined != "2" (value)
+  structure-2HBS.json $.coverage: undefined != {"uniprotAccession":"P68871","chains":["B","D","F","H"],"firstObservedPosition":2,"lastObservedPosition":147,"observedPositions":146,"mappedPositions":146,"proteinLength":147,"fraction":0.9932,"text":"2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A)"} (value)
+  structure-2HBS.json $.partners: undefined != [{"entityId":"1","description":"HEMOGLOBIN S (DEOXY), ALPHA CHAIN","strandIds":["A","C","E","G"],"uniprotAccession":"P69905","siftsUniprot":["P69905"]}] (value)

@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+download_1JM7.cif	2026-11-03T22:04:11Z	200	65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4	4168242	GET	https://files.rcsb.org/download/1JM7.cif	"{""content-type"":""chemical/x-cif"",""last-modified"":""Thu, 25 Sep 2025 17:17:25 GMT"",""etag"":""\""5b627119cd78728668c2c787a6adb48e-enc\""""}"	

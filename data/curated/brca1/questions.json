@@ -1,0 +1,43 @@
+{
+  "kind": "questions",
+  "derivedFrom": [
+    "capabilities.json"
+  ],
+  "geneId": "ENSG00000012048",
+  "symbol": "BRCA1",
+  "questions": [
+    {
+      "text": "Show me where the C61G mutation affects the BRCA1 protein.",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "How does the DNA change for the C61G variant?",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "What does the C61G variant residue touch in the structure?",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "Show the evidence for the C61G variant.",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "Which pathways list BRCA1?",
+      "requires": [
+        "pathwayView"
+      ]
+    }
+  ],
+  "bridgeQuestion": "See the C61G mutation on the protein."
+}

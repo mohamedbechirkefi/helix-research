@@ -1,0 +1,616 @@
+{
+ "header": {
+  "type": "esummary",
+  "version": "0.3"
+ },
+ "result": {
+  "17661": {
+   "uid": "17661",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000017661",
+   "accession_version": "VCV000017661.165",
+   "title": "NM_007294.4(BRCA1):c.181T>G (p.Cys61Gly)",
+   "variation_set": [
+    {
+     "measure_id": "32700",
+     "variation_xrefs": [
+      {
+       "db_source": "dbSNP",
+       "db_id": "28897672"
+      },
+      {
+       "db_source": "BRCA1-HCI",
+       "db_id": "BRCA1_00099"
+      },
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA001182"
+      },
+      {
+       "db_source": "UniProtKB",
+       "db_id": "P38398#VAR_007757"
+      }
+     ],
+     "variation_name": "NM_007294.4(BRCA1):c.181T>G (p.Cys61Gly)",
+     "cdna_change": "c.181T>G",
+     "aliases": [
+      "p.C61G:TGT>GGT",
+      "NP_009225.1:p.Cys61Gly",
+      "300T>G"
+     ],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "43106487",
+       "stop": "43106487",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "43106487",
+       "display_stop": "43106487",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "41258504",
+       "stop": "41258504",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "41258504",
+       "display_stop": "41258504",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00002",
+       "minor_allele": ""
+      },
+      {
+       "source": "Trans-Omics for Precision Medicine (TOPMed)",
+       "value": "0.00002",
+       "minor_allele": ""
+      },
+      {
+       "source": "The Genome Aggregation Database (gnomAD)",
+       "value": "0.00004",
+       "minor_allele": ""
+      },
+      {
+       "source": "The Genome Aggregation Database (gnomAD)",
+       "value": "0.00003",
+       "minor_allele": ""
+      },
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00003",
+       "minor_allele": ""
+      },
+      {
+       "source": "Exome Aggregation Consortium (ExAC)",
+       "value": "0.00007",
+       "minor_allele": ""
+      }
+     ],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000017.11:43106486:A:C",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000492590",
+     "SCV000839890",
+     "SCV000325150",
+     "SCV002070498",
+     "SCV002762793",
+     "SCV005045920",
+     "SCV000778779",
+     "SCV000186957",
+     "SCV000677634",
+     "SCV002551068",
+     "SCV000244308",
+     "SCV000144574",
+     "SCV000492470",
+     "SCV000679704",
+     "SCV000698888",
+     "SCV000733679",
+     "SCV000039517",
+     "SCV000923767",
+     "SCV000271313",
+     "SCV001451772",
+     "SCV002037008",
+     "SCV002589065",
+     "SCV004100885",
+     "SCV005199759",
+     "SCV004823691",
+     "SCV005848150",
+     "SCV001448168",
+     "SCV002104282",
+     "SCV002104292",
+     "SCV002024711",
+     "SCV006336692",
+     "SCV007097383",
+     "SCV000075610",
+     "SCV007540194",
+     "SCV007580147",
+     "SCV001251421",
+     "SCV008017038",
+     "SCV000195877",
+     "SCV000109295",
+     "SCV000540933",
+     "SCV000564349",
+     "SCV000587024",
+     "SCV000588026",
+     "SCV001140644",
+     "SCV000296762",
+     "SCV001430694",
+     "SCV001449773",
+     "SCV001499631",
+     "SCV000591246",
+     "SCV001905937",
+     "SCV001930367",
+     "SCV001959679",
+     "SCV001970107",
+     "SCV002026038",
+     "SCV002538052",
+     "SCV002587105",
+     "SCV000210067",
+     "SCV002009412",
+     "SCV000296283",
+     "SCV004212709",
+     "SCV000893455",
+     "SCV000602706",
+     "SCV000230340",
+     "SCV001749337",
+     "SCV002580059",
+     "SCV004174179",
+     "SCV000292141",
+     "SCV006109959",
+     "SCV001242516",
+     "SCV006303525",
+     "SCV006582311",
+     "SCV002765087",
+     "SCV007599474",
+     "SCV001249217",
+     "SCV007664727",
+     "SCV007843480",
+     "SCV008086739"
+    ],
+    "rcv": [
+     "RCV000019229",
+     "RCV000047597",
+     "RCV000131902",
+     "RCV000159935",
+     "RCV000239114",
+     "RCV000412714",
+     "RCV000415051",
+     "RCV000785199",
+     "RCV001270967",
+     "RCV004802937",
+     "RCV005003390",
+     "RCV005646760",
+     "RCV006748266",
+     "RCV006879033"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic",
+    "last_evaluated": "2015/08/10 00:00",
+    "review_status": "reviewed by expert panel",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "145"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C2676676"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0011450"
+       }
+      ],
+      "trait_name": "Breast-ovarian cancer, familial, susceptibility to, 1"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "BRCA1",
+   "chr_sort": "17",
+   "location_sort": "00000000000043106487",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "BRCA1",
+     "geneid": "672",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant",
+    "non-coding transcript variant"
+   ],
+   "protein_change": "C61G, C14G",
+   "fda_recognized_database": ""
+  },
+  "54359": {
+   "uid": "54359",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000054359",
+   "accession_version": "VCV000054359.9",
+   "title": "NM_007294.4(BRCA1):c.181T>A (p.Cys61Ser)",
+   "variation_set": [
+    {
+     "measure_id": "69026",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA001180"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "28897672"
+      }
+     ],
+     "variation_name": "NM_007294.4(BRCA1):c.181T>A (p.Cys61Ser)",
+     "cdna_change": "c.181T>A",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "43106487",
+       "stop": "43106487",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "43106487",
+       "display_stop": "43106487",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "41258504",
+       "stop": "41258504",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "41258504",
+       "display_stop": "41258504",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000017.11:43106486:A:T",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV001499632",
+     "SCV000325148",
+     "SCV001242514"
+    ],
+    "rcv": [
+     "RCV000258244"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic",
+    "last_evaluated": "2020/04/02 00:00",
+    "review_status": "criteria provided, multiple submitters, no conflicts",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "145"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C2676676"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0011450"
+       }
+      ],
+      "trait_name": "Breast-ovarian cancer, familial, susceptibility to, 1"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "BRCA1",
+   "chr_sort": "17",
+   "location_sort": "00000000000043106487",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "BRCA1",
+     "geneid": "672",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant",
+    "non-coding transcript variant"
+   ],
+   "protein_change": "C61S, C14S",
+   "fda_recognized_database": ""
+  },
+  "54360": {
+   "uid": "54360",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000054360",
+   "accession_version": "VCV000054360.18",
+   "title": "NM_007294.4(BRCA1):c.181T>C (p.Cys61Arg)",
+   "variation_set": [
+    {
+     "measure_id": "69027",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA001181"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "28897672"
+      }
+     ],
+     "variation_name": "NM_007294.4(BRCA1):c.181T>C (p.Cys61Arg)",
+     "cdna_change": "c.181T>C",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "43106487",
+       "stop": "43106487",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "43106487",
+       "display_stop": "43106487",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "17",
+       "band": "17q21.31",
+       "start": "41258504",
+       "stop": "41258504",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "41258504",
+       "display_stop": "41258504",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000017.11:43106486:A:G",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000144573",
+     "SCV004211754",
+     "SCV005100938",
+     "SCV007664698",
+     "SCV001519582",
+     "SCV000888850",
+     "SCV000325149",
+     "SCV001242515",
+     "SCV001574881"
+    ],
+    "rcv": [
+     "RCV000111959",
+     "RCV000759499",
+     "RCV001328445",
+     "RCV004601098",
+     "RCV006748274"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic/Likely pathogenic",
+    "last_evaluated": "2026/06/11 00:00",
+    "review_status": "criteria provided, multiple submitters, no conflicts",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "140162"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C0027672"
+       },
+       {
+        "db_source": "MeSH",
+        "db_id": "D009386"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0015356"
+       }
+      ],
+      "trait_name": "Hereditary cancer-predisposing syndrome"
+     },
+     {
+      "trait_xrefs": [],
+      "trait_name": "Inherited breast cancer and ovarian cancer"
+     },
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "MedGen",
+        "db_id": "C3661900"
+       }
+      ],
+      "trait_name": "not provided"
+     },
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "145"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C0677776"
+       },
+       {
+        "db_source": "MeSH",
+        "db_id": "D061325"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0003582"
+       }
+      ],
+      "trait_name": "Hereditary breast ovarian cancer syndrome"
+     },
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "145"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C2676676"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0011450"
+       }
+      ],
+      "trait_name": "Breast-ovarian cancer, familial, susceptibility to, 1"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "BRCA1",
+   "chr_sort": "17",
+   "location_sort": "00000000000043106487",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "BRCA1",
+     "geneid": "672",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant",
+    "non-coding transcript variant"
+   ],
+   "protein_change": "C61R, C14R",
+   "fda_recognized_database": ""
+  },
+  "uids": [
+   "54360",
+   "54359",
+   "17661"
+  ]
+ }
+}

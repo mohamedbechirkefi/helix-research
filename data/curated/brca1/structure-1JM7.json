@@ -1,0 +1,369 @@
+{
+  "kind": "structure",
+  "entryId": "1JM7",
+  "title": "Solution structure of the BRCA1/BARD1 RING-domain heterodimer",
+  "method": "SOLUTION NMR",
+  "origin": "experimental",
+  "resolutionAngstrom": null,
+  "modelCount": 14,
+  "modelShown": 1,
+  "nmrEnsemble": {
+    "conformersCalculated": 25,
+    "conformersSubmitted": 14,
+    "representativeConformer": 2,
+    "representativeSelectionCriteria": "closest to the average"
+  },
+  "revision": {
+    "version": "1.4",
+    "date": "2024-05-22"
+  },
+  "depositionDate": "2001-07-17",
+  "citation": {
+    "title": "Structure of a BRCA1-BARD1 heterodimeric RING-RING complex.",
+    "journal": "Nat.Struct.Biol.",
+    "year": 2001,
+    "pubmedId": "11573085",
+    "doi": "10.1038/nsb1001-833"
+  },
+  "entities": [
+    {
+      "entityId": "1",
+      "type": "polymer",
+      "description": "BREAST CANCER TYPE 1 SUSCEPTIBILITY PROTEIN",
+      "moleculeCount": 1,
+      "mutation": null,
+      "sequence": "MDLSALRVEEVQNVINAMQKILECPICLELIKEPVSTKCDHIFCKFCMLKLLNQKKGPSQCPLCKNDITKRSLQESTRFSQLVEELLKIICAFQLDTGLEYANSYNFAKKGK",
+      "strandIds": [
+        "A"
+      ],
+      "siftsUniprot": [
+        "P38398"
+      ],
+      "uniprotFromEntry": [
+        "P38398"
+      ],
+      "sequenceDifferences": [
+        {
+          "strandId": "A",
+          "labelSeqId": 111,
+          "residue": "GLY",
+          "referenceResidue": null,
+          "referencePosition": null,
+          "details": "cloning artifact"
+        },
+        {
+          "strandId": "A",
+          "labelSeqId": 112,
+          "residue": "LYS",
+          "referenceResidue": null,
+          "referencePosition": null,
+          "details": "cloning artifact"
+        }
+      ]
+    },
+    {
+      "entityId": "2",
+      "type": "polymer",
+      "description": "BRCA1-ASSOCIATED RING DOMAIN PROTEIN 1",
+      "moleculeCount": 1,
+      "mutation": null,
+      "sequence": "MEPDGRGAWAHSRAALDRLEKLLRCSRCTNILREPVCLGGCEHIFCSNCVSDCIGTGCPVCYTPAWIQDLKINRQLDSMIQLCSKLRNLLHDNELSDLKEDKPRKSLFNDAGNKKGK",
+      "strandIds": [
+        "B"
+      ],
+      "siftsUniprot": [
+        "Q99728"
+      ],
+      "uniprotFromEntry": [
+        "Q99728"
+      ],
+      "sequenceDifferences": [
+        {
+          "strandId": "B",
+          "labelSeqId": 116,
+          "residue": "GLY",
+          "referenceResidue": null,
+          "referencePosition": null,
+          "details": "cloning artifact"
+        },
+        {
+          "strandId": "B",
+          "labelSeqId": 117,
+          "residue": "LYS",
+          "referenceResidue": null,
+          "referencePosition": null,
+          "details": "cloning artifact"
+        }
+      ]
+    },
+    {
+      "entityId": "3",
+      "type": "non-polymer",
+      "description": "ZINC ION",
+      "moleculeCount": 4,
+      "mutation": null,
+      "sequence": null,
+      "strandIds": [],
+      "siftsUniprot": [],
+      "uniprotFromEntry": [],
+      "sequenceDifferences": []
+    }
+  ],
+  "mappedEntityId": "1",
+  "coverage": {
+    "uniprotAccession": "P38398",
+    "chains": [
+      "A"
+    ],
+    "firstObservedPosition": 1,
+    "lastObservedPosition": 103,
+    "observedPositions": 103,
+    "mappedPositions": 110,
+    "proteinLength": 1863,
+    "fraction": 0.0553,
+    "text": "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown)"
+  },
+  "partners": [
+    {
+      "entityId": "2",
+      "description": "BRCA1-ASSOCIATED RING DOMAIN PROTEIN 1",
+      "strandIds": [
+        "B"
+      ],
+      "uniprotAccession": "Q99728",
+      "siftsUniprot": [
+        "Q99728"
+      ]
+    }
+  ],
+  "chains": [
+    {
+      "labelAsymId": "A",
+      "authAsymId": "A",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "B",
+      "authAsymId": "B",
+      "entityId": "2",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "C",
+      "authAsymId": "A",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "D",
+      "authAsymId": "A",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "E",
+      "authAsymId": "B",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "F",
+      "authAsymId": "B",
+      "entityId": "3",
+      "entityType": "non-polymer"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "1",
+      "details": "author_defined_assembly",
+      "asymIds": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F"
+      ],
+      "polymerAsymIds": [
+        "A",
+        "B"
+      ]
+    }
+  ],
+  "defaultAssemblyId": "1",
+  "modelFile": {
+    "path": "1JM7.cif",
+    "format": "mmcif",
+    "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+    "bytes": 4168242
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/1JM7.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:11Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/entry/1JM7",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:12Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "8c6c9d4fbde65cf7b05fd80c7a59f0ad702834a97859c8c5336de82782093aaa",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1JM7/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "84882618023e7d8770f4e665aff0b73ebc68b26c4386798e9d1b55bb991a11d2",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/assembly/1JM7/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7-1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "c612a9b8b6f8dfe165e847c0fc48cffa87e52e34b0eae42a399f4d59538b07be",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/1jm7",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": null,
+        "recordId": "1jm7",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "453c35fbe84717c8cd202624a096b17c8b6625516dd6323af0ed4bb790d91fae",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "field-select",
+      "sifts-entity-selection",
+      "classify-pdbx-mutation-numbering",
+      "coverage-from-sifts-and-atom-site",
+      "partners-from-struct-ref"
+    ],
+    "validation": [
+      {
+        "check": "structure-entry",
+        "result": "pass",
+        "detail": "1JM7 SOLUTION NMR null A, rev 1.4",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "structure-revision-agrees",
+        "result": "pass",
+        "detail": "Data API rev 1.4; mmCIF rev 1.4",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "2 polymer entities; SIFTS P38398 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T20-rcsb-entity-agrees",
+        "result": "pass",
+        "detail": "RCSB polymer_entity 1JM7_1 uniprot P38398",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 61 auth 61 CYS; structure carries the reference residue",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T19-pdbx-mutation-numbering",
+        "result": "pass",
+        "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T26-label-auth-kept",
+        "result": "pass",
+        "detail": "6 label chains, all with an auth chain id from the scheme tables; 4 non-polymer chains have label != auth (e.g. label C = auth A ZN 123)",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T27-assemblies",
+        "result": "pass",
+        "detail": "assembly 1: A,B,C,D,E,F",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T47-structure-method",
+        "result": "pass",
+        "detail": "1JM7 method SOLUTION NMR; resolution none; 14 model(s) in atom_site; _pdbx_nmr_ensemble: 14 submitted of 25 calculated, representative conformer 2 (closest to the average); model 1 is the one mapped, measured and shown",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T48-structure-coverage",
+        "result": "pass",
+        "detail": "103 of 110 mapped positions observed in model 1 on chain(s) A, 1-103; protein length 1863; fraction 0.0553 = 103/1863; words match the numbers",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "1JM7: SOLUTION NMR, no resolution (an ensemble of 14 models; model 1 is the one shown), deposited 2001-07-17.",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown); SIFTS maps 110 position(s) of P38398 onto chain(s) A.",
+      "qualifier": null,
+      "limitations": [
+        "The entry covers 103 of the protein's 1863 residues; the rest has no experimental coordinates in this set, and a predicted model never stands in for it.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

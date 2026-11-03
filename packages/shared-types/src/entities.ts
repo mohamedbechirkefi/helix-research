@@ -280,8 +280,52 @@ export const StructureEntity = z.object({
   strandIds: z.array(z.string()),
   /** UniProt accessions mapped by SIFTS; the only basis for picking an entity. */
   siftsUniprot: z.array(z.string()),
+  /**
+   * Phase 9 (P9.2.2, plan section 13 rule 4): the UniProt accessions the entry's own _struct_ref
+   * gives the entity (db UNP), so that a partner chain can be named with its accession; never the
+   * basis for picking the mapped entity (SIFTS is).
+   */
+  uniprotFromEntry: z.array(z.string()),
+  /**
+   * Where the entity differs from its reference sequence according to the entry's own
+   * _struct_ref_seq_dif, with the depositors' explanation (variant, cloning artifact, expression
+   * tag, ...): recorded, never used to map (P9.2.2).
+   */
+  sequenceDifferences: z.array(z.object({ strandId: z.string(), labelSeqId: z.number().int().nullable(), residue: z.string().nullable(), referenceResidue: z.string().nullable(), referencePosition: z.number().int().nullable(), details: z.string().nullable() })),
 });
 export type StructureEntity = z.infer<typeof StructureEntity>;
+
+/**
+ * Phase 9 (P9.2.2, plan section 13 rule 3): what the selected entry covers of the protein, from
+ * SIFTS and the atom records of model 1: the first and last mapped UniProt positions observed on
+ * at least one mapped chain, the count of observed positions, the count SIFTS maps, the protein's
+ * length and the fraction (observed over length, four decimals), with the words every caption
+ * repeats. A partial structure is a first-class fact, never left for a predicted model to fill.
+ */
+export const StructureCoverage = z.object({
+  uniprotAccession: z.string(),
+  chains: z.array(z.string()),
+  firstObservedPosition: z.number().int().min(1),
+  lastObservedPosition: z.number().int().min(1),
+  observedPositions: z.number().int().min(1),
+  mappedPositions: z.number().int().min(1),
+  proteinLength: z.number().int().min(1),
+  fraction: z.number().min(0).max(1),
+  text: z.string().min(1),
+});
+export type StructureCoverage = z.infer<typeof StructureCoverage>;
+
+/** A polymer entity of the entry other than the mapped one, named with the accession the entry's own cross-references give it (P9.2.2 rule 4). */
+export const StructurePartner = z.object({
+  entityId: z.string(),
+  description: z.string(),
+  strandIds: z.array(z.string()),
+  /** From _struct_ref (db UNP); null when the entry gives none (an unknown segment, a nucleic acid, ...). */
+  uniprotAccession: z.string().nullable(),
+  /** The accessions SIFTS maps onto the entity, for comparison; never the source of the name. */
+  siftsUniprot: z.array(z.string()),
+});
+export type StructurePartner = z.infer<typeof StructurePartner>;
 
 export const Structure = z.object({
   kind: z.literal("structure"),
@@ -290,11 +334,23 @@ export const Structure = z.object({
   method: z.string(),
   /** "experimental" for PDB entries; "predicted" for computed models. */
   origin: z.enum(["experimental", "predicted"]),
+  /** From _refine or _em_3d_reconstruction; null for an entry that states none (solution NMR). */
   resolutionAngstrom: z.number().nullable(),
+  /** Models in atom_site: 1 for a crystallographic or cryo-EM entry, the ensemble size for solution NMR (P9.2.2 rule 2). */
+  modelCount: z.number().int().min(1),
+  /** The model every mapping, contact and view of this set uses: always 1 (the first model of the file). */
+  modelShown: z.literal(1),
+  /** What the entry states about its NMR ensemble; null outside solution NMR. */
+  nmrEnsemble: z.object({ conformersCalculated: z.number().int().nullable(), conformersSubmitted: z.number().int().nullable(), representativeConformer: z.number().int().nullable(), representativeSelectionCriteria: z.string().nullable() }).nullable(),
   revision: z.object({ version: z.string(), date: z.string() }),
   depositionDate: z.string().nullable(),
   citation: z.object({ title: z.string(), journal: z.string().nullable(), year: z.number().int().nullable(), pubmedId: z.string().nullable(), doi: z.string().nullable() }).nullable(),
   entities: z.array(StructureEntity),
+  /** The mapped entity (SIFTS) and what the entry covers of the protein (P9.2.2 rule 3). */
+  mappedEntityId: z.string(),
+  coverage: StructureCoverage,
+  /** The other polymer entities of the entry, each named with its own cross-reference (P9.2.2 rule 4). */
+  partners: z.array(StructurePartner),
   chains: z.array(Chain),
   assemblies: z.array(z.object({ id: z.string(), details: z.string(), asymIds: z.array(z.string()), polymerAsymIds: z.array(z.string()) })),
   defaultAssemblyId: z.string(),
@@ -578,6 +634,12 @@ export const PredictedModel = z.object({
   uniprotRange: z.object({ start: z.number().int(), end: z.number().int() }),
   modelCreatedDate: z.string(),
   globalPlddt: z.number().nullable(),
+  /**
+   * Phase 9 (P9.2.2, plan section 13 rule 5): the share of residues in each pLDDT band as the
+   * prediction record states them (very low below 50, low 50 to 70, confident 70 to 90, very
+   * high above 90); null when the record omits them. A caption reads its numbers here, never types them.
+   */
+  plddtFractions: z.object({ veryLow: z.number().min(0).max(1), low: z.number().min(0).max(1), confident: z.number().min(0).max(1), veryHigh: z.number().min(0).max(1) }).nullable(),
   sequenceChecksumMatchesUniprot: z.boolean(),
   disclaimer: z.string(),
   /** Hard flag: never used to place an experimental residue. */
