@@ -802,7 +802,9 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 
 ### 9.5 Cinematic world and visual polish (Phase 8)
 
-The cinematic layer. To report: performance budgets and measurements, and the labelling of illustrative content.
+*In progress; this section is written as the phase advances (invariant 14). Numbers below are from the journal entries named in the claims register.*
+
+**Budgets first.** The phase opened on 2026-11-03, after the author passed the Phase 7 gate, with performance budgets rather than visuals, because the gate of this phase is "visual QA plus measured frame and load budgets". The budgets are data (a JSON file read by a harness) and a page explains each one, its measurement and the journal entry its baseline comes from: time to first interaction (page load to scene ready, the welcome's first control enabled, DNA World ready), bytes over the wire before that moment and at rest, JavaScript heap at rest, after the structure load and after six world round trips, the Chrome process tree, the cold and warm world switches, the structure fetch, the built bundle, and the frame budget already measured in Phase 7 (60 Hz median with vsync on, no frame over 33.4 ms at pixel ratios 1 and 2, at most one per thousand in low power, zero idle frames). On the Phase 7 build every runtime budget held with margins of 1.3x to 3x (scene ready 673 ms against 1,000; heap 78.4 MB after the load against 256, growing 1.4 % over six round trips against 10; cold switch 1,708 ms against 2,500), with two findings: the warm world switch has 40 ms of margin (1,560 against 1,600 ms), and the bytes fetched before the first interaction are 1,918.6 kB against a 1,000 kB target, because the Mol* chunk (968 kB gzip) and the structure file (249 kB) load before the scene is ready (C87). The breach is kept as a breach: the target describes the startup the phase should ship (Mol* and the structure deferred past the ready moment), not the one it inherited.
 
 ### 9.6 Multi-gene personalisation (Phase 9)
 
