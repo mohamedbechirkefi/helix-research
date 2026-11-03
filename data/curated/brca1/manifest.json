@@ -2,11 +2,11 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "brca1",
   "description": "BRCA1 (breast cancer type 1 susceptibility protein) domain-structure set: gene, MANE Select transcript, sequences, UniProt P38398, the C61G substitution, PDB 1JM7 (the RING-domain heterodimer with BARD1, solution NMR) and its residue mapping; the structure covers a domain, never the whole protein.",
-  "generatedAt": "2026-11-03T22:05:59Z",
+  "generatedAt": "2026-11-03T22:12:13Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "c53b4a0f97ad7155d7473fabd921d9a857198581",
-    "gitDirty": true,
+    "gitCommit": "715116bd7f13e4d1931e3d56f581c2ab331a59a1",
+    "gitDirty": false,
     "node": "v22.23.3"
   },
   "assembly": "GRCh38.p14",
@@ -822,43 +822,43 @@
   "files": [
     {
       "path": "gene.json",
-      "sha256": "93c0fe3f51e4166e225a9169771fba17f058cc7b8a3cfa6cc72c98e9fd72712a",
+      "sha256": "b326dc21157d0ee5a3bea08b97321333ef9c0a87e90ebb3c64fcc740b29f9536",
       "bytes": 5134,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "929bb22c74c30db32f5cf8eb2cee5fb8bcbd3ed01139e8f7c51043d742f0d480",
+      "sha256": "2e0daaff8b15801c13b80ceb60abca8b25bf77ccbe6eab05b239ab716c549025",
       "bytes": 13764,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "5666831dbc3c510f00429613b85d9c807314c90ecc8102d325d4e0b0f2493bf8",
+      "sha256": "eabd247266a8f821dd48c1af8ffdd1188cb152be0b19cb578d0060599d5aeefb",
       "bytes": 28694,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-P38398.json",
-      "sha256": "800d7b3727a44ac5db7169d5a9ec666ab4708b997f59065d3f3ef842051d33f8",
+      "sha256": "66a1053117aad8faed56fad2fc9191907eacea1750cf02db481c69a55d5d4ff8",
       "bytes": 26624,
       "recordKind": "protein"
     },
     {
       "path": "variant-c61g.json",
-      "sha256": "b6372c6fda63c304a90911ec4dba05f34b2d3a93c54b0edf7e2f14a5070afee6",
+      "sha256": "c6428db2dfeb2c78c46712482c1561418f2c137f92e07f279e745cb5db646341",
       "bytes": 13210,
       "recordKind": "variant"
     },
     {
       "path": "clinvar-c61g.json",
-      "sha256": "18a7111828aaac15357f81e0b5a51cce0004396e6c99ead6c061fe3cba4eeec2",
+      "sha256": "d77d04138de88f7f1f56ea3771eb1cc065c911af3b2c3770327726b92e22dadb",
       "bytes": 6096,
       "recordKind": "clinvar-record"
     },
     {
       "path": "structure-1JM7.json",
-      "sha256": "4167a43705f3722645a21ea532483882054efcf08d891742e0eb6004c1a54f28",
+      "sha256": "2f08e20aee5c98b04303710da7e5e3b267b59d7067131bb163e774e9538057fa",
       "bytes": 11516,
       "recordKind": "structure"
     },
@@ -870,31 +870,31 @@
     },
     {
       "path": "residue-mapping-c61g-1JM7.json",
-      "sha256": "815bc3748e4aea6af8f7d936a9a1052128e156886789327cb68787ccc23e9897",
+      "sha256": "3c6c41027f370c886261b84f9a880296a0ed0a9195e75ec0f7584af15382c264",
       "bytes": 6298,
       "recordKind": "residue-mapping"
     },
     {
       "path": "residue-mapping-P38398-1JM7.json",
-      "sha256": "2552f3113cc403f8e232bdb2761eb4b3e78ebc4cd332a5eb9fd448480ddf837f",
+      "sha256": "45816ef4dc9a55b923fade6532ac4807bea7c33a2581463de909eb379b167c63",
       "bytes": 58226,
       "recordKind": "residue-mapping-table"
     },
     {
       "path": "contacts-c61g-1JM7.json",
-      "sha256": "99a44a57c3c78c87db50a1eea669ccbac03b463b2b1b8b6387702f326f21d3c2",
+      "sha256": "ca170a371056fc1d1614dbb0aaba32a54ea2df9ccf98c4c94ee221bf1e7ffa3f",
       "bytes": 3123,
       "recordKind": "residue-contacts"
     },
     {
       "path": "predicted-model-AF-P38398-F1.json",
-      "sha256": "4fd361b6236dd8eee801c65a94cdf824a14e0aa0b21946d2879bcfc97ed12479",
+      "sha256": "e178e4db5a0ab5dcd2db02b57e7df7f7c3225bed217387293eed5df104a10336",
       "bytes": 3168,
       "recordKind": "predicted-model"
     },
     {
       "path": "pathways.json",
-      "sha256": "64ef4b0f6858b23071bc12fc30e29a7d63bd58b30804257747d5e9afcf45db70",
+      "sha256": "9d3ff8b772ec13884c84cdc7a51a022e78ab2b5ad81639c81df0d52c34b029f7",
       "bytes": 938944,
       "recordKind": "pathway-memberships"
     },
@@ -916,385 +916,385 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000012048.28 BRCA1",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000357654.9 (only transcript with MANE[].type == MANE_Select); 59 candidates",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000357654.9",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 7088 vs transcript length 7088 (1-based closed)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000357654.9, ENST00000357654.9, ENSP00000350283.3",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 5592 nt; exon walk 5592; (protein 1863 + stop) x 3",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 7088 vs transcript 7088",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "P38398 BRCA1_HUMAN, reviewed true",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 5592, starts ATG, ends TGA",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 1863 aa vs Ensembl 1863 aa",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 1863 aa vs UniProt 1863 aa",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000357654.9 / ENSP00000350283.3 / NM_007294.4",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1863",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "BRCA1 -> HGNC:1100 ENSG00000012048",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T04-alias-RNF53",
       "result": "pass",
       "detail": "alias RNF53 -> ENSG00000012048",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T04-alias-BRCC1",
       "result": "pass",
       "detail": "alias BRCC1 -> ENSG00000012048",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T04-alias-PPP1R53",
       "result": "pass",
       "detail": "alias PPP1R53 -> ENSG00000012048",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T04-alias-FANCS",
       "result": "pass",
       "detail": "alias FANCS -> ENSG00000012048",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T13-rsid-multiallelic",
       "result": "pass",
       "detail": "rs28897672 alleles A/C/G/T; C:p.Cys61Gly, G:p.Cys61Arg, T:p.Cys61Ser",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T08-exon-walk-genomic",
       "result": "pass",
       "detail": "exon walk c.181 -> 43106487; hgvsg 43106487; variation 43106487",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T08-codon-span",
       "result": "pass",
       "detail": "own walk codon 61 -> 43106485-43106487; Ensembl map/cds 43106485-43106487 strand -1",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T09-forward-and-coding-base",
       "result": "pass",
       "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T10-spdi-roundtrip",
       "result": "pass",
       "detail": "NC_000017.11:43106486:A:C <-> NC_000017.11:g.43106487A>C",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T11-codon-change",
       "result": "pass",
       "detail": "codon 61 TGT -> GGT; C -> G",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T12-hgvsp-agrees",
       "result": "pass",
       "detail": "computed p.Cys61Gly; variant_recoder ENSP00000350283.3:p.Cys61Gly, NP_009225.1:p.Cys61Gly",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T12-vep-agrees",
       "result": "pass",
       "detail": "VEP ENSP00000350283.3:p.Cys61Gly protein_start 61 cds_start 181 codons Tgt/Ggt",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "cdna-position",
       "result": "pass",
       "detail": "c.181 + 5' UTR 113 = 294; VEP cdna_start 294",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T18-hgvsp-equals-uniprot-position",
       "result": "pass",
       "detail": "p.61: UniProt residue C, HGVS ref C",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T17-mature-index",
       "result": "pass",
       "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T16-uniprot-natural-variant",
       "result": "pass",
       "detail": "VAR_007757 at 61: C->G; in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T14-clinvar-record",
       "result": "pass",
       "detail": "VCV000017661.165 single nucleotide variant; spdi NC_000017.11:43106486:A:C; GRCh38 43106487; GRCh37 41258504; Pathogenic (reviewed by expert panel)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T33-clinvar-search-covered",
       "result": "pass",
       "detail": "esearch rs28897672: 3 uids; esummary returned 3 (17661,54359,54360)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T34-clinvar-review-status",
       "result": "pass",
       "detail": "VCV000017661.165: \"reviewed by expert panel\" -> 3 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T35-clinvar-related-records-separate",
       "result": "pass",
       "detail": "2 other record(s) for rs28897672: 0 haplotype/compound (0 include NC_000017.11:43106486:A:C), 2 other allele/variant (VCV000054359.9 Pathogenic; VCV000054360.18 Pathogenic/Likely pathogenic); none merged",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "structure-entry",
       "result": "pass",
       "detail": "1JM7 SOLUTION NMR null A, rev 1.4",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "structure-revision-agrees",
       "result": "pass",
       "detail": "Data API rev 1.4; mmCIF rev 1.4",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T20-entity-by-sifts",
       "result": "pass",
       "detail": "2 polymer entities; SIFTS P38398 -> entity 1, chains A; mmCIF strands A",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T20-rcsb-entity-agrees",
       "result": "pass",
       "detail": "RCSB polymer_entity 1JM7_1 uniprot P38398",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T21-alignment-cross-check",
       "result": "pass",
       "detail": "entity 112 aa vs UniProt 1863 aa: offset 0, identity 0.9821, mismatches entity 111 G / UniProt 111 E; entity 112 K / UniProt 112 N; SIFTS offset 0",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T22-rcsb-align-agrees",
       "result": "pass",
       "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T40-variant-residue-observed",
       "result": "pass",
       "detail": "1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T23-residue-from-atom-site",
       "result": "pass",
       "detail": "A/A label 61 auth 61 CYS; structure carries the reference residue",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T36-full-chain-covers-sifts",
       "result": "pass",
       "detail": "110 positions (1-110); per chain A 110/110; 7 unobserved residue(s)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T37-full-chain-agrees-with-variant-mapping",
       "result": "pass",
       "detail": "position 61: table A61 CYS; variant mapping record A61 CYS",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T38-full-chain-residue-names",
       "result": "pass",
       "detail": "atom_site residue = UniProt residue at 110 of 110 positions; differs at none",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T39-full-chain-alignment-agrees",
       "result": "pass",
       "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none; outside the mapped positions the entity differs at 111 (UniProt E, entity G, cloning artifact), 112 (UniProt N, entity K, cloning artifact)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T24-wrong-numbering-detectable",
       "result": "pass",
       "detail": "label numbering of A equals UniProt numbering at 61 (CYS); no distinct mature numbering, so no other numbering exists to land elsewhere",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T19-pdbx-mutation-numbering",
       "result": "pass",
       "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T25-struct-ref-seq-not-trusted",
       "result": "pass",
       "detail": "SIFTS selects label 61 (CYS); _struct_ref_seq would select label 61 (CYS); 0 disagreement(s) recorded as known issues",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T26-label-auth-kept",
       "result": "pass",
       "detail": "6 label chains, all with an auth chain id from the scheme tables; 4 non-polymer chains have label != auth (e.g. label C = auth A ZN 123)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T27-assemblies",
       "result": "pass",
       "detail": "assembly 1: A,B,C,D,E,F",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T28-contacts-computed",
       "result": "pass",
       "detail": "A61: A39,A41,A63,A64,A66,A68,A124",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-P38398-F1 v6; md5 match true; residue 61 in model = C (reference), so never used to place G",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T41-pathway-accession",
       "result": "pass",
       "detail": "memberships requested for P38398; protein record P38398; specification P38398",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T42-pathway-memberships-human",
       "result": "pass",
       "detail": "28 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T43-pathway-top-level",
       "result": "pass",
       "detail": "R-HSA-69473 -> R-HSA-1640170; R-HSA-912446 -> R-HSA-1474165+R-HSA-1640170; R-HSA-1221632 -> R-HSA-1474165+R-HSA-1640170; R-HSA-3108214 -> R-HSA-392499; R-HSA-5685938 -> R-HSA-73894; R-HSA-5685942 -> R-HSA-73894; R-HSA-5689901 -> R-HSA-392499; R-HSA-5693554 -> R-HSA-73894; R-HSA-5693565 -> R-HSA-73894; R-HSA-5693568 -> R-HSA-73894; R-HSA-5693571 -> R-HSA-73894; R-HSA-5693579 -> R-HSA-73894; R-HSA-5693607 -> R-HSA-73894; R-HSA-5693616 -> R-HSA-73894; R-HSA-6796648 -> R-HSA-74160; R-HSA-6804756 -> R-HSA-74160; R-HSA-8951664 -> R-HSA-392499; R-HSA-8953750 -> R-HSA-74160; R-HSA-9663199 -> R-HSA-1643685; R-HSA-9699150 -> R-HSA-1643685; R-HSA-9701192 -> R-HSA-1643685; R-HSA-9704331 -> R-HSA-1643685; R-HSA-9704646 -> R-HSA-1643685; R-HSA-9709570 -> R-HSA-1643685; R-HSA-9709603 -> R-HSA-1643685; R-HSA-9755511 -> R-HSA-8953897; R-HSA-9825895 -> R-HSA-1266738; R-HSA-9974237 -> R-HSA-73894",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T44-opening-pathway-rule",
       "result": "pass",
       "detail": "R-HSA-1221632 (Meiotic synapsis) has the fewest participants (30) among the 9 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-1221632 30, R-HSA-6796648 31, R-HSA-912446 36, R-HSA-5693571 46, R-HSA-6804756 47, R-HSA-3108214 52, R-HSA-8953750 63, R-HSA-8951664 96, R-HSA-9755511 199; excluded: R-HSA-69473 (no diagram), R-HSA-5685938 (no diagram), R-HSA-5685942 (no diagram), R-HSA-5689901 (no diagram), R-HSA-5693554 (no diagram), R-HSA-5693565 (no diagram), R-HSA-5693568 (no diagram), R-HSA-5693579 (no diagram), R-HSA-5693607 (no diagram), R-HSA-5693616 (no diagram), R-HSA-9663199 (a disease pathway), R-HSA-9699150 (a disease pathway), R-HSA-9701192 (a disease pathway), R-HSA-9704331 (a disease pathway), R-HSA-9704646 (a disease pathway), R-HSA-9709570 (a disease pathway), R-HSA-9709603 (a disease pathway), R-HSA-9825895 (no diagram), R-HSA-9974237 (no diagram)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T45-opening-pathway-participants",
       "result": "pass",
       "detail": "R-HSA-1221632 (Meiotic synapsis): 30 participating physical entities, 59 distinct UniProt proteins; the set's protein P38398 is among them as P38398 in Synaptonemal Complex:BRCA1:ATR [nucleoplasm] (Complex); BRCA1 [nucleoplasm] (EntityWithAccessionedSequence); Synaptonemal Complex:BRCA1 [nucleoplasm] (Complex)",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T46-candidate-participants",
       "result": "pass",
       "detail": "9 candidate(s): R-HSA-912446 36 entities, 57 proteins, set's protein listed; R-HSA-1221632 30 entities, 59 proteins, set's protein listed; R-HSA-3108214 52 entities, 81 proteins, set's protein listed; R-HSA-5693571 46 entities, 51 proteins, set's protein listed; R-HSA-6796648 31 entities, 62 proteins, set's protein listed; R-HSA-6804756 47 entities, 93 proteins, set's protein listed; R-HSA-8951664 96 entities, 235 proteins, set's protein listed; R-HSA-8953750 63 entities, 34 proteins, set's protein listed; R-HSA-9755511 199 entities, 114 proteins, set's protein listed",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T47-structure-method",
       "result": "pass",
       "detail": "1JM7 method SOLUTION NMR; resolution none; 14 model(s) in atom_site; _pdbx_nmr_ensemble: 14 submitted of 25 calculated, representative conformer 2 (closest to the average); model 1 is the one mapped, measured and shown",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T48-structure-coverage",
       "result": "pass",
       "detail": "103 of 110 mapped positions observed in model 1 on chain(s) A, 1-103; protein length 1863; fraction 0.0553 = 103/1863; words match the numbers",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000012048.27 vs ENSG00000012048.28; vep-swissprot-entry-version: P38398.282 vs P38398.285",
-      "at": "2026-11-03T22:05:59Z"
+      "at": "2026-11-03T22:12:13Z"
     }
   ],
   "knownIssues": [
