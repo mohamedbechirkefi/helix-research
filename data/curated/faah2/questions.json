@@ -11,6 +11,12 @@
       "requires": [
         "pathwayView"
       ]
+    },
+    {
+      "text": "What diseases are associated with FAAH2?",
+      "requires": [
+        "associationView"
+      ]
     }
   ],
   "bridgeQuestion": null
