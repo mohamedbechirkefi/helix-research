@@ -8,7 +8,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildHbbContext, deterministicPlan, proteinWorldReason, trustedContextJson, validatePlan, type PlanningContext } from "../src/index.ts";
-import { faah2Bundle, faah2Context, hbbContext } from "./load.ts";
+import { cftrContext, faah2Bundle, faah2Context, hbbContext, questionsRecord } from "./load.ts";
 
 const HBB_TEXT = /HBB|HbS|2HBS|P68871|h(a)?emoglobin|globin|sickle|rs334|VCV000015333|Glu7Val|Glu6Val/i;
 const REASON = "no experimental structure is cross-referenced for this protein";
@@ -77,5 +77,70 @@ describe("HBB is unchanged by the generalised builder", () => {
     const pinned = JSON.parse(readFileSync(join(import.meta.dirname, "fixtures", "hbb-context-phase8.json"), "utf8")) as PlanningContext;
     expect(hbbContext()).toEqual(pinned);
     expect(hbbContext().worlds.find((w) => w.id === "protein")).toEqual({ id: "protein", available: true, reason: "experimental structure with a verified residue mapping" });
+  });
+});
+
+describe("CFTR context (P9.2.1): the F508del deletion carries the record's names, its feature on 5UAK and no HBB text", () => {
+  const ctx = cftrContext();
+  it("the variant entry is record-driven: short name, computed protein change, identifiers, the numbering label and the ClinVar line", () => {
+    expect(ctx.variants).toHaveLength(1);
+    const v = ctx.variants[0]!;
+    expect(v.id).toBe("NC_000007.14:g.117559592_117559594del");
+    expect(v.label).toBe("F508del (p.Phe508del)");
+    expect(v.featureId).toBe("F508del_deletion");
+    expect(v.names).toEqual(["F508del", "p.Phe508del", "rs113993960", "ENST00000003084.11:c.1521_1523del", "NM_000492.4:c.1521_1523del", "ENSP00000003084.6:p.Phe508del", "NP_000483.3:p.Phe508del", "p.Phe508del (translated numbering, Met = 1)", "ClinVar VCV000007105: Pathogenic (practice guideline)"]);
+    expect(v.names.join(" ")).not.toMatch(/sickle|allele/);
+  });
+  it("the residue feature is the mapped residue the deletion removes (5UAK chain A, PHE 508); the contact feature is on the same chain", () => {
+    const f = ctx.features.find((x) => x.id === "F508del_deletion")!;
+    expect(f).toMatchObject({ kind: "residue", structureId: "5UAK", chains: ["A"], authSeqId: 508, proteinId: "P13569", evidenceIds: ["clinvar:VCV000007105", "uniprot:VAR_000171", "sifts:5UAK-P13569"] });
+    expect(f.label).toBe("F508del (p.Phe508del): p.Phe508del (translated numbering, Met = 1); in 5UAK chain A residue 508 is PHE, the residue the deletion removes");
+    const c = ctx.features.find((x) => x.kind === "contact")!;
+    expect(c.id).toBe("F508del_contact_A508_A");
+    expect(c.label).toMatch(/^PHE A508 contacts MET A498, GLU A504, ASN A505, ARG A560, PHE A1068, ARG A1070, PHE A1074 within 4.5 A/);
+    expect(ctx.structures.find((s) => s.id === "5UAK")).toMatchObject({ origin: "experimental", variantPlacement: true });
+    expect(ctx.structures.find((s) => s.id === "5UAK")?.assemblies[0]).toEqual({ id: "model", label: "asymmetric unit (all polymer chains)", chains: ["A", "R"] });
+    expect(ctx.worlds.find((w) => w.id === "protein")).toEqual({ id: "protein", available: true, reason: "experimental structure with a verified residue mapping" });
+  });
+  it("contains no HBB text (and no tetramer wording: 5UAK deposits one assembly of two chains)", () => {
+    expect(trustedContextJson(ctx)).not.toMatch(HBB_TEXT);
+    expect(trustedContextJson(ctx)).not.toMatch(/tetramer/);
+  });
+});
+
+describe("rule-based planner on CFTR: the set's curated questions and its bridge question are answered", () => {
+  const ctx = built(cftrContext());
+  const record = questionsRecord("cftr");
+  const run = (q: string) => {
+    const { plan, rule } = deterministicPlan(q, ctx);
+    expect(validatePlan(plan, ctx, { query: q }).ok, q).toBe(true);
+    return { plan, rule };
+  };
+  it("the four questions of questions.json plan the expected actions", () => {
+    const [locate, dna, contact, evidence] = record.questions.map((x) => run(x.text));
+    expect(locate!.rule).toBe("variant-locate");
+    expect(locate!.plan.actions.map((a) => a.type)).toEqual(["resolveVariant", "loadStructure", "focusCamera", "highlightResidue", "revealEvidence"]);
+    expect(locate!.plan.actions.find((a) => a.type === "loadStructure")).toMatchObject({ structureId: "5UAK" });
+    expect(locate!.plan.followUps).toEqual(["How does the DNA change at this codon?", "What does this residue touch in the structure?"]);
+    expect(dna!.rule).toBe("variant-sequence");
+    expect(dna!.plan.actions.map((a) => a.type)).toEqual(["enterWorld", "highlightSequenceRegion", "compareVariants", "revealEvidence"]);
+    expect(contact!.rule).toBe("contact");
+    expect(contact!.plan.actions.find((a) => a.type === "highlightResidue")).toMatchObject({ target: { kind: "feature", featureId: "F508del_contact_A508_A" } });
+    expect(evidence!.rule).toBe("variant-evidence");
+    expect(evidence!.plan.actions.map((a) => a.type)).toEqual(["revealEvidence", "revealEvidence"]);
+  });
+  it("the bridge question locates the deleted residue on 5UAK", () => {
+    const { plan, rule } = run(record.bridgeQuestion!);
+    expect(rule).toBe("variant-locate");
+    expect(plan.actions.find((a) => a.type === "highlightResidue")).toMatchObject({ target: { kind: "feature", featureId: "F508del_deletion" } });
+  });
+  it("F508del is not a foreign variant on the CFTR set; it still is on HBB, with the HBB wording unchanged", () => {
+    expect(run("Show me F508del on the protein.").rule).toBe("variant-locate");
+    const hbb = built(hbbContext());
+    const { plan, rule } = deterministicPlan("Show me F508del", hbb);
+    expect(rule).toBe("foreign-variant");
+    expect(plan.reason).toBe("Only the HbS variant is in the curated records; other variants are not available.");
+    expect(deterministicPlan("Where does CFTR F508del occur?", hbb).rule).toBe("foreign-gene");
+    expect(deterministicPlan("Show me where the sickle-cell mutation affects hemoglobin.", hbb).plan.followUps).toEqual(["How does the DNA change at this codon?", "What does this residue touch in the crystal?"]);
   });
 });

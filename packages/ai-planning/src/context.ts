@@ -165,14 +165,22 @@ const TranscriptIn = z
 const ProteinIn = z
   .object({ accession: z.string(), entryName: z.string(), length: z.number(), evidence: z.array(Ev) })
   .loose();
+/**
+ * A variant record of either kind (Phase 9, docs/phase-9-generalisation.md section 11 rule 2):
+ * `variantKind` is absent on the substitution records written before Phase 9 and read as
+ * "substitution"; a deletion carries `proteinChangeComputed` (p. in three-letter form) and the
+ * mature numbering fields are null when the processed chain starts at Met1.
+ */
 const VariantIn = z
   .object({
     key: z.string(),
     commonName: z.string(),
     rsId: z.string(),
-    allele: z.object({ alternate: z.string() }).loose(),
+    variantKind: z.enum(["substitution", "deletion"]).optional(),
+    allele: z.object({ reference: z.string().optional(), alternate: z.string() }).loose(),
     hgvs: z.object({ coding: z.array(z.string()), protein: z.array(z.string()) }).loose(),
-    numbering: z.object({ translatedPosition: z.number(), maturePosition: z.number(), matureLabel: z.string(), translatedLabel: z.string() }).loose(),
+    numbering: z.object({ translatedPosition: z.number(), maturePosition: z.number().nullable(), matureLabel: z.string().nullable(), translatedLabel: z.string() }).loose(),
+    proteinChangeComputed: z.string().optional(),
     clinvar: z.object({ accession: z.string(), classification: z.string(), reviewStatus: z.string() }).loose(),
     evidence: z.array(Ev),
   })
@@ -194,7 +202,8 @@ const MappingIn = z
   .object({
     uniprotAccession: z.string(),
     uniprotPosition: z.number(),
-    maturePosition: z.number(),
+    /** Null when the processed chain starts at Met1 (the structure numbers the residue as UniProt does). */
+    maturePosition: z.number().nullable(),
     entryId: z.string(),
     residues: z.array(z.object({ authAsymId: z.string(), authSeqId: z.string(), assemblyId: z.string(), compId: z.string() }).loose()),
     evidence: z.array(Ev),
@@ -249,6 +258,11 @@ const CapabilitiesIn = z
 
 const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
 
+/** The record's common name without its parenthesised gloss: "HbS (sickle haemoglobin)" is "HbS", "F508del (p.Phe508del)" is "F508del". */
+export function variantShortName(commonName: string): string {
+  return commonName.replace(/\s*\(.*\)$/, "");
+}
+
 /** Why Protein World is unavailable for a set without an experimental structure: the capability report's words, else a generic reason. */
 export function proteinWorldReason(b: Pick<HbbBundle, "structure" | "mapping" | "capabilities">): { available: boolean; reason: string } {
   if (b.structure && b.mapping) return { available: true, reason: "experimental structure with a verified residue mapping" };
@@ -275,6 +289,7 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
   const mapping = structure && b.mapping ? MappingIn.parse(b.mapping) : null;
   const contacts = structure && b.contacts ? ContactsIn.parse(b.contacts) : null;
   const predicted = b.predicted ? PredictedIn.parse(b.predicted) : null;
+  const variantKind: "substitution" | "deletion" = variant?.variantKind ?? "substitution";
 
   const geneId = gene.id.id;
   const evidence: ContextEvidence[] = [];
@@ -307,8 +322,11 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
       category: structure.evidence[0]?.category ?? 1,
       statement: `${structure.evidence[0]?.statement ?? structure.entryId}${citation?.pubmedId ? ` Primary citation PMID ${citation.pubmedId}.` : ""}`,
     });
+    // The asymmetric unit's label describes what the deposited assemblies say it holds: two
+    // tetramers when the entry deposits two four-chain assemblies (2HBS), else every polymer chain.
+    const twoTetramers = structure.assemblies.length === 2 && structure.assemblies.every((a) => a.polymerAsymIds.length === 4);
     const assemblies: ContextAssembly[] = [
-      { id: "model", label: "asymmetric unit (both tetramers, all chains)", chains: [...new Set(structure.entities.flatMap((e) => (e.type === "polymer" ? e.strandIds : [])))] },
+      { id: "model", label: twoTetramers ? "asymmetric unit (both tetramers, all chains)" : "asymmetric unit (all polymer chains)", chains: [...new Set(structure.entities.flatMap((e) => (e.type === "polymer" ? e.strandIds : [])))] },
       ...structure.assemblies.map((a) => ({ id: a.id, label: `biological assembly ${a.id}`, chains: a.polymerAsymIds })),
     ];
     const assembliesContaining = (chains: string[]) => assemblies.filter((a) => chains.every((c) => a.chains.includes(c))).map((a) => a.id);
@@ -324,13 +342,21 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
     if (contacts && contactEvId) addEv(contactEvId, contacts.evidence[0]);
     if (variant && mapping && clinvarEvId && uniprotVarId && mappingEvId) {
       // The variant's residue feature: the mapped residue of record on the experimental structure.
-      featureId = `${variant.commonName.replace(/\s*\(.*\)$/, "").replace(/[^A-Za-z0-9]+/g, "_")}_substitution`;
+      // A substitution's label keeps its Phase 3 form; a deletion (Phase 9) says that the structure
+      // shows the residue the deletion removes, numbered as the mapping record numbers it.
+      featureId = `${variantShortName(variant.commonName).replace(/[^A-Za-z0-9]+/g, "_")}_${variantKind}`;
       const variantChains = mapping.residues.map((r) => r.authAsymId);
       const comp = mapping.residues[0]?.compId ?? "?";
+      const residueNo = mapping.maturePosition ?? mapping.residues[0]?.authSeqId ?? variant.numbering.translatedPosition;
+      const numbering = variant.numbering.matureLabel ? `${variant.numbering.translatedLabel}; ${variant.numbering.matureLabel}` : variant.numbering.translatedLabel;
+      const label =
+        variantKind === "deletion"
+          ? `${variant.commonName}: ${numbering}; in ${structure.entryId} chain${variantChains.length > 1 ? "s" : ""} ${variantChains.join("/")} residue ${residueNo} is ${comp}, the residue the deletion removes`
+          : `${variant.commonName}: ${numbering}; in ${structure.entryId} chains ${variantChains.join("/")} residue ${residueNo} is ${comp}`;
       features.push({
         id: featureId,
         kind: "residue",
-        label: `${variant.commonName}: ${variant.numbering.translatedLabel}; ${variant.numbering.matureLabel}; in ${structure.entryId} chains ${variantChains.join("/")} residue ${mapping.maturePosition} is ${comp}`,
+        label,
         proteinId: protein.accession,
         structureId: structure.entryId,
         chains: variantChains,
@@ -343,7 +369,7 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
         const partnerChains = [...new Set(partners.map((p) => p.authAsymId))];
         const chains = [contactChain.residue.authAsymId, ...partnerChains];
         features.push({
-          id: `${featureId.replace(/_substitution$/, "")}_contact_${contactChain.residue.authAsymId}${contactChain.residue.authSeqId}_${partnerChains.join("")}`,
+          id: `${featureId.replace(/_(substitution|deletion)$/, "")}_contact_${contactChain.residue.authAsymId}${contactChain.residue.authSeqId}_${partnerChains.join("")}`,
           kind: "contact",
           label: `${contactChain.residue.compId} ${contactChain.residue.authAsymId}${contactChain.residue.authSeqId} contacts ${partners.map((p) => `${p.compId} ${p.authAsymId}${p.authSeqId}`).join(", ")} within ${contacts.cutoffAngstrom} A (${contacts.scope})`,
           proteinId: protein.accession,
@@ -378,22 +404,21 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
 
   const variants: ContextVariant[] = [];
   if (variant && clinvarEvId && uniprotVarId) {
+    const clinvarLine = `ClinVar ${variant.clinvar.accession}: ${variant.clinvar.classification} (${variant.clinvar.reviewStatus})`;
+    const names: (string | null)[] =
+      variantKind === "deletion"
+        ? // Phase 9: a deletion's names are the record's own (its short name, the computed protein
+          // change, its identifiers and its numbering label); no descriptive literal is written here.
+          [variantShortName(variant.commonName), variant.proteinChangeComputed ?? null, variant.rsId, ...variant.hgvs.coding, ...variant.hgvs.protein, variant.numbering.translatedLabel, clinvarLine]
+        : // The short name and the Phase 3 descriptive name of the curated substitution (kept for the measured prompts), then the record's identifiers.
+          [variantShortName(variant.commonName), "sickle-cell variant", `${variant.rsId} allele ${variant.allele.alternate}`, ...variant.hgvs.coding, ...variant.hgvs.protein, variant.numbering.matureLabel, clinvarLine];
     variants.push({
       id: variant.key,
       label: variant.commonName,
       geneId,
       proteinId: protein.accession,
-      names: [
-        // The short name and the Phase 3 descriptive name of the curated variant (kept for the measured prompts), then the record's identifiers.
-        variant.commonName.replace(/\s*\(.*\)$/, ""),
-        "sickle-cell variant",
-        `${variant.rsId} allele ${variant.allele.alternate}`,
-        ...variant.hgvs.coding,
-        ...variant.hgvs.protein,
-        variant.numbering.matureLabel,
-        `ClinVar ${variant.clinvar.accession}: ${variant.clinvar.classification} (${variant.clinvar.reviewStatus})`,
-      ],
-      featureId: featureId ?? `${variant.commonName.replace(/\s*\(.*\)$/, "").replace(/[^A-Za-z0-9]+/g, "_")}_substitution`,
+      names: names.filter((n): n is string => n !== null && n !== ""),
+      featureId: featureId ?? `${variantShortName(variant.commonName).replace(/[^A-Za-z0-9]+/g, "_")}_${variantKind}`,
       evidenceIds: [clinvarEvId, uniprotVarId],
     });
   }

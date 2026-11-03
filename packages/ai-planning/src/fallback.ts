@@ -10,7 +10,7 @@
  */
 import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
 import { extractIdTokens } from "./validate.ts";
-import { trustedContextJson, type PlanningContext } from "./context.ts";
+import { trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
 import { routeQuestion, type Routing } from "./routing.ts";
 
 export const FALLBACK_VERSION = "helix-fallback-v1";
@@ -79,6 +79,11 @@ function sequencePlan(ctx: PlanningContext, variant: PlanningContext["variants"]
   };
 }
 
+/** "crystal" for an X-ray entry (the context's structure title carries the method), else "structure". */
+function structureWord(s: PlanningContext["structures"][number] | null): string {
+  return s && /x-ray/i.test(s.title) ? "crystal" : "structure";
+}
+
 function refuse(ctx: PlanningContext, intent: Intent, reason: string): Plan {
   return { ...base(ctx), outcome: "unsupported", intent, actions: [], reason };
 }
@@ -104,6 +109,8 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   const varFeature = variant ? (ctx.features.find((f) => f.id === variant.featureId) ?? null) : null;
   const contactFeature = ctx.features.find((f) => f.kind === "contact") ?? null;
   const level: Plan["explanationLevel"] = BEGINNER.test(q) ? "intro" : EXPERT.test(q) ? "expert" : "intermediate";
+  // Phase 9: the set's own variant is asked for by the generic words or by the record's short name (F508del on the CFTR set; HbS is in the word list already).
+  const variantAsked = VARIANT.test(q) || (variant !== null && q.includes(fold(variantShortName(variant.label))));
   const symbols = new Set(ctx.genes.flatMap((g) => [g.symbol.toUpperCase(), ...g.aliases.map((a) => a.toUpperCase())]));
   // D-H008 (author, 2026-11-02): the question's cue words route the answer; neutral stays in the current world.
   // D-H010 contexts (cueRules "dh010") read the D-H010 lists: molecule names and "chain" are protein cues.
@@ -120,7 +127,12 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
   const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
   if (geneLike.length > 0) return r(refuse(ctx, "other", `${[...new Set(geneLike)].join(", ")} is not in the curated records available here; only ${[...symbols][0] ?? "the curated gene"} is.`), "foreign-gene");
-  if (OTHER_VARIANTS.test(q)) return r(refuse(ctx, "compare_variants", sequenceActions(ctx) ? "Only the HbS variant is in the curated records; other variants are not available." : "Only the HbS variant is in the curated records; other variants are not available, and variant comparison is not executable in this build."), "foreign-variant");
+  // Phase 9: a named variant is foreign only when the trusted context does not carry it (the set's own variant may be one of these names, F508del on the CFTR set).
+  const namedVariant = q.match(OTHER_VARIANTS);
+  if (namedVariant && !trusted.includes(namedVariant[1]!)) {
+    const own = variant ? `the ${variantShortName(variant.label)} variant` : "no variant";
+    return r(refuse(ctx, "compare_variants", sequenceActions(ctx) ? `Only ${own} is in the curated records; other variants are not available.` : `Only ${own} is in the curated records; other variants are not available, and variant comparison is not executable in this build.`), "foreign-variant");
+  }
 
   // 3. Cancel.
   if (CANCEL.test(q)) return r({ ...base(ctx), outcome: "plan", intent: "cancel", actions: [{ type: "cancelActions" }], reason: null }, "cancel");
@@ -140,7 +152,7 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
       const t = { kind: "feature" as const, featureId: contactFeature.id };
       return r({ ...base(ctx), outcome: "plan", intent: "explain_selection", entities: { ...base(ctx).entities, structureId: sel.structureId, proteinId: contactFeature.proteinId }, actions: [{ type: "focusCamera", target: t }, { type: "highlightResidue", target: t }, ...contactFeature.evidenceIds.slice(0, 1).map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], citations: contactFeature.evidenceIds.slice(0, 2), explanationLevel: level, reason: null }, "selection-contact");
     }
-    if (CONTACT.test(q)) return r(clarify(ctx, "explain_selection", `No curated contact data exists for ${sel.chainId}${sel.residueNumber}; contacts are curated only for the HbS residue on chain ${contactFeature?.chains[0] ?? "?"}.`), "selection-contact-missing");
+    if (CONTACT.test(q)) return r(clarify(ctx, "explain_selection", `No curated contact data exists for ${sel.chainId}${sel.residueNumber}; contacts are curated only for the ${variant ? variantShortName(variant.label) : "variant"} residue on chain ${contactFeature?.chains[0] ?? "?"}.`), "selection-contact-missing");
     const evidenceIds = selFeature ? selFeature.evidenceIds.slice(0, 2) : [];
     if (EVIDENCE.test(q)) {
       if (evidenceIds.length === 0) return r(clarify(ctx, "explain_evidence", `No curated evidence is available for ${sel.compId} ${sel.chainId}${sel.residueNumber}.`), "selection-evidence-missing");
@@ -175,17 +187,17 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
 
   // 6. Supported commands.
   // Phase 6: the DNA-level change of the variant, on the sequence next to the reference.
-  if (variant && sequenceActions(ctx) && SEQUENCE_CHANGE.test(q) && (VARIANT.test(q) || /\b(it|this|that)\b/.test(q))) {
+  if (variant && sequenceActions(ctx) && SEQUENCE_CHANGE.test(q) && (variantAsked || /\b(it|this|that)\b/.test(q))) {
     return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, null), "variant-sequence");
   }
   // Phase 6 (blueprint E): no experimental structure with a verified mapping. Say so and show the
   // variant on the sequence instead; a predicted model is never substituted.
-  if (variant && VARIANT.test(q) && !experimental && !EVIDENCE.test(q)) {
+  if (variant && variantAsked && !experimental && !EVIDENCE.test(q)) {
     const why = "No experimental structure with a verified residue mapping is available for this variant in the curated records here, so it is not placed on a 3D structure; a predicted model is never used instead.";
     if (sequenceActions(ctx)) return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, `${why} The change is shown on the transcript sequence instead.`), "variant-no-structure-sequence");
     return r(refuse(ctx, "locate_variant", why), "variant-no-structure");
   }
-  if (variant && experimental && contactFeature && CONTACT.test(q) && (VARIANT.test(q) || /\b(valine|val) ?6\b|\bchain h\b/.test(q))) {
+  if (variant && experimental && contactFeature && CONTACT.test(q) && (variantAsked || /\b(valine|val) ?6\b|\bchain h\b/.test(q))) {
     const t = { kind: "feature" as const, featureId: contactFeature.id };
     return r(
       {
@@ -205,10 +217,10 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   // shows the variant on the sequence next to the reference (the codon change), in DNA World only.
   // A question that names Protein World, or names none in Protein World, keeps the rules below;
   // a question that names both keeps the rule order of D-H007.
-  if (routing?.world === "dna" && variant && sequenceActions(ctx) && VARIANT.test(q) && !EVIDENCE.test(q) && ctx.worlds.some((w) => w.id === "dna" && w.available)) {
+  if (routing?.world === "dna" && variant && sequenceActions(ctx) && variantAsked && !EVIDENCE.test(q) && ctx.worlds.some((w) => w.id === "dna" && w.available)) {
     return r(sequencePlan(ctx, variant, { kind: "variant", variantId: variant.id }, level, null), routing.why === "named" ? "variant-sequence" : "variant-sequence-current-world");
   }
-  if (variant && VARIANT.test(q)) {
+  if (variant && variantAsked) {
     if (EVIDENCE.test(q)) {
       return r({ ...base(ctx), outcome: "plan", intent: "explain_evidence", entities: { ...base(ctx).entities, geneId: variant.geneId, variantId: variant.id }, actions: variant.evidenceIds.map((id) => ({ type: "revealEvidence" as const, evidenceId: id })), citations: variant.evidenceIds, explanationLevel: level, reason: null }, "variant-evidence");
     }
@@ -229,7 +241,8 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
           ],
           citations: varFeature.evidenceIds,
           explanationLevel: level,
-          followUps: sequenceActions(ctx) ? ["How does the DNA change at this codon?", "What does this residue touch in the crystal?"] : ["Why is this residue important?", "What does this residue touch in the crystal?"],
+          // The follow-up names the structure as the record does: a crystal for an X-ray entry, the structure otherwise (a cryo-EM entry is not a crystal).
+          followUps: sequenceActions(ctx) ? ["How does the DNA change at this codon?", `What does this residue touch in the ${structureWord(experimental)}?`] : ["Why is this residue important?", `What does this residue touch in the ${structureWord(experimental)}?`],
           reason: null,
         },
         "variant-locate",
