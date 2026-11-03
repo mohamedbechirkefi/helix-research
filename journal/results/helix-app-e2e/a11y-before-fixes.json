@@ -1,0 +1,2086 @@
+{
+ "date": "2026-11-03T01:59:15.961Z",
+ "tag": "before-fixes",
+ "chrome": "Chrome/156.0.8078.80",
+ "axe": {
+  "version": "4.14.0",
+  "license": "MPL-2.0"
+ },
+ "screens": {
+  "welcome": {
+   "axe": {
+    "violations": [
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 4,
+      "nodes": [
+       {
+        "target": "div[data-dpr-tick=\"0\"]",
+        "html": "<div data-dpr-tick=\"0\" style=\"position: relative; width: 100%; height: 100%; overflow: hidden; pointer-events: auto;\">"
+       },
+       {
+        "target": ".dna-label",
+        "html": "<div class=\"dna-label hx-panel\" data-testid=\"dna-label\">"
+       },
+       {
+        "target": ".seqdock",
+        "html": "<div class=\"seqdock hx-panel\" style=\"display: block;\">"
+       },
+       {
+        "target": ".welcome-spec",
+        "html": "<div class=\"welcome-spec\" aria-label=\"Records\" data-testid=\"welcome-spec\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 2,
+      "sample": [
+       ".welcome-spec",
+       ".hx-codon-change"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 61,
+      "sample": [
+       ".welcome-spec > div:nth-child(1) > .hx-kicker",
+       "div:nth-child(1) > strong",
+       ".welcome-spec > div:nth-child(2) > .hx-kicker",
+       "div:nth-child(2) > strong"
+      ]
+     }
+    ],
+    "passes": 45
+   },
+   "tree": {
+    "file": "tree/welcome.txt",
+    "lines": 235
+   },
+   "shot": "welcome.jpg",
+   "geneChoice": {
+    "tour": null,
+    "journey": "transcript",
+    "mode": "guided",
+    "world": "dna",
+    "variantCard": true,
+    "focus": "body",
+    "tourStartedAfterMs": 15037,
+    "asks": 0
+   }
+  },
+  "dna-world": {
+   "axe": {
+    "violations": [
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "tags": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "count": 23,
+      "nodes": [
+       {
+        "target": "button[data-codon=\"1\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"1\" tabindex=\"0\" aria-pressed=\"false\" aria-label=\"Codon 1, ATG, Met\">"
+       },
+       {
+        "target": "button[data-codon=\"2\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"2\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 2, GTG, Val\">"
+       },
+       {
+        "target": "button[data-codon=\"3\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"3\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 3, CAT, His\">"
+       },
+       {
+        "target": "button[data-codon=\"4\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"4\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 4, CTG, Leu\">"
+       },
+       {
+        "target": "button[data-codon=\"5\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"5\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 5, ACT, Thr\">"
+       },
+       {
+        "target": "button[data-codon=\"6\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"6\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 6, CCT, Pro\">"
+       }
+      ]
+     },
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 5,
+      "nodes": [
+       {
+        "target": "div[data-dpr-tick=\"0\"]",
+        "html": "<div data-dpr-tick=\"0\" style=\"position: relative; width: 100%; height: 100%; overflow: hidden; pointer-events: auto;\">"
+       },
+       {
+        "target": ".dna-label",
+        "html": "<div class=\"dna-label hx-panel\" data-testid=\"dna-label\">"
+       },
+       {
+        "target": ".hx-tour-track",
+        "html": "<span class=\"hx-tour-track\" role=\"progressbar\" aria-label=\"Tour progress\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\"><span style=\"transform: scaleX(0);\"></span></span>"
+       },
+       {
+        "target": ".hx-tour-time",
+        "html": "<span class=\"hx-tour-time hx-num\">0:00 / 0:12</span>"
+       },
+       {
+        "target": ".seqdock",
+        "html": "<div class=\"seqdock hx-panel\" style=\"display: block;\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 1,
+      "sample": [
+       ".hx-codon-change"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 153,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       "span[data-evidence-display=\"illustrative\"] > .hx-chip-label",
+       "span[data-evidence-display=\"illustrative\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 44
+   },
+   "tree": {
+    "file": "tree/dna-world.txt",
+    "lines": 228
+   },
+   "shot": "dna-world.jpg"
+  },
+  "dna-world-side-panel": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 1,
+      "sample": [
+       ".hx-codon-change"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 48,
+      "sample": [
+       ".hx-brand-crumb",
+       ".notice",
+       ".hx-ask-label",
+       "#q"
+      ]
+     }
+    ],
+    "passes": 32
+   },
+   "note": "contrast incomplete on 48 nodes of the side panel (axe cannot resolve translucent panels; the token tests cover 190 pairs)"
+  },
+  "selection": {
+   "shot": "selection.jpg",
+   "readout": {
+    "codon": "7",
+    "link": "mapped",
+    "live": "polite",
+    "text": "Selected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Structure: VAL B6,",
+    "pressed": "true",
+    "tabStop": "7"
+   },
+   "tree": {
+    "file": "tree/selection.txt",
+    "lines": 256
+   },
+   "treeHas": {
+    "region": true,
+    "pair": false,
+    "variantCard": true,
+    "codonChange": false
+   }
+  },
+  "bridge-mid": {
+   "shot": "bridge-sequence-mid.jpg",
+   "state": {
+    "progress": "0.30",
+    "playing": "true",
+    "reached": 1,
+    "live": "Step 1 of 4: Codon 7, GAG → GTG. c.20A>T: base 2 of the codon, A to T",
+    "current": "GAG → GTG"
+   },
+   "axe": {
+    "violations": [
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "tags": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "count": 23,
+      "nodes": [
+       {
+        "target": "button[data-codon=\"1\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"1\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 1, ATG, Met\">"
+       },
+       {
+        "target": "button[data-codon=\"2\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"2\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 2, GTG, Val\">"
+       },
+       {
+        "target": "button[data-codon=\"3\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"3\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 3, CAT, His\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 4, CTG, Leu\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"4\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 4, CTG, Leu\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 5, ACT, Thr\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"5\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 5, ACT, Thr\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 6, CCT, Pro\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"6\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 6, CCT, Pro\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 3,
+      "nodes": [
+       {
+        "target": "div[data-dpr-tick=\"1\"]",
+        "html": "<div data-dpr-tick=\"1\" style=\"position: relative; width: 100%; height: 100%; overflow: hidden; pointer-events: auto;\">"
+       },
+       {
+        "target": ".dna-label",
+        "html": "<div class=\"dna-label hx-panel\" data-testid=\"dna-label\">"
+       },
+       {
+        "target": ".seqdock",
+        "html": "<div class=\"seqdock hx-panel\" style=\"display: block;\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 3,
+      "sample": [
+       ".hx-codon-change",
+       ".hx-rail-pair",
+       ".ev-index"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 269,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-label",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 50
+   },
+   "tree": {
+    "file": "tree/bridge-mid.txt",
+    "lines": 406
+   }
+  },
+  "bridge-paused": {
+   "shot": "bridge-sequence-paused.jpg",
+   "state": {
+    "progress": "0.48",
+    "playing": "false",
+    "reached": 2,
+    "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+    "current": "p.Glu7Val"
+   }
+  },
+  "protein-world": {
+   "axe": {
+    "violations": [
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 3,
+      "nodes": [
+       {
+        "target": "canvas[width=\"1996\"]",
+        "html": "<canvas width=\"1996\" height=\"1636\" style=\"width: 998px; height: 818px;\"></canvas>"
+       },
+       {
+        "target": ".msp-highlight-toast-wrapper",
+        "html": "<div class=\"msp-highlight-toast-wrapper\">"
+       },
+       {
+        "target": ".protein-caption",
+        "html": "<div class=\"protein-caption hx-panel hx-bk\" data-testid=\"protein-caption\" aria-label=\"Structure\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 8,
+      "sample": [
+       ".protein-caption",
+       ".hx-codon-change",
+       ".hx-rail-pair",
+       "span[aria-label=\"Reference 1\"]"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 197,
+      "sample": [
+       ".msp-highlight-simple-row",
+       ".msp-highlight-simple-row > small:nth-child(2)",
+       "small:nth-child(3)",
+       "small:nth-child(4)"
+      ]
+     }
+    ],
+    "passes": 46
+   },
+   "tree": {
+    "file": "tree/protein-world.txt",
+    "lines": 296
+   },
+   "shot": "protein-world.jpg",
+   "treeHas": {
+    "structureGroup": false,
+    "selection": true,
+    "molstarButtons": 6
+   }
+  },
+  "evidence-world": {
+   "axe": {
+    "violations": [
+     {
+      "id": "landmark-banner-is-top-level",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Banner landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-banner-is-top-level?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": ".evworld-head",
+        "html": "<header class=\"evworld-head\"><div><span class=\"hx-kicker\">Evidence World</span><h2>What each statement rests on</h2></div><button type=\"button\" class=\"hx-btn\" data-testid=\"evidence"
+       }
+      ]
+     },
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 3,
+      "nodes": [
+       {
+        "target": "canvas[width=\"1996\"]",
+        "html": "<canvas width=\"1996\" height=\"1636\" style=\"width: 998px; height: 818px;\"></canvas>"
+       },
+       {
+        "target": ".msp-highlight-toast-wrapper",
+        "html": "<div class=\"msp-highlight-toast-wrapper\">"
+       },
+       {
+        "target": ".protein-caption",
+        "html": "<div class=\"protein-caption hx-panel hx-bk\" data-testid=\"protein-caption\" aria-label=\"Structure\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 9,
+      "sample": [
+       ".protein-caption",
+       "span[aria-label=\"2 of 4 review stars\"]",
+       ".hx-codon-change",
+       ".hx-rail-pair"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 280,
+      "sample": [
+       ".msp-highlight-simple-row",
+       ".msp-highlight-simple-row > small:nth-child(2)",
+       "small:nth-child(3)",
+       "small:nth-child(4)"
+      ]
+     }
+    ],
+    "passes": 46
+   },
+   "tree": {
+    "file": "tree/evidence-world.txt",
+    "lines": 723
+   },
+   "shot": "evidence-world.jpg"
+  },
+  "known-limitations": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 25,
+      "sample": [
+       ".hx-limits-title",
+       "li[data-limit=\"nonclinical\"] > .hx-limits-n.hx-num[aria-hidden=\"true\"]",
+       "li[data-limit=\"nonclinical\"] > span:nth-child(2)",
+       "li[data-limit=\"one-gene\"] > .hx-limits-n.hx-num[aria-hidden=\"true\"]"
+      ]
+     }
+    ],
+    "passes": 6
+   },
+   "shot": "known-limitations.jpg"
+  },
+  "dev-panel": {
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 1,
+      "sample": [
+       ".session"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 12,
+      "sample": [
+       ".dev > .hx-panel-head > .hx-panel-titles > .hx-kicker",
+       ".dev > .hx-panel-head > .hx-panel-titles > h2",
+       ".status-line > .hx-kicker",
+       "b"
+      ]
+     }
+    ],
+    "passes": 15
+   },
+   "tree": {
+    "file": "tree/dev-panel.txt",
+    "lines": 261
+   },
+   "shot": "dev-panel.jpg"
+  },
+  "bridge-reduced-motion": {
+   "axe": {
+    "violations": [
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "tags": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "count": 23,
+      "nodes": [
+       {
+        "target": "button[data-codon=\"1\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"1\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 1, ATG, Met\">"
+       },
+       {
+        "target": "button[data-codon=\"2\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"2\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 2, GTG, Val\">"
+       },
+       {
+        "target": "button[data-codon=\"3\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"3\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 3, CAT, His\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 4, CTG, Leu\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"4\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 4, CTG, Leu\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 5, ACT, Thr\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"5\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 5, ACT, Thr\">"
+       },
+       {
+        "target": "button[aria-label=\"Codon 6, CCT, Pro\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"6\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 6, CCT, Pro\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 3,
+      "nodes": [
+       {
+        "target": "div[data-dpr-tick=\"1\"]",
+        "html": "<div data-dpr-tick=\"1\" style=\"position: relative; width: 100%; height: 100%; overflow: hidden; pointer-events: auto;\">"
+       },
+       {
+        "target": ".dna-label",
+        "html": "<div class=\"dna-label hx-panel\" data-testid=\"dna-label\">"
+       },
+       {
+        "target": ".seqdock",
+        "html": "<div class=\"seqdock hx-panel\" style=\"display: block;\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 3,
+      "sample": [
+       ".hx-codon-change",
+       ".hx-rail-pair",
+       ".ev-index"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 267,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-label",
+       ".dna-label > .hx-chip[data-evidence-display=\"illustrative\"][data-evidence-class=\"5\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 50
+   }
+  },
+  "low-power": {
+   "axe": {
+    "violations": [
+     {
+      "id": "label-content-name-mismatch",
+      "impact": "serious",
+      "tags": [
+       "wcag21a",
+       "wcag253"
+      ],
+      "help": "Elements must have their visible text as part of their accessible name",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/label-content-name-mismatch?application=axeAPI",
+      "count": 23,
+      "nodes": [
+       {
+        "target": "button[data-codon=\"1\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"1\" tabindex=\"0\" aria-pressed=\"false\" aria-label=\"Codon 1, ATG, Met\">"
+       },
+       {
+        "target": "button[data-codon=\"2\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"2\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 2, GTG, Val\">"
+       },
+       {
+        "target": "button[data-codon=\"3\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"3\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 3, CAT, His\">"
+       },
+       {
+        "target": "button[data-codon=\"4\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"4\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 4, CTG, Leu\">"
+       },
+       {
+        "target": "button[data-codon=\"5\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"5\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 5, ACT, Thr\">"
+       },
+       {
+        "target": "button[data-codon=\"6\"]",
+        "html": "<button type=\"button\" class=\"hx-codon\" data-codon=\"6\" tabindex=\"-1\" aria-pressed=\"false\" aria-label=\"Codon 6, CCT, Pro\">"
+       }
+      ]
+     },
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 5,
+      "nodes": [
+       {
+        "target": "div[data-dpr-tick=\"0\"]",
+        "html": "<div data-dpr-tick=\"0\" style=\"position: relative; width: 100%; height: 100%; overflow: hidden; pointer-events: auto;\">"
+       },
+       {
+        "target": ".dna-label",
+        "html": "<div class=\"dna-label hx-panel\" data-testid=\"dna-label\">"
+       },
+       {
+        "target": ".hx-tour-track",
+        "html": "<span class=\"hx-tour-track\" role=\"progressbar\" aria-label=\"Tour progress\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"0\"><span style=\"transform: scaleX(0);\"></span></span>"
+       },
+       {
+        "target": ".hx-tour-time",
+        "html": "<span class=\"hx-tour-time hx-num\">0:00 / 0:12</span>"
+       },
+       {
+        "target": ".seqdock",
+        "html": "<div class=\"seqdock hx-panel\" style=\"display: block;\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "aria-prohibited-attr",
+      "impact": "serious",
+      "count": 1,
+      "sample": [
+       ".hx-codon-change"
+      ]
+     },
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 153,
+      "sample": [
+       ".dna-label",
+       ".dna-label-sub",
+       "span[data-evidence-display=\"illustrative\"] > .hx-chip-label",
+       "span[data-evidence-display=\"illustrative\"] > .hx-chip-cls"
+      ]
+     }
+    ],
+    "passes": 44
+   }
+  },
+  "loading": {
+   "axe": {
+    "violations": [
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "region",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "All page content should be contained by landmarks",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/region?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "#root",
+        "html": "<div id=\"root\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 3,
+      "sample": [
+       "span",
+       "h1",
+       "p"
+      ]
+     }
+    ],
+    "passes": 24
+   },
+   "tree": {
+    "file": "tree/loading.txt",
+    "lines": 7
+   },
+   "shot": "loading.jpg",
+   "state": {
+    "busy": "true",
+    "gauge": "Waiting for the dataset manifest",
+    "h1": "Checking every record before it is shown"
+   }
+  },
+  "error": {
+   "axe": {
+    "violations": [
+     {
+      "id": "landmark-one-main",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Document should have one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/landmark-one-main?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     },
+     {
+      "id": "page-has-heading-one",
+      "impact": "moderate",
+      "tags": [
+       "best-practice"
+      ],
+      "help": "Page should contain a level-one heading",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.14/page-has-heading-one?application=axeAPI",
+      "count": 1,
+      "nodes": [
+       {
+        "target": "html",
+        "html": "<html lang=\"en\">"
+       }
+      ]
+     }
+    ],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "impact": "serious",
+      "count": 4,
+      "sample": [
+       "span",
+       "h2",
+       "pre",
+       "button"
+      ]
+     }
+    ],
+    "passes": 16
+   },
+   "tree": {
+    "file": "tree/error.txt",
+    "lines": 7
+   },
+   "shot": "error.jpg"
+  }
+ },
+ "keyboard": {
+  "welcome": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button[world-dna]",
+      "name": "DNA",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 0,
+      "ring": true
+     },
+     {
+      "el": "button[world-protein]",
+      "name": "Protein",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 0,
+      "ring": true
+     },
+     {
+      "el": "button[world-evidence]",
+      "name": "Evidence",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 0,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Codon 1, ATG, Met",
+      "inside": [
+       "[data-testid=codon-strip]"
+      ],
+      "visible": true,
+      "opacity": 0,
+      "ring": true
+     },
+     {
+      "el": "input[welcome-gene]",
+      "name": "Gene symbol or name",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-explore]",
+      "name": "Explore",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-question]",
+      "name": "A question the app supports",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[welcome-skip]",
+      "name": "Skip and explore freely",
+      "inside": [
+       "[data-testid=welcome]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "Question",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "1. The HBB transcript(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "2. Codon 7(DNA)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "3. The mapped residue(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "4. A contact in the crystal(Protein)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-back]",
+      "name": "Back",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[journey-next]",
+      "name": "Next",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[start-journey]",
+      "name": "Start the journey",
+      "inside": [
+       "aside.panel",
+       "[data-testid=journey]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Known limitations (12)",
+      "inside": [
+       "aside.panel",
+       "[data-testid=known-limitations]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 18,
+    "trapped": false,
+    "invisible": [
+     "button[world-dna] DNA",
+     "button[world-protein] Protein",
+     "button[world-evidence] Evidence",
+     "button Codon 1, ATG, Met"
+    ],
+    "noRing": [],
+    "truncated": false
+   },
+   "dialogNamed": false,
+   "variantCardOnWelcome": true,
+   "ringGene": {
+    "el": "input[welcome-gene]",
+    "name": "Gene symbol or name",
+    "inside": [
+     "[data-testid=welcome]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     48,
+     433,
+     426,
+     48
+    ],
+    "codon": null,
+    "shot": "focus-welcome-gene.png"
+   },
+   "ringSkip": {
+    "el": "button[welcome-skip]",
+    "name": "Skip and explore freely",
+    "inside": [
+     "[data-testid=welcome]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     48,
+     579,
+     157,
+     32
+    ],
+    "codon": null,
+    "shot": "focus-welcome-skip.png"
+   }
+  },
+  "tourPlate": {
+   "shotPaused": "dna-tour-paused.jpg",
+   "ring": null,
+   "paused": {
+    "plate": "none",
+    "label": "Tour ready",
+    "buttons": [
+     "Replay"
+    ]
+   },
+   "resumed": {
+    "plate": "none",
+    "label": "Tour ready",
+    "buttons": [
+     "Replay"
+    ]
+   },
+   "escaped": {
+    "plate": "none"
+   }
+  },
+  "dnaWorld": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button[world-dna]",
+      "name": "DNA",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-protein]",
+      "name": "Protein",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[world-evidence]",
+      "name": "Evidence",
+      "inside": [
+       ".hx-worlds"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Replay",
+      "inside": [
+       "[data-testid=tour]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button",
+      "name": "Codon 1, ATG, Met",
+      "inside": [
+       "[data-testid=codon-strip]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "input[question]",
+      "name": "Question",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "A question the app supports",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 8,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "codonTabStops": 1
+  },
+  "worldSwitcher": {
+   "keys": [
+    "ArrowRight",
+    "ArrowRight",
+    "Home",
+    "End",
+    "ArrowLeft"
+   ],
+   "focus": [
+    "button[world-protein]",
+    "button[world-evidence]",
+    "button[world-dna]",
+    "button[world-evidence]",
+    "button[world-protein]"
+   ],
+   "shot": "focus-world-switcher.png"
+  },
+  "codonTape": {
+   "keys": [
+    "ArrowRight",
+    "ArrowRight",
+    "End",
+    "Home",
+    "ArrowLeft"
+   ],
+   "focus": [
+    "2",
+    "3",
+    "148",
+    "1",
+    "1"
+   ],
+   "after6Right": "7",
+   "selection": {
+    "codon": "7",
+    "link": "mapped",
+    "live": "polite",
+    "text": "Selected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Structure: VAL B6,",
+    "pressed": "true",
+    "tabStop": "7"
+   },
+   "ringShot": "focus-codon-7.png"
+  },
+  "askBar": {
+   "ringShot": "focus-ask-input.png",
+   "outcome": "executed",
+   "wallMs": 31,
+   "status": {
+    "live": "polite",
+    "text": ""
+   }
+  },
+  "chips": {
+   "keys": [
+    "ArrowRight",
+    "ArrowDown",
+    "Home",
+    "End",
+    "ArrowUp"
+   ],
+   "focus": [
+    "A question the app supports",
+    "A question the app supports",
+    "Bridge to the other world",
+    "A question the app supports",
+    "A question the app supports"
+   ],
+   "texts": [
+    "See the sickle-cell mutation o",
+    "What does the HbS residue touc",
+    "Show the evidence for the sick"
+   ],
+   "ringShot": "focus-chip.png"
+  },
+  "bridge": {
+   "chipFocusedBefore": "See the sickle-cell mutation on the protein.",
+   "focusOnOpen": {
+    "el": "button",
+    "name": "Pause",
+    "inside": [
+     "[data-testid=bridge-sequence]"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     129,
+     762,
+     54,
+     26
+    ],
+    "codon": null
+   },
+   "mid": {
+    "progress": "0.30",
+    "playing": "true",
+    "reached": 1,
+    "live": "Step 1 of 4: Codon 7, GAG → GTG. c.20A>T: base 2 of the codon, A to T",
+    "current": "GAG → GTG"
+   },
+   "afterSpace": {
+    "focus": {
+     "el": "button",
+     "name": "Resume",
+     "inside": [
+      "[data-testid=bridge-sequence]"
+     ],
+     "visible": true,
+     "opacity": 1,
+     "focusVisible": true,
+     "outline": "solid 1px rgb(63, 216, 232)",
+     "ring": true,
+     "rect": [
+      129,
+      762,
+      64,
+      26
+     ],
+     "codon": null
+    },
+    "state": {
+     "progress": "0.48",
+     "playing": "false",
+     "reached": 2,
+     "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+     "current": "p.Glu7Val"
+    },
+    "ringShot": "focus-bridge-resume.png"
+   },
+   "afterArrowRight": {
+    "progress": "0.62",
+    "playing": "false",
+    "reached": 3,
+    "live": "Step 3 of 4: Numbering, 7 → 6. Met1 is removed in the mature chain, so UniProt 7 is residue 6 (SIFTS)",
+    "current": "7 → 6"
+   },
+   "afterArrowLeft": {
+    "progress": "0.30",
+    "playing": "false",
+    "reached": 2,
+    "live": "Step 2 of 4: Translation, p.Glu7Val. Glu to Val at position 7, counted from Met1 (UniProt numbering)",
+    "current": "p.Glu7Val"
+   },
+   "tabInsideThenOut": [
+    {
+     "el": "button",
+     "name": "Previous step",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Resume",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Next step",
+     "ring": true
+    },
+    {
+     "el": "button",
+     "name": "Replay",
+     "ring": true
+    },
+    {
+     "el": "button[bridge-continue]",
+     "name": "Continue to Protein World",
+     "ring": true
+    },
+    {
+     "el": "button[bridge-skip]",
+     "name": "Skip",
+     "ring": true
+    },
+    {
+     "left": "input[question]",
+     "name": "Question"
+    }
+   ],
+   "afterContinue": {
+    "world": "protein",
+    "overlay": false,
+    "last": {
+     "requestId": "q2",
+     "query": "See the sickle-cell mutation on the protein.",
+     "status": "played",
+     "reason": "continued by the visitor",
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ],
+     "startedAt": 5606.5999999940395,
+     "endedAt": 7603.4000000059605,
+     "interacted": true,
+     "reduced": false
+    },
+    "focus": "body"
+   },
+   "outcome": "executed",
+   "bridgeRecord": {
+    "requestId": "q2",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "played",
+    "reason": "continued by the visitor",
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 5606.5999999940395,
+    "endedAt": 7603.4000000059605,
+    "interacted": true,
+    "reduced": false
+   }
+  },
+  "proteinWorld": {
+   "tab": {
+    "stops": [
+     {
+      "el": "input[question]",
+      "name": "Question",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[ask]",
+      "name": "Ask",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "button[next-branch]",
+      "name": "Suggested by the planner, screened by the follow-up filter",
+      "inside": [
+       "aside.panel"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 3,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "molstarTabStops": [],
+   "molstarDom": {
+    "present": true,
+    "buttons": [
+     {
+      "title": "Reset Zoom",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Set camera zoom to fit the visible scene into view",
+      "label": null,
+      "text": "Reset Zoom",
+      "tabIndex": 0
+     },
+     {
+      "title": "Align principal component axes of the loaded structures to the screen axes (“lay flat”)",
+      "label": null,
+      "text": "Orient Axes",
+      "tabIndex": 0
+     },
+     {
+      "title": "Align Cartesian axes to the screen axes",
+      "label": null,
+      "text": "Reset Axes",
+      "tabIndex": 0
+     },
+     {
+      "title": "Screenshot / State Snapshot",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Controls Panel",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Expanded Viewport",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": null,
+      "label": null,
+      "text": "Fullscreen",
+      "tabIndex": 0
+     },
+     {
+      "title": "Settings / Controls Info",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Illumination",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Augmented/Virtual Reality unavailable",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     },
+     {
+      "title": "Toggle Selection Mode",
+      "label": null,
+      "text": "",
+      "tabIndex": 0
+     }
+    ],
+    "layerVisible": "visible",
+    "canvasTabIndex": -1
+   },
+   "text": {
+    "caption": "Mol*2HBS · asymmetric unit, as depositedExperimental · class 1MethodX-ray diffractionResolution2.05 ÅDeposited1997-05-06Chain · residueH · VAL 6GAG → GTGCodon 7p.Glu7ValTranslation7 → 6NumberingVAL 62HBS chain H",
+    "link": "Structure: VAL B6, VAL D6, VAL F6, VAL H6 in 2HBS (label = auth, mapping of record)",
+    "selection": "Selected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Structure: VAL B6, VAL D6, VAL F6, VAL",
+    "readback": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ]
+   }
+  },
+  "evidenceWorld": {
+   "focusOnOpen": {
+    "el": "button[world-evidence]",
+    "name": "Evidence",
+    "inside": [
+     ".hx-worlds"
+    ],
+    "visible": true,
+    "opacity": 1,
+    "focusVisible": true,
+    "outline": "solid 1px rgb(63, 216, 232)",
+    "ring": true,
+    "rect": [
+     523,
+     17,
+     83,
+     28
+    ],
+    "codon": null
+   },
+   "toggle": {
+    "pressed": "true",
+    "coveredBy": "evworld-head"
+   },
+   "tab": {
+    "stops": [
+     {
+      "el": "button[evidence-world-close]",
+      "name": "Back to the scene",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 3 sources, record gene.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 1 source, record protein-P68871.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     },
+     {
+      "el": "summary",
+      "name": "Provenance: 8 sources, record variant-hbs.json",
+      "inside": [
+       "[data-testid=evidence-world]"
+      ],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 4,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "stopsInside": 4,
+   "ringClose": "focus-evidence-close.png",
+   "ledger": {
+    "open": true,
+    "links": 3,
+    "summaries": 10
+   },
+   "afterSummaryEnterTab": {
+    "el": "a",
+    "name": "ensembl"
+   },
+   "escapeCloses": false,
+   "afterClose": {
+    "open": false,
+    "focus": "body"
+   }
+  },
+  "knownLimitations": {
+   "ringShot": "focus-limitations.png",
+   "open": true,
+   "items": 12,
+   "summary": "Known limitations (12)"
+  },
+  "bridgeEscape": {
+   "shown": true,
+   "focusOnOpen": {
+    "el": "button",
+    "name": "Pause",
+    "inside": [
+     "[data-testid=bridge-sequence]"
+    ]
+   },
+   "world": "protein",
+   "last": {
+    "requestId": "q3",
+    "query": "See the sickle-cell mutation on the protein.",
+    "status": "skipped",
+    "reason": "skipped by the visitor",
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "startedAt": 13880.79999999702,
+    "endedAt": 14093.79999999702,
+    "interacted": false,
+    "reduced": false
+   },
+   "focus": "input[question]",
+   "outcome": "executed"
+  },
+  "devPanel": {
+   "stopsInside": []
+  },
+  "error": {
+   "tab": {
+    "stops": [
+     {
+      "el": "button",
+      "name": "Reload",
+      "inside": [],
+      "visible": true,
+      "opacity": 1,
+      "ring": true
+     }
+    ],
+    "count": 1,
+    "trapped": false,
+    "invisible": [],
+    "noRing": [],
+    "truncated": false
+   },
+   "ringShot": null
+  }
+ },
+ "reducedMotion": {
+  "appSwitch": {
+   "css": {
+    "motion": "reduced",
+    "panel": "0s",
+    "anchor": "0s",
+    "btn": "0s",
+    "gaugeAnim": null,
+    "media": false
+   },
+   "afterSkip": {
+    "tour": {
+     "state": "done",
+     "progress": 1,
+     "durationMs": 12000,
+     "reduced": true
+    },
+    "moving": false,
+    "plate": "done",
+    "label": "Tour: cut to the end (reduced motion)",
+    "buttons": [
+     "Replay"
+    ],
+    "fx": {
+     "dof": 0,
+     "fxDpr": 2,
+     "effects": true,
+     "dpr": 2
+    }
+   },
+   "idleFrames2s": 0,
+   "shot": "reduced-motion-dna-world.jpg"
+  },
+  "bridgeShot": "reduced-motion-bridge.jpg",
+  "bridge": {
+   "on": [
+    "true",
+    "true",
+    "true",
+    "true"
+   ],
+   "progress": "1.00",
+   "playing": "false",
+   "live": "Step 4 of 4: 2HBS chain H, VAL 6. Residue 6 is VAL in the deposited coordinates",
+   "buttons": [
+    {
+     "t": "Previous step",
+     "disabled": false
+    },
+    {
+     "t": "Resume",
+     "disabled": true
+    },
+    {
+     "t": "Next step",
+     "disabled": true
+    },
+    {
+     "t": "Replay",
+     "disabled": false
+    },
+    {
+     "t": "Continue to Protein World",
+     "disabled": false
+    },
+    {
+     "t": "Skip",
+     "disabled": false
+    }
+   ],
+   "focus": "Previous step",
+   "stationOpacity": [
+    "1",
+    "1",
+    "1",
+    "1"
+   ],
+   "dwellMs": 2817,
+   "recordDwellMs": 2803.4000000059605,
+   "after": {
+    "world": "protein",
+    "last": {
+     "requestId": "q2",
+     "query": "See the sickle-cell mutation on the protein.",
+     "status": "played",
+     "reason": null,
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ],
+     "startedAt": 5516.20000000298,
+     "endedAt": 8319.60000000894,
+     "interacted": false,
+     "reduced": true
+    }
+   },
+   "outcome": "executed"
+  },
+  "osSetting": {
+   "media": true,
+   "motion": "reduced",
+   "panel": "0s",
+   "afterSkip": {
+    "state": "done",
+    "reduced": true,
+    "label": "Tour: cut to the end (reduced motion)"
+   }
+  }
+ },
+ "lowPower": {
+  "rest": {
+   "power": "low",
+   "lowClass": true,
+   "fx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "canvasRatio": 1,
+   "panel": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "seqdock": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "dnaLabel": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "tourPlate": {
+    "background": "rgba(9, 12, 18, 0.96)",
+    "backdrop": "none"
+   },
+   "labelText": "Illustrative geometry, real sequenceENST00000335295.4 cDNA, 628 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "labelColor": "rgb(243, 245, 248)",
+   "shot": "low-power-dna-world.jpg"
+  },
+  "tour": {
+   "shot": "low-power-tour-mid.jpg",
+   "midFx": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "frames": 722,
+   "renderMs": {
+    "median": 0.6,
+    "p95": 1.8,
+    "max": 5.5
+   },
+   "over16_7": 0,
+   "over33_4": 0,
+   "idleFramesAfter": 0
+  },
+  "tab": {
+   "count": 8,
+   "trapped": false,
+   "noRing": []
+  }
+ },
+ "pageErrors": {
+  "welcome": [],
+  "main": [],
+  "dev-panel": [],
+  "reduced-motion": [],
+  "reduced-motion-os": [],
+  "low-power": [],
+  "loading": []
+ },
+ "failures": [
+  "welcome: the dialog is named by the wordmark heading",
+  "welcome: focus reaches invisible controls behind the welcome: button[world-dna] DNA, button[world-protein] Protein, button[world-evidence] Evidence, button Codon 1, ATG, Met",
+  "welcome: the variant card must not be shown on the welcome (D-H014)",
+  "welcome gene choice (D-H014): tour must play after Explore, journey on the transcript chapter, no planner call {\"tour\":null,\"journey\":\"transcript\",\"mode\":\"guided\",\"world\":\"dna\",\"variantCard\":true,\"focus\":\"body\",\"tourStartedAfterMs\":15037,\"asks\":0}",
+  "tour: Space pauses {\"plate\":\"none\",\"label\":\"Tour ready\",\"buttons\":[\"Replay\"]}",
+  "tour: Space resumes {\"plate\":\"none\",\"label\":\"Tour ready\",\"buttons\":[\"Replay\"]}",
+  "tour: the plate buttons are reachable with Tab",
+  "tour: Escape interrupts {\"plate\":\"none\"}",
+  "welcome: axe violations region x4",
+  "dna-world: landmarks (main, Worlds navigation, Question and Journey regions) in the tree",
+  "selection: the readout rail is a region named Selection with the base pair named",
+  "chips keys {\"chips\":[\"A question the app supports\",\"A question the app supports\",\"Bridge to the other world\",\"A question the app supports\",\"A question the app supports\"],\"chipTexts\":[\"See the sickle-cell mutation o\",\"What does the HbS residue touc\",\"Show the evidence for the sick\"]}",
+  "dna-world: axe violations label-content-name-mismatch x23, landmark-one-main x1, region x5",
+  "bridge: focus must return to a control after the overlay closes (got body)",
+  "bridge: dialog name and the Bridge steps group in the tree",
+  "bridge-mid: axe violations label-content-name-mismatch x23, region x3",
+  "protein-world: axe violations landmark-one-main x1, region x3",
+  "evidence-world: ledger disclosures open with Enter and the source links follow {\"inEv\":4,\"ledger\":{\"open\":true,\"links\":3,\"summaries\":10},\"fLink\":{\"el\":\"a\",\"name\":\"ensembl\",\"inside\":[\"[data-testid=evidence-world]\"],\"visible\":true,\"opacity\":1,\"focusVisible\":true,\"outline\":\"solid 1px rgb(63, 216, 232)\",\"ring\":true,\"rect\":[410,425,48,14],\"codon\":null}}",
+  "evidence-world: focus must move into the layer when it opens (got {\"el\":\"button[world-evidence]\",\"name\":\"Evidence\",\"inside\":[\".hx-worlds\"],\"visible\":true,\"opacity\":1,\"focusVisible\":true,\"outline\":\"solid 1px rgb(63, 216, 232)\",\"ring\":true,\"rect\":[523,17,83,28],\"codon\":null})",
+  "evidence-world: closing returns focus to the toggle {\"open\":false,\"focus\":\"body\"}",
+  "evidence-world: axe violations landmark-banner-is-top-level x1, landmark-one-main x1, region x3",
+  "dev-panel: the planner select is labelled and reachable []",
+  "bridge-reduced-motion: axe violations label-content-name-mismatch x23, region x3",
+  "low-power: axe violations label-content-name-mismatch x23, landmark-one-main x1, region x5",
+  "loading: axe violations landmark-one-main x1, region x1",
+  "error: axe violations landmark-one-main x1, page-has-heading-one x1"
+ ],
+ "axeSummary": {
+  "welcome": {
+   "violations": [
+    "region (moderate) x4"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x2",
+    "color-contrast x61"
+   ]
+  },
+  "dna-world": {
+   "violations": [
+    "label-content-name-mismatch (serious) x23",
+    "landmark-one-main (moderate) x1",
+    "region (moderate) x5"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x1",
+    "color-contrast x153"
+   ]
+  },
+  "dna-world-side-panel": {
+   "violations": [],
+   "incomplete": [
+    "aria-prohibited-attr x1",
+    "color-contrast x48"
+   ]
+  },
+  "bridge-mid": {
+   "violations": [
+    "label-content-name-mismatch (serious) x23",
+    "region (moderate) x3"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x3",
+    "color-contrast x269"
+   ]
+  },
+  "protein-world": {
+   "violations": [
+    "landmark-one-main (moderate) x1",
+    "region (moderate) x3"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x8",
+    "color-contrast x197"
+   ]
+  },
+  "evidence-world": {
+   "violations": [
+    "landmark-banner-is-top-level (moderate) x1",
+    "landmark-one-main (moderate) x1",
+    "region (moderate) x3"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x9",
+    "color-contrast x280"
+   ]
+  },
+  "known-limitations": {
+   "violations": [],
+   "incomplete": [
+    "color-contrast x25"
+   ]
+  },
+  "dev-panel": {
+   "violations": [],
+   "incomplete": [
+    "aria-prohibited-attr x1",
+    "color-contrast x12"
+   ]
+  },
+  "bridge-reduced-motion": {
+   "violations": [
+    "label-content-name-mismatch (serious) x23",
+    "region (moderate) x3"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x3",
+    "color-contrast x267"
+   ]
+  },
+  "low-power": {
+   "violations": [
+    "label-content-name-mismatch (serious) x23",
+    "landmark-one-main (moderate) x1",
+    "region (moderate) x5"
+   ],
+   "incomplete": [
+    "aria-prohibited-attr x1",
+    "color-contrast x153"
+   ]
+  },
+  "loading": {
+   "violations": [
+    "landmark-one-main (moderate) x1",
+    "region (moderate) x1"
+   ],
+   "incomplete": [
+    "color-contrast x3"
+   ]
+  },
+  "error": {
+   "violations": [
+    "landmark-one-main (moderate) x1",
+    "page-has-heading-one (moderate) x1"
+   ],
+   "incomplete": [
+    "color-contrast x4"
+   ]
+  }
+ }
+}
