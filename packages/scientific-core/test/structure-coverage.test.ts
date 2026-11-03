@@ -37,7 +37,7 @@ describe("coverage words and fraction (rule 3), composed from the numbers alone"
     expect(ACCEPTED_METHODS).toEqual(["X-RAY DIFFRACTION", "ELECTRON MICROSCOPY", "SOLUTION NMR"]);
   });
   it("the capability reason repeats the structure record's coverage sentence before the cross-reference count", () => {
-    const base = { geneId: "G", symbol: "X", biotype: "protein_coding", transcriptSelection: null, hasTranslation: true, protein: { accession: "Q00000", sequenceVerified: true }, verifiedMappings: [{ entryId: "1ABC", uniprotPosition: 61 }], predictedModel: null, variantPositions: [61], pathways: null };
+    const base = { geneId: "G", symbol: "X", biotype: "protein_coding", transcriptSelection: null, hasTranslation: true, protein: { accession: "Q00000", sequenceVerified: true }, verifiedMappings: [{ entryId: "1ABC", uniprotPosition: 61 }], predictedModel: null, variantPositions: [61], pathways: null, associations: null };
     const xrefs = [{ entryId: "1ABC", method: "NMR" }, { entryId: "7XYZ", method: "EM" }];
     const text = "1ABC covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown)";
     expect(capabilities({ ...base, experimentalStructures: xrefs, selectedStructure: { entryId: "1ABC", coverage: text } }).experimentalStructure).toEqual({ available: true, reason: `${text}; 2 experimental entries cross-referenced (e.g. 1ABC, NMR)`, evidenceCategory: 1 });

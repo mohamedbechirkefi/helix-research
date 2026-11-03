@@ -17,3 +17,4 @@ export * from "./adapters/clinvar.ts";
 export * from "./adapters/hgnc.ts";
 export * from "./adapters/alphafold.ts";
 export * from "./adapters/reactome.ts";
+export * from "./adapters/opentargets.ts";

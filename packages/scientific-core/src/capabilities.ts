@@ -35,6 +35,12 @@ export interface CapabilityInput {
    * `reason` is the rule's own sentence for that case.
    */
   pathways: { membershipCount: number; opening: { stableId: string; name: string } | null; reason: string } | null;
+  /**
+   * Phase 9 (P9.1.3): what Open Targets said, or null when the specification did not ask for
+   * associations. `count` is the platform's count, `kept` the rows of the record, `top` the
+   * highest-scoring kept association (plan section 14 rule 3).
+   */
+  associations: { count: number; kept: number; top: { diseaseName: string; score: number } | null } | null;
 }
 
 const yes = (reason: string, evidenceCategory: number | null) => ({ available: true, reason, evidenceCategory });
@@ -91,6 +97,14 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
         : i.pathways.opening === null
           ? no(i.pathways.reason)
           : yes(`${i.pathways.membershipCount} Reactome membership${i.pathways.membershipCount === 1 ? "" : "s"}; opens on ${i.pathways.opening.name}, ${i.pathways.opening.stableId} (the rule's choice: fewest participants among non-disease pathways with a diagram)`, 2);
+  // Association, never causal (plan section 14 rule 3): available when at least one association is kept;
+  // the reason names the count and the top association's name and score, as the record states them.
+  const associationView =
+    i.associations === null
+      ? no("associations not requested in the gene specification")
+      : i.associations.kept === 0 || i.associations.top === null
+        ? no("no Open Targets association for this gene")
+        : yes(`${i.associations.count} Open Targets association${i.associations.count === 1 ? "" : "s"}, ${i.associations.kept} kept by score; top: ${i.associations.top.diseaseName} (score ${i.associations.top.score}); association, never causal`, 2);
   return {
     kind: "capabilities",
     derivedFrom: [],
@@ -103,5 +117,6 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
     verifiedResidueMapping,
     variantHighlight,
     pathwayView,
+    associationView,
   };
 }

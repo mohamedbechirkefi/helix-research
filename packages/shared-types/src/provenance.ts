@@ -13,6 +13,7 @@ export const SourceId = z.enum([
   "hgnc",
   "alphafold",
   "reactome",
+  "opentargets",
 ]);
 export type SourceId = z.infer<typeof SourceId>;
 

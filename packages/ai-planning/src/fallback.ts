@@ -10,7 +10,7 @@
  */
 import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
 import { extractIdTokens } from "./validate.ts";
-import { pathwayEvidenceId, trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
+import { associationEvidenceId, pathwayEvidenceId, trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
 import { routeQuestion, type Routing } from "./routing.ts";
 
 export const FALLBACK_VERSION = "helix-fallback-v1";
@@ -45,6 +45,12 @@ const PATHWAY = /\b(pathways?|dna repair|reparation|voies?)\b/;
 /** Phase 9 (P9.1.2): does the question ask about pathways (the word list of the pathway rule)? The app reads it to load the pathway record before planning. */
 export function asksPathway(query: string): boolean {
   return PATHWAY.test(fold(query));
+}
+// Phase 9 (P9.1.3): a question about the diseases a gene is associated with (Open Targets; association, never causal).
+const ASSOCIATION = /\b(diseases?|maladies?|open targets|disease associations?)\b|\bassociat(ed|ions?) with\b/;
+/** Phase 9 (P9.1.3): does the question ask about disease associations? The app reads it to load the associations record before planning. */
+export function asksAssociation(query: string): boolean {
+  return ASSOCIATION.test(fold(query));
 }
 const BEGINNER = /(beginner|simple|simply|debutant|explain like)/;
 const EXPERT = /(expert|detail|in depth|codon|numbering)/;
@@ -199,6 +205,15 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
       return r({ ...base(ctx), outcome: "plan", intent: "other", entities: { ...base(ctx).entities, geneId: gene?.id ?? null, proteinId: protein?.id ?? null }, actions: [{ type: "enterWorld", world: "pathway" }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], citations: cited, explanationLevel: level, reason: null }, "pathway-world");
     }
     return r(refuse(ctx, "other", "No curated pathway records are available in this context."), "pathway");
+  }
+  // Phase 9 (P9.1.3): a disease question reveals the set's Open Targets associations (class 2; association,
+  // never causal) when the record is in the context; no world changes. Without the record, a refusal that says so.
+  if (ASSOCIATION.test(q)) {
+    const evId = gene ? associationEvidenceId(gene.id) : null;
+    if (ctx.associations && ctx.associations.length > 0 && evId && ctx.evidence.some((e) => e.id === evId)) {
+      return r({ ...base(ctx), outcome: "plan", intent: "other", entities: { ...base(ctx).entities, geneId: gene?.id ?? null, proteinId: protein?.id ?? null }, actions: [{ type: "revealEvidence", evidenceId: evId }], citations: [evId], explanationLevel: level, reason: null }, "associations");
+    }
+    return r(refuse(ctx, "other", "No curated disease-association records are available in this context."), "associations-none");
   }
 
   // 6. Supported commands.

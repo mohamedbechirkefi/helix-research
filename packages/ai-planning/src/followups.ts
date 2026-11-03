@@ -81,6 +81,10 @@ export const CAPABILITY_RULES: ReadonlySet<string> = new Set([
   "experimental-structure", // the curated experimental structure
   "protein-world", // Protein World
   "pathway-world", // Pathway World (Phase 9, P9.1.2): the Reactome memberships of the set's protein, membership only
+  // Phase 9 (P9.1.3): the Open Targets associations of the set's gene, revealed as evidence (association, never
+  // causal). Listed for completeness: the set's own question names diseases, which the clinical rule above drops
+  // first (a suggestion about a disease invites a clinical reading), so it is asked, never offered as a next question.
+  "associations",
 ]);
 
 /** Phase 9: the pathway words of the scope blocklist are a capability when the context has Pathway World; they are read as "membership" before the scope check then. */

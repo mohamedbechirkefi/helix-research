@@ -213,11 +213,11 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
   it("the fixture set is complete for the specification, every file matches its MANIFEST row, and the redacted records carry the original sha256 in the redaction column", async () => {
     const idx = await fixtureIndex("faah2");
     // Phase 9 (P9.1.2): the set's one Reactome membership adds the version, the memberships, one ancestors and one participants record.
-    expect(Object.keys(idx.inputs).sort()).toEqual(["alphafoldModel", "alphafoldPrediction", "cdna", "cds", "ensemblAssembly", "ensemblInfoData", "ensemblProtein", "geneLookup", "hgnc", "reactomeAncestors:R-HSA-2142753", "reactomeParticipants:R-HSA-2142753", "reactomePathways", "reactomeVersion", "transcriptLookup", "uniprot"]);
+    expect(Object.keys(idx.inputs).sort()).toEqual(["alphafoldModel", "alphafoldPrediction", "cdna", "cds", "ensemblAssembly", "ensemblInfoData", "ensemblProtein", "geneLookup", "hgnc", "opentargetsAssociations", "reactomeAncestors:R-HSA-2142753", "reactomeParticipants:R-HSA-2142753", "reactomePathways", "reactomeVersion", "transcriptLookup", "uniprot"]);
     expect(idx.extra).toEqual({});
     const inputs = await loadFixtureInputs("faah2");
     for (const [name, r] of Object.entries(inputs)) {
-      expect(r.url, name).toMatch(/^https:\/\/(rest\.ensembl\.org|rest\.uniprot\.org|rest\.genenames\.org|alphafold\.ebi\.ac\.uk|reactome\.org\/ContentService)\//);
+      expect(r.url, name).toMatch(/^https:\/\/(rest\.ensembl\.org|rest\.uniprot\.org|rest\.genenames\.org|alphafold\.ebi\.ac\.uk|reactome\.org\/ContentService|api\.platform\.opentargets\.org\/api\/v4\/graphql)(\/|$)/);
       expect(r.url).not.toMatch(/email|mailto|@/i);
       expect(findProprietaryIdentifiers(name.endsWith("Model") || /^(cds|cdna|ensemblProtein|reactomeVersion)$/.test(name) ? r.body : JSON.parse(r.body)), name).toEqual([]);
     }
@@ -237,7 +237,7 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
     ]);
   });
   it("writes the gene, transcript, sequence, protein, predicted-model, pathways, capability and questions records (the pathway question, P9.1.2) and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "questions.json", "sequences.json", "transcript.json"]);
+    expect(files).toEqual(["associations.json", "capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "questions.json", "sequences.json", "transcript.json"]);
   });
   it("capabilities: structure, mapping and variant unavailable with the builder's reasons; transcript and protein views available; the prediction as found", () => {
     expect(cap.symbol).toBe("FAAH2");
@@ -256,7 +256,7 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
     expect(manifest.generator.script).toBe(`${GENERATOR_SCRIPT} (fixtures)`);
     expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
     expect(manifest.validation.find((v) => v.check === "T15-initiator-met-and-chain")).toMatchObject({ result: "pass", detail: "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532" });
-    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "reactome", "uniprot"]);
+    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "opentargets", "reactome", "uniprot"]);
     expect(manifest.sources.map((s) => s.sha256).sort()).toEqual(Object.values(await loadFixtureInputs("faah2")).map((r) => r.sha256).sort());
     const prot = Protein.parse(JSON.parse(await readFile(join(out, "protein-Q6GMR7.json"), "utf8")));
     expect(prot.xrefs.pdb).toEqual([]);

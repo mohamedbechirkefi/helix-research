@@ -1,0 +1,48 @@
+files compared: 17
+byte-identical files: 0
+allowed differences (timestamps and dependent hashes): 186
+  clinvar-c61g.json: 3
+  contacts-c61g-1JM7.json: 1
+  gene.json: 9
+  manifest.json: 81
+  pathways.json: 6
+  predicted-model-AF-P38398-F1.json: 1
+  protein-P38398.json: 10
+  residue-mapping-P38398-1JM7.json: 4
+  residue-mapping-c61g-1JM7.json: 8
+  sequences.json: 32
+  structure-1JM7.json: 11
+  transcript.json: 6
+  variant-c61g.json: 14
+other differences: 31
+  capabilities.json $.derivedFrom: 12 != 13 (array length)
+  capabilities.json $.associationView: undefined != {"available":true,"reason":"1324 Open Targets associations, 25 kept by score; top: breast cancer (score 0.8436508158150241); association, never causal","evidenceCategory":2} (value)
+  manifest.json $.generator.gitCommit: "715116bd7f13e4d1931e3d56f581c2ab331a59a1" != "46e57a59c0fe4b0eedcc81f68e5293b2f2802e53" (value)
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.sources: 62 != 63 (array length)
+  manifest.json $.files: 15 != 16 (array length)
+  manifest.json $.files[13].path: "capabilities.json" != "associations.json" (value)
+  manifest.json $.files[13].recordKind: "capabilities" != "disease-associations" (value)
+  manifest.json $.files[14].path: "questions.json" != "capabilities.json" (value)
+  manifest.json $.files[14].recordKind: "questions" != "capabilities" (value)
+  manifest.json $.validation: 64 != 68 (array length)
+  manifest.json $.validation[61].check: "T47-structure-method" != "T49-association-target" (value)
+  manifest.json $.validation[61].detail: "1JM7 method SOLUTION NMR; resolution none; 14 model(s) in atom_site; _pdbx_nmr_ensemble: 14 submitted of 25 calculated, representative conformer 2 (closest to the average); model 1 is the one mapped, measured and shown" != "response target ENSG00000012048 BRCA1; specification ENSG00000012048; gene record ENSG00000012048 BRCA1" (value)
+  manifest.json $.validation[62].check: "T48-structure-coverage" != "T49-association-rows" (value)
+  manifest.json $.validation[62].detail: "103 of 110 mapped positions observed in model 1 on chain(s) A, 1-103; protein length 1863; fraction 0.0553 = 103/1863; words match the numbers" != "25 row(s) kept of 1324 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top breast cancer (MONDO_0007254) 0.8436508158150241" (value)
+  manifest.json $.validation[63].check: "T31-drift-recorded" != "T50-association-order-and-exclusion" (value)
+  manifest.json $.validation[63].detail: "uniprot-xref-ensembl-gene-version: ENSG00000012048.27 vs ENSG00000012048.28; vep-swissprot-entry-version: P38398.282 vs P38398.285" != "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: cancer_biomarkers, cancer_gene_census, clingen, europepmc, eva, eva_somatic, gene2phenotype, gene_burden, genomics_england, impc, intogen, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: cancer_gene_census, europepmc; no excluded id remains in the kept scores" (value)
+  manifest.json $.attribution: 9 != 10 (array length)
+  manifest.json $.attribution[4].source: "pdbe-sifts" != "opentargets" (value)
+  manifest.json $.attribution[4].text: "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013." != "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record." (value)
+  manifest.json $.attribution[5].source: "rcsb" != "pdbe-sifts" (value)
+  manifest.json $.attribution[5].text: "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation." != "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013." (value)
+  manifest.json $.attribution[6].source: "rcsb-files" != "rcsb" (value)
+  manifest.json $.attribution[6].text: "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation." != "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation." (value)
+  manifest.json $.attribution[7].source: "reactome" != "rcsb-files" (value)
+  manifest.json $.attribution[7].text: "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." != "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation." (value)
+  manifest.json $.attribution[8].source: "uniprot" != "reactome" (value)
+  manifest.json $.attribution[8].licence: "CC-BY-4.0" != "CC0-1.0" (value)
+  manifest.json $.attribution[8].text: "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX." != "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." (value)
+  questions.json $.questions: 5 != 6 (array length)
+  associations.json : false != true (file present in one build only)

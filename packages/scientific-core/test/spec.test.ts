@@ -21,7 +21,7 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
   });
   it("holds selections only: no position, sequence or version is in the file", async () => {
     const json = await hbbSpec();
-    expect(Object.keys(json).sort()).toEqual(["bridgeQuestion", "contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pathways", "pdbId", "questions", "variant"]);
+    expect(Object.keys(json).sort()).toEqual(["associations", "bridgeQuestion", "contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pathways", "pdbId", "questions", "variant"]);
     expect(Object.keys(json.identifiers as object).sort()).toEqual(["ensemblGeneId", "hgncSymbol", "uniprotAccession"]);
     expect(Object.keys(json.variant as object).sort()).toEqual(["clinvarUid", "commonName", "forwardAllele", "rsId", "slug"]);
   });
@@ -49,7 +49,7 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
     // c.181T>G on a reverse-strand gene is A>C on the forward strand, as HBB's c.20A>T is T>A: the forward allele is C.
     expect(config.variant).toStrictEqual({ kind: "substitution", slug: "c61g", commonName: "C61G (p.Cys61Gly)", rsId: "rs28897672", forwardAllele: "C", clinvarUid: "17661" });
     expect([config.pdbId, config.structurePreference, config.includeAlphafold, config.pathways]).toEqual(["1JM7", "variant-residue-observed", true, true]);
-    expect(config.questions.map((q) => q.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"]]);
+    expect(config.questions.map((q) => q.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"], ["associationView"]]);
     expect(config.questions.every((q) => /C61G|BRCA1/.test(q.text))).toBe(true);
     expect(config.bridgeQuestion).toBe("See the C61G mutation on the protein.");
     // The notes cite the candidate check and name no position that the builder reads from a response as a selection.
@@ -67,8 +67,9 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
   it("validates the questions: text and capability keys only; an empty list is allowed, an unknown key or a stray field is not", async () => {
     const json = await hbbSpec();
     const config = loadGeneSpec(json);
-    expect(config.questions).toHaveLength(5);
+    expect(config.questions).toHaveLength(6);
     expect(config.questions[4]).toStrictEqual({ text: "Which pathways list HBB?", requires: ["pathwayView"] });
+    expect(config.questions[5]).toStrictEqual({ text: "What diseases are associated with HBB?", requires: ["associationView"] });
     expect(config.questions[0]).toStrictEqual({ text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] });
     expect(config.bridgeQuestion).toBe("See the sickle-cell mutation on the protein.");
     const { bridgeQuestion, ...noBridge } = json;

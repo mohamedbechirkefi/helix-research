@@ -15,7 +15,7 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 import { HttpClient, RecordCache } from "@helix/data-adapters";
-import { type RawRecord, type SliceBuild, type SliceConfig, type SliceInputName, type SliceInputs, acquirePathways, acquireSlice, buildManifest, buildSlice, inputsFor, isPathwayInput, loadGeneSpec } from "@helix/scientific-core";
+import { type RawRecord, type SliceBuild, type SliceConfig, type SliceInputName, type SliceInputs, acquireAssociations, acquirePathways, acquireSlice, buildManifest, buildSlice, inputsFor, isAssociationInput, isPathwayInput, loadGeneSpec } from "@helix/scientific-core";
 import type { DatasetManifest } from "@helix/shared-types";
 import { type RecordedFixtureSet, redactInputs, writeFixtureSet } from "./fixture-recorder.ts";
 import { loadFixtureInputs } from "./fixtures.ts";
@@ -50,15 +50,25 @@ export interface GeneBuildOptions {
   /**
    * Offline mode only: sources fetched live while everything else comes from the snapshot, so
    * that a snapshot that predates a source gains its responses without asking the other
-   * sources again (Phase 9, P9.1.2: `reactome`). The merged inputs become the new snapshot.
+   * sources again (Phase 9, P9.1.2: `reactome`; P9.1.3: `opentargets`). The merged inputs become
+   * the new snapshot.
    */
   liveSources?: LiveSource[];
   log?: (m: string) => void;
 }
 
 /** The sources `--live-sources` may name. */
-export const LIVE_SOURCES = ["reactome"] as const;
+export const LIVE_SOURCES = ["reactome", "opentargets"] as const;
 export type LiveSource = (typeof LIVE_SOURCES)[number];
+
+/**
+ * What each live source is for: the specification flag that asks for it, its inputs in SliceInputs
+ * and the acquisition that fetches only them (the rest of the snapshot is untouched).
+ */
+const LIVE_SOURCE_GROUPS: Record<LiveSource, { flag: "pathways" | "associations"; isInput: (name: string) => boolean; acquire: (http: HttpClient, config: SliceConfig, log: (m: string) => void) => Promise<Partial<SliceInputs>>; option: string }> = {
+  reactome: { flag: "pathways", isInput: isPathwayInput, acquire: acquirePathways, option: "--offline --live-sources=reactome" },
+  opentargets: { flag: "associations", isInput: isAssociationInput, acquire: acquireAssociations, option: "--offline --live-sources=opentargets" },
+};
 
 export interface GeneBuildResult {
   outDir: string;
@@ -176,25 +186,33 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
     }
   } else if (o.mode === "offline") {
     inputs = await loadSnapshot(cache, store, config.datasetId);
-    if (o.liveSources?.includes("reactome") && config.pathways) {
-      // Only the named source is asked; the snapshot's other responses stay as they were recorded. The
-      // merged inputs become the new snapshot, so the next offline build needs no request at all.
+    // Only the named sources are asked (those the specification's flag wants); the snapshot's other responses
+    // stay as they were recorded. The merged inputs become the new snapshot, so the next offline build needs
+    // no request at all.
+    const live = (o.liveSources ?? []).filter((src) => config[LIVE_SOURCE_GROUPS[src].flag]);
+    if (live.length > 0) {
       const http = new HttpClient({
         userAgent: USER_AGENT,
         onEvent: (e) => {
           if (e.type === "retry") log(`  retry ${e.attempt} in ${e.delayMs} ms (${e.error.code}): ${e.url}`);
         },
       });
-      log(`offline rebuild of ${config.datasetId} from the snapshot with live Reactome requests only (User-Agent "${USER_AGENT}")`);
-      for (const k of Object.keys(inputs)) if (isPathwayInput(k)) delete inputs[k as SliceInputName];
-      Object.assign(inputs, await acquirePathways(http, config, log));
+      log(`offline rebuild of ${config.datasetId} from the snapshot with live ${live.join(" and ")} requests only (User-Agent "${USER_AGENT}")`);
+      for (const src of live) {
+        const g = LIVE_SOURCE_GROUPS[src];
+        for (const k of Object.keys(inputs)) if (g.isInput(k)) delete inputs[k as SliceInputName];
+        Object.assign(inputs, await g.acquire(http, config, log));
+      }
       await snapshotInputs(cache, store, config.datasetId, inputs, generatedAt);
-    } else if (config.pathways && !inputs.reactomePathways) {
-      throw new Error(`the ${config.datasetId} snapshot predates the Reactome requests the specification asks for (pathways: true); rerun with --offline --live-sources=reactome to fetch only those, or run a live build`);
+    }
+    for (const src of LIVE_SOURCES) {
+      const g = LIVE_SOURCE_GROUPS[src];
+      if (config[g.flag] && !Object.keys(inputs).some((k) => g.isInput(k))) throw new Error(`the ${config.datasetId} snapshot predates the ${src} request(s) the specification asks for (${g.flag}: true); rerun with ${g.option} to fetch only those, or run a live build`);
     }
     if (liveOnly) {
       // Only the live-fetched sources are redacted and recorded; the other inputs stay the snapshot's bytes.
-      const subset = Object.fromEntries(Object.entries(inputsFor(inputs, config)).filter(([k, r]) => r && isPathwayInput(k))) as unknown as SliceInputs;
+      const isLive = (k: string): boolean => (o.liveSources ?? []).some((src) => LIVE_SOURCE_GROUPS[src].isInput(k));
+      const subset = Object.fromEntries(Object.entries(inputsFor(inputs, config)).filter(([k, r]) => r && isLive(k))) as unknown as SliceInputs;
       const r = redactInputs(subset);
       Object.assign(inputs, r.inputs);
       toRecord = r.redacted;

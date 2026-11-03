@@ -1,5 +1,5 @@
 {
-  "description": "Offline fixtures for the HBB slice. Paths are relative to the repository root. research/raw is the frozen Phase 1 snapshot (redacted under Q-H-LIC-1); data/fixtures/hbb holds records recorded in Phase 2 by scripts/data-preparation/record-fixtures.ts. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded. The reactome responses were recorded on 2026-11-03 by scripts/data-preparation/build-gene.ts --gene hbb --offline --live-sources=reactome --record-fixtures=live (live requests to those sources only, everything else from the snapshot), redacted under Q-H-LIC-1 as the other records.",
+  "description": "Offline fixtures for the HBB slice. Paths are relative to the repository root. research/raw is the frozen Phase 1 snapshot (redacted under Q-H-LIC-1); data/fixtures/hbb holds records recorded in Phase 2 by scripts/data-preparation/record-fixtures.ts. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded. The reactome responses were recorded on 2026-11-03 by scripts/data-preparation/build-gene.ts --gene hbb --offline --live-sources=reactome --record-fixtures=live (live requests to those sources only, everything else from the snapshot), redacted under Q-H-LIC-1 as the other records. The opentargets responses were recorded on 2026-11-03 by scripts/data-preparation/build-gene.ts --gene hbb --offline --live-sources=opentargets --record-fixtures=live (live requests to those sources only, everything else from the snapshot), redacted under Q-H-LIC-1 as the other records.",
   "inputs": {
     "ensemblInfoData": { "source": "ensembl", "path": "research/raw/ensembl/info_data.json" },
     "ensemblAssembly": { "source": "ensembl", "path": "research/raw/ensembl/assembly_homo_sapiens.json" },
@@ -43,7 +43,8 @@
     "reactomeParticipants:R-HSA-9613829": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9613829.json" },
     "reactomeParticipants:R-HSA-9615710": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9615710.json" },
     "reactomeParticipants:R-HSA-9707564": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707564.json" },
-    "reactomeParticipants:R-HSA-9707616": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707616.json" }
+    "reactomeParticipants:R-HSA-9707616": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707616.json" },
+    "opentargetsAssociations": { "source": "opentargets", "path": "data/fixtures/hbb/opentargets/api_v4_graphql.json" }
   },
   "extra": {
     "hbbp1Lookup": { "source": "ensembl", "path": "data/fixtures/hbb/ensembl/lookup_symbol_HBBP1_expand_mane.json" },

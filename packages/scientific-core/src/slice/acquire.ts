@@ -18,6 +18,7 @@ import {
   type FetchedResponse,
   HgncAdapter,
   type HttpClient,
+  OpenTargetsAdapter,
   RcsbAdapter,
   ReactomeAdapter,
   SiftsAdapter,
@@ -70,6 +71,21 @@ export async function acquirePathways(http: HttpClient, config: SliceConfig, log
     out[participantsInput(m.stableId)] = toRaw(part.response);
   }
   return out;
+}
+
+/** The association group of inputs (O1), as a partial record of SliceInputs. */
+export type AssociationInputs = Pick<SliceInputs, "opentargetsAssociations">;
+
+/**
+ * The one Open Targets request (Phase 9, P9.1.3, plan section 14 rule 1), separable from the rest so
+ * that an offline rebuild can add it to a snapshot that predates it. The terms discourage one-entity
+ * querying: the builder asks once per set and records the response; nothing else calls it.
+ */
+export async function acquireAssociations(http: HttpClient, config: SliceConfig, log: (m: string) => void = () => undefined): Promise<AssociationInputs> {
+  const ot = new OpenTargetsAdapter(http);
+  const r = await ot.associations(config.ensemblGeneId);
+  log(`${"O1 opentargets".padEnd(20)} ${r.response.status} ${String(r.response.bytes).padStart(8)} B  ${r.response.method} ${r.response.url} (${r.data.count} associations, ${r.data.rows.length} rows)`);
+  return { opentargetsAssociations: toRaw(r.response) };
 }
 
 export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (m: string) => void = () => undefined): Promise<SliceInputs> {
@@ -209,5 +225,6 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
     inputs.alphafoldModel = toRaw(model.response);
   }
   if (config.pathways) Object.assign(inputs, await acquirePathways(http, config, log));
+  if (config.associations) Object.assign(inputs, await acquireAssociations(http, config, log));
   return inputs;
 }

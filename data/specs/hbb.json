@@ -18,12 +18,14 @@
   "contactCutoffAngstrom": 4.5,
   "includeAlphafold": true,
   "pathways": true,
+  "associations": true,
   "questions": [
     { "text": "Show me where the sickle-cell mutation affects hemoglobin.", "requires": ["variantHighlight", "experimentalStructure"] },
     { "text": "How does the DNA change for the sickle-cell variant?", "requires": ["variantHighlight"] },
     { "text": "What does the HbS residue touch in the crystal?", "requires": ["variantHighlight", "experimentalStructure"] },
     { "text": "Show the evidence for the sickle-cell variant.", "requires": ["variantHighlight"] },
-    { "text": "Which pathways list HBB?", "requires": ["pathwayView"] }
+    { "text": "Which pathways list HBB?", "requires": ["pathwayView"] },
+    { "text": "What diseases are associated with HBB?", "requires": ["associationView"] }
   ],
   "bridgeQuestion": "See the sickle-cell mutation on the protein.",
   "notes": "First gene (Phases 1 to 8). 2HBS is the deoxy sickle haemoglobin entry in which the variant residue (HbS, beta 6 Val in mature numbering, UniProt position 7) is observed; the HBB_CONFIG constant in packages/scientific-core/src/slice/types.ts mirrors this file and a test keeps them equal."

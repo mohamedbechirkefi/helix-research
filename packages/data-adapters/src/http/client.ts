@@ -41,6 +41,8 @@ export const DEFAULT_RATE_LIMITS: Record<SourceId, RateLimit> = {
   alphafold: { perSecond: 3, burst: 3 },
   // Reactome states no numeric limit (registry section 6); kept at the same polite rate as the others.
   reactome: { perSecond: 3, burst: 3 },
+  // Open Targets discourages one-entity querying (registry section 7); the builder makes one request per set.
+  opentargets: { perSecond: 1, burst: 1 },
 };
 
 /** Response headers worth keeping as provenance (release identifiers, rate-limit state). */
@@ -240,6 +242,16 @@ export class HttpClient {
   /** Fetch and parse JSON. HTML error pages and invalid JSON become MalformedResponseError. */
   async getJson(source: SourceId, url: string, ro: RequestOptions = {}): Promise<{ response: FetchedResponse; json: unknown }> {
     const response = await this.request(source, url, ro);
+    return { response, json: parseJsonBody(response.body, url) };
+  }
+
+  /**
+   * POST a JSON body and parse the JSON response (Phase 9, P9.1.3: the Open Targets GraphQL endpoint).
+   * The same retries, rate limit, provenance fields and malformed-body detection as a GET; the
+   * response records the method, so a provenance row says POST.
+   */
+  async postJson(source: SourceId, url: string, body: unknown, ro: RequestOptions = {}): Promise<{ response: FetchedResponse; json: unknown }> {
+    const response = await this.request(source, url, { ...ro, method: "POST", body: JSON.stringify(body), headers: { "content-type": "application/json", ...(ro.headers ?? {}) } });
     return { response, json: parseJsonBody(response.body, url) };
   }
 

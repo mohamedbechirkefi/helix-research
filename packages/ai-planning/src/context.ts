@@ -90,6 +90,18 @@ export interface ContextPathway {
   isDisease: boolean;
   membership: string;
 }
+/**
+ * One Open Targets disease association of the set's gene (Phase 9, P9.1.3; plan section 14 rule 4): a
+ * database annotation, class 2, scored evidence that links the gene to a disease, never a cause.
+ * `association` is one sentence an explanation may quote, composed from the record by deterministic
+ * code; it carries the never-causal sentence.
+ */
+export interface ContextAssociation {
+  diseaseId: string;
+  name: string;
+  score: number;
+  association: string;
+}
 export interface ContextSelection {
   structureId: string;
   chainId: string;
@@ -119,6 +131,12 @@ export interface PlanningContext {
    * context may gain this field after it was built; Phase 3 to 8 contexts never carry it).
    */
   pathways?: ContextPathway[];
+  /**
+   * The Open Targets associations of the set's gene, in the record's order (by score; Phase 9, P9.1.3),
+   * present only when the disease-associations record was given to the builder (the app loads that
+   * record on first need, as it does the pathways record; earlier contexts never carry it).
+   */
+  associations?: ContextAssociation[];
   worlds: { id: World; available: boolean; reason: string }[];
   /** Actions in the vocabulary that this build can execute. */
   executableActions: string[];
@@ -279,6 +297,8 @@ export interface HbbBundle {
   capabilities?: unknown | null;
   /** Phase 9 (P9.1.2): the pathway-memberships record (pathways.json), when it has been loaded. */
   pathways?: unknown | null;
+  /** Phase 9 (P9.1.3): the disease-associations record (associations.json), when it has been loaded. */
+  associations?: unknown | null;
 }
 
 const CapabilitiesIn = z
@@ -341,6 +361,43 @@ export function pathwayContext(record: unknown): { accession: string; pathways: 
   const e = p.evidence[0];
   if (e) evidence.push({ id: pathwayEvidenceId(p.accession), category: e.category, statement: e.statement });
   return { accession: p.accession, pathways, evidence };
+}
+
+/** The fields of the disease-associations record the context reads (the record itself is validated by shared-types at build time). */
+const AssociationsIn = z
+  .object({
+    kind: z.literal("disease-associations"),
+    ensemblGeneId: z.string(),
+    approvedSymbol: z.string(),
+    platform: z.object({ apiVersion: z.string(), dataVersion: z.string() }).loose(),
+    count: z.number(),
+    associations: z.array(z.object({ diseaseId: z.string(), diseaseName: z.string(), score: z.number() }).loose()),
+    note: z.string(),
+    evidence: z.array(Ev),
+  })
+  .loose();
+
+/** The evidence id of a set's disease-associations record in the context. */
+export const associationEvidenceId = (ensemblGeneId: string): string => `opentargets:${ensemblGeneId}`;
+
+/**
+ * The context's association entries and the record's evidence, from the disease-associations
+ * record (Phase 9, P9.1.3). Used by the builder when the record is in the bundle, and by the app when
+ * the record is loaded later (fetched on first need, never at start). Every word comes from the
+ * record; no association is called a cause.
+ */
+export function associationContext(record: unknown): { ensemblGeneId: string; associations: ContextAssociation[]; evidence: ContextEvidence[] } {
+  const a = AssociationsIn.parse(record);
+  const associations: ContextAssociation[] = a.associations.map((r) => ({
+    diseaseId: r.diseaseId,
+    name: r.diseaseName,
+    score: r.score,
+    association: `${r.diseaseName} (${r.diseaseId}) is associated with ${a.approvedSymbol} in Open Targets ${a.platform.apiVersion} (data ${a.platform.dataVersion}) with score ${r.score}: database annotation, class 2; ${a.note}.`,
+  }));
+  const evidence: ContextEvidence[] = [];
+  const e = a.evidence[0];
+  if (e) evidence.push({ id: associationEvidenceId(a.ensemblGeneId), category: e.category, statement: e.statement });
+  return { ensemblGeneId: a.ensemblGeneId, associations, evidence };
 }
 
 /**
@@ -561,6 +618,9 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
   // Phase 9 (P9.1.2): the pathway memberships, when the record is in the bundle (membership only, class 2).
   const pathways = b.pathways ? pathwayContext(b.pathways) : null;
   if (pathways) evidence.push(...pathways.evidence);
+  // Phase 9 (P9.1.3): the disease associations, when the record is in the bundle (association, never causal; class 2).
+  const associations = b.associations ? associationContext(b.associations) : null;
+  if (associations) evidence.push(...associations.evidence);
 
   const proteinWorld = proteinWorldReason(b);
   const pathwayWorld = pathwayWorldReason(b);
@@ -581,6 +641,7 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
     features,
     evidence,
     ...(pathways ? { pathways: pathways.pathways } : {}),
+    ...(associations ? { associations: associations.associations } : {}),
     worlds: [
       { id: "overview", available: true, reason: "always" },
       { id: "genome", available: true, reason: "gene locus on GRCh38" },

@@ -64,7 +64,7 @@ describe("generic builder: a specification without pdbId and without variant (fi
   });
 
   it("writes the gene, transcript, sequence, protein, predicted-model, pathways, capability and questions records and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "questions.json", "sequences.json", "transcript.json"]);
+    expect(files).toEqual(["associations.json", "capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "questions.json", "sequences.json", "transcript.json"]);
     expect(files.filter((f) => /^(structure|contacts|variant|clinvar|residue-mapping)-|\.cif$/.test(f))).toEqual([]);
   });
   it("the capability file says what is missing, in the specification's terms", () => {
@@ -79,8 +79,9 @@ describe("generic builder: a specification without pdbId and without variant (fi
     expect(cap.transcriptView.available).toBe(true);
     expect(cap.proteinView.available).toBe(true);
     expect(cap.predictedStructure).toMatchObject({ available: true, evidenceCategory: 3 });
-    expect(cap.derivedFrom).toEqual(["gene.json", "transcript.json", "sequences.json", "protein-P68871.json", "predicted-model-AF-P68871-F1.json", "pathways.json"]);
+    expect(cap.derivedFrom).toEqual(["gene.json", "transcript.json", "sequences.json", "protein-P68871.json", "predicted-model-AF-P68871-F1.json", "pathways.json", "associations.json"]);
     expect(cap.pathwayView).toMatchObject({ available: true, evidenceCategory: 2 });
+    expect(cap.associationView).toMatchObject({ available: true, evidenceCategory: 2 });
   });
   it("the manifest is schema-valid, names build-gene.ts, has no failed check and cites no structure, SIFTS or ClinVar source", async () => {
     expect(manifest.datasetId).toBe("hbb-no-structure");
@@ -88,7 +89,7 @@ describe("generic builder: a specification without pdbId and without variant (fi
     expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
     expect(manifest.validation.map((v) => v.check)).not.toContain("T23-residue-from-atom-site");
     expect(manifest.validation.map((v) => v.check)).toContain("T32-alphafold-labelled");
-    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "reactome", "uniprot"]);
+    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "opentargets", "reactome", "uniprot"]);
     expect(manifest.sources.some((s) => /variant_recoder|\/variation\/|\/vep\/|map\/cds|sequence\/region/.test(s.url))).toBe(false);
     expect(manifest.files.map((f) => f.path).sort()).toEqual(files.filter((f) => f !== "manifest.json"));
     const seqs = JSON.parse(await readFile(join(out, "sequences.json"), "utf8")) as { records: { sequenceKind: string }[] };
@@ -198,12 +199,13 @@ describe("the CFTR set (P9.2.1): an in-frame deletion built from its recorded fi
     expect(c.chains[0]!.contacts.every((x) => Math.abs(x.authSeqId - 508) > 1)).toBe(true);
     expect(c.evidence[0]!.statement).toMatch(/the residue deleted in F508del/);
   });
-  it("the questions record (rule 6) is listed in the manifest with its hash and carries CFTR's five questions (the pathway question last, P9.1.2) and bridge question", async () => {
+  it("the questions record (rule 6) is listed in the manifest with its hash and carries CFTR's six questions (the pathway question, P9.1.2, then the association question, P9.1.3) and bridge question", async () => {
     expect(files).toContain("questions.json");
     const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
     expect(q).toMatchObject({ kind: "questions", symbol: "CFTR", derivedFrom: ["capabilities.json"], bridgeQuestion: "See the F508del mutation on the protein." });
-    expect(q.questions.map((x) => x.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"]]);
-    expect(q.questions.at(-1)!.text).toBe("Which pathways list CFTR?");
+    expect(q.questions.map((x) => x.requires)).toEqual([["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["variantHighlight", "experimentalStructure"], ["variantHighlight"], ["pathwayView"], ["associationView"]]);
+    expect(q.questions.at(-2)!.text).toBe("Which pathways list CFTR?");
+    expect(q.questions.at(-1)!.text).toBe("What diseases are associated with CFTR?");
     const entry = manifest.files.find((f) => f.path === "questions.json")!;
     expect(entry.recordKind).toBe("questions");
     expect(entry.sha256).toMatch(/^[0-9a-f]{64}$/);
@@ -295,8 +297,8 @@ describe("the BRCA1 set (P9.2.2): a substitution on a domain structure, solution
     expect([pw.membershipCount, pw.participantsByPathway.length, pw.openingPathway?.stableId]).toEqual([28, 9, "R-HSA-1221632"]);
     expect(pw.memberships.filter((x) => x.isDisease)).toHaveLength(7);
     const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
-    expect(q.questions.map((x) => x.text)).toEqual(["Show me where the C61G mutation affects the BRCA1 protein.", "How does the DNA change for the C61G variant?", "What does the C61G variant residue touch in the structure?", "Show the evidence for the C61G variant.", "Which pathways list BRCA1?"]);
-    expect(files).toHaveLength(16);
+    expect(q.questions.map((x) => x.text)).toEqual(["Show me where the C61G mutation affects the BRCA1 protein.", "How does the DNA change for the C61G variant?", "What does the C61G variant residue touch in the structure?", "Show the evidence for the C61G variant.", "Which pathways list BRCA1?", "What diseases are associated with BRCA1?"]);
+    expect(files).toHaveLength(17);
     expect(files).toContain("1JM7.cif");
   });
 });
