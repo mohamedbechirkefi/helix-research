@@ -34,3 +34,19 @@ export function faah2Bundle(): HbbBundle {
 export function faah2Context(): PlanningContext {
   return buildHbbContext(faah2Bundle());
 }
+
+/** The CFTR set (Phase 9, P9.2.1): the first set whose reference variant is an in-frame deletion (F508del on 5UAK). */
+export function cftrBundle(): HbbBundle {
+  const dir = join(REPO_ROOT, "data", "curated", "cftr");
+  const j = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf8")) as unknown;
+  return { gene: j("gene.json"), transcript: j("transcript.json"), protein: j("protein-P13569.json"), variant: j("variant-f508del.json"), structure: j("structure-5UAK.json"), mapping: j("residue-mapping-f508del-5UAK.json"), contacts: j("contacts-f508del-5UAK.json"), predicted: j("predicted-model-AF-P13569-F1.json"), capabilities: j("capabilities.json") };
+}
+
+export function cftrContext(): PlanningContext {
+  return buildHbbContext(cftrBundle());
+}
+
+/** The set's curated questions record (questions.json). */
+export function questionsRecord(dataset: string): { questions: { text: string; requires: string[] }[]; bridgeQuestion: string | null } {
+  return JSON.parse(readFileSync(join(REPO_ROOT, "data", "curated", dataset, "questions.json"), "utf8")) as { questions: { text: string; requires: string[] }[]; bridgeQuestion: string | null };
+}
