@@ -25,6 +25,7 @@ import { Provenance, type Transcript } from "@helix/shared-types";
 import {
   HBB_CONFIG,
   type SliceBuild,
+  type CompleteSliceInputs,
   type SliceInputs,
   alignmentCrossCheck,
   allelesAtSite,
@@ -57,7 +58,7 @@ import {
   translate,
 } from "../src/index.ts";
 
-let inputs: SliceInputs;
+let inputs: CompleteSliceInputs;
 let transcript: Transcript;
 let cds: string;
 let uni: UniprotEntry;

@@ -15,6 +15,11 @@ export interface CapabilityInput {
   protein: { accession: string; sequenceVerified: boolean } | null;
   /** Experimental entries known for the protein (e.g. UniProt PDB cross-references). */
   experimentalStructures: { entryId: string; method: string }[];
+  /**
+   * The experimental entry the gene specification selected, or null when it selected none
+   * (Phase 9). Cross-referenced entries that were not selected are reported, never shown.
+   */
+  selectedStructure: { entryId: string } | null;
   /** Entries for which a residue mapping was built and verified (SIFTS + atom_site). */
   verifiedMappings: { entryId: string; uniprotPosition: number }[];
   predictedModel: { modelId: string; version: number } | null;
@@ -36,21 +41,30 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
       : i.protein.sequenceVerified
         ? yes(`UniProt ${i.protein.accession}; sequence equals the translated CDS`, 2)
         : no(`UniProt ${i.protein.accession} sequence does not equal the translated CDS`);
+  const entries = `${i.experimentalStructures.length} experimental entr${i.experimentalStructures.length === 1 ? "y" : "ies"}`;
   const experimentalStructure =
     i.experimentalStructures.length === 0
       ? no("no experimental structure is cross-referenced for this protein")
-      : yes(`${i.experimentalStructures.length} experimental entr${i.experimentalStructures.length === 1 ? "y" : "ies"} (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1);
+      : i.selectedStructure === null
+        ? no(`no experimental structure selected in the gene specification; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method}) but none was selected, so none is shown`)
+        : yes(`${entries} (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1);
   const predictedStructure = i.predictedModel
     ? yes(`${i.predictedModel.modelId} v${i.predictedModel.version}; computational prediction, never shown as experimental`, 3)
     : no("no predicted model loaded");
   const verifiedResidueMapping =
     i.verifiedMappings.length > 0
       ? yes(`verified SIFTS + atom_site mapping for ${[...new Set(i.verifiedMappings.map((m) => m.entryId))].join(", ")}`, 1)
-      : no(experimentalStructure.available ? "experimental entries exist but no mapping was verified" : "no experimental structure to map onto");
+      : no(
+          experimentalStructure.available
+            ? "experimental entries exist but no mapping was verified"
+            : i.experimentalStructures.length > 0 && i.selectedStructure === null
+              ? "no experimental structure selected in the gene specification, so there is nothing to map onto"
+              : "no experimental structure to map onto",
+        );
   const unmapped = i.variantPositions.filter((p) => !i.verifiedMappings.some((m) => m.uniprotPosition === p));
   const variantHighlight =
     i.variantPositions.length === 0
-      ? no("no variant requested")
+      ? no("no reference variant selected")
       : unmapped.length === 0
         ? yes(`variant position(s) ${i.variantPositions.join(", ")} mapped to observed residues in an experimental structure`, 1)
         : no(`variant position(s) ${unmapped.join(", ")} not mapped to an experimental structure; a predicted model is never used to place a variant`);
