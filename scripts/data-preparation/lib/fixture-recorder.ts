@@ -14,7 +14,7 @@
  * records, so the curated manifest cites exactly the bytes on disk.
  */
 import { createHash } from "node:crypto";
-import { mkdir, rename, rm, writeFile } from "node:fs/promises";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
 import { join, relative } from "node:path";
 import { ProprietaryContentError, findProprietaryIdentifiers, parseJsonBody, redactProprietaryIdentifiers } from "@helix/data-adapters";
 import type { RawRecord, SliceInputs } from "@helix/scientific-core";
@@ -95,19 +95,33 @@ export interface RecordedFixtureSet {
   files: { name: string; path: string; source: string; bytes: number; sha256: string; redacted: boolean }[];
 }
 
+interface FixtureIndexFile {
+  description: string;
+  inputs: Record<string, { source: string; path: string }>;
+  extra: Record<string, { source: string; path: string }>;
+}
+
 /**
  * Write data/fixtures/<datasetId>/ from redacted inputs: one folder per source with its
  * MANIFEST.tsv (rewritten, not appended, so a re-recording never carries stale rows) and
  * index.json. The set is written to a sibling temporary directory and swapped in.
+ *
+ * With `merge` (Phase 9, P9.1.2: a source added to a set recorded earlier, such as the HBB
+ * set whose inputs point at the frozen research/raw snapshot), only the source folders of the
+ * given records are written (each replaced whole, with its MANIFEST.tsv) and the existing
+ * index.json keeps its description, its `extra` entries and the inputs not recorded here; the
+ * recorded inputs are added or replaced. A note naming the merged sources is appended to the
+ * description once.
  */
-export async function writeFixtureSet(datasetId: string, redacted: Record<string, RedactedRecord>, description: string): Promise<RecordedFixtureSet> {
+export async function writeFixtureSet(datasetId: string, redacted: Record<string, RedactedRecord>, description: string, opts: { merge?: boolean } = {}): Promise<RecordedFixtureSet> {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(datasetId)) throw new Error(`dataset id "${datasetId}" is not a fixture set name`);
   const dir = join(REPO_ROOT, "data/fixtures", datasetId);
+  if (opts.merge) return mergeFixtureSet(dir, redacted, description);
   const tmp = `${dir}.tmp-${process.pid}`;
   await rm(tmp, { recursive: true, force: true });
   await mkdir(tmp, { recursive: true });
   const manifests = new Map<string, string[]>();
-  const index: { description: string; inputs: Record<string, { source: string; path: string }>; extra: Record<string, never> } = { description, inputs: {}, extra: {} };
+  const index: FixtureIndexFile = { description, inputs: {}, extra: {} };
   const files: RecordedFixtureSet["files"] = [];
   const usedNames = new Set<string>();
   for (const [name, x] of Object.entries(redacted)) {
@@ -137,4 +151,70 @@ export async function writeFixtureSet(datasetId: string, redacted: Record<string
   await mkdir(join(dir, ".."), { recursive: true });
   await rename(tmp, dir);
   return { dir, indexPath: join(dir, "index.json"), files };
+}
+
+/** One recorded file, its manifest row and its index entry (shared by the full and the merged recording). */
+function recordedFile(name: string, x: RedactedRecord, dir: string): { file: string; source: string; bytes: Buffer; sha256: string; row: string; rel: string } {
+  const r = x.record;
+  const file = fixtureFileName(r);
+  const bytes = Buffer.from(r.body, "utf8");
+  const sha256 = createHash("sha256").update(bytes).digest("hex");
+  if (sha256 !== r.sha256) throw new Error(`${name}: body sha256 ${sha256} differs from the record's ${r.sha256}`);
+  // The wording names no database: the identifier guard runs over fixture manifests too.
+  const redaction = x.removed.length > 0 ? `redacted ${r.retrievedAt.slice(0, 10)}: proprietary database identifiers removed (Q-H-LIC-1, ${x.removed.length} removal${x.removed.length === 1 ? "" : "s"}); original sha256 ${x.originalSha256}` : "";
+  const row = `${file}\t${r.retrievedAt}\t200\t${sha256}\t${bytes.byteLength}\t${r.method}\t${r.url}\t${tsvQuote(JSON.stringify(r.headers))}\t${redaction}\n`;
+  return { file, source: r.source, bytes, sha256, row, rel: relative(REPO_ROOT, join(dir, r.source, file)) };
+}
+
+async function mergeFixtureSet(dir: string, redacted: Record<string, RedactedRecord>, description: string): Promise<RecordedFixtureSet> {
+  const indexPath = join(dir, "index.json");
+  let index: FixtureIndexFile;
+  try {
+    index = JSON.parse(await readFile(indexPath, "utf8")) as FixtureIndexFile;
+  } catch {
+    index = { description, inputs: {}, extra: {} };
+  }
+  const bySource = new Map<string, { name: string; x: RedactedRecord }[]>();
+  for (const [name, x] of Object.entries(redacted)) {
+    if (!bySource.has(x.record.source)) bySource.set(x.record.source, []);
+    bySource.get(x.record.source)!.push({ name, x });
+  }
+  // An extra entry under a source folder being replaced would be lost: refuse rather than drop it silently.
+  for (const [k, e] of Object.entries(index.extra)) {
+    for (const source of bySource.keys()) if (e.path.startsWith(`${relative(REPO_ROOT, join(dir, source))}/`)) throw new Error(`merge would replace the folder of extra fixture ${k} (${e.path})`);
+  }
+  const files: RecordedFixtureSet["files"] = [];
+  for (const [source, entries] of bySource) {
+    const folder = join(dir, source);
+    const tmp = `${folder}.tmp-${process.pid}`;
+    await rm(tmp, { recursive: true, force: true });
+    await mkdir(tmp, { recursive: true });
+    const rows: string[] = [];
+    const used = new Set<string>();
+    for (const { name, x } of entries) {
+      const f = recordedFile(name, x, dir);
+      if (used.has(f.file)) throw new Error(`two inputs map to the same fixture file ${source}/${f.file}`);
+      used.add(f.file);
+      await writeFile(join(tmp, f.file), f.bytes);
+      rows.push(f.row);
+      index.inputs[name] = { source, path: f.rel };
+      files.push({ name, path: f.rel, source, bytes: f.bytes.byteLength, sha256: f.sha256, redacted: x.removed.length > 0 });
+    }
+    await writeFile(join(tmp, "MANIFEST.tsv"), MANIFEST_HEADER + rows.join(""));
+    await rm(folder, { recursive: true, force: true });
+    await mkdir(dir, { recursive: true });
+    await rename(tmp, folder);
+  }
+  if (!index.description.includes(description)) index.description = `${index.description.trimEnd()} ${description}`;
+  await writeFile(indexPath, serialiseFixtureIndex(index));
+  return { dir, indexPath, files };
+}
+
+/** The index in the one-entry-per-line form of data/fixtures/hbb/index.json, so that a merge adds lines without reflowing the rest. */
+export function serialiseFixtureIndex(index: FixtureIndexFile): string {
+  const entries = (o: Record<string, { source: string; path: string }>): string => {
+    const lines = Object.entries(o).map(([k, e]) => `    ${JSON.stringify(k)}: { "source": ${JSON.stringify(e.source)}, "path": ${JSON.stringify(e.path)} }`);
+    return lines.length === 0 ? "{}" : `{\n${lines.join(",\n")}\n  }`;
+  };
+  return `{\n  "description": ${JSON.stringify(index.description)},\n  "inputs": ${entries(index.inputs)},\n  "extra": ${entries(index.extra)}\n}\n`;
 }

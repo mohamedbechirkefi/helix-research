@@ -199,85 +199,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T13-rsid-multiallelic",
         "result": "pass",
         "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T08-codon-span",
         "result": "pass",
         "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T09-forward-and-coding-base",
         "result": "pass",
         "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T11-codon-change",
         "result": "pass",
         "detail": "codon 7 GAG -> GTG; E -> V",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.7: UniProt residue E, HGVS ref E",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
         "detail": "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       }
     ],
     "evidenceCategory": 2

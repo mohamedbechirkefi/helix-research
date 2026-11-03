@@ -39,6 +39,8 @@ export const DEFAULT_RATE_LIMITS: Record<SourceId, RateLimit> = {
   "ncbi-clinvar": { perSecond: 2, burst: 1 },
   hgnc: { perSecond: 5, burst: 3 },
   alphafold: { perSecond: 3, burst: 3 },
+  // Reactome states no numeric limit (registry section 6); kept at the same polite rate as the others.
+  reactome: { perSecond: 3, burst: 3 },
 };
 
 /** Response headers worth keeping as provenance (release identifiers, rate-limit state). */

@@ -31,10 +31,18 @@ import {
   parseHgnc,
   parseJsonBody,
   parseRcsb,
+  parseReactomeAncestors,
+  parseReactomeParticipants,
+  parseReactomePathways,
+  parseReactomeVersion,
   parseSifts,
   parseUniprotEntry,
   readMmcifStructure,
   sha256Hex,
+  compareStableIds,
+  topLevelPathwaysOf,
+  uniprotProteinsOf,
+  REACTOME_HUMAN_SPECIES,
 } from "@helix/data-adapters";
 import {
   CapabilityReport,
@@ -43,6 +51,12 @@ import {
   type Evidence,
   Gene,
   type KnownIssue,
+  type PathwayMembership,
+  PathwayMembershipsRecord,
+  type PathwayParticipant,
+  type PathwayParticipantProtein,
+  type OpeningPathway,
+  type PathwayParticipantSet,
   PredictedModel,
   Protein,
   type Provenance,
@@ -70,11 +84,12 @@ import { clinvarConflicts, clinvarReviewStars } from "../clinvar.ts";
 import { resolveGeneQuery } from "../gene-resolution.ts";
 import { classifyPdbxMutation, matureDeletionLabel, matureIndex, matureLabel, translatedDeletionLabel, translatedLabel } from "../numbering.ts";
 import { interval, normaliseTranscript } from "../normalise.ts";
+import { OPENING_PATHWAY_RULE, chooseOpeningPathway, isOpeningCandidate } from "../pathways.ts";
 import { AA_PDB_NAME, AA_THREE_LETTER, complement, reverseComplement } from "../sequence.ts";
 import { alignmentCrossCheck, assemblyOf, entityForAccession, labelAuthDivergences, mapUniprotChain, mapUniprotPosition, structRefSeqIssues } from "../structure-mapping.ts";
 import { selectTranscript } from "../transcript-selection.ts";
 import { type ResolvedAllele, type ResolvedDeletion, allelesAtSite, hgvsChangePart, resolveAllele, resolveDeletion } from "../variant.ts";
-import type { RawRecord, SliceConfig, SliceInputName, SliceInputs, SliceVariant } from "./types.ts";
+import { type RawRecord, type SliceConfig, type SliceInputName, type SliceInputs, type SliceVariant, ancestorsInput, participantsInput } from "./types.ts";
 
 export interface SliceFile {
   path: string;
@@ -599,6 +614,102 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     }
   }
 
+  // ------------------------------------------------------------ pathways (Phase 9, P9.1.2; only when the specification asks)
+  // Membership, never mechanism: the record says which curated pathways list the protein, keeps the participants
+  // of every candidate membership as Reactome returns them, and names the one the world opens on (rule 3,
+  // amended 2026-11-03: the rule's choice, never an importance).
+  const PW = config.pathways
+    ? (() => {
+        const vRaw = need("reactomeVersion");
+        const release = parseReactomeVersion(vRaw.body, vRaw.url);
+        const mRaw = need("reactomePathways");
+        const raw = parseReactomePathways(json(mRaw), mRaw.url);
+        const requested = /\/UniProt\/([^/?]+)\/pathways/.exec(mRaw.url)?.[1] ?? null;
+        check("T41-pathway-accession", requested === uni.accession && uni.accession === config.uniprotAccession, `memberships requested for ${requested}; protein record ${uni.accession}; specification ${config.uniprotAccession}`, ["pathways"]);
+        const sorted = [...raw].sort((a, b) => compareStableIds(a.stableId, b.stableId));
+        const duplicates = sorted.filter((m, i) => i > 0 && m.stableId === sorted[i - 1]!.stableId).map((m) => m.stableId);
+        const nonHuman = sorted.filter((m) => m.species !== REACTOME_HUMAN_SPECIES);
+        // The mapping lists Pathway and TopLevelPathway events and, measured on 2026-11-03, CellLineagePath
+        // (a developmental lineage path, a pathway subclass in Reactome's model); anything else is refused.
+        const nonPathway = sorted.filter((m) => !["Pathway", "TopLevelPathway", "CellLineagePath"].includes(m.schemaClass));
+        check(
+          "T42-pathway-memberships-human",
+          duplicates.length === 0 && nonHuman.length === 0 && nonPathway.length === 0,
+          `${sorted.length} membership(s) requested for species 9606: ${nonHuman.length === 0 ? `every species name is ${REACTOME_HUMAN_SPECIES}` : `not human: ${nonHuman.map((m) => `${m.stableId} (${m.species})`).join(", ")}`}; ${nonPathway.length === 0 ? "every schema class is a pathway" : `not a pathway: ${nonPathway.map((m) => `${m.stableId} (${m.schemaClass})`).join(", ")}`}; ${duplicates.length === 0 ? "stable ids distinct" : `duplicated: ${duplicates.join(", ")}`}`,
+          ["pathways"],
+        );
+        // Each membership's top-level pathway, from its ancestor paths (every path must end in a TopLevelPathway).
+        const topLevel = new Map<string, { stableId: string; name: string }[]>();
+        const topLevelProblems: string[] = [];
+        for (const m of sorted) {
+          const r = need(ancestorsInput(m.stableId));
+          try {
+            topLevel.set(m.stableId, topLevelPathwaysOf(m.stableId, parseReactomeAncestors(json(r), r.url), r.url));
+          } catch (e) {
+            topLevel.set(m.stableId, []);
+            topLevelProblems.push(`${m.stableId}: ${e instanceof Error ? e.message : String(e)}`);
+          }
+        }
+        check(
+          "T43-pathway-top-level",
+          topLevelProblems.length === 0,
+          topLevelProblems.length === 0 ? (sorted.length === 0 ? "no membership, no ancestor path requested" : sorted.map((m) => `${m.stableId} -> ${topLevel.get(m.stableId)!.map((t) => t.stableId).join("+")}`).join("; ")) : topLevelProblems.join(" | "),
+          ["pathways"],
+        );
+        // The participants of every candidate of the rule (non-disease, with a diagram): the rule ranks by their
+        // count, and the record keeps them all so that a visitor can open any membership (rule 3, amended).
+        const participantSets: PathwayParticipantSet[] = [];
+        for (const m of sorted.filter(isOpeningCandidate)) {
+          const r = need(participantsInput(m.stableId));
+          const parts = parseReactomeParticipants(json(r), r.url);
+          const partRecs: PathwayParticipant[] = parts.map((p) => ({ dbId: p.dbId, displayName: p.displayName, schemaClass: p.schemaClass, proteins: uniprotProteinsOf(p).map((x) => ({ ...x, isSetProtein: x.accession === uni.accession })) }));
+          const byId = new Map<string, PathwayParticipantProtein>();
+          for (const p of partRecs) for (const x of p.proteins) if (!byId.has(x.identifier)) byId.set(x.identifier, x);
+          const proteins = [...byId.values()].sort((a, b) => a.accession.localeCompare(b.accession) || a.identifier.localeCompare(b.identifier));
+          participantSets.push({ stableId: m.stableId, name: m.name, topLevelPathways: topLevel.get(m.stableId) ?? [], participantCount: parts.length, participants: partRecs, proteins, listsSetProtein: proteins.some((p) => p.isSetProtein) });
+        }
+        const setOf = (stableId: string) => participantSets.find((s) => s.stableId === stableId);
+        const choice = chooseOpeningPathway(sorted.map((m) => ({ stableId: m.stableId, name: m.name, isDisease: m.isDisease, hasDiagram: m.hasDiagram, participantCount: setOf(m.stableId)?.participantCount ?? null })));
+        check("T44-opening-pathway-rule", true, `${choice.reason}; candidates by count: ${choice.candidates.map((c) => `${c.stableId} ${c.participantCount}`).join(", ") || "none"}; excluded: ${choice.excluded.map((e) => `${e.stableId} (${e.reason})`).join(", ") || "none"}`, ["pathways"]);
+        let opening: OpeningPathway | null = null;
+        if (choice.opening !== null) {
+          const s = setOf(choice.opening)!;
+          const own = s.proteins.filter((p) => p.isSetProtein);
+          const carriers = s.participants.filter((p) => p.proteins.some((x) => x.isSetProtein)).map((p) => `${p.displayName} (${p.schemaClass})`);
+          check(
+            "T45-opening-pathway-participants",
+            s.participantCount > 0 && own.length > 0,
+            `${s.stableId} (${s.name}): ${s.participantCount} participating physical entities, ${s.proteins.length} distinct UniProt proteins; the set's protein ${uni.accession} ${own.length > 0 ? `is among them as ${own.map((p) => p.identifier).join(", ")} in ${carriers.join("; ")}` : "is not among them"}`,
+            ["pathways"],
+          );
+          opening = { stableId: s.stableId, name: s.name, rule: OPENING_PATHWAY_RULE, candidates: choice.candidates, reason: choice.reason };
+        }
+        // Every candidate the visitor may open: at least one participant and the set's protein among them. A candidate
+        // that fails is recorded (listsSetProtein false), not refused: the opening pathway is the one that must hold.
+        const weak = participantSets.filter((s) => s.participantCount === 0 || !s.listsSetProtein);
+        check(
+          "T46-candidate-participants",
+          weak.length === 0,
+          participantSets.length === 0 ? "no candidate membership, no participants requested" : `${participantSets.length} candidate(s): ${participantSets.map((s) => `${s.stableId} ${s.participantCount} entities, ${s.proteins.length} proteins, set's protein ${s.listsSetProtein ? "listed" : "NOT listed"}`).join("; ")}`,
+          ["pathways"],
+          "warn",
+        );
+        const memberships: PathwayMembership[] = sorted.map((m) => ({
+          stableId: m.stableId,
+          stableIdVersion: m.stableIdVersion,
+          name: m.name,
+          schemaClass: m.schemaClass as PathwayMembership["schemaClass"],
+          species: m.species,
+          isDisease: m.isDisease,
+          hasDiagram: m.hasDiagram,
+          topLevelPathways: topLevel.get(m.stableId) ?? [],
+          participantCount: setOf(m.stableId)?.participantCount ?? null,
+          isOpening: m.stableId === choice.opening,
+        }));
+        return { release, memberships, participantSets, opening, choice };
+      })()
+    : null;
+
   // ------------------------------------------------------------ drift
   const drift = detectDrift({
     ensemblGene: { id: gene.id, version: gene.version },
@@ -676,6 +787,16 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     sourcesUsed.push(prov("alphafoldPrediction", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
     sourcesUsed.push(prov("alphafoldModel", af.entryId, String(af.modelVersion), `AlphaFold DB model v${af.modelVersion}`, null));
   }
+  // R0 to R3: one row per Reactome request (plan section 12 rule 2), appended after every other source.
+  const PR: Provenance[] = PW
+    ? [
+        prov("reactomeVersion", "data/database/version", null, `Reactome ${PW.release}`, null),
+        prov("reactomePathways", `UniProt ${uni.accession} pathways, species 9606`, null, `Reactome ${PW.release}`, null),
+        ...PW.memberships.map((m) => prov(ancestorsInput(m.stableId), `${m.stableId} ancestors`, m.stableIdVersion?.split(".")[1] ?? null, `Reactome ${PW.release}`, null)),
+        ...PW.memberships.filter((m) => m.participantCount !== null).map((m) => prov(participantsInput(m.stableId), `${m.stableId} participants`, m.stableIdVersion?.split(".")[1] ?? null, `Reactome ${PW.release}`, null)),
+      ]
+    : [];
+  sourcesUsed.push(...PR);
   const rp = (record: string, sources: Provenance[], transformations: string[], ev: Evidence[]) => ({
     sources,
     transformations,
@@ -1070,6 +1191,40 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       add(`predicted-model-${af.entryId}.json`, "predicted-model", pmRec);
     }
 
+    // The pathways that list the protein (plan section 12 rule 2): written when the specification asks, an empty
+    // list when no pathway lists the protein; derived from the protein record; one provenance row per request.
+    if (PW) {
+      const pwEv = [
+        evidence(
+          "curated-database-annotation",
+          `Reactome ${PW.release} lists ${uni.accession} in ${PW.memberships.length} human pathway(s); the participants of ${PW.participantSets.length} candidate membership(s) are kept${PW.opening ? `; the world opens on ${PW.opening.name} (${PW.opening.stableId}), the rule's choice` : PW.memberships.length > 0 ? `; no opening pathway: ${PW.choice.reason}` : ""}.`,
+          {
+            qualifier: `Reactome database version ${PW.release}`,
+            limitations: [
+              "Membership says that the protein takes part in a curated pathway, never how, and never that a variant changes the pathway.",
+              "The opening pathway is the rule's choice (fewest participating physical entities among the non-disease memberships with a diagram), not a statement of importance; no membership ranks above the others.",
+            ],
+          },
+        ),
+      ];
+      const pwRec = PathwayMembershipsRecord.parse({
+        kind: "pathway-memberships",
+        derivedFrom: [`protein-${uni.accession}.json`],
+        accession: uni.accession,
+        species: REACTOME_HUMAN_SPECIES,
+        release: PW.release,
+        membershipCount: PW.memberships.length,
+        memberships: PW.memberships,
+        participantsByPathway: PW.participantSets,
+        openingPathway: PW.opening,
+        participantsNote:
+          "A participant is one participating physical entity Reactome returns for the pathway (a complex, a defined or candidate set, a protein with a sequence, a small molecule, ...) with the UniProt reference gene products Reactome lists among its members; complexes and sets are not expanded further than that list. Counts are of physical entities. The participants response does not state each entity's species; the pathway itself is a Homo sapiens pathway. Participants are kept for every candidate of the opening rule (non-disease, with a diagram); the memberships the rule excluded have none.",
+        evidence: pwEv,
+        provenance: rp("pathways", PR, ["field-select", "sort-by-stable-id", "top-level-from-ancestors", "participants-of-rule-candidates", "opening-by-rule", "uniprot-proteins-from-reference-entities", "flag-set-protein"], pwEv),
+      });
+      add("pathways.json", "pathway-memberships", pwRec);
+    }
+
     // Verified mappings: the variant position when a variant is selected, otherwise every position of the full-chain table.
     const verifiedMappings = S ? (V ? [{ entryId: S.struct.entryId, uniprotPosition: V.uniPos }] : S.tableRows.map((r) => ({ entryId: S.struct.entryId, uniprotPosition: r.uniprotPosition }))) : [];
     const capRec = CapabilityReport.parse({
@@ -1085,6 +1240,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         verifiedMappings,
         predictedModel: pmRec ? { modelId: pmRec.modelId, version: pmRec.modelVersion } : null,
         variantPositions: V ? [V.uniPos] : [],
+        pathways: PW ? { membershipCount: PW.memberships.length, opening: PW.opening ? { stableId: PW.opening.stableId, name: PW.opening.name } : null, reason: PW.choice.reason } : null,
       }),
       derivedFrom: files.map((f) => f.path).filter((p) => p.endsWith(".json")),
     });
@@ -1129,6 +1285,14 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         mapping: S && V && S.residues ? S.residues.map((r) => ({ uniprot: V.uniPos, mature: V.mature, labelAsym: r.labelAsymId, labelSeq: r.labelSeqId, authAsym: r.authAsymId, authSeq: r.authSeqId, residue: r.compId, assembly: r.assemblyId })) : null,
         drift: drift.map((d) => d.id),
         knownIssues: knownIssues.map((k) => k.id),
+        pathways: PW
+          ? {
+              release: `Reactome ${PW.release}`,
+              memberships: PW.memberships.length,
+              participantsByPathway: PW.participantSets.map((s) => ({ stableId: s.stableId, participants: s.participantCount, proteins: s.proteins.length, listsSetProtein: s.listsSetProtein })),
+              opening: PW.opening ? { stableId: PW.opening.stableId, name: PW.opening.name } : null,
+            }
+          : null,
       },
     };
   };

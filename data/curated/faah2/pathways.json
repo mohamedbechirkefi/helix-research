@@ -1,0 +1,2202 @@
+{
+  "kind": "pathway-memberships",
+  "derivedFrom": [
+    "protein-Q6GMR7.json"
+  ],
+  "accession": "Q6GMR7",
+  "species": "Homo sapiens",
+  "release": "98",
+  "membershipCount": 1,
+  "memberships": [
+    {
+      "stableId": "R-HSA-2142753",
+      "stableIdVersion": "R-HSA-2142753.8",
+      "name": "Arachidonate metabolism",
+      "schemaClass": "Pathway",
+      "species": "Homo sapiens",
+      "isDisease": false,
+      "hasDiagram": true,
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-1430728",
+          "name": "Metabolism"
+        }
+      ],
+      "participantCount": 174,
+      "isOpening": true
+    }
+  ],
+  "participantsByPathway": [
+    {
+      "stableId": "R-HSA-2142753",
+      "name": "Arachidonate metabolism",
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-1430728",
+          "name": "Metabolism"
+        }
+      ],
+      "participantCount": 174,
+      "participants": [
+        {
+          "dbId": 5696425,
+          "displayName": "AWAT1 [endoplasmic reticulum membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q58HT5",
+              "identifier": "Q58HT5",
+              "displayName": "UniProt:Q58HT5 AWAT1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 5696426,
+          "displayName": "ARACOH [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 192172,
+          "displayName": "Acyl-CoA [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 162743,
+          "displayName": "CoA-SH [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 5696412,
+          "displayName": "arachidyl ester [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161954,
+          "displayName": "GPX1/2/4 [cytosol]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "P18283",
+              "identifier": "P18283",
+              "displayName": "UniProt:P18283 GPX2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P36969",
+              "identifier": "P36969",
+              "displayName": "UniProt:P36969 GPX4",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P07203",
+              "identifier": "P07203",
+              "displayName": "UniProt:P07203 GPX1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142790,
+          "displayName": "12R-HpETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29450,
+          "displayName": "GSH [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 111745,
+          "displayName": "GSSG [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142716,
+          "displayName": "12R-HETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29356,
+          "displayName": "H2O [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 8942204,
+          "displayName": "ALOXE3 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q9BYJ1",
+              "identifier": "Q9BYJ1",
+              "displayName": "UniProt:Q9BYJ1 ALOXE3",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 8942209,
+          "displayName": "HXA3 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161958,
+          "displayName": "ALOX12/15 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P16050",
+              "identifier": "P16050",
+              "displayName": "UniProt:P16050 ALOX15",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P18054",
+              "identifier": "P18054",
+              "displayName": "UniProt:P18054 ALOX12",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 29768,
+          "displayName": "AA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29368,
+          "displayName": "O2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142811,
+          "displayName": "12S-HpETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142793,
+          "displayName": "ALOX12:Fe2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P18054",
+              "identifier": "P18054",
+              "displayName": "UniProt:P18054 ALOX12",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142745,
+          "displayName": "12-oxoETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142822,
+          "displayName": "ALOX12B:Fe2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "O75342",
+              "identifier": "O75342",
+              "displayName": "UniProt:O75342 ALOX12B",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142678,
+          "displayName": "12S-HETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 5693746,
+          "displayName": "FAAH [endoplasmic reticulum membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "O00519",
+              "identifier": "O00519",
+              "displayName": "UniProt:O00519 FAAH",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 5693754,
+          "displayName": "AEA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 1498751,
+          "displayName": "ETA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9915564,
+          "displayName": "SLC27A1 [endoplasmic reticulum membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q6PCB7",
+              "identifier": "Q6PCB7",
+              "displayName": "UniProt:Q6PCB7 SLC27A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 140356,
+          "displayName": "AA [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161783,
+          "displayName": "ALOX15/15B [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P16050",
+              "identifier": "P16050",
+              "displayName": "UniProt:P16050 ALOX15",
+              "isSetProtein": false
+            },
+            {
+              "accession": "O15296",
+              "identifier": "O15296",
+              "displayName": "UniProt:O15296 ALOX15B",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142718,
+          "displayName": "15S-HpETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142707,
+          "displayName": "15S-HETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 428218,
+          "displayName": "NAD(P)+ [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 428206,
+          "displayName": "NAD(P)H [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2142747,
+          "displayName": "15-oxoETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 70106,
+          "displayName": "H+ [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161766,
+          "displayName": "GPX1/2/4 [cytosol]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "P36969",
+              "identifier": "P36969",
+              "displayName": "UniProt:P36969 GPX4",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P07203",
+              "identifier": "P07203",
+              "displayName": "UniProt:P07203 GPX1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P18283",
+              "identifier": "P18283",
+              "displayName": "UniProt:P18283 GPX2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2314687,
+          "displayName": "Ac-PTGS2 dimer [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P35354",
+              "identifier": "P35354",
+              "displayName": "UniProt:P35354 PTGS2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 29364,
+          "displayName": "NADPH [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142738,
+          "displayName": "15R-HETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29366,
+          "displayName": "NADP+ [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161805,
+          "displayName": "CYP(4) [endoplasmic reticulum membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P05177",
+              "identifier": "P05177",
+              "displayName": "UniProt:P05177 CYP1A2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P51589",
+              "identifier": "P51589",
+              "displayName": "UniProt:P51589 CYP2J2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16678",
+              "identifier": "Q16678",
+              "displayName": "UniProt:Q16678 CYP1B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P04798",
+              "identifier": "P04798",
+              "displayName": "UniProt:P04798 CYP1A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142739,
+          "displayName": "5,6-EET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161990,
+          "displayName": "CYP(5) [endoplasmic reticulum membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P05177",
+              "identifier": "P05177",
+              "displayName": "UniProt:P05177 CYP1A2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P10632",
+              "identifier": "P10632",
+              "displayName": "UniProt:P10632 CYP2C8",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P11712",
+              "identifier": "P11712",
+              "displayName": "UniProt:P11712 CYP2C9",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P33261",
+              "identifier": "P33261",
+              "displayName": "UniProt:P33261 CYP2C19",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P51589",
+              "identifier": "P51589",
+              "displayName": "UniProt:P51589 CYP2J2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16678",
+              "identifier": "Q16678",
+              "displayName": "UniProt:Q16678 CYP1B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P04798",
+              "identifier": "P04798",
+              "displayName": "UniProt:P04798 CYP1A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142835,
+          "displayName": "11,12-EET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142777,
+          "displayName": "EPHX2 dimer [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P34913",
+              "identifier": "P34913",
+              "displayName": "UniProt:P34913 EPHX2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142779,
+          "displayName": "11,12-DHET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142662,
+          "displayName": "8,9-EET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142765,
+          "displayName": "8,9-DHET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142682,
+          "displayName": "5,6-DHET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142792,
+          "displayName": "14,15-EET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142783,
+          "displayName": "14,15-DHET [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 8940670,
+          "displayName": "PTGR2 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q8N8N7",
+              "identifier": "Q8N8N7",
+              "displayName": "UniProt:Q8N8N7 PTGR2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2161650,
+          "displayName": "15k-PGE2,15k-PGF2a [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2161684,
+          "displayName": "dhk-PGE2,dhk-PGF2a [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2142674,
+          "displayName": "PGJ2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142821,
+          "displayName": "delta12-PGJ2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 140491,
+          "displayName": "PTGS2 dimer [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P35354",
+              "identifier": "P35354",
+              "displayName": "UniProt:P35354 PTGS2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 113534,
+          "displayName": "O2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 140357,
+          "displayName": "PGG2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142814,
+          "displayName": "PTGDS [endoplasmic reticulum membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P41222",
+              "identifier": "P41222",
+              "displayName": "UniProt:P41222 PTGDS",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 30138,
+          "displayName": "PGH2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161634,
+          "displayName": "PGD2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 31593,
+          "displayName": "PGI2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 113519,
+          "displayName": "H2O [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142786,
+          "displayName": "6k-PGF1a [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9716837,
+          "displayName": "PTGS inhibitors [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 428986,
+          "displayName": "PTGS1 dimer [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P23219",
+              "identifier": "P23219",
+              "displayName": "UniProt:P23219 PTGS1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 9716834,
+          "displayName": "PTGS1 dimer:PTGS Inhibitors [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P23219",
+              "identifier": "P23219",
+              "displayName": "UniProt:P23219 PTGS1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 9716835,
+          "displayName": "PTGS2 dimer:PTGS inhibitors [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P35354",
+              "identifier": "P35354",
+              "displayName": "UniProt:P35354 PTGS2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 32879,
+          "displayName": "TXA2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 443890,
+          "displayName": "TXB2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9716714,
+          "displayName": "PTGS2 inhibitors [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2309778,
+          "displayName": "PTGS2 dimer:PTGS2 inhibitors [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P35354",
+              "identifier": "P35354",
+              "displayName": "UniProt:P35354 PTGS2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142714,
+          "displayName": "AKR1C3 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P42330",
+              "identifier": "P42330",
+              "displayName": "UniProt:P42330 AKR1C3",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 879629,
+          "displayName": "PGD2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142710,
+          "displayName": "11epi-PGF2a [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 265283,
+          "displayName": "PGH2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9915557,
+          "displayName": "hydrogen donor [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9915551,
+          "displayName": "hydrogen acceptor [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 549282,
+          "displayName": "MNA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 65976,
+          "displayName": "TBXAS1 [endoplasmic reticulum membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P24557",
+              "identifier": "P24557",
+              "displayName": "UniProt:P24557 TBXAS1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2161562,
+          "displayName": "MDA [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142797,
+          "displayName": "12S-HHT [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 879535,
+          "displayName": "PGF2a [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142703,
+          "displayName": "FAM213B [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q8TBF2",
+              "identifier": "Q8TBF2",
+              "displayName": "UniProt:Q8TBF2 PRXL2B",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142774,
+          "displayName": "TXN-S2H2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142833,
+          "displayName": "TXN-S2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142817,
+          "displayName": "15d-PGD2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2299724,
+          "displayName": "PGC2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2299721,
+          "displayName": "PGB2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 194653,
+          "displayName": "NAD+ [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 194697,
+          "displayName": "NADH [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142828,
+          "displayName": "11dh-TXB2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 156540,
+          "displayName": "H+ [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2299726,
+          "displayName": "PGA2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2299722,
+          "displayName": "15d-PGA2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142778,
+          "displayName": "HPGD dimer [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P15428",
+              "identifier": "P15428",
+              "displayName": "UniProt:P15428 HPGD",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 29360,
+          "displayName": "NAD+ [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161661,
+          "displayName": "PGD2/E2/F2a [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 73473,
+          "displayName": "NADH [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161597,
+          "displayName": "15k-PGD2,15k-PGE2,15k-PGF2a [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2314693,
+          "displayName": "ASA- [cytosol]",
+          "schemaClass": "ChemicalDrug",
+          "proteins": []
+        },
+        {
+          "dbId": 2314690,
+          "displayName": "ST [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142686,
+          "displayName": "PTGES trimer [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "O14684",
+              "identifier": "O14684",
+              "displayName": "UniProt:O14684 PTGES",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 265287,
+          "displayName": "PGE2 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9677343,
+          "displayName": "PTGS1 Inhibitors [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 9677354,
+          "displayName": "PTGS1 dimer:PTGS1 Inhibitors [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P23219",
+              "identifier": "P23219",
+              "displayName": "UniProt:P23219 PTGS1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2314695,
+          "displayName": "Ac-PTGS1 dimer [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P23219",
+              "identifier": "P23219",
+              "displayName": "UniProt:P23219 PTGS1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142702,
+          "displayName": "15d-PGJ2 [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142784,
+          "displayName": "CBR1 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P16152",
+              "identifier": "P16152",
+              "displayName": "UniProt:P16152 CBR1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 3222410,
+          "displayName": "PTGIS,CYP8B1 [endoplasmic reticulum membrane]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "Q9UNU6",
+              "identifier": "Q9UNU6",
+              "displayName": "UniProt:Q9UNU6 CYP8B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16647",
+              "identifier": "Q16647",
+              "displayName": "UniProt:Q16647 PTGIS",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 8864254,
+          "displayName": "PTGES2(88-377), PTGES3 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "Q15185",
+              "identifier": "Q15185",
+              "displayName": "UniProt:Q15185 PTGES3",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q9H7Z7",
+              "identifier": "Q9H7Z7",
+              "displayName": "UniProt:Q9H7Z7 PTGES2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142683,
+          "displayName": "HPGDS dimer [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "O60760",
+              "identifier": "O60760",
+              "displayName": "UniProt:O60760 HPGDS",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 111860,
+          "displayName": "Active PLA2:phosphatidylcholine [endoplasmic reticulum membrane]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P47712",
+              "identifier": "P47712",
+              "displayName": "UniProt:P47712 PLA2G4A",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 6814253,
+          "displayName": "LysoPtdCho [endoplasmic reticulum membrane]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9915525,
+          "displayName": "AA-PC [endoplasmic reticulum membrane]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2162031,
+          "displayName": "HXA3/B3 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2161985,
+          "displayName": "TrXA3/B3 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2142671,
+          "displayName": "PTGR1 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q14914",
+              "identifier": "Q14914",
+              "displayName": "UniProt:Q14914 PTGR1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266056,
+          "displayName": "LTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142810,
+          "displayName": "12-oxoLTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161582,
+          "displayName": "20cooh-LTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142676,
+          "displayName": "18cooh-LTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 187760,
+          "displayName": "p-S272,T222,T334-MAPKAPK2 [cytosol]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P49137",
+              "identifier": "P49137",
+              "displayName": "UniProt:P49137 MAPKAPK2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 113592,
+          "displayName": "ATP [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2237880,
+          "displayName": "ALOX5:Ca2+:Fe2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P09917",
+              "identifier": "P09917",
+              "displayName": "UniProt:P09917 ALOX5",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 265277,
+          "displayName": "p-S272-ALOX5:Ca2+:Fe2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P09917",
+              "identifier": "P09917",
+              "displayName": "UniProt:P09917 ALOX5",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 29370,
+          "displayName": "ADP [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 266038,
+          "displayName": "LTA4H:Zn2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P09960",
+              "identifier": "P09960",
+              "displayName": "UniProt:P09960 LTA4H",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 265281,
+          "displayName": "LTA4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142740,
+          "displayName": "20cho-LTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2162130,
+          "displayName": "GGT1, 5 dimers [plasma membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P36269",
+              "identifier": "P36269",
+              "displayName": "UniProt:P36269 GGT5",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P19440",
+              "identifier": "P19440",
+              "displayName": "UniProt:P19440 GGT1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266013,
+          "displayName": "LTC4 [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 109276,
+          "displayName": "H2O [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 210382,
+          "displayName": "L-Glu [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 266074,
+          "displayName": "LTD4 [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142726,
+          "displayName": "EXC4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142758,
+          "displayName": "EXD4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29404,
+          "displayName": "L-Glu [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2162149,
+          "displayName": "DPEP1,2 dimers [plasma membrane]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "Q9H4A9",
+              "identifier": "Q9H4A9",
+              "displayName": "UniProt:Q9H4A9 DPEP2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P16444",
+              "identifier": "P16444",
+              "displayName": "UniProt:P16444 DPEP1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266033,
+          "displayName": "LTE4 [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 266029,
+          "displayName": "Gly [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2318764,
+          "displayName": "ALOX5:ALOX5AP:LTC4S [nuclear envelope]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P20292",
+              "identifier": "P20292",
+              "displayName": "UniProt:P20292 ALOX5AP",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P09917",
+              "identifier": "P09917",
+              "displayName": "UniProt:P09917 ALOX5",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16873",
+              "identifier": "Q16873",
+              "displayName": "UniProt:Q16873 LTC4S",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266010,
+          "displayName": "5S-HpETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 266068,
+          "displayName": "ABCC1 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P33527",
+              "identifier": "P33527",
+              "displayName": "UniProt:P33527 ABCC1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266066,
+          "displayName": "LTC4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29372,
+          "displayName": "Pi [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161611,
+          "displayName": "Cytochrome P450 (CYP4F2/4F3 based) [endoplasmic reticulum membrane]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "Q5TCH4",
+              "identifier": "Q5TCH4",
+              "displayName": "UniProt:Q5TCH4 CYP4A22",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q6NT55",
+              "identifier": "Q6NT55",
+              "displayName": "UniProt:Q6NT55 CYP4F22",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P13584",
+              "identifier": "P13584",
+              "displayName": "UniProt:P13584 CYP4B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q9HBI6",
+              "identifier": "Q9HBI6",
+              "displayName": "UniProt:Q9HBI6 CYP4F11",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q02928",
+              "identifier": "Q02928",
+              "displayName": "UniProt:Q02928 CYP4A11",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P98187",
+              "identifier": "P98187",
+              "displayName": "UniProt:P98187 CYP4F8",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P78329",
+              "identifier": "P78329",
+              "displayName": "UniProt:P78329 CYP4F2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q08477",
+              "identifier": "Q08477",
+              "displayName": "UniProt:Q08477 CYP4F3",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2161636,
+          "displayName": "20OH-LTB4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29424,
+          "displayName": "Gly [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142730,
+          "displayName": "EXE4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161801,
+          "displayName": "6t/6t,12epi-LTB4 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2142772,
+          "displayName": "EXA4 [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 9707237,
+          "displayName": "ALOX5 inhibitors [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 9707188,
+          "displayName": "ALOX5:ALOX5 inhibitors [nuclear envelope]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P20292",
+              "identifier": "P20292",
+              "displayName": "UniProt:P20292 ALOX5AP",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P09917",
+              "identifier": "P09917",
+              "displayName": "UniProt:P09917 ALOX5",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16873",
+              "identifier": "Q16873",
+              "displayName": "UniProt:Q16873 LTC4S",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142744,
+          "displayName": "ALOX15:Fe2+ [cytosol]",
+          "schemaClass": "Complex",
+          "proteins": [
+            {
+              "accession": "P16050",
+              "identifier": "P16050",
+              "displayName": "UniProt:P16050 ALOX15",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 5693745,
+          "displayName": "FAAH2 [lipid droplet]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q6GMR7",
+              "identifier": "Q6GMR7",
+              "displayName": "UniProt:Q6GMR7 FAAH2",
+              "isSetProtein": true
+            }
+          ]
+        },
+        {
+          "dbId": 5693747,
+          "displayName": "H2O [lipid droplet]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 5693752,
+          "displayName": "AEA [lipid droplet]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 5693733,
+          "displayName": "AA [lipid droplet]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 5693736,
+          "displayName": "ETA [lipid droplet]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2162028,
+          "displayName": "CYP(1) [endoplasmic reticulum membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P05177",
+              "identifier": "P05177",
+              "displayName": "UniProt:P05177 CYP1A2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16678",
+              "identifier": "Q16678",
+              "displayName": "UniProt:Q16678 CYP1B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P04798",
+              "identifier": "P04798",
+              "displayName": "UniProt:P04798 CYP1A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 113601,
+          "displayName": "NADPH [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142667,
+          "displayName": "16-HETE [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 113564,
+          "displayName": "NADP+ [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161816,
+          "displayName": "CYP(3) [endoplasmic reticulum membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P05177",
+              "identifier": "P05177",
+              "displayName": "UniProt:P05177 CYP1A2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q7Z449",
+              "identifier": "Q7Z449",
+              "displayName": "UniProt:Q7Z449 CYP2U1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q02928",
+              "identifier": "Q02928",
+              "displayName": "UniProt:Q02928 CYP4A11",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P78329",
+              "identifier": "P78329",
+              "displayName": "UniProt:P78329 CYP4F2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16678",
+              "identifier": "Q16678",
+              "displayName": "UniProt:Q16678 CYP1B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P04798",
+              "identifier": "P04798",
+              "displayName": "UniProt:P04798 CYP1A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142780,
+          "displayName": "20-HETE [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161767,
+          "displayName": "CYP(2) [endoplasmic reticulum membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P05177",
+              "identifier": "P05177",
+              "displayName": "UniProt:P05177 CYP1A2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q7Z449",
+              "identifier": "Q7Z449",
+              "displayName": "UniProt:Q7Z449 CYP2U1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P10632",
+              "identifier": "P10632",
+              "displayName": "UniProt:P10632 CYP2C8",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q02928",
+              "identifier": "Q02928",
+              "displayName": "UniProt:Q02928 CYP4A11",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P11712",
+              "identifier": "P11712",
+              "displayName": "UniProt:P11712 CYP2C9",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P33261",
+              "identifier": "P33261",
+              "displayName": "UniProt:P33261 CYP2C19",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q16678",
+              "identifier": "Q16678",
+              "displayName": "UniProt:Q16678 CYP1B1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P04798",
+              "identifier": "P04798",
+              "displayName": "UniProt:P04798 CYP1A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 2142836,
+          "displayName": "19-HETE [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142830,
+          "displayName": "18-HETE [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142711,
+          "displayName": "17-HETE [endoplasmic reticulum lumen]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2142733,
+          "displayName": "5S-HETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 2161921,
+          "displayName": "5-oxoETE [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 8932645,
+          "displayName": "PON1,2,3:2xCa2+ dimers [extracellular region]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "Q15165",
+              "identifier": "Q15165",
+              "displayName": "UniProt:Q15165 PON2",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q15166",
+              "identifier": "Q15166",
+              "displayName": "UniProt:Q15166 PON3",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P27169",
+              "identifier": "P27169",
+              "displayName": "UniProt:P27169 PON1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 8932801,
+          "displayName": "5-HETEL [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 8932804,
+          "displayName": "5-HETE [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        }
+      ],
+      "proteins": [
+        {
+          "accession": "O00519",
+          "identifier": "O00519",
+          "displayName": "UniProt:O00519 FAAH",
+          "isSetProtein": false
+        },
+        {
+          "accession": "O14684",
+          "identifier": "O14684",
+          "displayName": "UniProt:O14684 PTGES",
+          "isSetProtein": false
+        },
+        {
+          "accession": "O15296",
+          "identifier": "O15296",
+          "displayName": "UniProt:O15296 ALOX15B",
+          "isSetProtein": false
+        },
+        {
+          "accession": "O60760",
+          "identifier": "O60760",
+          "displayName": "UniProt:O60760 HPGDS",
+          "isSetProtein": false
+        },
+        {
+          "accession": "O75342",
+          "identifier": "O75342",
+          "displayName": "UniProt:O75342 ALOX12B",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P04798",
+          "identifier": "P04798",
+          "displayName": "UniProt:P04798 CYP1A1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P05177",
+          "identifier": "P05177",
+          "displayName": "UniProt:P05177 CYP1A2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P07203",
+          "identifier": "P07203",
+          "displayName": "UniProt:P07203 GPX1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P09917",
+          "identifier": "P09917",
+          "displayName": "UniProt:P09917 ALOX5",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P09960",
+          "identifier": "P09960",
+          "displayName": "UniProt:P09960 LTA4H",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P10632",
+          "identifier": "P10632",
+          "displayName": "UniProt:P10632 CYP2C8",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P11712",
+          "identifier": "P11712",
+          "displayName": "UniProt:P11712 CYP2C9",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P13584",
+          "identifier": "P13584",
+          "displayName": "UniProt:P13584 CYP4B1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P15428",
+          "identifier": "P15428",
+          "displayName": "UniProt:P15428 HPGD",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P16050",
+          "identifier": "P16050",
+          "displayName": "UniProt:P16050 ALOX15",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P16152",
+          "identifier": "P16152",
+          "displayName": "UniProt:P16152 CBR1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P16444",
+          "identifier": "P16444",
+          "displayName": "UniProt:P16444 DPEP1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P18054",
+          "identifier": "P18054",
+          "displayName": "UniProt:P18054 ALOX12",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P18283",
+          "identifier": "P18283",
+          "displayName": "UniProt:P18283 GPX2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P19440",
+          "identifier": "P19440",
+          "displayName": "UniProt:P19440 GGT1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P20292",
+          "identifier": "P20292",
+          "displayName": "UniProt:P20292 ALOX5AP",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P23219",
+          "identifier": "P23219",
+          "displayName": "UniProt:P23219 PTGS1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P24557",
+          "identifier": "P24557",
+          "displayName": "UniProt:P24557 TBXAS1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P27169",
+          "identifier": "P27169",
+          "displayName": "UniProt:P27169 PON1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P33261",
+          "identifier": "P33261",
+          "displayName": "UniProt:P33261 CYP2C19",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P33527",
+          "identifier": "P33527",
+          "displayName": "UniProt:P33527 ABCC1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P34913",
+          "identifier": "P34913",
+          "displayName": "UniProt:P34913 EPHX2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P35354",
+          "identifier": "P35354",
+          "displayName": "UniProt:P35354 PTGS2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P36269",
+          "identifier": "P36269",
+          "displayName": "UniProt:P36269 GGT5",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P36969",
+          "identifier": "P36969",
+          "displayName": "UniProt:P36969 GPX4",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P41222",
+          "identifier": "P41222",
+          "displayName": "UniProt:P41222 PTGDS",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P42330",
+          "identifier": "P42330",
+          "displayName": "UniProt:P42330 AKR1C3",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P47712",
+          "identifier": "P47712",
+          "displayName": "UniProt:P47712 PLA2G4A",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P49137",
+          "identifier": "P49137",
+          "displayName": "UniProt:P49137 MAPKAPK2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P51589",
+          "identifier": "P51589",
+          "displayName": "UniProt:P51589 CYP2J2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P78329",
+          "identifier": "P78329",
+          "displayName": "UniProt:P78329 CYP4F2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P98187",
+          "identifier": "P98187",
+          "displayName": "UniProt:P98187 CYP4F8",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q02928",
+          "identifier": "Q02928",
+          "displayName": "UniProt:Q02928 CYP4A11",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q08477",
+          "identifier": "Q08477",
+          "displayName": "UniProt:Q08477 CYP4F3",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q14914",
+          "identifier": "Q14914",
+          "displayName": "UniProt:Q14914 PTGR1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q15165",
+          "identifier": "Q15165",
+          "displayName": "UniProt:Q15165 PON2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q15166",
+          "identifier": "Q15166",
+          "displayName": "UniProt:Q15166 PON3",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q15185",
+          "identifier": "Q15185",
+          "displayName": "UniProt:Q15185 PTGES3",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q16647",
+          "identifier": "Q16647",
+          "displayName": "UniProt:Q16647 PTGIS",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q16678",
+          "identifier": "Q16678",
+          "displayName": "UniProt:Q16678 CYP1B1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q16873",
+          "identifier": "Q16873",
+          "displayName": "UniProt:Q16873 LTC4S",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q58HT5",
+          "identifier": "Q58HT5",
+          "displayName": "UniProt:Q58HT5 AWAT1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q5TCH4",
+          "identifier": "Q5TCH4",
+          "displayName": "UniProt:Q5TCH4 CYP4A22",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q6GMR7",
+          "identifier": "Q6GMR7",
+          "displayName": "UniProt:Q6GMR7 FAAH2",
+          "isSetProtein": true
+        },
+        {
+          "accession": "Q6NT55",
+          "identifier": "Q6NT55",
+          "displayName": "UniProt:Q6NT55 CYP4F22",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q6PCB7",
+          "identifier": "Q6PCB7",
+          "displayName": "UniProt:Q6PCB7 SLC27A1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q7Z449",
+          "identifier": "Q7Z449",
+          "displayName": "UniProt:Q7Z449 CYP2U1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q8N8N7",
+          "identifier": "Q8N8N7",
+          "displayName": "UniProt:Q8N8N7 PTGR2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q8TBF2",
+          "identifier": "Q8TBF2",
+          "displayName": "UniProt:Q8TBF2 PRXL2B",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9BYJ1",
+          "identifier": "Q9BYJ1",
+          "displayName": "UniProt:Q9BYJ1 ALOXE3",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H4A9",
+          "identifier": "Q9H4A9",
+          "displayName": "UniProt:Q9H4A9 DPEP2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H7Z7",
+          "identifier": "Q9H7Z7",
+          "displayName": "UniProt:Q9H7Z7 PTGES2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9HBI6",
+          "identifier": "Q9HBI6",
+          "displayName": "UniProt:Q9HBI6 CYP4F11",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9UNU6",
+          "identifier": "Q9UNU6",
+          "displayName": "UniProt:Q9UNU6 CYP8B1",
+          "isSetProtein": false
+        }
+      ],
+      "listsSetProtein": true
+    }
+  ],
+  "openingPathway": {
+    "stableId": "R-HSA-2142753",
+    "name": "Arachidonate metabolism",
+    "rule": "fewest-participants-non-disease-with-diagram",
+    "candidates": [
+      {
+        "stableId": "R-HSA-2142753",
+        "participantCount": 174
+      }
+    ],
+    "reason": "R-HSA-2142753 (Arachidonate metabolism) has the fewest participants (174) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance"
+  },
+  "participantsNote": "A participant is one participating physical entity Reactome returns for the pathway (a complex, a defined or candidate set, a protein with a sequence, a small molecule, ...) with the UniProt reference gene products Reactome lists among its members; complexes and sets are not expanded further than that list. Counts are of physical entities. The participants response does not state each entity's species; the pathway itself is a Homo sapiens pathway. Participants are kept for every candidate of the opening rule (non-disease, with a diagram); the memberships the rule excluded have none.",
+  "provenance": {
+    "sources": [
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/database/version",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T20:27:05Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "data/database/version",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/mapping/UniProt/Q6GMR7/pathways?species=9606",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T20:27:07Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "UniProt Q6GMR7 pathways, species 9606",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "9a426a53033fcb460475d202bf8980a067abb06609fde5fd0dfe6d31be730ab9",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/event/R-HSA-2142753/ancestors",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T20:27:08Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-2142753 ancestors",
+        "recordVersion": "8",
+        "assembly": null,
+        "sha256": "095f562984b0d4fa1fdfa69b79575b7e612eb90cadbbc29a562d5e3fc53f9dce",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/participants/R-HSA-2142753",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T20:27:13Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-2142753 participants",
+        "recordVersion": "8",
+        "assembly": null,
+        "sha256": "549fcde9976af71a16e9dbde1b6a0bb928b50bebd0c8a819f73ef72151cf9eab",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "sort-by-stable-id",
+      "top-level-from-ancestors",
+      "participants-of-rule-candidates",
+      "opening-by-rule",
+      "uniprot-proteins-from-reference-entities",
+      "flag-set-protein"
+    ],
+    "validation": [
+      {
+        "check": "T41-pathway-accession",
+        "result": "pass",
+        "detail": "memberships requested for Q6GMR7; protein record Q6GMR7; specification Q6GMR7",
+        "at": "2026-11-03T20:51:50Z"
+      },
+      {
+        "check": "T42-pathway-memberships-human",
+        "result": "pass",
+        "detail": "1 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
+        "at": "2026-11-03T20:51:50Z"
+      },
+      {
+        "check": "T43-pathway-top-level",
+        "result": "pass",
+        "detail": "R-HSA-2142753 -> R-HSA-1430728",
+        "at": "2026-11-03T20:51:50Z"
+      },
+      {
+        "check": "T44-opening-pathway-rule",
+        "result": "pass",
+        "detail": "R-HSA-2142753 (Arachidonate metabolism) has the fewest participants (174) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-2142753 174; excluded: none",
+        "at": "2026-11-03T20:51:50Z"
+      },
+      {
+        "check": "T45-opening-pathway-participants",
+        "result": "pass",
+        "detail": "R-HSA-2142753 (Arachidonate metabolism): 174 participating physical entities, 59 distinct UniProt proteins; the set's protein Q6GMR7 is among them as Q6GMR7 in FAAH2 [lipid droplet] (EntityWithAccessionedSequence)",
+        "at": "2026-11-03T20:51:50Z"
+      },
+      {
+        "check": "T46-candidate-participants",
+        "result": "pass",
+        "detail": "1 candidate(s): R-HSA-2142753 174 entities, 59 proteins, set's protein listed",
+        "at": "2026-11-03T20:51:50Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Reactome 98 lists Q6GMR7 in 1 human pathway(s); the participants of 1 candidate membership(s) are kept; the world opens on Arachidonate metabolism (R-HSA-2142753), the rule's choice.",
+      "qualifier": "Reactome database version 98",
+      "limitations": [
+        "Membership says that the protein takes part in a curated pathway, never how, and never that a variant changes the pathway.",
+        "The opening pathway is the rule's choice (fewest participating physical entities among the non-disease memberships with a diagram), not a statement of importance; no membership ranks above the others.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

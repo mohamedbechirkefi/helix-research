@@ -212,23 +212,32 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
   });
   it("the fixture set is complete for the specification, every file matches its MANIFEST row, and the redacted records carry the original sha256 in the redaction column", async () => {
     const idx = await fixtureIndex("faah2");
-    expect(Object.keys(idx.inputs).sort()).toEqual(["alphafoldModel", "alphafoldPrediction", "cdna", "cds", "ensemblAssembly", "ensemblInfoData", "ensemblProtein", "geneLookup", "hgnc", "transcriptLookup", "uniprot"]);
+    // Phase 9 (P9.1.2): the set's one Reactome membership adds the version, the memberships, one ancestors and one participants record.
+    expect(Object.keys(idx.inputs).sort()).toEqual(["alphafoldModel", "alphafoldPrediction", "cdna", "cds", "ensemblAssembly", "ensemblInfoData", "ensemblProtein", "geneLookup", "hgnc", "reactomeAncestors:R-HSA-2142753", "reactomeParticipants:R-HSA-2142753", "reactomePathways", "reactomeVersion", "transcriptLookup", "uniprot"]);
     expect(idx.extra).toEqual({});
     const inputs = await loadFixtureInputs("faah2");
     for (const [name, r] of Object.entries(inputs)) {
-      expect(r.url, name).toMatch(/^https:\/\/(rest\.ensembl\.org|rest\.uniprot\.org|rest\.genenames\.org|alphafold\.ebi\.ac\.uk)\//);
+      expect(r.url, name).toMatch(/^https:\/\/(rest\.ensembl\.org|rest\.uniprot\.org|rest\.genenames\.org|alphafold\.ebi\.ac\.uk|reactome\.org\/ContentService)\//);
       expect(r.url).not.toMatch(/email|mailto|@/i);
-      expect(findProprietaryIdentifiers(name.endsWith("Model") || /^(cds|cdna|ensemblProtein)$/.test(name) ? r.body : JSON.parse(r.body)), name).toEqual([]);
+      expect(findProprietaryIdentifiers(name.endsWith("Model") || /^(cds|cdna|ensemblProtein|reactomeVersion)$/.test(name) ? r.body : JSON.parse(r.body)), name).toEqual([]);
     }
     const redactedRows = (await Promise.all(["uniprot", "hgnc"].map((s) => readManifest(join(REPO_ROOT, "data/fixtures/faah2", s))))).flat();
     expect(redactedRows).toHaveLength(2);
     const text = await readFile(join(REPO_ROOT, "data/fixtures/faah2/uniprot/MANIFEST.tsv"), "utf8");
     expect(text.split("\n")[0]).toBe("file\tretrieved_utc\thttp_status\tsha256\tbytes\tmethod\turl\theaders\tredaction");
-    expect(text).toMatch(/\tredacted 2026-11-03: OMIM\/MIM\/HGMD identifiers removed \(Q-H-LIC-1, 1 removal\); original sha256 [0-9a-f]{64}\n/);
+    // Re-recorded from the snapshot on 2026-11-03 (P9.1.2) with the recorder's wording that names no database.
+    expect(text).toMatch(/\tredacted 2026-11-03: proprietary database identifiers removed \(Q-H-LIC-1, 1 removal\); original sha256 [0-9a-f]{64}\n/);
     expect(JSON.parse(inputs.hgnc.body).response.docs[0]).not.toHaveProperty("omim_id");
+    const reactomeRows = await readManifest(join(REPO_ROOT, "data/fixtures/faah2/reactome"));
+    expect(reactomeRows.map((r) => r.url)).toEqual([
+      "https://reactome.org/ContentService/data/database/version",
+      "https://reactome.org/ContentService/data/mapping/UniProt/Q6GMR7/pathways?species=9606",
+      "https://reactome.org/ContentService/data/event/R-HSA-2142753/ancestors",
+      "https://reactome.org/ContentService/data/participants/R-HSA-2142753",
+    ]);
   });
-  it("writes the gene, transcript, sequence, protein, predicted-model and capability records and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "sequences.json", "transcript.json"]);
+  it("writes the gene, transcript, sequence, protein, predicted-model, pathways and capability records and nothing that needs a structure or a variant", () => {
+    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-Q6GMR7-F1.json", "protein-Q6GMR7.json", "sequences.json", "transcript.json"]);
   });
   it("capabilities: structure, mapping and variant unavailable with the builder's reasons; transcript and protein views available; the prediction as found", () => {
     expect(cap.symbol).toBe("FAAH2");
@@ -238,13 +247,16 @@ describe("the structure-limited set (data/specs/faah2.json) builds from its reco
     expect(cap.transcriptView).toEqual({ available: true, reason: "transcript ENST00000374900.5 selected by rule mane_select", evidenceCategory: 2 });
     expect(cap.proteinView).toMatchObject({ available: true, evidenceCategory: 2 });
     expect(cap.predictedStructure).toEqual({ available: true, reason: "AF-Q6GMR7-F1 v6; computational prediction, never shown as experimental", evidenceCategory: 3 });
+    // P9.1.2: the specification asks for pathways and Reactome lists the protein in one, so the view is available (class 2, membership only).
+    expect(cap.pathwayView).toEqual({ available: true, reason: "1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)", evidenceCategory: 2 });
+    expect(cap.derivedFrom).toContain("pathways.json");
   });
   it("the manifest and records: no failed check, four sources, a protein with no PDB cross-reference and its initiator Met kept, a prediction labelled as such", async () => {
     expect(manifest.datasetId).toBe("faah2");
     expect(manifest.generator.script).toBe(`${GENERATOR_SCRIPT} (fixtures)`);
     expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
     expect(manifest.validation.find((v) => v.check === "T15-initiator-met-and-chain")).toMatchObject({ result: "pass", detail: "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532" });
-    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "uniprot"]);
+    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "reactome", "uniprot"]);
     expect(manifest.sources.map((s) => s.sha256).sort()).toEqual(Object.values(await loadFixtureInputs("faah2")).map((r) => r.sha256).sort());
     const prot = Protein.parse(JSON.parse(await readFile(join(out, "protein-Q6GMR7.json"), "utf8")));
     expect(prot.xrefs.pdb).toEqual([]);

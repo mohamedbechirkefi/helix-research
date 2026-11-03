@@ -109,6 +109,7 @@ describe("capability checks (P2.4.6)", () => {
       verifiedMappings: [],
       predictedModel: null,
       variantPositions: [],
+      pathways: null,
     });
     expect(cap.proteinView.available).toBe(false);
     expect(cap.proteinView.reason).toMatch(/pseudogene/);
@@ -129,11 +130,40 @@ describe("capability checks (P2.4.6)", () => {
       verifiedMappings: [],
       predictedModel: { modelId: "AF-Q00000-F1", version: 6 },
       variantPositions: [42],
+      pathways: null,
     });
     expect(cap.predictedStructure.available).toBe(true);
     expect(cap.variantHighlight.available).toBe(false);
     expect(cap.variantHighlight.reason).toMatch(/never used to place/);
     expect(cap.transcriptView.available).toBe(false);
+    expect(cap.pathwayView).toEqual({ available: false, reason: "pathways not requested in the gene specification", evidenceCategory: 6 });
+  });
+  it("pathwayView (P9.1.2, plan §12 rule 4): available only when a membership qualifies for the opening rule; the reason names the count and the opening pathway as the rule's choice; each refusal says why", () => {
+    const base = {
+      geneId: "G",
+      symbol: "X",
+      biotype: "protein_coding",
+      transcriptSelection: null,
+      hasTranslation: true,
+      protein: { accession: "Q00000", sequenceVerified: true },
+      experimentalStructures: [],
+      selectedStructure: null,
+      verifiedMappings: [],
+      predictedModel: null,
+      variantPositions: [],
+    };
+    expect(capabilities({ ...base, pathways: { membershipCount: 0, opening: null, reason: "no Reactome pathway lists this protein" } }).pathwayView).toEqual({ available: false, reason: "no Reactome pathway lists this protein", evidenceCategory: 6 });
+    // Memberships but none qualifies: unavailable with the rule's own sentence.
+    const ruleSentence = "2 membership(s), none a non-disease pathway with a diagram (R-HSA-1: a disease pathway; R-HSA-2: no diagram), so no opening pathway is chosen";
+    expect(capabilities({ ...base, pathways: { membershipCount: 2, opening: null, reason: ruleSentence } }).pathwayView).toEqual({ available: false, reason: ruleSentence, evidenceCategory: 6 });
+    expect(capabilities({ ...base, pathways: { membershipCount: 3, opening: { stableId: "R-HSA-7", name: "Some pathway" }, reason: "r" } }).pathwayView).toEqual({
+      available: true,
+      reason: "3 Reactome memberships; opens on Some pathway, R-HSA-7 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+      evidenceCategory: 2,
+    });
+    expect(capabilities({ ...base, pathways: { membershipCount: 1, opening: { stableId: "R-HSA-7", name: "Some pathway" }, reason: "r" } }).pathwayView.reason).toMatch(/^1 Reactome membership; opens on /);
+    // No wording calls a pathway primary (plan §12 rule 3, amended).
+    expect(JSON.stringify(capabilities({ ...base, pathways: { membershipCount: 3, opening: { stableId: "R-HSA-7", name: "Some pathway" }, reason: "r" } }))).not.toMatch(/primary/i);
   });
 });
 

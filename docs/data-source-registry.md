@@ -18,7 +18,7 @@
 | RCSB ModelServer (models.rcsb.org) | | | Simple GET yes; **preflight lacks ACAO** | CC0 1.0 | Yes |
 | AlphaFold DB | model v6 | Not stated (EMBL-EBI ToU) | Yes: `*` (API and files) | CC BY 4.0 + in-file disclaimer | Yes with attribution and disclaimer kept |
 | NCBI E-utilities / ClinVar | ClinVar build 261025 (2026-10-25) | 3 req/s without key; >100 requests off-peak; `tool`/`email` | Yes: `*`, rate-limit headers exposed | Public domain (US Gov) + submitter caveat; disclaimer "must be evident" | Yes (Inference) with NCBI notice; no OMIM content |
-| Reactome Content Service | 98 | Not stated | Yes: `*` | CC0 (data); CC BY 4.0 (diagrams, icons) | Yes (data); attribution for diagrams |
+| Reactome Content Service | 98 (seen 2026-11-01 and 2026-11-03) | Not stated | Yes: `*` | CC0 (data); CC BY 4.0 (diagrams, icons) | Yes (data); attribution for diagrams |
 | Open Targets GraphQL | 26.09 (API 26.9.0) | No number; heavy use blocked; bulk via downloads | Yes: echoes Origin, credentials true; POST preflight OK | CC0 1.0 (platform); per-source terms | Core yes; check ChEMBL/HPA (CC BY-SA) and COSMIC fields |
 | HGNC REST | lastModified 2026-10-30 | 10 req/s; 403 IP block | Simple GET yes (`*`); preflight returns no allow-headers | CC0 | Yes |
 | NCBI Gene / RefSeq | (E-utilities) | as NCBI | as NCBI | as NCBI | as NCBI (RefSeq-specific statement not fetched) |
@@ -141,15 +141,21 @@
 
 - **Docs and endpoints:**
   - https://reactome.org/dev/content-service
-  - Used: `https://reactome.org/ContentService/data/database/version`, `/data/mapping/UniProt/{acc}/pathways`
-  - Planned: `/data/query/{stId}`, `/data/event/{stId}/participatingPhysicalEntities`
-- **Versioning:** database version **98**. Stable IDs are versioned (R-HSA-1237044.5).
-- **Rate limits:** not stated.
+  - Used (Phase 9, P9.1.2, `packages/data-adapters/src/adapters/reactome.ts`, requests of 2026-11-03 for the HBB, CFTR and FAAH2 sets, user agent `helix-research`, no identifier other than the accession and stable ids in any URL): `https://reactome.org/ContentService/data/database/version` (plain text, `98`); `/data/mapping/UniProt/{acc}/pathways?species=9606` (the memberships); `/data/event/{stId}/ancestors` (once per membership); `/data/participants/{stId}` (once per candidate of the opening-pathway rule; the record keeps every candidate's participants).
+  - Looked at once on 2026-11-03 and not used: `/data/participants/{stId}/participatingPhysicalEntities` (the plan's endpoint: it returns the physical entities without their members, so a complex such as "HbA [cytosol]" carries no accession) and `/data/participants/{stId}/referenceEntities` (flattened reference entities, but each reference gene product carries UniProt comment text in which MIM numbers appear inside sentences, which the Q-H-LIC-1 redaction does not remove). Neither was recorded.
+- **Versioning:** database version **98** (seen 2026-11-01 and again 2026-11-03; `data/database/version`). Stable IDs are versioned (`stIdVersion`, e.g. R-HSA-1237044.5); the record keeps both.
+- **Response shapes seen (2026-11-03, release 98):**
+  - Memberships: a JSON array of event summaries with `dbId`, `stId`, `stIdVersion`, `displayName`, `name[]`, `speciesName`, `isInDisease`, `isInferred`, `hasDiagram`, `hasEHLD`, `maxDepth`, `releaseDate`, `schemaClass`, `className`, sometimes `doi` and `lastUpdatedDate`. `schemaClass` is `Pathway` for every HBB and FAAH2 membership and for ten of CFTR's eleven; the eleventh is `CellLineagePath` (R-HSA-9925563, "Developmental Lineage of Pancreatic Ductal Cells"), which the adapter accepts as a membership and the record labels. Every membership returned for species 9606 had `speciesName` "Homo sapiens". HBB 10 memberships (3949 bytes), CFTR 11 (4376 bytes), FAAH2 1 (398 bytes).
+  - Ancestors: a JSON array of paths; each path is an array of event summaries from the event itself up to a `TopLevelPathway` (fields as above plus `oldStId`, `diagramWidth`, `diagramHeight`, `inferred`, `inDisease`). Every membership seen had exactly one path.
+  - Participants (`/data/participants/{stId}`): a JSON array of `{ peDbId, displayName, schemaClass, refEntities[] }`, one per participating physical entity (`Complex`, `DefinedSet`, `CandidateSet`, `EntityWithAccessionedSequence`, `SimpleEntity`, ...); each `refEntities` entry has `dbId`, `stId` (`uniprot:P68871`, `chebi:16526`, ...), `identifier`, `schemaClass` (`ReferenceGeneProduct`, `ReferenceMolecule`, `ReferenceTherapeutic`, ...), `displayName` ("UniProt:P68871 HBB"), `icon` and `url`. No species field on either level. Sizes from 7.6 kB (an erythrocyte pathway, 18 entities) to 349 kB ("Neutrophil degranulation", 20 entities with large sets). No proprietary identifier was found in any recorded body (the redaction removed nothing).
+  - Version: `text/plain;charset=UTF-8`, the two characters `98`.
+- **Rate limits:** not stated; the client uses 3 requests per second (burst 3). The three sets needed 20, 21 and 4 requests.
 - **CORS:** measured `allow-origin *` (the preflight response duplicates some headers, harmless).
 - **Licence:** https://reactome.org/license:
   - "All data in the Reactome database and files derived from that data are licensed under the Creative Commons Public Domain Dedication (CC0)" and "Attribution is encouraged but not required."
   - Pathway illustrations, icons and art are CC BY 4.0. Software is Apache 2.0.
-- **Redistribution:** yes (CC0 data). Reactome diagrams and icons need CC BY attribution.
+- **Redistribution:** yes (CC0 data). Reactome diagrams and icons need CC BY attribution; HELIX uses neither (Pathway World v1 draws its own plate from the record).
+- **Fixtures:** `data/fixtures/{hbb,cftr,faah2}/reactome/` with MANIFEST.tsv rows; the earlier assessment's two files stay in `research/raw/reactome/` (the memberships body of 2026-11-01 has the same sha256 as the one recorded on 2026-11-03).
 
 ## 7. Open Targets Platform GraphQL
 

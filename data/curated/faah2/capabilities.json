@@ -5,7 +5,8 @@
     "transcript.json",
     "sequences.json",
     "protein-Q6GMR7.json",
-    "predicted-model-AF-Q6GMR7-F1.json"
+    "predicted-model-AF-Q6GMR7-F1.json",
+    "pathways.json"
   ],
   "geneId": "ENSG00000165591",
   "symbol": "FAAH2",
@@ -38,5 +39,10 @@
     "available": false,
     "reason": "no reference variant selected",
     "evidenceCategory": 6
+  },
+  "pathwayView": {
+    "available": true,
+    "reason": "1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
   }
 }

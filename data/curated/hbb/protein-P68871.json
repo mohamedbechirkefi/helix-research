@@ -430,61 +430,61 @@
         "check": "uniprot-accession",
         "result": "pass",
         "detail": "P68871 HBB_HUMAN, reviewed true",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T06-cds-shape",
         "result": "pass",
         "detail": "length 444, starts ATG, ends TAA",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T07-translation-equals-ensembl-protein",
         "result": "pass",
         "detail": "translated 147 aa vs Ensembl 147 aa",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T07-translation-equals-uniprot",
         "result": "pass",
         "detail": "translated 147 aa vs UniProt 147 aa",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T07-uniprot-md5",
         "result": "pass",
         "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.7: UniProt residue E, HGVS ref E",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
-        "at": "2026-11-03T19:09:10Z"
+        "at": "2026-11-03T20:51:49Z"
       }
     ],
     "evidenceCategory": 2

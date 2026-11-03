@@ -9,6 +9,7 @@
   "genomicWindowFlank": 20,
   "contactCutoffAngstrom": 4.5,
   "includeAlphafold": true,
+  "pathways": true,
   "questions": [],
   "notes": "Phase 9 P9.2.4, the structure-limited gene (docs/phase-9-generalisation.md section 4, last row). Chosen on 2026-11-03 by scripts/data-preparation/find-structure-limited.ts with seed 20261103: the first of 22 sampled HGNC ids (HGNC:26440, the ninth visited) that is approved with locus_type 'gene with protein product', one UniProt id and a MANE Select transcript, whose UniProt entry is reviewed with no PDB cross-reference, and whose Ensembl gene is protein_coding with a MANE Select transcript (ENST00000374900.5). Not chosen for being interesting. Alternates in sample order: TMTC4 (HGNC:25904), WSB2 (HGNC:19222). Report: research/derived/structure-limited-search-20261103.json (Ensembl 116, UniProt 2026_03). No pdbId: UniProt Q6GMR7 cites no experimental structure. No variant: none selected; the journey is DNA World only with the readout saying why there is no Protein World (blueprint E)."
 }

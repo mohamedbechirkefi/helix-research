@@ -452,6 +452,122 @@ export const Pathway = z.object({
 });
 export type Pathway = z.infer<typeof Pathway>;
 
+// ---------------------------------------------------------------- pathway memberships (Phase 9, P9.1.2)
+
+const ReactomeStableId = z.string().regex(/^R-HSA-\d+$/);
+
+/** A pathway named by its Reactome stable id and display name. */
+export const PathwayRef = z.object({
+  stableId: ReactomeStableId,
+  name: z.string().min(1),
+});
+export type PathwayRef = z.infer<typeof PathwayRef>;
+
+/**
+ * One Reactome pathway that lists the protein (a database annotation, class 2: membership,
+ * never mechanism). `topLevelPathways` are the distinct top-level pathways its ancestor paths
+ * end in (one, unless Reactome places the pathway under several). `participantCount` is the
+ * number of participating physical entities Reactome returns for the pathway, known for the
+ * candidates of the opening-pathway rule and null for the memberships the rule excluded;
+ * `isOpening` marks the one membership the rule names (plan section 12 rule 3), never an
+ * importance.
+ */
+export const PathwayMembership = z.object({
+  stableId: ReactomeStableId,
+  stableIdVersion: z.string().nullable(),
+  name: z.string().min(1),
+  /** Reactome's class of the event: Pathway, TopLevelPathway or CellLineagePath (a developmental lineage path, which the mapping lists among a protein's pathways). */
+  schemaClass: z.enum(["Pathway", "TopLevelPathway", "CellLineagePath"]),
+  species: z.string().min(1),
+  isDisease: z.boolean(),
+  hasDiagram: z.boolean(),
+  topLevelPathways: z.array(PathwayRef),
+  participantCount: z.number().int().nonnegative().nullable(),
+  isOpening: z.boolean(),
+});
+export type PathwayMembership = z.infer<typeof PathwayMembership>;
+
+/** A UniProt reference gene product among a pathway's participants; `isSetProtein` flags the set's own protein. */
+export const PathwayParticipantProtein = z.object({
+  /** The UniProt accession without any isoform suffix. */
+  accession: z.string().min(1),
+  /** The identifier as Reactome returns it (an isoform keeps its suffix). */
+  identifier: z.string().min(1),
+  displayName: z.string().min(1),
+  isSetProtein: z.boolean(),
+});
+export type PathwayParticipantProtein = z.infer<typeof PathwayParticipantProtein>;
+
+/**
+ * One participating physical entity of a pathway as Reactome returns it (a complex, a set, a
+ * protein with a sequence, a small molecule, ...), with the UniProt proteins among the
+ * reference entities Reactome lists for it (empty for a small molecule).
+ */
+export const PathwayParticipant = z.object({
+  dbId: z.number().int(),
+  displayName: z.string().min(1),
+  schemaClass: z.string().min(1),
+  proteins: z.array(PathwayParticipantProtein),
+});
+export type PathwayParticipant = z.infer<typeof PathwayParticipant>;
+
+/** The participants of one candidate membership, as Reactome returns them, with the UniProt proteins among them. */
+export const PathwayParticipantSet = z.object({
+  stableId: ReactomeStableId,
+  name: z.string().min(1),
+  topLevelPathways: z.array(PathwayRef),
+  participantCount: z.number().int().nonnegative(),
+  participants: z.array(PathwayParticipant),
+  /** The distinct UniProt proteins over every participant, sorted by accession, the set's protein flagged. */
+  proteins: z.array(PathwayParticipantProtein),
+  /** Whether the set's protein is among those proteins. */
+  listsSetProtein: z.boolean(),
+});
+export type PathwayParticipantSet = z.infer<typeof PathwayParticipantSet>;
+
+/**
+ * The membership Pathway World opens on (plan section 12 rule 3, amended 2026-11-03): the
+ * rule's choice, never an importance. Its participants are in `participantsByPathway` like
+ * every other candidate's.
+ */
+export const OpeningPathway = z.object({
+  stableId: ReactomeStableId,
+  name: z.string().min(1),
+  rule: z.literal("fewest-participants-non-disease-with-diagram"),
+  /** The candidates in the rule's rank order (fewest participants first, ties by stable id number). */
+  candidates: z.array(z.object({ stableId: ReactomeStableId, participantCount: z.number().int().nonnegative() })),
+  reason: z.string().min(1),
+});
+export type OpeningPathway = z.infer<typeof OpeningPathway>;
+
+/**
+ * The pathways that list a protein (pathways.json, Phase 9 P9.1.2, plan section 12 rules 2 and
+ * 3): the Reactome memberships sorted by stable id, each with its top-level pathway; the
+ * participants of every candidate membership (non-disease, with a diagram), so that a visitor
+ * can open any of them; and the membership the world opens on, by rule. A protein no pathway
+ * lists has an empty list and a null opening pathway. The record says that a protein takes
+ * part in a curated pathway, never how, and never that the variant changes the pathway; no
+ * field calls a pathway primary.
+ */
+export const PathwayMembershipsRecord = z.object({
+  kind: z.literal("pathway-memberships"),
+  derivedFrom: z.array(z.string()),
+  accession: z.string().min(1),
+  /** The species the memberships were requested for. */
+  species: z.string().min(1),
+  /** The Reactome database version the responses came from, as `data/database/version` states it. */
+  release: z.string().regex(/^\d+$/),
+  membershipCount: z.number().int().nonnegative(),
+  memberships: z.array(PathwayMembership),
+  /** One entry per candidate of the opening rule, sorted by stable id number. */
+  participantsByPathway: z.array(PathwayParticipantSet),
+  openingPathway: OpeningPathway.nullable(),
+  /** What a participant is in this record and what the response does not state (each entity's species). */
+  participantsNote: z.string().min(1),
+  ...Curated,
+});
+export type PathwayMembershipsRecord = z.infer<typeof PathwayMembershipsRecord>;
+
 // ---------------------------------------------------------------- predicted models
 
 export const PredictedModel = z.object({
@@ -515,11 +631,13 @@ export const CapabilityReport = z.object({
   predictedStructure: Capability,
   verifiedResidueMapping: Capability,
   variantHighlight: Capability,
+  /** Phase 9 (P9.1.2): Reactome memberships with participants can be shown, opening on the rule's choice (class 2, membership only). */
+  pathwayView: Capability,
 });
 export type CapabilityReport = z.infer<typeof CapabilityReport>;
 
 /** The capability keys a question may require (the Capability-valued fields of the report). */
-export const CAPABILITY_KEYS = ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight"] as const;
+export const CAPABILITY_KEYS = ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight", "pathwayView"] as const;
 export type CapabilityKey = (typeof CAPABILITY_KEYS)[number];
 
 /** One curated question with the capabilities the set must have for it to be askable at all. */

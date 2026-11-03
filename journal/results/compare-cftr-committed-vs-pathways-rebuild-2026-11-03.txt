@@ -1,0 +1,33 @@
+files compared: 16
+byte-identical files: 1
+allowed differences (timestamps and dependent hashes): 171
+  clinvar-f508del.json: 3
+  contacts-f508del-5UAK.json: 1
+  gene.json: 10
+  manifest.json: 73
+  predicted-model-AF-P13569-F1.json: 1
+  protein-P13569.json: 10
+  residue-mapping-P13569-5UAK.json: 4
+  residue-mapping-f508del-5UAK.json: 8
+  sequences.json: 32
+  structure-5UAK.json: 9
+  transcript.json: 6
+  variant-f508del.json: 14
+other differences: 17
+  capabilities.json $.derivedFrom: 11 != 12 (array length)
+  capabilities.json $.pathwayView: undefined != {"available":true,"reason":"11 Reactome memberships; opens on RHO GTPases regulate CFTR trafficking, R-HSA-5627083 (the rule's choice: fewest participants among non-disease pathways with a diagram)","evidenceCategory":2} (value)
+  manifest.json $.generator.gitCommit: "88e794ccc5e2181ec90a0c3ad9e87c2dd8093eb6" != "92b20130837a8e3da52b10e47122f2a791e8bb4c" (value)
+  manifest.json $.sources: 23 != 44 (array length)
+  manifest.json $.files: 14 != 15 (array length)
+  manifest.json $.files[12].path: "capabilities.json" != "pathways.json" (value)
+  manifest.json $.files[12].recordKind: "capabilities" != "pathway-memberships" (value)
+  manifest.json $.files[13].path: "questions.json" != "capabilities.json" (value)
+  manifest.json $.files[13].recordKind: "questions" != "capabilities" (value)
+  manifest.json $.validation: 57 != 63 (array length)
+  manifest.json $.validation[56].check: "T31-drift-recorded" != "T41-pathway-accession" (value)
+  manifest.json $.validation[56].detail: "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4" != "memberships requested for P13569; protein record P13569; specification P13569" (value)
+  manifest.json $.attribution: 8 != 9 (array length)
+  manifest.json $.attribution[7].source: "uniprot" != "reactome" (value)
+  manifest.json $.attribution[7].licence: "CC-BY-4.0" != "CC0-1.0" (value)
+  manifest.json $.attribution[7].text: "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX." != "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." (value)
+  pathways.json : false != true (file present in one build only)

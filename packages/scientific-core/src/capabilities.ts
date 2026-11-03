@@ -25,6 +25,13 @@ export interface CapabilityInput {
   predictedModel: { modelId: string; version: number } | null;
   /** Variant positions requested by the journey, in translated numbering. */
   variantPositions: number[];
+  /**
+   * Phase 9 (P9.1.2): what Reactome said, or null when the specification did not ask for
+   * pathways. `opening` is the membership the world opens on, chosen by rule (plan section 12
+   * rule 3, the rule's choice and never an importance), null when no membership qualifies; the
+   * `reason` is the rule's own sentence for that case.
+   */
+  pathways: { membershipCount: number; opening: { stableId: string; name: string } | null; reason: string } | null;
 }
 
 const yes = (reason: string, evidenceCategory: number | null) => ({ available: true, reason, evidenceCategory });
@@ -68,6 +75,17 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
       : unmapped.length === 0
         ? yes(`variant position(s) ${i.variantPositions.join(", ")} mapped to observed residues in an experimental structure`, 1)
         : no(`variant position(s) ${unmapped.join(", ")} not mapped to an experimental structure; a predicted model is never used to place a variant`);
+  // Membership, never mechanism (plan section 12 rule 4): available when at least one membership qualifies
+  // for the opening rule; the reason names the count and the opening pathway as the rule's choice, never as
+  // importance. With memberships but no qualifying one, the reason is the rule's own sentence.
+  const pathwayView =
+    i.pathways === null
+      ? no("pathways not requested in the gene specification")
+      : i.pathways.membershipCount === 0
+        ? no("no Reactome pathway lists this protein")
+        : i.pathways.opening === null
+          ? no(i.pathways.reason)
+          : yes(`${i.pathways.membershipCount} Reactome membership${i.pathways.membershipCount === 1 ? "" : "s"}; opens on ${i.pathways.opening.name}, ${i.pathways.opening.stableId} (the rule's choice: fewest participants among non-disease pathways with a diagram)`, 2);
   return {
     kind: "capabilities",
     derivedFrom: [],
@@ -79,5 +97,6 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
     predictedStructure,
     verifiedResidueMapping,
     variantHighlight,
+    pathwayView,
   };
 }
