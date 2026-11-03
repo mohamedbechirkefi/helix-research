@@ -9,6 +9,12 @@
   },
   "modelCreatedDate": "2025-08-01T00:00:00Z",
   "globalPlddt": 97.19,
+  "plddtFractions": {
+    "veryLow": 0,
+    "low": 0.007,
+    "confident": 0.02,
+    "veryHigh": 0.973
+  },
   "sequenceChecksumMatchesUniprot": true,
   "disclaimer": "Data in this file is available under a CC-BY-4.0 license.\n\nALPHAFOLD DATA, COPYRIGHT (2021) DEEPMIND TECHNOLOGIES LIMITED. THE INFORMATION\nPROVIDED IS THEORETICAL MODELLING ONLY AND CAUTION SHOULD BE EXERCISED IN ITS\nUSE. IT IS PROVIDED \"AS-IS\" WITHOUT ANY WARRANTY OF ANY KIND, WHETHER EXPRESSED\nOR IMPLIED. NO WARRANTY IS GIVEN THAT USE OF THE INFORMATION SHALL NOT INFRINGE\nTHE RIGHTS OF ANY THIRD PARTY. DISCLAIMER: THE INFORMATION IS NOT INTENDED TO BE\nA SUBSTITUTE FOR PROFESSIONAL MEDICAL ADVICE, DIAGNOSIS, OR TREATMENT, AND DOES\nNOT CONSTITUTE MEDICAL OR OTHER PROFESSIONAL ADVICE. IT IS AVAILABLE FOR\nACADEMIC AND COMMERCIAL PURPOSES, UNDER CC-BY 4.0 LICENCE.",
   "usableForVariantPlacement": false,
@@ -50,7 +56,7 @@
         "check": "T32-alphafold-labelled",
         "result": "pass",
         "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       }
     ],
     "evidenceCategory": 3

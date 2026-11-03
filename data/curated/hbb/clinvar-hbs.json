@@ -169,19 +169,19 @@
         "check": "T33-clinvar-search-covered",
         "result": "pass",
         "detail": "esearch rs334: 10 uids; esummary returned 10 (15175,15333,446730,446731,446735,446736,446737,446738,446747,446748)",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T34-clinvar-review-status",
         "result": "pass",
         "detail": "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       },
       {
         "check": "T35-clinvar-related-records-separate",
         "result": "pass",
         "detail": "9 other record(s) for rs334: 8 haplotype/compound (8 include NC_000011.10:5227001:T:A), 1 other allele/variant (VCV000015175.3 Likely benign); none merged",
-        "at": "2026-11-03T21:36:02Z"
+        "at": "2026-11-03T22:12:11Z"
       }
     ],
     "evidenceCategory": 2
