@@ -2,10 +2,10 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "cftr",
   "description": "CFTR (cystic fibrosis transmembrane conductance regulator) set: gene, MANE Select transcript, sequences, UniProt P13569, the F508del in-frame deletion, PDB 5UAK and its residue mapping.",
-  "generatedAt": "2026-11-03T22:12:12Z",
+  "generatedAt": "2026-11-03T23:32:04Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "f8c1ed2500970292129e61c07a9334fb6684ba2c",
+    "gitCommit": "878450a664c652c6feb6dcf9d869ef53ac98cb96",
     "gitDirty": false,
     "node": "v22.23.3"
   },
@@ -583,48 +583,61 @@
       "sha256": "c59d6c67fe053092758b3a268e7db6b134eaf6852a8a0b315b7a14136b51d92d",
       "licence": "CC0-1.0",
       "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "opentargets",
+      "url": "https://api.platform.opentargets.org/api/v4/graphql",
+      "method": "POST",
+      "retrievedAt": "2026-11-03T23:07:44Z",
+      "sourceRelease": "Open Targets 26.9.0 (data 26.09)",
+      "recordId": "target ENSG00000001626 associatedDiseases page 0 size 25",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "386c67eaae7408eb1709bb293bfe0702191a85c48e630fd8842d03c3190daaea",
+      "licence": "CC0-1.0",
+      "attribution": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
     }
   ],
   "files": [
     {
       "path": "gene.json",
-      "sha256": "79dc67e19f04dae85cb03f34d4c4930d72d1fa4b097b34a72b71c46acbb42674",
+      "sha256": "dd9718e6c9566ccdb2c126accafe329160f4a1fde66f0d51ea8d1cf789c94b10",
       "bytes": 5403,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "66d616d4c864c9acd06d399e53f764cbc8f7b71ac6a54f6e5cbca893dd38548c",
+      "sha256": "d7fbdeda7973bda52c260193a66f8e465230bc911f50c46ba36f42b6c6b6b861",
       "bytes": 14966,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "1adcc4f03c6f269ecce83c92d9493cc568af63c7826597abc126bda317ee88b6",
+      "sha256": "0eae941f187deb418c8fab0bccc1b88dd3e059a0db3364902c59cc228544b40d",
       "bytes": 26331,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-P13569.json",
-      "sha256": "4f7a077645796196c706217ffe3ef8def07afe86869d2ff27da706c5f4030203",
+      "sha256": "a5748c280033804c2483c0fd67b3138d0cea1446d55c89e76a5fa7e58f057788",
       "bytes": 24765,
       "recordKind": "protein"
     },
     {
       "path": "variant-f508del.json",
-      "sha256": "1580c73878b3f11288435da966be5d3abfbc8bb4736fa2dc8d99c393d186033d",
+      "sha256": "d9b1fff2a5f637c36c94ca9838a79a2d94514c386c1546c5f79f0320e3afea0a",
       "bytes": 16641,
       "recordKind": "variant"
     },
     {
       "path": "clinvar-f508del.json",
-      "sha256": "23054f486f2968ba6228ab8e871c855e6ea00e9a33ca8fbaaaaf1982981ae0a7",
+      "sha256": "be3ffaf1c336fe194c092ca97c780877dad1480350ebaed655a20ca42b9abe5f",
       "bytes": 5541,
       "recordKind": "clinvar-record"
     },
     {
       "path": "structure-5UAK.json",
-      "sha256": "371c29424b23e159531b78a349039618d3693c283818ec1c4e730b207ea54464",
+      "sha256": "560b44d02c3d038f8b7754501032d1a678275c769866e5ff91489aaa9bae68a5",
       "bytes": 12710,
       "recordKind": "structure"
     },
@@ -636,44 +649,50 @@
     },
     {
       "path": "residue-mapping-f508del-5UAK.json",
-      "sha256": "07dd50eebd42808d11878b05d20d07712e2ac90b8332d2d9d16412db647e391f",
+      "sha256": "edfa07f0ed45c9e42b6ab4600f9a8543a9e23af0118378fcefaac846971be5cf",
       "bytes": 6197,
       "recordKind": "residue-mapping"
     },
     {
       "path": "residue-mapping-P13569-5UAK.json",
-      "sha256": "21dbd5e457ffb50452ee553e1841819bf80e1251ae839ea325e913188b466ae3",
+      "sha256": "45bb19d1e875b38bc93d043c34c3045f0db0efe96bb3af3fc8b120e5ba86b937",
       "bytes": 644502,
       "recordKind": "residue-mapping-table"
     },
     {
       "path": "contacts-f508del-5UAK.json",
-      "sha256": "16e958e1e405ce7e587e4f2c914796f138ccae7966cea3c535ad8b9304ca9afc",
+      "sha256": "3517c753eb853936d45d68dbd5e1ec34ddb9ec6ca3645ae72383dc6d53c1fb1d",
       "bytes": 3133,
       "recordKind": "residue-contacts"
     },
     {
       "path": "predicted-model-AF-P13569-F1.json",
-      "sha256": "a4041d3139f1339221ebc9e1e67136ed7b96980cd3585957d57e967fb398da53",
+      "sha256": "8238908de2e8cd59555e922fd385319bc82434229dbe7f3177a5349b2227e9d8",
       "bytes": 3187,
       "recordKind": "predicted-model"
     },
     {
       "path": "pathways.json",
-      "sha256": "ca139ea33115a48865107e747af2daaa018d31a7f2877bb76b823abda8e902fb",
+      "sha256": "d7f50c389a50cc3621acfbc1e7c552c4c8a167cb445096a7c6eb2cde05e7e6cb",
       "bytes": 750785,
       "recordKind": "pathway-memberships"
     },
     {
+      "path": "associations.json",
+      "sha256": "53bf63118405abd4f29a92c78116a0899ecba8d3e60a688fc26776f8797116b5",
+      "bytes": 28169,
+      "recordKind": "disease-associations"
+    },
+    {
       "path": "capabilities.json",
-      "sha256": "f18949b570e63d70dfe5f697c5081246d9cc6d8e02954171804c50e24e58ab91",
-      "bytes": 1758,
+      "sha256": "9e01724315e0a0455a3ba059eb4fcc9d977b1747ce79bc093fb4aaaa2e60e269",
+      "bytes": 2002,
       "recordKind": "capabilities"
     },
     {
       "path": "questions.json",
-      "sha256": "6081ff93eec1eaaab84bff52b30a17483261aacb59afc37eccc5de1995a221fd",
-      "bytes": 937,
+      "sha256": "b934fcf2910c54d6206d8d602c43e99f21bf9c4618b150bed22b5ebb81de162f",
+      "bytes": 1061,
       "recordKind": "questions"
     }
   ],
@@ -682,391 +701,415 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000001626.20 CFTR",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000003084.11 (only transcript with MANE[].type == MANE_Select); 45 candidates",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000003084.11",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 6070 vs transcript length 6070 (1-based closed)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000003084.11, ENST00000003084.11, ENSP00000003084.6",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 6070 vs transcript 6070",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "P13569 CFTR_HUMAN, reviewed true",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 4443, starts ATG, ends TAG",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 1480 aa vs Ensembl 1480 aa",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 1480 aa vs UniProt 1480 aa",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000003084.11 / ENSP00000003084.6 / NM_000492.4",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1480",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "CFTR -> HGNC:1884 ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-alias-MRP7",
       "result": "pass",
       "detail": "alias MRP7 -> ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-alias-ABC35",
       "result": "pass",
       "detail": "alias ABC35 -> ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-alias-TNR-CFTR",
       "result": "pass",
       "detail": "alias TNR-CFTR -> ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-alias-dJ760C5.1",
       "result": "pass",
       "detail": "alias dJ760C5.1 -> ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T04-alias-CFTR/MRP",
       "result": "pass",
       "detail": "alias CFTR/MRP -> ENSG00000001626",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T13-rsid-deletion-allele",
       "result": "pass",
       "detail": "rs113993960 alleles TCTT/T/TCTTCTT (indel); variant_recoder lists ENST00000003084.11:c.1521_1523del under allele \"T\" (1 entry), 3 bases shorter than the reference allele TCTT",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T08-exon-walk-genomic",
       "result": "pass",
       "detail": "exon walk c.1521_1523 -> 117559592-117559594; hgvsg 117559592-117559594; variation 117559591-117559594 (anchored on the base before: TCTT/T)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T08-deleted-span",
       "result": "pass",
       "detail": "own walk c.1521_1523 -> 117559592-117559594; Ensembl map/cds 117559592-117559594 strand 1; codons 507-508",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T09-forward-and-coding-bases",
       "result": "pass",
       "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T10-spdi-roundtrip",
       "result": "pass",
       "detail": "NC_000007.14:117559590:TCTT:T -> net deletion 117559592-117559594 CTT, shifted 3' on the forward strand to 117559592-117559594 <-> NC_000007.14:g.117559592_117559594del",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T11-deletion-in-frame",
       "result": "pass",
       "detail": "c.1521_1523del deletes 3 bases (CTT); codon 507 ATC -> ATT (I -> I); codon 508 TTT -> deleted (F -> deleted); p.Phe508del by translation",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T12-hgvsp-agrees",
       "result": "pass",
       "detail": "computed p.Phe508del; variant_recoder ENSP00000003084.6:p.Phe508del, NP_000483.3:p.Phe508del",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T12-vep-agrees",
       "result": "pass",
       "detail": "VEP ENSP00000003084.6:p.Phe508del protein 507-508 cds 1521-1523 amino_acids IF/I codons atCTTt/att; computed IF/I, ATCTTT/ATT",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "cdna-position",
       "result": "pass",
       "detail": "c.1521 + 5' UTR 70 = 1591; VEP cdna_start 1591",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T18-hgvsp-equals-uniprot-position",
       "result": "pass",
       "detail": "codons 507-508: UniProt IF, reference codons translate to IF; deleted residue(s) F508 as in UniProt",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T17-mature-index",
       "result": "pass",
       "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T16-uniprot-natural-variant",
       "result": "pass",
       "detail": "VAR_000171 at 508: F missing (no alternative sequence); in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T14-clinvar-record",
       "result": "pass",
       "detail": "VCV000007105.214 Deletion; spdi NC_000007.14:117559590:TCTT:T (recoder NC_000007.14:117559590:TCTT:T, the same net deletion); GRCh38 117559591-117559593 (left-aligned; equivalent placements 117559591-117559593 and 117559592-117559594, HGVS g. 117559592-117559594); GRCh37 117199645-117199647; Pathogenic (practice guideline)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T33-clinvar-search-covered",
       "result": "pass",
       "detail": "esearch rs113993960: 2 uids; esummary returned 2 (634837,7105)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T34-clinvar-review-status",
       "result": "pass",
       "detail": "VCV000007105.214: \"practice guideline\" -> 4 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T35-clinvar-related-records-separate",
       "result": "pass",
       "detail": "1 other record(s) for rs113993960: 1 haplotype/compound (1 include NC_000007.14:117559590:TCTT:T), 0 other allele/variant (none); none merged",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "structure-entry",
       "result": "pass",
       "detail": "5UAK ELECTRON MICROSCOPY 3.87 A, rev 1.4",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "structure-revision-agrees",
       "result": "pass",
       "detail": "Data API rev 1.4; mmCIF rev 1.4",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T20-entity-by-sifts",
       "result": "pass",
       "detail": "2 polymer entities; SIFTS P13569 -> entity 1, chains A; mmCIF strands A",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T20-rcsb-entity-agrees",
       "result": "pass",
       "detail": "RCSB polymer_entity 5UAK_1 uniprot P13569",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T21-alignment-cross-check",
       "result": "pass",
       "detail": "entity 1489 aa vs UniProt 1480 aa: offset 0, identity 1.0000, mismatches ; SIFTS offset 0",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T22-rcsb-align-agrees",
       "result": "pass",
       "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T40-variant-residue-observed",
       "result": "pass",
       "detail": "5UAK residue F508 (deleted in F508del (p.Phe508del)): A observed (label 508, auth 508, PHE); structurePreference variant-residue-observed",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T23-residue-from-atom-site",
       "result": "pass",
       "detail": "A/A label 508 auth 508 PHE; structure carries the reference residue",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T36-full-chain-covers-sifts",
       "result": "pass",
       "detail": "1480 positions (1-1480); per chain A 1480/1480; 341 unobserved residue(s)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T37-full-chain-agrees-with-variant-mapping",
       "result": "pass",
       "detail": "position 508: table A508 PHE; variant mapping record A508 PHE",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T38-full-chain-residue-names",
       "result": "pass",
       "detail": "atom_site residue = UniProt residue at 1480 of 1480 positions; differs at none",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T39-full-chain-alignment-agrees",
       "result": "pass",
       "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T24-wrong-numbering-detectable",
       "result": "pass",
       "detail": "label numbering of A equals UniProt numbering at 508 (PHE); no distinct mature numbering, so no other numbering exists to land elsewhere",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T19-pdbx-mutation-numbering",
       "result": "pass",
       "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T25-struct-ref-seq-not-trusted",
       "result": "pass",
       "detail": "SIFTS selects label 508 (PHE); _struct_ref_seq would select label 508 (PHE); 0 disagreement(s) recorded as known issues",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T26-label-auth-kept",
       "result": "pass",
       "detail": "2 label chains, all with an auth chain id from the scheme tables; 0 non-polymer chains have label != auth (e.g. none)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T27-assemblies",
       "result": "pass",
       "detail": "assembly 1: A,B",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T28-contacts-computed",
       "result": "pass",
       "detail": "A508: A498,A504,A505,A560,A1068,A1070,A1074",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-P13569-F1 v6; md5 match true; residue 508 in model = F (reference), so never used to show the deletion of F508",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T41-pathway-accession",
       "result": "pass",
       "detail": "memberships requested for P13569; protein record P13569; specification P13569",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T42-pathway-memberships-human",
       "result": "pass",
       "detail": "11 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T43-pathway-top-level",
       "result": "pass",
       "detail": "R-HSA-382556 -> R-HSA-382551; R-HSA-5627083 -> R-HSA-162582; R-HSA-5678895 -> R-HSA-1643685; R-HSA-5689880 -> R-HSA-392499; R-HSA-8856825 -> R-HSA-5653656; R-HSA-8856828 -> R-HSA-5653656; R-HSA-9013406 -> R-HSA-162582; R-HSA-9613829 -> R-HSA-9612973; R-HSA-9615710 -> R-HSA-9612973; R-HSA-9646399 -> R-HSA-9612973; R-HSA-9925563 -> R-HSA-1266738",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T44-opening-pathway-rule",
       "result": "pass",
       "detail": "R-HSA-5627083 (RHO GTPases regulate CFTR trafficking) has the fewest participants (5) among the 8 non-disease membership(s) with a diagram; tie among R-HSA-5627083, R-HSA-9925563 broken by stable id; the rule's choice, not a statement of importance; candidates by count: R-HSA-5627083 5, R-HSA-9925563 5, R-HSA-9615710 8, R-HSA-9613829 28, R-HSA-9646399 28, R-HSA-8856825 41, R-HSA-382556 74, R-HSA-8856828 96; excluded: R-HSA-5678895 (a disease pathway), R-HSA-5689880 (no diagram), R-HSA-9013406 (no diagram)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T45-opening-pathway-participants",
       "result": "pass",
       "detail": "R-HSA-5627083 (RHO GTPases regulate CFTR trafficking): 5 participating physical entities, 3 distinct UniProt proteins; the set's protein P13569 is among them as P13569 in GOPC:CFTR [Golgi-associated vesicle membrane] (Complex); RHOQ:GTP:GOPC:CFTR [Golgi-associated vesicle membrane] (Complex); RHOQ:GTP:GOPC:CFTR [plasma membrane] (Complex); GOPC:CFTR [lysosomal membrane] (Complex)",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T46-candidate-participants",
       "result": "pass",
       "detail": "8 candidate(s): R-HSA-382556 74 entities, 90 proteins, set's protein listed; R-HSA-5627083 5 entities, 3 proteins, set's protein listed; R-HSA-8856825 41 entities, 105 proteins, set's protein listed; R-HSA-8856828 96 entities, 145 proteins, set's protein listed; R-HSA-9613829 28 entities, 22 proteins, set's protein listed; R-HSA-9615710 8 entities, 34 proteins, set's protein listed; R-HSA-9646399 28 entities, 44 proteins, set's protein listed; R-HSA-9925563 5 entities, 48 proteins, set's protein listed",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
+    },
+    {
+      "check": "T49-association-target",
+      "result": "pass",
+      "detail": "response target ENSG00000001626 CFTR; specification ENSG00000001626; gene record ENSG00000001626 CFTR",
+      "at": "2026-11-03T23:32:04Z"
+    },
+    {
+      "check": "T49-association-rows",
+      "result": "pass",
+      "detail": "25 row(s) kept of 1889 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top cystic fibrosis (MONDO_0009061) 0.9211437412666207",
+      "at": "2026-11-03T23:32:04Z"
+    },
+    {
+      "check": "T50-association-order-and-exclusion",
+      "result": "pass",
+      "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: clingen, clinical_precedence, europepmc, eva, gene_burden, genomics_england, gwas_credible_sets, impc, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: clinical_precedence, europepmc; no excluded id remains in the kept scores",
+      "at": "2026-11-03T23:32:04Z"
+    },
+    {
+      "check": "T51-association-versions",
+      "result": "pass",
+      "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T47-structure-method",
       "result": "pass",
       "detail": "5UAK method ELECTRON MICROSCOPY; resolution 3.87 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T48-structure-coverage",
       "result": "pass",
       "detail": "1139 of 1480 mapped positions observed in model 1 on chain(s) A, 5-1436; protein length 1480; fraction 0.7696 = 1139/1480; words match the numbers",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4",
-      "at": "2026-11-03T22:12:12Z"
+      "at": "2026-11-03T23:32:04Z"
     }
   ],
   "knownIssues": [],
@@ -1122,6 +1165,11 @@
       "source": "ncbi-clinvar",
       "licence": "NCBI-public-domain",
       "text": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "opentargets",
+      "licence": "CC0-1.0",
+      "text": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
     },
     {
       "source": "pdbe-sifts",

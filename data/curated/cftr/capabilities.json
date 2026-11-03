@@ -12,7 +12,8 @@
     "residue-mapping-P13569-5UAK.json",
     "contacts-f508del-5UAK.json",
     "predicted-model-AF-P13569-F1.json",
-    "pathways.json"
+    "pathways.json",
+    "associations.json"
   ],
   "geneId": "ENSG00000001626",
   "symbol": "CFTR",
@@ -49,6 +50,11 @@
   "pathwayView": {
     "available": true,
     "reason": "11 Reactome memberships; opens on RHO GTPases regulate CFTR trafficking, R-HSA-5627083 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  },
+  "associationView": {
+    "available": true,
+    "reason": "1889 Open Targets associations, 25 kept by score; top: cystic fibrosis (score 0.9211437412666207); association, never causal",
     "evidenceCategory": 2
   }
 }

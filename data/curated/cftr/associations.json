@@ -1089,25 +1089,25 @@
         "check": "T49-association-target",
         "result": "pass",
         "detail": "response target ENSG00000001626 CFTR; specification ENSG00000001626; gene record ENSG00000001626 CFTR",
-        "at": "2026-11-03T23:08:11Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T49-association-rows",
         "result": "pass",
         "detail": "25 row(s) kept of 1889 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top cystic fibrosis (MONDO_0009061) 0.9211437412666207",
-        "at": "2026-11-03T23:08:11Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T50-association-order-and-exclusion",
         "result": "pass",
         "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: clingen, clinical_precedence, europepmc, eva, gene_burden, genomics_england, gwas_credible_sets, impc, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: clinical_precedence, europepmc; no excluded id remains in the kept scores",
-        "at": "2026-11-03T23:08:11Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T51-association-versions",
         "result": "pass",
         "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
-        "at": "2026-11-03T23:08:11Z"
+        "at": "2026-11-03T23:32:04Z"
       }
     ],
     "evidenceCategory": 2
