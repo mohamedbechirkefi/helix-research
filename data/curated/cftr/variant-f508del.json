@@ -199,85 +199,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1480",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T13-rsid-deletion-allele",
         "result": "pass",
         "detail": "rs113993960 alleles TCTT/T/TCTTCTT (indel); variant_recoder lists ENST00000003084.11:c.1521_1523del under allele \"T\" (1 entry), 3 bases shorter than the reference allele TCTT",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.1521_1523 -> 117559592-117559594; hgvsg 117559592-117559594; variation 117559591-117559594 (anchored on the base before: TCTT/T)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T08-deleted-span",
         "result": "pass",
         "detail": "own walk c.1521_1523 -> 117559592-117559594; Ensembl map/cds 117559592-117559594 strand 1; codons 507-508",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T09-forward-and-coding-bases",
         "result": "pass",
         "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000007.14:117559590:TCTT:T -> net deletion 117559592-117559594 CTT, shifted 3' on the forward strand to 117559592-117559594 <-> NC_000007.14:g.117559592_117559594del",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T11-deletion-in-frame",
         "result": "pass",
         "detail": "c.1521_1523del deletes 3 bases (CTT); codon 507 ATC -> ATT (I -> I); codon 508 TTT -> deleted (F -> deleted); p.Phe508del by translation",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Phe508del; variant_recoder ENSP00000003084.6:p.Phe508del, NP_000483.3:p.Phe508del",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000003084.6:p.Phe508del protein 507-508 cds 1521-1523 amino_acids IF/I codons atCTTt/att; computed IF/I, ATCTTT/ATT",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.1521 + 5' UTR 70 = 1591; VEP cdna_start 1591",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "codons 507-508: UniProt IF, reference codons translate to IF; deleted residue(s) F508 as in UniProt",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_000171 at 508: F missing (no alternative sequence); in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
         "detail": "VCV000007105.214 Deletion; spdi NC_000007.14:117559590:TCTT:T (recoder NC_000007.14:117559590:TCTT:T, the same net deletion); GRCh38 117559591-117559593 (left-aligned; equivalent placements 117559591-117559593 and 117559592-117559594, HGVS g. 117559592-117559594); GRCh37 117199645-117199647; Pathogenic (practice guideline)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 2

@@ -159,55 +159,55 @@
         "check": "structure-entry",
         "result": "pass",
         "detail": "5UAK ELECTRON MICROSCOPY 3.87 A, rev 1.4",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.4; mmCIF rev 1.4",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P13569 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 5UAK_1 uniprot P13569",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "5UAK residue F508 (deleted in F508del (p.Phe508del)): A observed (label 508, auth 508, PHE); structurePreference variant-residue-observed",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 508 auth 508 PHE; structure carries the reference residue",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "2 label chains, all with an auth chain id from the scheme tables; 0 non-polymer chains have label != auth (e.g. none)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 1

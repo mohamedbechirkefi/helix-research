@@ -104,49 +104,49 @@
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P13569 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T21-alignment-cross-check",
         "result": "pass",
         "detail": "entity 1489 aa vs UniProt 1480 aa: offset 0, identity 1.0000, mismatches ; SIFTS offset 0",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T22-rcsb-align-agrees",
         "result": "pass",
         "detail": "RCSB rcsb_polymer_entity_align ref_beg 1 <-> entity_beg 1",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "5UAK residue F508 (deleted in F508del (p.Phe508del)): A observed (label 508, auth 508, PHE); structurePreference variant-residue-observed",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 508 auth 508 PHE; structure carries the reference residue",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 508: table A508 PHE; variant mapping record A508 PHE",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T24-wrong-numbering-detectable",
         "result": "pass",
         "detail": "label numbering of A equals UniProt numbering at 508 (PHE); no distinct mature numbering, so no other numbering exists to land elsewhere",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T25-struct-ref-seq-not-trusted",
         "result": "pass",
         "detail": "SIFTS selects label 508 (PHE); _struct_ref_seq would select label 508 (PHE); 0 disagreement(s) recorded as known issues",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 1
