@@ -2150,37 +2150,37 @@
         "check": "T41-pathway-accession",
         "result": "pass",
         "detail": "memberships requested for Q6GMR7; protein record Q6GMR7; specification Q6GMR7",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T42-pathway-memberships-human",
         "result": "pass",
         "detail": "1 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T43-pathway-top-level",
         "result": "pass",
         "detail": "R-HSA-2142753 -> R-HSA-1430728",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T44-opening-pathway-rule",
         "result": "pass",
         "detail": "R-HSA-2142753 (Arachidonate metabolism) has the fewest participants (174) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-2142753 174; excluded: none",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T45-opening-pathway-participants",
         "result": "pass",
         "detail": "R-HSA-2142753 (Arachidonate metabolism): 174 participating physical entities, 59 distinct UniProt proteins; the set's protein Q6GMR7 is among them as Q6GMR7 in FAAH2 [lipid droplet] (EntityWithAccessionedSequence)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T46-candidate-participants",
         "result": "pass",
         "detail": "1 candidate(s): R-HSA-2142753 174 entities, 59 proteins, set's protein listed",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       }
     ],
     "evidenceCategory": 2

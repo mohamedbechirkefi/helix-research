@@ -88,49 +88,49 @@
         "check": "T01-gene-identity",
         "result": "pass",
         "detail": "ENSG00000165591.9 FAAH2",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000374900.5 (only transcript with MANE[].type == MANE_Select); 18 candidates",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T04-hgnc-resolution",
         "result": "pass",
         "detail": "FAAH2 -> HGNC:26440 ENSG00000165591",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T04-alias-RP11-479E16.1",
         "result": "pass",
         "detail": "alias RP11-479E16.1 -> ENSG00000165591",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T04-alias-FLJ31204",
         "result": "pass",
         "detail": "alias FLJ31204 -> ENSG00000165591",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T04-alias-FAAH-2",
         "result": "pass",
         "detail": "alias FAAH-2 -> ENSG00000165591",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:03Z"
       }
     ],
     "evidenceCategory": 2

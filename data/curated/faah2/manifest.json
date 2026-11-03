@@ -2,10 +2,10 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "faah2",
   "description": "FAAH2 (fatty acid amide hydrolase 2) structure-limited set: gene, MANE Select transcript, sequences, UniProt Q6GMR7 and the AlphaFold prediction; no experimental structure exists and no reference variant is selected.",
-  "generatedAt": "2026-11-03T20:54:12Z",
+  "generatedAt": "2026-11-03T21:36:03Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "088bb2abdff86a4608fe9bab88ccc4539293e410",
+    "gitCommit": "87e6c01080ba250a1614a5480cc7faadf018975b",
     "gitDirty": false,
     "node": "v22.23.3"
   },
@@ -211,37 +211,37 @@
   "files": [
     {
       "path": "gene.json",
-      "sha256": "f574819e80d325e496006e8c13a97bed4cb40f8907ad0555455854e1d8fb8000",
+      "sha256": "0ba34b76de2f331f1e7147c5c4f6bd454be0cba05665e6e2a0c26dad3403e19f",
       "bytes": 4926,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "b7017d202219cd13a9c9fe69d7cd2a5fd8fd3a0b4c9e166c39c1dba0889be366",
+      "sha256": "7153d172f6391f64148f3c5e8004e19ec279cae02a3069188667152cd4f9526d",
       "bytes": 8880,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "5f8a2b4f2ad7763eade694d7a8298b75a378d74d9d0e25a2ec20769b8af5c9b8",
+      "sha256": "3858f970f37d4807f2404a311c27e0f40b78de7e6020f8dfc283f175301d2979",
       "bytes": 13702,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-Q6GMR7.json",
-      "sha256": "9af77d0845e5956bc7ed3e6e7653dca2ade94b9092ec5809300fd1296c51bb94",
+      "sha256": "2278023dab8d78ed9660b8439de83a955c8b987d8375be75518947189ff7a0cb",
       "bytes": 5646,
       "recordKind": "protein"
     },
     {
       "path": "predicted-model-AF-Q6GMR7-F1.json",
-      "sha256": "0a109b73e4f1032cc93ce702b194e8e499702f56f41eda130223a600b50ce3b3",
+      "sha256": "068483cc00a93eeadc1746418f2a429fed0814cfd7bf1a066b70559c5f96e990",
       "bytes": 3063,
       "recordKind": "predicted-model"
     },
     {
       "path": "pathways.json",
-      "sha256": "ecbe28aa0c4baf881287df71dd3ce60028544368971f8e2bc69c6f82527fced0",
+      "sha256": "dc3f988f56a46073648802a031f60f650d194bd70473ca4494ed0265af583bf0",
       "bytes": 66283,
       "recordKind": "pathway-memberships"
     },
@@ -250,6 +250,12 @@
       "sha256": "569818b306e28df09baca33aaa608186a2a5070c08e39c06eab62bd4abd9c848",
       "bytes": 1389,
       "recordKind": "capabilities"
+    },
+    {
+      "path": "questions.json",
+      "sha256": "28315da13c321637e54b9dac0fd98fe2436504e547b2a51d8d5fddd54297feea",
+      "bytes": 280,
+      "recordKind": "questions"
     }
   ],
   "validation": [
@@ -257,163 +263,163 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000165591.9 FAAH2",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000374900.5 (only transcript with MANE[].type == MANE_Select); 18 candidates",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000374900.5",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 1980 vs transcript length 1980 (1-based closed)",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 1980 vs transcript 1980",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "Q6GMR7 FAAH2_HUMAN, reviewed true",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 1599, starts ATG, ends TAG",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 532 aa vs Ensembl 532 aa",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 532 aa vs UniProt 532 aa",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000374900.5 / ENSP00000364035.4 / NM_174912.4",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "FAAH2 -> HGNC:26440 ENSG00000165591",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T04-alias-RP11-479E16.1",
       "result": "pass",
       "detail": "alias RP11-479E16.1 -> ENSG00000165591",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T04-alias-FLJ31204",
       "result": "pass",
       "detail": "alias FLJ31204 -> ENSG00000165591",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T04-alias-FAAH-2",
       "result": "pass",
       "detail": "alias FAAH-2 -> ENSG00000165591",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-Q6GMR7-F1 v6; md5 match true; no reference variant selected, so the model is never used to place one",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T41-pathway-accession",
       "result": "pass",
       "detail": "memberships requested for Q6GMR7; protein record Q6GMR7; specification Q6GMR7",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T42-pathway-memberships-human",
       "result": "pass",
       "detail": "1 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T43-pathway-top-level",
       "result": "pass",
       "detail": "R-HSA-2142753 -> R-HSA-1430728",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T44-opening-pathway-rule",
       "result": "pass",
       "detail": "R-HSA-2142753 (Arachidonate metabolism) has the fewest participants (174) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-2142753 174; excluded: none",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T45-opening-pathway-participants",
       "result": "pass",
       "detail": "R-HSA-2142753 (Arachidonate metabolism): 174 participating physical entities, 59 distinct UniProt proteins; the set's protein Q6GMR7 is among them as Q6GMR7 in FAAH2 [lipid droplet] (EntityWithAccessionedSequence)",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T46-candidate-participants",
       "result": "pass",
       "detail": "1 candidate(s): R-HSA-2142753 174 entities, 59 proteins, set's protein listed",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
-      "at": "2026-11-03T20:54:12Z"
+      "at": "2026-11-03T21:36:03Z"
     }
   ],
   "knownIssues": [],
