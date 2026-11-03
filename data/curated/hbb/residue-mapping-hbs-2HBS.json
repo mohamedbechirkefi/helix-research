@@ -140,43 +140,43 @@
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T21-alignment-cross-check",
         "result": "pass",
         "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T22-rcsb-align-agrees",
         "result": "pass",
         "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 7: table B6 VAL, D6 VAL, F6 VAL, H6 VAL; variant mapping record B6 VAL, D6 VAL, F6 VAL, H6 VAL",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T24-wrong-numbering-detectable",
         "result": "pass",
         "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       },
       {
         "check": "T25-struct-ref-seq-not-trusted",
         "result": "pass",
         "detail": "SIFTS selects label 6 (VAL); _struct_ref_seq would select label 7 (GLU); 4 disagreement(s) recorded as known issues",
-        "at": "2026-11-03T20:51:49Z"
+        "at": "2026-11-03T20:53:42Z"
       }
     ],
     "evidenceCategory": 1
