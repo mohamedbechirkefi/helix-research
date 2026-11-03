@@ -1,0 +1,257 @@
+{
+  "contextId": "curated-hbb",
+  "genes": [
+    {
+      "id": "ENSG00000244734",
+      "symbol": "HBB",
+      "name": "hemoglobin subunit beta",
+      "hgncId": "HGNC:4827",
+      "aliases": [
+        "CD113t-C",
+        "beta-globin"
+      ]
+    }
+  ],
+  "transcripts": [
+    {
+      "id": "ENST00000335295",
+      "versioned": "ENST00000335295.4",
+      "geneId": "ENSG00000244734",
+      "label": "MANE Select ENST00000335295.4 (NM_000518.5)"
+    }
+  ],
+  "proteins": [
+    {
+      "id": "P68871",
+      "geneId": "ENSG00000244734",
+      "name": "HBB_HUMAN",
+      "length": 147
+    }
+  ],
+  "variants": [
+    {
+      "id": "NC_000011.10:g.5227002T>A",
+      "label": "HbS (sickle haemoglobin)",
+      "geneId": "ENSG00000244734",
+      "proteinId": "P68871",
+      "names": [
+        "HbS",
+        "sickle-cell variant",
+        "rs334 allele A",
+        "ENST00000335295.4:c.20A>T",
+        "NM_000518.5:c.20A>T",
+        "ENSP00000333994.3:p.Glu7Val",
+        "NP_000509.1:p.Glu7Val",
+        "Glu6Val (mature numbering)",
+        "ClinVar VCV000015333: Pathogenic (criteria provided, multiple submitters, no conflicts)"
+      ],
+      "featureId": "HbS_substitution",
+      "evidenceIds": [
+        "clinvar:VCV000015333",
+        "uniprot:VAR_002863"
+      ]
+    }
+  ],
+  "structures": [
+    {
+      "id": "2HBS",
+      "origin": "experimental",
+      "title": "THE HIGH RESOLUTION CRYSTAL STRUCTURE OF DEOXYHEMOGLOBIN S (X-RAY DIFFRACTION, 2.05 A)",
+      "proteinIds": [
+        "P69905",
+        "P68871"
+      ],
+      "assemblies": [
+        {
+          "id": "model",
+          "label": "asymmetric unit (both tetramers, all chains)",
+          "chains": [
+            "A",
+            "C",
+            "E",
+            "G",
+            "B",
+            "D",
+            "F",
+            "H"
+          ]
+        },
+        {
+          "id": "1",
+          "label": "biological assembly 1",
+          "chains": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ]
+        },
+        {
+          "id": "2",
+          "label": "biological assembly 2",
+          "chains": [
+            "E",
+            "F",
+            "G",
+            "H"
+          ]
+        }
+      ],
+      "variantPlacement": true
+    },
+    {
+      "id": "AF-P68871-F1",
+      "origin": "predicted",
+      "title": "AlphaFold DB predicted model of P68871 (pLDDT 97.19); computational prediction",
+      "proteinIds": [
+        "P68871"
+      ],
+      "assemblies": [
+        {
+          "id": "model",
+          "label": "single predicted chain",
+          "chains": [
+            "A"
+          ]
+        }
+      ],
+      "variantPlacement": false
+    }
+  ],
+  "features": [
+    {
+      "id": "HbS_substitution",
+      "kind": "residue",
+      "label": "HbS (sickle haemoglobin): p.Glu7Val (translated numbering, Met = 1); Glu6Val (mature numbering); in 2HBS chains B/D/F/H residue 6 is VAL",
+      "proteinId": "P68871",
+      "structureId": "2HBS",
+      "chains": [
+        "B",
+        "D",
+        "F",
+        "H"
+      ],
+      "authSeqId": 6,
+      "assemblies": [
+        "model",
+        "1",
+        "2"
+      ],
+      "evidenceIds": [
+        "clinvar:VCV000015333",
+        "uniprot:VAR_002863",
+        "sifts:2HBS-P68871"
+      ]
+    },
+    {
+      "id": "HbS_contact_H6_B",
+      "kind": "contact",
+      "label": "VAL H6 contacts ALA B70, ASP B73, THR B84, PHE B85, LEU B88 within 4.5 A (asymmetric unit, model 1, no symmetry mates)",
+      "proteinId": "P68871",
+      "structureId": "2HBS",
+      "chains": [
+        "H",
+        "B"
+      ],
+      "authSeqId": null,
+      "assemblies": [
+        "model"
+      ],
+      "evidenceIds": [
+        "contacts:2HBS-H6"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "id": "ensembl:ENSG00000244734",
+      "category": 2,
+      "statement": "HBB (ENSG00000244734.6) is annotated on GRCh38 chromosome 11:5225464-5229395, strand -1."
+    },
+    {
+      "id": "uniprot:P68871",
+      "category": 2,
+      "statement": "P68871 (HBB_HUMAN) canonical sequence, 147 aa; initiator Met removed; chain 2-147."
+    },
+    {
+      "id": "clinvar:VCV000015333",
+      "category": 2,
+      "statement": "ClinVar VCV000015333.184: Pathogenic."
+    },
+    {
+      "id": "uniprot:VAR_002863",
+      "category": 2,
+      "statement": "UniProt VAR_002863: E to V at position 7 (in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334)."
+    },
+    {
+      "id": "hgvs:ENST00000335295.4:c.20A>T",
+      "category": 3,
+      "statement": "ENST00000335295.4:c.20A>T changes codon 7 GAG to GTG, giving p.Glu7Val by translation."
+    },
+    {
+      "id": "pdb:2HBS",
+      "category": 1,
+      "statement": "2HBS: X-RAY DIFFRACTION, 2.05 A resolution, deposited 1997-05-06. Primary citation PMID 9325099."
+    },
+    {
+      "id": "sifts:2HBS-P68871",
+      "category": 2,
+      "statement": "SIFTS maps P68871 2-147 to 2HBS entity 2 residues 1-146."
+    },
+    {
+      "id": "atom_site:2HBS-val6",
+      "category": 1,
+      "statement": "Residue B 6, D 6, F 6, H 6 is VAL in the deposited coordinates of 2HBS (atom_site)."
+    },
+    {
+      "id": "contacts:2HBS-H6",
+      "category": 1,
+      "statement": "Within 4.5 A of the VAL side chain, in the asymmetric unit: chain H contacts chain(s) B."
+    },
+    {
+      "id": "alphafold:AF-P68871-F1",
+      "category": 3,
+      "statement": "AF-P68871-F1 is a predicted model (AlphaFold DB v6, AlphaFold Monomer v2.0 pipeline), global pLDDT 97.19."
+    }
+  ],
+  "worlds": [
+    {
+      "id": "overview",
+      "available": true,
+      "reason": "always"
+    },
+    {
+      "id": "genome",
+      "available": true,
+      "reason": "gene locus on GRCh38"
+    },
+    {
+      "id": "dna",
+      "available": true,
+      "reason": "reference sequence of the selected transcript"
+    },
+    {
+      "id": "protein",
+      "available": true,
+      "reason": "experimental structure with a verified residue mapping"
+    },
+    {
+      "id": "pathway",
+      "available": false,
+      "reason": "no curated pathway records in this context"
+    }
+  ],
+  "executableActions": [
+    "resolveGene",
+    "resolveVariant",
+    "loadStructure",
+    "enterWorld",
+    "focusCamera",
+    "highlightResidue",
+    "revealEvidence",
+    "cancelActions"
+  ],
+  "selection": null,
+  "loadedStructureId": null,
+  "retrieved": []
+}
