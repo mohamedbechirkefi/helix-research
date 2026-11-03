@@ -1,0 +1,103 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "location": "17q21.31",
+    "alias_name": [
+     "BRCA1/BRCA2-containing complex, subunit 1",
+     "protein phosphatase 1, regulatory subunit 53",
+     "Fanconi anemia, complementation group S"
+    ],
+    "cosmic": "BRCA1",
+    "rgd_id": [
+     "RGD:2218"
+    ],
+    "orphanet": 119068,
+    "date_name_changed": "2019-01-22T00:00:00Z",
+    "gene_group_id": [
+     58,
+     548,
+     694,
+     1328,
+     1335,
+     1336
+    ],
+    "ucsc_id": "uc002ict.4",
+    "date_modified": "2023-03-15T00:00:00Z",
+    "name": "BRCA1 DNA repair associated",
+    "ccds_id": [
+     "CCDS11453",
+     "CCDS11454",
+     "CCDS11455",
+     "CCDS11456",
+     "CCDS11459"
+    ],
+    "locus_group": "protein-coding gene",
+    "gencc": "HGNC:1100",
+    "ensembl_gene_id": "ENSG00000012048",
+    "refseq_accession": [
+     "NM_007294"
+    ],
+    "locus_type": "gene with protein product",
+    "agr": "HGNC:1100",
+    "uuid": "0cff3cfd-a2b1-431b-8f6c-de8998aa6c90",
+    "hgnc_id": "HGNC:1100",
+    "alias_symbol": [
+     "RNF53",
+     "BRCC1",
+     "PPP1R53",
+     "FANCS"
+    ],
+    "uniprot_ids": [
+     "P38398"
+    ],
+    "pubmed_id": [
+     1676470,
+     25472942
+    ],
+    "mane_select": [
+     "ENST00000357654.9",
+     "NM_007294.4"
+    ],
+    "entrez_id": "672",
+    "symbol": "BRCA1",
+    "prev_name": [
+     "breast cancer 1, early onset",
+     "breast cancer 1"
+    ],
+    "status": "Approved",
+    "ena": [
+     "U14680"
+    ],
+    "date_approved_reserved": "1991-02-20T00:00:00Z",
+    "mgd_id": [
+     "MGI:104537"
+    ],
+    "gene_group": [
+     "Ring finger proteins",
+     "FA complementation groups",
+     "Protein phosphatase 1 regulatory subunits",
+     "BRCA1 A complex",
+     "BRCA1 B complex",
+     "BRCA1 C complex"
+    ],
+    "lsdb": [
+     "Breast Cancer|http://research.nhgri.nih.gov/bic/",
+     "Fanconi Anaemia Mutation Database|http://www2.rockefeller.edu/fanconi",
+     "BRCA1 database at LOVD-China|http://genomed.org/LOVD/BC/home.php?select_db=BRCA1",
+     "Global Variome shared LOVD|https://databases.lovd.nl/shared/genes/BRCA1",
+     "LOVD - Leiden Open Variation Database|http://proteomics.bio21.unimelb.edu.au/lovd/genes/BRCA1",
+     "LRG_292|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_292.xml"
+    ],
+    "vega_id": "OTTHUMG00000157426"
+   }
+  ]
+ }
+}

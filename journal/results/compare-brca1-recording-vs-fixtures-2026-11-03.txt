@@ -1,0 +1,18 @@
+files compared: 16
+byte-identical files: 3
+allowed differences (timestamps and dependent hashes): 182
+  clinvar-c61g.json: 3
+  contacts-c61g-1JM7.json: 1
+  gene.json: 9
+  manifest.json: 77
+  pathways.json: 6
+  predicted-model-AF-P38398-F1.json: 1
+  protein-P38398.json: 10
+  residue-mapping-P38398-1JM7.json: 4
+  residue-mapping-c61g-1JM7.json: 8
+  sequences.json: 32
+  structure-1JM7.json: 11
+  transcript.json: 6
+  variant-c61g.json: 14
+other differences: 1
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)

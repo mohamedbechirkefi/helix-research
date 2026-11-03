@@ -21,6 +21,18 @@ export interface ContactOptions {
   intraChainMinSeparation?: number;
 }
 
+/** Hydrogen and deuterium: present in NMR ensembles, absent from most crystallographic and cryo-EM entries. */
+const isHydrogen = (element: string): boolean => element === "H" || element === "D";
+
+/**
+ * Contacts are measured between heavy atoms on both sides (the probe atoms a caller passes are
+ * already heavy; the target atoms are filtered here, Phase 9 P9.2.2), so that an entry deposited
+ * with hydrogens (solution NMR) is counted on the same basis as one without them.
+ */
+export function hasHydrogens(structure: MmcifStructure): boolean {
+  return structure.atoms.some((a) => isHydrogen(a.element));
+}
+
 export function interChainContacts(
   structure: MmcifStructure,
   authAsymId: string,
@@ -29,7 +41,7 @@ export function interChainContacts(
   cutoffAngstrom: number,
   options: ContactOptions = {},
 ): { residue: string; contacts: Contact[] } {
-  const model = structure.atoms.filter((a) => a.model === 1);
+  const model = structure.atoms.filter((a) => a.model === 1 && !isHydrogen(a.element));
   const probe = model.filter((a) => a.authAsymId === authAsymId && a.authSeqId === authSeqId);
   if (probe.length === 0) throw new Error(`no atoms for ${authAsymId} ${authSeqId}`);
   const centres = probe.filter((a) => atomNames.includes(a.atomName));

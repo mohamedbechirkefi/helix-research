@@ -1,0 +1,36 @@
+files compared: 16
+byte-identical files: 2
+allowed differences (timestamps and dependent hashes): 184
+  clinvar-f508del.json: 3
+  contacts-f508del-5UAK.json: 1
+  gene.json: 10
+  manifest.json: 80
+  pathways.json: 6
+  predicted-model-AF-P13569-F1.json: 1
+  protein-P13569.json: 10
+  residue-mapping-P13569-5UAK.json: 4
+  residue-mapping-f508del-5UAK.json: 8
+  sequences.json: 32
+  structure-5UAK.json: 9
+  transcript.json: 6
+  variant-f508del.json: 14
+other differences: 19
+  capabilities.json $.experimentalStructure.reason: "58 experimental entries (e.g. 1XMI, X-ray)" != "5UAK covers residues 5 to 1436 of 1,480 (1139 observed positions, 77.0 %; ELECTRON MICROSCOPY, 3.87 A); 58 experimental entries cross-referenced (e.g. 1XMI, X-ray)" (value)
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.validation: 63 != 65 (array length)
+  manifest.json $.validation[62].check: "T31-drift-recorded" != "T47-structure-method" (value)
+  manifest.json $.validation[62].detail: "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4" != "5UAK method ELECTRON MICROSCOPY; resolution 3.87 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown" (value)
+  predicted-model-AF-P13569-F1.json $.plddtFractions: undefined != {"veryLow":0.171,"low":0.094,"confident":0.419,"veryHigh":0.316} (value)
+  structure-5UAK.json $.entities[0].uniprotFromEntry: undefined != ["P13569"] (value)
+  structure-5UAK.json $.entities[0].sequenceDifferences: undefined != [{"strandId":"A","labelSeqId":1481,"residue":"SER","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1482,"residue":"ASN","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1483,"residue":"SER","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1484,"residue":"LEU","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1485,"residue":"GLU","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1486,"residue":"VAL","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1487,"residue":"LEU","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1488,"residue":"PHE","referenceResidue":null,"referencePosition":null,"details":"expression tag"},{"strandId":"A","labelSeqId":1489,"residue":"GLN","referenceResidue":null,"referencePosition":null,"details":"expression tag"}] (value)
+  structure-5UAK.json $.entities[1].uniprotFromEntry: undefined != [] (value)
+  structure-5UAK.json $.entities[1].sequenceDifferences: undefined != [] (value)
+  structure-5UAK.json $.provenance.transformations: 4 != 6 (array length)
+  structure-5UAK.json $.provenance.validation: 9 != 11 (array length)
+  structure-5UAK.json $.evidence: 1 != 2 (array length)
+  structure-5UAK.json $.modelCount: undefined != 1 (value)
+  structure-5UAK.json $.modelShown: undefined != 1 (value)
+  structure-5UAK.json $.nmrEnsemble: undefined != null (value)
+  structure-5UAK.json $.mappedEntityId: undefined != "1" (value)
+  structure-5UAK.json $.coverage: undefined != {"uniprotAccession":"P13569","chains":["A"],"firstObservedPosition":5,"lastObservedPosition":1436,"observedPositions":1139,"mappedPositions":1480,"proteinLength":1480,"fraction":0.7696,"text":"5UAK covers residues 5 to 1436 of 1,480 (1139 observed positions, 77.0 %; ELECTRON MICROSCOPY, 3.87 A)"} (value)
+  structure-5UAK.json $.partners: undefined != [{"entityId":"2","description":"Cystic fibrosis transmembrane conductance regulator","strandIds":["R"],"uniprotAccession":null,"siftsUniprot":[]}] (value)

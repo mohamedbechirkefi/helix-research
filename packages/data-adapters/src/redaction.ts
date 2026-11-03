@@ -61,9 +61,17 @@ const PROPRIETARY_KEYS = /^(omim|mim|hgmd)([_-]?(id|ids|number|accession))?$/i;
  */
 const DATABASE_FIELDS = ["database", "source", "db", "dbname", "db_name", "db_source", "name", "menu", "dbto"];
 
+/**
+ * Ensembl VEP marks a colocated HGMD record by its `allele_string` ("HGMD_MUTATION"); measured on
+ * 2026-11-03 (BRCA1 rs28897672), such a record may carry no `source` field at all, so the marker
+ * itself names the database (P9.2.2).
+ */
+const VEP_HGMD_ALLELE = /^HGMD/i;
+
 function namesProprietaryDatabase(v: unknown): boolean {
   if (!v || typeof v !== "object" || Array.isArray(v)) return false;
   const o = v as Record<string, unknown>;
+  if (typeof o.allele_string === "string" && VEP_HGMD_ALLELE.test(o.allele_string)) return true;
   return DATABASE_FIELDS.some((f) => typeof o[f] === "string" && isProprietaryDatabase(o[f] as string));
 }
 

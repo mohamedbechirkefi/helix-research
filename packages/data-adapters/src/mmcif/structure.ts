@@ -78,11 +78,49 @@ export interface StructRefSeqRow {
   dbAlignEnd: number;
 }
 
+/** One row of _struct_ref: the entry's own cross-reference of an entity to a sequence database (read to name a partner entity, never to map). */
+export interface StructRefRow {
+  id: string;
+  dbName: string;
+  dbCode: string | null;
+  dbAccession: string | null;
+  entityId: string;
+}
+
+/** One row of _struct_ref_seq_dif: a residue where the entity differs from its reference sequence, with the depositors' explanation (variant, cloning artifact, expression tag, ...). */
+export interface StructRefSeqDifRow {
+  strandId: string;
+  seqNum: number | null;
+  monId: string | null;
+  dbName: string | null;
+  dbAccession: string | null;
+  dbMonId: string | null;
+  dbSeqNum: number | null;
+  details: string | null;
+}
+
+/**
+ * _pdbx_nmr_ensemble of a solution-NMR entry: how many conformers were calculated and submitted,
+ * and the conformer the depositors call representative (_pdbx_nmr_representative.conformer_id,
+ * else _pdbx_nmr_ensemble.representative_conformer), with their selection criteria.
+ */
+export interface NmrEnsemble {
+  conformersCalculated: number | null;
+  conformersSubmitted: number | null;
+  representativeConformer: number | null;
+  representativeSelectionCriteria: string | null;
+}
+
 export interface MmcifStructure {
   entryId: string;
   title: string;
   method: string;
+  /** From _refine, else _em_3d_reconstruction; null when the entry states none (solution NMR). */
   resolution: number | null;
+  /** Distinct pdbx_PDB_model_num values in atom_site: 1 for a crystallographic or cryo-EM entry, the ensemble size for NMR. */
+  modelCount: number;
+  /** _pdbx_nmr_ensemble when the entry carries it (solution NMR), else null. */
+  nmrEnsemble: NmrEnsemble | null;
   latestRevision: { version: string; date: string };
   depositionDate: string | null;
   primaryCitation: { title: string; journal: string | null; year: number | null; pubmedId: string | null; doi: string | null } | null;
@@ -92,6 +130,10 @@ export interface MmcifStructure {
   nonpolyScheme: NonpolySchemeRow[];
   assemblies: { id: string; details: string; asymIds: string[] }[];
   structRefSeq: StructRefSeqRow[];
+  /** _struct_ref rows (the entry's own database cross-references per entity). */
+  structRef: StructRefRow[];
+  /** _struct_ref_seq_dif rows (where the entity differs from its reference, with the depositors' explanation). */
+  structRefSeqDif: StructRefSeqDifRow[];
   atoms: AtomRow[];
 }
 
@@ -190,14 +232,31 @@ export function structureFromBlock(block: CifBlock, source: string | null = null
 
   const cit = rowsOf(block, "citation").find((r) => r.id === "primary");
   const genRows = rowsOf(block, "pdbx_struct_assembly_gen");
+  // Solution-NMR entries (Phase 9, BRCA1 1JM7) have neither _refine nor _em_3d_reconstruction: their
+  // resolution is null, atom_site holds every conformer of the ensemble and _pdbx_nmr_ensemble says how
+  // many were submitted. The model count is read from atom_site for every entry (1 outside NMR).
+  const modelCount = new Set(atoms.map((a) => a.model)).size;
+  const ens = rowsOf(block, "pdbx_nmr_ensemble")[0];
+  const rep = rowsOf(block, "pdbx_nmr_representative")[0];
+  const nmrEnsemble: NmrEnsemble | null = ens
+    ? {
+        conformersCalculated: num(ens.conformers_calculated_total_number),
+        conformersSubmitted: num(ens.conformers_submitted_total_number),
+        representativeConformer: num(rep?.conformer_id) ?? num(ens.representative_conformer),
+        representativeSelectionCriteria: cifNull(rep?.selection_criteria),
+      }
+    : null;
 
   return {
     entryId: one("entry", "id") ?? "",
     title: one("struct", "title") ?? "",
     method: one("exptl", "method") ?? "",
     // Crystallographic entries state their resolution in _refine; electron-microscopy entries
-    // (Phase 9, CFTR) state it in _em_3d_reconstruction, which is read only when _refine has none.
+    // (Phase 9, CFTR) state it in _em_3d_reconstruction, which is read only when _refine has none;
+    // an entry with neither (solution NMR) has null.
     resolution: num(rowsOf(block, "refine")[0]?.ls_d_res_high) ?? num(rowsOf(block, "em_3d_reconstruction")[0]?.resolution),
+    modelCount,
+    nmrEnsemble,
     latestRevision: last ? { version: `${last.major}.${last.minor}`, date: last.date } : { version: "unknown", date: "" },
     depositionDate: one("pdbx_database_status", "recvd_initial_deposition_date"),
     primaryCitation: cit
@@ -228,6 +287,23 @@ export function structureFromBlock(block: CifBlock, source: string | null = null
       seqAlignEnd: Number(r.seq_align_end),
       dbAlignBeg: Number(r.db_align_beg),
       dbAlignEnd: Number(r.db_align_end),
+    })),
+    structRef: rowsOf(block, "struct_ref").map((r) => ({
+      id: r.id ?? "",
+      dbName: r.db_name ?? "",
+      dbCode: cifNull(r.db_code),
+      dbAccession: cifNull(r.pdbx_db_accession),
+      entityId: r.entity_id ?? "",
+    })),
+    structRefSeqDif: rowsOf(block, "struct_ref_seq_dif").map((r) => ({
+      strandId: r.pdbx_pdb_strand_id ?? "",
+      seqNum: num(r.seq_num),
+      monId: cifNull(r.mon_id),
+      dbName: cifNull(r.pdbx_seq_db_name),
+      dbAccession: cifNull(r.pdbx_seq_db_accession_code),
+      dbMonId: cifNull(r.db_mon_id),
+      dbSeqNum: num(r.pdbx_seq_db_seq_num),
+      details: cifNull(r.details),
     })),
     atoms,
   };

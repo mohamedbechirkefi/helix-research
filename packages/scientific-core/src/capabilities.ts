@@ -18,8 +18,11 @@ export interface CapabilityInput {
   /**
    * The experimental entry the gene specification selected, or null when it selected none
    * (Phase 9). Cross-referenced entries that were not selected are reported, never shown.
+   * `coverage` (P9.2.2, plan section 13 rule 3) is the structure record's own sentence for what
+   * the entry covers ("2HBS covers residues 2 to 147 of 147 ..."), repeated in the reason so that
+   * a partial structure is never read as the whole protein; absent only for callers that predate it.
    */
-  selectedStructure: { entryId: string } | null;
+  selectedStructure: { entryId: string; coverage?: string } | null;
   /** Entries for which a residue mapping was built and verified (SIFTS + atom_site). */
   verifiedMappings: { entryId: string; uniprotPosition: number }[];
   predictedModel: { modelId: string; version: number } | null;
@@ -54,7 +57,9 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
       ? no("no experimental structure is cross-referenced for this protein")
       : i.selectedStructure === null
         ? no(`no experimental structure selected in the gene specification; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method}) but none was selected, so none is shown`)
-        : yes(`${entries} (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1);
+        : i.selectedStructure.coverage !== undefined
+          ? yes(`${i.selectedStructure.coverage}; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1)
+          : yes(`${entries} (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1);
   const predictedStructure = i.predictedModel
     ? yes(`${i.predictedModel.modelId} v${i.predictedModel.version}; computational prediction, never shown as experimental`, 3)
     : no("no predicted model loaded");

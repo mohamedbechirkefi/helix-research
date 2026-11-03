@@ -1,0 +1,157 @@
+{
+  "kind": "gene",
+  "id": {
+    "id": "ENSG00000012048",
+    "version": 28
+  },
+  "symbol": "BRCA1",
+  "description": "BRCA1 DNA repair associated [Source:HGNC Symbol;Acc:HGNC:1100]",
+  "biotype": "protein_coding",
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "17",
+    "refSeqAccession": null,
+    "start": 43044292,
+    "end": 43170245,
+    "strand": -1,
+    "convention": "1-based-closed"
+  },
+  "hgncId": "HGNC:1100",
+  "aliases": [
+    "BRCC1",
+    "FANCS",
+    "PPP1R53",
+    "RNF53"
+  ],
+  "ncbiGeneId": "672",
+  "transcriptCount": 59,
+  "selection": {
+    "rule": "mane_select",
+    "selected": {
+      "id": "ENST00000357654",
+      "version": 9
+    },
+    "candidatesConsidered": 59,
+    "reason": "only transcript with MANE[].type == MANE_Select",
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000012048?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:00:08Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000012048",
+        "recordVersion": "28",
+        "assembly": "GRCh38.p14",
+        "sha256": "a0c4133da7a227498e11141a7e820a1c6506a7c62f3ae4c175dce376c6b89cb1",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:00:08Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "homo_sapiens",
+        "recordVersion": "GRCh38.p14",
+        "assembly": "GRCh38.p14",
+        "sha256": "90550c9fd2da340bf3236749e3ebeefdea0839be4e5bbaa51f39d1d972974671",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "hgnc",
+        "url": "https://rest.genenames.org/fetch/symbol/BRCA1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:11Z",
+        "sourceRelease": null,
+        "recordId": "HGNC:1100",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "7ad75eee598fff2701d02d243480ef74043a1123aae36016e511e631da4027d0",
+        "licence": "CC0-1.0",
+        "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "select-transcript",
+      "hgnc-resolve"
+    ],
+    "validation": [
+      {
+        "check": "T01-gene-identity",
+        "result": "pass",
+        "detail": "ENSG00000012048.28 BRCA1",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000357654.9 (only transcript with MANE[].type == MANE_Select); 59 candidates",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T04-hgnc-resolution",
+        "result": "pass",
+        "detail": "BRCA1 -> HGNC:1100 ENSG00000012048",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T04-alias-RNF53",
+        "result": "pass",
+        "detail": "alias RNF53 -> ENSG00000012048",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T04-alias-BRCC1",
+        "result": "pass",
+        "detail": "alias BRCC1 -> ENSG00000012048",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T04-alias-PPP1R53",
+        "result": "pass",
+        "detail": "alias PPP1R53 -> ENSG00000012048",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T04-alias-FANCS",
+        "result": "pass",
+        "detail": "alias FANCS -> ENSG00000012048",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000012048.27 vs ENSG00000012048.28; vep-swissprot-entry-version: P38398.282 vs P38398.285",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "BRCA1 (ENSG00000012048.28) is annotated on GRCh38 chromosome 17:43044292-43170245, strand -1.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

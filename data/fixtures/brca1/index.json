@@ -1,0 +1,258 @@
+{
+  "description": "Offline fixtures for the brca1 set, recorded by scripts/data-preparation/build-gene.ts --gene brca1 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/info_data.json"
+    },
+    "ensemblAssembly": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/info_assembly_homo_sapiens.json"
+    },
+    "geneLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json"
+    },
+    "transcriptLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/lookup_id_ENST00000357654_expand_1_utr_1_mane_1.json"
+    },
+    "cds": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/sequence_id_ENST00000357654_type_cds.fa"
+    },
+    "cdna": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/sequence_id_ENST00000357654_type_cdna.fa"
+    },
+    "ensemblProtein": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/sequence_id_ENSP00000350283.fa"
+    },
+    "genomicWindow": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/sequence_region_human_17_43106467..43106507_1.json"
+    },
+    "codonMap": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/map_cds_ENST00000357654_181..183.json"
+    },
+    "variation": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/variation_human_rs28897672.json"
+    },
+    "variantRecoder": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/variant_recoder_human_rs28897672_fields_id_hgvsg_hgvsc_hgvsp_spdi.json"
+    },
+    "vep": {
+      "source": "ensembl",
+      "path": "data/fixtures/brca1/ensembl/vep_human_hgvs_ENST00000357654.9_c.181T_3EG_hgvs_1_mane_1_canonical_1_uniprot_1.json"
+    },
+    "uniprot": {
+      "source": "uniprot",
+      "path": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json"
+    },
+    "mmcif": {
+      "source": "rcsb-files",
+      "path": "data/fixtures/brca1/rcsb-files/download_1JM7.cif"
+    },
+    "rcsbEntry": {
+      "source": "rcsb",
+      "path": "data/fixtures/brca1/rcsb/rest_v1_core_entry_1JM7.json"
+    },
+    "rcsbPolymerEntity": {
+      "source": "rcsb",
+      "path": "data/fixtures/brca1/rcsb/rest_v1_core_polymer_entity_1JM7_1.json"
+    },
+    "rcsbAssembly": {
+      "source": "rcsb",
+      "path": "data/fixtures/brca1/rcsb/rest_v1_core_assembly_1JM7_1.json"
+    },
+    "sifts": {
+      "source": "pdbe-sifts",
+      "path": "data/fixtures/brca1/pdbe-sifts/pdbe_api_mappings_uniprot_1jm7.json"
+    },
+    "clinvarSearch": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs28897672_retmode_json_retmax_100_tool_helix-research.json"
+    },
+    "clinvar": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json"
+    },
+    "clinvarEinfo": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_einfo.fcgi_db_clinvar_retmode_json_tool_helix-research.json"
+    },
+    "hgnc": {
+      "source": "hgnc",
+      "path": "data/fixtures/brca1/hgnc/fetch_symbol_BRCA1.json"
+    },
+    "alphafoldPrediction": {
+      "source": "alphafold",
+      "path": "data/fixtures/brca1/alphafold/api_prediction_P38398.json"
+    },
+    "alphafoldModel": {
+      "source": "alphafold",
+      "path": "data/fixtures/brca1/alphafold/files_AF-P38398-F1-model_v6.cif"
+    },
+    "reactomeVersion": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_database_version.json"
+    },
+    "reactomePathways": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_mapping_UniProt_P38398_pathways_species_9606.json"
+    },
+    "reactomeAncestors:R-HSA-69473": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-69473_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-912446": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-912446_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-1221632": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-1221632_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-3108214": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-3108214_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5685938": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5685938_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5685942": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5685942_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5689901": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5689901_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693554": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693554_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693565": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693565_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693568": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693568_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693571": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693571_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693579": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693579_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693607": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693607_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5693616": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693616_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-6796648": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-6796648_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-6804756": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-6804756_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-8951664": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-8951664_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-8953750": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-8953750_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9663199": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9663199_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9699150": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9699150_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9701192": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9701192_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9704331": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9704331_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9704646": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9704646_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9709570": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9709570_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9709603": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9709603_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9755511": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9755511_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9825895": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9825895_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-9974237": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9974237_ancestors.json"
+    },
+    "reactomeParticipants:R-HSA-912446": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-912446.json"
+    },
+    "reactomeParticipants:R-HSA-1221632": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-1221632.json"
+    },
+    "reactomeParticipants:R-HSA-3108214": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-3108214.json"
+    },
+    "reactomeParticipants:R-HSA-5693571": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-5693571.json"
+    },
+    "reactomeParticipants:R-HSA-6796648": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-6796648.json"
+    },
+    "reactomeParticipants:R-HSA-6804756": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-6804756.json"
+    },
+    "reactomeParticipants:R-HSA-8951664": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-8951664.json"
+    },
+    "reactomeParticipants:R-HSA-8953750": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-8953750.json"
+    },
+    "reactomeParticipants:R-HSA-9755511": {
+      "source": "reactome",
+      "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-9755511.json"
+    }
+  },
+  "extra": {}
+}

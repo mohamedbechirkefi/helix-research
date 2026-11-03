@@ -1,0 +1,2393 @@
+{
+  "kind": "residue-mapping-table",
+  "uniprotAccession": "P38398",
+  "entryId": "1JM7",
+  "entityId": "1",
+  "method": "sifts",
+  "segments": [
+    {
+      "labelAsymId": "A",
+      "authAsymId": "A",
+      "unpStart": 1,
+      "unpEnd": 110,
+      "labelSeqStart": 1,
+      "labelSeqEnd": 110,
+      "identity": 1
+    }
+  ],
+  "chains": [
+    "A"
+  ],
+  "coverage": {
+    "firstUniprotPosition": 1,
+    "lastUniprotPosition": 110,
+    "positions": 110
+  },
+  "crossChecks": [
+    {
+      "method": "global alignment of entity sequence to UniProt",
+      "agrees": true,
+      "detail": "offset 0; mismatching positions none, the same as the table's"
+    },
+    {
+      "method": "RCSB rcsb_polymer_entity_align (SIFTS provenance)",
+      "agrees": true,
+      "detail": "ref_beg 1 <-> entity_beg 1, length 110"
+    },
+    {
+      "method": "variant mapping record (same SIFTS record, one position)",
+      "agrees": true,
+      "detail": "position 61 identical in both records"
+    },
+    {
+      "method": "mmCIF _struct_ref_seq (not used)",
+      "agrees": true,
+      "detail": "agrees with SIFTS"
+    }
+  ],
+  "positions": [
+    {
+      "uniprotPosition": 1,
+      "uniprotResidue": "M",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 1,
+          "authAsymId": "A",
+          "authSeqId": "1",
+          "insCode": null,
+          "compId": "MET",
+          "authCompId": "MET"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 2,
+      "uniprotResidue": "D",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 2,
+          "authAsymId": "A",
+          "authSeqId": "2",
+          "insCode": null,
+          "compId": "ASP",
+          "authCompId": "ASP"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 3,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 3,
+          "authAsymId": "A",
+          "authSeqId": "3",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 4,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 4,
+          "authAsymId": "A",
+          "authSeqId": "4",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 5,
+      "uniprotResidue": "A",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 5,
+          "authAsymId": "A",
+          "authSeqId": "5",
+          "insCode": null,
+          "compId": "ALA",
+          "authCompId": "ALA"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 6,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 6,
+          "authAsymId": "A",
+          "authSeqId": "6",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 7,
+      "uniprotResidue": "R",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 7,
+          "authAsymId": "A",
+          "authSeqId": "7",
+          "insCode": null,
+          "compId": "ARG",
+          "authCompId": "ARG"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 8,
+      "uniprotResidue": "V",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 8,
+          "authAsymId": "A",
+          "authSeqId": "8",
+          "insCode": null,
+          "compId": "VAL",
+          "authCompId": "VAL"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 9,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 9,
+          "authAsymId": "A",
+          "authSeqId": "9",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 10,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 10,
+          "authAsymId": "A",
+          "authSeqId": "10",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 11,
+      "uniprotResidue": "V",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 11,
+          "authAsymId": "A",
+          "authSeqId": "11",
+          "insCode": null,
+          "compId": "VAL",
+          "authCompId": "VAL"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 12,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 12,
+          "authAsymId": "A",
+          "authSeqId": "12",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 13,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 13,
+          "authAsymId": "A",
+          "authSeqId": "13",
+          "insCode": null,
+          "compId": "ASN",
+          "authCompId": "ASN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 14,
+      "uniprotResidue": "V",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 14,
+          "authAsymId": "A",
+          "authSeqId": "14",
+          "insCode": null,
+          "compId": "VAL",
+          "authCompId": "VAL"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 15,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 15,
+          "authAsymId": "A",
+          "authSeqId": "15",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 16,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 16,
+          "authAsymId": "A",
+          "authSeqId": "16",
+          "insCode": null,
+          "compId": "ASN",
+          "authCompId": "ASN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 17,
+      "uniprotResidue": "A",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 17,
+          "authAsymId": "A",
+          "authSeqId": "17",
+          "insCode": null,
+          "compId": "ALA",
+          "authCompId": "ALA"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 18,
+      "uniprotResidue": "M",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 18,
+          "authAsymId": "A",
+          "authSeqId": "18",
+          "insCode": null,
+          "compId": "MET",
+          "authCompId": "MET"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 19,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 19,
+          "authAsymId": "A",
+          "authSeqId": "19",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 20,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 20,
+          "authAsymId": "A",
+          "authSeqId": "20",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 21,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 21,
+          "authAsymId": "A",
+          "authSeqId": "21",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 22,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 22,
+          "authAsymId": "A",
+          "authSeqId": "22",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 23,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 23,
+          "authAsymId": "A",
+          "authSeqId": "23",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 24,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 24,
+          "authAsymId": "A",
+          "authSeqId": "24",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 25,
+      "uniprotResidue": "P",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 25,
+          "authAsymId": "A",
+          "authSeqId": "25",
+          "insCode": null,
+          "compId": "PRO",
+          "authCompId": "PRO"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 26,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 26,
+          "authAsymId": "A",
+          "authSeqId": "26",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 27,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 27,
+          "authAsymId": "A",
+          "authSeqId": "27",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 28,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 28,
+          "authAsymId": "A",
+          "authSeqId": "28",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 29,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 29,
+          "authAsymId": "A",
+          "authSeqId": "29",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 30,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 30,
+          "authAsymId": "A",
+          "authSeqId": "30",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 31,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 31,
+          "authAsymId": "A",
+          "authSeqId": "31",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 32,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 32,
+          "authAsymId": "A",
+          "authSeqId": "32",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 33,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 33,
+          "authAsymId": "A",
+          "authSeqId": "33",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 34,
+      "uniprotResidue": "P",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 34,
+          "authAsymId": "A",
+          "authSeqId": "34",
+          "insCode": null,
+          "compId": "PRO",
+          "authCompId": "PRO"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 35,
+      "uniprotResidue": "V",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 35,
+          "authAsymId": "A",
+          "authSeqId": "35",
+          "insCode": null,
+          "compId": "VAL",
+          "authCompId": "VAL"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 36,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 36,
+          "authAsymId": "A",
+          "authSeqId": "36",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 37,
+      "uniprotResidue": "T",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 37,
+          "authAsymId": "A",
+          "authSeqId": "37",
+          "insCode": null,
+          "compId": "THR",
+          "authCompId": "THR"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 38,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 38,
+          "authAsymId": "A",
+          "authSeqId": "38",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 39,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 39,
+          "authAsymId": "A",
+          "authSeqId": "39",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 40,
+      "uniprotResidue": "D",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 40,
+          "authAsymId": "A",
+          "authSeqId": "40",
+          "insCode": null,
+          "compId": "ASP",
+          "authCompId": "ASP"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 41,
+      "uniprotResidue": "H",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 41,
+          "authAsymId": "A",
+          "authSeqId": "41",
+          "insCode": null,
+          "compId": "HIS",
+          "authCompId": "HIS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 42,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 42,
+          "authAsymId": "A",
+          "authSeqId": "42",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 43,
+      "uniprotResidue": "F",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 43,
+          "authAsymId": "A",
+          "authSeqId": "43",
+          "insCode": null,
+          "compId": "PHE",
+          "authCompId": "PHE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 44,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 44,
+          "authAsymId": "A",
+          "authSeqId": "44",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 45,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 45,
+          "authAsymId": "A",
+          "authSeqId": "45",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 46,
+      "uniprotResidue": "F",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 46,
+          "authAsymId": "A",
+          "authSeqId": "46",
+          "insCode": null,
+          "compId": "PHE",
+          "authCompId": "PHE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 47,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 47,
+          "authAsymId": "A",
+          "authSeqId": "47",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 48,
+      "uniprotResidue": "M",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 48,
+          "authAsymId": "A",
+          "authSeqId": "48",
+          "insCode": null,
+          "compId": "MET",
+          "authCompId": "MET"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 49,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 49,
+          "authAsymId": "A",
+          "authSeqId": "49",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 50,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 50,
+          "authAsymId": "A",
+          "authSeqId": "50",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 51,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 51,
+          "authAsymId": "A",
+          "authSeqId": "51",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 52,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 52,
+          "authAsymId": "A",
+          "authSeqId": "52",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 53,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 53,
+          "authAsymId": "A",
+          "authSeqId": "53",
+          "insCode": null,
+          "compId": "ASN",
+          "authCompId": "ASN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 54,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 54,
+          "authAsymId": "A",
+          "authSeqId": "54",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 55,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 55,
+          "authAsymId": "A",
+          "authSeqId": "55",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 56,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 56,
+          "authAsymId": "A",
+          "authSeqId": "56",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 57,
+      "uniprotResidue": "G",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 57,
+          "authAsymId": "A",
+          "authSeqId": "57",
+          "insCode": null,
+          "compId": "GLY",
+          "authCompId": "GLY"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 58,
+      "uniprotResidue": "P",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 58,
+          "authAsymId": "A",
+          "authSeqId": "58",
+          "insCode": null,
+          "compId": "PRO",
+          "authCompId": "PRO"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 59,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 59,
+          "authAsymId": "A",
+          "authSeqId": "59",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 60,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 60,
+          "authAsymId": "A",
+          "authSeqId": "60",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 61,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 61,
+          "authAsymId": "A",
+          "authSeqId": "61",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 62,
+      "uniprotResidue": "P",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 62,
+          "authAsymId": "A",
+          "authSeqId": "62",
+          "insCode": null,
+          "compId": "PRO",
+          "authCompId": "PRO"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 63,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 63,
+          "authAsymId": "A",
+          "authSeqId": "63",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 64,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 64,
+          "authAsymId": "A",
+          "authSeqId": "64",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 65,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 65,
+          "authAsymId": "A",
+          "authSeqId": "65",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 66,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 66,
+          "authAsymId": "A",
+          "authSeqId": "66",
+          "insCode": null,
+          "compId": "ASN",
+          "authCompId": "ASN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 67,
+      "uniprotResidue": "D",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 67,
+          "authAsymId": "A",
+          "authSeqId": "67",
+          "insCode": null,
+          "compId": "ASP",
+          "authCompId": "ASP"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 68,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 68,
+          "authAsymId": "A",
+          "authSeqId": "68",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 69,
+      "uniprotResidue": "T",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 69,
+          "authAsymId": "A",
+          "authSeqId": "69",
+          "insCode": null,
+          "compId": "THR",
+          "authCompId": "THR"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 70,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 70,
+          "authAsymId": "A",
+          "authSeqId": "70",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 71,
+      "uniprotResidue": "R",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 71,
+          "authAsymId": "A",
+          "authSeqId": "71",
+          "insCode": null,
+          "compId": "ARG",
+          "authCompId": "ARG"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 72,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 72,
+          "authAsymId": "A",
+          "authSeqId": "72",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 73,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 73,
+          "authAsymId": "A",
+          "authSeqId": "73",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 74,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 74,
+          "authAsymId": "A",
+          "authSeqId": "74",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 75,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 75,
+          "authAsymId": "A",
+          "authSeqId": "75",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 76,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 76,
+          "authAsymId": "A",
+          "authSeqId": "76",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 77,
+      "uniprotResidue": "T",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 77,
+          "authAsymId": "A",
+          "authSeqId": "77",
+          "insCode": null,
+          "compId": "THR",
+          "authCompId": "THR"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 78,
+      "uniprotResidue": "R",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 78,
+          "authAsymId": "A",
+          "authSeqId": "78",
+          "insCode": null,
+          "compId": "ARG",
+          "authCompId": "ARG"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 79,
+      "uniprotResidue": "F",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 79,
+          "authAsymId": "A",
+          "authSeqId": "79",
+          "insCode": null,
+          "compId": "PHE",
+          "authCompId": "PHE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 80,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 80,
+          "authAsymId": "A",
+          "authSeqId": "80",
+          "insCode": null,
+          "compId": "SER",
+          "authCompId": "SER"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 81,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 81,
+          "authAsymId": "A",
+          "authSeqId": "81",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 82,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 82,
+          "authAsymId": "A",
+          "authSeqId": "82",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 83,
+      "uniprotResidue": "V",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 83,
+          "authAsymId": "A",
+          "authSeqId": "83",
+          "insCode": null,
+          "compId": "VAL",
+          "authCompId": "VAL"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 84,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 84,
+          "authAsymId": "A",
+          "authSeqId": "84",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 85,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 85,
+          "authAsymId": "A",
+          "authSeqId": "85",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 86,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 86,
+          "authAsymId": "A",
+          "authSeqId": "86",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 87,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 87,
+          "authAsymId": "A",
+          "authSeqId": "87",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 88,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 88,
+          "authAsymId": "A",
+          "authSeqId": "88",
+          "insCode": null,
+          "compId": "LYS",
+          "authCompId": "LYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 89,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 89,
+          "authAsymId": "A",
+          "authSeqId": "89",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 90,
+      "uniprotResidue": "I",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 90,
+          "authAsymId": "A",
+          "authSeqId": "90",
+          "insCode": null,
+          "compId": "ILE",
+          "authCompId": "ILE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 91,
+      "uniprotResidue": "C",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 91,
+          "authAsymId": "A",
+          "authSeqId": "91",
+          "insCode": null,
+          "compId": "CYS",
+          "authCompId": "CYS"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 92,
+      "uniprotResidue": "A",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 92,
+          "authAsymId": "A",
+          "authSeqId": "92",
+          "insCode": null,
+          "compId": "ALA",
+          "authCompId": "ALA"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 93,
+      "uniprotResidue": "F",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 93,
+          "authAsymId": "A",
+          "authSeqId": "93",
+          "insCode": null,
+          "compId": "PHE",
+          "authCompId": "PHE"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 94,
+      "uniprotResidue": "Q",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 94,
+          "authAsymId": "A",
+          "authSeqId": "94",
+          "insCode": null,
+          "compId": "GLN",
+          "authCompId": "GLN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 95,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 95,
+          "authAsymId": "A",
+          "authSeqId": "95",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 96,
+      "uniprotResidue": "D",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 96,
+          "authAsymId": "A",
+          "authSeqId": "96",
+          "insCode": null,
+          "compId": "ASP",
+          "authCompId": "ASP"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 97,
+      "uniprotResidue": "T",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 97,
+          "authAsymId": "A",
+          "authSeqId": "97",
+          "insCode": null,
+          "compId": "THR",
+          "authCompId": "THR"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 98,
+      "uniprotResidue": "G",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 98,
+          "authAsymId": "A",
+          "authSeqId": "98",
+          "insCode": null,
+          "compId": "GLY",
+          "authCompId": "GLY"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 99,
+      "uniprotResidue": "L",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 99,
+          "authAsymId": "A",
+          "authSeqId": "99",
+          "insCode": null,
+          "compId": "LEU",
+          "authCompId": "LEU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 100,
+      "uniprotResidue": "E",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 100,
+          "authAsymId": "A",
+          "authSeqId": "100",
+          "insCode": null,
+          "compId": "GLU",
+          "authCompId": "GLU"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 101,
+      "uniprotResidue": "Y",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 101,
+          "authAsymId": "A",
+          "authSeqId": "101",
+          "insCode": null,
+          "compId": "TYR",
+          "authCompId": "TYR"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 102,
+      "uniprotResidue": "A",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 102,
+          "authAsymId": "A",
+          "authSeqId": "102",
+          "insCode": null,
+          "compId": "ALA",
+          "authCompId": "ALA"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 103,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [
+        {
+          "entryId": "1JM7",
+          "assemblyId": "1",
+          "entityId": "1",
+          "labelAsymId": "A",
+          "labelSeqId": 103,
+          "authAsymId": "A",
+          "authSeqId": "103",
+          "insCode": null,
+          "compId": "ASN",
+          "authCompId": "ASN"
+        }
+      ],
+      "unobservedChains": [],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 104,
+      "uniprotResidue": "S",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 105,
+      "uniprotResidue": "Y",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 106,
+      "uniprotResidue": "N",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 107,
+      "uniprotResidue": "F",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 108,
+      "uniprotResidue": "A",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 109,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    },
+    {
+      "uniprotPosition": 110,
+      "uniprotResidue": "K",
+      "maturePosition": null,
+      "residues": [],
+      "unobservedChains": [
+        "A"
+      ],
+      "matchesReference": true
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/1jm7",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": null,
+        "recordId": "1jm7",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "453c35fbe84717c8cd202624a096b17c8b6625516dd6323af0ed4bb790d91fae",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      },
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/1JM7.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:11Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1JM7/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:13Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "84882618023e7d8770f4e665aff0b73ebc68b26c4386798e9d1b55bb991a11d2",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/P38398.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:00:18Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "P38398",
+        "recordVersion": "entry 285, sequence 2",
+        "assembly": null,
+        "sha256": "c5a914de75ea088c6fd36f1cfbab444d7a24bf1e19ba2390e229cc3afb252c73",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "sifts-segment-lookup-per-position",
+      "poly-seq-scheme-auth-ids",
+      "atom-site-residue-name",
+      "alignment-cross-check",
+      "unobserved-residues-recorded"
+    ],
+    "validation": [
+      {
+        "check": "T36-full-chain-covers-sifts",
+        "result": "pass",
+        "detail": "110 positions (1-110); per chain A 110/110; 7 unobserved residue(s)",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T37-full-chain-agrees-with-variant-mapping",
+        "result": "pass",
+        "detail": "position 61: table A61 CYS; variant mapping record A61 CYS",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T38-full-chain-residue-names",
+        "result": "pass",
+        "detail": "atom_site residue = UniProt residue at 110 of 110 positions; differs at none",
+        "at": "2026-11-03T22:05:59Z"
+      },
+      {
+        "check": "T39-full-chain-alignment-agrees",
+        "result": "pass",
+        "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none; outside the mapped positions the entity differs at 111 (UniProt E, entity G, cloning artifact), 112 (UniProt N, entity K, cloning artifact)",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Full-chain mapping of record: SIFTS maps P38398 positions 1-110 onto 1JM7 entity 1, chains A; auth ids from pdbx_poly_seq_scheme, residue names from atom_site.",
+      "qualifier": "A: identity 1, coverage 0.059",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    },
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "In the deposited coordinates of 1JM7, the residue at every mapped position equals the UniProt residue except at no position.",
+      "qualifier": null,
+      "limitations": []
+    }
+  ]
+}

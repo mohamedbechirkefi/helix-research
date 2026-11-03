@@ -1,0 +1,54 @@
+{
+  "kind": "capabilities",
+  "derivedFrom": [
+    "gene.json",
+    "transcript.json",
+    "sequences.json",
+    "protein-P38398.json",
+    "variant-c61g.json",
+    "clinvar-c61g.json",
+    "structure-1JM7.json",
+    "residue-mapping-c61g-1JM7.json",
+    "residue-mapping-P38398-1JM7.json",
+    "contacts-c61g-1JM7.json",
+    "predicted-model-AF-P38398-F1.json",
+    "pathways.json"
+  ],
+  "geneId": "ENSG00000012048",
+  "symbol": "BRCA1",
+  "transcriptView": {
+    "available": true,
+    "reason": "transcript ENST00000357654.9 selected by rule mane_select",
+    "evidenceCategory": 2
+  },
+  "proteinView": {
+    "available": true,
+    "reason": "UniProt P38398; sequence equals the translated CDS",
+    "evidenceCategory": 2
+  },
+  "experimentalStructure": {
+    "available": true,
+    "reason": "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown); 33 experimental entries cross-referenced (e.g. 1JM7, NMR)",
+    "evidenceCategory": 1
+  },
+  "predictedStructure": {
+    "available": true,
+    "reason": "AF-P38398-F1 v6; computational prediction, never shown as experimental",
+    "evidenceCategory": 3
+  },
+  "verifiedResidueMapping": {
+    "available": true,
+    "reason": "verified SIFTS + atom_site mapping for 1JM7",
+    "evidenceCategory": 1
+  },
+  "variantHighlight": {
+    "available": true,
+    "reason": "variant position(s) 61 mapped to observed residues in an experimental structure",
+    "evidenceCategory": 1
+  },
+  "pathwayView": {
+    "available": true,
+    "reason": "28 Reactome memberships; opens on Meiotic synapsis, R-HSA-1221632 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  }
+}

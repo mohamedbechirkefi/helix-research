@@ -1,0 +1,106 @@
+{
+  "kind": "residue-contacts",
+  "entryId": "1JM7",
+  "scope": "asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain); heavy atoms only (the entry deposits hydrogen atoms, which are not counted)",
+  "cutoffAngstrom": 4.5,
+  "numbering": "auth_asym_id / auth_seq_id",
+  "chains": [
+    {
+      "residue": {
+        "entryId": "1JM7",
+        "assemblyId": "1",
+        "entityId": "1",
+        "labelAsymId": "A",
+        "labelSeqId": 61,
+        "authAsymId": "A",
+        "authSeqId": "61",
+        "insCode": null,
+        "compId": "CYS",
+        "authCompId": "CYS"
+      },
+      "probeAtoms": [
+        "SG"
+      ],
+      "contacts": [
+        {
+          "authAsymId": "A",
+          "authSeqId": 39,
+          "compId": "CYS"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 41,
+          "compId": "HIS"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 63,
+          "compId": "LEU"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 64,
+          "compId": "CYS"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 66,
+          "compId": "ASN"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 68,
+          "compId": "ILE"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 124,
+          "compId": "ZN"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/1JM7.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T22:04:11Z",
+        "sourceRelease": "PDB rev 1.4 2024-05-22",
+        "recordId": "1JM7",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "side-chain-atoms-beyond-cb",
+      "distance-cutoff"
+    ],
+    "validation": [
+      {
+        "check": "T28-contacts-computed",
+        "result": "pass",
+        "detail": "A61: A39,A41,A63,A64,A66,A68,A124",
+        "at": "2026-11-03T22:05:59Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "computed-from-experimental-data",
+      "statement": "Within 4.5 A of the CYS side chain, in the asymmetric unit (the residue's own chain included beyond its covalent neighbours, since the entry has one mapped chain) (heavy atoms on both sides; the entry's hydrogen atoms are not counted): chain A contacts residue(s) A39 CYS, A41 HIS, A63 LEU, A64 CYS, A66 ASN, A68 ILE, A124 ZN.",
+      "qualifier": null,
+      "limitations": [
+        "Computed by HELIX from deposited coordinates; depends on the deposited model and the stated cutoff."
+      ]
+    }
+  ]
+}

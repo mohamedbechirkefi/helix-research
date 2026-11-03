@@ -217,6 +217,90 @@ describe("the CFTR set (P9.2.1): an in-frame deletion built from its recorded fi
   });
 });
 
+describe("the BRCA1 set (P9.2.2): a substitution on a domain structure, solution NMR, built from its recorded fixtures (plan §13)", () => {
+  let out: string;
+  let files: string[];
+  let manifest: DatasetManifest;
+  let structure: Structure;
+  beforeAll(async () => {
+    const dir = await mkdtemp(join(tmpdir(), "helix-brca1-build-"));
+    out = join(dir, "brca1");
+    await buildGene({ config: await readSpec("brca1"), mode: "fixtures", outDir: out, log: () => undefined });
+    files = (await readdir(out)).sort();
+    manifest = DatasetManifest.parse(JSON.parse(await readFile(join(out, "manifest.json"), "utf8")));
+    structure = Structure.parse(JSON.parse(await readFile(join(out, "structure-1JM7.json"), "utf8")));
+  });
+  afterAll(async () => {
+    if (out) await rm(join(out, ".."), { recursive: true, force: true });
+  });
+  it("the variant record: a reverse-strand substitution, forward A>C, codon 61 TGT to GGT, p.Cys61Gly, ClinVar VCV000017661, the two other alleles kept separate", async () => {
+    const v = Variant.parse(JSON.parse(await readFile(join(out, "variant-c61g.json"), "utf8")));
+    if (v.variantKind === "deletion") throw new Error("expected a substitution record");
+    expect([v.key, v.spdi, v.rsAlleles]).toEqual(["NC_000017.11:g.43106487A>C", "NC_000017.11:43106486:A:C", ["A", "C", "G", "T"]]);
+    expect(v.allele).toEqual({ reference: "A", alternate: "C", strand: 1 });
+    expect(v.codon).toMatchObject({ number: 61, reference: "TGT", alternate: "GGT" });
+    expect(v.codon.genomic.strand).toBe(-1);
+    expect([v.aminoAcids, v.proteinChangeComputed, v.cdsPosition]).toEqual([{ reference: "C", alternate: "G" }, "p.Cys61Gly", 181]);
+    expect(v.numbering).toEqual({ translatedPosition: 61, maturePosition: null, matureLabel: null, translatedLabel: "p.Cys61Gly (translated numbering, Met = 1)" });
+    expect(v.hgvs.coding).toContain("ENST00000357654.9:c.181T>G");
+    expect(v.consequence?.terms).toEqual(["missense_variant"]);
+    expect(v.clinvar).toMatchObject({ accession: "VCV000017661", classification: "Pathogenic", reviewStatus: "reviewed by expert panel" });
+    const t13 = manifest.validation.find((x) => x.check === "T13-rsid-multiallelic")!;
+    expect(t13.detail).toBe("rs28897672 alleles A/C/G/T; C:p.Cys61Gly, G:p.Cys61Arg, T:p.Cys61Ser");
+  });
+  it("the structure record (rules 2 to 4): 1JM7 solution NMR, resolution null, 14 models with model 1 shown and the representative conformer stated, coverage 1 to 103 of 1,863 in words and numbers, BARD1 named with its own accession", () => {
+    expect([structure.entryId, structure.method, structure.resolutionAngstrom, structure.modelCount, structure.modelShown, structure.mappedEntityId]).toEqual(["1JM7", "SOLUTION NMR", null, 14, 1, "1"]);
+    expect(structure.nmrEnsemble).toEqual({ conformersCalculated: 25, conformersSubmitted: 14, representativeConformer: 2, representativeSelectionCriteria: "closest to the average" });
+    expect(structure.coverage).toEqual({ uniprotAccession: "P38398", chains: ["A"], firstObservedPosition: 1, lastObservedPosition: 103, observedPositions: 103, mappedPositions: 110, proteinLength: 1863, fraction: 0.0553, text: "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown)" });
+    expect(structure.coverage.fraction).toBe(Math.round((103 / 1863) * 10000) / 10000);
+    expect(structure.partners).toEqual([{ entityId: "2", description: "BRCA1-ASSOCIATED RING DOMAIN PROTEIN 1", strandIds: ["B"], uniprotAccession: "Q99728", siftsUniprot: ["Q99728"] }]);
+    expect(structure.entities.find((e) => e.entityId === "1")).toMatchObject({ uniprotFromEntry: ["P38398"], sequenceDifferences: [{ strandId: "A", labelSeqId: 111, residue: "GLY", details: "cloning artifact" }, { strandId: "A", labelSeqId: 112, residue: "LYS", details: "cloning artifact" }] });
+    expect(structure.evidence.map((e) => e.statement)).toEqual([
+      "1JM7: SOLUTION NMR, no resolution (an ensemble of 14 models; model 1 is the one shown), deposited 2001-07-17.",
+      "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown); SIFTS maps 110 position(s) of P38398 onto chain(s) A.",
+    ]);
+    expect(structure.evidence[1]!.limitations[0]).toBe("The entry covers 103 of the protein's 1863 residues; the rest has no experimental coordinates in this set, and a predicted model never stands in for it.");
+  });
+  it("the checks: T40 (the recorded preference), T47 (NMR: no resolution, 14 models, ensemble agrees), T48 (coverage) and T39 (the cloning artifact outside the mapping) pass; nothing fails", () => {
+    expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
+    expect(manifest.validation.filter((v) => v.result === "warn")).toEqual([]);
+    const detail = (id: string) => manifest.validation.find((v) => v.check === id)?.detail;
+    expect(detail("T40-variant-residue-observed")).toBe("1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed");
+    expect(detail("T47-structure-method")).toBe("1JM7 method SOLUTION NMR; resolution none; 14 model(s) in atom_site; _pdbx_nmr_ensemble: 14 submitted of 25 calculated, representative conformer 2 (closest to the average); model 1 is the one mapped, measured and shown");
+    expect(detail("T48-structure-coverage")).toBe("103 of 110 mapped positions observed in model 1 on chain(s) A, 1-103; protein length 1863; fraction 0.0553 = 103/1863; words match the numbers");
+    expect(detail("T39-full-chain-alignment-agrees")).toBe("entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none; outside the mapped positions the entity differs at 111 (UniProt E, entity G, cloning artifact), 112 (UniProt N, entity K, cloning artifact)");
+    expect(detail("T38-full-chain-residue-names")).toMatch(/^atom_site residue = UniProt residue at 110 of 110 positions; differs at none$/);
+    expect(detail("T23-residue-from-atom-site")).toBe("A/A label 61 auth 61 CYS; structure carries the reference residue");
+    expect(manifest.validation.map((v) => v.check).slice(-3)).toEqual(["T47-structure-method", "T48-structure-coverage", "T31-drift-recorded"]);
+  });
+  it("mapping, contacts and the predicted model: residue 61 on chain A in model 1; heavy-atom contacts of Cys61 within its own chain and a zinc, none with BARD1 at 4.5 A; the pLDDT fractions read from the prediction record", async () => {
+    const m = ResidueMapping.parse(JSON.parse(await readFile(join(out, "residue-mapping-c61g-1JM7.json"), "utf8")));
+    expect(m.residues.map((r) => [r.labelAsymId, r.labelSeqId, r.authAsymId, r.authSeqId, r.compId])).toEqual([["A", 61, "A", "61", "CYS"]]);
+    const c = ResidueContacts.parse(JSON.parse(await readFile(join(out, "contacts-c61g-1JM7.json"), "utf8")));
+    expect(c.scope).toBe("asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain); heavy atoms only (the entry deposits hydrogen atoms, which are not counted)");
+    expect(c.chains[0]!.probeAtoms).toEqual(["SG"]);
+    expect(c.chains[0]!.contacts.map((x) => `${x.authAsymId}${x.authSeqId} ${x.compId}`)).toEqual(["A39 CYS", "A41 HIS", "A63 LEU", "A64 CYS", "A66 ASN", "A68 ILE", "A124 ZN"]);
+    expect(c.chains[0]!.contacts.filter((x) => x.authAsymId !== "A")).toEqual([]);
+    const pm = JSON.parse(await readFile(join(out, "predicted-model-AF-P38398-F1.json"), "utf8")) as { globalPlddt: number; plddtFractions: Record<string, number>; usableForVariantPlacement: boolean };
+    expect(pm.plddtFractions).toEqual({ veryLow: 0.804, low: 0.022, confident: 0.063, veryHigh: 0.111 });
+    expect(Math.round(Object.values(pm.plddtFractions).reduce((a, b) => a + b, 0) * 1000) / 1000).toBe(1);
+    expect([pm.globalPlddt, pm.usableForVariantPlacement]).toEqual([41.59, false]);
+  });
+  it("the capability report: six verdicts available, the structure reason beginning with the coverage sentence; the pathways and questions records as for the other sets", async () => {
+    const cap = CapabilityReport.parse(JSON.parse(await readFile(join(out, "capabilities.json"), "utf8")));
+    for (const k of ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight", "pathwayView"] as const) expect(cap[k].available, k).toBe(true);
+    expect(cap.experimentalStructure).toEqual({ available: true, reason: "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown); 33 experimental entries cross-referenced (e.g. 1JM7, NMR)", evidenceCategory: 1 });
+    expect(cap.variantHighlight.reason).toBe("variant position(s) 61 mapped to observed residues in an experimental structure");
+    const pw = PathwayMembershipsRecord.parse(JSON.parse(await readFile(join(out, "pathways.json"), "utf8")));
+    expect([pw.membershipCount, pw.participantsByPathway.length, pw.openingPathway?.stableId]).toEqual([28, 9, "R-HSA-1221632"]);
+    expect(pw.memberships.filter((x) => x.isDisease)).toHaveLength(7);
+    const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
+    expect(q.questions.map((x) => x.text)).toEqual(["Show me where the C61G mutation affects the BRCA1 protein.", "How does the DNA change for the C61G variant?", "What does the C61G variant residue touch in the structure?", "Show the evidence for the C61G variant.", "Which pathways list BRCA1?"]);
+    expect(files).toHaveLength(16);
+    expect(files).toContain("1JM7.cif");
+  });
+});
+
 describe("the pathways record (P9.1.2, plan §12 rules 2 to 4): built from the recorded Reactome fixtures of each set", () => {
   const NOW = "2026-11-03T00:00:00Z";
   /** The record and capability file of a set built in memory from its fixtures. */
@@ -317,7 +401,7 @@ describe("the pathways record (P9.1.2, plan §12 rules 2 to 4): built from the r
 
 describe("no gene is hardcoded in the packages' sources (plan §9)", () => {
   /** Known HBB identifiers; the only place they may appear in code is the in-code mirror of data/specs/hbb.json. */
-  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"', "ENSG00000001626", "P13569", "rs113993960", "5UAK", '"CFTR"'];
+  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"', "ENSG00000001626", "P13569", "rs113993960", "5UAK", '"CFTR"', "ENSG00000012048", "P38398", "rs28897672", "1JM7", '"BRCA1"'];
   const ALLOWED: Record<string, string> = {
     "packages/scientific-core/src/slice/types.ts": "HBB_CONFIG, the in-code mirror of data/specs/hbb.json (a test proves they are equal)",
     "packages/ai-planning/src/fallback.ts": "the Phase 7 fallback planner's HBB cue tables (rs334, 2HBS); generalised with the app in P9.3, outside the builder",
