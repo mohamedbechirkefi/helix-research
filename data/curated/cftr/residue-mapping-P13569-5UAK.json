@@ -27443,25 +27443,25 @@
         "check": "T36-full-chain-covers-sifts",
         "result": "pass",
         "detail": "1480 positions (1-1480); per chain A 1480/1480; 341 unobserved residue(s)",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 508: table A508 PHE; variant mapping record A508 PHE",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T38-full-chain-residue-names",
         "result": "pass",
         "detail": "atom_site residue = UniProt residue at 1480 of 1480 positions; differs at none",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T39-full-chain-alignment-agrees",
         "result": "pass",
         "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       }
     ],
     "evidenceCategory": 2

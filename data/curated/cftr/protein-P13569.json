@@ -589,61 +589,61 @@
         "check": "uniprot-accession",
         "result": "pass",
         "detail": "P13569 CFTR_HUMAN, reviewed true",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T06-cds-shape",
         "result": "pass",
         "detail": "length 4443, starts ATG, ends TAG",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T07-translation-equals-ensembl-protein",
         "result": "pass",
         "detail": "translated 1480 aa vs Ensembl 1480 aa",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T07-translation-equals-uniprot",
         "result": "pass",
         "detail": "translated 1480 aa vs UniProt 1480 aa",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T07-uniprot-md5",
         "result": "pass",
         "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000003084.11 / ENSP00000003084.6 / NM_000492.4",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1480",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "codons 507-508: UniProt IF, reference codons translate to IF; deleted residue(s) F508 as in UniProt",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_000171 at 508: F missing (no alternative sequence); in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000001626.19 vs ENSG00000001626.20; vep-swissprot-entry-version: P13569.283 vs P13569.286; clinvar-title-refseq-version: NM_000492.3 vs NM_000492.4",
-        "at": "2026-11-03T20:51:50Z"
+        "at": "2026-11-03T20:54:12Z"
       }
     ],
     "evidenceCategory": 2
