@@ -37,6 +37,12 @@
       "requires": [
         "pathwayView"
       ]
+    },
+    {
+      "text": "What diseases are associated with CFTR?",
+      "requires": [
+        "associationView"
+      ]
     }
   ],
   "bridgeQuestion": "See the F508del mutation on the protein."

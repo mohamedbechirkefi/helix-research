@@ -23782,37 +23782,37 @@
         "check": "T41-pathway-accession",
         "result": "pass",
         "detail": "memberships requested for P13569; protein record P13569; specification P13569",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T42-pathway-memberships-human",
         "result": "pass",
         "detail": "11 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T43-pathway-top-level",
         "result": "pass",
         "detail": "R-HSA-382556 -> R-HSA-382551; R-HSA-5627083 -> R-HSA-162582; R-HSA-5678895 -> R-HSA-1643685; R-HSA-5689880 -> R-HSA-392499; R-HSA-8856825 -> R-HSA-5653656; R-HSA-8856828 -> R-HSA-5653656; R-HSA-9013406 -> R-HSA-162582; R-HSA-9613829 -> R-HSA-9612973; R-HSA-9615710 -> R-HSA-9612973; R-HSA-9646399 -> R-HSA-9612973; R-HSA-9925563 -> R-HSA-1266738",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T44-opening-pathway-rule",
         "result": "pass",
         "detail": "R-HSA-5627083 (RHO GTPases regulate CFTR trafficking) has the fewest participants (5) among the 8 non-disease membership(s) with a diagram; tie among R-HSA-5627083, R-HSA-9925563 broken by stable id; the rule's choice, not a statement of importance; candidates by count: R-HSA-5627083 5, R-HSA-9925563 5, R-HSA-9615710 8, R-HSA-9613829 28, R-HSA-9646399 28, R-HSA-8856825 41, R-HSA-382556 74, R-HSA-8856828 96; excluded: R-HSA-5678895 (a disease pathway), R-HSA-5689880 (no diagram), R-HSA-9013406 (no diagram)",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T45-opening-pathway-participants",
         "result": "pass",
         "detail": "R-HSA-5627083 (RHO GTPases regulate CFTR trafficking): 5 participating physical entities, 3 distinct UniProt proteins; the set's protein P13569 is among them as P13569 in GOPC:CFTR [Golgi-associated vesicle membrane] (Complex); RHOQ:GTP:GOPC:CFTR [Golgi-associated vesicle membrane] (Complex); RHOQ:GTP:GOPC:CFTR [plasma membrane] (Complex); GOPC:CFTR [lysosomal membrane] (Complex)",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       },
       {
         "check": "T46-candidate-participants",
         "result": "pass",
         "detail": "8 candidate(s): R-HSA-382556 74 entities, 90 proteins, set's protein listed; R-HSA-5627083 5 entities, 3 proteins, set's protein listed; R-HSA-8856825 41 entities, 105 proteins, set's protein listed; R-HSA-8856828 96 entities, 145 proteins, set's protein listed; R-HSA-9613829 28 entities, 22 proteins, set's protein listed; R-HSA-9615710 8 entities, 34 proteins, set's protein listed; R-HSA-9646399 28 entities, 44 proteins, set's protein listed; R-HSA-9925563 5 entities, 48 proteins, set's protein listed",
-        "at": "2026-11-03T22:12:12Z"
+        "at": "2026-11-03T23:32:04Z"
       }
     ],
     "evidenceCategory": 2
