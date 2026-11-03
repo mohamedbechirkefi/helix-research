@@ -22,8 +22,28 @@ The polish agent built the scene, rig and panel blind under a machine reservatio
 
 | File | vsync | Move | Median ms | p95 ms | Max ms | Frames over 33.4 ms | Frames | Pages |
 |---|---|---|---|---|---|---|---|---|
+| dpr1 | off | tour | 2.7 to 2.7 | 3.9 to 3.9 | 6 to 8.5 | 0 | 14483 | 3 |
+| dpr1 | off | codonFocus | 2.3 to 2.4 | 2.8 to 2.9 | 17.4 to 17.8 | 0 | 2869 | 3 |
+| dpr1 | off | drag4s | 17.2 to 17.9 | 18.8 to 20.3 | 20.8 to 22.7 | 0 | 1623 | 3 |
+| dpr1 | off | wheel2s | 2.5 to 2.5 | 2.8 to 2.8 | 17.9 to 19.5 | 0 | 5886 | 3 |
+| dpr1 | on | tour | 16.7 to 16.7 | 17.5 to 17.7 | 19.8 to 21.5 | 0 | 2162 | 3 |
+| dpr1 | on | codonFocus | 16.7 to 16.7 | 17.3 to 18.1 | 17.7 to 19.1 | 0 | 276 | 3 |
+| dpr1 | on | drag4s | 16.7 to 16.7 | 18.1 to 19.9 | 20.6 to 21.6 | 0 | 1437 | 3 |
+| dpr1 | on | wheel2s | 16.7 to 16.7 | 17.7 to 18.2 | 18.5 to 20.8 | 0 | 897 | 3 |
 | dpr1 |  | idle frames at rest / in Protein World | 0 to 0 | 0 to 0 |  |  |  | 6 |
+| dpr2 | off | tour | 5.2 to 5.3 | 6 to 6 | 12.6 to 15.1 | 0 | 7344 | 3 |
+| dpr2 | off | codonFocus | 5.3 to 5.3 | 6.9 to 7 | 17 to 19 | 0 | 1269 | 3 |
+| dpr2 | off | drag4s | 17.8 to 18.1 | 21.3 to 21.5 | 23.1 to 23.6 | 0 | 1891 | 3 |
+| dpr2 | off | wheel2s | 5.5 to 5.5 | 7 to 7.1 | 17.9 to 19.5 | 0 | 2465 | 3 |
+| dpr2 | on | tour | 16.7 to 16.7 | 17.6 to 19.2 | 20.7 to 23.1 | 0 | 2160 | 3 |
+| dpr2 | on | codonFocus | 16.6 to 16.7 | 17.9 to 19.5 | 18.7 to 23.8 | 0 | 277 | 3 |
+| dpr2 | on | drag4s | 16.6 to 16.8 | 20.3 to 21.3 | 21.4 to 22.7 | 0 | 1439 | 3 |
+| dpr2 | on | wheel2s | 16.7 to 16.7 | 18.3 to 19.2 | 19.4 to 22.3 | 0 | 879 | 3 |
 | dpr2 |  | idle frames at rest / in Protein World | 0 to 0 | 0 to 0 |  |  |  | 6 |
+| dpr2-power-low | on | tour | 16.7 to 16.7 | 17.6 to 17.7 | 19 to 19.8 | 0 | 1440 | 2 |
+| dpr2-power-low | on | codonFocus | 16.7 to 16.7 | 17.6 to 17.7 | 17.9 to 63.3 | 1 | 185 | 2 |
+| dpr2-power-low | on | drag4s | 16.6 to 16.6 | 19.3 to 19.4 | 20.9 to 35.3 | 1 | 960 | 2 |
+| dpr2-power-low | on | wheel2s | 16.7 to 16.7 | 17.6 to 17.6 | 18.4 to 20.2 | 0 | 586 | 2 |
 | dpr2-power-low |  | idle frames at rest / in Protein World | 0 to 0 | 0 to 0 |  |  |  | 2 |
 
 - With vsync on at both pixel ratios and in low power: every move at the 16.7 ms median, no frame over 33.4 ms in any page; 0 idle frames at rest and in Protein World (the 11 to 12 frames after the tour are the 0.2 s depth-of-field fade, then 0).
