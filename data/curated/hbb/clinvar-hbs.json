@@ -133,7 +133,7 @@
         "source": "ncbi-clinvar",
         "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:03Z",
+        "retrievedAt": "2026-11-02T02:28:19Z",
         "sourceRelease": "ClinVar Build261025-1250.1",
         "recordId": "esearch rs334",
         "recordVersion": null,
@@ -146,7 +146,7 @@
         "source": "ncbi-clinvar",
         "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:04Z",
+        "retrievedAt": "2026-11-02T02:28:20Z",
         "sourceRelease": "ClinVar Build261025-1250.1",
         "recordId": "VCV000015333",
         "recordVersion": "184",
@@ -169,19 +169,19 @@
         "check": "T33-clinvar-search-covered",
         "result": "pass",
         "detail": "esearch rs334: 10 uids; esummary returned 10 (15175,15333,446730,446731,446735,446736,446737,446738,446747,446748)",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T34-clinvar-review-status",
         "result": "pass",
         "detail": "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T35-clinvar-related-records-separate",
         "result": "pass",
         "detail": "9 other record(s) for rs334: 8 haplotype/compound (8 include NC_000011.10:5227001:T:A), 1 other allele/variant (VCV000015175.3 Likely benign); none merged",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       }
     ],
     "evidenceCategory": 2

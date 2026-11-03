@@ -285,7 +285,7 @@
         "source": "rcsb-files",
         "url": "https://files.rcsb.org/download/2HBS.cif",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:02Z",
+        "retrievedAt": "2026-11-02T02:28:18Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS",
         "recordVersion": "1.5",
@@ -298,7 +298,7 @@
         "source": "rcsb",
         "url": "https://data.rcsb.org/rest/v1/core/entry/2HBS",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:02Z",
+        "retrievedAt": "2026-11-02T02:28:19Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS",
         "recordVersion": "1.5",
@@ -311,7 +311,7 @@
         "source": "rcsb",
         "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:02Z",
+        "retrievedAt": "2026-11-02T02:28:19Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS_2",
         "recordVersion": "1.5",
@@ -324,7 +324,7 @@
         "source": "rcsb",
         "url": "https://data.rcsb.org/rest/v1/core/assembly/2HBS/1",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:03Z",
+        "retrievedAt": "2026-11-02T02:28:19Z",
         "sourceRelease": "PDB rev 1.5 2026-08-12",
         "recordId": "2HBS-1",
         "recordVersion": "1.5",
@@ -337,7 +337,7 @@
         "source": "pdbe-sifts",
         "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:27:02Z",
+        "retrievedAt": "2026-11-02T02:28:19Z",
         "sourceRelease": null,
         "recordId": "2hbs",
         "recordVersion": null,
@@ -358,49 +358,49 @@
         "check": "structure-entry",
         "result": "pass",
         "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.5; mmCIF rev 1.5",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "24 label chains, all with an auth chain id from the scheme tables; 16 non-polymer chains have label != auth (e.g. label I = auth A HEM 153)",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       }
     ],
     "evidenceCategory": 1

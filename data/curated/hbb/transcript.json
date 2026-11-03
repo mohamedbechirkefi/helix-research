@@ -127,7 +127,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:11Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENST00000335295",
         "recordVersion": "4",
@@ -140,7 +140,7 @@
         "source": "ensembl",
         "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
         "method": "GET",
-        "retrievedAt": "2026-11-02T02:26:11Z",
+        "retrievedAt": "2026-11-02T02:28:17Z",
         "sourceRelease": "Ensembl 116",
         "recordId": "ENSG00000244734",
         "recordVersion": "6",
@@ -160,37 +160,37 @@
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "transcript-lookup-matches-selection",
         "result": "pass",
         "detail": "ENST00000335295.4",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T05-exon-lengths-sum",
         "result": "pass",
         "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "T06-cds-length",
         "result": "pass",
         "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
-        "at": "2026-11-02T02:26:08Z"
+        "at": "2026-11-03T19:09:10Z"
       }
     ],
     "evidenceCategory": 2
