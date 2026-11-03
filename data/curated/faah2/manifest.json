@@ -2,10 +2,10 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "faah2",
   "description": "FAAH2 (fatty acid amide hydrolase 2) structure-limited set: gene, MANE Select transcript, sequences, UniProt Q6GMR7 and the AlphaFold prediction; no experimental structure exists and no reference variant is selected.",
-  "generatedAt": "2026-11-03T22:12:13Z",
+  "generatedAt": "2026-11-03T23:32:05Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "3fe6783effa8a50236310920f58ebe30e403d193",
+    "gitCommit": "61512ac3ee74ed54f6c2f13be61b8ed9a6ca4b7c",
     "gitDirty": false,
     "node": "v22.23.3"
   },
@@ -206,55 +206,74 @@
       "sha256": "549fcde9976af71a16e9dbde1b6a0bb928b50bebd0c8a819f73ef72151cf9eab",
       "licence": "CC0-1.0",
       "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "opentargets",
+      "url": "https://api.platform.opentargets.org/api/v4/graphql",
+      "method": "POST",
+      "retrievedAt": "2026-11-03T23:07:45Z",
+      "sourceRelease": "Open Targets 26.9.0 (data 26.09)",
+      "recordId": "target ENSG00000165591 associatedDiseases page 0 size 25",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "089735db4b8a8c1224938aa32e98fb9ef6016e61d446c00f3880e02e4b9274d7",
+      "licence": "CC0-1.0",
+      "attribution": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
     }
   ],
   "files": [
     {
       "path": "gene.json",
-      "sha256": "15468b452e0b855c01d2afedeebfc60e78eaf48e0dd65d90922be91cd2921f1f",
+      "sha256": "3c8ed172e257eec9064b7c2f6512daab3134dda6853a8cae8b3b0efa2f24ffdc",
       "bytes": 4926,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "cb806585c6d138ef6617673a63256d017ade6d82c542f0f89c99e1e670f6a2b1",
+      "sha256": "f2f4d89ab7919b03c1f7f74ae9d227de0ee447c6d2886b7fbd577e1fa7f75a06",
       "bytes": 8880,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "b9563e4112c06df5953d70b58ad76f865ed6d09f838a194242e490692347a8f9",
+      "sha256": "638bbf1f6264b4b3b7abe9d244c79b1b941ae6095881dda67767bc8231fc0778",
       "bytes": 13702,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-Q6GMR7.json",
-      "sha256": "46fbb66272cdeceed73483b7cec18d30369bb0b8b0442b812f6a47941b11d426",
+      "sha256": "60109862085353f13338f2215a048d4327bcb77980758248aa1d441e72dcaebc",
       "bytes": 5646,
       "recordKind": "protein"
     },
     {
       "path": "predicted-model-AF-Q6GMR7-F1.json",
-      "sha256": "d4f5e70b68ce5a06e1fd5c3e9efd01ad458f9eaf4fdc3f9962c43cea7ac3b4f2",
+      "sha256": "4cf5c202d40c5b41ff950410ed6ea717360a23d6753cd67f857165f2f1108046",
       "bytes": 3176,
       "recordKind": "predicted-model"
     },
     {
       "path": "pathways.json",
-      "sha256": "bdc15779712632d4aa04ab652b7a22d5167d014a817c187384a1ba331dacd890",
+      "sha256": "1b0797507fb04079ac4a7f66b40c68e90f1e2095841ddf4805f8f4a3c7d1bc9c",
       "bytes": 66283,
       "recordKind": "pathway-memberships"
     },
     {
+      "path": "associations.json",
+      "sha256": "4b693c802f059ea74228f2eeea370e9455c84cca9bf9065ffe7f0f661bc07f1c",
+      "bytes": 19909,
+      "recordKind": "disease-associations"
+    },
+    {
       "path": "capabilities.json",
-      "sha256": "569818b306e28df09baca33aaa608186a2a5070c08e39c06eab62bd4abd9c848",
-      "bytes": 1389,
+      "sha256": "55c540946635561c6b6d806e027fee1d946692e4985b598e22739711d56726bb",
+      "bytes": 1638,
       "recordKind": "capabilities"
     },
     {
       "path": "questions.json",
-      "sha256": "28315da13c321637e54b9dac0fd98fe2436504e547b2a51d8d5fddd54297feea",
-      "bytes": 280,
+      "sha256": "5e754f9cfcb5b269a78c3aad8bac0a0a22c6c41c3871ba1b3ccba09015bca711",
+      "bytes": 405,
       "recordKind": "questions"
     }
   ],
@@ -263,163 +282,187 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000165591.9 FAAH2",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000374900.5 (only transcript with MANE[].type == MANE_Select); 18 candidates",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000374900.5",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 1980 vs transcript length 1980 (1-based closed)",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 1980 vs transcript 1980",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "Q6GMR7 FAAH2_HUMAN, reviewed true",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 1599, starts ATG, ends TAG",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 532 aa vs Ensembl 532 aa",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 532 aa vs UniProt 532 aa",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000374900.5 / ENSP00000364035.4 / NM_174912.4",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "FAAH2 -> HGNC:26440 ENSG00000165591",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T04-alias-RP11-479E16.1",
       "result": "pass",
       "detail": "alias RP11-479E16.1 -> ENSG00000165591",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T04-alias-FLJ31204",
       "result": "pass",
       "detail": "alias FLJ31204 -> ENSG00000165591",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T04-alias-FAAH-2",
       "result": "pass",
       "detail": "alias FAAH-2 -> ENSG00000165591",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-Q6GMR7-F1 v6; md5 match true; no reference variant selected, so the model is never used to place one",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T41-pathway-accession",
       "result": "pass",
       "detail": "memberships requested for Q6GMR7; protein record Q6GMR7; specification Q6GMR7",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T42-pathway-memberships-human",
       "result": "pass",
       "detail": "1 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T43-pathway-top-level",
       "result": "pass",
       "detail": "R-HSA-2142753 -> R-HSA-1430728",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T44-opening-pathway-rule",
       "result": "pass",
       "detail": "R-HSA-2142753 (Arachidonate metabolism) has the fewest participants (174) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-2142753 174; excluded: none",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T45-opening-pathway-participants",
       "result": "pass",
       "detail": "R-HSA-2142753 (Arachidonate metabolism): 174 participating physical entities, 59 distinct UniProt proteins; the set's protein Q6GMR7 is among them as Q6GMR7 in FAAH2 [lipid droplet] (EntityWithAccessionedSequence)",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T46-candidate-participants",
       "result": "pass",
       "detail": "1 candidate(s): R-HSA-2142753 174 entities, 59 proteins, set's protein listed",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
+    },
+    {
+      "check": "T49-association-target",
+      "result": "pass",
+      "detail": "response target ENSG00000165591 FAAH2; specification ENSG00000165591; gene record ENSG00000165591 FAAH2",
+      "at": "2026-11-03T23:32:05Z"
+    },
+    {
+      "check": "T49-association-rows",
+      "result": "pass",
+      "detail": "25 row(s) kept of 51 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top hypertensive disorder (MONDO_0005044) 0.30166961116895136",
+      "at": "2026-11-03T23:32:05Z"
+    },
+    {
+      "check": "T50-association-order-and-exclusion",
+      "result": "pass",
+      "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: europepmc, eva, gwas_credible_sets; dropped: europepmc; no excluded id remains in the kept scores",
+      "at": "2026-11-03T23:32:05Z"
+    },
+    {
+      "check": "T51-association-versions",
+      "result": "pass",
+      "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
+      "at": "2026-11-03T23:32:05Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
-      "at": "2026-11-03T22:12:13Z"
+      "at": "2026-11-03T23:32:05Z"
     }
   ],
   "knownIssues": [],
@@ -450,6 +493,11 @@
       "source": "hgnc",
       "licence": "CC0-1.0",
       "text": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "opentargets",
+      "licence": "CC0-1.0",
+      "text": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
     },
     {
       "source": "reactome",

@@ -6,7 +6,8 @@
     "sequences.json",
     "protein-Q6GMR7.json",
     "predicted-model-AF-Q6GMR7-F1.json",
-    "pathways.json"
+    "pathways.json",
+    "associations.json"
   ],
   "geneId": "ENSG00000165591",
   "symbol": "FAAH2",
@@ -43,6 +44,11 @@
   "pathwayView": {
     "available": true,
     "reason": "1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  },
+  "associationView": {
+    "available": true,
+    "reason": "51 Open Targets associations, 25 kept by score; top: hypertensive disorder (score 0.30166961116895136); association, never causal",
     "evidenceCategory": 2
   }
 }
