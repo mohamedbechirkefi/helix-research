@@ -46,4 +46,9 @@ export const SOURCE_TERMS: Record<SourceId, { licence: LicenceId; attribution: s
     attribution: "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept.",
     policyUrl: "https://alphafold.ebi.ac.uk/",
   },
+  reactome: {
+    licence: "CC0-1.0",
+    attribution: "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used.",
+    policyUrl: "https://reactome.org/license",
+  },
 };

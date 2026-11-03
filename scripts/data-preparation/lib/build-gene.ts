@@ -15,7 +15,7 @@
 import { mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
 import { join, relative, resolve } from "node:path";
 import { HttpClient, RecordCache } from "@helix/data-adapters";
-import { type RawRecord, type SliceBuild, type SliceConfig, type SliceInputs, acquireSlice, buildManifest, buildSlice, inputsFor, loadGeneSpec } from "@helix/scientific-core";
+import { type RawRecord, type SliceBuild, type SliceConfig, type SliceInputName, type SliceInputs, acquirePathways, acquireSlice, buildManifest, buildSlice, inputsFor, isPathwayInput, loadGeneSpec } from "@helix/scientific-core";
 import type { DatasetManifest } from "@helix/shared-types";
 import { type RecordedFixtureSet, redactInputs, writeFixtureSet } from "./fixture-recorder.ts";
 import { loadFixtureInputs } from "./fixtures.ts";
@@ -39,10 +39,26 @@ export interface GeneBuildOptions {
    * acquisition, same bodies and retrieval times), redacted (Q-H-LIC-1), as
    * data/fixtures/<datasetId>/ and build from those redacted records, so the curated
    * manifest cites the bytes on disk (lib/fixture-recorder.ts).
+   *
+   * "live-sources" (offline mode with `liveSources`): record only the inputs of the sources
+   * fetched live, merged into the existing fixture set (new source folders and index entries;
+   * nothing else touched), and redact only those for the build, so that a set whose other
+   * records cite the snapshot's own bytes keeps citing them (the HBB set, built offline
+   * from the live snapshot, whose fixtures are the frozen research/raw files).
    */
-  recordFixtures?: boolean;
+  recordFixtures?: boolean | "live-sources";
+  /**
+   * Offline mode only: sources fetched live while everything else comes from the snapshot, so
+   * that a snapshot that predates a source gains its responses without asking the other
+   * sources again (Phase 9, P9.1.2: `reactome`). The merged inputs become the new snapshot.
+   */
+  liveSources?: LiveSource[];
   log?: (m: string) => void;
 }
+
+/** The sources `--live-sources` may name. */
+export const LIVE_SOURCES = ["reactome"] as const;
+export type LiveSource = (typeof LIVE_SOURCES)[number];
 
 export interface GeneBuildResult {
   outDir: string;
@@ -72,18 +88,33 @@ export async function readSpec(gene: string): Promise<SliceConfig> {
 }
 
 /** Parse the command line shared by build-gene.ts and build-hbb.ts. */
-export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null; recordFixtures: boolean } {
+export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null; recordFixtures: boolean | "live-sources"; liveSources: LiveSource[] } {
   const mode: BuildMode = args.includes("--offline") ? "offline" : args.includes("--fixtures") ? "fixtures" : "live";
   const value = (flag: string): string | null => {
+    const eq = args.find((a) => a.startsWith(`${flag}=`));
+    if (eq !== undefined) return eq.slice(flag.length + 1);
     const i = args.indexOf(flag);
     if (i < 0) return null;
     const v = args[i + 1];
     if (v === undefined || v.startsWith("--")) throw new Error(`${flag} needs a value`);
     return v;
   };
-  const recordFixtures = args.includes("--record-fixtures");
+  const recordRaw = args.find((a) => a.startsWith("--record-fixtures="))?.slice("--record-fixtures=".length) ?? null;
+  if (recordRaw !== null && recordRaw !== "live") throw new Error('--record-fixtures takes no value other than "live" (record only the sources named by --live-sources)');
+  const recordFixtures: boolean | "live-sources" = recordRaw === "live" ? "live-sources" : args.includes("--record-fixtures");
   if (recordFixtures && mode === "fixtures") throw new Error("--record-fixtures records a live acquisition (or the snapshot of the last one, with --offline); it cannot be combined with --fixtures");
-  return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures };
+  const liveRaw = value("--live-sources");
+  const liveSources: LiveSource[] = [];
+  if (liveRaw !== null) {
+    if (mode !== "offline") throw new Error("--live-sources names the sources fetched live beside an offline snapshot; it needs --offline (a live build fetches every source, a fixtures build none)");
+    for (const s of liveRaw.split(",").map((x) => x.trim()).filter((x) => x.length > 0)) {
+      if (!(LIVE_SOURCES as readonly string[]).includes(s)) throw new Error(`--live-sources: unknown source "${s}" (known: ${LIVE_SOURCES.join(", ")})`);
+      if (!liveSources.includes(s as LiveSource)) liveSources.push(s as LiveSource);
+    }
+    if (liveSources.length === 0) throw new Error("--live-sources needs at least one source name");
+  }
+  if (recordFixtures === "live-sources" && liveSources.length === 0) throw new Error("--record-fixtures=live needs --live-sources (it records only the sources fetched live beside the offline snapshot)");
+  return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures, liveSources };
 }
 
 async function snapshotInputs(cache: RecordCache, store: FsStore, datasetId: string, inputs: SliceInputs, at: string): Promise<void> {
@@ -120,8 +151,11 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
   const store = new FsStore(cacheRoot);
   const cache = new RecordCache(store, { maxEntries: 200 });
   if (o.recordFixtures && o.mode === "fixtures") throw new Error("recordFixtures needs live or offline mode");
+  const liveOnly = o.recordFixtures === "live-sources";
+  if (liveOnly && (o.mode !== "offline" || !o.liveSources?.length)) throw new Error('recordFixtures "live-sources" needs offline mode with liveSources');
   let inputs: SliceInputs;
   let toRecord: ReturnType<typeof redactInputs>["redacted"] | null = null;
+  let mergeRecording = false;
   if (o.mode === "live") {
     const http = new HttpClient({
       userAgent: USER_AGENT,
@@ -142,7 +176,32 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
     }
   } else if (o.mode === "offline") {
     inputs = await loadSnapshot(cache, store, config.datasetId);
-    if (o.recordFixtures) {
+    if (o.liveSources?.includes("reactome") && config.pathways) {
+      // Only the named source is asked; the snapshot's other responses stay as they were recorded. The
+      // merged inputs become the new snapshot, so the next offline build needs no request at all.
+      const http = new HttpClient({
+        userAgent: USER_AGENT,
+        onEvent: (e) => {
+          if (e.type === "retry") log(`  retry ${e.attempt} in ${e.delayMs} ms (${e.error.code}): ${e.url}`);
+        },
+      });
+      log(`offline rebuild of ${config.datasetId} from the snapshot with live Reactome requests only (User-Agent "${USER_AGENT}")`);
+      for (const k of Object.keys(inputs)) if (isPathwayInput(k)) delete inputs[k as SliceInputName];
+      Object.assign(inputs, await acquirePathways(http, config, log));
+      await snapshotInputs(cache, store, config.datasetId, inputs, generatedAt);
+    } else if (config.pathways && !inputs.reactomePathways) {
+      throw new Error(`the ${config.datasetId} snapshot predates the Reactome requests the specification asks for (pathways: true); rerun with --offline --live-sources=reactome to fetch only those, or run a live build`);
+    }
+    if (liveOnly) {
+      // Only the live-fetched sources are redacted and recorded; the other inputs stay the snapshot's bytes.
+      const subset = Object.fromEntries(Object.entries(inputsFor(inputs, config)).filter(([k, r]) => r && isPathwayInput(k))) as unknown as SliceInputs;
+      const r = redactInputs(subset);
+      Object.assign(inputs, r.inputs);
+      toRecord = r.redacted;
+      mergeRecording = true;
+      const changed = Object.entries(r.redacted).filter(([, x]) => x.removed.length > 0);
+      log(`redaction (Q-H-LIC-1) of the live-fetched records only: ${changed.length} of ${Object.keys(r.redacted).length} records changed${changed.length ? `: ${changed.map(([n, x]) => `${n} (${x.removed.length})`).join(", ")}` : ""}`);
+    } else if (o.recordFixtures) {
       // The snapshot holds the live responses of the last acquisition (same bodies, same retrieval times), so a
       // recording from it cites exactly what the network returned, without asking the sources again.
       const r = redactInputs(inputsFor(inputs, config));
@@ -180,12 +239,16 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
 
   let fixtures: RecordedFixtureSet | undefined;
   if (toRecord) {
+    const sources = [...new Set(Object.values(toRecord).map((x) => x.record.source))].sort();
     fixtures = await writeFixtureSet(
       config.datasetId,
       toRecord,
-      `Offline fixtures for the ${config.datasetId} set, recorded by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --record-fixtures on ${generatedAt.slice(0, 10)} from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.`,
+      mergeRecording
+        ? `The ${sources.join(", ")} responses were recorded on ${generatedAt.slice(0, 10)} by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --offline --live-sources=${sources.join(",")} --record-fixtures=live (live requests to those sources only, everything else from the snapshot), redacted under Q-H-LIC-1 as the other records.`
+        : `Offline fixtures for the ${config.datasetId} set, recorded by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --record-fixtures on ${generatedAt.slice(0, 10)} from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.`,
+      { merge: mergeRecording },
     );
-    log(`recorded ${relative(REPO_ROOT, fixtures.dir)}: ${fixtures.files.length} files (${fixtures.files.filter((f) => f.redacted).length} redacted)`);
+    log(`recorded ${relative(REPO_ROOT, fixtures.dir)}${mergeRecording ? " (merged)" : ""}: ${fixtures.files.length} files (${fixtures.files.filter((f) => f.redacted).length} redacted)`);
   }
 
   const failed = build.validation.filter((v) => v.result === "fail").length;

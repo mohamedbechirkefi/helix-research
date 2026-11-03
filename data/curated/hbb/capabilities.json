@@ -11,7 +11,8 @@
     "residue-mapping-hbs-2HBS.json",
     "residue-mapping-P68871-2HBS.json",
     "contacts-hbs-2HBS.json",
-    "predicted-model-AF-P68871-F1.json"
+    "predicted-model-AF-P68871-F1.json",
+    "pathways.json"
   ],
   "geneId": "ENSG00000244734",
   "symbol": "HBB",
@@ -44,5 +45,10 @@
     "available": true,
     "reason": "variant position(s) 7 mapped to observed residues in an experimental structure",
     "evidenceCategory": 1
+  },
+  "pathwayView": {
+    "available": true,
+    "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
   }
 }

@@ -1,0 +1,26 @@
+files compared: 8
+byte-identical files: -1
+allowed differences (timestamps and dependent hashes): 73
+  gene.json: 8
+  manifest.json: 29
+  predicted-model-AF-Q6GMR7-F1.json: 1
+  protein-Q6GMR7.json: 8
+  sequences.json: 21
+  transcript.json: 6
+other differences: 16
+  capabilities.json $.derivedFrom: 5 != 6 (array length)
+  capabilities.json $.pathwayView: undefined != {"available":true,"reason":"1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)","evidenceCategory":2} (value)
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (live)" != "scripts/data-preparation/build-gene.ts (offline)" (value)
+  manifest.json $.generator.gitCommit: "627b6996cf7deede6f0494ff3d8b71172fbff7ca" != "92b20130837a8e3da52b10e47122f2a791e8bb4c" (value)
+  manifest.json $.sources: 11 != 15 (array length)
+  manifest.json $.files: 6 != 7 (array length)
+  manifest.json $.files[5].path: "capabilities.json" != "pathways.json" (value)
+  manifest.json $.files[5].recordKind: "capabilities" != "pathway-memberships" (value)
+  manifest.json $.validation: 21 != 27 (array length)
+  manifest.json $.validation[20].check: "T31-drift-recorded" != "T41-pathway-accession" (value)
+  manifest.json $.validation[20].detail: "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9" != "memberships requested for Q6GMR7; protein record Q6GMR7; specification Q6GMR7" (value)
+  manifest.json $.attribution: 4 != 5 (array length)
+  manifest.json $.attribution[3].source: "uniprot" != "reactome" (value)
+  manifest.json $.attribution[3].licence: "CC-BY-4.0" != "CC0-1.0" (value)
+  manifest.json $.attribution[3].text: "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX." != "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." (value)
+  pathways.json : false != true (file present in one build only)

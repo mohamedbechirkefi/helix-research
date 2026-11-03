@@ -19,18 +19,57 @@ import {
   HgncAdapter,
   type HttpClient,
   RcsbAdapter,
+  ReactomeAdapter,
   SiftsAdapter,
   UniprotAdapter,
+  compareStableIds,
 } from "@helix/data-adapters";
 import { formatVersioned } from "@helix/shared-types";
 import { normaliseTranscript } from "../normalise.ts";
+import { isOpeningCandidate } from "../pathways.ts";
 import { assemblyOf, entityForAccession } from "../structure-mapping.ts";
 import { selectTranscript } from "../transcript-selection.ts";
 import { resolveAllele, resolveDeletion } from "../variant.ts";
-import type { RawRecord, SliceConfig, SliceInputs } from "./types.ts";
+import { type RawRecord, type SliceConfig, type SliceInputs, ancestorsInput, participantsInput } from "./types.ts";
 
 export function toRaw(r: FetchedResponse): RawRecord {
   return { source: r.source, url: r.url, method: r.method, body: r.body, sha256: r.sha256, retrievedAt: r.retrievedAt, headers: r.headers };
+}
+
+/** The pathway group of inputs (R0 to R3), as a partial record of SliceInputs. */
+export type PathwayInputs = Pick<SliceInputs, "reactomeVersion" | "reactomePathways" | `reactomeAncestors:${string}` | `reactomeParticipants:${string}`>;
+
+/**
+ * The Reactome requests (Phase 9, P9.1.2, plan section 12 rule 1), separable from the rest so
+ * that an offline rebuild can add them to a snapshot that predates them: the release, the
+ * memberships of the accession (species 9606), the ancestors of every membership (its
+ * top-level pathway) and the participants of every candidate of the opening-pathway rule
+ * (non-disease, with a diagram): the rule needs each candidate's participant count, which
+ * the membership list does not carry, so one participants request per candidate is made; the
+ * record keeps them all and the opening pathway is chosen from the counts at build time.
+ */
+export async function acquirePathways(http: HttpClient, config: SliceConfig, log: (m: string) => void = () => undefined): Promise<PathwayInputs> {
+  const reactome = new ReactomeAdapter(http);
+  const step = async <T extends { response: FetchedResponse }>(name: string, p: Promise<T>): Promise<T> => {
+    const r = await p;
+    log(`${name.padEnd(20)} ${r.response.status} ${String(r.response.bytes).padStart(8)} B  ${r.response.url}`);
+    return r;
+  };
+  const out: PathwayInputs = {};
+  const version = await step("R0 reactome version", reactome.databaseVersion());
+  const memberships = await step("R1 reactome pathways", reactome.pathwaysForUniprot(config.uniprotAccession));
+  out.reactomeVersion = toRaw(version.response);
+  out.reactomePathways = toRaw(memberships.response);
+  const sorted = [...memberships.data].sort((a, b) => compareStableIds(a.stableId, b.stableId));
+  for (const m of sorted) {
+    const anc = await step("R2 reactome ancestors", reactome.eventAncestors(m.stableId));
+    out[ancestorsInput(m.stableId)] = toRaw(anc.response);
+  }
+  for (const m of sorted.filter(isOpeningCandidate)) {
+    const part = await step("R3 reactome participants", reactome.participants(m.stableId));
+    out[participantsInput(m.stableId)] = toRaw(part.response);
+  }
+  return out;
 }
 
 export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (m: string) => void = () => undefined): Promise<SliceInputs> {
@@ -165,5 +204,6 @@ export async function acquireSlice(http: HttpClient, config: SliceConfig, log: (
     inputs.alphafoldPrediction = toRaw(pred.response);
     inputs.alphafoldModel = toRaw(model.response);
   }
+  if (config.pathways) Object.assign(inputs, await acquirePathways(http, config, log));
   return inputs;
 }

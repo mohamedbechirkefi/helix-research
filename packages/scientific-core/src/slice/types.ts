@@ -74,6 +74,12 @@ export interface SliceConfig {
   genomicWindowFlank: number;
   contactCutoffAngstrom: number;
   includeAlphafold: boolean;
+  /**
+   * Phase 9 (P9.1.2, plan section 12 rule 2): ask Reactome which human pathways list the
+   * protein and write pathways.json (an empty list when none does). False: no Reactome request
+   * and no record.
+   */
+  pathways: boolean;
   /** The set's curated questions, written to questions.json (empty when the set offers none). */
   questions: SliceQuestion[];
   /** The question offered first after a DNA World variant answer; absent when the set has none. */
@@ -95,6 +101,7 @@ export const HBB_CONFIG: SliceConfig = {
   genomicWindowFlank: 20,
   contactCutoffAngstrom: 4.5,
   includeAlphafold: true,
+  pathways: true,
   questions: [
     { text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] },
     { text: "How does the DNA change for the sickle-cell variant?", requires: ["variantHighlight"] },
@@ -135,9 +142,24 @@ export interface SliceInputs {
   hgnc: RawRecord; // H1
   alphafoldPrediction?: RawRecord; // A1
   alphafoldModel?: RawRecord;
+  /** R0: the Reactome database version (Phase 9, P9.1.2; only when the specification asks for pathways). */
+  reactomeVersion?: RawRecord;
+  /** R1: the human pathways that list the UniProt accession. */
+  reactomePathways?: RawRecord;
+  /** R2: the ancestor paths of one membership, keyed by its stable id (one input per membership). */
+  [k: `reactomeAncestors:${string}`]: RawRecord | undefined;
+  /** R3: the participants of one candidate pathway, keyed by its stable id (one input per candidate of the opening rule). */
+  [k: `reactomeParticipants:${string}`]: RawRecord | undefined;
 }
 
 export type SliceInputName = keyof SliceInputs;
+
+/** The input name of a membership's ancestor paths (R2). */
+export const ancestorsInput = (stableId: string): `reactomeAncestors:${string}` => `reactomeAncestors:${stableId}`;
+/** The input name of a candidate pathway's participants (R3). */
+export const participantsInput = (stableId: string): `reactomeParticipants:${string}` => `reactomeParticipants:${stableId}`;
+/** Whether an input name belongs to the pathway group (R0 to R3). */
+export const isPathwayInput = (name: string): boolean => /^reactome(Version|Pathways|Ancestors:|Participants:)/.test(name);
 
 /** Inputs that exist only when the specification selects a reference variant. */
 export const VARIANT_INPUTS = ["genomicWindow", "codonMap", "variation", "variantRecoder", "vep", "clinvarSearch", "clinvar", "clinvarEinfo"] as const satisfies readonly SliceInputName[];
@@ -156,5 +178,6 @@ export function inputsFor(inputs: SliceInputs, config: SliceConfig): SliceInputs
     delete out.alphafoldPrediction;
     delete out.alphafoldModel;
   }
+  if (!config.pathways) for (const k of Object.keys(out)) if (isPathwayInput(k)) delete out[k as SliceInputName];
   return out;
 }

@@ -2,11 +2,11 @@
   "schema": "helix-dataset-manifest/1",
   "datasetId": "hbb",
   "description": "HBB (beta-globin) vertical slice: gene, MANE Select transcript, sequences, UniProt P68871, the HbS variant, PDB 2HBS and its residue mapping.",
-  "generatedAt": "2026-11-03T19:09:10Z",
+  "generatedAt": "2026-11-03T20:51:49Z",
   "generator": {
     "script": "scripts/data-preparation/build-gene.ts (offline)",
-    "gitCommit": "95f8511be0a74fb5b34bb9fd5c69e81d78d4af77",
-    "gitDirty": false,
+    "gitCommit": "92b20130837a8e3da52b10e47122f2a791e8bb4c",
+    "gitDirty": true,
     "node": "v22.23.3"
   },
   "assembly": "GRCh38.p14",
@@ -310,48 +310,308 @@
       "sha256": "0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e",
       "licence": "CC-BY-4.0",
       "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/database/version",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:42Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "data/database/version",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/mapping/UniProt/P68871/pathways?species=9606",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:44Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "UniProt P68871 pathways, species 9606",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "1607a87618d8e26483293a3caa4d8b5bcd80b2d17c026ae8961b323089190014",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-983231/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:46Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-983231 ancestors",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "dd417a87d4d176ef99c70721424d9cb8615596d238339710dc3672d71d71a006",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-1237044/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:48Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-1237044 ancestors",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "fc1ba5f261537b28ce6300f6e440c1c7db99ed56e52596dbc05519d57d82ec5d",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-1247673/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:49Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-1247673 ancestors",
+      "recordVersion": "2",
+      "assembly": null,
+      "sha256": "9cff5d7728e5d1f75e78c817d85c8e2d6a47db7cb02e7af05e04d8fe80136f00",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-2168880/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:50Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-2168880 ancestors",
+      "recordVersion": "3",
+      "assembly": null,
+      "sha256": "1b520f961969fd7b248c64306e97902b0c95cb0afedf93e3742436867fbf6b4e",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-6798695/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:54Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-6798695 ancestors",
+      "recordVersion": "3",
+      "assembly": null,
+      "sha256": "239a6fb7f5aea53026216dfa1070e421c7a82fb34ca97fbdf773112d4d8b15f3",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9613829/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:55Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9613829 ancestors",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "1f973ad51abc17af540e34afdb718b87a3055011f3c7b1cc2fc42cdaa5064f78",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9615710/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:57Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9615710 ancestors",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "da8e992b215f956b648e7b83da30a82661c17980a8c9598d8c5309100d6c751e",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9707564/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:25:58Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9707564 ancestors",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "119908e81aa27ab1bc28c198be0008543559706d2427dd50a4d06fe8e2c91981",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9707616/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:01Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9707616 ancestors",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "e446574c64896587f712115aaaf65df075635d4acb2969b2143cb5843d110ca2",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9927020/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:05Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9927020 ancestors",
+      "recordVersion": "3",
+      "assembly": null,
+      "sha256": "0f713613baf0637942611de39672438af7dc0deb4229c3008474d0b7a294330b",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-983231",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:06Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-983231 participants",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "fa5210cd0c3469b5c33dd8d1d2a10eab1d53c91e3a56a4e43ec3d059622b6575",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-1237044",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:07Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-1237044 participants",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "ba1678841b57c9fd906ddd8fd0bb1ce421d19039bef858ea51ecf990f8bb0c60",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-1247673",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:08Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-1247673 participants",
+      "recordVersion": "2",
+      "assembly": null,
+      "sha256": "c45ceea19299506ff46cb55287d46593a014db83f4e7711bca47a64f3ab2979d",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-6798695",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:12Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-6798695 participants",
+      "recordVersion": "3",
+      "assembly": null,
+      "sha256": "df8de64d3460c35307f52f5cfbe5fc2bd4533c81845761836546e0d579dcd86d",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9613829",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:14Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9613829 participants",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "fbf05417ab64303154d9a609073b10bfe67b31cc8897b4403172fa8b8067fb93",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9615710",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:17Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9615710 participants",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "a6eb82c067c0a13f55bcb5b32be2a8905ce1ce2ce5c8aa6a094f5aefefa9e354",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707564",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:18Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9707564 participants",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "49e69ada0e61b8a612630e3430debc1365ec37cd1d7e74564f39af56557b8ad6",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707616",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T20:26:20Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-9707616 participants",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "82941f8f6ccd388df5f7941ac068e43e5640ac805308b14470e549014ed49b86",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
     }
   ],
   "files": [
     {
       "path": "gene.json",
-      "sha256": "580594a83f0a334f4087ac9192001c20d4155671d34e0901271c2f5924bdfa5c",
+      "sha256": "c5d67089d8c4b4afac9f10ebe76531925cb534b59a7b1c94ec2a573ffccf2667",
       "bytes": 4770,
       "recordKind": "gene"
     },
     {
       "path": "transcript.json",
-      "sha256": "6e632f73f9643ed7ac78a0577bb7228ac3516816b815e103d0fab331b5e022bf",
+      "sha256": "ddd01a5f5bff0760f632eb96a500808ca2ef1e949f785f4fb1932a834e856055",
       "bytes": 5871,
       "recordKind": "transcript"
     },
     {
       "path": "sequences.json",
-      "sha256": "ef0f8e2e7b174cd6388f102aaffcf7e1dd8a4dcf3715f9386de22d3bc740fa7d",
+      "sha256": "f8a1bed148feec09f02a0af7a47e86a4031b3966fda31ce46b620e6f81af2ae7",
       "bytes": 15309,
       "recordKind": "sequence-set"
     },
     {
       "path": "protein-P68871.json",
-      "sha256": "52281023a033c0cbd83b89dcaf4b00dc6a8dde0df4c59b6a93797d844a444948",
+      "sha256": "fb4f46475fb3e8b0a2655519c9f39d3efe74e65f500bba1146e1ae0cd45e39e2",
       "bytes": 13402,
       "recordKind": "protein"
     },
     {
       "path": "variant-hbs.json",
-      "sha256": "21576519200fc8896d153b90bf72fe566b939d2b4f84103760527953086f703b",
+      "sha256": "4fe2f92544240450ca4a773936906288120c9c6fe2368843530efde6562f773c",
       "bytes": 13049,
       "recordKind": "variant"
     },
     {
       "path": "clinvar-hbs.json",
-      "sha256": "de6705f8dee5162c9ebe45a98d60b65cd8bffb592662ab714a4a74be7ef7c595",
+      "sha256": "d2effb7f43f549afceb035c3a9e59e819a59ff97ef31e02c538e7c101a7ef0bb",
       "bytes": 8578,
       "recordKind": "clinvar-record"
     },
     {
       "path": "structure-2HBS.json",
-      "sha256": "88ea67d2ccce83debb2ed501b3f71235ffe28707c876de01283a6d0077c01f96",
+      "sha256": "9e47079d84995e7ac09d5a4f357d7e73bb3db39cdd98c5153bd881fa5b198ed4",
       "bytes": 10917,
       "recordKind": "structure"
     },
@@ -363,32 +623,38 @@
     },
     {
       "path": "residue-mapping-hbs-2HBS.json",
-      "sha256": "b15d68eac56e69ecd390f7160c393a4906f2db0f157758631dcdb622019ad488",
+      "sha256": "bac6c3f80b3414de3049d50bc29b88ce59e573ef615d80e636b03af535d40681",
       "bytes": 6912,
       "recordKind": "residue-mapping"
     },
     {
       "path": "residue-mapping-P68871-2HBS.json",
-      "sha256": "162cef78519329b15de27e75b01625f3007567d068885d1fea03ba7a7c492412",
+      "sha256": "77b98bc475f600ba957c6f236c3af564b036bb39fdeccea4838546463f8035df",
       "bytes": 213077,
       "recordKind": "residue-mapping-table"
     },
     {
       "path": "contacts-hbs-2HBS.json",
-      "sha256": "1c1c9749bc8f7e2e6481bbf74125be085d91fecfef2a86c14149c71564c516c3",
+      "sha256": "f358ba4a1a4f65807ca1a2d92975085d54807bcf9f29ce9cb3d955643b33f6e9",
       "bytes": 4326,
       "recordKind": "residue-contacts"
     },
     {
       "path": "predicted-model-AF-P68871-F1.json",
-      "sha256": "4116ea08ee5170113a0c8861baa9127ced75c604f78cf578e6c19009295bf5db",
+      "sha256": "071178808cbd07e4f4dbb0063fbe1c6364d51a1ef2d36520c851b39d78426315",
       "bytes": 3053,
       "recordKind": "predicted-model"
     },
     {
+      "path": "pathways.json",
+      "sha256": "d3816193bd3341535957617987f1f3269a5cd94b03d1fb6bdc72ad14e95d7086",
+      "bytes": 708022,
+      "recordKind": "pathway-memberships"
+    },
+    {
       "path": "capabilities.json",
-      "sha256": "02bc34e721de955c6655be83e7e2321e95e86d19bc4c8e9d0993ea62f85ef8b9",
-      "bytes": 1337,
+      "sha256": "4960c414bdfd5ec6c24eb6b5195589899377e292daaeee4714f5003ebe968952",
+      "bytes": 1610,
       "recordKind": "capabilities"
     },
     {
@@ -403,319 +669,355 @@
       "check": "T01-gene-identity",
       "result": "pass",
       "detail": "ENSG00000244734.6 HBB",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "assembly-grch38",
       "result": "pass",
       "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T02-transcript-selection",
       "result": "pass",
       "detail": "mane_select: ENST00000335295.4 (only transcript with MANE[].type == MANE_Select); 19 candidates",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "transcript-lookup-matches-selection",
       "result": "pass",
       "detail": "ENST00000335295.4",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T05-exon-lengths-sum",
       "result": "pass",
       "detail": "sum of exon lengths 628 vs transcript length 628 (1-based closed)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "fasta-ids-versioned",
       "result": "pass",
       "detail": "ENST00000335295.4, ENST00000335295.4, ENSP00000333994.3",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T06-cds-length",
       "result": "pass",
       "detail": "CDS 444 nt; exon walk 444; (protein 147 + stop) x 3",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "cdna-length",
       "result": "pass",
       "detail": "cDNA 628 vs transcript 628",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "uniprot-accession",
       "result": "pass",
       "detail": "P68871 HBB_HUMAN, reviewed true",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T06-cds-shape",
       "result": "pass",
       "detail": "length 444, starts ATG, ends TAA",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T07-translation-equals-ensembl-protein",
       "result": "pass",
       "detail": "translated 147 aa vs Ensembl 147 aa",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T07-translation-equals-uniprot",
       "result": "pass",
       "detail": "translated 147 aa vs UniProt 147 aa",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T07-uniprot-md5",
       "result": "pass",
       "detail": "computed 209D686939D0B8D1EA089368150140E2, UniProt 209D686939D0B8D1EA089368150140E2",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "uniprot-mane-xref",
       "result": "pass",
       "detail": "UniProt MANE-Select ENST00000335295.4 / ENSP00000333994.3 / NM_000518.5",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T15-initiator-met-and-chain",
       "result": "pass",
       "detail": "Initiator methionine 1 \"Removed\"; Chain 2-147",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T04-hgnc-resolution",
       "result": "pass",
       "detail": "HBB -> HGNC:4827 ENSG00000244734",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T04-alias-CD113t-C",
       "result": "pass",
       "detail": "alias CD113t-C -> ENSG00000244734",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T04-alias-beta-globin",
       "result": "pass",
       "detail": "alias beta-globin -> ENSG00000244734",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T13-rsid-multiallelic",
       "result": "pass",
       "detail": "rs334 alleles T/A/C/G; A:p.Glu7Val, C:p.Glu7Gly, G:p.Glu7Ala",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T08-exon-walk-genomic",
       "result": "pass",
       "detail": "exon walk c.20 -> 5227002; hgvsg 5227002; variation 5227002",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T08-codon-span",
       "result": "pass",
       "detail": "own walk codon 7 -> 5227001-5227003; Ensembl map/cds 5227001-5227003 strand -1",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T09-forward-and-coding-base",
       "result": "pass",
       "detail": "forward-strand base at 5227002 = T; coding-strand c.20 = A",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T10-spdi-roundtrip",
       "result": "pass",
       "detail": "NC_000011.10:5227001:T:A <-> NC_000011.10:g.5227002T>A",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T11-codon-change",
       "result": "pass",
       "detail": "codon 7 GAG -> GTG; E -> V",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T12-hgvsp-agrees",
       "result": "pass",
       "detail": "computed p.Glu7Val; variant_recoder ENSP00000333994.3:p.Glu7Val, NP_000509.1:p.Glu7Val",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T12-vep-agrees",
       "result": "pass",
       "detail": "VEP ENSP00000333994.3:p.Glu7Val protein_start 7 cds_start 20 codons gAg/gTg",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "cdna-position",
       "result": "pass",
       "detail": "c.20 + 5' UTR 50 = 70; VEP cdna_start 70",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T18-hgvsp-equals-uniprot-position",
       "result": "pass",
       "detail": "p.7: UniProt residue E, HGVS ref E",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T17-mature-index",
       "result": "pass",
       "detail": "mature index of 7 = 6 (Glu6Val (mature numbering))",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T16-uniprot-natural-variant",
       "result": "pass",
       "detail": "VAR_002863 at 7: E->V; in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T14-clinvar-record",
       "result": "pass",
       "detail": "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T33-clinvar-search-covered",
       "result": "pass",
       "detail": "esearch rs334: 10 uids; esummary returned 10 (15175,15333,446730,446731,446735,446736,446737,446738,446747,446748)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T34-clinvar-review-status",
       "result": "pass",
       "detail": "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T35-clinvar-related-records-separate",
       "result": "pass",
       "detail": "9 other record(s) for rs334: 8 haplotype/compound (8 include NC_000011.10:5227001:T:A), 1 other allele/variant (VCV000015175.3 Likely benign); none merged",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "structure-entry",
       "result": "pass",
       "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "structure-revision-agrees",
       "result": "pass",
       "detail": "Data API rev 1.5; mmCIF rev 1.5",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T20-entity-by-sifts",
       "result": "pass",
       "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T20-rcsb-entity-agrees",
       "result": "pass",
       "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T21-alignment-cross-check",
       "result": "pass",
       "detail": "entity 146 aa vs UniProt 147 aa: offset 1, identity 0.9932, mismatches entity 6 V / UniProt 7 E; SIFTS offset 1",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T22-rcsb-align-agrees",
       "result": "pass",
       "detail": "RCSB rcsb_polymer_entity_align ref_beg 2 <-> entity_beg 1",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T23-residue-from-atom-site",
       "result": "pass",
       "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T36-full-chain-covers-sifts",
       "result": "pass",
       "detail": "146 positions (2-147); per chain B 146/146, D 146/146, F 146/146, H 146/146; 0 unobserved residue(s)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T37-full-chain-agrees-with-variant-mapping",
       "result": "pass",
       "detail": "position 7: table B6 VAL, D6 VAL, F6 VAL, H6 VAL; variant mapping record B6 VAL, D6 VAL, F6 VAL, H6 VAL",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T38-full-chain-residue-names",
       "result": "pass",
       "detail": "atom_site residue = UniProt residue at 145 of 146 positions; differs at 7 (UniProt E, structure VAL)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T39-full-chain-alignment-agrees",
       "result": "pass",
       "detail": "entity sequence at the mapped label_seq_id differs from UniProt at 7; the independent alignment reports 7",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T24-wrong-numbering-detectable",
       "result": "pass",
       "detail": "label 7 in B is GLU (not VAL); UniProt position 6 is P (not E)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T19-pdbx-mutation-numbering",
       "result": "pass",
       "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T25-struct-ref-seq-not-trusted",
       "result": "pass",
       "detail": "SIFTS selects label 6 (VAL); _struct_ref_seq would select label 7 (GLU); 4 disagreement(s) recorded as known issues",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T26-label-auth-kept",
       "result": "pass",
       "detail": "24 label chains, all with an auth chain id from the scheme tables; 16 non-polymer chains have label != auth (e.g. label I = auth A HEM 153)",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T27-assemblies",
       "result": "pass",
       "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T28-contacts-computed",
       "result": "pass",
       "detail": "B6: none; D6: none; F6: none; H6: B70,B73,B84,B85,B88",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T32-alphafold-labelled",
       "result": "pass",
       "detail": "AF-P68871-F1 v6; md5 match true; residue 7 in model = E (reference), so never used to place V",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T41-pathway-accession",
+      "result": "pass",
+      "detail": "memberships requested for P68871; protein record P68871; specification P68871",
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T42-pathway-memberships-human",
+      "result": "pass",
+      "detail": "10 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T43-pathway-top-level",
+      "result": "pass",
+      "detail": "R-HSA-983231 -> R-HSA-109582; R-HSA-1237044 -> R-HSA-382551; R-HSA-1247673 -> R-HSA-382551; R-HSA-2168880 -> R-HSA-5653656; R-HSA-6798695 -> R-HSA-168256; R-HSA-9613829 -> R-HSA-9612973; R-HSA-9615710 -> R-HSA-9612973; R-HSA-9707564 -> R-HSA-8953897; R-HSA-9707616 -> R-HSA-8953897; R-HSA-9927020 -> R-HSA-1643685",
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T44-opening-pathway-rule",
+      "result": "pass",
+      "detail": "R-HSA-9615710 (Late endosomal microautophagy) has the fewest participants (8) among the 8 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-9615710 8, R-HSA-1247673 18, R-HSA-6798695 20, R-HSA-1237044 25, R-HSA-9613829 28, R-HSA-9707564 61, R-HSA-9707616 64, R-HSA-983231 120; excluded: R-HSA-2168880 (no diagram), R-HSA-9927020 (a disease pathway, no diagram)",
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T45-opening-pathway-participants",
+      "result": "pass",
+      "detail": "R-HSA-9615710 (Late endosomal microautophagy): 8 participating physical entities, 34 distinct UniProt proteins; the set's protein P68871 is among them as P68871 in Substrates for chaperone mediated autophagy [cytosol] (DefinedSet); HSPA8 bound autophagic substrates [cytosol] (Complex); PL:HSPA8:Autophagy substrate [late endosome membrane] (Complex); PL:HSPA8:Autophagy substrate [late endosome lumen] (Complex)",
+      "at": "2026-11-03T20:51:49Z"
+    },
+    {
+      "check": "T46-candidate-participants",
+      "result": "pass",
+      "detail": "8 candidate(s): R-HSA-983231 120 entities, 160 proteins, set's protein listed; R-HSA-1237044 25 entities, 12 proteins, set's protein listed; R-HSA-1247673 18 entities, 8 proteins, set's protein listed; R-HSA-6798695 20 entities, 478 proteins, set's protein listed; R-HSA-9613829 28 entities, 22 proteins, set's protein listed; R-HSA-9615710 8 entities, 34 proteins, set's protein listed; R-HSA-9707564 61 entities, 59 proteins, set's protein listed; R-HSA-9707616 64 entities, 47 proteins, set's protein listed",
+      "at": "2026-11-03T20:51:49Z"
     },
     {
       "check": "T31-drift-recorded",
       "result": "pass",
       "detail": "uniprot-xref-ensembl-gene-version: ENSG00000244734.5 vs ENSG00000244734.6; vep-swissprot-entry-version: P68871.216 vs P68871.219",
-      "at": "2026-11-03T19:09:10Z"
+      "at": "2026-11-03T20:51:49Z"
     }
   ],
   "knownIssues": [
@@ -812,6 +1114,11 @@
       "source": "rcsb-files",
       "licence": "CC0-1.0",
       "text": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "reactome",
+      "licence": "CC0-1.0",
+      "text": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
     },
     {
       "source": "uniprot",

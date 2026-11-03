@@ -12,9 +12,18 @@ import {
   ParseError,
   ProprietaryContentError,
   RcsbAdapter,
+  ReactomeAdapter,
   SiftsAdapter,
   UniprotAdapter,
   alphafoldLocalPlddt,
+  compareStableIds,
+  parseReactomeAncestors,
+  parseReactomeParticipants,
+  parseReactomePathways,
+  parseReactomeVersion,
+  reactomeUrls,
+  topLevelPathwaysOf,
+  uniprotProteinsOf,
   assertNoProprietaryIdentifiers,
   parseAlphafoldPae,
   plddtBand,
@@ -213,6 +222,97 @@ describe("RCSB, SIFTS, ClinVar, HGNC, AlphaFold adapters (recorded fixtures)", (
     expect(plddtBand(90.01)).toBe("very-high");
     expect(plddtBand(90)).toBe("confident");
     expect(plddtBand(50)).toBe("very-low");
+  });
+});
+
+describe("Reactome adapter (P9.1.2, plan §12 rule 1; recorded fixtures of the first set)", () => {
+  const reactome = new ReactomeAdapter(http);
+  const acc = inputs.uniprot.url.match(/uniprotkb\/([A-Z0-9]+)\.json/)![1]!;
+  it("URL builders validate the accession and the stable id form R-HSA-<digits>; species 9606 only", () => {
+    expect(reactomeUrls.databaseVersion()).toBe("https://reactome.org/ContentService/data/database/version");
+    expect(reactomeUrls.pathwaysForUniprot("Q6GMR7")).toBe("https://reactome.org/ContentService/data/mapping/UniProt/Q6GMR7/pathways?species=9606");
+    expect(reactomeUrls.eventAncestors("R-HSA-1237044")).toBe("https://reactome.org/ContentService/data/event/R-HSA-1237044/ancestors");
+    expect(reactomeUrls.participants("R-HSA-1237044")).toBe("https://reactome.org/ContentService/data/participants/R-HSA-1237044");
+    for (const bad of ["p68871", "Q6GMR7-1", "HBB", "../x", "Q6GMR7?species=10090"]) expect(() => reactomeUrls.pathwaysForUniprot(bad), bad).toThrow(InvalidParameterError);
+    for (const bad of ["R-MMU-1237044", "1237044", "R-HSA-", "R-HSA-12a", "R-HSA-1237044/participants"]) {
+      expect(() => reactomeUrls.eventAncestors(bad), bad).toThrow(InvalidParameterError);
+      expect(() => reactomeUrls.participants(bad), bad).toThrow(InvalidParameterError);
+    }
+  });
+  it("the database version is a plain-text integer (R0)", async () => {
+    const v = await reactome.databaseVersion();
+    expect(v.data).toMatch(/^\d+$/);
+    expect(v.response.headers["content-type"]).toMatch(/text\/plain/);
+    expect(() => parseReactomeVersion("<html>")).toThrow(ParseError);
+    expect(() => parseReactomeVersion("98.1")).toThrow(ParseError);
+    expect(parseReactomeVersion(" 98\n")).toBe("98");
+  });
+  it("memberships of the set's accession (R1): human pathways with stable id, name, disease and diagram flags", async () => {
+    const { data, response } = await reactome.pathwaysForUniprot(acc);
+    expect(response.url).toMatch(/species=9606$/);
+    expect(data.length).toBeGreaterThan(0);
+    for (const m of data) {
+      expect(m.stableId).toMatch(/^R-HSA-\d+$/);
+      expect(m.species).toBe("Homo sapiens");
+      expect(typeof m.isDisease).toBe("boolean");
+      expect(typeof m.hasDiagram).toBe("boolean");
+      expect(m.name.length).toBeGreaterThan(0);
+    }
+    // Malformed: a missing flag, a foreign stable id, a non-array body.
+    expect(() => parseReactomePathways([{ dbId: 1, stId: "R-HSA-1", displayName: "x", speciesName: "Homo sapiens", hasDiagram: true, schemaClass: "Pathway" }])).toThrow(ParseError);
+    expect(() => parseReactomePathways([{ dbId: 1, stId: "R-MMU-1", displayName: "x", speciesName: "Mus musculus", isInDisease: false, hasDiagram: true, schemaClass: "Pathway" }])).toThrow(ParseError);
+    expect(() => parseReactomePathways({ stId: "R-HSA-1" })).toThrow(ParseError);
+    expect(parseReactomePathways([])).toEqual([]);
+  });
+  it("ancestors of a membership (R2): paths from the event to a TopLevelPathway; the top-level pathways are distinct and sorted", async () => {
+    const { data: ms } = await reactome.pathwaysForUniprot(acc);
+    const first = [...ms].sort((a, b) => compareStableIds(a.stableId, b.stableId))[0]!;
+    const { data: paths } = await reactome.eventAncestors(first.stableId);
+    expect(paths.length).toBeGreaterThan(0);
+    for (const p of paths) {
+      expect(p[0]!.stableId).toBe(first.stableId);
+      expect(p[p.length - 1]!.schemaClass).toBe("TopLevelPathway");
+    }
+    const top = topLevelPathwaysOf(first.stableId, paths);
+    expect(top.length).toBeGreaterThan(0);
+    expect(top.every((t) => /^R-HSA-\d+$/.test(t.stableId) && t.name.length > 0)).toBe(true);
+    // Hand-made: a path that does not start with the event, a path that ends below the top level, no path at all.
+    const ev = (stableId: string, schemaClass: string) => ({ stableId, name: stableId, schemaClass, species: null });
+    expect(() => topLevelPathwaysOf("R-HSA-1", [[ev("R-HSA-2", "Pathway"), ev("R-HSA-3", "TopLevelPathway")]])).toThrow(/starts with R-HSA-2/);
+    expect(() => topLevelPathwaysOf("R-HSA-1", [[ev("R-HSA-1", "Pathway"), ev("R-HSA-3", "Pathway")]])).toThrow(/not a TopLevelPathway/);
+    expect(() => topLevelPathwaysOf("R-HSA-1", [])).toThrow(/no ancestor path/);
+    expect(topLevelPathwaysOf("R-HSA-1", [[ev("R-HSA-1", "Pathway"), ev("R-HSA-30", "TopLevelPathway")], [ev("R-HSA-1", "Pathway"), ev("R-HSA-4", "TopLevelPathway")], [ev("R-HSA-1", "Pathway"), ev("R-HSA-30", "TopLevelPathway")]]).map((t) => t.stableId)).toEqual(["R-HSA-4", "R-HSA-30"]);
+    expect(() => parseReactomeAncestors([[]])).toThrow(ParseError);
+    expect(() => parseReactomeAncestors([[{ stId: "R-HSA-1" }]])).toThrow(ParseError);
+  });
+  it("participants of a pathway (R3): physical entities with their reference entities; the UniProt proteins of a complex or a set are read from them", async () => {
+    const { data: ms } = await reactome.pathwaysForUniprot(acc);
+    // The recorded set has participants for the candidates of the rule; take the first candidate by stable id.
+    const cand = [...ms].filter((m) => !m.isDisease && m.hasDiagram).sort((a, b) => compareStableIds(a.stableId, b.stableId))[0]!;
+    const { data } = await reactome.participants(cand.stableId);
+    expect(data.length).toBeGreaterThan(0);
+    expect(data.every((p) => Number.isInteger(p.dbId) && p.displayName.length > 0 && p.schemaClass.length > 0)).toBe(true);
+    const proteins = data.flatMap(uniprotProteinsOf);
+    expect(proteins.length).toBeGreaterThan(0);
+    expect(proteins.every((x) => /^[A-Z0-9]{6,10}$/.test(x.accession) && x.identifier.startsWith(x.accession))).toBe(true);
+    // A small molecule has no protein; a complex may carry several; an isoform keeps its suffix in the identifier only.
+    const complex = { dbId: 1, displayName: "c", schemaClass: "Complex", referenceEntities: [
+      { dbId: 2, stableId: "chebi:1", identifier: "1", schemaClass: "ReferenceMolecule", displayName: "x [ChEBI:1]" },
+      { dbId: 3, stableId: "uniprot:Q6GMR7", identifier: "Q6GMR7", schemaClass: "ReferenceGeneProduct", displayName: "UniProt:Q6GMR7 FAAH2" },
+      { dbId: 4, stableId: "uniprot:Q6GMR7-2", identifier: "Q6GMR7-2", schemaClass: "ReferenceIsoform", displayName: "UniProt:Q6GMR7-2 FAAH2" },
+      { dbId: 5, stableId: null, identifier: "Q6GMR7", schemaClass: "ReferenceGeneProduct", displayName: "no stable id" },
+    ] };
+    expect(uniprotProteinsOf(complex)).toEqual([
+      { accession: "Q6GMR7", identifier: "Q6GMR7", displayName: "UniProt:Q6GMR7 FAAH2" },
+      { accession: "Q6GMR7", identifier: "Q6GMR7-2", displayName: "UniProt:Q6GMR7-2 FAAH2" },
+    ]);
+    expect(parseReactomeParticipants([{ peDbId: 1, displayName: "x", schemaClass: "SimpleEntity" }])[0]!.referenceEntities).toEqual([]);
+    expect(() => parseReactomeParticipants([{ displayName: "x", schemaClass: "SimpleEntity" }])).toThrow(ParseError);
+    expect(() => parseReactomeParticipants([{ peDbId: 1, displayName: "x", schemaClass: "Complex", refEntities: [{ dbId: 2 }] }])).toThrow(ParseError);
+  });
+  it("stable ids order by their number", () => {
+    expect(["R-HSA-1237044", "R-HSA-983231", "R-HSA-9927020"].sort(compareStableIds)).toEqual(["R-HSA-983231", "R-HSA-1237044", "R-HSA-9927020"]);
+    expect(compareStableIds("R-HSA-5", "R-HSA-5")).toBe(0);
   });
 });
 

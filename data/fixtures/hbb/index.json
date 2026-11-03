@@ -1,5 +1,5 @@
 {
-  "description": "Offline fixtures for the HBB slice. Paths are relative to the repository root. research/raw is the frozen Phase 1 snapshot (redacted under Q-H-LIC-1); data/fixtures/hbb holds records recorded in Phase 2 by scripts/data-preparation/record-fixtures.ts. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "description": "Offline fixtures for the HBB slice. Paths are relative to the repository root. research/raw is the frozen Phase 1 snapshot (redacted under Q-H-LIC-1); data/fixtures/hbb holds records recorded in Phase 2 by scripts/data-preparation/record-fixtures.ts. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded. The reactome responses were recorded on 2026-11-03 by scripts/data-preparation/build-gene.ts --gene hbb --offline --live-sources=reactome --record-fixtures=live (live requests to those sources only, everything else from the snapshot), redacted under Q-H-LIC-1 as the other records.",
   "inputs": {
     "ensemblInfoData": { "source": "ensembl", "path": "research/raw/ensembl/info_data.json" },
     "ensemblAssembly": { "source": "ensembl", "path": "research/raw/ensembl/assembly_homo_sapiens.json" },
@@ -23,7 +23,27 @@
     "clinvar": { "source": "ncbi-clinvar", "path": "research/raw/ncbi-clinvar/esummary_rs334_ids.json" },
     "hgnc": { "source": "hgnc", "path": "research/raw/hgnc/fetch_symbol_HBB.json" },
     "alphafoldPrediction": { "source": "alphafold", "path": "research/raw/alphafold/prediction_P68871.json" },
-    "alphafoldModel": { "source": "alphafold", "path": "research/raw/alphafold/AF-P68871-F1-model_v6.cif" }
+    "alphafoldModel": { "source": "alphafold", "path": "research/raw/alphafold/AF-P68871-F1-model_v6.cif" },
+    "reactomeVersion": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_database_version.json" },
+    "reactomePathways": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_mapping_UniProt_P68871_pathways_species_9606.json" },
+    "reactomeAncestors:R-HSA-983231": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-983231_ancestors.json" },
+    "reactomeAncestors:R-HSA-1237044": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1237044_ancestors.json" },
+    "reactomeAncestors:R-HSA-1247673": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1247673_ancestors.json" },
+    "reactomeAncestors:R-HSA-2168880": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-2168880_ancestors.json" },
+    "reactomeAncestors:R-HSA-6798695": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-6798695_ancestors.json" },
+    "reactomeAncestors:R-HSA-9613829": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9613829_ancestors.json" },
+    "reactomeAncestors:R-HSA-9615710": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9615710_ancestors.json" },
+    "reactomeAncestors:R-HSA-9707564": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707564_ancestors.json" },
+    "reactomeAncestors:R-HSA-9707616": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707616_ancestors.json" },
+    "reactomeAncestors:R-HSA-9927020": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9927020_ancestors.json" },
+    "reactomeParticipants:R-HSA-983231": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-983231.json" },
+    "reactomeParticipants:R-HSA-1237044": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1237044.json" },
+    "reactomeParticipants:R-HSA-1247673": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1247673.json" },
+    "reactomeParticipants:R-HSA-6798695": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-6798695.json" },
+    "reactomeParticipants:R-HSA-9613829": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9613829.json" },
+    "reactomeParticipants:R-HSA-9615710": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9615710.json" },
+    "reactomeParticipants:R-HSA-9707564": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707564.json" },
+    "reactomeParticipants:R-HSA-9707616": { "source": "reactome", "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707616.json" }
   },
   "extra": {
     "hbbp1Lookup": { "source": "ensembl", "path": "data/fixtures/hbb/ensembl/lookup_symbol_HBBP1_expand_mane.json" },

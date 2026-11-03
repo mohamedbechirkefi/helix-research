@@ -21,7 +21,7 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
   });
   it("holds selections only: no position, sequence or version is in the file", async () => {
     const json = await hbbSpec();
-    expect(Object.keys(json).sort()).toEqual(["bridgeQuestion", "contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pdbId", "questions", "variant"]);
+    expect(Object.keys(json).sort()).toEqual(["bridgeQuestion", "contactCutoffAngstrom", "datasetId", "description", "genomicWindowFlank", "identifiers", "includeAlphafold", "notes", "pathways", "pdbId", "questions", "variant"]);
     expect(Object.keys(json.identifiers as object).sort()).toEqual(["ensemblGeneId", "hgncSymbol", "uniprotAccession"]);
     expect(Object.keys(json.variant as object).sort()).toEqual(["clinvarUid", "commonName", "forwardAllele", "rsId", "slug"]);
   });
@@ -108,6 +108,16 @@ describe("gene specification loader (Phase 9, plan §2)", () => {
     const { includeAlphafold, ...noAf } = json;
     expect(includeAlphafold).toBe(true);
     expect(() => loadGeneSpec(noAf)).toThrow(/includeAlphafold/);
+    // P9.1.2: the pathways flag is required and boolean; it is a request, never a pathway name (the opening pathway is chosen by rule).
+    const { pathways, ...noPathways } = json;
+    expect(pathways).toBe(true);
+    expect(() => loadGeneSpec(noPathways)).toThrow(/pathways/);
+    expect(() => loadGeneSpec({ ...json, pathways: "R-HSA-1237044" })).toThrow(/pathways/);
+    expect(() => loadGeneSpec({ ...json, pathways: ["R-HSA-1237044"] })).toThrow(/pathways/);
+    expect(() => loadGeneSpec({ ...json, openingPathway: "R-HSA-1237044" })).toThrow(/openingPathway/);
+    expect(loadGeneSpec({ ...json, pathways: false }).pathways).toBe(false);
+    expect(specOf(loadGeneSpec({ ...json, pathways: false })).pathways).toBe(false);
+    expect(loadGeneSpec(json).pathways).toBe(true);
     expect(() => loadGeneSpec("hbb")).toThrow(GeneSpecError);
   });
 });

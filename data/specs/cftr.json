@@ -19,6 +19,7 @@
   "genomicWindowFlank": 20,
   "contactCutoffAngstrom": 4.5,
   "includeAlphafold": true,
+  "pathways": true,
   "questions": [
     { "text": "Show me where the F508del mutation affects the CFTR protein.", "requires": ["variantHighlight", "experimentalStructure"] },
     { "text": "How does the DNA change for the F508del variant?", "requires": ["variantHighlight"] },

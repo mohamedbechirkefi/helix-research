@@ -11,7 +11,7 @@ import { join, relative } from "node:path";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { ValidationFailedError } from "@helix/data-adapters";
 import { HBB_CONFIG, type SliceConfig, buildSlice, inputsFor, loadGeneSpec } from "@helix/scientific-core";
-import { CapabilityReport, DatasetManifest, DeletionVariant, Gene, Protein, QuestionsRecord, ResidueContacts, ResidueMapping, Structure, Variant } from "@helix/shared-types";
+import { CapabilityReport, DatasetManifest, DeletionVariant, Gene, PathwayMembershipsRecord, Protein, QuestionsRecord, ResidueContacts, ResidueMapping, Structure, Variant } from "@helix/shared-types";
 import { GENERATOR_SCRIPT, buildGene, parseBuildArgs, readSpec } from "../lib/build-gene.ts";
 import { loadFixtureInputs } from "../lib/fixtures.ts";
 import { REPO_ROOT } from "../lib/node-env.ts";
@@ -29,12 +29,19 @@ describe("generic builder: data/specs and the command line", () => {
     expect(await readSpec("hbb")).toStrictEqual(HBB_CONFIG);
     await expect(readSpec("nope")).rejects.toThrow(/no gene specification at data\/specs\/nope\.json/);
     await expect(readSpec("../x")).rejects.toThrow(/not a specification name/);
-    expect(parseBuildArgs(["--gene", "hbb", "--fixtures", "--out", "/tmp/x"])).toEqual({ gene: "hbb", mode: "fixtures", outDir: "/tmp/x", recordFixtures: false });
-    expect(parseBuildArgs(["--gene", "hbb", "--offline"])).toEqual({ gene: "hbb", mode: "offline", outDir: null, recordFixtures: false });
-    expect(parseBuildArgs([])).toEqual({ gene: null, mode: "live", outDir: null, recordFixtures: false });
-    expect(parseBuildArgs(["--gene", "hbb", "--record-fixtures"])).toEqual({ gene: "hbb", mode: "live", outDir: null, recordFixtures: true });
+    expect(parseBuildArgs(["--gene", "hbb", "--fixtures", "--out", "/tmp/x"])).toEqual({ gene: "hbb", mode: "fixtures", outDir: "/tmp/x", recordFixtures: false, liveSources: [] });
+    expect(parseBuildArgs(["--gene", "hbb", "--offline"])).toEqual({ gene: "hbb", mode: "offline", outDir: null, recordFixtures: false, liveSources: [] });
+    expect(parseBuildArgs([])).toEqual({ gene: null, mode: "live", outDir: null, recordFixtures: false, liveSources: [] });
+    expect(parseBuildArgs(["--gene", "hbb", "--record-fixtures"])).toEqual({ gene: "hbb", mode: "live", outDir: null, recordFixtures: true, liveSources: [] });
     expect(() => parseBuildArgs(["--gene", "hbb", "--record-fixtures", "--fixtures"])).toThrow(/cannot be combined/);
     expect(() => parseBuildArgs(["--gene"])).toThrow(/--gene needs a value/);
+    // Phase 9 (P9.1.2): live sources beside an offline snapshot, and a recording restricted to them.
+    expect(parseBuildArgs(["--gene", "hbb", "--offline", "--live-sources=reactome"])).toEqual({ gene: "hbb", mode: "offline", outDir: null, recordFixtures: false, liveSources: ["reactome"] });
+    expect(parseBuildArgs(["--gene", "hbb", "--offline", "--live-sources", "reactome,reactome", "--record-fixtures=live"])).toEqual({ gene: "hbb", mode: "offline", outDir: null, recordFixtures: "live-sources", liveSources: ["reactome"] });
+    expect(() => parseBuildArgs(["--gene", "hbb", "--live-sources=reactome"])).toThrow(/needs --offline/);
+    expect(() => parseBuildArgs(["--gene", "hbb", "--offline", "--live-sources=ensembl"])).toThrow(/unknown source "ensembl"/);
+    expect(() => parseBuildArgs(["--gene", "hbb", "--offline", "--record-fixtures=live"])).toThrow(/--record-fixtures=live needs --live-sources/);
+    expect(() => parseBuildArgs(["--gene", "hbb", "--offline", "--record-fixtures=all"])).toThrow(/--record-fixtures takes no value other than "live"/);
   });
 });
 
@@ -56,8 +63,8 @@ describe("generic builder: a specification without pdbId and without variant (fi
     if (out) await rm(join(out, ".."), { recursive: true, force: true });
   });
 
-  it("writes the gene, transcript, sequence, protein, predicted-model, capability and questions records and nothing that needs a structure or a variant", () => {
-    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "questions.json", "sequences.json", "transcript.json"]);
+  it("writes the gene, transcript, sequence, protein, predicted-model, pathways, capability and questions records and nothing that needs a structure or a variant", () => {
+    expect(files).toEqual(["capabilities.json", "gene.json", "manifest.json", "pathways.json", "predicted-model-AF-P68871-F1.json", "protein-P68871.json", "questions.json", "sequences.json", "transcript.json"]);
     expect(files.filter((f) => /^(structure|contacts|variant|clinvar|residue-mapping)-|\.cif$/.test(f))).toEqual([]);
   });
   it("the capability file says what is missing, in the specification's terms", () => {
@@ -72,7 +79,8 @@ describe("generic builder: a specification without pdbId and without variant (fi
     expect(cap.transcriptView.available).toBe(true);
     expect(cap.proteinView.available).toBe(true);
     expect(cap.predictedStructure).toMatchObject({ available: true, evidenceCategory: 3 });
-    expect(cap.derivedFrom).toEqual(["gene.json", "transcript.json", "sequences.json", "protein-P68871.json", "predicted-model-AF-P68871-F1.json"]);
+    expect(cap.derivedFrom).toEqual(["gene.json", "transcript.json", "sequences.json", "protein-P68871.json", "predicted-model-AF-P68871-F1.json", "pathways.json"]);
+    expect(cap.pathwayView).toMatchObject({ available: true, evidenceCategory: 2 });
   });
   it("the manifest is schema-valid, names build-gene.ts, has no failed check and cites no structure, SIFTS or ClinVar source", async () => {
     expect(manifest.datasetId).toBe("hbb-no-structure");
@@ -80,7 +88,7 @@ describe("generic builder: a specification without pdbId and without variant (fi
     expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
     expect(manifest.validation.map((v) => v.check)).not.toContain("T23-residue-from-atom-site");
     expect(manifest.validation.map((v) => v.check)).toContain("T32-alphafold-labelled");
-    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "uniprot"]);
+    expect([...new Set(manifest.sources.map((s) => s.source))].sort()).toEqual(["alphafold", "ensembl", "hgnc", "reactome", "uniprot"]);
     expect(manifest.sources.some((s) => /variant_recoder|\/variation\/|\/vep\/|map\/cds|sequence\/region/.test(s.url))).toBe(false);
     expect(manifest.files.map((f) => f.path).sort()).toEqual(files.filter((f) => f !== "manifest.json"));
     const seqs = JSON.parse(await readFile(join(out, "sequences.json"), "utf8")) as { records: { sequenceKind: string }[] };
@@ -205,6 +213,104 @@ describe("the CFTR set (P9.2.1): an in-frame deletion built from its recorded fi
   it("a frameshift in the specification is refused before anything is fetched", async () => {
     const json = JSON.parse(await readFile(join(REPO_ROOT, "data/specs/cftr.json"), "utf8")) as { variant: Record<string, unknown> };
     expect(() => loadGeneSpec({ ...json, variant: { ...json.variant, hgvsC: "c.1521_1522del" } })).toThrow(/frameshift is out of scope/);
+  });
+});
+
+describe("the pathways record (P9.1.2, plan §12 rules 2 to 4): built from the recorded Reactome fixtures of each set", () => {
+  const NOW = "2026-11-03T00:00:00Z";
+  /** The record and capability file of a set built in memory from its fixtures. */
+  async function pathwaysOf(set: string, config: SliceConfig) {
+    const inputs = inputsFor(await loadFixtureInputs(set), config);
+    const b = await buildSlice(inputs, config, { now: NOW });
+    const file = b.files.find((f) => f.path === "pathways.json");
+    const cap = CapabilityReport.parse(JSON.parse(b.files.find((f) => f.path === "capabilities.json")!.content));
+    return { b, inputs, rec: file ? PathwayMembershipsRecord.parse(JSON.parse(file.content)) : null, recordKind: file?.recordKind ?? null, cap };
+  }
+  it("HBB: ten memberships sorted by stable id, every one Homo sapiens with a top-level pathway; every candidate's participants kept as Reactome returns them with the set's protein flagged; the opening pathway by the rule", async () => {
+    const { b, inputs, rec, recordKind, cap } = await pathwaysOf("hbb", HBB_CONFIG);
+    expect(recordKind).toBe("pathway-memberships");
+    expect(rec).not.toBeNull();
+    const r = rec!;
+    expect(r.accession).toBe(HBB_CONFIG.uniprotAccession);
+    expect(r.derivedFrom).toEqual([`protein-${HBB_CONFIG.uniprotAccession}.json`]);
+    expect(r.release).toBe("98");
+    expect(r.membershipCount).toBe(10);
+    const ids = r.memberships.map((m) => m.stableId);
+    expect(ids).toEqual([...ids].sort((a, b2) => Number(a.slice(6)) - Number(b2.slice(6))));
+    expect(r.memberships.every((m) => m.species === "Homo sapiens" && m.topLevelPathways.length >= 1)).toBe(true);
+    // The rule: non-disease with a diagram; counts known for the candidates only; the fewest wins.
+    const candidates = r.memberships.filter((m) => !m.isDisease && m.hasDiagram);
+    expect(candidates.every((m) => m.participantCount !== null)).toBe(true);
+    expect(r.memberships.filter((m) => m.isDisease || !m.hasDiagram).every((m) => m.participantCount === null)).toBe(true);
+    const fewest = Math.min(...candidates.map((m) => m.participantCount!));
+    // Every candidate's participants are kept (plan §12 rule 3, amended), sorted by stable id number, with the set's protein flagged.
+    expect(r.participantsByPathway.map((s) => s.stableId)).toEqual(candidates.map((m) => m.stableId));
+    for (const s of r.participantsByPathway) {
+      expect(s.participants, s.stableId).toHaveLength(s.participantCount);
+      expect(s.participantCount, s.stableId).toBe(candidates.find((m) => m.stableId === s.stableId)!.participantCount);
+      expect(s.listsSetProtein, s.stableId).toBe(s.proteins.some((p) => p.isSetProtein));
+      expect(s.proteins.filter((p) => p.isSetProtein).map((p) => p.accession), s.stableId).toEqual([HBB_CONFIG.uniprotAccession]);
+      expect(s.topLevelPathways.length).toBeGreaterThan(0);
+    }
+    // The opening pathway: the rule's choice (fewest participants), marked on exactly one membership, with its participants in the same list.
+    expect(r.openingPathway).not.toBeNull();
+    const o = r.openingPathway!;
+    const openingSet = r.participantsByPathway.find((s) => s.stableId === o.stableId)!;
+    expect(openingSet.participantCount).toBe(fewest);
+    expect(r.memberships.filter((m) => m.isOpening).map((m) => m.stableId)).toEqual([o.stableId]);
+    expect(o.rule).toBe("fewest-participants-non-disease-with-diagram");
+    expect(o.candidates).toHaveLength(candidates.length);
+    expect(o.candidates[0]).toEqual({ stableId: o.stableId, participantCount: fewest });
+    expect(o.reason).toMatch(/the rule's choice, not a statement of importance$/);
+    // Participants are kept as returned (complexes and sets with their member proteins), never expanded further.
+    expect(new Set(openingSet.participants.map((p) => p.schemaClass)).size).toBeGreaterThan(1);
+    // No field or sentence calls a pathway primary.
+    expect(JSON.stringify(r)).not.toMatch(/primary/i);
+    // One provenance row per Reactome request, and only Reactome rows.
+    const reactomeInputs = Object.keys(inputs).filter((k) => k.startsWith("reactome"));
+    expect(r.provenance.sources).toHaveLength(reactomeInputs.length);
+    expect(r.provenance.sources.every((s) => s.source === "reactome" && s.sourceRelease === "Reactome 98" && s.licence === "CC0-1.0")).toBe(true);
+    expect(r.provenance.evidenceCategory).toBe(2);
+    expect(r.evidence[0]!.statement).toMatch(/^Reactome 98 lists P68871 in 10 human pathway\(s\); the participants of 8 candidate membership\(s\) are kept; the world opens on .*, the rule's choice\.$/);
+    expect(JSON.stringify(r.evidence[0])).toMatch(/never how, and never that a variant changes the pathway/);
+    for (const id of ["T41-pathway-accession", "T42-pathway-memberships-human", "T43-pathway-top-level", "T44-opening-pathway-rule", "T45-opening-pathway-participants", "T46-candidate-participants"]) expect(b.validation.find((v) => v.check === id), id).toMatchObject({ result: "pass" });
+    expect(cap.pathwayView).toEqual({ available: true, reason: `10 Reactome memberships; opens on ${o.name}, ${o.stableId} (the rule's choice: fewest participants among non-disease pathways with a diagram)`, evidenceCategory: 2 });
+    expect(cap.derivedFrom).toContain("pathways.json");
+  });
+  it("CFTR: eleven memberships including a disease pathway and a CellLineagePath; eight candidates' participants kept; the tie at the fewest participants is broken by stable id", async () => {
+    const { rec, cap } = await pathwaysOf("cftr", await readSpec("cftr"));
+    const r = rec!;
+    expect(r.membershipCount).toBe(11);
+    expect(r.memberships.some((m) => m.isDisease && m.participantCount === null && !m.isOpening)).toBe(true);
+    expect(r.memberships.some((m) => m.schemaClass === "CellLineagePath")).toBe(true);
+    expect(r.participantsByPathway).toHaveLength(8);
+    expect(r.participantsByPathway.every((s) => s.listsSetProtein && s.proteins.filter((p) => p.isSetProtein).map((p) => p.accession).join() === "P13569")).toBe(true);
+    const o = r.openingPathway!;
+    const openingCount = r.participantsByPathway.find((s) => s.stableId === o.stableId)!.participantCount;
+    const tied = o.candidates.filter((c) => c.participantCount === openingCount);
+    expect(tied.length).toBeGreaterThan(1);
+    expect(o.stableId).toBe(tied.map((c) => c.stableId).sort((a, b2) => Number(a.slice(6)) - Number(b2.slice(6)))[0]);
+    expect(o.reason).toMatch(/tie among .* broken by stable id/);
+    expect(cap.pathwayView.available).toBe(true);
+    expect(cap.pathwayView.reason).toMatch(/^11 Reactome memberships; opens on /);
+  });
+  it("pathways: false writes no record, asks for no Reactome input and reports the view as not requested", async () => {
+    const config: SliceConfig = { ...HBB_CONFIG, pathways: false };
+    const inputs = inputsFor(await loadFixtureInputs("hbb"), config);
+    expect(Object.keys(inputs).some((k) => k.startsWith("reactome"))).toBe(false);
+    const { rec, cap, b } = await pathwaysOf("hbb", config);
+    expect(rec).toBeNull();
+    expect(cap.pathwayView).toEqual({ available: false, reason: "pathways not requested in the gene specification", evidenceCategory: 6 });
+    expect(cap.derivedFrom).not.toContain("pathways.json");
+    expect(b.sources.some((s) => s.source === "reactome")).toBe(false);
+    expect(b.validation.some((v) => /^T4[1-5]-/.test(v.check))).toBe(false);
+  });
+  it("pathways: true without the Reactome inputs is refused with the missing input named", async () => {
+    const inputs = inputsFor(await loadFixtureInputs("hbb"), HBB_CONFIG);
+    for (const k of Object.keys(inputs)) if (k.startsWith("reactome")) delete inputs[k as keyof typeof inputs];
+    const e = await buildSlice(inputs, HBB_CONFIG, { now: NOW }).catch((x: unknown) => x);
+    expect(e).toBeInstanceOf(ValidationFailedError);
+    expect(String((e as Error).message)).toMatch(/reactomeVersion is required by the gene specification/);
   });
 });
 

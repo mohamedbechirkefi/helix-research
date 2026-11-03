@@ -17,6 +17,7 @@
   "genomicWindowFlank": 20,
   "contactCutoffAngstrom": 4.5,
   "includeAlphafold": true,
+  "pathways": true,
   "questions": [
     { "text": "Show me where the sickle-cell mutation affects hemoglobin.", "requires": ["variantHighlight", "experimentalStructure"] },
     { "text": "How does the DNA change for the sickle-cell variant?", "requires": ["variantHighlight"] },

@@ -1,5 +1,5 @@
 {
-  "description": "Offline fixtures for the faah2 set, recorded by scripts/data-preparation/build-gene.ts --gene faah2 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed under Q-H-LIC-1; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "description": "Offline fixtures for the faah2 set, recorded by scripts/data-preparation/build-gene.ts --gene faah2 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
   "inputs": {
     "ensemblInfoData": {
       "source": "ensembl",
@@ -44,6 +44,22 @@
     "alphafoldModel": {
       "source": "alphafold",
       "path": "data/fixtures/faah2/alphafold/files_AF-Q6GMR7-F1-model_v6.cif"
+    },
+    "reactomeVersion": {
+      "source": "reactome",
+      "path": "data/fixtures/faah2/reactome/ContentService_data_database_version.json"
+    },
+    "reactomePathways": {
+      "source": "reactome",
+      "path": "data/fixtures/faah2/reactome/ContentService_data_mapping_UniProt_Q6GMR7_pathways_species_9606.json"
+    },
+    "reactomeAncestors:R-HSA-2142753": {
+      "source": "reactome",
+      "path": "data/fixtures/faah2/reactome/ContentService_data_event_R-HSA-2142753_ancestors.json"
+    },
+    "reactomeParticipants:R-HSA-2142753": {
+      "source": "reactome",
+      "path": "data/fixtures/faah2/reactome/ContentService_data_participants_R-HSA-2142753.json"
     }
   },
   "extra": {}
