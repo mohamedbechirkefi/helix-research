@@ -441,61 +441,61 @@
         "check": "structure-entry",
         "result": "pass",
         "detail": "2HBS X-RAY DIFFRACTION 2.05 A, rev 1.5",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.5; mmCIF rev 1.5",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P68871 -> entity 2, chains B,D,F,H; mmCIF strands B,D,F,H",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 2HBS_2 uniprot P68871",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "B/B label 6 auth 6 VAL; D/D label 6 auth 6 VAL; F/F label 6 auth 6 VAL; H/H label 6 auth 6 VAL; structure carries the alternate residue",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation \"E6V VARIANT\" -> numbering mature/legacy",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "24 label chains, all with an auth chain id from the scheme tables; 16 non-polymer chains have label != auth (e.g. label I = auth A HEM 153)",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B,C,D,I,J,K,L,Q,R,S,T; assembly 2: E,F,G,H,M,N,O,P,U,V,W,X",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T47-structure-method",
         "result": "pass",
         "detail": "2HBS method X-RAY DIFFRACTION; resolution 2.05 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       },
       {
         "check": "T48-structure-coverage",
         "result": "pass",
         "detail": "146 of 146 mapped positions observed in model 1 on chain(s) B,D,F,H, 2-147; protein length 147; fraction 0.9932 = 146/147; words match the numbers",
-        "at": "2026-11-03T22:12:11Z"
+        "at": "2026-11-03T23:32:03Z"
       }
     ],
     "evidenceCategory": 1
