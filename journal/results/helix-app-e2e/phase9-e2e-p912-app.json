@@ -1,0 +1,1912 @@
+{
+ "date": "2026-11-03T21:24:33.911Z",
+ "tag": "p912-app",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": [
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-welcome-message.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-dna-world.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-evidence-world.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-dna-world.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-protein-508.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-contacts.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-opened-first.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-other-membership.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-faah2.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-question.jpg"
+ ],
+ "scenarios": {
+  "faah2-welcome": {
+   "messageShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-welcome-message.jpg",
+   "message": {
+    "text": "FAAH2 resolves to FAAH2 (HGNC:26440), a curated set of this build; opening it.",
+    "status": "switching"
+   },
+   "pageErrorsBlocked": [],
+   "after": {
+    "url": "http://localhost:5193/?welcome=on&fadeMs=0&dataset=faah2",
+    "search": "?welcome=on&fadeMs=0&dataset=faah2",
+    "dataset": {
+     "id": "faah2",
+     "symbol": "FAAH2",
+     "datasets": [
+      "cftr",
+      "faah2",
+      "hbb"
+     ],
+     "kinds": [
+      "gene",
+      "transcript",
+      "sequence-set",
+      "protein",
+      "predicted-model",
+      "pathway-memberships",
+      "capabilities",
+      "questions"
+     ]
+    },
+    "welcomeOpen": true,
+    "world": "dna",
+    "pageErrors": []
+   }
+  },
+  "faah2-dna-world": {
+   "dataset": {
+    "id": "faah2",
+    "symbol": "FAAH2",
+    "datasets": [
+     "cftr",
+     "faah2",
+     "hbb"
+    ],
+    "kinds": [
+     "gene",
+     "transcript",
+     "sequence-set",
+     "protein",
+     "predicted-model",
+     "pathway-memberships",
+     "capabilities",
+     "questions"
+    ]
+   },
+   "dnaReady": true,
+   "codonTape": 533,
+   "variantCodonsOnTape": 0,
+   "plate": "Illustrative geometry, real sequenceENST00000374900.5 cDNA, 1980 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "protein": {
+    "disabled": true,
+    "title": "no experimental structure is cross-referenced for this protein"
+   },
+   "unavailableNote": "Protein World not available: no experimental structure is cross-referenced for this protein",
+   "reasonCard": "no experimental structure is cross-referenced for this protein",
+   "reasonSentence": "There is no Protein World for FAAH2: no experimental structure is cross-referenced for this protein.",
+   "predicted": {
+    "model": "AF-Q6GMR7-F1",
+    "text": "Predicted · class 3AF-Q6GMR7-F1 · AlphaFold DB v6pLDDT 93.9 · listed, not loaded"
+   },
+   "variantCard": false,
+   "annotation": false,
+   "comparison": false,
+   "nextBranches": [
+    "Which pathways list FAAH2?"
+   ],
+   "chapters": {
+    "offered": [
+     "transcript",
+     "first-codon",
+     "pathway-memberships"
+    ],
+    "refused": []
+   },
+   "journey": {
+    "planId": "faah2-overview-journey",
+    "chapterId": "transcript",
+    "index": 0,
+    "resumeIndex": null,
+    "chapterIds": [
+     "transcript",
+     "first-codon",
+     "pathway-memberships"
+    ]
+   },
+   "mode": "guided",
+   "world": "dna",
+   "context": {
+    "structures": [
+     "AF-Q6GMR7-F1"
+    ],
+    "features": [],
+    "worlds": [
+     {
+      "id": "overview",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "genome",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "dna",
+      "available": true,
+      "reason": "reference sequence of the selected transcript"
+     },
+     {
+      "id": "protein",
+      "available": false,
+      "reason": "no experimental structure is cross-referenced for this protein"
+     },
+     {
+      "id": "pathway",
+      "available": true,
+      "reason": "1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    ],
+    "executableActions": [
+     "resolveGene",
+     "resolveVariant",
+     "loadStructure",
+     "enterWorld",
+     "focusCamera",
+     "highlightResidue",
+     "revealEvidence",
+     "cancelActions",
+     "compareVariants",
+     "highlightSequenceRegion"
+    ],
+    "pathways": null,
+    "evidence": [
+     "ensembl:ENSG00000165591",
+     "uniprot:Q6GMR7",
+     "alphafold:AF-Q6GMR7-F1"
+    ]
+   },
+   "structures": 0,
+   "scene": {
+    "created": false,
+    "creating": false,
+    "chunkLoaded": true,
+    "modelReady": true,
+    "prefetchStartedAt": 205.7000000178814,
+    "prefetchEndedAt": 554,
+    "chunkMs": 348.3,
+    "createMs": null,
+    "firstNeed": null,
+    "prefetchError": null
+   },
+   "limits": [
+    {
+     "id": "nonclinical",
+     "text": "01Helix is nonclinical: not a diagnostic, variant classification or medical advice tool. ClinVar's classification is shown as a database record with its review status, not as advice."
+    },
+    {
+     "id": "one-gene",
+     "text": "02The curated sets of this build are CFTR, FAAH2 and HBB; other genes are refused rather than built from uncurated data. This set (FAAH2) carries the gene, its MANE Select transcript and sequences, the protein record and a predicted model (listed, not loaded)."
+    },
+    {
+     "id": "no-structure",
+     "text": "03No experimental structure is curated for FAAH2: no experimental structure is cross-referenced for this protein. There is no Protein World, no residue mapping and no variant placement in this set; Helix shows the transcript, its sequence and the protein record, and never substitutes a predicted model."
+    },
+    {
+     "id": "snapshot",
+     "text": "04The data are a snapshot of public records with a retrieval date and record versions (see Evidence World), not a live feed. Records change between builds."
+    },
+    {
+     "id": "illustrative-dna",
+     "text": "05The DNA helix is illustrative geometry: the bases, their order and the exons are real, the shape and spacing are not to scale."
+    },
+    {
+     "id": "predicted-model",
+     "text": "06The AlphaFold model of Q6GMR7 (AF-Q6GMR7-F1) is listed as a computational prediction; it is not loaded and is never shown as an experimental structure."
+    },
+    {
+     "id": "ai",
+     "text": "07A language model, when one is available, only proposes a plan of fixed actions; deterministic code checks every identifier and executes. Its wording is never a scientific claim. Its suggested next questions are shown only when a fixed filter finds them nonclinical and answerable with the curated data. Without a model, a rule-based planner answers a limited set of questions."
+    },
+    {
+     "id": "evidence-world",
+     "text": "08Evidence World v1 is a page layer, not yet a world the planner can enter: the plan vocabulary has no evidence world, and adding one would change the Phase 3 prompt."
+    },
+    {
+     "id": "pathway-world",
+     "text": "09Pathway World v1 shows Reactome membership only: which curated pathways list the protein (a database annotation, class 2) and the participants of the opened one as named entities. It draws no arrows, no reactions and no mechanism, and says nothing about the effect of any variant on a pathway; the pathway it opens on is the rule's choice (fewest participants among non-disease pathways with a diagram), not a statement of importance."
+    },
+    {
+     "id": "browsers",
+     "text": "10Tested in headless Chrome on one Mac. Safari, Firefox and the desktop webview were not run in this phase."
+    }
+   ],
+   "crumb": "FAAH2",
+   "firstCodon": {
+    "snap": {
+     "version": 18,
+     "epoch": 2,
+     "gene": null,
+     "transcript": null,
+     "variant": null,
+     "protein": null,
+     "structure": null,
+     "chain": null,
+     "selectedPosition": null,
+     "world": "dna",
+     "chapter": null,
+     "cameraTarget": null,
+     "highlighted": null,
+     "focus": [],
+     "evidence": [],
+     "activeActions": [
+      {
+       "index": 0,
+       "type": "enterWorld",
+       "status": "completed",
+       "feedback": "In the dna world",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 1014.7000000178814
+        },
+        {
+         "status": "validated",
+         "at": 1014.9000000059605
+        },
+        {
+         "status": "preparing",
+         "at": 1014.9000000059605,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "executing",
+         "at": 1014.9000000059605,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "completed",
+         "at": 1018.3000000119209,
+         "detail": "In the dna world"
+        }
+       ],
+       "result": {
+        "world": "dna"
+       }
+      }
+     ],
+     "request": {
+      "id": "ch2",
+      "query": "",
+      "source": "journey:first-codon",
+      "status": "completed",
+      "epoch": 1,
+      "startedAt": 1014.7000000178814,
+      "endedAt": 1018.3000000119209
+     },
+     "knowledgeLevel": "intermediate",
+     "interests": [],
+     "pointerOwner": "r3f",
+     "statusMessage": null,
+     "sequenceSelection": {
+      "transcriptId": "ENST00000374900.5",
+      "index": 120,
+      "unit": "codon",
+      "codon": 1
+     },
+     "selectionLink": {
+      "codon": 1,
+      "proteinPosition": 1,
+      "structureResidues": [],
+      "status": "none",
+      "reason": "no curated residue mapping of record for Q6GMR7 position 1 in this dataset; no structure residue is shown rather than one computed by offset",
+      "from": "dna"
+     },
+     "transition": null,
+     "mode": "guided",
+     "journey": {
+      "planId": "faah2-overview-journey",
+      "chapterId": "first-codon",
+      "index": 1,
+      "resumeIndex": null,
+      "chapterIds": [
+       "transcript",
+       "first-codon",
+       "pathway-memberships"
+      ]
+     },
+     "sequenceHighlight": null,
+     "comparison": null
+    },
+    "text": "Codon 1 of ENST00000374900.5: the first of the 533 codons of the coding sequence (stop codon included), shown as recorded in the CDS. No curated variant is recorded for FAAH2 in this set."
+   },
+   "tour": {
+    "start": {
+     "state": "playing",
+     "progress": 0.02406666666517655,
+     "durationMs": 12000,
+     "reduced": false
+    },
+    "end": {
+     "state": "done",
+     "progress": 1,
+     "durationMs": 12000,
+     "reduced": false
+    }
+   },
+   "cifRequests": [],
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-dna-world.jpg",
+   "promptRulesHbbWords": [
+    "hemoglobin",
+    "globin",
+    "HBB"
+   ],
+   "pageErrors": []
+  },
+  "faah2-protein-question": {
+   "rows": [
+    {
+     "q": "Show me the protein structure of FAAH2",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    },
+    {
+     "q": "Show me where the sickle-cell mutation affects hemoglobin.",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    },
+    {
+     "q": "Open Protein World",
+     "outcome": "answered",
+     "planOutcome": "unsupported",
+     "reason": "No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure.",
+     "source": "deterministic",
+     "actions": [],
+     "structures": 0,
+     "structure": null,
+     "sceneCreated": false,
+     "explanation": [
+      {
+       "kind": "planner",
+       "text": "Planner message (rule-based): No experimental structure can be shown for FAAH2: no experimental structure is cross-referenced for this protein. The predicted model AF-Q6GMR7-F1 is listed as a computational prediction and is not loaded. A predicted model is never shown as an experimental structure."
+      }
+     ]
+    }
+   ],
+   "cifRequests": [],
+   "pageErrors": []
+  },
+  "faah2-evidence": {
+   "sources": [
+    [
+     "ensembl",
+     "info/data",
+     "none",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "homo_sapiens",
+     "GRCh38.p14",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENSG00000165591",
+     "9",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900.5",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENST00000374900.5",
+     "5",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "ensembl",
+     "ENSP00000364035.4",
+     "4",
+     "Ensembl 116",
+     "2026-11-03"
+    ],
+    [
+     "uniprot",
+     "Q6GMR7",
+     "entry 167, sequence 1",
+     "UniProt 2026_03",
+     "2026-11-03"
+    ],
+    [
+     "hgnc",
+     "HGNC:26440",
+     "none",
+     "not published",
+     "2026-11-03"
+    ],
+    [
+     "alphafold",
+     "AF-Q6GMR7-F1",
+     "6",
+     "AlphaFold DB model v6",
+     "2026-11-03"
+    ],
+    [
+     "alphafold",
+     "AF-Q6GMR7-F1",
+     "6",
+     "AlphaFold DB model v6",
+     "2026-11-03"
+    ],
+    [
+     "reactome",
+     "data/database/version",
+     "none",
+     "Reactome 98",
+     "2026-11-03"
+    ],
+    [
+     "reactome",
+     "UniProt Q6GMR7 pathways, species 9606",
+     "none",
+     "Reactome 98",
+     "2026-11-03"
+    ],
+    [
+     "reactome",
+     "R-HSA-2142753 ancestors",
+     "8",
+     "Reactome 98",
+     "2026-11-03"
+    ],
+    [
+     "reactome",
+     "R-HSA-2142753 participants",
+     "8",
+     "Reactome 98",
+     "2026-11-03"
+    ]
+   ],
+   "clinvarNone": "No curated variant is recorded for this set, so there is no ClinVar record to show (no curated variant record).",
+   "mappingNone": "No residue mapping of record: no residue mapping record. No codon reaches a structure residue.",
+   "evidenceIndex": "Evidence in this journey (3)",
+   "focus": "evidence-world-close",
+   "pageErrors": []
+  },
+  "faah2-axe": {
+   "dnaWorld": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 155
+     }
+    ],
+    "pageErrors": []
+   },
+   "welcome": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 36
+     }
+    ],
+    "pageErrors": []
+   }
+  },
+  "cftr-welcome": {
+   "alias": {
+    "alias": "ABC35",
+    "message": {
+     "text": "ABC35 resolves to CFTR (HGNC:1884), a curated set of this build; opening it.",
+     "status": "switching"
+    },
+    "pageErrors": []
+   },
+   "after": {
+    "url": "http://localhost:5193/?welcome=on&fadeMs=0&dataset=cftr",
+    "search": "?welcome=on&fadeMs=0&dataset=cftr",
+    "dataset": {
+     "id": "cftr",
+     "symbol": "CFTR",
+     "datasets": [
+      "cftr",
+      "faah2",
+      "hbb"
+     ],
+     "kinds": [
+      "gene",
+      "transcript",
+      "sequence-set",
+      "protein",
+      "variant",
+      "clinvar-record",
+      "structure",
+      "mmcif",
+      "residue-mapping",
+      "residue-mapping-table",
+      "residue-contacts",
+      "predicted-model",
+      "pathway-memberships",
+      "capabilities",
+      "questions"
+     ]
+    },
+    "welcomeOpen": true,
+    "world": "dna",
+    "pageErrors": []
+   }
+  },
+  "cftr-dna-world": {
+   "dataset": {
+    "id": "cftr",
+    "symbol": "CFTR",
+    "datasets": [
+     "cftr",
+     "faah2",
+     "hbb"
+    ],
+    "kinds": [
+     "gene",
+     "transcript",
+     "sequence-set",
+     "protein",
+     "variant",
+     "clinvar-record",
+     "structure",
+     "mmcif",
+     "residue-mapping",
+     "residue-mapping-table",
+     "residue-contacts",
+     "predicted-model",
+     "pathway-memberships",
+     "capabilities",
+     "questions"
+    ]
+   },
+   "codonTape": 1481,
+   "deletion": {
+    "tape": [
+     {
+      "codon": 507,
+      "deleted": false,
+      "changedOffsets": [
+       2
+      ],
+      "struck": false,
+      "label": "ATC 507, codon 507, Ile, variant codon: ATC becomes ATT in F508del, Ile unchanged"
+     },
+     {
+      "codon": 508,
+      "deleted": true,
+      "changedOffsets": [],
+      "struck": true,
+      "label": "TTT 508, codon 508, Phe, deleted in F508del"
+     }
+    ],
+    "tapeKind": "deletion",
+    "card": {
+     "kind": "deletion",
+     "text": "VariantVariantF508del rs113993960Coding changec.1521_1523del (CTT deleted, codons 507 to 508)Codon 507ATC → ATT (Ile, unchanged)Codon 508TTT deleted (Phe)Proteinp.Phe508delThe helix draws the reference sequence. The collared bases CTT (c.1521 to c.1523) are present here and deleted in F508del; the reading frame is kept.Database annotation · class 2ClinVar VCV000007105.214: Pathogenic.Derived · class 3ENST00000003084.11:c.1521_1523del deletes 3 bases (CTT) across codons 507 to 508: codon 507 ATC becomes ATT (Ile, unchanged), codon 508 TTT (Phe) is deleted; translating the CDS before and after gives p.Phe508del, the reading frame is kept.",
+     "rows": [
+      "Coding change",
+      "Codon 507",
+      "Codon 508",
+      "Protein"
+     ],
+     "evidenceLines": 2
+    },
+    "annotation": "codons 507 to 508 · CTT deleted",
+    "marks": {
+     "collars": {
+      "count": 3,
+      "indices": [
+       1590,
+       1591,
+       1592
+      ]
+     },
+     "span": {
+      "count": 6,
+      "indices": [
+       1590,
+       1591,
+       1592
+      ]
+     },
+     "band": false,
+     "calipers": 2,
+     "marker": true
+    },
+    "selection": "Nothing selected. Click a base in DNA World, a codon in the strip, or a residue in Protein World."
+   },
+   "chapters": {
+    "offered": [
+     "transcript",
+     "variant-codon",
+     "variant-residue",
+     "variant-contact",
+     "pathway-memberships"
+    ],
+    "refused": []
+   },
+   "context": {
+    "structures": [
+     "5UAK",
+     "AF-P13569-F1"
+    ],
+    "features": [
+     "F508del_deletion",
+     "F508del_contact_A508_A"
+    ],
+    "worlds": [
+     {
+      "id": "overview",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "genome",
+      "available": false,
+      "reason": "no scene for this world in the Phase 6 build"
+     },
+     {
+      "id": "dna",
+      "available": true,
+      "reason": "reference sequence of the selected transcript"
+     },
+     {
+      "id": "protein",
+      "available": true,
+      "reason": "experimental structure with a verified residue mapping"
+     },
+     {
+      "id": "pathway",
+      "available": true,
+      "reason": "11 Reactome memberships; opens on RHO GTPases regulate CFTR trafficking, R-HSA-5627083 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    ],
+    "executableActions": [
+     "resolveGene",
+     "resolveVariant",
+     "loadStructure",
+     "enterWorld",
+     "focusCamera",
+     "highlightResidue",
+     "revealEvidence",
+     "cancelActions",
+     "compareVariants",
+     "highlightSequenceRegion"
+    ],
+    "pathways": null,
+    "evidence": [
+     "ensembl:ENSG00000001626",
+     "uniprot:P13569",
+     "clinvar:VCV000007105",
+     "uniprot:VAR_000171",
+     "hgvs:ENST00000003084.11:c.1521_1523del",
+     "pdb:5UAK",
+     "sifts:5UAK-P13569",
+     "atom_site:5UAK-phe508",
+     "contacts:5UAK-A508",
+     "alphafold:AF-P13569-F1"
+    ]
+   },
+   "limits": [
+    {
+     "id": "nonclinical",
+     "text": "01Helix is nonclinical: not a diagnostic, variant classification or medical advice tool. ClinVar's classification is shown as a database record with its review status, not as advice."
+    },
+    {
+     "id": "one-gene",
+     "text": "02The curated sets of this build are CFTR, FAAH2 and HBB; other genes are refused rather than built from uncurated data. This set (CFTR) carries the gene, its MANE Select transcript and sequences, the protein record and its curated variant, one experimental structure (PDB 5UAK) and a predicted model (listed, not loaded)."
+    },
+    {
+     "id": "snapshot",
+     "text": "03The data are a snapshot of public records with a retrieval date and record versions (see Evidence World), not a live feed. Records change between builds. ClinVar's record for F508del is VCV000007105.214 in this build."
+    },
+    {
+     "id": "hbs-crystal",
+     "text": "045UAK (electron microscopy) is a structure of the reference protein: the 3D view shows the position of Phe 508, the residue F508del deletes; the deletion itself is not modelled in 3D, and the change is compared on the sequence only."
+    },
+    {
+     "id": "asymmetric-unit",
+     "text": "05The contacts shown for Phe 508 are computed in the deposited asymmetric unit, within the residue's own chain (asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain)). Symmetry-related molecules were not generated, so contacts across them are not assessed."
+    },
+    {
+     "id": "numbering",
+     "text": "06One numbering applies to P13569: translated (HGVS, UniProt; Met = 1), which the residue numbers of 5UAK follow. Helix still maps through the SIFTS record, never by assuming the two are equal."
+    },
+    {
+     "id": "mapping-coverage",
+     "text": "07Codon k maps to protein position k because the CDS translates exactly to UniProt P13569. SIFTS maps positions 1 to 1480 onto 5UAK chain A; positions outside the deposited coordinates and the stop codon have no structure residue."
+    },
+    {
+     "id": "illustrative-dna",
+     "text": "08The DNA helix is illustrative geometry: the bases, their order and the exons are real, the shape and spacing are not to scale."
+    },
+    {
+     "id": "predicted-model",
+     "text": "09The AlphaFold model of P13569 is listed as a computational prediction but is never used to place the variant and is not loaded."
+    },
+    {
+     "id": "ai",
+     "text": "10A language model, when one is available, only proposes a plan of fixed actions; deterministic code checks every identifier and executes. Its wording is never a scientific claim. Its suggested next questions are shown only when a fixed filter finds them nonclinical and answerable with the curated data. Without a model, a rule-based planner answers a limited set of questions."
+    },
+    {
+     "id": "evidence-world",
+     "text": "11Evidence World v1 is a page layer, not yet a world the planner can enter: the plan vocabulary has no evidence world, and adding one would change the Phase 3 prompt."
+    },
+    {
+     "id": "pathway-world",
+     "text": "12Pathway World v1 shows Reactome membership only: which curated pathways list the protein (a database annotation, class 2) and the participants of the opened one as named entities. It draws no arrows, no reactions and no mechanism, and says nothing about the effect of any variant on a pathway; the pathway it opens on is the rule's choice (fewest participants among non-disease pathways with a diagram), not a statement of importance."
+    },
+    {
+     "id": "browsers",
+     "text": "13Tested in headless Chrome on one Mac. Safari, Firefox and the desktop webview were not run in this phase."
+    }
+   ],
+   "variantCodonChapter": {
+    "snap": {
+     "version": 18,
+     "epoch": 2,
+     "gene": null,
+     "transcript": null,
+     "variant": null,
+     "protein": null,
+     "structure": null,
+     "chain": null,
+     "selectedPosition": {
+      "structureId": "5UAK",
+      "chainId": "A",
+      "residueNumber": 508,
+      "compId": "PHE"
+     },
+     "world": "dna",
+     "chapter": null,
+     "cameraTarget": null,
+     "highlighted": null,
+     "focus": [],
+     "evidence": [],
+     "activeActions": [
+      {
+       "index": 0,
+       "type": "enterWorld",
+       "status": "completed",
+       "feedback": "In the dna world",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 1192.7000000178814
+        },
+        {
+         "status": "validated",
+         "at": 1193.0999999940395
+        },
+        {
+         "status": "preparing",
+         "at": 1193.2000000178814,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "executing",
+         "at": 1193.2000000178814,
+         "detail": "Entering the dna world"
+        },
+        {
+         "status": "completed",
+         "at": 1205.2000000178814,
+         "detail": "In the dna world"
+        }
+       ],
+       "result": {
+        "world": "dna"
+       }
+      }
+     ],
+     "request": {
+      "id": "ch2",
+      "query": "",
+      "source": "journey:variant-codon",
+      "status": "completed",
+      "epoch": 1,
+      "startedAt": 1192.7000000178814,
+      "endedAt": 1205.2000000178814
+     },
+     "knowledgeLevel": "intermediate",
+     "interests": [],
+     "pointerOwner": "r3f",
+     "statusMessage": null,
+     "sequenceSelection": {
+      "transcriptId": "ENST00000003084.11",
+      "index": 1591,
+      "unit": "codon",
+      "codon": 508
+     },
+     "selectionLink": {
+      "codon": 508,
+      "proteinPosition": 508,
+      "structureResidues": [
+       {
+        "structureId": "5UAK",
+        "labelAsymId": "A",
+        "labelSeqId": 508,
+        "authAsymId": "A",
+        "authSeqId": 508,
+        "compId": "PHE"
+       }
+      ],
+      "status": "mapped",
+      "reason": null,
+      "from": "dna"
+     },
+     "transition": null,
+     "mode": "guided",
+     "journey": {
+      "planId": "cftr-variant-journey",
+      "chapterId": "variant-codon",
+      "index": 1,
+      "resumeIndex": null,
+      "chapterIds": [
+       "transcript",
+       "variant-codon",
+       "variant-residue",
+       "variant-contact",
+       "pathway-memberships"
+      ]
+     },
+     "sequenceHighlight": null,
+     "comparison": null
+    },
+    "text": "F508del (p.Phe508del). The variant deletes bases across codons 507 to 508, removing the residue of codon 508 and keeping the reading frame; the reference codons are shown as recorded in the CDS.?,?",
+    "selection": "Selected codonSelected codonTAcDNA1592 / 6070Codingc.1522Codon508 / 1481Exon11 of 27RegionCDSCodon 508 of ENST00000003084.11: c.1522, exon 11, GRCh38 chr7:117559593TTT (Phe) = P13569 p.Phe508; F508del (p.Phe508del): TTT deleted (Phe)Structure: PHE A508 in 5UAK (label = auth, mapping of record)16070"
+   },
+   "shots": [
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-dna-world.jpg",
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card.jpg"
+   ],
+   "pageErrors": []
+  },
+  "cftr-bridge": {
+   "dnaQuestion": {
+    "query": "How does the DNA change for the F508del variant?",
+    "outcome": "executed",
+    "actions": [
+     "enterWorld",
+     "highlightSequenceRegion",
+     "compareVariants",
+     "revealEvidence"
+    ],
+    "wallMs": 88
+   },
+   "sequence": {
+    "shown": true,
+    "kind": "deletion",
+    "variantIds": [
+     "NC_000007.14:g.117559592_117559594del"
+    ],
+    "codon": "508",
+    "reference": [
+     {
+      "codon": 507,
+      "bases": "ATC",
+      "deleted": false,
+      "aa": "Ile",
+      "marked": "C"
+     },
+     {
+      "codon": 508,
+      "bases": "TTT",
+      "deleted": false,
+      "aa": "Phe",
+      "marked": "TT"
+     }
+    ],
+    "variant": [
+     {
+      "codon": 507,
+      "bases": "ATT",
+      "deleted": false,
+      "aa": "Ile",
+      "marked": ""
+     },
+     {
+      "codon": 508,
+      "bases": "",
+      "deleted": true,
+      "aa": "deleted",
+      "marked": ""
+     }
+    ],
+    "facts": [
+     "Coding strand: ENST00000003084.11:c.1521_1523del (CTT deleted, c.1521 to c.1523, codons 507 to 508; Phe508 lost, frame kept)",
+     "Genome, forward strand: NC_000007.14:g.117559592_117559594del (CTT deleted at 117559592 to 117559594); the transcript is on the forward strand, so the coding bases are the same bases",
+     "Protein: ENSP00000003084.6:p.Phe508del, NP_000483.3:p.Phe508del (translated numbering)"
+    ],
+    "note": "Derived · class 3 Evidence class 3: reference-sequence derivation. The variant codons are the record's deletion applied to the curated CDS by deterministic code, and shown only because they reproduce the record (variant-on-transcript, reference-base-matches-record, deletion-reproduces-record, genomic-strand-consistent).",
+    "markedCodons": [
+     507,
+     508
+    ],
+    "mesh": {
+     "indices": [
+      1590,
+      1591,
+      1592
+     ],
+     "instances": 6
+    },
+    "store": {
+     "transcriptId": "ENST00000003084.11",
+     "codonStart": 507,
+     "codonEnd": 508,
+     "cdnaIndices": [
+      1590,
+      1591,
+      1592
+     ],
+     "hgvsRange": "c.1521_1523",
+     "resolvedBy": "variant record NC_000007.14:g.117559592_117559594del: deleted span c.1521_1523, codons 507 to 508",
+     "label": "F508del (p.Phe508del), codons 507 to 508 (CTT deleted)"
+    },
+    "labels": "codon scale: ATC TTT → ATT · Ile Phe → Ile; marked c.1521 to c.1523; T; T; codon 508 · Phe",
+    "offers": [
+     {
+      "text": "See the F508del mutation on the protein.",
+      "source": "bridge"
+     },
+     {
+      "text": "What does the F508del variant residue touch in the structure?",
+      "source": "supported"
+     },
+     {
+      "text": "Show the evidence for the F508del variant.",
+      "source": "supported"
+     },
+     {
+      "text": "Which pathways list CFTR?",
+      "source": "supported"
+     }
+    ]
+   },
+   "bridgeMidPlay": {
+    "bridge": {
+     "requestId": "q2",
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ]
+    },
+    "text": "Bridge · DNA World to Protein WorldFrom codon 507 to 508 to residue 508The same change, read through four records. The view changes representation on the way.01 · DNA World01 · DNA WorldCodon 507 to 508CTT deletedc.1521_1523del: 3 bases deleted across codons 507 to 508; codon 507 ATC becomes ATT (Ile, unchanged); codon 508 TTT (Phe) is deletedDatabase annotation · class 202 · DNA World02 · DNA WorldTranslationp.Phe508delPhe at position 508 is deleted, counted from Met1 (UniProt numbering); the reading frame is keptDerived · class 3Representation changesIllustrative · class 5drawn geometry↓Experimental · class 1deposited coordinates03 · Protein World03 · Protein WorldNumbering508 → 508Met1 is kept in the chain, so UniProt 508 is residue 508 (SIFTS)Database annotation · class 204 · Protein World04 · Protein World5UAK chain APHE 508Residue 508 is PHE in the deposited coordinates: the residue the deletion removes, shown in the reference structureExperimental · class 1Previous stepResumeNext stepReplayContinue to Protein WorldSkip",
+    "label": "Bridge to 5UAK chain A PHE 508",
+    "stage": "true"
+   },
+   "bridge": {
+    "query": "See the F508del mutation on the protein.",
+    "outcome": "executed",
+    "wallMs": 2512,
+    "readback": [
+     "PHE A508"
+    ],
+    "focus": [
+     "PHE A508"
+    ],
+    "highlighted": {
+     "featureId": "F508del_deletion",
+     "residues": [
+      {
+       "structureId": "5UAK",
+       "labelAsymId": "A",
+       "labelSeqId": 508,
+       "authAsymId": "A",
+       "authSeqId": 508,
+       "compId": "PHE"
+      }
+     ]
+    },
+    "record": {
+     "requestId": "q2",
+     "query": "See the F508del mutation on the protein.",
+     "status": "played",
+     "reason": "continued by the visitor",
+     "stations": [
+      "codon",
+      "translation",
+      "numbering",
+      "structure"
+     ],
+     "startedAt": 3232,
+     "endedAt": 3797.7999999821186,
+     "interacted": true,
+     "reduced": false
+    },
+    "caption": [
+     "CTT deletedCodon 507 to 508",
+     "p.Phe508delTranslation",
+     "508 → 508Numbering",
+     "PHE 5085UAK chain A"
+    ]
+   },
+   "shots": [
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-protein-508.jpg"
+   ],
+   "pageErrors": []
+  },
+  "cftr-contacts": {
+   "query": "What does the F508del variant residue touch in the structure?",
+   "outcome": "executed",
+   "wallMs": 1992,
+   "readback": [
+    "ARG A1070",
+    "ARG A560",
+    "ASN A505",
+    "GLU A504",
+    "MET A498",
+    "PHE A1068",
+    "PHE A1074",
+    "PHE A508"
+   ],
+   "focus": [
+    "PHE A508"
+   ],
+   "partners": [
+    "MET A498",
+    "GLU A504",
+    "ASN A505",
+    "ARG A560",
+    "PHE A1068",
+    "ARG A1070",
+    "PHE A1074"
+   ],
+   "pageErrors": []
+  },
+  "cftr-axe": {
+   "dnaWorld": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 189
+     }
+    ],
+    "pageErrors": []
+   },
+   "proteinWorld": {
+    "world": "protein",
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 142
+     }
+    ],
+    "pageErrors": []
+   }
+  },
+  "pathway-hbb": {
+   "openedFirst": {
+    "open": true,
+    "status": "ready",
+    "opened": "R-HSA-9615710",
+    "label": "Database annotation · class 2 · membershipDatabase annotation · class 2 · membership",
+    "chip": "Database annotation · class 2",
+    "name": "Late endosomal microautophagy",
+    "link": "https://reactome.org/content/detail/R-HSA-9615710",
+    "topLevel": "Autophagy",
+    "release": "98",
+    "openingNote": "Opened first by rule: fewest participants among non-disease pathways with a diagram. The rule's choice, not a statement of importance; no membership ranks above the others.",
+    "memberships": [
+     {
+      "id": "R-HSA-983231",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Factors involved in megakaryocyte development and platelet productionR-HSA-983231 · 120 participants"
+     },
+     {
+      "id": "R-HSA-1237044",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Erythrocytes take up carbon dioxide and release oxygenR-HSA-1237044 · 25 participants"
+     },
+     {
+      "id": "R-HSA-1247673",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Erythrocytes take up oxygen and release carbon dioxideR-HSA-1247673 · 18 participants"
+     },
+     {
+      "id": "R-HSA-2168880",
+      "tag": "DIV",
+      "candidate": "false",
+      "opening": "false",
+      "disease": "false",
+      "pressed": null,
+      "text": "Scavenging of heme from plasmaR-HSA-2168880 · participants not kept"
+     },
+     {
+      "id": "R-HSA-6798695",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Neutrophil degranulationR-HSA-6798695 · 20 participants"
+     },
+     {
+      "id": "R-HSA-9613829",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Chaperone Mediated AutophagyR-HSA-9613829 · 28 participants"
+     },
+     {
+      "id": "R-HSA-9615710",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "true",
+      "disease": "false",
+      "pressed": "true",
+      "text": "Late endosomal microautophagyR-HSA-9615710 · 8 participantsopened first by rule: fewest participants among non-disease pathways with a diagram"
+     },
+     {
+      "id": "R-HSA-9707564",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Cytoprotection by HMOX1R-HSA-9707564 · 61 participants"
+     },
+     {
+      "id": "R-HSA-9707616",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Heme signalingR-HSA-9707616 · 64 participants"
+     },
+     {
+      "id": "R-HSA-9927020",
+      "tag": "DIV",
+      "candidate": "false",
+      "opening": "false",
+      "disease": "true",
+      "pressed": null,
+      "text": "Heme assimilationR-HSA-9927020 · participants not keptdisease pathway"
+     }
+    ],
+    "count": "10",
+    "participants": 8,
+    "entities": 8,
+    "groups": [
+     "complexes",
+     "sets",
+     "sequenced",
+     "small"
+    ],
+    "own": [
+     {
+      "text": "HSPA8 bound autophagic substrates [cytosol]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     },
+     {
+      "text": "PL:HSPA8:Autophagy substrate [late endosome membrane]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     },
+     {
+      "text": "PL:HSPA8:Autophagy substrate [late endosome lumen]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     },
+     {
+      "text": "Substrates for chaperone mediated autophagy [cytosol]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     }
+    ],
+    "note": "Database annotation · class 2Membership only: no arrows, no reactions, no mechanism, no variant effect. Reactome 98 lists P68871 in these pathways; this layer says nothing about how, and nothing about what any variant does to a pathway.",
+    "toolbar": "toolbar",
+    "world": "pathway",
+    "mode": "guided",
+    "pathways": {
+     "status": "ready",
+     "error": null,
+     "openedId": "R-HSA-9615710",
+     "loadedAt": 1002.1000000238419,
+     "membershipCount": 10,
+     "candidates": [
+      "R-HSA-983231",
+      "R-HSA-1237044",
+      "R-HSA-1247673",
+      "R-HSA-6798695",
+      "R-HSA-9613829",
+      "R-HSA-9615710",
+      "R-HSA-9707564",
+      "R-HSA-9707616"
+     ],
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "switcher": {
+     "disabled": false,
+     "pressed": "true",
+     "title": ""
+    },
+    "focus": "pathway-world-close",
+    "scrollable": true,
+    "structures": 0,
+    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-opened-first.jpg"
+   },
+   "otherMembership": {
+    "open": true,
+    "status": "ready",
+    "opened": "R-HSA-1247673",
+    "label": "Database annotation · class 2 · membershipDatabase annotation · class 2 · membership",
+    "chip": "Database annotation · class 2",
+    "name": "Erythrocytes take up oxygen and release carbon dioxide",
+    "link": "https://reactome.org/content/detail/R-HSA-1247673",
+    "topLevel": "Transport of small molecules",
+    "release": "98",
+    "openingNote": null,
+    "memberships": [
+     {
+      "id": "R-HSA-983231",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Factors involved in megakaryocyte development and platelet productionR-HSA-983231 · 120 participants"
+     },
+     {
+      "id": "R-HSA-1237044",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Erythrocytes take up carbon dioxide and release oxygenR-HSA-1237044 · 25 participants"
+     },
+     {
+      "id": "R-HSA-1247673",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "true",
+      "text": "Erythrocytes take up oxygen and release carbon dioxideR-HSA-1247673 · 18 participants"
+     },
+     {
+      "id": "R-HSA-2168880",
+      "tag": "DIV",
+      "candidate": "false",
+      "opening": "false",
+      "disease": "false",
+      "pressed": null,
+      "text": "Scavenging of heme from plasmaR-HSA-2168880 · participants not kept"
+     },
+     {
+      "id": "R-HSA-6798695",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Neutrophil degranulationR-HSA-6798695 · 20 participants"
+     },
+     {
+      "id": "R-HSA-9613829",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Chaperone Mediated AutophagyR-HSA-9613829 · 28 participants"
+     },
+     {
+      "id": "R-HSA-9615710",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "true",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Late endosomal microautophagyR-HSA-9615710 · 8 participantsopened first by rule: fewest participants among non-disease pathways with a diagram"
+     },
+     {
+      "id": "R-HSA-9707564",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Cytoprotection by HMOX1R-HSA-9707564 · 61 participants"
+     },
+     {
+      "id": "R-HSA-9707616",
+      "tag": "BUTTON",
+      "candidate": "true",
+      "opening": "false",
+      "disease": "false",
+      "pressed": "false",
+      "text": "Heme signalingR-HSA-9707616 · 64 participants"
+     },
+     {
+      "id": "R-HSA-9927020",
+      "tag": "DIV",
+      "candidate": "false",
+      "opening": "false",
+      "disease": "true",
+      "pressed": null,
+      "text": "Heme assimilationR-HSA-9927020 · participants not keptdisease pathway"
+     }
+    ],
+    "count": "10",
+    "participants": 18,
+    "entities": 18,
+    "groups": [
+     "complexes",
+     "sets",
+     "sequenced",
+     "small"
+    ],
+    "own": [
+     {
+      "text": "Protonated Carbamino DeoxyHbA [cytosol]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     },
+     {
+      "text": "OxyHbA [cytosol]lists HBB",
+      "color": "rgb(63, 216, 232)",
+      "border": "rgb(63, 216, 232)"
+     }
+    ],
+    "note": "Database annotation · class 2Membership only: no arrows, no reactions, no mechanism, no variant effect. Reactome 98 lists P68871 in these pathways; this layer says nothing about how, and nothing about what any variant does to a pathway.",
+    "toolbar": "toolbar",
+    "world": "pathway",
+    "mode": "free",
+    "pathways": {
+     "status": "ready",
+     "error": null,
+     "openedId": "R-HSA-1247673",
+     "loadedAt": 1002.1000000238419,
+     "membershipCount": 10,
+     "candidates": [
+      "R-HSA-983231",
+      "R-HSA-1237044",
+      "R-HSA-1247673",
+      "R-HSA-6798695",
+      "R-HSA-9613829",
+      "R-HSA-9615710",
+      "R-HSA-9707564",
+      "R-HSA-9707616"
+     ],
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "switcher": {
+     "disabled": false,
+     "pressed": "true",
+     "title": ""
+    },
+    "focus": "pathway-membership",
+    "scrollable": true,
+    "structures": 0,
+    "keyboardNext": "R-HSA-1237044",
+    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-other-membership.jpg"
+   },
+   "closed": {
+    "closed": {
+     "world": "dna",
+     "focus": "world-pathway",
+     "pressed": "false"
+    },
+    "esc": {
+     "world": "dna",
+     "opened": "R-HSA-1247673",
+     "requests": null
+    },
+    "pageErrors": []
+   },
+   "chapter": {
+    "text": "Reactome lists HBB's protein P68871 in 10 curated pathways. Pathway World opens on Late endosomal microautophagy (R-HSA-9615710), the rule's choice among the memberships (fewest participants among non-disease pathways with a diagram), and any other membership can be opened. Membership is a database annotation (class 2): it says the protein takes part in a curated pathway, never how, and never that the variant changes the pathway.",
+    "opened": "R-HSA-9615710",
+    "open": true,
+    "world": "pathway",
+    "journey": {
+     "planId": "hbb-variant-journey",
+     "chapterId": "pathway-memberships",
+     "index": 4,
+     "resumeIndex": null,
+     "chapterIds": [
+      "transcript",
+      "variant-codon",
+      "variant-residue",
+      "variant-contact",
+      "pathway-memberships"
+     ]
+    },
+    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
+    "pageErrors": []
+   }
+  },
+  "pathway-cftr": {
+   "open": true,
+   "status": "ready",
+   "opened": "R-HSA-5627083",
+   "label": "Database annotation · class 2 · membershipDatabase annotation · class 2 · membership",
+   "chip": "Database annotation · class 2",
+   "name": "RHO GTPases regulate CFTR trafficking",
+   "link": "https://reactome.org/content/detail/R-HSA-5627083",
+   "topLevel": "Signal Transduction",
+   "release": "98",
+   "openingNote": "Opened first by rule: fewest participants among non-disease pathways with a diagram. The rule's choice, not a statement of importance; no membership ranks above the others.",
+   "memberships": [
+    {
+     "id": "R-HSA-382556",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "ABC-family protein mediated transportR-HSA-382556 · 74 participants"
+    },
+    {
+     "id": "R-HSA-5627083",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "true",
+     "disease": "false",
+     "pressed": "true",
+     "text": "RHO GTPases regulate CFTR traffickingR-HSA-5627083 · 5 participantsopened first by rule: fewest participants among non-disease pathways with a diagram"
+    },
+    {
+     "id": "R-HSA-5678895",
+     "tag": "DIV",
+     "candidate": "false",
+     "opening": "false",
+     "disease": "true",
+     "pressed": null,
+     "text": "Defective CFTR causes cystic fibrosisR-HSA-5678895 · participants not keptdisease pathway"
+    },
+    {
+     "id": "R-HSA-5689880",
+     "tag": "DIV",
+     "candidate": "false",
+     "opening": "false",
+     "disease": "false",
+     "pressed": null,
+     "text": "Ub-specific processing proteasesR-HSA-5689880 · participants not kept"
+    },
+    {
+     "id": "R-HSA-8856825",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "Cargo recognition for clathrin-mediated endocytosisR-HSA-8856825 · 41 participants"
+    },
+    {
+     "id": "R-HSA-8856828",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "Clathrin-mediated endocytosisR-HSA-8856828 · 96 participants"
+    },
+    {
+     "id": "R-HSA-9013406",
+     "tag": "DIV",
+     "candidate": "false",
+     "opening": "false",
+     "disease": "false",
+     "pressed": null,
+     "text": "RHOQ GTPase cycleR-HSA-9013406 · participants not kept"
+    },
+    {
+     "id": "R-HSA-9613829",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "Chaperone Mediated AutophagyR-HSA-9613829 · 28 participants"
+    },
+    {
+     "id": "R-HSA-9615710",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "Late endosomal microautophagyR-HSA-9615710 · 8 participants"
+    },
+    {
+     "id": "R-HSA-9646399",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "AggrephagyR-HSA-9646399 · 28 participants"
+    },
+    {
+     "id": "R-HSA-9925563",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "false",
+     "disease": "false",
+     "pressed": "false",
+     "text": "Developmental Lineage of Pancreatic Ductal CellsR-HSA-9925563 · 5 participantscell lineage path"
+    }
+   ],
+   "count": "11",
+   "participants": 5,
+   "entities": 5,
+   "groups": [
+    "complexes"
+   ],
+   "own": [
+    {
+     "text": "GOPC:CFTR [Golgi-associated vesicle membrane]lists CFTR",
+     "color": "rgb(63, 216, 232)",
+     "border": "rgb(63, 216, 232)"
+    },
+    {
+     "text": "RHOQ:GTP:GOPC:CFTR [Golgi-associated vesicle membrane]lists CFTR",
+     "color": "rgb(63, 216, 232)",
+     "border": "rgb(63, 216, 232)"
+    },
+    {
+     "text": "RHOQ:GTP:GOPC:CFTR [plasma membrane]lists CFTR",
+     "color": "rgb(63, 216, 232)",
+     "border": "rgb(63, 216, 232)"
+    },
+    {
+     "text": "GOPC:CFTR [lysosomal membrane]lists CFTR",
+     "color": "rgb(63, 216, 232)",
+     "border": "rgb(63, 216, 232)"
+    }
+   ],
+   "note": "Database annotation · class 2Membership only: no arrows, no reactions, no mechanism, no variant effect. Reactome 98 lists P13569 in these pathways; this layer says nothing about how, and nothing about what any variant does to a pathway.",
+   "toolbar": "toolbar",
+   "world": "pathway",
+   "mode": "guided",
+   "pathways": {
+    "status": "ready",
+    "error": null,
+    "openedId": "R-HSA-5627083",
+    "loadedAt": 1157.699999988079,
+    "membershipCount": 11,
+    "candidates": [
+     "R-HSA-382556",
+     "R-HSA-5627083",
+     "R-HSA-8856825",
+     "R-HSA-8856828",
+     "R-HSA-9613829",
+     "R-HSA-9615710",
+     "R-HSA-9646399",
+     "R-HSA-9925563"
+    ],
+    "facts": {
+     "membershipCount": 11,
+     "opening": {
+      "stableId": "R-HSA-5627083",
+      "name": "RHO GTPases regulate CFTR trafficking"
+     },
+     "reason": "11 Reactome memberships; opens on RHO GTPases regulate CFTR trafficking, R-HSA-5627083 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+    }
+   },
+   "switcher": {
+    "disabled": false,
+    "pressed": "true",
+    "title": ""
+   },
+   "focus": "pathway-world-close",
+   "scrollable": true,
+   "structures": 0,
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
+   "pageErrors": []
+  },
+  "pathway-faah2": {
+   "open": true,
+   "status": "ready",
+   "opened": "R-HSA-2142753",
+   "label": "Database annotation · class 2 · membershipDatabase annotation · class 2 · membership",
+   "chip": "Database annotation · class 2",
+   "name": "Arachidonate metabolism",
+   "link": "https://reactome.org/content/detail/R-HSA-2142753",
+   "topLevel": "Metabolism",
+   "release": "98",
+   "openingNote": "Opened first by rule: fewest participants among non-disease pathways with a diagram. The rule's choice, not a statement of importance; no membership ranks above the others.",
+   "memberships": [
+    {
+     "id": "R-HSA-2142753",
+     "tag": "BUTTON",
+     "candidate": "true",
+     "opening": "true",
+     "disease": "false",
+     "pressed": "true",
+     "text": "Arachidonate metabolismR-HSA-2142753 · 174 participantsopened first by rule: fewest participants among non-disease pathways with a diagram"
+    }
+   ],
+   "count": "01",
+   "participants": 174,
+   "entities": 174,
+   "groups": [
+    "complexes",
+    "sets",
+    "sequenced",
+    "small",
+    "ChemicalDrug"
+   ],
+   "own": [
+    {
+     "text": "FAAH2 [lipid droplet]lists FAAH2",
+     "color": "rgb(63, 216, 232)",
+     "border": "rgb(63, 216, 232)"
+    }
+   ],
+   "note": "Database annotation · class 2Membership only: no arrows, no reactions, no mechanism, no variant effect. Reactome 98 lists Q6GMR7 in these pathways; this layer says nothing about how, and nothing about what any variant does to a pathway.",
+   "toolbar": "toolbar",
+   "world": "pathway",
+   "mode": "guided",
+   "pathways": {
+    "status": "ready",
+    "error": null,
+    "openedId": "R-HSA-2142753",
+    "loadedAt": 1003.0999999940395,
+    "membershipCount": 1,
+    "candidates": [
+     "R-HSA-2142753"
+    ],
+    "facts": {
+     "membershipCount": 1,
+     "opening": {
+      "stableId": "R-HSA-2142753",
+      "name": "Arachidonate metabolism"
+     },
+     "reason": "1 Reactome membership; opens on Arachidonate metabolism, R-HSA-2142753 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+    }
+   },
+   "switcher": {
+    "disabled": false,
+    "pressed": "true",
+    "title": ""
+   },
+   "focus": "pathway-world-close",
+   "scrollable": true,
+   "structures": 0,
+   "before": {
+    "protein": true,
+    "pathway": false,
+    "chapters": [
+     "transcript",
+     "first-codon",
+     "pathway-memberships"
+    ],
+    "note": null
+   },
+   "lastVisible": true,
+   "chapter": {
+    "world": "pathway",
+    "journey": {
+     "planId": "faah2-overview-journey",
+     "chapterId": "pathway-memberships",
+     "index": 2,
+     "resumeIndex": null,
+     "chapterIds": [
+      "transcript",
+      "first-codon",
+      "pathway-memberships"
+     ]
+    },
+    "text": "Reactome lists FAAH2's protein Q6GMR7 in 1 curated pathway. Pathway World opens on Arachidonate metabolism (R-HSA-2142753), the rule's choice among the memberships (fewest participants among non-disease pathways with a diagram), and any other membership can be opened. Membership is a database annotation (class 2): it says the protein takes part in a curated pathway, never how, and never that the variant changes the pathway."
+   },
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-faah2.jpg",
+   "pageErrors": []
+  },
+  "pathway-question": {
+   "query": "Which pathways list HBB?",
+   "outcome": "executed",
+   "source": "deterministic",
+   "actions": [
+    {
+     "type": "enterWorld",
+     "world": "pathway"
+    },
+    {
+     "type": "revealEvidence",
+     "evidenceId": "reactome:P68871"
+    }
+   ],
+   "citations": [
+    "reactome:P68871"
+   ],
+   "wallMs": 69,
+   "explanation": [
+    {
+     "kind": "record",
+     "text": "Reactome 98 lists P68871 in 10 human pathway(s); the participants of 8 candidate membership(s) are kept; the world opens on Late endosomal microautophagy (R-HSA-9615710), the rule's choice. (evidence class 2: Database annotation/submission with review status.)1",
+     "evidence": "reactome:P68871",
+     "url": "https://reactome.org/ContentService/data/database/version"
+    },
+    {
+     "kind": "record",
+     "text": "Memberships (evidence class 2, database annotation; membership only, never mechanism or a variant effect): Factors involved in megakaryocyte development and platelet production (R-HSA-983231); Erythrocytes take up carbon dioxide and release oxygen (R-HSA-1237044); Erythrocytes take up oxygen and release carbon dioxide (R-HSA-1247673); Scavenging of heme from plasma (R-HSA-2168880); Neutrophil degranulation (R-HSA-6798695); Chaperone Mediated Autophagy (R-HSA-9613829); Late endosomal microautophagy (R-HSA-9615710); Cytoprotection by HMOX1 (R-HSA-9707564); Heme signaling (R-HSA-9707616); Heme assimilation (R-HSA-9927020, a disease pathway). Pathway World opens on Late endosomal microautophagy (R-HSA-9615710), the rule's choice, not a statement of importance.1",
+     "evidence": "reactome:P68871",
+     "url": "https://reactome.org/ContentService/data/database/version"
+    }
+   ],
+   "claims": {
+    "claims": 2,
+    "plannerSentences": 0,
+    "cards": 1,
+    "unsourced": [],
+    "badCards": []
+   },
+   "world": "pathway",
+   "opened": "R-HSA-9615710",
+   "supportedChips": [],
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-question.jpg",
+   "pageErrors": []
+  },
+  "pathway-axe": {
+   "hbb": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 208
+     }
+    ],
+    "pageErrors": []
+   },
+   "faah2": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 170
+     }
+    ],
+    "pageErrors": []
+   }
+  },
+  "hbb-unchanged": {
+   "dataset": {
+    "id": "hbb",
+    "symbol": "HBB",
+    "datasets": [
+     "cftr",
+     "faah2",
+     "hbb"
+    ],
+    "kinds": [
+     "gene",
+     "transcript",
+     "sequence-set",
+     "protein",
+     "variant",
+     "clinvar-record",
+     "structure",
+     "mmcif",
+     "residue-mapping",
+     "residue-mapping-table",
+     "residue-contacts",
+     "predicted-model",
+     "pathway-memberships",
+     "capabilities",
+     "questions"
+    ]
+   },
+   "codonTape": 148,
+   "protein": {
+    "disabled": false,
+    "title": ""
+   },
+   "chapters": {
+    "offered": [
+     "transcript",
+     "variant-codon",
+     "variant-residue",
+     "variant-contact",
+     "pathway-memberships"
+    ],
+    "refused": []
+   },
+   "limits": [
+    "nonclinical",
+    "one-gene",
+    "snapshot",
+    "hbs-crystal",
+    "asymmetric-unit",
+    "numbering",
+    "mapping-coverage",
+    "illustrative-dna",
+    "predicted-model",
+    "ai",
+    "evidence-world",
+    "pathway-world",
+    "browsers"
+   ],
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}
