@@ -1172,25 +1172,25 @@
         "check": "T49-association-target",
         "result": "pass",
         "detail": "response target ENSG00000012048 BRCA1; specification ENSG00000012048; gene record ENSG00000012048 BRCA1",
-        "at": "2026-11-03T23:08:12Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T49-association-rows",
         "result": "pass",
         "detail": "25 row(s) kept of 1324 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top breast cancer (MONDO_0007254) 0.8436508158150241",
-        "at": "2026-11-03T23:08:12Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T50-association-order-and-exclusion",
         "result": "pass",
         "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: cancer_biomarkers, cancer_gene_census, clingen, europepmc, eva, eva_somatic, gene2phenotype, gene_burden, genomics_england, impc, intogen, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: cancer_gene_census, europepmc; no excluded id remains in the kept scores",
-        "at": "2026-11-03T23:08:12Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T51-association-versions",
         "result": "pass",
         "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
-        "at": "2026-11-03T23:08:12Z"
+        "at": "2026-11-03T23:32:05Z"
       }
     ],
     "evidenceCategory": 2
