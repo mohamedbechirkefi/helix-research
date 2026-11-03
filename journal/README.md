@@ -55,3 +55,4 @@ The entries dated 2026-11-01 for Phases 1 and 2 were written on the same day fro
 | HX-P7-2026-11-02-routing-dh010 | `2026-11-02-routing-dh010.md` | D-H010 (molecule names and chain as protein cues; benchmark, held-out sets, 16 new routing items, question set) |
 | HX-P7-2026-11-02-model-e2e-dh010 | `2026-11-02-model-e2e-dh010.md` | D-H010 (model-backed and rule-based E2E suites on the D-H010 build; the welcome gene choice) |
 | HX-P7-2026-11-02-routing-dh011 | `2026-11-02-routing-dh011.md` | D-H011 (prompt v6: the model itself routes the molecule names; five drafts on development items, 21 new held-out items run once, benchmark and question set against v5) |
+| HX-P7-2026-11-03-shipped-polish-frame-timing | 2026-11-03-shipped-polish-frame-timing.md | Shipped DNA World with the Instrument kit: frame timings at dpr 1 and 2 and low power, suites green on the polished build |

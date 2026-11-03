@@ -1,0 +1,339 @@
+{
+ "date": "2026-11-03T01:41:37.966Z",
+ "tag": "polish-final",
+ "base": "http://localhost:5190/",
+ "repeats": 2,
+ "query": "&power=low",
+ "dpr": 2,
+ "chrome": "Chrome/156.0.8078.80",
+ "pages": [
+  {
+   "vsync": "on",
+   "repeat": 1,
+   "moves": {
+    "tour": {
+     "wallMs": 12018,
+     "r3fFrames": 721,
+     "frame": {
+      "n": 720,
+      "median": 16.7,
+      "p95": 17.7,
+      "max": 19,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 721,
+      "median": 0.8,
+      "p95": 1.7,
+      "max": 3.2
+     },
+     "fxMid": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 1
+    },
+    "codonFocus": {
+     "wallMs": 1556,
+     "r3fFrames": 92,
+     "frame": {
+      "n": 93,
+      "median": 16.7,
+      "p95": 17.6,
+      "max": 17.9,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 93,
+      "median": 1.2,
+      "p95": 1.8,
+      "max": 2.3
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 481,
+      "median": 16.6,
+      "p95": 19.4,
+      "max": 35.3,
+      "over33": 1,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 1,
+      "p95": 1.4,
+      "max": 2.7
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 293,
+     "frame": {
+      "n": 293,
+      "median": 16.7,
+      "p95": 17.6,
+      "max": 20.2,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 293,
+      "median": 1.1,
+      "p95": 1.6,
+      "max": 3.5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1860,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 714.3,
+      "frames": 44,
+      "maxFrameMs": 18.5
+     }
+    },
+    "toDna": {
+     "wallMs": 1390,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 717.1,
+      "frames": 43,
+      "maxFrameMs": 34.1
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1352,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 712,
+      "frames": 43,
+      "maxFrameMs": 19.5
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "GLN B39"
+   ]
+  },
+  {
+   "vsync": "on",
+   "repeat": 2,
+   "moves": {
+    "tour": {
+     "wallMs": 12014,
+     "r3fFrames": 721,
+     "frame": {
+      "n": 720,
+      "median": 16.7,
+      "p95": 17.6,
+      "max": 19.8,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 721,
+      "median": 0.8,
+      "p95": 1.9,
+      "max": 4.1
+     },
+     "fxMid": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 1
+    },
+    "codonFocus": {
+     "wallMs": 1583,
+     "r3fFrames": 92,
+     "frame": {
+      "n": 92,
+      "median": 16.7,
+      "p95": 17.7,
+      "max": 63.3,
+      "over33": 1,
+      "over50": 1,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 93,
+      "median": 0.4,
+      "p95": 1.9,
+      "max": 2.4
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    },
+    "drag4s": {
+     "r3fFrames": 240,
+     "frame": {
+      "n": 479,
+      "median": 16.6,
+      "p95": 19.3,
+      "max": 20.9,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 240,
+      "median": 1,
+      "p95": 1.6,
+      "max": 2.5
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    },
+    "wheel2s": {
+     "r3fFrames": 293,
+     "frame": {
+      "n": 293,
+      "median": 16.7,
+      "p95": 17.6,
+      "max": 18.4,
+      "over33": 0,
+      "over50": 0,
+      "capped": true
+     },
+     "renderMs": {
+      "n": 293,
+      "median": 1.1,
+      "p95": 1.7,
+      "max": 3.8
+     },
+     "fxAfter": {
+      "dof": 0,
+      "fxDpr": null,
+      "effects": false,
+      "dpr": 2
+     },
+     "idleFramesAfter": 0
+    }
+   },
+   "pageErrors": [],
+   "idleFramesAtRest": 0,
+   "fxAtRest": {
+    "dof": 0,
+    "fxDpr": null,
+    "effects": false,
+    "dpr": 2
+   },
+   "transitions": {
+    "toProteinCold": {
+     "wallMs": 1846,
+     "fade": {
+      "id": "t1",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 716,
+      "frames": 44,
+      "maxFrameMs": 17.9
+     }
+    },
+    "toDna": {
+     "wallMs": 1404,
+     "fade": {
+      "id": "t2",
+      "from": "protein",
+      "to": "dna",
+      "status": "completed",
+      "ms": 712.1,
+      "frames": 43,
+      "maxFrameMs": 24.7
+     }
+    },
+    "toProteinWarm": {
+     "wallMs": 1350,
+     "fade": {
+      "id": "t3",
+      "from": "dna",
+      "to": "protein",
+      "status": "completed",
+      "ms": 712.1,
+      "frames": 43,
+      "maxFrameMs": 20.2
+     }
+    }
+   },
+   "idleFramesInProteinWorld": 0,
+   "readback": [
+    "GLN B39"
+   ]
+  }
+ ]
+}
