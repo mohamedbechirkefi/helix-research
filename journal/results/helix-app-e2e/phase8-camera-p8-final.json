@@ -1,0 +1,353 @@
+{
+ "date": "2026-11-03T13:42:52.482Z",
+ "tag": "p8-final",
+ "base": "http://localhost:5190/",
+ "chrome": "Chrome/156.0.8078.80",
+ "scenarios": {
+  "interrupt-pointer": {
+   "midFlight": {
+    "distance": 29.82095143957943,
+    "centre": -23.63795592023668,
+    "goalCentre": -49.470000000000006
+   },
+   "takenOver": {
+    "flying": false,
+    "moving": false,
+    "distance": 29.53641497655477,
+    "centre": -24.877177716670065,
+    "goalCentre": -24.877177716670065,
+    "poseJump": 1.55
+   },
+   "afterDrag": {
+    "stopMs": 61,
+    "distance": 29.53641497655477,
+    "centre": -25.718605343319236,
+    "moving": false,
+    "flying": false,
+    "centreShift": -0.8414,
+    "expectedShift": -0.8495,
+    "idleFramesAfter": 0,
+    "selection": 40
+   },
+   "planAfter": {
+    "scale": "codon",
+    "centre": -83.13000000000001,
+    "expected": -83.13000000000001,
+    "distance": 10.2,
+    "idleFramesAfter": 0
+   },
+   "pageErrors": []
+  },
+  "interrupt-wheel": {
+   "midFlight": {
+    "distance": 29.819688432291937,
+    "centre": -23.643160557058316,
+    "goalCentre": -49.470000000000006,
+    "goalDistance": 10.2
+   },
+   "takenOver": {
+    "goalDistance": 32.472509794330634,
+    "expectedGoal": 32.495,
+    "goalCentre": -33.63882611782331,
+    "centre": -33.63882611782331,
+    "flying": true,
+    "goalScale": "overview",
+    "frameSteps": [
+     1.376,
+     1.608,
+     1.764,
+     2.228,
+     2.201,
+     2.167,
+     2.349,
+     0.019,
+     1.37,
+     1.772,
+     0.935,
+     1.159,
+     0.98,
+     0.873,
+     0.734,
+     0.585,
+     0.473,
+     0.336,
+     0.265,
+     0.167,
+     0.084,
+     0.048,
+     0.014,
+     0.001
+    ],
+    "wheelAtFrame": 8,
+    "maxStepBefore": 2.349,
+    "maxStepAfter": 1.772
+   },
+   "after": {
+    "settleMs": 264,
+    "distance": 32.472509794330634,
+    "centre": -33.63882611782331,
+    "scale": "overview",
+    "idleFramesAfter": 0,
+    "labelsVisible": true,
+    "labelScale": "overview"
+   },
+   "pageErrors": []
+  },
+  "interrupt-escape": {
+   "midFlight": {
+    "distance": 29.80177173020244,
+    "centre": -23.716224608344422,
+    "goalCentre": -49.470000000000006
+   },
+   "atEscape": {
+    "stopMs": 7,
+    "flying": false,
+    "moving": false,
+    "distance": 29.80177173020244,
+    "goalDistance": 29.80177173020244,
+    "centre": -23.716224608344422,
+    "goalCentre": -23.716224608344422,
+    "framesSinceEscape": 1
+   },
+   "after": {
+    "poseDrift": 0,
+    "moving": false,
+    "idleFramesAfter": 0,
+    "scale": "overview",
+    "labelsVisible": true,
+    "selection": 40
+   },
+   "planAfter": {
+    "scale": "codon",
+    "centre": -83.13000000000001,
+    "expected": -83.13000000000001,
+    "distance": 10.2,
+    "selection": 7
+   },
+   "pageErrors": []
+  },
+  "scales": {
+   "visited": [
+    "overview",
+    "codon",
+    "base-pair"
+   ],
+   "overview": {
+    "labels": [
+     "codon 7",
+     "codon 10",
+     "codon 20"
+    ],
+    "plates": 5,
+    "overlaps": [],
+    "ariaHidden": "true",
+    "dataScale": "overview",
+    "visible": "true",
+    "opacity": "1",
+    "transition": "0.12s",
+    "panelText": "In view overview scale: codon 7; codon 10; codon 20",
+    "panelScale": "overview",
+    "scale": {
+     "name": "overview",
+     "progress": 0.45364492565600356,
+     "distance": 30,
+     "goal": "overview",
+     "current": 30,
+     "flying": false,
+     "moving": false
+    }
+   },
+   "end": {
+    "scale": {
+     "name": "base-pair",
+     "progress": 0,
+     "distance": 2.4,
+     "goal": "base-pair",
+     "current": 2,
+     "flying": false,
+     "moving": false
+    },
+    "labels": [
+     "A · T",
+     "c.20 · cDNA 70 · codon 7"
+    ],
+    "overlaps": [],
+    "ariaHidden": "true",
+    "panelText": "In view base pair scale: A · T; c.20 · cDNA 70 · codon 7",
+    "panelScale": "base-pair",
+    "dataScale": "base-pair",
+    "plates": 5
+   },
+   "codonScale": {
+    "scale": "codon",
+    "distance": 5.43656365691809,
+    "labels": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "overlaps": [],
+    "lod": {
+     "distance": 5.436563656918093,
+     "hairlines": true,
+     "calipers": true,
+     "caliperTicks": true,
+     "hoverRings": true,
+     "selectionRings": true,
+     "cdsInlay": true,
+     "sleeves": true,
+     "knurlDetail": true,
+     "marker": {
+      "visible": false,
+      "radius": 1.7
+     }
+    }
+   },
+   "pageErrors": []
+  },
+  "labels-during-move": {
+   "before": {
+    "layouts": 1,
+    "visible": true
+   },
+   "during": [
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    },
+    {
+     "visible": false,
+     "layouts": 1,
+     "attr": "false",
+     "moving": true
+    }
+   ],
+   "after": {
+    "layouts": 2,
+    "visible": true,
+    "scale": "codon",
+    "texts": [
+     "codon 40 · Gln",
+     "C",
+     "A",
+     "G"
+    ]
+   },
+   "pageErrors": []
+  },
+  "reduced-motion": {
+   "codonClick": {
+    "frames": 1,
+    "scale": "codon",
+    "distance": 10.2,
+    "flying": false
+   },
+   "wheel": {
+    "frames": 1,
+    "distance": 12.458308133233732,
+    "expected": 12.4583,
+    "moving": false
+   },
+   "labels": {
+    "transition": "0s",
+    "visible": "true",
+    "dataScale": "codon",
+    "held": false,
+    "motion": "reduced"
+   },
+   "pageErrors": []
+  },
+  "journey": {
+   "chapter1": {
+    "scale": "transcript",
+    "distance": 110,
+    "labels": [
+     "CDS start · c.1",
+     "exon 1 · 142 nt",
+     "exon 2 · 223 nt"
+    ],
+    "lod": {
+     "distance": 109.99999999999999,
+     "hairlines": false,
+     "calipers": false,
+     "caliperTicks": false,
+     "hoverRings": false,
+     "selectionRings": false,
+     "cdsInlay": false,
+     "sleeves": false,
+     "knurlDetail": false,
+     "marker": {
+      "visible": true,
+      "radius": 2.000223910415099
+     }
+    }
+   },
+   "chapter2": {
+    "scale": "codon",
+    "distance": 10.2,
+    "labels": [
+     "codon 7 · Glu",
+     "G",
+     "A",
+     "G"
+    ],
+    "selection": 7
+   },
+   "dolly": {
+    "goal": "base-pair",
+    "goalDistance": 2.4,
+    "labelsVisible": false,
+    "world": "protein"
+   },
+   "back": {
+    "scale": "codon",
+    "distance": 10.2,
+    "centre": -83.13000000000001,
+    "ch2Centre": -83.13000000000001,
+    "labelsVisible": true,
+    "labelScale": "codon"
+   },
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}

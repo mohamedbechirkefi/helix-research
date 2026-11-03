@@ -1,0 +1,980 @@
+{
+ "date": "2026-11-03T13:43:29.438Z",
+ "tag": "p8-final",
+ "base": "http://localhost:5190/",
+ "chrome": "Chrome/156.0.8078.80",
+ "scenarios": {
+  "opt-in": {
+   "toggle": {
+    "pressed": "false",
+    "name": "Sound",
+    "tag": "BUTTON",
+    "type": "button",
+    "disabled": false
+   },
+   "start": {
+    "enabled": false,
+    "preference": null,
+    "storage": "ok",
+    "context": "none",
+    "contexts": 0,
+    "created": 0,
+    "cues": [],
+    "suppressed": [],
+    "toggles": [],
+    "minIntervalMs": 120
+   },
+   "afterAll": {
+    "enabled": false,
+    "preference": null,
+    "storage": "ok",
+    "context": "none",
+    "contexts": 0,
+    "created": 0,
+    "cues": [],
+    "suppressed": [
+     {
+      "cue": "tour-start",
+      "at": 875.7999999821186,
+      "reason": "off"
+     },
+     {
+      "cue": "sweep",
+      "at": 880.1999999880791,
+      "reason": "off"
+     },
+     {
+      "cue": "tick",
+      "at": 2849.899999976158,
+      "reason": "off"
+     },
+     {
+      "cue": "world-swell",
+      "at": 4568.5,
+      "reason": "off"
+     }
+    ],
+    "toggles": [],
+    "minIntervalMs": 120
+   },
+   "audioContextsOnPage": 0
+  },
+  "cues": {
+   "afterToggle": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 990.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 986.7999999821186,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "toggle": {
+    "pressed": "true",
+    "name": "Sound",
+    "tag": "BUTTON",
+    "type": "button",
+    "disabled": false
+   },
+   "scaleBefore": "overview",
+   "cuesMs": 52,
+   "afterCodon": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 990.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1234.5999999940395,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1250.199999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 986.7999999821186,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "scaleAfter": "codon",
+   "afterRepeat": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 990.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1234.5999999940395,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1250.199999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 986.7999999821186,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "afterBurst": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 990.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1234.5999999940395,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1250.199999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     },
+     {
+      "cue": "tick",
+      "at": 2959,
+      "durationMs": 180,
+      "params": {}
+     }
+    ],
+    "suppressed": [
+     {
+      "cue": "tick",
+      "at": 2959.0999999940395,
+      "reason": "rate"
+     }
+    ],
+    "toggles": [
+     {
+      "at": 986.7999999821186,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   }
+  },
+  "off": {
+   "on": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 853.6999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1083.7999999821186,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1098.699999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 851.7999999821186,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "justOff": {
+    "enabled": false,
+    "preference": "off",
+    "storage": "ok",
+    "context": "closed",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 853.6999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1083.7999999821186,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1098.699999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 851.7999999821186,
+      "enabled": true,
+      "context": "running"
+     },
+     {
+      "at": 2482.5,
+      "enabled": false,
+      "context": "suspended"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "off": {
+    "enabled": false,
+    "preference": "off",
+    "storage": "ok",
+    "context": "closed",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 853.6999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1083.7999999821186,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1098.699999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 851.7999999821186,
+      "enabled": true,
+      "context": "running"
+     },
+     {
+      "at": 2482.5,
+      "enabled": false,
+      "context": "suspended"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "toggleOff": {
+    "pressed": "false",
+    "name": "Sound",
+    "tag": "BUTTON",
+    "type": "button",
+    "disabled": false
+   },
+   "afterOffClick": {
+    "enabled": false,
+    "preference": "off",
+    "storage": "ok",
+    "context": "closed",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 853.6999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1083.7999999821186,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1098.699999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [
+     {
+      "cue": "tick",
+      "at": 2819.9000000059605,
+      "reason": "off"
+     }
+    ],
+    "toggles": [
+     {
+      "at": 851.7999999821186,
+      "enabled": true,
+      "context": "running"
+     },
+     {
+      "at": 2482.5,
+      "enabled": false,
+      "context": "suspended"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "stored": "off",
+   "onAgain": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 2,
+    "created": 2,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 853.6999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1083.7999999821186,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1098.699999988079,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     },
+     {
+      "cue": "tick",
+      "at": 4237,
+      "durationMs": 180,
+      "params": {}
+     }
+    ],
+    "suppressed": [
+     {
+      "cue": "tick",
+      "at": 2819.9000000059605,
+      "reason": "off"
+     }
+    ],
+    "toggles": [
+     {
+      "at": 851.7999999821186,
+      "enabled": true,
+      "context": "running"
+     },
+     {
+      "at": 2482.5,
+      "enabled": false,
+      "context": "suspended"
+     },
+     {
+      "at": 4235.9000000059605,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "reloadToggle": {
+    "pressed": "true",
+    "name": "Sound",
+    "tag": "BUTTON",
+    "type": "button",
+    "disabled": false
+   },
+   "reload": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "none",
+    "contexts": 0,
+    "created": 0,
+    "cues": [],
+    "suppressed": [],
+    "toggles": [],
+    "minIntervalMs": 120
+   },
+   "reloadActivated": true,
+   "reloadAfterClick": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 693,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 704.1999999880791,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [],
+    "minIntervalMs": 120
+   }
+  },
+  "reduced": {
+   "afterToggle": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 854.1999999880791,
+      "durationMs": 180,
+      "params": {}
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 852.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "afterCodon": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 854.1999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1088.0999999940395,
+      "durationMs": 180,
+      "params": {}
+     }
+    ],
+    "suppressed": [
+     {
+      "cue": "tick",
+      "at": 1102.199999988079,
+      "reason": "rate",
+      "replaces": "sweep"
+     }
+    ],
+    "toggles": [
+     {
+      "at": 852.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   },
+   "afterChapter": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 854.1999999880791,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1088.0999999940395,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1739.7999999821186,
+      "durationMs": 180,
+      "params": {
+       "from": "codon",
+       "to": "transcript"
+      },
+      "replaces": "sweep"
+     }
+    ],
+    "suppressed": [
+     {
+      "cue": "tick",
+      "at": 1102.199999988079,
+      "reason": "rate",
+      "replaces": "sweep"
+     }
+    ],
+    "toggles": [
+     {
+      "at": 852.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "chapterScale": {
+    "name": "transcript",
+    "progress": 0.5207636811406554,
+    "distance": 110,
+    "goal": "transcript",
+    "current": 110,
+    "flying": false,
+    "moving": false
+   }
+  },
+  "world": {
+   "before": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 852,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1080.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1091.5999999940395,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 850.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "afterProtein": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 852,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1080.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1091.5999999940395,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     },
+     {
+      "cue": "world-swell",
+      "at": 2795.5,
+      "durationMs": 700,
+      "params": {
+       "world": "protein"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 850.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "afterDna": {
+    "enabled": true,
+    "preference": "on",
+    "storage": "ok",
+    "context": "running",
+    "contexts": 1,
+    "created": 1,
+    "cues": [
+     {
+      "cue": "tick",
+      "at": 852,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "tick",
+      "at": 1080.9000000059605,
+      "durationMs": 180,
+      "params": {}
+     },
+     {
+      "cue": "sweep",
+      "at": 1091.5999999940395,
+      "durationMs": 300,
+      "params": {
+       "from": "overview",
+       "to": "codon"
+      }
+     },
+     {
+      "cue": "world-swell",
+      "at": 2795.5,
+      "durationMs": 700,
+      "params": {
+       "world": "protein"
+      }
+     },
+     {
+      "cue": "world-swell",
+      "at": 4719.5999999940395,
+      "durationMs": 700,
+      "params": {
+       "world": "dna"
+      }
+     }
+    ],
+    "suppressed": [],
+    "toggles": [
+     {
+      "at": 850.1999999880791,
+      "enabled": true,
+      "context": "running"
+     }
+    ],
+    "minIntervalMs": 120
+   },
+   "transitions": [
+    {
+     "id": "t1",
+     "from": "dna",
+     "to": "protein",
+     "status": "completed",
+     "ms": 707.3
+    },
+    {
+     "id": "t2",
+     "from": "protein",
+     "to": "dna",
+     "status": "completed",
+     "ms": 712.5
+    }
+   ],
+   "scale": {
+    "name": "codon",
+    "progress": 0.5728719061713007,
+    "distance": 10.2,
+    "goal": "codon",
+    "current": 10.2,
+    "flying": false,
+    "moving": false
+   }
+  },
+  "a11y": {
+   "stops": [
+    {
+     "testid": "sound",
+     "text": "SoundSound",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    },
+    {
+     "testid": "world-dna",
+     "text": "DNA",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    },
+    {
+     "testid": "world-protein",
+     "text": "Protein",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    },
+    {
+     "testid": "world-evidence",
+     "text": "Evidence",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    },
+    {
+     "testid": null,
+     "text": "Replay",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    },
+    {
+     "testid": null,
+     "text": "ATG 1",
+     "outline": "solid",
+     "outlineWidth": "1px"
+    }
+   ],
+   "afterSpace": {
+    "toggle": {
+     "pressed": "true",
+     "name": "Sound",
+     "tag": "BUTTON",
+     "type": "button",
+     "disabled": false
+    },
+    "sound": {
+     "enabled": true,
+     "preference": "on",
+     "storage": "ok",
+     "context": "running",
+     "contexts": 1,
+     "created": 1,
+     "cues": [
+      {
+       "cue": "tick",
+       "at": 865.1999999880791,
+       "durationMs": 180,
+       "params": {}
+      }
+     ],
+     "suppressed": [],
+     "toggles": [
+      {
+       "at": 863.4000000059605,
+       "enabled": true,
+       "context": "running"
+      }
+     ],
+     "minIntervalMs": 120
+    }
+   },
+   "afterSpace2": {
+    "toggle": {
+     "pressed": "false",
+     "name": "Sound",
+     "tag": "BUTTON",
+     "type": "button",
+     "disabled": false
+    },
+    "sound": {
+     "enabled": false,
+     "preference": "off",
+     "storage": "ok",
+     "context": "closed",
+     "contexts": 1,
+     "created": 1,
+     "cues": [
+      {
+       "cue": "tick",
+       "at": 865.1999999880791,
+       "durationMs": 180,
+       "params": {}
+      }
+     ],
+     "suppressed": [],
+     "toggles": [
+      {
+       "at": 863.4000000059605,
+       "enabled": true,
+       "context": "running"
+      },
+      {
+       "at": 1078.9000000059605,
+       "enabled": false,
+       "context": "suspended"
+      }
+     ],
+     "minIntervalMs": 120
+    }
+   },
+   "shots": {
+    "off": "toggle-off.png",
+    "on": "toggle-on.png",
+    "frame": "dna-world-sound-on.jpg"
+   },
+   "boxes": {
+    "sound": {
+     "x": 312,
+     "y": 16,
+     "w": 73,
+     "h": 30
+    },
+    "seg": {
+     "x": 393,
+     "y": 16,
+     "w": 213,
+     "h": 30
+    },
+    "tour": {
+     "x": 32,
+     "y": 72,
+     "w": 403,
+     "h": 40
+    },
+    "plate": {
+     "x": 591,
+     "y": 16,
+     "w": 393,
+     "h": 78
+    }
+   }
+  }
+ },
+ "failures": []
+}
