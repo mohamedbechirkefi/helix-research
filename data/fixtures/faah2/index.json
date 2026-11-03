@@ -1,0 +1,50 @@
+{
+  "description": "Offline fixtures for the faah2 set, recorded by scripts/data-preparation/build-gene.ts --gene faah2 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed under Q-H-LIC-1; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/info_data.json"
+    },
+    "ensemblAssembly": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/info_assembly_homo_sapiens.json"
+    },
+    "geneLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json"
+    },
+    "transcriptLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/lookup_id_ENST00000374900_expand_1_utr_1_mane_1.json"
+    },
+    "cds": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/sequence_id_ENST00000374900_type_cds.fa"
+    },
+    "cdna": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/sequence_id_ENST00000374900_type_cdna.fa"
+    },
+    "ensemblProtein": {
+      "source": "ensembl",
+      "path": "data/fixtures/faah2/ensembl/sequence_id_ENSP00000364035.fa"
+    },
+    "uniprot": {
+      "source": "uniprot",
+      "path": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json"
+    },
+    "hgnc": {
+      "source": "hgnc",
+      "path": "data/fixtures/faah2/hgnc/fetch_symbol_FAAH2.json"
+    },
+    "alphafoldPrediction": {
+      "source": "alphafold",
+      "path": "data/fixtures/faah2/alphafold/api_prediction_Q6GMR7.json"
+    },
+    "alphafoldModel": {
+      "source": "alphafold",
+      "path": "data/fixtures/faah2/alphafold/files_AF-Q6GMR7-F1-model_v6.cif"
+    }
+  },
+  "extra": {}
+}

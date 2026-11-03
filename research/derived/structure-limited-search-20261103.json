@@ -1,0 +1,400 @@
+{
+  "purpose": "Phase 9 P9.2.4: the structure-limited gene, chosen by a seeded walk over HGNC ids (docs/phase-9-generalisation.md section 4, last row). The first candidate in sample order that passes is the choice; it was not chosen for being interesting.",
+  "script": "scripts/data-preparation/find-structure-limited.ts",
+  "startedAt": "2026-11-03T17:34:21Z",
+  "finishedAt": "2026-11-03T17:34:33Z",
+  "gitCommit": "627b6996cf7deede6f0494ff3d8b71172fbff7ca",
+  "gitDirty": true,
+  "userAgent": "helix-research",
+  "seed": 20261103,
+  "sampler": "mulberry32, ids uniform in idRange without replacement",
+  "idRange": [
+    1,
+    60000
+  ],
+  "maxCandidates": 60,
+  "minPassing": 3,
+  "rules": {
+    "hgnc": "status Approved; locus_type 'gene with protein product'; exactly one uniprot id; non-empty mane_select; an ensembl_gene_id",
+    "uniprot": "entry reviewed (Swiss-Prot); no PDB cross-reference",
+    "ensembl": "biotype protein_coding; a MANE Select transcript under the builder's transcript-selection rule"
+  },
+  "releases": {
+    "ensembl": 116,
+    "uniprot": "2026_03",
+    "uniprotReleaseDate": "02-September-2026",
+    "hgnc": null,
+    "hgncNote": "the HGNC fetch response exposes no release identifier"
+  },
+  "stoppedBecause": "3 candidates passed (the stop rule asks for 3)",
+  "counts": {
+    "visited": 22,
+    "passing": 3,
+    "skipped": 19,
+    "skippedByReason": {
+      "unused HGNC id": 5,
+      "locus_type RNA, small nucleolar": 2,
+      "locus_type pseudogene": 4,
+      "locus_type RNA, long non-coding": 4,
+      "9 PDB cross-references": 1,
+      "HGNC status Entry Withdrawn": 2,
+      "locus_type immunoglobulin pseudogene": 1
+    }
+  },
+  "chosen": {
+    "hgncNumber": 26440,
+    "hgncId": "HGNC:26440",
+    "symbol": "FAAH2",
+    "locusType": "gene with protein product",
+    "uniprotAccession": "Q6GMR7",
+    "mane": [
+      "ENST00000374900.5",
+      "NM_174912.4"
+    ],
+    "ensemblGeneId": "ENSG00000165591",
+    "pdbCount": 0,
+    "stage": "ensembl",
+    "verdict": "pass",
+    "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000374900.5",
+    "maneSelectTranscript": "ENST00000374900.5"
+  },
+  "alternates": [
+    {
+      "hgncNumber": 25904,
+      "hgncId": "HGNC:25904",
+      "symbol": "TMTC4",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "Q5T4D3",
+      "mane": [
+        "ENST00000342624.10",
+        "NM_032813.5"
+      ],
+      "ensemblGeneId": "ENSG00000125247",
+      "pdbCount": 0,
+      "stage": "ensembl",
+      "verdict": "pass",
+      "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000342624.10",
+      "maneSelectTranscript": "ENST00000342624.10"
+    },
+    {
+      "hgncNumber": 19222,
+      "hgncId": "HGNC:19222",
+      "symbol": "WSB2",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "Q9NYS7",
+      "mane": [
+        "ENST00000315436.8",
+        "NM_018639.5"
+      ],
+      "ensemblGeneId": "ENSG00000176871",
+      "pdbCount": 0,
+      "stage": "ensembl",
+      "verdict": "pass",
+      "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000315436.8",
+      "maneSelectTranscript": "ENST00000315436.8"
+    }
+  ],
+  "visited": [
+    {
+      "hgncNumber": 14563,
+      "hgncId": null,
+      "symbol": null,
+      "locusType": null,
+      "uniprotAccession": null,
+      "mane": null,
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "unused HGNC id"
+    },
+    {
+      "hgncNumber": 32768,
+      "hgncId": "HGNC:32768",
+      "symbol": "SNORD104",
+      "locusType": "RNA, small nucleolar",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000199753",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, small nucleolar"
+    },
+    {
+      "hgncNumber": 46779,
+      "hgncId": "HGNC:46779",
+      "symbol": "RN7SL763P",
+      "locusType": "pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000277774",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type pseudogene"
+    },
+    {
+      "hgncNumber": 29444,
+      "hgncId": null,
+      "symbol": null,
+      "locusType": null,
+      "uniprotAccession": null,
+      "mane": null,
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "unused HGNC id"
+    },
+    {
+      "hgncNumber": 28595,
+      "hgncId": "HGNC:28595",
+      "symbol": "BAALC-AS2",
+      "locusType": "RNA, long non-coding",
+      "uniprotAccession": "P0C853",
+      "mane": [],
+      "ensemblGeneId": "ENSG00000236939",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, long non-coding"
+    },
+    {
+      "hgncNumber": 52199,
+      "hgncId": "HGNC:52199",
+      "symbol": "SNORA25B",
+      "locusType": "RNA, small nucleolar",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000202377",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, small nucleolar"
+    },
+    {
+      "hgncNumber": 3715,
+      "hgncId": "HGNC:3715",
+      "symbol": "FKBP1AP2",
+      "locusType": "pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000259691",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type pseudogene"
+    },
+    {
+      "hgncNumber": 44138,
+      "hgncId": "HGNC:44138",
+      "symbol": "SRD5A3-AS1",
+      "locusType": "RNA, long non-coding",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000249700",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, long non-coding"
+    },
+    {
+      "hgncNumber": 26440,
+      "hgncId": "HGNC:26440",
+      "symbol": "FAAH2",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "Q6GMR7",
+      "mane": [
+        "ENST00000374900.5",
+        "NM_174912.4"
+      ],
+      "ensemblGeneId": "ENSG00000165591",
+      "pdbCount": 0,
+      "stage": "ensembl",
+      "verdict": "pass",
+      "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000374900.5",
+      "maneSelectTranscript": "ENST00000374900.5"
+    },
+    {
+      "hgncNumber": 29750,
+      "hgncId": "HGNC:29750",
+      "symbol": "MRPS21P3",
+      "locusType": "pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000221879",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type pseudogene"
+    },
+    {
+      "hgncNumber": 54186,
+      "hgncId": "HGNC:54186",
+      "symbol": "LINC02686",
+      "locusType": "RNA, long non-coding",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000254594",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, long non-coding"
+    },
+    {
+      "hgncNumber": 1200,
+      "hgncId": null,
+      "symbol": null,
+      "locusType": null,
+      "uniprotAccession": null,
+      "mane": null,
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "unused HGNC id"
+    },
+    {
+      "hgncNumber": 25904,
+      "hgncId": "HGNC:25904",
+      "symbol": "TMTC4",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "Q5T4D3",
+      "mane": [
+        "ENST00000342624.10",
+        "NM_032813.5"
+      ],
+      "ensemblGeneId": "ENSG00000125247",
+      "pdbCount": 0,
+      "stage": "ensembl",
+      "verdict": "pass",
+      "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000342624.10",
+      "maneSelectTranscript": "ENST00000342624.10"
+    },
+    {
+      "hgncNumber": 48873,
+      "hgncId": "HGNC:48873",
+      "symbol": "KRTAP9-12P",
+      "locusType": "pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000248807",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type pseudogene"
+    },
+    {
+      "hgncNumber": 12469,
+      "hgncId": "HGNC:12469",
+      "symbol": "UBA1",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "P22314",
+      "mane": [
+        "ENST00000335972.11",
+        "NM_003334.4"
+      ],
+      "ensemblGeneId": "ENSG00000130985",
+      "pdbCount": 9,
+      "stage": "uniprot",
+      "verdict": "skip",
+      "reason": "9 PDB cross-references"
+    },
+    {
+      "hgncNumber": 46428,
+      "hgncId": "HGNC:46428",
+      "symbol": "RN7SL412P",
+      "locusType": "pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "HGNC status Entry Withdrawn"
+    },
+    {
+      "hgncNumber": 5806,
+      "hgncId": "HGNC:5806",
+      "symbol": "IGKV2OR2-10",
+      "locusType": "immunoglobulin pseudogene",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000276050",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type immunoglobulin pseudogene"
+    },
+    {
+      "hgncNumber": 58701,
+      "hgncId": "HGNC:58701",
+      "symbol": "LMOD1-AS1",
+      "locusType": "RNA, long non-coding",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": "ENSG00000223774",
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "locus_type RNA, long non-coding"
+    },
+    {
+      "hgncNumber": 28137,
+      "hgncId": null,
+      "symbol": null,
+      "locusType": null,
+      "uniprotAccession": null,
+      "mane": null,
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "unused HGNC id"
+    },
+    {
+      "hgncNumber": 37062,
+      "hgncId": "HGNC:37062",
+      "symbol": "MIR1974",
+      "locusType": "RNA, micro",
+      "uniprotAccession": null,
+      "mane": [],
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "HGNC status Entry Withdrawn"
+    },
+    {
+      "hgncNumber": 27512,
+      "hgncId": null,
+      "symbol": null,
+      "locusType": null,
+      "uniprotAccession": null,
+      "mane": null,
+      "ensemblGeneId": null,
+      "pdbCount": null,
+      "stage": "hgnc",
+      "verdict": "skip",
+      "reason": "unused HGNC id"
+    },
+    {
+      "hgncNumber": 19222,
+      "hgncId": "HGNC:19222",
+      "symbol": "WSB2",
+      "locusType": "gene with protein product",
+      "uniprotAccession": "Q9NYS7",
+      "mane": [
+        "ENST00000315436.8",
+        "NM_018639.5"
+      ],
+      "ensemblGeneId": "ENSG00000176871",
+      "pdbCount": 0,
+      "stage": "ensembl",
+      "verdict": "pass",
+      "reason": "HGNC: approved, protein product, one UniProt id, MANE Select, Ensembl gene id; UniProt: reviewed, no PDB cross-reference; Ensembl: protein_coding, MANE Select ENST00000315436.8",
+      "maneSelectTranscript": "ENST00000315436.8"
+    }
+  ]
+}

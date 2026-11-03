@@ -1,0 +1,163 @@
+{
+  "kind": "protein",
+  "accession": "Q6GMR7",
+  "entryName": "FAAH2_HUMAN",
+  "reviewed": true,
+  "isoform": {
+    "isoformId": "canonical",
+    "isCanonical": true
+  },
+  "entryVersion": 167,
+  "sequenceVersion": 1,
+  "sequence": "MAPSFTARIQLFLLRALGFLIGLVGRAALVLGGPKFASKTPRPVTEPLLLLSGMQLAKLIRQRKVKCIDVVQAYINRIKDVNPMINGIVKYRFEEAMKEAHAVDQKLAEKQEDEATLENKWPFLGVPLTVKEAFQLQGMPNSSGLMNRRDAIAKTDATVVALLKGAGAIPLGITNCSELCMWYESSNKIYGRSNNPYDLQHIVGGSSGGEGCTLAAACSVIGVGSDIGGSIRMPAFFNGIFGHKPSPGVVPNKGQFPLAVGAQELFLCTGPMCRYAEDLAPMLKVMAGPGIKRLKLDTKVHLKDLKFYWMEHDGGSFLMSKVDQDLIMTQKKVVVHLETILGASVQHVKLKKMKYSFQLWIAMMSAKGHDGKEPVKFVDLLGDHGKHVSPLWELIKWCLGLSVYTIPSIGLALLEEKLRYSNEKYQKFKAVEESLRKELVDMLGDDGVFLYPSHPTVAPKHHVPLTRPFNFAYTGVFSALGLPVTQCPLGLNAKGLPLGIQVVAGPFNDHLTLAVAQYLEKTFGGWVCPGKF",
+  "length": 532,
+  "md5": "5D188AFB00731F87CFCCCA9CE7891A57",
+  "crc64": "1D83E34BFF186E5E",
+  "numbering": "translated",
+  "processedChain": {
+    "start": 1,
+    "end": 532,
+    "featureId": "PRO_0000291993"
+  },
+  "initiatorMethionineRemoved": false,
+  "features": [
+    {
+      "type": "Chain",
+      "start": 1,
+      "end": 532,
+      "description": "Fatty-acid amide hydrolase 2",
+      "featureId": "PRO_0000291993",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    }
+  ],
+  "xrefs": {
+    "maneSelect": {
+      "transcript": "ENST00000374900.5",
+      "protein": "ENSP00000364035.4",
+      "refSeqNucleotide": "NM_174912.4",
+      "refSeqProtein": "NP_777572.2"
+    },
+    "ensembl": [
+      {
+        "transcript": "ENST00000374900.5",
+        "protein": "ENSP00000364035.4",
+        "gene": "ENSG00000165591.8"
+      }
+    ],
+    "pdb": []
+  },
+  "comments": [
+    {
+      "type": "FUNCTION",
+      "text": "Catalyzes the hydrolysis of endogenous amidated lipids like the sleep-inducing lipid oleamide ((9Z)-octadecenamide), the endocannabinoid anandamide (N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine), as well as other fatty amides, to their corresponding fatty acids, thereby regulating the signaling functions of these molecules (PubMed:17015445, PubMed:19926788). Hydrolyzes monounsaturated substrate anandamide preferentially as compared to polyunsaturated substrates",
+      "evidences": [
+        "ECO:0000269 PubMed:17015445",
+        "ECO:0000269 PubMed:19926788"
+      ]
+    },
+    {
+      "type": "SUBUNIT",
+      "text": "Homodimer",
+      "evidences": [
+        "ECO:0000250"
+      ]
+    },
+    {
+      "type": "TISSUE SPECIFICITY",
+      "text": "Expressed in kidney, liver, lung, prostate, heart and ovary",
+      "evidences": [
+        "ECO:0000269 PubMed:17015445",
+        "ECO:0000305 PubMed:19926788"
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/Q6GMR7.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T17:36:16Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "Q6GMR7",
+        "recordVersion": "entry 167, sequence 1",
+        "assembly": null,
+        "sha256": "ee7c28aa75990b8e2fdb74e7b8be50e1be526df70a852f8ac9e9c0ba59042664",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-proprietary-xrefs",
+      "natural-variants-dropped-no-variant-selected",
+      "pdb-xrefs-of-selected-entry-only"
+    ],
+    "validation": [
+      {
+        "check": "uniprot-accession",
+        "result": "pass",
+        "detail": "Q6GMR7 FAAH2_HUMAN, reviewed true",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T06-cds-shape",
+        "result": "pass",
+        "detail": "length 1599, starts ATG, ends TAG",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T07-translation-equals-ensembl-protein",
+        "result": "pass",
+        "detail": "translated 532 aa vs Ensembl 532 aa",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T07-translation-equals-uniprot",
+        "result": "pass",
+        "detail": "translated 532 aa vs UniProt 532 aa",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T07-uniprot-md5",
+        "result": "pass",
+        "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000374900.5 / ENSP00000364035.4 / NM_174912.4",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
+        "at": "2026-11-03T17:36:14Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Q6GMR7 (FAAH2_HUMAN) canonical sequence, 532 aa; initiator Met not annotated as removed; chain 1-532.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

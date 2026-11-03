@@ -1,0 +1,2318 @@
+{
+ "entryType": "UniProtKB reviewed (Swiss-Prot)",
+ "primaryAccession": "Q6GMR7",
+ "secondaryAccessions": [
+  "Q86VT2",
+  "Q96N98"
+ ],
+ "uniProtkbId": "FAAH2_HUMAN",
+ "entryAudit": {
+  "firstPublicDate": "2007-06-26",
+  "lastAnnotationUpdateDate": "2026-09-02",
+  "lastSequenceUpdateDate": "2004-07-19",
+  "entryVersion": 167,
+  "sequenceVersion": 1
+ },
+ "annotationScore": 5,
+ "organism": {
+  "scientificName": "Homo sapiens",
+  "commonName": "Human",
+  "taxonId": 9606,
+  "lineage": [
+   "Eukaryota",
+   "Metazoa",
+   "Chordata",
+   "Craniata",
+   "Vertebrata",
+   "Euteleostomi",
+   "Mammalia",
+   "Eutheria",
+   "Euarchontoglires",
+   "Primates",
+   "Haplorrhini",
+   "Catarrhini",
+   "Hominidae",
+   "Homo"
+  ]
+ },
+ "proteinExistence": "1: Evidence at protein level",
+ "proteinDescription": {
+  "recommendedName": {
+   "fullName": {
+    "value": "Fatty-acid amide hydrolase 2"
+   },
+   "ecNumbers": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "19926788"
+      }
+     ],
+     "value": "3.5.1.99"
+    }
+   ]
+  },
+  "alternativeNames": [
+   {
+    "fullName": {
+     "value": "Amidase domain-containing protein"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Anandamide amidohydrolase 2"
+    }
+   },
+   {
+    "fullName": {
+     "value": "Oleamide hydrolase 2"
+    }
+   }
+  ]
+ },
+ "genes": [
+  {
+   "geneName": {
+    "value": "FAAH2"
+   },
+   "synonyms": [
+    {
+     "value": "AMDD"
+    }
+   ]
+  }
+ ],
+ "comments": [
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "19926788"
+      }
+     ],
+     "value": "Catalyzes the hydrolysis of endogenous amidated lipids like the sleep-inducing lipid oleamide ((9Z)-octadecenamide), the endocannabinoid anandamide (N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine), as well as other fatty amides, to their corresponding fatty acids, thereby regulating the signaling functions of these molecules (PubMed:17015445, PubMed:19926788). Hydrolyzes monounsaturated substrate anandamide preferentially as compared to polyunsaturated substrates"
+    }
+   ],
+   "commentType": "FUNCTION"
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine + H2O = ethanolamine + (5Z,8Z,11Z,14Z)-eicosatetraenoate",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:26136"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:2700"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:32395"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57603"
+     }
+    ],
+    "ecNumber": "3.5.1.99",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17015445"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "19926788"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:26137"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "19926788"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "(9Z)-octadecenamide + H2O = (9Z)-octadecenoate + NH4(+)",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:26506"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:28938"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:116314"
+     }
+    ],
+    "ecNumber": "3.5.1.99",
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17015445"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:26507"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "N-(9Z-octadecenoyl) ethanolamine + H2O = ethanolamine + (9Z)-octadecenoate",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:45060"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:30823"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57603"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:71466"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17015445"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:45061"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "commentType": "CATALYTIC ACTIVITY",
+   "reaction": {
+    "name": "N-hexadecanoylethanolamine + H2O = ethanolamine + hexadecanoate",
+    "reactionCrossReferences": [
+     {
+      "database": "Rhea",
+      "id": "RHEA:45064"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:7896"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:15377"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:57603"
+     },
+     {
+      "database": "ChEBI",
+      "id": "CHEBI:71464"
+     }
+    ],
+    "evidences": [
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "17015445"
+     },
+     {
+      "evidenceCode": "ECO:0000269",
+      "source": "PubMed",
+      "id": "19926788"
+     }
+    ]
+   },
+   "physiologicalReactions": [
+    {
+     "directionType": "left-to-right",
+     "reactionCrossReference": {
+      "database": "Rhea",
+      "id": "RHEA:45065"
+     },
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      },
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "19926788"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      }
+     ],
+     "value": "Inhibited by O-aryl carbamates and alpha-keto heterocytes"
+    }
+   ],
+   "commentType": "ACTIVITY REGULATION"
+  },
+  {
+   "commentType": "BIOPHYSICOCHEMICAL PROPERTIES",
+   "kineticParameters": {
+    "maximumVelocities": [
+     {
+      "velocity": 0.2,
+      "unit": "nmol/min/mg",
+      "enzyme": "enzyme for palmitoylethanolamine (N-hexadecanoylethanolamine) (at pH 9.0)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17015445"
+       }
+      ]
+     },
+     {
+      "velocity": 1.21,
+      "unit": "nmol/min/mg",
+      "enzyme": "enzyme for palmitoylethanolamine (N-hexadecanoylethanolamine) (at pH 9.0)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "19926788"
+       }
+      ]
+     },
+     {
+      "velocity": 0.46,
+      "unit": "nmol/min/mg",
+      "enzyme": "enzyme for anandamide (N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine) (at pH 9.0)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17015445"
+       }
+      ]
+     },
+     {
+      "velocity": 0.71,
+      "unit": "nmol/min/mg",
+      "enzyme": "enzyme for anandamide (N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine) (at pH 9.0)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "19926788"
+       }
+      ]
+     }
+    ],
+    "michaelisConstants": [
+     {
+      "constant": 7.9,
+      "unit": "uM",
+      "substrate": "anandamide (N-(5Z,8Z,11Z,14Z-eicosatetraenoyl)-ethanolamine)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "19926788"
+       }
+      ]
+     },
+     {
+      "constant": 4.3,
+      "unit": "uM",
+      "substrate": "palmitoylethanolamine (N-hexadecanoylethanolamine)",
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "19926788"
+       }
+      ]
+     }
+    ]
+   },
+   "phDependence": {
+    "texts": [
+     {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "17015445"
+       }
+      ],
+      "value": "Optimum pH is around 9.0."
+     }
+    ]
+   }
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000250"
+      }
+     ],
+     "value": "Homodimer"
+    }
+   ],
+   "commentType": "SUBUNIT"
+  },
+  {
+   "commentType": "SUBCELLULAR LOCATION",
+   "subcellularLocations": [
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305",
+        "source": "PubMed",
+        "id": "17015445"
+       }
+      ],
+      "value": "Membrane",
+      "id": "SL-0162"
+     },
+     "topology": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000305"
+       }
+      ],
+      "value": "Single-pass membrane protein",
+      "id": "SL-9904"
+     }
+    },
+    {
+     "location": {
+      "evidences": [
+       {
+        "evidenceCode": "ECO:0000269",
+        "source": "PubMed",
+        "id": "19926788"
+       }
+      ],
+      "value": "Lipid droplet",
+      "id": "SL-0154"
+     }
+    }
+   ]
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000269",
+       "source": "PubMed",
+       "id": "17015445"
+      },
+      {
+       "evidenceCode": "ECO:0000305",
+       "source": "PubMed",
+       "id": "19926788"
+      }
+     ],
+     "value": "Expressed in kidney, liver, lung, prostate, heart and ovary"
+    }
+   ],
+   "commentType": "TISSUE SPECIFICITY"
+  },
+  {
+   "texts": [
+    {
+     "evidences": [
+      {
+       "evidenceCode": "ECO:0000305"
+      }
+     ],
+     "value": "Belongs to the amidase family"
+    }
+   ],
+   "commentType": "SIMILARITY"
+  }
+ ],
+ "features": [
+  {
+   "type": "Chain",
+   "location": {
+    "start": {
+     "value": 1,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 532,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Fatty-acid amide hydrolase 2",
+   "featureId": "PRO_0000291993"
+  },
+  {
+   "type": "Transmembrane",
+   "location": {
+    "start": {
+     "value": 11,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 31,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Helical",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000255"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 131,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 131,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Charge relay system",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 206,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 206,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Charge relay system",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Active site",
+   "location": {
+    "start": {
+     "value": 230,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 230,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "Acyl-ester intermediate",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000250"
+    }
+   ]
+  },
+  {
+   "type": "Sequence conflict",
+   "location": {
+    "start": {
+     "value": 98,
+     "modifier": "EXACT"
+    },
+    "end": {
+     "value": 98,
+     "modifier": "EXACT"
+    }
+   },
+   "description": "in Ref. 1; BAB71007",
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000305"
+    }
+   ],
+   "alternativeSequence": {
+    "originalSequence": "K",
+    "alternativeSequences": [
+     "R"
+    ]
+   }
+  }
+ ],
+ "keywords": [
+  {
+   "id": "KW-0378",
+   "category": "Molecular function",
+   "name": "Hydrolase"
+  },
+  {
+   "id": "KW-0442",
+   "category": "Biological process",
+   "name": "Lipid degradation"
+  },
+  {
+   "id": "KW-0551",
+   "category": "Cellular component",
+   "name": "Lipid droplet"
+  },
+  {
+   "id": "KW-0443",
+   "category": "Biological process",
+   "name": "Lipid metabolism"
+  },
+  {
+   "id": "KW-0472",
+   "category": "Cellular component",
+   "name": "Membrane"
+  },
+  {
+   "id": "KW-1267",
+   "category": "Technical term",
+   "name": "Proteomics identification"
+  },
+  {
+   "id": "KW-1185",
+   "category": "Technical term",
+   "name": "Reference proteome"
+  },
+  {
+   "id": "KW-0812",
+   "category": "Domain",
+   "name": "Transmembrane"
+  },
+  {
+   "id": "KW-1133",
+   "category": "Domain",
+   "name": "Transmembrane helix"
+  }
+ ],
+ "references": [
+  {
+   "referenceNumber": 1,
+   "citation": {
+    "id": "14702039",
+    "citationType": "journal article",
+    "authors": [
+     "Ota T.",
+     "Suzuki Y.",
+     "Nishikawa T.",
+     "Otsuki T.",
+     "Sugiyama T.",
+     "Irie R.",
+     "Wakamatsu A.",
+     "Hayashi K.",
+     "Sato H.",
+     "Nagai K.",
+     "Kimura K.",
+     "Makita H.",
+     "Sekine M.",
+     "Obayashi M.",
+     "Nishi T.",
+     "Shibahara T.",
+     "Tanaka T.",
+     "Ishii S.",
+     "Yamamoto J.",
+     "Saito K.",
+     "Kawai Y.",
+     "Isono Y.",
+     "Nakamura Y.",
+     "Nagahari K.",
+     "Murakami K.",
+     "Yasuda T.",
+     "Iwayanagi T.",
+     "Wagatsuma M.",
+     "Shiratori A.",
+     "Sudo H.",
+     "Hosoiri T.",
+     "Kaku Y.",
+     "Kodaira H.",
+     "Kondo H.",
+     "Sugawara M.",
+     "Takahashi M.",
+     "Kanda K.",
+     "Yokoi T.",
+     "Furuya T.",
+     "Kikkawa E.",
+     "Omura Y.",
+     "Abe K.",
+     "Kamihara K.",
+     "Katsuta N.",
+     "Sato K.",
+     "Tanikawa M.",
+     "Yamazaki M.",
+     "Ninomiya K.",
+     "Ishibashi T.",
+     "Yamashita H.",
+     "Murakawa K.",
+     "Fujimori K.",
+     "Tanai H.",
+     "Kimata M.",
+     "Watanabe M.",
+     "Hiraoka S.",
+     "Chiba Y.",
+     "Ishida S.",
+     "Ono Y.",
+     "Takiguchi S.",
+     "Watanabe S.",
+     "Yosida M.",
+     "Hotuta T.",
+     "Kusano J.",
+     "Kanehori K.",
+     "Takahashi-Fujii A.",
+     "Hara H.",
+     "Tanase T.-O.",
+     "Nomura Y.",
+     "Togiya S.",
+     "Komai F.",
+     "Hara R.",
+     "Takeuchi K.",
+     "Arita M.",
+     "Imose N.",
+     "Musashino K.",
+     "Yuuki H.",
+     "Oshima A.",
+     "Sasaki N.",
+     "Aotsuka S.",
+     "Yoshikawa Y.",
+     "Matsunawa H.",
+     "Ichihara T.",
+     "Shiohata N.",
+     "Sano S.",
+     "Moriya S.",
+     "Momiyama H.",
+     "Satoh N.",
+     "Takami S.",
+     "Terashima Y.",
+     "Suzuki O.",
+     "Nakagawa S.",
+     "Senoh A.",
+     "Mizoguchi H.",
+     "Goto Y.",
+     "Shimizu F.",
+     "Wakebe H.",
+     "Hishigaki H.",
+     "Watanabe T.",
+     "Sugiyama A.",
+     "Takemoto M.",
+     "Kawakami B.",
+     "Yamazaki M.",
+     "Watanabe K.",
+     "Kumagai A.",
+     "Itakura S.",
+     "Fukuzumi Y.",
+     "Fujimori Y.",
+     "Komiyama M.",
+     "Tashiro H.",
+     "Tanigami A.",
+     "Fujiwara T.",
+     "Ono T.",
+     "Yamada K.",
+     "Fujii Y.",
+     "Ozaki K.",
+     "Hirao M.",
+     "Ohmori Y.",
+     "Kawabata A.",
+     "Hikiji T.",
+     "Kobatake N.",
+     "Inagaki H.",
+     "Ikema Y.",
+     "Okamoto S.",
+     "Okitani R.",
+     "Kawakami T.",
+     "Noguchi S.",
+     "Itoh T.",
+     "Shigeta K.",
+     "Senba T.",
+     "Matsumura K.",
+     "Nakajima Y.",
+     "Mizuno T.",
+     "Morinaga M.",
+     "Sasaki M.",
+     "Togashi T.",
+     "Oyama M.",
+     "Hata H.",
+     "Watanabe M.",
+     "Komatsu T.",
+     "Mizushima-Sugano J.",
+     "Satoh T.",
+     "Shirai Y.",
+     "Takahashi Y.",
+     "Nakagawa K.",
+     "Okumura K.",
+     "Nagase T.",
+     "Nomura N.",
+     "Kikuchi H.",
+     "Masuho Y.",
+     "Yamashita R.",
+     "Nakai K.",
+     "Yada T.",
+     "Nakamura Y.",
+     "Ohara O.",
+     "Isogai T.",
+     "Sugano S."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "14702039"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/ng1285"
+     }
+    ],
+    "title": "Complete sequencing and characterization of 21,243 full-length human cDNAs.",
+    "publicationDate": "2004",
+    "journal": "Nat. Genet.",
+    "firstPage": "40",
+    "lastPage": "45",
+    "volume": "36"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Kidney",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 2,
+   "citation": {
+    "id": "15772651",
+    "citationType": "journal article",
+    "authors": [
+     "Ross M.T.",
+     "Grafham D.V.",
+     "Coffey A.J.",
+     "Scherer S.",
+     "McLay K.",
+     "Muzny D.",
+     "Platzer M.",
+     "Howell G.R.",
+     "Burrows C.",
+     "Bird C.P.",
+     "Frankish A.",
+     "Lovell F.L.",
+     "Howe K.L.",
+     "Ashurst J.L.",
+     "Fulton R.S.",
+     "Sudbrak R.",
+     "Wen G.",
+     "Jones M.C.",
+     "Hurles M.E.",
+     "Andrews T.D.",
+     "Scott C.E.",
+     "Searle S.",
+     "Ramser J.",
+     "Whittaker A.",
+     "Deadman R.",
+     "Carter N.P.",
+     "Hunt S.E.",
+     "Chen R.",
+     "Cree A.",
+     "Gunaratne P.",
+     "Havlak P.",
+     "Hodgson A.",
+     "Metzker M.L.",
+     "Richards S.",
+     "Scott G.",
+     "Steffen D.",
+     "Sodergren E.",
+     "Wheeler D.A.",
+     "Worley K.C.",
+     "Ainscough R.",
+     "Ambrose K.D.",
+     "Ansari-Lari M.A.",
+     "Aradhya S.",
+     "Ashwell R.I.",
+     "Babbage A.K.",
+     "Bagguley C.L.",
+     "Ballabio A.",
+     "Banerjee R.",
+     "Barker G.E.",
+     "Barlow K.F.",
+     "Barrett I.P.",
+     "Bates K.N.",
+     "Beare D.M.",
+     "Beasley H.",
+     "Beasley O.",
+     "Beck A.",
+     "Bethel G.",
+     "Blechschmidt K.",
+     "Brady N.",
+     "Bray-Allen S.",
+     "Bridgeman A.M.",
+     "Brown A.J.",
+     "Brown M.J.",
+     "Bonnin D.",
+     "Bruford E.A.",
+     "Buhay C.",
+     "Burch P.",
+     "Burford D.",
+     "Burgess J.",
+     "Burrill W.",
+     "Burton J.",
+     "Bye J.M.",
+     "Carder C.",
+     "Carrel L.",
+     "Chako J.",
+     "Chapman J.C.",
+     "Chavez D.",
+     "Chen E.",
+     "Chen G.",
+     "Chen Y.",
+     "Chen Z.",
+     "Chinault C.",
+     "Ciccodicola A.",
+     "Clark S.Y.",
+     "Clarke G.",
+     "Clee C.M.",
+     "Clegg S.",
+     "Clerc-Blankenburg K.",
+     "Clifford K.",
+     "Cobley V.",
+     "Cole C.G.",
+     "Conquer J.S.",
+     "Corby N.",
+     "Connor R.E.",
+     "David R.",
+     "Davies J.",
+     "Davis C.",
+     "Davis J.",
+     "Delgado O.",
+     "Deshazo D.",
+     "Dhami P.",
+     "Ding Y.",
+     "Dinh H.",
+     "Dodsworth S.",
+     "Draper H.",
+     "Dugan-Rocha S.",
+     "Dunham A.",
+     "Dunn M.",
+     "Durbin K.J.",
+     "Dutta I.",
+     "Eades T.",
+     "Ellwood M.",
+     "Emery-Cohen A.",
+     "Errington H.",
+     "Evans K.L.",
+     "Faulkner L.",
+     "Francis F.",
+     "Frankland J.",
+     "Fraser A.E.",
+     "Galgoczy P.",
+     "Gilbert J.",
+     "Gill R.",
+     "Gloeckner G.",
+     "Gregory S.G.",
+     "Gribble S.",
+     "Griffiths C.",
+     "Grocock R.",
+     "Gu Y.",
+     "Gwilliam R.",
+     "Hamilton C.",
+     "Hart E.A.",
+     "Hawes A.",
+     "Heath P.D.",
+     "Heitmann K.",
+     "Hennig S.",
+     "Hernandez J.",
+     "Hinzmann B.",
+     "Ho S.",
+     "Hoffs M.",
+     "Howden P.J.",
+     "Huckle E.J.",
+     "Hume J.",
+     "Hunt P.J.",
+     "Hunt A.R.",
+     "Isherwood J.",
+     "Jacob L.",
+     "Johnson D.",
+     "Jones S.",
+     "de Jong P.J.",
+     "Joseph S.S.",
+     "Keenan S.",
+     "Kelly S.",
+     "Kershaw J.K.",
+     "Khan Z.",
+     "Kioschis P.",
+     "Klages S.",
+     "Knights A.J.",
+     "Kosiura A.",
+     "Kovar-Smith C.",
+     "Laird G.K.",
+     "Langford C.",
+     "Lawlor S.",
+     "Leversha M.",
+     "Lewis L.",
+     "Liu W.",
+     "Lloyd C.",
+     "Lloyd D.M.",
+     "Loulseged H.",
+     "Loveland J.E.",
+     "Lovell J.D.",
+     "Lozado R.",
+     "Lu J.",
+     "Lyne R.",
+     "Ma J.",
+     "Maheshwari M.",
+     "Matthews L.H.",
+     "McDowall J.",
+     "McLaren S.",
+     "McMurray A.",
+     "Meidl P.",
+     "Meitinger T.",
+     "Milne S.",
+     "Miner G.",
+     "Mistry S.L.",
+     "Morgan M.",
+     "Morris S.",
+     "Mueller I.",
+     "Mullikin J.C.",
+     "Nguyen N.",
+     "Nordsiek G.",
+     "Nyakatura G.",
+     "O'dell C.N.",
+     "Okwuonu G.",
+     "Palmer S.",
+     "Pandian R.",
+     "Parker D.",
+     "Parrish J.",
+     "Pasternak S.",
+     "Patel D.",
+     "Pearce A.V.",
+     "Pearson D.M.",
+     "Pelan S.E.",
+     "Perez L.",
+     "Porter K.M.",
+     "Ramsey Y.",
+     "Reichwald K.",
+     "Rhodes S.",
+     "Ridler K.A.",
+     "Schlessinger D.",
+     "Schueler M.G.",
+     "Sehra H.K.",
+     "Shaw-Smith C.",
+     "Shen H.",
+     "Sheridan E.M.",
+     "Shownkeen R.",
+     "Skuce C.D.",
+     "Smith M.L.",
+     "Sotheran E.C.",
+     "Steingruber H.E.",
+     "Steward C.A.",
+     "Storey R.",
+     "Swann R.M.",
+     "Swarbreck D.",
+     "Tabor P.E.",
+     "Taudien S.",
+     "Taylor T.",
+     "Teague B.",
+     "Thomas K.",
+     "Thorpe A.",
+     "Timms K.",
+     "Tracey A.",
+     "Trevanion S.",
+     "Tromans A.C.",
+     "d'Urso M.",
+     "Verduzco D.",
+     "Villasana D.",
+     "Waldron L.",
+     "Wall M.",
+     "Wang Q.",
+     "Warren J.",
+     "Warry G.L.",
+     "Wei X.",
+     "West A.",
+     "Whitehead S.L.",
+     "Whiteley M.N.",
+     "Wilkinson J.E.",
+     "Willey D.L.",
+     "Williams G.",
+     "Williams L.",
+     "Williamson A.",
+     "Williamson H.",
+     "Wilming L.",
+     "Woodmansey R.L.",
+     "Wray P.W.",
+     "Yen J.",
+     "Zhang J.",
+     "Zhou J.",
+     "Zoghbi H.",
+     "Zorilla S.",
+     "Buck D.",
+     "Reinhardt R.",
+     "Poustka A.",
+     "Rosenthal A.",
+     "Lehrach H.",
+     "Meindl A.",
+     "Minx P.J.",
+     "Hillier L.W.",
+     "Willard H.F.",
+     "Wilson R.K.",
+     "Waterston R.H.",
+     "Rice C.M.",
+     "Vaudin M.",
+     "Coulson A.",
+     "Nelson D.L.",
+     "Weinstock G.",
+     "Sulston J.E.",
+     "Durbin R.M.",
+     "Hubbard T.",
+     "Gibbs R.A.",
+     "Beck S.",
+     "Rogers J.",
+     "Bentley D.R."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15772651"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1038/nature03440"
+     }
+    ],
+    "title": "The DNA sequence of the human X chromosome.",
+    "publicationDate": "2005",
+    "journal": "Nature",
+    "firstPage": "325",
+    "lastPage": "337",
+    "volume": "434"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE GENOMIC DNA]"
+   ]
+  },
+  {
+   "referenceNumber": 3,
+   "citation": {
+    "id": "15489334",
+    "citationType": "journal article",
+    "authoringGroup": [
+     "The MGC Project Team"
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "15489334"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1101/gr.2596504"
+     }
+    ],
+    "title": "The status, quality, and expansion of the NIH full-length cDNA project: the Mammalian Gene Collection (MGC).",
+    "publicationDate": "2004",
+    "journal": "Genome Res.",
+    "firstPage": "2121",
+    "lastPage": "2127",
+    "volume": "14"
+   },
+   "referencePositions": [
+    "NUCLEOTIDE SEQUENCE [LARGE SCALE MRNA]"
+   ],
+   "referenceComments": [
+    {
+     "value": "Colon",
+     "type": "TISSUE"
+    }
+   ]
+  },
+  {
+   "referenceNumber": 4,
+   "citation": {
+    "id": "17015445",
+    "citationType": "journal article",
+    "authors": [
+     "Wei B.Q.",
+     "Mikkelsen T.S.",
+     "McKinney M.K.",
+     "Lander E.S.",
+     "Cravatt B.F."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "17015445"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.m606646200"
+     }
+    ],
+    "title": "A second fatty acid amide hydrolase with variable distribution among placental mammals.",
+    "publicationDate": "2006",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "36569",
+    "lastPage": "36578",
+    "volume": "281"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "SUBCELLULAR LOCATION",
+    "ACTIVITY REGULATION",
+    "TISSUE SPECIFICITY",
+    "BIOPHYSICOCHEMICAL PROPERTIES"
+   ]
+  },
+  {
+   "referenceNumber": 5,
+   "citation": {
+    "id": "19926788",
+    "citationType": "journal article",
+    "authors": [
+     "Kaczocha M.",
+     "Glaser S.T.",
+     "Chae J.",
+     "Brown D.A.",
+     "Deutsch D.G."
+    ],
+    "citationCrossReferences": [
+     {
+      "database": "PubMed",
+      "id": "19926788"
+     },
+     {
+      "database": "DOI",
+      "id": "10.1074/jbc.m109.058461"
+     }
+    ],
+    "title": "Lipid droplets are novel sites of N-acylethanolamine inactivation by fatty acid amide hydrolase-2.",
+    "publicationDate": "2010",
+    "journal": "J. Biol. Chem.",
+    "firstPage": "2796",
+    "lastPage": "2806",
+    "volume": "285"
+   },
+   "referencePositions": [
+    "FUNCTION",
+    "CATALYTIC ACTIVITY",
+    "SUBCELLULAR LOCATION",
+    "BIOPHYSICOCHEMICAL PROPERTIES"
+   ]
+  }
+ ],
+ "uniProtKBCrossReferences": [
+  {
+   "database": "EMBL",
+   "id": "AK055766",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "BAB71007.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL928898",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL590394",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "AL606754",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "Z83745",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "-"
+    },
+    {
+     "key": "Status",
+     "value": "NOT_ANNOTATED_CDS"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "Genomic_DNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC048279",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH48279.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "EMBL",
+   "id": "BC073922",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "AAH73922.1"
+    },
+    {
+     "key": "Status",
+     "value": "-"
+    },
+    {
+     "key": "MoleculeType",
+     "value": "mRNA"
+    }
+   ]
+  },
+  {
+   "database": "CCDS",
+   "id": "CCDS14375.1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "RefSeq",
+   "id": "NP_777572.2",
+   "properties": [
+    {
+     "key": "NucleotideSequenceId",
+     "value": "NM_174912.4"
+    }
+   ]
+  },
+  {
+   "database": "AlphaFoldDB",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SMR",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID",
+   "id": "127693",
+   "properties": [
+    {
+     "key": "Interactions",
+     "value": "6"
+    }
+   ]
+  },
+  {
+   "database": "FunCoup",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Number of interactors",
+     "value": "10"
+    }
+   ]
+  },
+  {
+   "database": "NDEx",
+   "id": "IQUERY-CP-FAAH2",
+   "properties": [
+    {
+     "key": "Evidences",
+     "value": "1 NDEx IQuery Curated Pathway"
+    }
+   ]
+  },
+  {
+   "database": "STRING",
+   "id": "9606.ENSP00000364035",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BindingDB",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ChEMBL",
+   "id": "CHEMBL1628475",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GuidetoPHARMACOLOGY",
+   "id": "1401",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "SwissLipids",
+   "id": "SLP:000001059",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "iPTMnet",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PhosphoSitePlus",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioMuta",
+   "id": "FAAH2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DMDM",
+   "id": "74757585",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "jPOST",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MassIVE",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PaxDb",
+   "id": "9606-ENSP00000364035",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PeptideAtlas",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ProteomicsDB",
+   "id": "66301",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Antibodypedia",
+   "id": "13026",
+   "properties": [
+    {
+     "key": "antibodies",
+     "value": "137 antibodies from 23 providers"
+    }
+   ]
+  },
+  {
+   "database": "DNASU",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Ensembl",
+   "id": "ENST00000374900.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000364035.4"
+    },
+    {
+     "key": "GeneId",
+     "value": "ENSG00000165591.8"
+    }
+   ]
+  },
+  {
+   "database": "GeneID",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "KEGG",
+   "id": "hsa:158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "MANE-Select",
+   "id": "ENST00000374900.5",
+   "properties": [
+    {
+     "key": "ProteinId",
+     "value": "ENSP00000364035.4"
+    },
+    {
+     "key": "RefSeqNucleotideId",
+     "value": "NM_174912.4"
+    },
+    {
+     "key": "RefSeqProteinId",
+     "value": "NP_777572.2"
+    }
+   ]
+  },
+  {
+   "database": "UCSC",
+   "id": "uc004dvc.4",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "AGR",
+   "id": "HGNC:26440",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "ClinPGx",
+   "id": "PA162385543",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "CTD",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "DisGeNET",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "GeneCards",
+   "id": "FAAH2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HGNC",
+   "id": "HGNC:26440",
+   "properties": [
+    {
+     "key": "GeneName",
+     "value": "FAAH2"
+    }
+   ]
+  },
+  {
+   "database": "HPA",
+   "id": "ENSG00000165591",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Low tissue specificity"
+    }
+   ]
+  },
+  {
+   "database": "MalaCards",
+   "id": "FAAH2",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OpenTargets",
+   "id": "ENSG00000165591",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "VEuPathDB",
+   "id": "HostDB:ENSG00000165591",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "eggNOG",
+   "id": "KOG1212",
+   "properties": [
+    {
+     "key": "ToxonomicScope",
+     "value": "Eukaryota"
+    }
+   ]
+  },
+  {
+   "database": "GeneTree",
+   "id": "ENSGT00940000162502",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "HOGENOM",
+   "id": "CLU_009600_16_1_1",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "InParanoid",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OMA",
+   "id": "LPTTWGM",
+   "properties": [
+    {
+     "key": "Fingerprint",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "OrthoDB",
+   "id": "6428749at2759",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "PAN-GO",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Number of GO annotations",
+     "value": "0 GO annotations based on evolutionary models"
+    }
+   ]
+  },
+  {
+   "database": "PhylomeDB",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioCyc",
+   "id": "MetaCyc:HS09254-MONOMER",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.5.1.4",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "BRENDA",
+   "id": "3.5.1.99",
+   "properties": [
+    {
+     "key": "OrganismId",
+     "value": "2681"
+    }
+   ]
+  },
+  {
+   "database": "PathwayCommons",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Reactome",
+   "id": "R-HSA-2142753",
+   "properties": [
+    {
+     "key": "PathwayName",
+     "value": "Arachidonate metabolism"
+    }
+   ]
+  },
+  {
+   "database": "Agora",
+   "id": "ENSG00000165591",
+   "properties": [
+    {
+     "key": "NominatedTarget",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "BioGRID-ORCS",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "hits",
+     "value": "8 hits in 764 CRISPR screens"
+    }
+   ]
+  },
+  {
+   "database": "ChiTaRS",
+   "id": "FAAH2",
+   "properties": [
+    {
+     "key": "OrganismName",
+     "value": "human"
+    }
+   ]
+  },
+  {
+   "database": "GenomeRNAi",
+   "id": "158584",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Pharos",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "DevelopmentLevel",
+     "value": "Tchem"
+    }
+   ]
+  },
+  {
+   "database": "PRO",
+   "id": "PR:Q6GMR7",
+   "properties": [
+    {
+     "key": "Description",
+     "value": "-"
+    }
+   ]
+  },
+  {
+   "database": "Proteomes",
+   "id": "UP000005640",
+   "properties": [
+    {
+     "key": "Component",
+     "value": "Chromosome X"
+    }
+   ]
+  },
+  {
+   "database": "RNAct",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "moleculeType",
+     "value": "protein"
+    }
+   ]
+  },
+  {
+   "database": "Bgee",
+   "id": "ENSG00000165591",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "Expressed in right uterine tube and 132 other cell types or tissues"
+    }
+   ]
+  },
+  {
+   "database": "ExpressionAtlas",
+   "id": "Q6GMR7",
+   "properties": [
+    {
+     "key": "ExpressionPatterns",
+     "value": "baseline and differential"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0005811",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:lipid droplet"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0016020",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "C:membrane"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:UniProtKB-SubCell"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0017064",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:fatty acid amide hydrolase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "EXP:Reactome"
+    }
+   ],
+   "evidences": [
+    {
+     "evidenceCode": "ECO:0000269",
+     "source": "PubMed",
+     "id": "19926788"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0047412",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "F:N-(long-chain-acyl)ethanolamine deacylase activity"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "IEA:RHEA"
+    }
+   ]
+  },
+  {
+   "database": "GO",
+   "id": "GO:0019369",
+   "properties": [
+    {
+     "key": "GoTerm",
+     "value": "P:arachidonate metabolic process"
+    },
+    {
+     "key": "GoEvidenceType",
+     "value": "TAS:Reactome"
+    }
+   ]
+  },
+  {
+   "database": "FunFam",
+   "id": "3.90.1300.10:FF:000005",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Fatty-acid amide hydrolase 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Gene3D",
+   "id": "3.90.1300.10",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase signature (AS) domain"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR020556",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase_CS"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR023631",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase_dom"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR036928",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AS_sf"
+    }
+   ]
+  },
+  {
+   "database": "InterPro",
+   "id": "IPR052739",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "FAAH2"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR43372",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "FATTY-ACID AMIDE HYDROLASE"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PANTHER",
+   "id": "PTHR43372:SF4",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "FATTY-ACID AMIDE HYDROLASE 2"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "Pfam",
+   "id": "PF01425",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PIRSF",
+   "id": "PIRSF001221",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase_fungi"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "SUPFAM",
+   "id": "SSF75304",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "Amidase signature (AS) enzymes"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  },
+  {
+   "database": "PROSITE",
+   "id": "PS00571",
+   "properties": [
+    {
+     "key": "EntryName",
+     "value": "AMIDASES"
+    },
+    {
+     "key": "MatchStatus",
+     "value": "1"
+    }
+   ]
+  }
+ ],
+ "sequence": {
+  "value": "MAPSFTARIQLFLLRALGFLIGLVGRAALVLGGPKFASKTPRPVTEPLLLLSGMQLAKLIRQRKVKCIDVVQAYINRIKDVNPMINGIVKYRFEEAMKEAHAVDQKLAEKQEDEATLENKWPFLGVPLTVKEAFQLQGMPNSSGLMNRRDAIAKTDATVVALLKGAGAIPLGITNCSELCMWYESSNKIYGRSNNPYDLQHIVGGSSGGEGCTLAAACSVIGVGSDIGGSIRMPAFFNGIFGHKPSPGVVPNKGQFPLAVGAQELFLCTGPMCRYAEDLAPMLKVMAGPGIKRLKLDTKVHLKDLKFYWMEHDGGSFLMSKVDQDLIMTQKKVVVHLETILGASVQHVKLKKMKYSFQLWIAMMSAKGHDGKEPVKFVDLLGDHGKHVSPLWELIKWCLGLSVYTIPSIGLALLEEKLRYSNEKYQKFKAVEESLRKELVDMLGDDGVFLYPSHPTVAPKHHVPLTRPFNFAYTGVFSALGLPVTQCPLGLNAKGLPLGIQVVAGPFNDHLTLAVAQYLEKTFGGWVCPGKF",
+  "length": 532,
+  "molWeight": 58304,
+  "crc64": "1D83E34BFF186E5E",
+  "md5": "5D188AFB00731F87CFCCCA9CE7891A57"
+ },
+ "extraAttributes": {
+  "countByCommentType": {
+   "FUNCTION": 1,
+   "CATALYTIC ACTIVITY": 4,
+   "ACTIVITY REGULATION": 1,
+   "BIOPHYSICOCHEMICAL PROPERTIES": 1,
+   "SUBUNIT": 1,
+   "SUBCELLULAR LOCATION": 1,
+   "TISSUE SPECIFICITY": 1,
+   "SIMILARITY": 1
+  },
+  "countByFeatureType": {
+   "Chain": 1,
+   "Transmembrane": 1,
+   "Active site": 3,
+   "Sequence conflict": 1
+  },
+  "uniParcId": "UPI000004CC6F"
+ }
+}

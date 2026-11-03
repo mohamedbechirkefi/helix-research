@@ -29,9 +29,11 @@ describe("generic builder: data/specs and the command line", () => {
     expect(await readSpec("hbb")).toStrictEqual(HBB_CONFIG);
     await expect(readSpec("nope")).rejects.toThrow(/no gene specification at data\/specs\/nope\.json/);
     await expect(readSpec("../x")).rejects.toThrow(/not a specification name/);
-    expect(parseBuildArgs(["--gene", "hbb", "--fixtures", "--out", "/tmp/x"])).toEqual({ gene: "hbb", mode: "fixtures", outDir: "/tmp/x" });
-    expect(parseBuildArgs(["--gene", "hbb", "--offline"])).toEqual({ gene: "hbb", mode: "offline", outDir: null });
-    expect(parseBuildArgs([])).toEqual({ gene: null, mode: "live", outDir: null });
+    expect(parseBuildArgs(["--gene", "hbb", "--fixtures", "--out", "/tmp/x"])).toEqual({ gene: "hbb", mode: "fixtures", outDir: "/tmp/x", recordFixtures: false });
+    expect(parseBuildArgs(["--gene", "hbb", "--offline"])).toEqual({ gene: "hbb", mode: "offline", outDir: null, recordFixtures: false });
+    expect(parseBuildArgs([])).toEqual({ gene: null, mode: "live", outDir: null, recordFixtures: false });
+    expect(parseBuildArgs(["--gene", "hbb", "--record-fixtures"])).toEqual({ gene: "hbb", mode: "live", outDir: null, recordFixtures: true });
+    expect(() => parseBuildArgs(["--gene", "hbb", "--record-fixtures", "--fixtures"])).toThrow(/cannot be combined/);
     expect(() => parseBuildArgs(["--gene"])).toThrow(/--gene needs a value/);
   });
 });

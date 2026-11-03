@@ -1,0 +1,269 @@
+{
+  "kind": "sequence-set",
+  "records": [
+    {
+      "kind": "sequence",
+      "sequenceKind": "cds",
+      "sourceId": "ENST00000374900.5",
+      "alphabet": "dna",
+      "sequence": "ATGGCACCTTCATTTACCGCCCGCATTCAGTTGTTCCTCTTGCGGGCGCTAGGCTTTCTCATAGGCTTAGTAGGCCGAGCAGCTTTAGTCTTAGGGGGTCCAAAGTTTGCCTCAAAGACCCCTCGGCCGGTGACTGAACCATTGCTTCTGCTTTCGGGGATGCAGCTGGCCAAGCTGATCCGACAGAGAAAGGTGAAATGTATAGATGTTGTTCAGGCTTATATCAACAGAATCAAGGACGTGAACCCAATGATCAATGGAATTGTCAAGTACAGGTTTGAGGAAGCGATGAAGGAGGCTCATGCTGTAGATCAAAAGCTTGCAGAGAAGCAGGAAGATGAAGCCACCCTGGAAAATAAATGGCCCTTCCTTGGGGTTCCTTTGACAGTCAAGGAAGCTTTCCAGCTACAAGGAATGCCCAATTCTTCTGGACTCATGAACCGTCGTGATGCCATTGCCAAAACAGATGCCACTGTGGTGGCATTACTGAAGGGAGCTGGTGCCATTCCTCTTGGCATAACCAACTGTAGTGAGTTGTGTATGTGGTATGAATCCAGTAACAAGATCTATGGCCGATCAAACAACCCATATGATTTACAGCATATTGTAGGTGGAAGTTCTGGTGGTGAGGGCTGCACACTGGCAGCTGCCTGCTCAGTTATTGGTGTGGGCTCTGATATTGGTGGTAGCATTCGAATGCCTGCTTTCTTCAATGGTATATTTGGACACAAGCCTTCTCCAGGTGTGGTTCCCAACAAAGGTCAGTTTCCCTTGGCTGTGGGAGCCCAGGAGTTGTTTCTGTGCACTGGTCCTATGTGCCGTTATGCTGAAGACCTGGCCCCCATGTTGAAGGTCATGGCAGGACCTGGGATCAAAAGGTTAAAACTAGACACAAAGGTACATTTAAAAGACTTAAAATTTTACTGGATGGAACATGATGGAGGCTCATTTTTAATGTCCAAAGTGGACCAAGATCTCATTATGACTCAGAAAAAGGTTGTGGTTCACCTTGAAACTATTCTAGGAGCCTCAGTTCAACATGTTAAACTGAAGAAAATGAAGTACTCTTTTCAGTTGTGGATCGCAATGATGTCAGCAAAGGGACATGATGGGAAGGAACCTGTGAAATTTGTAGATTTGCTTGGTGACCATGGGAAACATGTCAGTCCTCTGTGGGAGTTGATCAAATGGTGCCTGGGTCTGTCAGTGTACACCATCCCTTCCATTGGACTGGCTTTGTTGGAAGAAAAGCTCAGATATAGCAATGAGAAATACCAAAAGTTTAAGGCAGTGGAAGAAAGCCTGCGTAAAGAGCTGGTGGATATGCTAGGTGATGATGGTGTGTTCTTATATCCCTCACATCCCACAGTGGCACCTAAGCATCATGTCCCTCTAACACGGCCTTTCAACTTTGCTTACACAGGTGTCTTCAGTGCCCTGGGTTTGCCTGTGACCCAATGCCCACTGGGACTGAATGCCAAAGGACTCCCTTTAGGCATCCAGGTTGTGGCTGGACCCTTTAATGATCATCTGACCCTGGCTGTGGCCCAGTACTTGGAGAAAACTTTTGGGGGCTGGGTCTGTCCAGGAAAGTTTTAG",
+      "length": 1599,
+      "sha256": "d0e60d76d2e649bfd48b301a0849e8b2833f68c4ede62bcba590452512f52121",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cds;content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-03T17:36:15Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENST00000374900.5",
+            "recordVersion": "5",
+            "assembly": "GRCh38.p14",
+            "sha256": "347547d01d78cd237743a2cb3a34fc38fa24bccca16e85c415e55092c373839e",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 1980 vs transcript 1980",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 1599, starts ATG, ends TAG",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 532 aa vs Ensembl 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 532 aa vs UniProt 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
+            "at": "2026-11-03T17:36:14Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "CDS of ENST00000374900.5 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "sequenceKind": "cdna",
+      "sourceId": "ENST00000374900.5",
+      "alphabet": "dna",
+      "sequence": "AGACACTGGACTTGTAAACGAAAAGCTTCATAAGTCCCTCTTTGCTTAGTACTTTTCTCGTCCTTTCCCCAGGGTGCACGTAACCCTCAAGCACTAGGACCGTGCGGAATCCAGGCTGCGATGGCACCTTCATTTACCGCCCGCATTCAGTTGTTCCTCTTGCGGGCGCTAGGCTTTCTCATAGGCTTAGTAGGCCGAGCAGCTTTAGTCTTAGGGGGTCCAAAGTTTGCCTCAAAGACCCCTCGGCCGGTGACTGAACCATTGCTTCTGCTTTCGGGGATGCAGCTGGCCAAGCTGATCCGACAGAGAAAGGTGAAATGTATAGATGTTGTTCAGGCTTATATCAACAGAATCAAGGACGTGAACCCAATGATCAATGGAATTGTCAAGTACAGGTTTGAGGAAGCGATGAAGGAGGCTCATGCTGTAGATCAAAAGCTTGCAGAGAAGCAGGAAGATGAAGCCACCCTGGAAAATAAATGGCCCTTCCTTGGGGTTCCTTTGACAGTCAAGGAAGCTTTCCAGCTACAAGGAATGCCCAATTCTTCTGGACTCATGAACCGTCGTGATGCCATTGCCAAAACAGATGCCACTGTGGTGGCATTACTGAAGGGAGCTGGTGCCATTCCTCTTGGCATAACCAACTGTAGTGAGTTGTGTATGTGGTATGAATCCAGTAACAAGATCTATGGCCGATCAAACAACCCATATGATTTACAGCATATTGTAGGTGGAAGTTCTGGTGGTGAGGGCTGCACACTGGCAGCTGCCTGCTCAGTTATTGGTGTGGGCTCTGATATTGGTGGTAGCATTCGAATGCCTGCTTTCTTCAATGGTATATTTGGACACAAGCCTTCTCCAGGTGTGGTTCCCAACAAAGGTCAGTTTCCCTTGGCTGTGGGAGCCCAGGAGTTGTTTCTGTGCACTGGTCCTATGTGCCGTTATGCTGAAGACCTGGCCCCCATGTTGAAGGTCATGGCAGGACCTGGGATCAAAAGGTTAAAACTAGACACAAAGGTACATTTAAAAGACTTAAAATTTTACTGGATGGAACATGATGGAGGCTCATTTTTAATGTCCAAAGTGGACCAAGATCTCATTATGACTCAGAAAAAGGTTGTGGTTCACCTTGAAACTATTCTAGGAGCCTCAGTTCAACATGTTAAACTGAAGAAAATGAAGTACTCTTTTCAGTTGTGGATCGCAATGATGTCAGCAAAGGGACATGATGGGAAGGAACCTGTGAAATTTGTAGATTTGCTTGGTGACCATGGGAAACATGTCAGTCCTCTGTGGGAGTTGATCAAATGGTGCCTGGGTCTGTCAGTGTACACCATCCCTTCCATTGGACTGGCTTTGTTGGAAGAAAAGCTCAGATATAGCAATGAGAAATACCAAAAGTTTAAGGCAGTGGAAGAAAGCCTGCGTAAAGAGCTGGTGGATATGCTAGGTGATGATGGTGTGTTCTTATATCCCTCACATCCCACAGTGGCACCTAAGCATCATGTCCCTCTAACACGGCCTTTCAACTTTGCTTACACAGGTGTCTTCAGTGCCCTGGGTTTGCCTGTGACCCAATGCCCACTGGGACTGAATGCCAAAGGACTCCCTTTAGGCATCCAGGTTGTGGCTGGACCCTTTAATGATCATCTGACCCTGGCTGTGGCCCAGTACTTGGAGAAAACTTTTGGGGGCTGGGTCTGTCCAGGAAAGTTTTAGGAGGACCTTCTGCAAGGTTAATGTGTGTGTGTGTTTGTGTTCGTGTGGTGGTGTTTCTATTAATTGGGTGAAATCAAGCACCAGCAGACAAGCAGAGAAACAACTGGGGAATTTATTGACTCATTTAGTTATTCTTTCTACTTTTATTTCCTTCTCTAACTGTTGGTCTTACTAAAATGGTAATATTTGCTTCTTGCTTTTATGTTACTGGAAAATTAGGACATGTAAATGGATAAGTGCAATAAAGTTTCCTAAATGCTG",
+      "length": 1980,
+      "sha256": "5d16498d65d99a0241e91c0639045d7a5f75cd8c53f7bcdd4b2fb8bc58cf7d3e",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cdna;content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-03T17:36:15Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENST00000374900.5",
+            "recordVersion": "5",
+            "assembly": "GRCh38.p14",
+            "sha256": "b4d17bcd35a9454d94668e51538fc9317e5cc4ade5bd31faedead010000b56fc",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 1980 vs transcript 1980",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 1599, starts ATG, ends TAG",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 532 aa vs Ensembl 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 532 aa vs UniProt 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
+            "at": "2026-11-03T17:36:14Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "cDNA of ENST00000374900.5 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "sequence",
+      "sequenceKind": "protein",
+      "sourceId": "ENSP00000364035.4",
+      "alphabet": "protein",
+      "sequence": "MAPSFTARIQLFLLRALGFLIGLVGRAALVLGGPKFASKTPRPVTEPLLLLSGMQLAKLIRQRKVKCIDVVQAYINRIKDVNPMINGIVKYRFEEAMKEAHAVDQKLAEKQEDEATLENKWPFLGVPLTVKEAFQLQGMPNSSGLMNRRDAIAKTDATVVALLKGAGAIPLGITNCSELCMWYESSNKIYGRSNNPYDLQHIVGGSSGGEGCTLAAACSVIGVGSDIGGSIRMPAFFNGIFGHKPSPGVVPNKGQFPLAVGAQELFLCTGPMCRYAEDLAPMLKVMAGPGIKRLKLDTKVHLKDLKFYWMEHDGGSFLMSKVDQDLIMTQKKVVVHLETILGASVQHVKLKKMKYSFQLWIAMMSAKGHDGKEPVKFVDLLGDHGKHVSPLWELIKWCLGLSVYTIPSIGLALLEEKLRYSNEKYQKFKAVEESLRKELVDMLGDDGVFLYPSHPTVAPKHHVPLTRPFNFAYTGVFSALGLPVTQCPLGLNAKGLPLGIQVVAGPFNDHLTLAVAQYLEKTFGGWVCPGKF",
+      "length": 532,
+      "sha256": "eca136c40d393f2d39f140e81433a4293dc7dbac0fce92b2f14eb710dba93d46",
+      "interval": null,
+      "provenance": {
+        "sources": [
+          {
+            "source": "ensembl",
+            "url": "https://rest.ensembl.org/sequence/id/ENSP00000364035?content-type=text/x-fasta",
+            "method": "GET",
+            "retrievedAt": "2026-11-03T17:36:15Z",
+            "sourceRelease": "Ensembl 116",
+            "recordId": "ENSP00000364035.4",
+            "recordVersion": "4",
+            "assembly": "GRCh38.p14",
+            "sha256": "1871489dafa71f5862d9f22879fa83f58683d58645866a0d388eccc75a0dd382",
+            "licence": "Ensembl-no-restrictions",
+            "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+          }
+        ],
+        "transformations": [
+          "parse-fasta",
+          "uppercase"
+        ],
+        "validation": [
+          {
+            "check": "fasta-ids-versioned",
+            "result": "pass",
+            "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-length",
+            "result": "pass",
+            "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "cdna-length",
+            "result": "pass",
+            "detail": "cDNA 1980 vs transcript 1980",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T06-cds-shape",
+            "result": "pass",
+            "detail": "length 1599, starts ATG, ends TAG",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-ensembl-protein",
+            "result": "pass",
+            "detail": "translated 532 aa vs Ensembl 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-translation-equals-uniprot",
+            "result": "pass",
+            "detail": "translated 532 aa vs UniProt 532 aa",
+            "at": "2026-11-03T17:36:14Z"
+          },
+          {
+            "check": "T07-uniprot-md5",
+            "result": "pass",
+            "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
+            "at": "2026-11-03T17:36:14Z"
+          }
+        ],
+        "evidenceCategory": 2
+      },
+      "evidence": [
+        {
+          "category": 2,
+          "categoryLabel": "Database annotation/submission with review status",
+          "basis": "curated-database-annotation",
+          "statement": "Translation ENSP00000364035.4 as served by Ensembl.",
+          "qualifier": null,
+          "limitations": [
+            "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+          ]
+        }
+      ]
+    }
+  ]
+}

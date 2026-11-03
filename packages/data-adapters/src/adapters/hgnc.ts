@@ -20,6 +20,11 @@ export const hgncUrls = {
     if (!SYMBOL.test(alias)) throw new InvalidParameterError(`Invalid alias: ${alias}`);
     return `https://rest.genenames.org/fetch/alias_symbol/${encodeURIComponent(alias)}`;
   },
+  /** Fetch by numeric HGNC id (HGNC:<n>); an unused id answers with numFound 0, not 404. */
+  fetchHgncId: (n: number): string => {
+    if (!Number.isInteger(n) || n <= 0) throw new InvalidParameterError(`Invalid HGNC id: ${String(n)}`);
+    return `https://rest.genenames.org/fetch/hgnc_id/HGNC:${n}`;
+  },
 };
 
 const DocRaw = z.object({
@@ -34,6 +39,7 @@ const DocRaw = z.object({
   uniprot_ids: z.array(z.string()).default([]),
   mane_select: z.array(z.string()).default([]),
   location: z.string().optional(),
+  locus_type: z.string().optional(),
 });
 const ResponseRaw = z.object({ response: z.object({ numFound: z.number().int(), docs: z.array(DocRaw) }) });
 
@@ -49,6 +55,8 @@ export interface HgncRecord {
   uniprotIds: string[];
   maneSelect: string[];
   location: string | null;
+  /** HGNC locus type, e.g. "gene with protein product", "pseudogene", "RNA, long non-coding"; null when absent. */
+  locusType: string | null;
 }
 
 export function parseHgnc(json: unknown, url: string | null = null): HgncRecord[] {
@@ -65,6 +73,7 @@ export function parseHgnc(json: unknown, url: string | null = null): HgncRecord[
     uniprotIds: d.uniprot_ids,
     maneSelect: d.mane_select,
     location: d.location ?? null,
+    locusType: d.locus_type ?? null,
   }));
 }
 
@@ -87,5 +96,9 @@ export class HgncAdapter {
   }
   alias(alias: string, ro?: RequestOptions): Promise<Fetched<HgncRecord[]>> {
     return this.fetchDocs(hgncUrls.fetchAlias(alias), ro);
+  }
+  /** Records at a numeric HGNC id: one for a used id, none for an unused one (an empty array, never an error). */
+  hgncId(n: number, ro?: RequestOptions): Promise<Fetched<HgncRecord[]>> {
+    return this.fetchDocs(hgncUrls.fetchHgncId(n), ro);
   }
 }

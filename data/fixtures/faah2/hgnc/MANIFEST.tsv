@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_FAAH2.json	2026-11-03T17:36:16Z	200	24f2d066766a0e0ffe9f4f4d8fa4aca8055c6b9b3ba84e95749258ea096ce67f	1534	GET	https://rest.genenames.org/fetch/symbol/FAAH2	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-03: OMIM/MIM/HGMD identifiers removed (Q-H-LIC-1, 1 removal); original sha256 0625c354691d27fd8ed2ed43765497b3898f55e9bc6d2a39ed650d75cac46fcb
