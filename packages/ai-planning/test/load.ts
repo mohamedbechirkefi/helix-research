@@ -78,3 +78,14 @@ export function hbbBundleWithPathways(): HbbBundle {
     pathways: j("pathways.json"),
   };
 }
+
+/** The BRCA1 set (Phase 9, P9.2.2): a substitution inside an observed domain (C61G on 1JM7, solution NMR, with BARD1), coverage 5.5 %. */
+export function brca1Bundle(): HbbBundle {
+  const dir = join(REPO_ROOT, "data", "curated", "brca1");
+  const j = (f: string) => JSON.parse(readFileSync(join(dir, f), "utf8")) as unknown;
+  return { gene: j("gene.json"), transcript: j("transcript.json"), protein: j("protein-P38398.json"), variant: j("variant-c61g.json"), structure: j("structure-1JM7.json"), mapping: j("residue-mapping-c61g-1JM7.json"), contacts: j("contacts-c61g-1JM7.json"), predicted: j("predicted-model-AF-P38398-F1.json"), capabilities: j("capabilities.json") };
+}
+
+export function brca1Context(): PlanningContext {
+  return buildHbbContext(brca1Bundle());
+}

@@ -7,8 +7,8 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { buildHbbContext, deterministicPlan, proteinWorldReason, trustedContextJson, validatePlan, type PlanningContext } from "../src/index.ts";
-import { cftrContext, faah2Bundle, faah2Context, hbbContext, questionsRecord } from "./load.ts";
+import { COVERAGE_STATED_BELOW, buildHbbContext, coverageEvidenceId, coverageIsStated, deterministicPlan, proteinWorldReason, trustedContextJson, validatePlan, type PlanningContext } from "../src/index.ts";
+import { brca1Bundle, brca1Context, cftrContext, faah2Bundle, faah2Context, hbbContext, questionsRecord } from "./load.ts";
 
 const HBB_TEXT = /HBB|HbS|2HBS|P68871|h(a)?emoglobin|globin|sickle|rs334|VCV000015333|Glu7Val|Glu6Val/i;
 const REASON = "no experimental structure is cross-referenced for this protein";
@@ -142,5 +142,94 @@ describe("rule-based planner on CFTR: the set's curated questions and its bridge
     expect(plan.reason).toBe("Only the HbS variant is in the curated records; other variants are not available.");
     expect(deterministicPlan("Where does CFTR F508del occur?", hbb).rule).toBe("foreign-gene");
     expect(deterministicPlan("Show me where the sickle-cell mutation affects hemoglobin.", hbb).plan.followUps).toEqual(["How does the DNA change at this codon?", "What does this residue touch in the crystal?"]);
+  });
+});
+
+describe("BRCA1 context (P9.2.2, plan section 13): a domain structure solved by NMR with a partner chain, its coverage stated", () => {
+  const ctx = brca1Context();
+  const bundle = brca1Bundle();
+  const rec = bundle.structure as { entryId: string; method: string; modelCount: number; modelShown: number; coverage: { text: string; fraction: number }; evidence: { category: number; statement: string }[] };
+  it("the structure entry names the method, the ensemble and the model shown; no resolution is invented", () => {
+    const s = ctx.structures.find((x) => x.id === "1JM7")!;
+    expect(s.title).toBe(`Solution structure of the BRCA1/BARD1 RING-domain heterodimer (${rec.method}, ${rec.modelCount} models, model ${rec.modelShown} shown)`);
+    expect(s.title.toLowerCase()).toContain("solution nmr, 14 models, model 1 shown");
+    expect(s.title).not.toMatch(/\d A\b/);
+    expect(s).toMatchObject({ origin: "experimental", variantPlacement: true, proteinIds: ["P38398", "Q99728"] });
+  });
+  it("the asymmetric unit of the two-chain heterodimer lists both polymer chains and is not called a tetramer", () => {
+    expect(s(ctx).assemblies).toEqual([
+      { id: "model", label: "asymmetric unit (all polymer chains)", chains: ["A", "B"] },
+      { id: "1", label: "biological assembly 1", chains: ["A", "B"] },
+    ]);
+    expect(trustedContextJson(ctx)).not.toMatch(/tetramer|crystal/i);
+  });
+  it("the coverage sentence is carried as the record's own evidence entry, with the record's category, because 5.5 % is below the stated threshold", () => {
+    expect(coverageIsStated(rec.coverage.fraction)).toBe(true);
+    expect(COVERAGE_STATED_BELOW).toBe(0.9);
+    const e = ctx.evidence.find((x) => x.id === coverageEvidenceId("1JM7", "P38398"))!;
+    const own = rec.evidence.find((x) => x.statement.startsWith(rec.coverage.text))!;
+    expect(e).toEqual({ id: "coverage:1JM7-P38398", category: own.category, statement: own.statement });
+    expect(e.statement).toContain("1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown)");
+  });
+  it("the variant entry carries the record's names only (no Phase 3 descriptive name); the features are on 1JM7 chain A residue 61 and its 7 contacts including the zinc", () => {
+    const v = ctx.variants[0]!;
+    expect(v.label).toBe("C61G (p.Cys61Gly)");
+    expect(v.featureId).toBe("C61G_substitution");
+    expect(v.names).toEqual(["C61G", "rs28897672 allele C", "ENST00000357654.9:c.181T>G", "NM_007294.4:c.181T>G", "ENSP00000350283.3:p.Cys61Gly", "NP_009225.1:p.Cys61Gly", "ClinVar VCV000017661: Pathogenic (reviewed by expert panel)"]);
+    const f = ctx.features.find((x) => x.id === "C61G_substitution")!;
+    expect(f).toMatchObject({ kind: "residue", structureId: "1JM7", chains: ["A"], authSeqId: 61, proteinId: "P38398" });
+    expect(f.label).toBe("C61G (p.Cys61Gly): p.Cys61Gly (translated numbering, Met = 1); in 1JM7 chains A residue 61 is CYS");
+    const c = ctx.features.find((x) => x.kind === "contact")!;
+    expect(c.id).toBe("C61G_contact_A61_A");
+    expect(c.label).toMatch(/^CYS A61 contacts CYS A39, HIS A41, LEU A63, CYS A64, ASN A66, ILE A68, ZN A124 within 4.5 A/);
+    expect(trustedContextJson(ctx)).not.toMatch(HBB_TEXT);
+  });
+  it("Protein World and Pathway World are available with the records' reasons", () => {
+    expect(ctx.worlds.find((w) => w.id === "protein")).toEqual({ id: "protein", available: true, reason: "experimental structure with a verified residue mapping" });
+    expect(ctx.worlds.find((w) => w.id === "pathway")?.available).toBe(true);
+  });
+  function s(c: PlanningContext) {
+    return c.structures.find((x) => x.id === "1JM7")!;
+  }
+});
+
+describe("coverage evidence by set (P9.2.2): CFTR (77.0 %) carries it, HBB (99.3 %) does not and stays the Phase 8 context", () => {
+  it("CFTR's context gains exactly the coverage entry of its structure record", () => {
+    const ctx = cftrContext();
+    const e = ctx.evidence.find((x) => x.id === coverageEvidenceId("5UAK", "P13569"))!;
+    expect(e.statement).toMatch(/^5UAK covers residues 5 to 1436 of 1,480 \(1139 observed positions, 77\.0 %; ELECTRON MICROSCOPY, 3\.87 A\)/);
+    expect(ctx.structures.find((x) => x.id === "5UAK")?.title).toMatch(/ \(ELECTRON MICROSCOPY, 3\.87 A\)$/);
+  });
+  it("HBB's context has no coverage entry and no models clause", () => {
+    const ctx = hbbContext();
+    expect(ctx.evidence.some((x) => x.id.startsWith("coverage:"))).toBe(false);
+    expect(ctx.structures.find((x) => x.id === "2HBS")?.title).toBe("THE HIGH RESOLUTION CRYSTAL STRUCTURE OF DEOXYHEMOGLOBIN S (X-RAY DIFFRACTION, 2.05 A)");
+    expect(ctx.variants[0]?.names).toContain("sickle-cell variant");
+  });
+});
+
+describe("rule-based planner on BRCA1: the five questions of questions.json and the bridge question", () => {
+  const ctx = built(brca1Context());
+  const record = questionsRecord("brca1");
+  const run = (q: string) => {
+    const { plan, rule } = deterministicPlan(q, ctx);
+    expect(validatePlan(plan, ctx, { query: q }).ok, q).toBe(true);
+    return { plan, rule };
+  };
+  it("locate, DNA, contacts, evidence and pathways plan the expected actions on 1JM7", () => {
+    const [locate, dna, contact, evidence, pathway] = record.questions.map((x) => run(x.text));
+    expect(locate!.rule).toBe("variant-locate");
+    expect(locate!.plan.actions.find((a) => a.type === "loadStructure")).toMatchObject({ structureId: "1JM7" });
+    expect(locate!.plan.followUps?.[1]).toBe("What does this residue touch in the structure?");
+    expect(dna!.rule).toBe("variant-sequence");
+    expect(contact!.rule).toBe("contact");
+    expect(contact!.plan.actions.find((a) => a.type === "highlightResidue")).toMatchObject({ target: { kind: "feature", featureId: "C61G_contact_A61_A" } });
+    expect(evidence!.rule).toBe("variant-evidence");
+    expect(pathway!.plan.actions[0]).toMatchObject({ type: "enterWorld", world: "pathway" });
+  });
+  it("the bridge question lands on the residue feature", () => {
+    const { plan } = run(record.bridgeQuestion!);
+    expect(plan.outcome).toBe("plan");
+    expect(plan.actions.find((a) => a.type === "loadStructure")).toMatchObject({ structureId: "1JM7" });
   });
 });
