@@ -31,6 +31,12 @@
       "requires": [
         "variantHighlight"
       ]
+    },
+    {
+      "text": "Which pathways list CFTR?",
+      "requires": [
+        "pathwayView"
+      ]
     }
   ],
   "bridgeQuestion": "See the F508del mutation on the protein."

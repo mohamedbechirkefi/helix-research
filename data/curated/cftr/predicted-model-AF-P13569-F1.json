@@ -50,7 +50,7 @@
         "check": "T32-alphafold-labelled",
         "result": "pass",
         "detail": "AF-P13569-F1 v6; md5 match true; residue 508 in model = F (reference), so never used to show the deletion of F508",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 3

@@ -568,37 +568,37 @@
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000003084.11 (only transcript with MANE[].type == MANE_Select); 45 candidates",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "transcript-lookup-matches-selection",
         "result": "pass",
         "detail": "ENST00000003084.11",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T05-exon-lengths-sum",
         "result": "pass",
         "detail": "sum of exon lengths 6070 vs transcript length 6070 (1-based closed)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T06-cds-length",
         "result": "pass",
         "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000003084.11 / ENSP00000003084.6 / NM_000492.4",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 2

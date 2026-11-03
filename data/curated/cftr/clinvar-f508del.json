@@ -81,19 +81,19 @@
         "check": "T33-clinvar-search-covered",
         "result": "pass",
         "detail": "esearch rs113993960: 2 uids; esummary returned 2 (634837,7105)",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T34-clinvar-review-status",
         "result": "pass",
         "detail": "VCV000007105.214: \"practice guideline\" -> 4 star(s); conflicting false; evidence basis reviewed-clinical-submission",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       },
       {
         "check": "T35-clinvar-related-records-separate",
         "result": "pass",
         "detail": "1 other record(s) for rs113993960: 1 haplotype/compound (1 include NC_000007.14:117559590:TCTT:T), 0 other allele/variant (none); none merged",
-        "at": "2026-11-03T20:54:12Z"
+        "at": "2026-11-03T21:36:02Z"
       }
     ],
     "evidenceCategory": 2

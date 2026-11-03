@@ -35,49 +35,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000003084.11, ENST00000003084.11, ENSP00000003084.6",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 6070 vs transcript 6070",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 4443, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1480 aa vs Ensembl 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1480 aa vs UniProt 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T09-forward-and-coding-bases",
             "result": "pass",
             "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           }
         ],
         "evidenceCategory": 2
@@ -129,49 +129,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000003084.11, ENST00000003084.11, ENSP00000003084.6",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 6070 vs transcript 6070",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 4443, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1480 aa vs Ensembl 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1480 aa vs UniProt 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T09-forward-and-coding-bases",
             "result": "pass",
             "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           }
         ],
         "evidenceCategory": 2
@@ -223,49 +223,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000003084.11, ENST00000003084.11, ENSP00000003084.6",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 6070 vs transcript 6070",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 4443, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1480 aa vs Ensembl 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1480 aa vs UniProt 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T09-forward-and-coding-bases",
             "result": "pass",
             "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           }
         ],
         "evidenceCategory": 2
@@ -326,49 +326,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000003084.11, ENST00000003084.11, ENSP00000003084.6",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 4443 nt; exon walk 4443; (protein 1480 + stop) x 3",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 6070 vs transcript 6070",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 4443, starts ATG, ends TAG",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1480 aa vs Ensembl 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1480 aa vs UniProt 1480 aa",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed F29B8C0A9056A0F7680F3290D259B6AC, UniProt F29B8C0A9056A0F7680F3290D259B6AC",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           },
           {
             "check": "T09-forward-and-coding-bases",
             "result": "pass",
             "detail": "forward-strand bases at 117559592-117559594 = CTT; SPDI deletes CTT; coding-strand c.1521_1523 = CTT",
-            "at": "2026-11-03T20:54:12Z"
+            "at": "2026-11-03T21:36:02Z"
           }
         ],
         "evidenceCategory": 2
