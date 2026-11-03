@@ -1,0 +1,360 @@
+{
+  "schema": "helix-dataset-manifest/1",
+  "datasetId": "faah2",
+  "description": "FAAH2 (fatty acid amide hydrolase 2) structure-limited set: gene, MANE Select transcript, sequences, UniProt Q6GMR7 and the AlphaFold prediction; no experimental structure exists and no reference variant is selected.",
+  "generatedAt": "2026-11-03T17:36:14Z",
+  "generator": {
+    "script": "scripts/data-preparation/build-gene.ts (live)",
+    "gitCommit": "627b6996cf7deede6f0494ff3d8b71172fbff7ca",
+    "gitDirty": true,
+    "node": "v22.23.3"
+  },
+  "assembly": "GRCh38.p14",
+  "nonclinicalNotice": "HELIX is a nonclinical research and education project. This dataset is not a clinical diagnostic, variant classification or medical advice resource.",
+  "sources": [
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:14Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "info/data",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:14Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "homo_sapiens",
+      "recordVersion": "GRCh38.p14",
+      "assembly": "GRCh38.p14",
+      "sha256": "2ccbe40c2e947deb37dbfe26b25c86d44f8cca46962c9e3abd34cfe85443af3b",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENSG00000165591?expand=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSG00000165591",
+      "recordVersion": "9",
+      "assembly": "GRCh38.p14",
+      "sha256": "cd2c9548130a0f84b58973b5fefc947b9a3e53c5c7d96872581065086c6cc772",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENST00000374900?expand=1;utr=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000374900",
+      "recordVersion": "5",
+      "assembly": "GRCh38.p14",
+      "sha256": "8024220154852da67a87c20440714fcb7d87e0642762fa7f9cd207c745b05d81",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cds;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000374900.5",
+      "recordVersion": "5",
+      "assembly": "GRCh38.p14",
+      "sha256": "347547d01d78cd237743a2cb3a34fc38fa24bccca16e85c415e55092c373839e",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cdna;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000374900.5",
+      "recordVersion": "5",
+      "assembly": "GRCh38.p14",
+      "sha256": "b4d17bcd35a9454d94668e51538fc9317e5cc4ade5bd31faedead010000b56fc",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENSP00000364035?content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSP00000364035.4",
+      "recordVersion": "4",
+      "assembly": "GRCh38.p14",
+      "sha256": "1871489dafa71f5862d9f22879fa83f58683d58645866a0d388eccc75a0dd382",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "uniprot",
+      "url": "https://rest.uniprot.org/uniprotkb/Q6GMR7.json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:16Z",
+      "sourceRelease": "UniProt 2026_03",
+      "recordId": "Q6GMR7",
+      "recordVersion": "entry 167, sequence 1",
+      "assembly": null,
+      "sha256": "ee7c28aa75990b8e2fdb74e7b8be50e1be526df70a852f8ac9e9c0ba59042664",
+      "licence": "CC-BY-4.0",
+      "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    },
+    {
+      "source": "hgnc",
+      "url": "https://rest.genenames.org/fetch/symbol/FAAH2",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:16Z",
+      "sourceRelease": null,
+      "recordId": "HGNC:26440",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "24f2d066766a0e0ffe9f4f4d8fa4aca8055c6b9b3ba84e95749258ea096ce67f",
+      "licence": "CC0-1.0",
+      "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/api/prediction/Q6GMR7",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:16Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-Q6GMR7-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "dc6f3447fb9ddf48b6572ccc72fe224ca26c2b0228385c269bf05b10375fe4f9",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/files/AF-Q6GMR7-F1-model_v6.cif",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T17:36:17Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-Q6GMR7-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "b2bbbc23cf81aa9fafe3d71f4cbd1d93d94fe64ca3cbadc3abaff101b91f0c1f",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    }
+  ],
+  "files": [
+    {
+      "path": "gene.json",
+      "sha256": "5d0e55382c160b6aade31f1cb7de1bf56b75f5c610b61fc6cfe2f1a870e21cca",
+      "bytes": 4926,
+      "recordKind": "gene"
+    },
+    {
+      "path": "transcript.json",
+      "sha256": "b76f29c0874ac4d094b3332456723050beaa8d164506aaa4d3c2803dc89c125f",
+      "bytes": 8880,
+      "recordKind": "transcript"
+    },
+    {
+      "path": "sequences.json",
+      "sha256": "ed8c41006e175dacf5a24cb95f8c95eb3850f496bb7419bff44837afd6dfd561",
+      "bytes": 13702,
+      "recordKind": "sequence-set"
+    },
+    {
+      "path": "protein-Q6GMR7.json",
+      "sha256": "34aefc104651dc7c5ef69aea2171eef3df7f0921e45ae17e634569c03e357fc7",
+      "bytes": 5646,
+      "recordKind": "protein"
+    },
+    {
+      "path": "predicted-model-AF-Q6GMR7-F1.json",
+      "sha256": "45a674b2150775a9c235d957e4f98cf6b4bb1872ec1fca48a2af396424b56010",
+      "bytes": 3063,
+      "recordKind": "predicted-model"
+    },
+    {
+      "path": "capabilities.json",
+      "sha256": "495d67c64763e14e612ae4da2cc8ac196437e8c54b69124419486a897fa23be1",
+      "bytes": 1124,
+      "recordKind": "capabilities"
+    }
+  ],
+  "validation": [
+    {
+      "check": "T01-gene-identity",
+      "result": "pass",
+      "detail": "ENSG00000165591.9 FAAH2",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "assembly-grch38",
+      "result": "pass",
+      "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T02-transcript-selection",
+      "result": "pass",
+      "detail": "mane_select: ENST00000374900.5 (only transcript with MANE[].type == MANE_Select); 18 candidates",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "transcript-lookup-matches-selection",
+      "result": "pass",
+      "detail": "ENST00000374900.5",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T05-exon-lengths-sum",
+      "result": "pass",
+      "detail": "sum of exon lengths 1980 vs transcript length 1980 (1-based closed)",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "fasta-ids-versioned",
+      "result": "pass",
+      "detail": "ENST00000374900.5, ENST00000374900.5, ENSP00000364035.4",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T06-cds-length",
+      "result": "pass",
+      "detail": "CDS 1599 nt; exon walk 1599; (protein 532 + stop) x 3",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "cdna-length",
+      "result": "pass",
+      "detail": "cDNA 1980 vs transcript 1980",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "uniprot-accession",
+      "result": "pass",
+      "detail": "Q6GMR7 FAAH2_HUMAN, reviewed true",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T06-cds-shape",
+      "result": "pass",
+      "detail": "length 1599, starts ATG, ends TAG",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T07-translation-equals-ensembl-protein",
+      "result": "pass",
+      "detail": "translated 532 aa vs Ensembl 532 aa",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T07-translation-equals-uniprot",
+      "result": "pass",
+      "detail": "translated 532 aa vs UniProt 532 aa",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T07-uniprot-md5",
+      "result": "pass",
+      "detail": "computed 5D188AFB00731F87CFCCCA9CE7891A57, UniProt 5D188AFB00731F87CFCCCA9CE7891A57",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "uniprot-mane-xref",
+      "result": "pass",
+      "detail": "UniProt MANE-Select ENST00000374900.5 / ENSP00000364035.4 / NM_174912.4",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T15-initiator-met-and-chain",
+      "result": "pass",
+      "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-532",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T04-hgnc-resolution",
+      "result": "pass",
+      "detail": "FAAH2 -> HGNC:26440 ENSG00000165591",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T04-alias-RP11-479E16.1",
+      "result": "pass",
+      "detail": "alias RP11-479E16.1 -> ENSG00000165591",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T04-alias-FLJ31204",
+      "result": "pass",
+      "detail": "alias FLJ31204 -> ENSG00000165591",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T04-alias-FAAH-2",
+      "result": "pass",
+      "detail": "alias FAAH-2 -> ENSG00000165591",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T32-alphafold-labelled",
+      "result": "pass",
+      "detail": "AF-Q6GMR7-F1 v6; md5 match true; no reference variant selected, so the model is never used to place one",
+      "at": "2026-11-03T17:36:14Z"
+    },
+    {
+      "check": "T31-drift-recorded",
+      "result": "pass",
+      "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
+      "at": "2026-11-03T17:36:14Z"
+    }
+  ],
+  "knownIssues": [],
+  "drift": [
+    {
+      "id": "uniprot-xref-ensembl-gene-version",
+      "subject": "ENSG00000165591",
+      "observedIn": "UniProt Q6GMR7 Ensembl cross-reference",
+      "observedValue": "ENSG00000165591.8",
+      "referenceSource": "Ensembl lookup",
+      "referenceValue": "ENSG00000165591.9",
+      "fatal": false,
+      "note": "UniProt's cross-reference lags the Ensembl gene version; the transcript and protein versions agree, so mappings are unaffected."
+    }
+  ],
+  "attribution": [
+    {
+      "source": "alphafold",
+      "licence": "CC-BY-4.0",
+      "text": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "ensembl",
+      "licence": "Ensembl-no-restrictions",
+      "text": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "hgnc",
+      "licence": "CC0-1.0",
+      "text": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "uniprot",
+      "licence": "CC-BY-4.0",
+      "text": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    }
+  ]
+}

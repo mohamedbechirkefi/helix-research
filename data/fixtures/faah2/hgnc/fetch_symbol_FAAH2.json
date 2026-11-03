@@ -1,0 +1,73 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "mane_select": [
+     "ENST00000374900.5",
+     "NM_174912.4"
+    ],
+    "entrez_id": "158584",
+    "symbol": "FAAH2",
+    "prev_name": [
+     "amidase domain containing"
+    ],
+    "alias_symbol": [
+     "RP11-479E16.1",
+     "FLJ31204",
+     "FAAH-2"
+    ],
+    "hgnc_id": "HGNC:26440",
+    "pubmed_id": [
+     17015445
+    ],
+    "uniprot_ids": [
+     "Q6GMR7"
+    ],
+    "gene_group": [
+     "N-arachidonoylethanolamine hydrolases"
+    ],
+    "vega_id": "OTTHUMG00000021684",
+    "lsdb": [
+     "Global Variome shared LOVD|https://databases.lovd.nl/shared/genes/FAAH2"
+    ],
+    "date_approved_reserved": "2006-07-11T00:00:00Z",
+    "ena": [
+     "AK055766"
+    ],
+    "status": "Approved",
+    "gene_group_id": [
+     3504
+    ],
+    "date_name_changed": "2006-11-24T00:00:00Z",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "ucsc_id": "uc004dvc.4",
+    "location": "Xp11.21",
+    "date_symbol_changed": "2006-11-24T00:00:00Z",
+    "locus_type": "gene with protein product",
+    "refseq_accession": [
+     "NM_174912"
+    ],
+    "ensembl_gene_id": "ENSG00000165591",
+    "iuphar": "HGNC:26440",
+    "uuid": "e1200a83-4c2a-47cb-a625-975b4239dc88",
+    "agr": "HGNC:26440",
+    "locus_group": "protein-coding gene",
+    "ccds_id": [
+     "CCDS14375"
+    ],
+    "name": "fatty acid amide hydrolase 2",
+    "gencc": "HGNC:26440",
+    "prev_symbol": [
+     "AMDD"
+    ]
+   }
+  ]
+ }
+}

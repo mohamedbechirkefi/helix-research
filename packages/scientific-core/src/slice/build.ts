@@ -161,7 +161,15 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
   check("uniprot-mane-xref", uni.maneSelect?.transcript === formatVersioned(transcript.id) && uni.maneSelect?.protein === formatVersioned(transcript.translation.id) && uni.maneSelect?.refSeqNucleotide === (transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null), `UniProt MANE-Select ${uni.maneSelect?.transcript} / ${uni.maneSelect?.protein} / ${uni.maneSelect?.refSeqNucleotide}`, ["protein", "transcript"]);
   const initMet = uni.features.find((f) => f.type === "Initiator methionine");
   const chainF = uni.features.find((f) => f.type === "Chain");
-  check("T15-initiator-met-and-chain", initMet?.start === 1 && /removed/i.test(initMet.description) && chainF !== undefined, `Initiator methionine ${initMet?.start} "${initMet?.description}"; Chain ${chainF?.start}-${chainF?.end}`, ["protein", "variant"]);
+  // Phase 9: an entry with no Initiator methionine feature (the Met is kept) is as consistent as one that
+  // annotates its removal; then the processed chain starts at 1 and translated numbering is the processed numbering.
+  const initMetRemoved = initMet !== undefined && initMet.start === 1 && /removed/i.test(initMet.description);
+  check(
+    "T15-initiator-met-and-chain",
+    chainF !== undefined && (initMet === undefined ? chainF.start >= 1 : initMetRemoved),
+    initMet ? `Initiator methionine ${initMet.start} "${initMet.description}"; Chain ${chainF?.start}-${chainF?.end}` : `no Initiator methionine feature (translated numbering is the processed numbering); Chain ${chainF?.start}-${chainF?.end}`,
+    ["protein", "variant"],
+  );
   const chainRange = chainF ? { start: chainF.start, end: chainF.end } : null;
 
   // ------------------------------------------------------------ HGNC
@@ -539,7 +547,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     );
 
     const protEv = [
-      evidence("curated-database-annotation", `${uni.accession} (${uni.entryName}) canonical sequence, ${uni.length} aa; initiator Met ${initMet?.description.toLowerCase()}; chain ${chainF?.start}-${chainF?.end}.`, { qualifier: initMet?.evidences.join("; ") ?? null }),
+      evidence("curated-database-annotation", `${uni.accession} (${uni.entryName}) canonical sequence, ${uni.length} aa; initiator Met ${initMet ? initMet.description.toLowerCase() : "not annotated as removed"}; chain ${chainF ? `${chainF.start}-${chainF.end}` : "not annotated"}.`, { qualifier: initMet?.evidences.join("; ") ?? null }),
     ];
     const protRec = Protein.parse({
       kind: "protein",

@@ -1,0 +1,150 @@
+{
+  "kind": "gene",
+  "id": {
+    "id": "ENSG00000165591",
+    "version": 9
+  },
+  "symbol": "FAAH2",
+  "description": "fatty acid amide hydrolase 2 [Source:HGNC Symbol;Acc:HGNC:26440]",
+  "biotype": "protein_coding",
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "X",
+    "refSeqAccession": null,
+    "start": 57286632,
+    "end": 57490641,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "hgncId": "HGNC:26440",
+  "aliases": [
+    "FAAH-2",
+    "FLJ31204",
+    "RP11-479E16.1"
+  ],
+  "ncbiGeneId": "158584",
+  "transcriptCount": 18,
+  "selection": {
+    "rule": "mane_select",
+    "selected": {
+      "id": "ENST00000374900",
+      "version": 5
+    },
+    "candidatesConsidered": 18,
+    "reason": "only transcript with MANE[].type == MANE_Select",
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000165591?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T17:36:15Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000165591",
+        "recordVersion": "9",
+        "assembly": "GRCh38.p14",
+        "sha256": "cd2c9548130a0f84b58973b5fefc947b9a3e53c5c7d96872581065086c6cc772",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T17:36:14Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "homo_sapiens",
+        "recordVersion": "GRCh38.p14",
+        "assembly": "GRCh38.p14",
+        "sha256": "2ccbe40c2e947deb37dbfe26b25c86d44f8cca46962c9e3abd34cfe85443af3b",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "hgnc",
+        "url": "https://rest.genenames.org/fetch/symbol/FAAH2",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T17:36:16Z",
+        "sourceRelease": null,
+        "recordId": "HGNC:26440",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "24f2d066766a0e0ffe9f4f4d8fa4aca8055c6b9b3ba84e95749258ea096ce67f",
+        "licence": "CC0-1.0",
+        "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "select-transcript",
+      "hgnc-resolve"
+    ],
+    "validation": [
+      {
+        "check": "T01-gene-identity",
+        "result": "pass",
+        "detail": "ENSG00000165591.9 FAAH2",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000374900.5 (only transcript with MANE[].type == MANE_Select); 18 candidates",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T04-hgnc-resolution",
+        "result": "pass",
+        "detail": "FAAH2 -> HGNC:26440 ENSG00000165591",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T04-alias-RP11-479E16.1",
+        "result": "pass",
+        "detail": "alias RP11-479E16.1 -> ENSG00000165591",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T04-alias-FLJ31204",
+        "result": "pass",
+        "detail": "alias FLJ31204 -> ENSG00000165591",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T04-alias-FAAH-2",
+        "result": "pass",
+        "detail": "alias FAAH-2 -> ENSG00000165591",
+        "at": "2026-11-03T17:36:14Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9",
+        "at": "2026-11-03T17:36:14Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "FAAH2 (ENSG00000165591.9) is annotated on GRCh38 chromosome X:57286632-57490641, strand 1.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

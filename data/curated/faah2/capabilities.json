@@ -1,0 +1,42 @@
+{
+  "kind": "capabilities",
+  "derivedFrom": [
+    "gene.json",
+    "transcript.json",
+    "sequences.json",
+    "protein-Q6GMR7.json",
+    "predicted-model-AF-Q6GMR7-F1.json"
+  ],
+  "geneId": "ENSG00000165591",
+  "symbol": "FAAH2",
+  "transcriptView": {
+    "available": true,
+    "reason": "transcript ENST00000374900.5 selected by rule mane_select",
+    "evidenceCategory": 2
+  },
+  "proteinView": {
+    "available": true,
+    "reason": "UniProt Q6GMR7; sequence equals the translated CDS",
+    "evidenceCategory": 2
+  },
+  "experimentalStructure": {
+    "available": false,
+    "reason": "no experimental structure is cross-referenced for this protein",
+    "evidenceCategory": 6
+  },
+  "predictedStructure": {
+    "available": true,
+    "reason": "AF-Q6GMR7-F1 v6; computational prediction, never shown as experimental",
+    "evidenceCategory": 3
+  },
+  "verifiedResidueMapping": {
+    "available": false,
+    "reason": "no experimental structure to map onto",
+    "evidenceCategory": 6
+  },
+  "variantHighlight": {
+    "available": false,
+    "reason": "no reference variant selected",
+    "evidenceCategory": 6
+  }
+}

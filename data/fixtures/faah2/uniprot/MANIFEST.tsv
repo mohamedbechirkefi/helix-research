@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+uniprotkb_Q6GMR7.json	2026-11-03T17:36:16Z	200	ee7c28aa75990b8e2fdb74e7b8be50e1be526df70a852f8ac9e9c0ba59042664	41154	GET	https://rest.uniprot.org/uniprotkb/Q6GMR7.json	"{""content-type"":""application/json"",""x-uniprot-release"":""2026_03"",""x-uniprot-release-date"":""02-September-2026""}"	redacted 2026-11-03: OMIM/MIM/HGMD identifiers removed (Q-H-LIC-1, 1 removal); original sha256 cf7ce0f4fc1a19b53bc7eb36ee17d012a4e3c8f402e35bbb49821b35e2c0981a

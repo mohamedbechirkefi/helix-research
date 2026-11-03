@@ -17,6 +17,7 @@ import { join, relative, resolve } from "node:path";
 import { HttpClient, RecordCache } from "@helix/data-adapters";
 import { type RawRecord, type SliceBuild, type SliceConfig, type SliceInputs, acquireSlice, buildManifest, buildSlice, inputsFor, loadGeneSpec } from "@helix/scientific-core";
 import type { DatasetManifest } from "@helix/shared-types";
+import { type RecordedFixtureSet, redactInputs, writeFixtureSet } from "./fixture-recorder.ts";
 import { loadFixtureInputs } from "./fixtures.ts";
 import { FsStore, REPO_ROOT, USER_AGENT, gitState } from "./node-env.ts";
 
@@ -33,6 +34,12 @@ export interface GeneBuildOptions {
   outDir?: string;
   /** Name of the fixture set under data/fixtures/ for `fixtures` mode (default the datasetId). */
   fixtureSet?: string;
+  /**
+   * Live mode only: record every acquired input, redacted (Q-H-LIC-1), as
+   * data/fixtures/<datasetId>/ and build from those redacted records, so the curated
+   * manifest cites the bytes on disk (lib/fixture-recorder.ts).
+   */
+  recordFixtures?: boolean;
   log?: (m: string) => void;
 }
 
@@ -41,6 +48,8 @@ export interface GeneBuildResult {
   build: SliceBuild;
   manifest: DatasetManifest;
   fileCount: number;
+  /** The fixture set written when `recordFixtures` was set. */
+  fixtures?: RecordedFixtureSet;
 }
 
 /** Path of a gene specification by its name (the file stem under data/specs/). */
@@ -62,7 +71,7 @@ export async function readSpec(gene: string): Promise<SliceConfig> {
 }
 
 /** Parse the command line shared by build-gene.ts and build-hbb.ts. */
-export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null } {
+export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null; recordFixtures: boolean } {
   const mode: BuildMode = args.includes("--offline") ? "offline" : args.includes("--fixtures") ? "fixtures" : "live";
   const value = (flag: string): string | null => {
     const i = args.indexOf(flag);
@@ -71,7 +80,9 @@ export function parseBuildArgs(args: string[]): { gene: string | null; mode: Bui
     if (v === undefined || v.startsWith("--")) throw new Error(`${flag} needs a value`);
     return v;
   };
-  return { gene: value("--gene"), mode, outDir: value("--out") };
+  const recordFixtures = args.includes("--record-fixtures");
+  if (recordFixtures && mode !== "live") throw new Error("--record-fixtures records a live acquisition; it cannot be combined with --offline or --fixtures");
+  return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures };
 }
 
 async function snapshotInputs(cache: RecordCache, store: FsStore, datasetId: string, inputs: SliceInputs, at: string): Promise<void> {
@@ -107,7 +118,9 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
   const generatedAt = new Date().toISOString().replace(/\.\d{3}Z$/, "Z");
   const store = new FsStore(cacheRoot);
   const cache = new RecordCache(store, { maxEntries: 200 });
+  if (o.recordFixtures && o.mode !== "live") throw new Error("recordFixtures needs live mode");
   let inputs: SliceInputs;
+  let toRecord: ReturnType<typeof redactInputs>["redacted"] | null = null;
   if (o.mode === "live") {
     const http = new HttpClient({
       userAgent: USER_AGENT,
@@ -118,6 +131,14 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
     log(`live acquisition for ${config.datasetId} (User-Agent "${USER_AGENT}")`);
     inputs = await acquireSlice(http, config, log);
     await snapshotInputs(cache, store, config.datasetId, inputs, generatedAt);
+    if (o.recordFixtures) {
+      // Redact before anything is built or written; a body the redaction cannot clean fails here.
+      const r = redactInputs(inputsFor(inputs, config));
+      inputs = r.inputs;
+      toRecord = r.redacted;
+      const changed = Object.entries(r.redacted).filter(([, x]) => x.removed.length > 0);
+      log(`redaction (Q-H-LIC-1): ${changed.length} of ${Object.keys(r.redacted).length} records changed${changed.length ? `: ${changed.map(([n, x]) => `${n} (${x.removed.length})`).join(", ")}` : ""}`);
+    }
   } else if (o.mode === "offline") {
     inputs = await loadSnapshot(cache, store, config.datasetId);
   } else {
@@ -147,9 +168,19 @@ export async function buildGene(o: GeneBuildOptions): Promise<GeneBuildResult> {
   await mkdir(resolve(outDir, ".."), { recursive: true });
   await rename(tmp, outDir);
 
+  let fixtures: RecordedFixtureSet | undefined;
+  if (toRecord) {
+    fixtures = await writeFixtureSet(
+      config.datasetId,
+      toRecord,
+      `Offline fixtures for the ${config.datasetId} set, recorded by scripts/data-preparation/build-gene.ts --gene ${config.datasetId} --record-fixtures on ${generatedAt.slice(0, 10)} from the live responses, redacted under Q-H-LIC-1 (OMIM/MIM/HGMD identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.`,
+    );
+    log(`recorded ${relative(REPO_ROOT, fixtures.dir)}: ${fixtures.files.length} files (${fixtures.files.filter((f) => f.redacted).length} redacted)`);
+  }
+
   const failed = build.validation.filter((v) => v.result === "fail").length;
   const warned = build.validation.filter((v) => v.result === "warn").length;
   const fileCount = (await readdir(outDir)).length;
   log(`wrote ${relative(REPO_ROOT, outDir)}: ${fileCount} files; ${build.validation.length} checks (${failed} failed, ${warned} warnings); ${build.knownIssues.length} known issues; ${build.drift.length} drift reports`);
-  return { outDir, build, manifest, fileCount };
+  return { outDir, build, manifest, fileCount, ...(fixtures ? { fixtures } : {}) };
 }

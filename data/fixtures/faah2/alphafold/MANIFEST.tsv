@@ -1,0 +1,3 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+api_prediction_Q6GMR7.json	2026-11-03T17:36:16Z	200	dc6f3447fb9ddf48b6572ccc72fe224ca26c2b0228385c269bf05b10375fe4f9	2778	GET	https://alphafold.ebi.ac.uk/api/prediction/Q6GMR7	"{""content-type"":""application/json""}"	
+files_AF-Q6GMR7-F1-model_v6.cif	2026-11-03T17:36:17Z	200	b2bbbc23cf81aa9fafe3d71f4cbd1d93d94fe64ca3cbadc3abaff101b91f0c1f	483954	GET	https://alphafold.ebi.ac.uk/files/AF-Q6GMR7-F1-model_v6.cif	"{""content-type"":""application/octet-stream"",""last-modified"":""Thu, 18 Sep 2025 10:30:36 GMT"",""etag"":""\""92b2ca9e23a0ef5c49d2c9faf8b04481\""""}"	

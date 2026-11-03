@@ -63,6 +63,8 @@ export function hgncRecordsFromContext(ctx: PlanningContext): HgncRecord[] {
     status: "Approved",
     aliases: g.aliases,
     previousSymbols: [],
+    // The planning context carries no HGNC locus type; nothing in resolution reads it.
+    locusType: null,
     ensemblGeneId: g.id,
     ncbiGeneId: null,
     uniprotIds: ctx.proteins.filter((p) => p.geneId === g.id).map((p) => p.id),

@@ -50,3 +50,54 @@ export function assertNoProprietaryIdentifiers(value: unknown): void {
   const hits = findProprietaryIdentifiers(value);
   if (hits.length > 0) throw new ProprietaryContentError(hits);
 }
+
+/** Object keys that carry a proprietary identifier by name (HGNC `omim_id`, and any key naming OMIM/MIM/HGMD). */
+const PROPRIETARY_KEYS = /^(omim|mim|hgmd)([_-]?(id|ids|number|accession))?$/i;
+/** Fields whose value names the database an object belongs to (UniProt cross-references and evidences, HGNC/Ensembl xrefs). */
+const DATABASE_FIELDS = ["database", "source", "db", "dbname", "db_name"];
+
+function namesProprietaryDatabase(v: unknown): boolean {
+  if (!v || typeof v !== "object" || Array.isArray(v)) return false;
+  const o = v as Record<string, unknown>;
+  return DATABASE_FIELDS.some((f) => typeof o[f] === "string" && isProprietaryDatabase(o[f] as string));
+}
+
+export interface Redaction<T = unknown> {
+  value: T;
+  /** JSON paths removed, with what each was. Empty when nothing had to be removed. */
+  removed: string[];
+}
+
+/**
+ * The redaction research/raw received (Q-H-LIC-1, see research/raw/README.md), as code: a
+ * deep copy of a decoded response without (a) any object whose database field names
+ * OMIM/MIM or HGMD (UniProt cross-references, evidences and disease cross-references,
+ * Ensembl VEP colocated HGMD records), and (b) any key named for those databases (HGNC
+ * `omim_id`). Nothing else is touched. The caller then runs `findProprietaryIdentifiers`
+ * on the result: an identifier this function could not remove must fail the recording,
+ * never be written.
+ */
+export function redactProprietaryIdentifiers<T = unknown>(value: T): Redaction<T> {
+  const removed: string[] = [];
+  const visit = (v: unknown, path: string): unknown => {
+    if (Array.isArray(v)) {
+      const out: unknown[] = [];
+      v.forEach((x, i) => {
+        if (namesProprietaryDatabase(x)) removed.push(`${path}[${i}] (object of a proprietary database)`);
+        else out.push(visit(x, `${path}[${i}]`));
+      });
+      return out;
+    }
+    if (v && typeof v === "object") {
+      const out: Record<string, unknown> = {};
+      for (const [k, x] of Object.entries(v as Record<string, unknown>)) {
+        if (PROPRIETARY_KEYS.test(k)) removed.push(`${path}.${k} (key named for a proprietary database)`);
+        else if (namesProprietaryDatabase(x)) removed.push(`${path}.${k} (object of a proprietary database)`);
+        else out[k] = visit(x, `${path}.${k}`);
+      }
+      return out;
+    }
+    return v;
+  };
+  return { value: visit(value, "$") as T, removed };
+}

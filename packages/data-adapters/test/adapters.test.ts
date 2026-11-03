@@ -20,7 +20,10 @@ import {
   plddtBand,
   ensemblUrls,
   findProprietaryIdentifiers,
+  hgncUrls,
+  parseHgnc,
   parseUniprotEntry,
+  redactProprietaryIdentifiers,
   rcsbUrls,
   uniprotUrls,
 } from "../src/index.ts";
@@ -138,6 +141,38 @@ describe("RCSB, SIFTS, ClinVar, HGNC, AlphaFold adapters (recorded fixtures)", (
     expect(data.hgncId).toBe("HGNC:4827");
     expect(Object.keys(sent as Record<string, string>)).toEqual(["Accept"]);
   });
+  it("HGNC fetch by numeric id (Phase 9 finder): the URL, the Accept header, locus_type, and an unused id as an empty array", async () => {
+    expect(hgncUrls.fetchHgncId(4827)).toBe("https://rest.genenames.org/fetch/hgnc_id/HGNC:4827");
+    for (const bad of [0, -1, 1.5, Number.NaN]) expect(() => hgncUrls.fetchHgncId(bad)).toThrow(InvalidParameterError);
+    const used = {
+      responseHeader: { status: 0, QTime: 1 },
+      response: {
+        numFound: 1,
+        start: 0,
+        docs: [{ hgnc_id: "HGNC:4827", symbol: "HBB", name: "hemoglobin subunit beta", status: "Approved", locus_type: "gene with protein product", uniprot_ids: ["P68871"], mane_select: ["ENST00000335295.4", "NM_000518.5"], ensembl_gene_id: "ENSG00000244734" }],
+      },
+    };
+    const unused = { responseHeader: { status: 0, QTime: 0 }, response: { numFound: 0, start: 0, docs: [] } };
+    const asked: string[] = [];
+    let sent: HeadersInit | undefined;
+    const h = new HttpClient({
+      fetch: async (u, init) => {
+        asked.push(String(u));
+        sent = init?.headers;
+        return new Response(JSON.stringify(String(u).endsWith("HGNC:4827") ? used : unused), { headers: { "content-type": "application/json" } });
+      },
+    });
+    const a = await new HgncAdapter(h).hgncId(4827);
+    expect(a.data).toHaveLength(1);
+    expect(a.data[0]).toMatchObject({ hgncId: "HGNC:4827", symbol: "HBB", status: "Approved", locusType: "gene with protein product", uniprotIds: ["P68871"], maneSelect: ["ENST00000335295.4", "NM_000518.5"], ensemblGeneId: "ENSG00000244734" });
+    expect(Object.keys(sent as Record<string, string>)).toEqual(["Accept"]);
+    const b = await new HgncAdapter(h).hgncId(59999);
+    expect(b.data).toEqual([]);
+    expect(asked).toEqual(["https://rest.genenames.org/fetch/hgnc_id/HGNC:4827", "https://rest.genenames.org/fetch/hgnc_id/HGNC:59999"]);
+    // A record without locus_type still parses (the field is optional); the symbol fetch is unchanged.
+    expect(parseHgnc({ response: { numFound: 1, docs: [{ hgnc_id: "HGNC:1", symbol: "X", name: "x", status: "Approved" }] } })[0]!.locusType).toBeNull();
+    expect((await new HgncAdapter(new HttpClient({ fetch: async () => new Response(inputs.hgnc.body) })).symbol("HBB")).data.locusType).toBe("gene with protein product");
+  });
   it("AlphaFold prediction and the in-file disclaimer (A1)", async () => {
     const af = new AlphafoldAdapter(http);
     const p = await af.prediction("P68871");
@@ -198,5 +233,49 @@ describe("proprietary identifier guard (Q-H-LIC-1)", () => {
       expect(findProprietaryIdentifiers(await fixtureJson(name)), name).toEqual([]);
     }
     expect((await fixtureText("goReleaseDate")).trim()).toBe("{date: 2026-08-05}");
+  });
+});
+
+describe("redactProprietaryIdentifiers (the research/raw redaction, Q-H-LIC-1, as code)", () => {
+  it("removes MIM/OMIM/HGMD-keyed objects and keys, nothing else, and reports each removal", () => {
+    const body = {
+      responseHeader: { status: 0 },
+      docs: [{ symbol: "G", omim_id: ["123456"], uniprot_ids: ["P12345"], locus_type: "gene with protein product" }],
+      uniProtKBCrossReferences: [
+        { database: "PDB", id: "1ABC" },
+        { database: "MIM", id: "141900", properties: [{ key: "Type", value: "gene" }] },
+        { database: "Ensembl", id: "ENST00000000001" },
+      ],
+      comments: [{ commentType: "DISEASE", disease: { diseaseId: "X", diseaseCrossReference: { database: "MIM", id: "603902" }, evidences: [{ evidenceCode: "ECO:0000269", source: "PubMed", id: "1" }, { evidenceCode: "ECO:0000269", source: "MIM", id: "603902" }] } }],
+      colocated_variants: [{ id: "rs1", allele_string: "T/A" }, { id: "CM900001", allele_string: "HGMD_MUTATION", source: "HGMD-PUBLIC" }],
+    };
+    const before = JSON.stringify(body);
+    const r = redactProprietaryIdentifiers(body);
+    expect(JSON.stringify(body)).toBe(before);
+    expect(r.value).toEqual({
+      responseHeader: { status: 0 },
+      docs: [{ symbol: "G", uniprot_ids: ["P12345"], locus_type: "gene with protein product" }],
+      uniProtKBCrossReferences: [
+        { database: "PDB", id: "1ABC" },
+        { database: "Ensembl", id: "ENST00000000001" },
+      ],
+      comments: [{ commentType: "DISEASE", disease: { diseaseId: "X", evidences: [{ evidenceCode: "ECO:0000269", source: "PubMed", id: "1" }] } }],
+      colocated_variants: [{ id: "rs1", allele_string: "T/A" }],
+    });
+    expect(r.removed).toEqual([
+      "$.docs[0].omim_id (key named for a proprietary database)",
+      "$.uniProtKBCrossReferences[1] (object of a proprietary database)",
+      "$.comments[0].disease.diseaseCrossReference (object of a proprietary database)",
+      "$.comments[0].disease.evidences[1] (object of a proprietary database)",
+      "$.colocated_variants[1] (object of a proprietary database)",
+    ]);
+    expect(findProprietaryIdentifiers(r.value)).toEqual([]);
+    // An identifier in free text is not removed: the caller must refuse to record such a body.
+    const free = redactProprietaryIdentifiers({ note: "see OMIM for details" });
+    expect(free.removed).toEqual([]);
+    expect(findProprietaryIdentifiers(free.value)).toHaveLength(1);
+    // The redacted HBB fixtures contain nothing left to remove.
+    expect(redactProprietaryIdentifiers(JSON.parse(inputs.hgnc.body)).removed).toEqual([]);
+    expect(redactProprietaryIdentifiers(JSON.parse(inputs.uniprot.body)).removed).toEqual([]);
   });
 });
