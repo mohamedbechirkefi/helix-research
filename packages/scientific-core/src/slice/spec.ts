@@ -80,6 +80,8 @@ export const GeneSpecSchema = z.strictObject({
   includeAlphafold: z.boolean(),
   /** Ask Reactome which human pathways list the protein and write pathways.json (plan §12 rule 2). The specification may not name a pathway: the one the world opens on is chosen by rule. */
   pathways: z.boolean(),
+  /** Ask Open Targets once for the gene's disease associations and write associations.json (plan section 14 rule 2); never a disease name. */
+  associations: z.boolean(),
   /** The set's curated questions, written to questions.json; empty when the set offers none. */
   questions: z.array(GeneSpecQuestionSchema),
   /** The question offered first after a DNA World variant answer. */
@@ -145,6 +147,7 @@ export function loadGeneSpec(json: unknown): SliceConfig {
     contactCutoffAngstrom: s.contactCutoffAngstrom,
     includeAlphafold: s.includeAlphafold,
     pathways: s.pathways,
+    associations: s.associations,
     questions: s.questions.map((q) => ({ text: q.text, requires: [...q.requires] })),
   };
   if (s.pdbId !== undefined) config.pdbId = s.pdbId;
@@ -168,6 +171,7 @@ export function specOf(config: SliceConfig): GeneSpec {
     contactCutoffAngstrom: config.contactCutoffAngstrom,
     includeAlphafold: config.includeAlphafold,
     pathways: config.pathways,
+    associations: config.associations,
     questions: config.questions,
     ...(config.bridgeQuestion !== undefined ? { bridgeQuestion: config.bridgeQuestion } : {}),
   });

@@ -9,6 +9,13 @@ import {
   HgncAdapter,
   HttpClient,
   InvalidParameterError,
+  OpenTargetsAdapter,
+  OPEN_TARGETS_ASSOCIATIONS_QUERY,
+  OPEN_TARGETS_GRAPHQL_URL,
+  EXCLUDED_DATASOURCES,
+  isExcludedDatasource,
+  openTargetsRequestBody,
+  parseOpenTargetsAssociations,
   ParseError,
   ProprietaryContentError,
   RcsbAdapter,
@@ -378,5 +385,64 @@ describe("redactProprietaryIdentifiers (the research/raw redaction, Q-H-LIC-1, a
     // The redacted HBB fixtures contain nothing left to remove.
     expect(redactProprietaryIdentifiers(JSON.parse(inputs.hgnc.body)).removed).toEqual([]);
     expect(redactProprietaryIdentifiers(JSON.parse(inputs.uniprot.body)).removed).toEqual([]);
+  });
+});
+
+describe("Open Targets adapter (P9.1.3, plan §14 rule 1; the recorded response of the first set)", () => {
+  const ot = new OpenTargetsAdapter(http);
+  const geneId = inputs.geneLookup.url.match(/lookup\/id\/(ENSG\d{11})/)![1]!;
+  const meta = { apiVersion: { x: "26", y: "9", z: "0" }, dataVersion: { year: "26", month: "09" } };
+  const row = (id: string, score: number, datasources: [string, number][] = [["eva", 0.9]]) => ({ disease: { id, name: `disease ${id}`, therapeuticAreas: [{ id: "EFO_0000001", name: "area" }] }, score, datatypeScores: [{ id: "genetic_association", score }], datasourceScores: datasources.map(([i, s]) => ({ id: i, score: s })) });
+  const body = (rows: unknown[], count = rows.length, target: unknown = undefined) => ({ data: { meta, target: target === undefined ? { id: "ENSG00000000001", approvedSymbol: "X", associatedDiseases: { count, rows } } : target } });
+  it("the request: one POST to the GraphQL endpoint with the query constant and the validated Ensembl gene id as its only variable", async () => {
+    expect(openTargetsRequestBody("ENSG00000000001")).toEqual({ query: OPEN_TARGETS_ASSOCIATIONS_QUERY, variables: { ensemblId: "ENSG00000000001" } });
+    for (const bad of ["ENSG1", "HBB", "ENSG00000000001.6", "../x"]) expect(() => openTargetsRequestBody(bad), bad).toThrow(InvalidParameterError);
+    expect(OPEN_TARGETS_ASSOCIATIONS_QUERY).toContain("meta { apiVersion { x y z } dataVersion { year month } }");
+    expect(OPEN_TARGETS_ASSOCIATIONS_QUERY).toContain('associatedDiseases(page: { index: 0, size: 25 }, orderByScore: "score desc")');
+    expect(OPEN_TARGETS_ASSOCIATIONS_QUERY).toContain("datasourceScores { id score }");
+    const { data, response } = await ot.associations(geneId);
+    expect([response.method, response.url, response.source]).toEqual(["POST", OPEN_TARGETS_GRAPHQL_URL, "opentargets"]);
+    expect(response.sha256).toBe(inputs.opentargetsAssociations!.sha256);
+    expect(data.ensemblGeneId).toBe(geneId);
+    expect(data.apiVersion).toMatch(/^\d+\.\d+\.\d+$/);
+    expect(data.dataVersion).toMatch(/^\d+\.\d+$/);
+    expect(data.count).toBeGreaterThanOrEqual(data.rows.length);
+    expect(data.rows.length).toBeGreaterThan(0);
+    expect(data.rows.length).toBeLessThanOrEqual(25);
+    for (const r of data.rows) {
+      expect(r.diseaseId).toMatch(/^[A-Za-z]+_[0-9A-Za-z]+$/);
+      expect(r.diseaseName.length).toBeGreaterThan(0);
+      expect(r.score).toBeGreaterThanOrEqual(0);
+      expect(r.score).toBeLessThanOrEqual(1);
+      expect(r.datasourceScores.some((x) => isExcludedDatasource(x.id))).toBe(false);
+    }
+    // The response's order is kept (the builder's T50 checks it is descending).
+    expect(data.rows.map((r) => r.score)).toEqual([...data.rows.map((r) => r.score)].sort((a, b) => b - a));
+    // The exclusion observed in the recorded response: at least Europe PMC appears and is dropped.
+    expect(data.droppedDatasourceIds).toContain("europepmc");
+    expect(data.droppedDatasourceIds.every((id) => data.datasourceIdsObserved.includes(id))).toBe(true);
+  });
+  it("the exclusion list (registry section 7) drops the share-alike and restricted sources by id, case-insensitively, and names what it dropped per row and overall", () => {
+    expect([...EXCLUDED_DATASOURCES]).toEqual(["chembl", "clinical_precedence", "cancer_gene_census", "europepmc"]);
+    expect(isExcludedDatasource("EuropePMC")).toBe(true);
+    expect(isExcludedDatasource("eva")).toBe(false);
+    const d = parseOpenTargetsAssociations(body([row("EFO_0000001", 0.9, [["chembl", 0.8], ["eva", 0.7], ["europepmc", 0.1]]), row("EFO_0000002", 0.5, [["cancer_gene_census", 0.5], ["clinical_precedence", 0.4], ["intogen", 0.3]]), row("EFO_0000003", 0.2, [["impc", 0.2]])]));
+    expect(d.rows.map((r) => r.datasourceScores.map((x) => x.id))).toEqual([["eva"], ["intogen"], ["impc"]]);
+    expect(d.rows.map((r) => r.droppedDatasourceIds)).toEqual([["chembl", "europepmc"], ["cancer_gene_census", "clinical_precedence"], []]);
+    expect(d.droppedDatasourceIds).toEqual(["cancer_gene_census", "chembl", "clinical_precedence", "europepmc"]);
+    expect(d.datasourceIdsObserved).toEqual(["cancer_gene_census", "chembl", "clinical_precedence", "europepmc", "eva", "impc", "intogen"]);
+    // The overall and datatype scores are kept as the platform computed them.
+    expect(d.rows[0]!.score).toBe(0.9);
+    expect(d.rows[0]!.datatypeScores).toEqual([{ id: "genetic_association", score: 0.9 }]);
+    expect([d.apiVersion, d.dataVersion, d.count]).toEqual(["26.9.0", "26.09", 3]);
+  });
+  it("refuses a GraphQL error, a null target, a missing meta and a non-numeric score; an empty page is a record with no rows", () => {
+    expect(() => parseOpenTargetsAssociations({ errors: [{ message: "Cannot query field x" }], data: null })).toThrow(/GraphQL error: Cannot query field x/);
+    expect(() => parseOpenTargetsAssociations(body([], 0, null))).toThrow(/target is null/);
+    expect(() => parseOpenTargetsAssociations({ data: { target: { id: "ENSG00000000001", approvedSymbol: "X", associatedDiseases: { count: 0, rows: [] } } } })).toThrow(ParseError);
+    expect(() => parseOpenTargetsAssociations(body([{ ...row("EFO_0000001", 0.9), score: "0.9" }]))).toThrow(ParseError);
+    expect(() => parseOpenTargetsAssociations("<html>")).toThrow(ParseError);
+    const empty = parseOpenTargetsAssociations(body([], 0));
+    expect([empty.count, empty.rows, empty.droppedDatasourceIds, empty.datasourceIdsObserved]).toEqual([0, [], [], []]);
   });
 });

@@ -51,4 +51,9 @@ export const SOURCE_TERMS: Record<SourceId, { licence: LicenceId; attribution: s
     attribution: "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used.",
     policyUrl: "https://reactome.org/license",
   },
+  opentargets: {
+    licence: "CC0-1.0",
+    attribution: "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record.",
+    policyUrl: "https://platform-docs.opentargets.org/licence",
+  },
 };

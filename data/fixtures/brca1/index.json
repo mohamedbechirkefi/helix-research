@@ -252,6 +252,10 @@
     "reactomeParticipants:R-HSA-9755511": {
       "source": "reactome",
       "path": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-9755511.json"
+    },
+    "opentargetsAssociations": {
+      "source": "opentargets",
+      "path": "data/fixtures/brca1/opentargets/api_v4_graphql.json"
     }
   },
   "extra": {}

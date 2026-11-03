@@ -110,6 +110,7 @@ describe("capability checks (P2.4.6)", () => {
       predictedModel: null,
       variantPositions: [],
       pathways: null,
+      associations: null,
     });
     expect(cap.proteinView.available).toBe(false);
     expect(cap.proteinView.reason).toMatch(/pseudogene/);
@@ -131,6 +132,7 @@ describe("capability checks (P2.4.6)", () => {
       predictedModel: { modelId: "AF-Q00000-F1", version: 6 },
       variantPositions: [42],
       pathways: null,
+      associations: null,
     });
     expect(cap.predictedStructure.available).toBe(true);
     expect(cap.variantHighlight.available).toBe(false);
@@ -151,6 +153,7 @@ describe("capability checks (P2.4.6)", () => {
       verifiedMappings: [],
       predictedModel: null,
       variantPositions: [],
+      associations: null,
     };
     expect(capabilities({ ...base, pathways: { membershipCount: 0, opening: null, reason: "no Reactome pathway lists this protein" } }).pathwayView).toEqual({ available: false, reason: "no Reactome pathway lists this protein", evidenceCategory: 6 });
     // Memberships but none qualifies: unavailable with the rule's own sentence.

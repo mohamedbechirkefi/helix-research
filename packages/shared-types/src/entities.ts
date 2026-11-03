@@ -624,6 +624,70 @@ export const PathwayMembershipsRecord = z.object({
 });
 export type PathwayMembershipsRecord = z.infer<typeof PathwayMembershipsRecord>;
 
+// ---------------------------------------------------------------- disease associations (Phase 9, P9.1.3)
+
+/**
+ * The sentence every reader of an association repeats (plan section 14 rule 2): an Open Targets
+ * association scores the evidence linking a target to a disease; it is never a causal statement
+ * and never a diagnosis.
+ */
+export const ASSOCIATION_NEVER_CAUSAL = "association, never causal; a score aggregates evidence, it does not state that the gene causes the disease";
+
+/** One scored component of an association: a datatype (genetic association, somatic mutation, ...) or a datasource, by the platform's id. */
+export const AssociationScore = z.object({
+  id: z.string().min(1),
+  score: z.number().min(0).max(1),
+});
+export type AssociationScore = z.infer<typeof AssociationScore>;
+
+/**
+ * One Open Targets target-disease association (a database annotation, class 2). `datasourceScores`
+ * holds the kept datasources only: the entries of the share-alike or restricted sources the
+ * registry names are dropped at parse time and listed in `droppedDatasourceIds`; `score` and
+ * `datatypeScores` are the platform's aggregates over every datasource, dropped ones included.
+ */
+export const DiseaseAssociation = z.object({
+  /** The disease id as the platform gives it (EFO, MONDO, Orphanet or another ontology, underscore form). */
+  diseaseId: z.string().min(1),
+  diseaseName: z.string().min(1),
+  therapeuticAreas: z.array(z.object({ id: z.string().min(1), name: z.string().min(1) })),
+  /** The platform's overall association score, 0 to 1. */
+  score: z.number().min(0).max(1),
+  datatypeScores: z.array(AssociationScore),
+  datasourceScores: z.array(AssociationScore),
+  droppedDatasourceIds: z.array(z.string().min(1)),
+});
+export type DiseaseAssociation = z.infer<typeof DiseaseAssociation>;
+
+/**
+ * The disease associations of a gene (associations.json, Phase 9 P9.1.3, plan section 14 rule 2):
+ * one Open Targets response per set, the first page of associations in descending score order,
+ * with the platform's api and data versions, the total count, the kept rows, the datasource ids
+ * dropped under the registry's licence table and the sentence that no association is causal.
+ * A gene with no association has an empty list.
+ */
+export const DiseaseAssociationsRecord = z.object({
+  kind: z.literal("disease-associations"),
+  derivedFrom: z.array(z.string()),
+  ensemblGeneId: z.string().min(1),
+  approvedSymbol: z.string().min(1),
+  /** The platform versions of the response (`meta`): api "x.y.z", data "yy.mm". */
+  platform: z.object({ apiVersion: z.string().min(1), dataVersion: z.string().min(1) }),
+  /** The page asked for: the one request per set the terms allow. */
+  request: z.object({ pageIndex: z.number().int().nonnegative(), pageSize: z.number().int().positive(), orderByScore: z.literal(true) }),
+  /** The platform's count of associations for the target, of which the first page is kept. */
+  count: z.number().int().nonnegative(),
+  keptCount: z.number().int().nonnegative(),
+  associations: z.array(DiseaseAssociation),
+  /** The exclusion list applied (registry section 7), the ids among them that the response carried, and every datasource id the response carried. */
+  droppedDatasources: z.object({ excluded: z.array(z.string().min(1)), observed: z.array(z.string().min(1)), reason: z.string().min(1) }),
+  datasourceIdsObserved: z.array(z.string().min(1)),
+  /** ASSOCIATION_NEVER_CAUSAL, repeated by every reader. */
+  note: z.string().min(1),
+  ...Curated,
+});
+export type DiseaseAssociationsRecord = z.infer<typeof DiseaseAssociationsRecord>;
+
 // ---------------------------------------------------------------- predicted models
 
 export const PredictedModel = z.object({
@@ -695,11 +759,13 @@ export const CapabilityReport = z.object({
   variantHighlight: Capability,
   /** Phase 9 (P9.1.2): Reactome memberships with participants can be shown, opening on the rule's choice (class 2, membership only). */
   pathwayView: Capability,
+  /** Phase 9 (P9.1.3): Open Targets disease associations can be shown in Evidence World (class 2; association, never causal). */
+  associationView: Capability,
 });
 export type CapabilityReport = z.infer<typeof CapabilityReport>;
 
 /** The capability keys a question may require (the Capability-valued fields of the report). */
-export const CAPABILITY_KEYS = ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight", "pathwayView"] as const;
+export const CAPABILITY_KEYS = ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight", "pathwayView", "associationView"] as const;
 export type CapabilityKey = (typeof CAPABILITY_KEYS)[number];
 
 /** One curated question with the capabilities the set must have for it to be askable at all. */

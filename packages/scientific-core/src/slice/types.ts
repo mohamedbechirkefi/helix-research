@@ -80,6 +80,12 @@ export interface SliceConfig {
    * and no record.
    */
   pathways: boolean;
+  /**
+   * Phase 9 (P9.1.3, plan section 14 rule 2): ask Open Targets once for the gene's disease
+   * associations and write associations.json (an empty list when it has none). False: no request
+   * and no record.
+   */
+  associations: boolean;
   /** The set's curated questions, written to questions.json (empty when the set offers none). */
   questions: SliceQuestion[];
   /** The question offered first after a DNA World variant answer; absent when the set has none. */
@@ -102,12 +108,14 @@ export const HBB_CONFIG: SliceConfig = {
   contactCutoffAngstrom: 4.5,
   includeAlphafold: true,
   pathways: true,
+  associations: true,
   questions: [
     { text: "Show me where the sickle-cell mutation affects hemoglobin.", requires: ["variantHighlight", "experimentalStructure"] },
     { text: "How does the DNA change for the sickle-cell variant?", requires: ["variantHighlight"] },
     { text: "What does the HbS residue touch in the crystal?", requires: ["variantHighlight", "experimentalStructure"] },
     { text: "Show the evidence for the sickle-cell variant.", requires: ["variantHighlight"] },
     { text: "Which pathways list HBB?", requires: ["pathwayView"] },
+    { text: "What diseases are associated with HBB?", requires: ["associationView"] },
   ],
   bridgeQuestion: "See the sickle-cell mutation on the protein.",
 };
@@ -151,6 +159,8 @@ export interface SliceInputs {
   [k: `reactomeAncestors:${string}`]: RawRecord | undefined;
   /** R3: the participants of one candidate pathway, keyed by its stable id (one input per candidate of the opening rule). */
   [k: `reactomeParticipants:${string}`]: RawRecord | undefined;
+  /** O1: the one Open Targets response of the set (Phase 9, P9.1.3; only when the specification asks for associations). */
+  opentargetsAssociations?: RawRecord;
 }
 
 export type SliceInputName = keyof SliceInputs;
@@ -161,6 +171,8 @@ export const ancestorsInput = (stableId: string): `reactomeAncestors:${string}` 
 export const participantsInput = (stableId: string): `reactomeParticipants:${string}` => `reactomeParticipants:${stableId}`;
 /** Whether an input name belongs to the pathway group (R0 to R3). */
 export const isPathwayInput = (name: string): boolean => /^reactome(Version|Pathways|Ancestors:|Participants:)/.test(name);
+/** Whether an input name belongs to the association group (O1). */
+export const isAssociationInput = (name: string): boolean => name === "opentargetsAssociations";
 
 /** Inputs that exist only when the specification selects a reference variant. */
 export const VARIANT_INPUTS = ["genomicWindow", "codonMap", "variation", "variantRecoder", "vep", "clinvarSearch", "clinvar", "clinvarEinfo"] as const satisfies readonly SliceInputName[];
@@ -180,5 +192,6 @@ export function inputsFor(inputs: SliceInputs, config: SliceConfig): SliceInputs
     delete out.alphafoldModel;
   }
   if (!config.pathways) for (const k of Object.keys(out)) if (isPathwayInput(k)) delete out[k as SliceInputName];
+  if (!config.associations) delete out.opentargetsAssociations;
   return out;
 }

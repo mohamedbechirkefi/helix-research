@@ -1,0 +1,32 @@
+files compared: 10
+byte-identical files: -1
+allowed differences (timestamps and dependent hashes): 88
+  gene.json: 8
+  manifest.json: 38
+  pathways.json: 6
+  predicted-model-AF-Q6GMR7-F1.json: 1
+  protein-Q6GMR7.json: 8
+  sequences.json: 21
+  transcript.json: 6
+other differences: 21
+  capabilities.json $.derivedFrom: 6 != 7 (array length)
+  capabilities.json $.associationView: undefined != {"available":true,"reason":"51 Open Targets associations, 25 kept by score; top: hypertensive disorder (score 0.30166961116895136); association, never causal","evidenceCategory":2} (value)
+  manifest.json $.generator.gitCommit: "3fe6783effa8a50236310920f58ebe30e403d193" != "46e57a59c0fe4b0eedcc81f68e5293b2f2802e53" (value)
+  manifest.json $.generator.gitDirty: false != true (value)
+  manifest.json $.sources: 15 != 16 (array length)
+  manifest.json $.files: 8 != 9 (array length)
+  manifest.json $.files[6].path: "capabilities.json" != "associations.json" (value)
+  manifest.json $.files[6].recordKind: "capabilities" != "disease-associations" (value)
+  manifest.json $.files[7].path: "questions.json" != "capabilities.json" (value)
+  manifest.json $.files[7].recordKind: "questions" != "capabilities" (value)
+  manifest.json $.validation: 27 != 31 (array length)
+  manifest.json $.validation[26].check: "T31-drift-recorded" != "T49-association-target" (value)
+  manifest.json $.validation[26].detail: "uniprot-xref-ensembl-gene-version: ENSG00000165591.8 vs ENSG00000165591.9" != "response target ENSG00000165591 FAAH2; specification ENSG00000165591; gene record ENSG00000165591 FAAH2" (value)
+  manifest.json $.attribution: 5 != 6 (array length)
+  manifest.json $.attribution[3].source: "reactome" != "opentargets" (value)
+  manifest.json $.attribution[3].text: "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." != "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record." (value)
+  manifest.json $.attribution[4].source: "uniprot" != "reactome" (value)
+  manifest.json $.attribution[4].licence: "CC-BY-4.0" != "CC0-1.0" (value)
+  manifest.json $.attribution[4].text: "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX." != "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used." (value)
+  questions.json $.questions: 1 != 2 (array length)
+  associations.json : false != true (file present in one build only)

@@ -60,6 +60,10 @@
     "reactomeParticipants:R-HSA-2142753": {
       "source": "reactome",
       "path": "data/fixtures/faah2/reactome/ContentService_data_participants_R-HSA-2142753.json"
+    },
+    "opentargetsAssociations": {
+      "source": "opentargets",
+      "path": "data/fixtures/faah2/opentargets/api_v4_graphql.json"
     }
   },
   "extra": {}

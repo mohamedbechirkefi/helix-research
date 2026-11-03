@@ -1,0 +1,1212 @@
+{
+  "kind": "disease-associations",
+  "derivedFrom": [
+    "gene.json"
+  ],
+  "ensemblGeneId": "ENSG00000012048",
+  "approvedSymbol": "BRCA1",
+  "platform": {
+    "apiVersion": "26.9.0",
+    "dataVersion": "26.09"
+  },
+  "request": {
+    "pageIndex": 0,
+    "pageSize": 25,
+    "orderByScore": true
+  },
+  "count": 1324,
+  "keptCount": 25,
+  "associations": [
+    {
+      "diseaseId": "MONDO_0007254",
+      "diseaseName": "breast cancer",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.8436508158150241,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9984727309333157
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9857814423386521
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "uniprot_variants",
+          "score": 0.9946022855452514
+        },
+        {
+          "id": "gene_burden",
+          "score": 0.9906136746413028
+        },
+        {
+          "id": "eva",
+          "score": 0.8955213307982954
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0003582",
+      "diseaseName": "hereditary breast ovarian cancer syndrome",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        }
+      ],
+      "score": 0.8278837838347972,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.40300598598830056
+        },
+        {
+          "id": "animal_model",
+          "score": 0.40179666241146067
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9179786150922271
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.8855819352769478
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "genomics_england",
+          "score": 0.9549947196932794
+        },
+        {
+          "id": "eva",
+          "score": 0.9497812997492093
+        },
+        {
+          "id": "uniprot_variants",
+          "score": 0.9285669064556789
+        },
+        {
+          "id": "orphanet",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "impc",
+          "score": 0.40179666241146067
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0054748",
+      "diseaseName": "Fanconi anemia, complementation group S",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005570",
+          "name": "hematologic disorder"
+        },
+        {
+          "id": "MONDO_0005046",
+          "name": "immune system disorder"
+        },
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "OTAR_0000020",
+          "name": "nutritional or metabolic disease"
+        },
+        {
+          "id": "OTAR_0000006",
+          "name": "musculoskeletal or connective tissue disease"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.8173531116391729,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.06068838056824011
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9142416903942767
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.8405653132713544
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "genomics_england",
+          "score": 0.9391118789327693
+        },
+        {
+          "id": "eva",
+          "score": 0.9359367721388915
+        },
+        {
+          "id": "uniprot_variants",
+          "score": 0.8274613634158176
+        },
+        {
+          "id": "gene2phenotype",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "clingen",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0008170",
+      "diseaseName": "ovarian cancer",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.8106717720582334,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.992283807364206
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9084799700362506
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.870062387425325
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9411779629253533
+        },
+        {
+          "id": "eva",
+          "score": 0.9112654084463426
+        },
+        {
+          "id": "eva_somatic",
+          "score": 0.870062387425325
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "uniprot_variants",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0021100",
+      "diseaseName": "breast neoplasm",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.7998733941854641,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9442628241115062
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9732214211179049
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.7866084138163167
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9826533548358554
+        },
+        {
+          "id": "eva",
+          "score": 0.9354936862461031
+        },
+        {
+          "id": "eva_somatic",
+          "score": 0.7866084138163167
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0011450",
+      "diseaseName": "breast-ovarian cancer, familial, susceptibility to, 1",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        }
+      ],
+      "score": 0.7989584217005636,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9698274365438364
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.9547506674770344
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.9513974960387728
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.9698274365438364
+        },
+        {
+          "id": "eva_somatic",
+          "score": 0.9547506674770344
+        },
+        {
+          "id": "genomics_england",
+          "score": 0.9513974960387728
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0021068",
+      "diseaseName": "ovarian neoplasm",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.7880972295269321,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.7597808846671598
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9521513921948201
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.870062387425325
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9641038465737841
+        },
+        {
+          "id": "eva",
+          "score": 0.9043415746789644
+        },
+        {
+          "id": "eva_somatic",
+          "score": 0.870062387425325
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004992",
+      "diseaseName": "cancer",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.7789700201953356,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9918561065877036
+        },
+        {
+          "id": "affected_pathway",
+          "score": 0.8334055756591312
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9644224133894091
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9644224133894091
+        },
+        {
+          "id": "reactome",
+          "score": 0.8897742701710087
+        },
+        {
+          "id": "gene2phenotype",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "cancer_biomarkers",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004989",
+      "diseaseName": "breast carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.7760181640980255,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9977203878221261
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9706868398610293
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.4559480982087158
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.989598112270601
+        },
+        {
+          "id": "eva",
+          "score": 0.895041750222743
+        }
+      ],
+      "droppedDatasourceIds": [
+        "cancer_gene_census",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005070",
+      "diseaseName": "neoplasm",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.6910970936616534,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.998284854336865
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.8376901738338809
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.4559480982087158
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9809158082190856
+        },
+        {
+          "id": "eva",
+          "score": 0.2647876362930616
+        }
+      ],
+      "droppedDatasourceIds": [
+        "cancer_gene_census",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0700268",
+      "diseaseName": "BRCA1-related cancer predisposition",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.6786872317143081,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9644062619405043
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.9644062619405043
+        },
+        {
+          "id": "clingen",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0016419",
+      "diseaseName": "hereditary breast carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.6647839364415694,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.4672734752760111
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9463508118713407
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.547137717850459
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.9463508118713407
+        },
+        {
+          "id": "eva_somatic",
+          "score": 0.547137717850459
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0013685",
+      "diseaseName": "pancreatic cancer, susceptibility to, 4",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.6599812277286587,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9336363057890151
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.9336363057890151
+        },
+        {
+          "id": "genomics_england",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0005140",
+      "diseaseName": "ovarian carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        }
+      ],
+      "score": 0.6474609998919243,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9928754154025722
+        },
+        {
+          "id": "affected_pathway",
+          "score": 0.8897742701710087
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.7828918656265548
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.4559480982087158
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.853122554704666
+        },
+        {
+          "id": "gene_burden",
+          "score": 0.5019691093141095
+        },
+        {
+          "id": "cancer_biomarkers",
+          "score": 0.8897742701710087
+        }
+      ],
+      "droppedDatasourceIds": [
+        "cancer_gene_census",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0015278",
+      "diseaseName": "familial pancreatic carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "EFO_0010282",
+          "name": "gastrointestinal disease"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.6279438174869719,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.8774505920567658
+        },
+        {
+          "id": "animal_model",
+          "score": 0.26177500145156407
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.8581661090775219
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.8581661090775219
+        },
+        {
+          "id": "genomics_england",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "impc",
+          "score": 0.26177500145156407
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "EFO_0009580",
+      "diseaseName": "prophylactic surgery",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0002571",
+          "name": "medical procedure"
+        }
+      ],
+      "score": 0.5949681090508243,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9786773616146389
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9786773616146389
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0001416",
+      "diseaseName": "female reproductive organ cancer",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5896642309497533,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.26219728048038704
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9568430208542733
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9568430208542733
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004986",
+      "diseaseName": "urinary bladder carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002118",
+          "name": "urinary system disorder"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5877098158622236,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.21665773274321026
+        },
+        {
+          "id": "genetic_association",
+          "score": 0
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.7695387233447388
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva_somatic",
+          "score": 0.8479363796287446
+        },
+        {
+          "id": "eva",
+          "score": 0
+        }
+      ],
+      "droppedDatasourceIds": [
+        "cancer_gene_census",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0015356",
+      "diseaseName": "hereditary neoplastic syndrome",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5812420607480764,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.12773151877592398
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.9497124784792449
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.9497124784792449
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "EFO_0009642",
+      "diseaseName": "follow-up",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0002571",
+          "name": "medical procedure"
+        }
+      ],
+      "score": 0.5696899490651873,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9370967078873605
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9370967078873605
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "EFO_0009717",
+      "diseaseName": "bilateral oophorectomy",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0002571",
+          "name": "medical procedure"
+        }
+      ],
+      "score": 0.5676700509013556,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9337741287849901
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9337741287849901
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0001056",
+      "diseaseName": "gastric cancer",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0010282",
+          "name": "gastrointestinal disease"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5652916815050448,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.8741453703616504
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.8861546232069417
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.8861546232069417
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0002447",
+      "diseaseName": "endometrial carcinoma",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        },
+        {
+          "id": "OTAR_0000017",
+          "name": "reproductive system or breast disease"
+        }
+      ],
+      "score": 0.5626977256011917,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.24333003954509475
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.8062006724660112
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.4559480982087158
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.8062006724660112
+        }
+      ],
+      "droppedDatasourceIds": [
+        "cancer_gene_census",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0024881",
+      "diseaseName": "secondary malignant neoplasm",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5539781374898577,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.9112519708925303
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "gene_burden",
+          "score": 0.9112519708925303
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0001187",
+      "diseaseName": "urinary bladder cancer",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002118",
+          "name": "urinary system disorder"
+        },
+        {
+          "id": "MONDO_0045024",
+          "name": "cancer or benign tumor"
+        }
+      ],
+      "score": 0.5429889185217545,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.2141933379688437
+        },
+        {
+          "id": "genetic_association",
+          "score": 0
+        },
+        {
+          "id": "somatic_mutation",
+          "score": 0.7107325505444957
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva_somatic",
+          "score": 0.8479363796287446
+        },
+        {
+          "id": "intogen",
+          "score": 0.16191723420750012
+        },
+        {
+          "id": "eva",
+          "score": 0
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    }
+  ],
+  "droppedDatasources": {
+    "excluded": [
+      "chembl",
+      "clinical_precedence",
+      "cancer_gene_census",
+      "europepmc"
+    ],
+    "observed": [
+      "cancer_gene_census",
+      "europepmc"
+    ],
+    "reason": "share-alike or restricted sources of the Open Targets licence table (registry section 7): ChEMBL (CC BY-SA 3.0; its clinical-precedence evidence carries the datasource id clinical_precedence in release 26.09), Cancer Gene Census (commercial use restricted), Europe PMC (mixed); the Human Protein Atlas (CC BY-SA 3.0) is not an association datasource; their datasource scores are not redistributed here"
+  },
+  "datasourceIdsObserved": [
+    "cancer_biomarkers",
+    "cancer_gene_census",
+    "clingen",
+    "europepmc",
+    "eva",
+    "eva_somatic",
+    "gene2phenotype",
+    "gene_burden",
+    "genomics_england",
+    "impc",
+    "intogen",
+    "orphanet",
+    "reactome",
+    "uniprot_literature",
+    "uniprot_variants"
+  ],
+  "note": "association, never causal; a score aggregates evidence, it does not state that the gene causes the disease",
+  "provenance": {
+    "sources": [
+      {
+        "source": "opentargets",
+        "url": "https://api.platform.opentargets.org/api/v4/graphql",
+        "method": "POST",
+        "retrievedAt": "2026-11-03T23:07:46Z",
+        "sourceRelease": "Open Targets 26.9.0 (data 26.09)",
+        "recordId": "target ENSG00000012048 associatedDiseases page 0 size 25",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "0da740ac145e5c4ed6f27933f69d8f2c5ac3ec36825c192f27424c2ee74075cf",
+        "licence": "CC0-1.0",
+        "attribution": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-excluded-datasource-scores",
+      "keep-platform-order"
+    ],
+    "validation": [
+      {
+        "check": "T49-association-target",
+        "result": "pass",
+        "detail": "response target ENSG00000012048 BRCA1; specification ENSG00000012048; gene record ENSG00000012048 BRCA1",
+        "at": "2026-11-03T23:08:12Z"
+      },
+      {
+        "check": "T49-association-rows",
+        "result": "pass",
+        "detail": "25 row(s) kept of 1324 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top breast cancer (MONDO_0007254) 0.8436508158150241",
+        "at": "2026-11-03T23:08:12Z"
+      },
+      {
+        "check": "T50-association-order-and-exclusion",
+        "result": "pass",
+        "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: cancer_biomarkers, cancer_gene_census, clingen, europepmc, eva, eva_somatic, gene2phenotype, gene_burden, genomics_england, impc, intogen, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: cancer_gene_census, europepmc; no excluded id remains in the kept scores",
+        "at": "2026-11-03T23:08:12Z"
+      },
+      {
+        "check": "T51-association-versions",
+        "result": "pass",
+        "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
+        "at": "2026-11-03T23:08:12Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Open Targets 26.9.0 (data 26.09) lists 1324 disease associations for BRCA1 (ENSG00000012048); the 25 highest-scoring are kept, the top being breast cancer (MONDO_0007254, score 0.8436508158150241).",
+      "qualifier": "Open Targets api 26.9.0, data 26.09",
+      "limitations": [
+        "An Open Targets association, never causal; a score aggregates evidence, it does not state that the gene causes the disease.",
+        "The overall score and the datatype scores are the platform's aggregates over every datasource, including the dropped ones (cancer_gene_census, europepmc); the kept datasource scores exclude chembl, clinical_precedence, cancer_gene_census, europepmc.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

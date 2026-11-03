@@ -8,9 +8,10 @@
  *   node scripts/data-preparation/build-gene.ts --gene <id> --record-fixtures   live build that also records
  *        every input, redacted (Q-H-LIC-1), as data/fixtures/<id>/ with MANIFEST.tsv files and index.json
  *        (with --offline: the same recording from the snapshot of the last live acquisition)
- *   node scripts/data-preparation/build-gene.ts --gene <id> --offline --live-sources=reactome [--record-fixtures]
+ *   node scripts/data-preparation/build-gene.ts --gene <id> --offline --live-sources=reactome,opentargets [--record-fixtures[=live]]
  *        offline rebuild in which only the named sources are fetched live (Phase 9, P9.1.2: Reactome, for a
- *        snapshot that predates the pathway requests); the merged inputs become the new snapshot
+ *        snapshot that predates the pathway requests; P9.1.3: Open Targets, one request per set); the merged
+ *        inputs become the new snapshot
  *   options: --out <dir> (default data/curated/<datasetId>)
  *
  * The specification is data/specs/<gene>.json (packages/scientific-core/src/slice/spec.ts);
@@ -27,7 +28,7 @@ function log(m: string): void {
 
 export async function runBuildGene(args: string[]): Promise<void> {
   const { gene, mode, outDir, recordFixtures, liveSources } = parseBuildArgs(args);
-  if (!gene) throw new Error("usage: build-gene.ts --gene <name> [--offline [--live-sources=reactome]|--fixtures|--record-fixtures] [--out <dir>]");
+  if (!gene) throw new Error("usage: build-gene.ts --gene <name> [--offline [--live-sources=reactome,opentargets]|--fixtures|--record-fixtures] [--out <dir>]");
   const config = await readSpec(gene);
   const r = await buildGene({ config, mode, recordFixtures, liveSources, ...(outDir ? { outDir } : {}), log });
   process.stdout.write(`${JSON.stringify(r.build.summary, null, 2)}\n`);

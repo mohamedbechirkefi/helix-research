@@ -30,6 +30,7 @@ import {
   parseFasta,
   parseHgnc,
   parseJsonBody,
+  parseOpenTargetsAssociations,
   parseRcsb,
   parseReactomeAncestors,
   parseReactomeParticipants,
@@ -42,11 +43,17 @@ import {
   compareStableIds,
   topLevelPathwaysOf,
   uniprotProteinsOf,
+  EXCLUDED_DATASOURCES,
+  EXCLUDED_DATASOURCES_REASON,
+  OPEN_TARGETS_PAGE,
   REACTOME_HUMAN_SPECIES,
 } from "@helix/data-adapters";
 import {
+  ASSOCIATION_NEVER_CAUSAL,
   CapabilityReport,
   ClinvarRecordEntry,
+  type DiseaseAssociation,
+  DiseaseAssociationsRecord,
   type DriftReport,
   type Evidence,
   Gene,
@@ -761,6 +768,41 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       })()
     : null;
 
+  // ------------------------------------------------------------ disease associations (Phase 9, P9.1.3; only when the specification asks)
+  // Association, never causal: the record repeats the platform's first page of associations by score, with the
+  // datasource scores of the registry's share-alike or restricted sources dropped at parse time (plan section 14).
+  const AS = config.associations
+    ? (() => {
+        const raw = need("opentargetsAssociations");
+        const ot = parseOpenTargetsAssociations(json(raw), raw.url);
+        check("T49-association-target", ot.ensemblGeneId === config.ensemblGeneId && ot.ensemblGeneId === gene.id && ot.approvedSymbol === gene.display_name, `response target ${ot.ensemblGeneId} ${ot.approvedSymbol}; specification ${config.ensemblGeneId}; gene record ${gene.id} ${gene.display_name}`, ["associations"]);
+        const idForm = /^[A-Za-z][A-Za-z0-9]*_[A-Za-z0-9]+$/;
+        const inUnit = (x: number) => Number.isFinite(x) && x >= 0 && x <= 1;
+        const badRows = ot.rows.filter((r) => !idForm.test(r.diseaseId) || r.diseaseName.trim().length === 0 || !inUnit(r.score) || !r.datatypeScores.every((x) => inUnit(x.score)) || !r.datasourceScores.every((x) => inUnit(x.score)));
+        check(
+          "T49-association-rows",
+          badRows.length === 0,
+          `${ot.rows.length} row(s) kept of ${ot.count} on the platform (page ${OPEN_TARGETS_PAGE.index}, size ${OPEN_TARGETS_PAGE.size}); ${badRows.length === 0 ? "every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1" : `bad rows: ${badRows.map((r) => `${r.diseaseId} ${r.score}`).join(", ")}`}${ot.rows[0] ? `; top ${ot.rows[0].diseaseName} (${ot.rows[0].diseaseId}) ${ot.rows[0].score}` : ""}`,
+          ["associations"],
+        );
+        const outOfOrder = ot.rows.filter((r, i) => i > 0 && r.score > ot.rows[i - 1]!.score).map((r) => r.diseaseId);
+        const remaining = ot.rows.flatMap((r) => r.datasourceScores.filter((x) => EXCLUDED_DATASOURCES.includes(x.id.toLowerCase())).map((x) => `${r.diseaseId}:${x.id}`));
+        check(
+          "T50-association-order-and-exclusion",
+          outOfOrder.length === 0 && remaining.length === 0,
+          `${outOfOrder.length === 0 ? "rows in descending score order" : `out of order at ${outOfOrder.join(", ")}`}; excluded datasources ${EXCLUDED_DATASOURCES.join(", ")}; observed in the response: ${ot.datasourceIdsObserved.join(", ") || "none"}; dropped: ${ot.droppedDatasourceIds.join(", ") || "none"}; ${remaining.length === 0 ? "no excluded id remains in the kept scores" : `remaining: ${remaining.join(", ")}`}`,
+          ["associations"],
+        );
+        // T51: the versions the record writes equal the meta of the same response, re-read from the raw body.
+        const metaRaw = (json(raw) as { data?: { meta?: { apiVersion?: { x?: string; y?: string; z?: string }; dataVersion?: { year?: string; month?: string } } } }).data?.meta;
+        const apiFromBody = metaRaw?.apiVersion ? `${metaRaw.apiVersion.x}.${metaRaw.apiVersion.y}.${metaRaw.apiVersion.z}` : null;
+        const dataFromBody = metaRaw?.dataVersion ? `${metaRaw.dataVersion.year}.${metaRaw.dataVersion.month}` : null;
+        check("T51-association-versions", apiFromBody === ot.apiVersion && dataFromBody === ot.dataVersion && apiFromBody !== null, `record api ${ot.apiVersion}, data ${ot.dataVersion}; the response's meta: api ${apiFromBody}, data ${dataFromBody}`, ["associations"]);
+        const rows: DiseaseAssociation[] = ot.rows.map((r) => ({ diseaseId: r.diseaseId, diseaseName: r.diseaseName, therapeuticAreas: r.therapeuticAreas, score: r.score, datatypeScores: r.datatypeScores, datasourceScores: r.datasourceScores, droppedDatasourceIds: r.droppedDatasourceIds }));
+        return { ot, rows, release: `Open Targets ${ot.apiVersion} (data ${ot.dataVersion})` };
+      })()
+    : null;
+
   // ------------------------------------------------------------ method and coverage of the selected entry (P9.2.2, plan section 13 rule 7)
   if (S) {
     const { struct, coverage, coverageNumbers, tableRows } = S;
@@ -870,6 +912,9 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       ]
     : [];
   sourcesUsed.push(...PR);
+  // O1: the one Open Targets request (plan section 14 rule 2), after the Reactome rows.
+  const PO: Provenance | null = AS ? prov("opentargetsAssociations", `target ${AS.ot.ensemblGeneId} associatedDiseases page ${OPEN_TARGETS_PAGE.index} size ${OPEN_TARGETS_PAGE.size}`, null, AS.release, null) : null;
+  if (PO) sourcesUsed.push(PO);
   const rp = (record: string, sources: Provenance[], transformations: string[], ev: Evidence[]) => ({
     sources,
     transformations,
@@ -1325,6 +1370,42 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       add("pathways.json", "pathway-memberships", pwRec);
     }
 
+    // The disease associations of the gene (plan section 14 rule 2): written when the specification asks, an empty
+    // list when the platform lists none; derived from the gene record; one provenance row, the one request.
+    if (AS && PO) {
+      const top = AS.rows[0] ?? null;
+      const asEv = [
+        evidence(
+          "curated-database-annotation",
+          `${AS.release} lists ${AS.ot.count} disease association${AS.ot.count === 1 ? "" : "s"} for ${gene.display_name} (${gene.id}); the ${AS.rows.length} highest-scoring are kept${top ? `, the top being ${top.diseaseName} (${top.diseaseId}, score ${top.score})` : ""}.`,
+          {
+            qualifier: `Open Targets api ${AS.ot.apiVersion}, data ${AS.ot.dataVersion}`,
+            limitations: [
+              `An Open Targets ${ASSOCIATION_NEVER_CAUSAL}.`,
+              `The overall score and the datatype scores are the platform's aggregates over every datasource, including the ${AS.ot.droppedDatasourceIds.length > 0 ? `dropped ones (${AS.ot.droppedDatasourceIds.join(", ")})` : "sources whose scores would be dropped (none appeared in this response)"}; the kept datasource scores exclude ${EXCLUDED_DATASOURCES.join(", ")}.`,
+            ],
+          },
+        ),
+      ];
+      const asRec = DiseaseAssociationsRecord.parse({
+        kind: "disease-associations",
+        derivedFrom: ["gene.json"],
+        ensemblGeneId: AS.ot.ensemblGeneId,
+        approvedSymbol: AS.ot.approvedSymbol,
+        platform: { apiVersion: AS.ot.apiVersion, dataVersion: AS.ot.dataVersion },
+        request: { pageIndex: OPEN_TARGETS_PAGE.index, pageSize: OPEN_TARGETS_PAGE.size, orderByScore: true },
+        count: AS.ot.count,
+        keptCount: AS.rows.length,
+        associations: AS.rows,
+        droppedDatasources: { excluded: [...EXCLUDED_DATASOURCES], observed: AS.ot.droppedDatasourceIds, reason: EXCLUDED_DATASOURCES_REASON },
+        datasourceIdsObserved: AS.ot.datasourceIdsObserved,
+        note: ASSOCIATION_NEVER_CAUSAL,
+        evidence: asEv,
+        provenance: rp("associations", [PO], ["field-select", "drop-excluded-datasource-scores", "keep-platform-order"], asEv),
+      });
+      add("associations.json", "disease-associations", asRec);
+    }
+
     // Verified mappings: the variant position when a variant is selected, otherwise every position of the full-chain table.
     const verifiedMappings = S ? (V ? [{ entryId: S.struct.entryId, uniprotPosition: V.uniPos }] : S.tableRows.map((r) => ({ entryId: S.struct.entryId, uniprotPosition: r.uniprotPosition }))) : [];
     const capRec = CapabilityReport.parse({
@@ -1341,6 +1422,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         predictedModel: pmRec ? { modelId: pmRec.modelId, version: pmRec.modelVersion } : null,
         variantPositions: V ? [V.uniPos] : [],
         pathways: PW ? { membershipCount: PW.memberships.length, opening: PW.opening ? { stableId: PW.opening.stableId, name: PW.opening.name } : null, reason: PW.choice.reason } : null,
+        associations: AS ? { count: AS.ot.count, kept: AS.rows.length, top: AS.rows[0] ? { diseaseName: AS.rows[0].diseaseName, score: AS.rows[0].score } : null } : null,
       }),
       derivedFrom: files.map((f) => f.path).filter((p) => p.endsWith(".json")),
     });
@@ -1392,6 +1474,16 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
               memberships: PW.memberships.length,
               participantsByPathway: PW.participantSets.map((s) => ({ stableId: s.stableId, participants: s.participantCount, proteins: s.proteins.length, listsSetProtein: s.listsSetProtein })),
               opening: PW.opening ? { stableId: PW.opening.stableId, name: PW.opening.name } : null,
+            }
+          : null,
+        associations: AS
+          ? {
+              release: AS.release,
+              count: AS.ot.count,
+              kept: AS.rows.length,
+              top: AS.rows.slice(0, 3).map((r) => ({ diseaseId: r.diseaseId, name: r.diseaseName, score: r.score })),
+              datasourcesObserved: AS.ot.datasourceIdsObserved,
+              dropped: AS.ot.droppedDatasourceIds,
             }
           : null,
       },

@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+api_v4_graphql.json	2026-11-03T23:05:45Z	200	14b55819285992e3536dd9f3f612f6be89cb7b6122d4d5bcc4a49e1bcc048109	15154	POST	https://api.platform.opentargets.org/api/v4/graphql	"{""content-type"":""application/json""}"	
