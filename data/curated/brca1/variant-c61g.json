@@ -199,85 +199,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1863",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T13-rsid-multiallelic",
         "result": "pass",
         "detail": "rs28897672 alleles A/C/G/T; C:p.Cys61Gly, G:p.Cys61Arg, T:p.Cys61Ser",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.181 -> 43106487; hgvsg 43106487; variation 43106487",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T08-codon-span",
         "result": "pass",
         "detail": "own walk codon 61 -> 43106485-43106487; Ensembl map/cds 43106485-43106487 strand -1",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T09-forward-and-coding-base",
         "result": "pass",
         "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000017.11:43106486:A:C <-> NC_000017.11:g.43106487A>C",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T11-codon-change",
         "result": "pass",
         "detail": "codon 61 TGT -> GGT; C -> G",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Cys61Gly; variant_recoder ENSP00000350283.3:p.Cys61Gly, NP_009225.1:p.Cys61Gly",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000350283.3:p.Cys61Gly protein_start 61 cds_start 181 codons Tgt/Ggt",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.181 + 5' UTR 113 = 294; VEP cdna_start 294",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.61: UniProt residue C, HGVS ref C",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_007757 at 61: C->G; in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
         "detail": "VCV000017661.165 single nucleotide variant; spdi NC_000017.11:43106486:A:C; GRCh38 43106487; GRCh37 41258504; Pathogenic (reviewed by expert panel)",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       }
     ],
     "evidenceCategory": 2

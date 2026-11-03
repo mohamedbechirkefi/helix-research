@@ -35,49 +35,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000357654.9, ENST00000357654.9, ENSP00000350283.3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 5592 nt; exon walk 5592; (protein 1863 + stop) x 3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 7088 vs transcript 7088",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 5592, starts ATG, ends TGA",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1863 aa vs Ensembl 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1863 aa vs UniProt 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           }
         ],
         "evidenceCategory": 2
@@ -129,49 +129,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000357654.9, ENST00000357654.9, ENSP00000350283.3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 5592 nt; exon walk 5592; (protein 1863 + stop) x 3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 7088 vs transcript 7088",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 5592, starts ATG, ends TGA",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1863 aa vs Ensembl 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1863 aa vs UniProt 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           }
         ],
         "evidenceCategory": 2
@@ -223,49 +223,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000357654.9, ENST00000357654.9, ENSP00000350283.3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 5592 nt; exon walk 5592; (protein 1863 + stop) x 3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 7088 vs transcript 7088",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 5592, starts ATG, ends TGA",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1863 aa vs Ensembl 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1863 aa vs UniProt 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           }
         ],
         "evidenceCategory": 2
@@ -326,49 +326,49 @@
             "check": "fasta-ids-versioned",
             "result": "pass",
             "detail": "ENST00000357654.9, ENST00000357654.9, ENSP00000350283.3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-length",
             "result": "pass",
             "detail": "CDS 5592 nt; exon walk 5592; (protein 1863 + stop) x 3",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "cdna-length",
             "result": "pass",
             "detail": "cDNA 7088 vs transcript 7088",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T06-cds-shape",
             "result": "pass",
             "detail": "length 5592, starts ATG, ends TGA",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-ensembl-protein",
             "result": "pass",
             "detail": "translated 1863 aa vs Ensembl 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-translation-equals-uniprot",
             "result": "pass",
             "detail": "translated 1863 aa vs UniProt 1863 aa",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T07-uniprot-md5",
             "result": "pass",
             "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           },
           {
             "check": "T09-forward-and-coding-base",
             "result": "pass",
             "detail": "forward-strand base at 43106487 = A; coding-strand c.181 = T",
-            "at": "2026-11-03T22:12:13Z"
+            "at": "2026-11-03T23:32:05Z"
           }
         ],
         "evidenceCategory": 2

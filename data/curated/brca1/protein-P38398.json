@@ -680,61 +680,61 @@
         "check": "uniprot-accession",
         "result": "pass",
         "detail": "P38398 BRCA1_HUMAN, reviewed true",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T06-cds-shape",
         "result": "pass",
         "detail": "length 5592, starts ATG, ends TGA",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T07-translation-equals-ensembl-protein",
         "result": "pass",
         "detail": "translated 1863 aa vs Ensembl 1863 aa",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T07-translation-equals-uniprot",
         "result": "pass",
         "detail": "translated 1863 aa vs UniProt 1863 aa",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T07-uniprot-md5",
         "result": "pass",
         "detail": "computed E40F752DEDF675E2F7C99142EBB2607A, UniProt E40F752DEDF675E2F7C99142EBB2607A",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000357654.9 / ENSP00000350283.3 / NM_007294.4",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-1863",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.61: UniProt residue C, HGVS ref C",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "VAR_007757 at 61: C->G; in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000012048.27 vs ENSG00000012048.28; vep-swissprot-entry-version: P38398.282 vs P38398.285",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       }
     ],
     "evidenceCategory": 2

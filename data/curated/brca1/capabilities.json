@@ -12,7 +12,8 @@
     "residue-mapping-P38398-1JM7.json",
     "contacts-c61g-1JM7.json",
     "predicted-model-AF-P38398-F1.json",
-    "pathways.json"
+    "pathways.json",
+    "associations.json"
   ],
   "geneId": "ENSG00000012048",
   "symbol": "BRCA1",
@@ -49,6 +50,11 @@
   "pathwayView": {
     "available": true,
     "reason": "28 Reactome memberships; opens on Meiotic synapsis, R-HSA-1221632 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  },
+  "associationView": {
+    "available": true,
+    "reason": "1324 Open Targets associations, 25 kept by score; top: breast cancer (score 0.8436508158150241); association, never causal",
     "evidenceCategory": 2
   }
 }

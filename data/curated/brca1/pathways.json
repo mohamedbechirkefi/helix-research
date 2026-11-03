@@ -30029,37 +30029,37 @@
         "check": "T41-pathway-accession",
         "result": "pass",
         "detail": "memberships requested for P38398; protein record P38398; specification P38398",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T42-pathway-memberships-human",
         "result": "pass",
         "detail": "28 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T43-pathway-top-level",
         "result": "pass",
         "detail": "R-HSA-69473 -> R-HSA-1640170; R-HSA-912446 -> R-HSA-1474165+R-HSA-1640170; R-HSA-1221632 -> R-HSA-1474165+R-HSA-1640170; R-HSA-3108214 -> R-HSA-392499; R-HSA-5685938 -> R-HSA-73894; R-HSA-5685942 -> R-HSA-73894; R-HSA-5689901 -> R-HSA-392499; R-HSA-5693554 -> R-HSA-73894; R-HSA-5693565 -> R-HSA-73894; R-HSA-5693568 -> R-HSA-73894; R-HSA-5693571 -> R-HSA-73894; R-HSA-5693579 -> R-HSA-73894; R-HSA-5693607 -> R-HSA-73894; R-HSA-5693616 -> R-HSA-73894; R-HSA-6796648 -> R-HSA-74160; R-HSA-6804756 -> R-HSA-74160; R-HSA-8951664 -> R-HSA-392499; R-HSA-8953750 -> R-HSA-74160; R-HSA-9663199 -> R-HSA-1643685; R-HSA-9699150 -> R-HSA-1643685; R-HSA-9701192 -> R-HSA-1643685; R-HSA-9704331 -> R-HSA-1643685; R-HSA-9704646 -> R-HSA-1643685; R-HSA-9709570 -> R-HSA-1643685; R-HSA-9709603 -> R-HSA-1643685; R-HSA-9755511 -> R-HSA-8953897; R-HSA-9825895 -> R-HSA-1266738; R-HSA-9974237 -> R-HSA-73894",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T44-opening-pathway-rule",
         "result": "pass",
         "detail": "R-HSA-1221632 (Meiotic synapsis) has the fewest participants (30) among the 9 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-1221632 30, R-HSA-6796648 31, R-HSA-912446 36, R-HSA-5693571 46, R-HSA-6804756 47, R-HSA-3108214 52, R-HSA-8953750 63, R-HSA-8951664 96, R-HSA-9755511 199; excluded: R-HSA-69473 (no diagram), R-HSA-5685938 (no diagram), R-HSA-5685942 (no diagram), R-HSA-5689901 (no diagram), R-HSA-5693554 (no diagram), R-HSA-5693565 (no diagram), R-HSA-5693568 (no diagram), R-HSA-5693579 (no diagram), R-HSA-5693607 (no diagram), R-HSA-5693616 (no diagram), R-HSA-9663199 (a disease pathway), R-HSA-9699150 (a disease pathway), R-HSA-9701192 (a disease pathway), R-HSA-9704331 (a disease pathway), R-HSA-9704646 (a disease pathway), R-HSA-9709570 (a disease pathway), R-HSA-9709603 (a disease pathway), R-HSA-9825895 (no diagram), R-HSA-9974237 (no diagram)",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T45-opening-pathway-participants",
         "result": "pass",
         "detail": "R-HSA-1221632 (Meiotic synapsis): 30 participating physical entities, 59 distinct UniProt proteins; the set's protein P38398 is among them as P38398 in Synaptonemal Complex:BRCA1:ATR [nucleoplasm] (Complex); BRCA1 [nucleoplasm] (EntityWithAccessionedSequence); Synaptonemal Complex:BRCA1 [nucleoplasm] (Complex)",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T46-candidate-participants",
         "result": "pass",
         "detail": "9 candidate(s): R-HSA-912446 36 entities, 57 proteins, set's protein listed; R-HSA-1221632 30 entities, 59 proteins, set's protein listed; R-HSA-3108214 52 entities, 81 proteins, set's protein listed; R-HSA-5693571 46 entities, 51 proteins, set's protein listed; R-HSA-6796648 31 entities, 62 proteins, set's protein listed; R-HSA-6804756 47 entities, 93 proteins, set's protein listed; R-HSA-8951664 96 entities, 235 proteins, set's protein listed; R-HSA-8953750 63 entities, 34 proteins, set's protein listed; R-HSA-9755511 199 entities, 114 proteins, set's protein listed",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       }
     ],
     "evidenceCategory": 2

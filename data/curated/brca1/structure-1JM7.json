@@ -280,67 +280,67 @@
         "check": "structure-entry",
         "result": "pass",
         "detail": "1JM7 SOLUTION NMR null A, rev 1.4",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.4; mmCIF rev 1.4",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "2 polymer entities; SIFTS P38398 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 1JM7_1 uniprot P38398",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "1JM7 residue C61 (the C61G (p.Cys61Gly) position): A observed (label 61, auth 61, CYS); structurePreference variant-residue-observed",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 61 auth 61 CYS; structure carries the reference residue",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "6 label chains, all with an auth chain id from the scheme tables; 4 non-polymer chains have label != auth (e.g. label C = auth A ZN 123)",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B,C,D,E,F",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T47-structure-method",
         "result": "pass",
         "detail": "1JM7 method SOLUTION NMR; resolution none; 14 model(s) in atom_site; _pdbx_nmr_ensemble: 14 submitted of 25 calculated, representative conformer 2 (closest to the average); model 1 is the one mapped, measured and shown",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       },
       {
         "check": "T48-structure-coverage",
         "result": "pass",
         "detail": "103 of 110 mapped positions observed in model 1 on chain(s) A, 1-103; protein length 1863; fraction 0.0553 = 103/1863; words match the numbers",
-        "at": "2026-11-03T22:12:13Z"
+        "at": "2026-11-03T23:32:05Z"
       }
     ],
     "evidenceCategory": 1

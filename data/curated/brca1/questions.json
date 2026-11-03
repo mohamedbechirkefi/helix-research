@@ -37,6 +37,12 @@
       "requires": [
         "pathwayView"
       ]
+    },
+    {
+      "text": "What diseases are associated with BRCA1?",
+      "requires": [
+        "associationView"
+      ]
     }
   ],
   "bridgeQuestion": "See the C61G mutation on the protein."
