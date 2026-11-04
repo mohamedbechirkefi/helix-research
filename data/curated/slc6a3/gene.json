@@ -86,37 +86,37 @@
         "check": "T01-gene-identity",
         "result": "pass",
         "detail": "ENSG00000142319.21 SLC6A3",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "assembly-grch38",
         "result": "pass",
         "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T02-transcript-selection",
         "result": "pass",
         "detail": "mane_select: ENST00000270349.12 (only transcript with MANE[].type == MANE_Select); 9 candidates",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T04-hgnc-resolution",
         "result": "pass",
         "detail": "SLC6A3 -> HGNC:11049 ENSG00000142319",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T04-alias-DAT",
         "result": "pass",
         "detail": "alias DAT -> ENSG00000142319",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000142319.20 vs ENSG00000142319.21; vep-swissprot-entry-version: Q01959.230 vs Q01959.233",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 2

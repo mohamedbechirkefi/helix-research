@@ -189,67 +189,67 @@
         "check": "structure-entry",
         "result": "pass",
         "detail": "8Y2C ELECTRON MICROSCOPY 3.16 A, rev 1.4",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "structure-revision-agrees",
         "result": "pass",
         "detail": "Data API rev 1.4; mmCIF rev 1.4",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "1 polymer entities; SIFTS Q01959 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T20-rcsb-entity-agrees",
         "result": "pass",
         "detail": "RCSB polymer_entity 8Y2C_1 uniprot Q01959",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 20 auth 85 ARG; structure carries the reference residue",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T19-pdbx-mutation-numbering",
         "result": "pass",
         "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T26-label-auth-kept",
         "result": "pass",
         "detail": "3 label chains, all with an auth chain id from the scheme tables; 2 non-polymer chains have label != auth (e.g. label B = auth A NAG 621)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T27-assemblies",
         "result": "pass",
         "detail": "assembly 1: A,B,C",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T47-structure-method",
         "result": "pass",
         "detail": "8Y2C method ELECTRON MICROSCOPY; resolution 3.16 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T48-structure-coverage",
         "result": "pass",
         "detail": "529 of 555 mapped positions observed in model 1 on chain(s) A, 66-620; protein length 620; fraction 0.8532 = 529/620; words match the numbers",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 1

@@ -11483,25 +11483,25 @@
         "check": "T36-full-chain-covers-sifts",
         "result": "pass",
         "detail": "555 positions (66-620); per chain A 555/555; 26 unobserved residue(s)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 85: table A85 ARG; variant mapping record A85 ARG",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T38-full-chain-residue-names",
         "result": "pass",
         "detail": "atom_site residue = UniProt residue at 555 of 555 positions; differs at none",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T39-full-chain-alignment-agrees",
         "result": "pass",
         "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 2
