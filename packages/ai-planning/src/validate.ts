@@ -27,7 +27,9 @@ export type IssueCode =
   | "variant-on-predicted-model"
   | "world-switch"
   | "world-cue"
-  | "consistency";
+  | "consistency"
+  /** D-H024 (71): showPathway on a membership whose participants the pathway record does not keep. */
+  | "pathway-not-openable";
 
 export interface ValidationIssue {
   code: IssueCode;
@@ -95,6 +97,11 @@ export interface ValidateOptions {
 }
 
 /** Phase 10: the reason a transcript other than the MANE Select one is refused (plan section 2). */
+/** D-H024 (71): why a listed membership cannot be opened (the app's execution-time sentence, now the validator's). */
+export function notOpenableMessage(m: { name: string; stableId: string }): string {
+  return `${m.name} (${m.stableId}) is listed in the record, but its participants are not kept (the record keeps them for the opening rule's candidates only), so Pathway World cannot open it; it stays in the memberships list`;
+}
+
 export const NON_MANE_REASON = "only the MANE Select transcript is curated; the record lists it as a candidate";
 
 export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateOptions = {}): PlanValidation {
@@ -228,7 +235,12 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
       case "showPathway": {
         const pw = ctx.worlds.find((w) => w.id === "pathway");
         if (!ids.worlds.has("pathway")) issues.push({ code: "world-unavailable", path, value: "pathway", message: `Pathway World is not available in this context${pw ? ` (${pw.reason})` : ""}` });
-        else if (a.stableId !== undefined && !(ctx.pathways ?? []).some((p) => p.stableId === a.stableId)) ungrounded(`${path}.stableId`, a.stableId, "pathway");
+        else if (a.stableId !== undefined) {
+          const m = (ctx.pathways ?? []).find((p) => p.stableId === a.stableId);
+          if (!m) ungrounded(`${path}.stableId`, a.stableId, "pathway");
+          // D-H024 (71): only a membership whose participants the record keeps can be drawn.
+          else if (!m.openable) issues.push({ code: "pathway-not-openable", path: `${path}.stableId`, value: a.stableId, message: notOpenableMessage(m) });
+        }
         break;
       }
       case "setRepresentation":

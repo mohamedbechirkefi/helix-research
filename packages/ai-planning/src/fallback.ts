@@ -215,6 +215,12 @@ function phase10Rule(query: string, q: string, ctx: PlanningContext, level: Plan
         const byId = `${head}; the record lists ${memberships.length} membership${memberships.length === 1 ? "" : "s"}: ${memberships.map((m) => m.stableId).join(", ")}.`;
         return { plan: refuse(ctx, "other", memberships.length === 0 ? `${head}.` : byName.length <= 400 ? byName : byId.slice(0, 400)), rule: "pathway-no-membership" };
       }
+      // D-H024 (71): a listed membership whose participants the record does not keep cannot be drawn; answer from the record.
+      if (!hit.openable) {
+        const why = `${hit.name} (${hit.stableId}) lists ${protein?.id ?? symbol} in the Reactome record, but the record does not keep its participants, so Pathway World cannot draw it; it stays in the memberships list.`;
+        if (cited.length === 0) return { plan: refuse(ctx, "other", why), rule: "pathway-named-not-openable" };
+        return { plan: plan("other", cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id })), cited, why, { geneId: gene?.id ?? null, proteinId: protein?.id ?? null }), rule: "pathway-named-not-openable" };
+      }
       return { plan: plan("other", [{ type: "showPathway", stableId: hit.stableId }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], cited, null, { geneId: gene?.id ?? null, proteinId: protein?.id ?? null }), rule: "pathway-named" };
     }
   }
