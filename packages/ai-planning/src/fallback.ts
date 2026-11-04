@@ -8,8 +8,9 @@
  * selection-dependent follow-ups, ambiguity, and finally the supported commands. Anything
  * not recognised is answered "unsupported" with a reason: the fallback never guesses.
  */
-import type { Action, Plan, Intent, SequenceTarget } from "./schema.ts";
-import { extractIdTokens } from "./validate.ts";
+import type { Action, Plan, Intent, SequenceTarget, DomainFeatureType } from "./schema.ts";
+import { REPRESENTATIONS } from "./schema.ts";
+import { NON_MANE_REASON, extractIdTokens } from "./validate.ts";
 import { associationEvidenceId, pathwayEvidenceId, trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
 import { routeQuestion, type Routing } from "./routing.ts";
 
@@ -44,7 +45,8 @@ const PATHWAY = /\b(pathways?|dna repair|reparation|voies?)\b/;
 
 /** Phase 9 (P9.1.2): does the question ask about pathways (the word list of the pathway rule)? The app reads it to load the pathway record before planning. */
 export function asksPathway(query: string): boolean {
-  return PATHWAY.test(fold(query));
+  // Phase 10: a Reactome stable id ("show R-HSA-9615710") asks about a pathway too.
+  return PATHWAY.test(fold(query)) || /\bR-HSA-\d+\b/i.test(query);
 }
 // Phase 9 (P9.1.3): a question about the diseases a gene is associated with (Open Targets; association, never causal).
 const ASSOCIATION = /\b(diseases?|maladies?|open targets|disease associations?)\b|\bassociat(ed|ions?) with\b/;
@@ -52,6 +54,22 @@ const ASSOCIATION = /\b(diseases?|maladies?|open targets|disease associations?)\
 export function asksAssociation(query: string): boolean {
   return ASSOCIATION.test(fold(query));
 }
+// Phase 10 (P10.1.1): one rule per explorer action, in the sets' words; each applies only when the build executes the action.
+const TO_OVERVIEW = /\b(back to|return to|go back to|reset to|zoom out to|out to) (the )?overview\b|\breset the view\b|\bvue d'ensemble\b/;
+const DNA_TO_PROTEIN = /\bfrom (the )?(dna|gene|sequence|codon|transcript) (world )?to (the )?(protein|structure|residue)\b|\b(begin|start|play) the (bridge|transition)\b/;
+const PROTEIN_TO_DNA = /\bfrom (the )?(protein|structure|residue) (world )?to (the )?(dna|gene|sequence|codon)\b/;
+const REPRESENTATION_WORDS: Record<string, (typeof REPRESENTATIONS)[number] | null> = { surface: "surface", cartoon: "cartoon", "ball and stick": "ball-and-stick", "ball-and-stick": "ball-and-stick", spacefill: "spacefill", "space-filling": "spacefill", "space filling": "spacefill", wireframe: null, ribbon: null, sticks: null, stick: null, lines: null, mesh: null, points: null };
+const REPRESENTATION_Q = /\b(?:as|in|to) (?:an? )?(surface|cartoon|ball[- ]and[- ]stick|spacefill|space[- ]filling|wireframe|ribbon|sticks?|lines|mesh|points)\b|\b(surface|cartoon|ball[- ]and[- ]stick|spacefill|space[- ]filling|wireframe|ribbon|sticks?|lines|mesh|points) (?:view|representation|style|mode)\b/;
+const TRANSCRIPT_Q = /\btranscripts?\b/;
+const TRANSCRIPT_ID = /\bENST\d{11}(?:\.\d+)?\b/i;
+const NAMED_PATHWAY = /\b(?:show|open|display|see|view|take me to|go to)(?: me)? (?:the )?(.+?) pathway\b/;
+const STABLE_ID = /\bR-HSA-\d+\b/i;
+const FEATURE_TYPE_WORDS: [RegExp, DomainFeatureType][] = [
+  [/\btransmembrane\b/, "Transmembrane"],
+  [/\bzinc fingers?\b/, "Zinc finger"],
+  [/\btopological\b/, "Topological domain"],
+  [/\bregions?\b/, "Region"],
+];
 const BEGINNER = /(beginner|simple|simply|debutant|explain like)/;
 const EXPERT = /(expert|detail|in depth|codon|numbering)/;
 const OUT_OF_CONTEXT_GENES = new Set(["CFTR", "BRCA1", "BRCA2", "TP53", "EGFR", "KRAS", "BRAF", "APOE", "HBA1", "HBA2", "HBD", "HBG1", "HBG2", "HTT", "DMD", "MYC", "PTEN", "SMN1", "FBN1"]);
@@ -108,6 +126,111 @@ export interface FallbackResult {
   rule: string;
   /** D-H008 contexts only (routeByCues): where the question's cue words send the answer. */
   routing?: Routing;
+}
+
+const can = (ctx: PlanningContext, t: string) => ctx.executableActions.includes(t);
+const worldOf = (ctx: PlanningContext, id: string) => ctx.worlds.find((w) => w.id === id) ?? null;
+
+/**
+ * Phase 10 (P10.1.1, docs/phase-10-ai-explorer.md section 2): the rules of the six explorer actions.
+ * Each applies only when the context's build executes its action (so Phase 3 to 9 contexts plan as
+ * before); each either plans the action with the records it consults or refuses with the reason.
+ */
+function phase10Rule(query: string, q: string, ctx: PlanningContext, level: Plan["explanationLevel"]): { plan: Plan; rule: string } | null {
+  const gene = ctx.genes[0] ?? null;
+  const protein = ctx.proteins[0] ?? null;
+  const symbol = gene?.symbol ?? "this gene";
+  const plan = (intent: Intent, actions: Action[], citations: string[] = [], reason: string | null = null, entities: Partial<Plan["entities"]> = {}): Plan => ({ ...base(ctx), outcome: "plan", intent, entities: { ...base(ctx).entities, ...entities }, actions, citations, explanationLevel: level, reason });
+  const proteinWorld = worldOf(ctx, "protein");
+
+  // beginTransition: the bridge sequence as an action; only DNA World to Protein World exists.
+  if (can(ctx, "beginTransition") && (DNA_TO_PROTEIN.test(q) || PROTEIN_TO_DNA.test(q))) {
+    const only = "The only transition is from DNA World to Protein World (the bridge sequence, codon to residue through the records)";
+    if (PROTEIN_TO_DNA.test(q) && !DNA_TO_PROTEIN.test(q)) return { plan: refuse(ctx, "other", `${only}; there is no transition from Protein World to DNA World. Use the world switcher to go back to DNA World.`), rule: "transition-unavailable" };
+    if (!proteinWorld?.available) return { plan: refuse(ctx, "other", `${only}, and Protein World is not available for ${symbol}: ${proteinWorld?.reason ?? "no scene"}.`), rule: "transition-no-protein-world" };
+    if (ctx.currentWorld !== undefined && ctx.currentWorld !== "dna") return { plan: refuse(ctx, "other", `${only}; it starts in DNA World, and ${ctx.currentWorld === "protein" ? "Protein" : ctx.currentWorld === "pathway" ? "Pathway" : ctx.currentWorld} World is on screen.`), rule: "transition-not-in-dna" };
+    const variant = ctx.variants[0] ?? null;
+    const f = variant ? (ctx.features.find((x) => x.id === variant.featureId) ?? null) : null;
+    const actions: Action[] = [{ type: "beginTransition", from: "dna", to: "protein" }];
+    if (variant && f) {
+      const t = { kind: "feature" as const, featureId: f.id };
+      actions.push({ type: "focusCamera", target: t }, { type: "highlightResidue", target: t }, ...variant.evidenceIds.slice(0, 1).map((id) => ({ type: "revealEvidence" as const, evidenceId: id })));
+      return { plan: plan("locate_variant", actions, f.evidenceIds, null, { geneId: variant.geneId, proteinId: variant.proteinId, variantId: variant.id, structureId: f.structureId }), rule: "transition" };
+    }
+    return { plan: plan("show_protein", actions, [], null, { proteinId: protein?.id ?? null }), rule: "transition" };
+  }
+
+  // returnToOverview: the world on screen back to its overview.
+  if (can(ctx, "returnToOverview") && TO_OVERVIEW.test(q)) {
+    return { plan: plan("other", [{ type: "returnToOverview" }], gene ? ctx.evidence.filter((e) => e.id === `ensembl:${gene.id}`).map((e) => e.id) : []), rule: "overview" };
+  }
+
+  // setRepresentation: the closed list, on the structure in Protein World.
+  const rep = can(ctx, "setRepresentation") ? q.match(REPRESENTATION_Q) : null;
+  if (rep) {
+    const word = (rep[1] ?? rep[2] ?? "").replace(/-/g, " ");
+    const representation = REPRESENTATION_WORDS[word] ?? REPRESENTATION_WORDS[word.replace(/ /g, "-")] ?? null;
+    const list = REPRESENTATIONS.join(", ");
+    if (!representation) return { plan: refuse(ctx, "show_structure", `"${word}" is not one of the representations Helix draws; the closed list is ${list}.`), rule: "representation-unknown" };
+    if (!proteinWorld?.available) return { plan: refuse(ctx, "show_structure", `No structure can be drawn for ${symbol}: ${proteinWorld?.reason ?? "no Protein World"}.`), rule: "representation-no-structure" };
+    if (ctx.currentWorld !== undefined && ctx.currentWorld !== "protein") return { plan: refuse(ctx, "show_structure", `The representation applies to the structure in Protein World; ${ctx.currentWorld === "dna" ? "DNA" : ctx.currentWorld === "pathway" ? "Pathway" : ctx.currentWorld} World is on screen. Open the structure in Protein World first.`), rule: "representation-not-in-protein" };
+    if (!ctx.loadedStructureId) return { plan: refuse(ctx, "show_structure", "No structure is on screen, so there is no representation to change. Load the structure first."), rule: "representation-no-structure" };
+    return { plan: plan("show_structure", [{ type: "setRepresentation", representation }], ctx.evidence.filter((e) => e.id === `pdb:${ctx.loadedStructureId}`).map((e) => e.id), null, { structureId: ctx.loadedStructureId }), rule: "representation" };
+  }
+
+  // selectTranscript: a candidate of the records; only the MANE Select transcript is executable.
+  if (can(ctx, "selectTranscript") && (TRANSCRIPT_Q.test(q) || TRANSCRIPT_ID.test(query))) {
+    const candidates = ctx.transcriptCandidates ?? ctx.transcripts.map((t) => ({ id: t.versioned, maneSelect: t.label.startsWith("MANE Select"), source: "context" }));
+    const mane = candidates.find((c) => c.maneSelect) ?? null;
+    const named = query.match(TRANSCRIPT_ID)?.[0] ?? null;
+    const cite = gene ? ctx.evidence.filter((e) => e.id === `ensembl:${gene.id}`).map((e) => e.id) : [];
+    if (named) {
+      const c = candidates.find((x) => x.id.toUpperCase() === named.toUpperCase() || x.id.replace(/\.\d+$/, "").toUpperCase() === named.toUpperCase());
+      if (!c) return { plan: refuse(ctx, "show_gene", `${named} is not a transcript the curated records name for ${symbol}.`), rule: "transcript-unknown" };
+      if (!c.maneSelect) return { plan: refuse(ctx, "show_gene", `${c.id} is not shown: ${NON_MANE_REASON}${mane ? ` (the curated transcript is ${mane.id}, MANE Select)` : ""}.`), rule: "transcript-not-mane" };
+      return { plan: plan("show_gene", [{ type: "selectTranscript", transcriptId: c.id }], cite, null, { geneId: gene?.id ?? null }), rule: "transcript" };
+    }
+    if (!mane) return { plan: refuse(ctx, "show_gene", `No MANE Select transcript is recorded for ${symbol}.`), rule: "transcript-none" };
+    return { plan: plan("show_gene", [{ type: "selectTranscript", transcriptId: mane.id }], cite, null, { geneId: gene?.id ?? null }), rule: "transcript" };
+  }
+
+  // showPathway: a named membership (its name or stable id), or the record's opening pathway.
+  const named = can(ctx, "showPathway") ? (query.match(STABLE_ID)?.[0] ?? q.match(NAMED_PATHWAY)?.[1] ?? null) : null;
+  if (named !== null) {
+    const pathwayWorld = worldOf(ctx, "pathway");
+    const isId = STABLE_ID.test(named);
+    const words = fold(named).replace(/^(?:reactome|curated)\s+/, "").trim();
+    const generic = !isId && (words === "" || [gene?.symbol, ...(gene?.aliases ?? []), protein?.name, protein?.id, "reactome", "its", "this", "a", "the"].filter((x): x is string => typeof x === "string").some((x) => fold(x) === words));
+    if (!generic) {
+      if (!pathwayWorld?.available) return { plan: refuse(ctx, "other", `Pathway World is not available for ${symbol}: ${pathwayWorld?.reason ?? "no pathway records"}.`), rule: "pathway-unavailable" };
+      const evId = protein ? pathwayEvidenceId(protein.id) : null;
+      const cited = evId && ctx.evidence.some((e) => e.id === evId) ? [evId] : [];
+      const memberships = ctx.pathways ?? [];
+      const opening = /^(opening|first|default)$/.test(words);
+      const hit = opening ? (memberships.find((m) => m.isOpening) ?? null) : isId ? (memberships.find((m) => m.stableId.toLowerCase() === named.toLowerCase()) ?? null) : (memberships.find((m) => fold(m.name) === words) ?? memberships.find((m) => fold(m.name).includes(words)) ?? null);
+      if (!hit) {
+        const head = `No Reactome membership of ${protein?.id ?? symbol} matches "${named}"`;
+        const byName = `${head}; the record lists ${memberships.map((m) => `${m.name} (${m.stableId})`).join("; ")}.`;
+        const byId = `${head}; the record lists ${memberships.length} membership${memberships.length === 1 ? "" : "s"}: ${memberships.map((m) => m.stableId).join(", ")}.`;
+        return { plan: refuse(ctx, "other", memberships.length === 0 ? `${head}.` : byName.length <= 400 ? byName : byId.slice(0, 400)), rule: "pathway-no-membership" };
+      }
+      return { plan: plan("other", [{ type: "showPathway", stableId: hit.stableId }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], cited, null, { geneId: gene?.id ?? null, proteinId: protein?.id ?? null }), rule: "pathway-named" };
+    }
+  }
+
+  // showProteinDomains: the protein record's features of the explorer types (the set read from the record).
+  if (can(ctx, "showProteinDomains") && ctx.proteinFeatures !== undefined && (DOMAINS.test(q) || /\b(transmembrane|zinc fingers?|topological)\b/.test(q))) {
+    if (!protein) return { plan: refuse(ctx, "show_domains", "No protein record is in this context."), rule: "domains-no-protein" };
+    const feats = ctx.proteinFeatures.filter((f) => f.proteinAccession === protein.id);
+    if (feats.length === 0) return { plan: refuse(ctx, "show_domains", `The UniProt record of ${protein.id} (${symbol}) lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger, so there is no domain to show.`), rule: "domains-none" };
+    const asked = FEATURE_TYPE_WORDS.filter(([re]) => re.test(q)).map(([, t]) => t);
+    const present = asked.filter((t) => feats.some((f) => f.type === t));
+    if (asked.length > 0 && present.length === 0) return { plan: refuse(ctx, "show_domains", `The UniProt record of ${protein.id} lists no feature of type ${asked.join(", ")}; it lists ${[...new Set(feats.map((f) => f.type))].join(", ")}.`), rule: "domains-type-none" };
+    const ev = `uniprot:${protein.id}`;
+    const cited = ctx.evidence.some((e) => e.id === ev) ? [ev] : [];
+    return { plan: plan("show_domains", [{ type: "showProteinDomains", proteinAccession: protein.id, ...(present.length > 0 ? { featureTypes: present } : {}) }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], cited, null, { geneId: gene?.id ?? null, proteinId: protein.id }), rule: "protein-domains" };
+  }
+  return null;
 }
 
 export function deterministicPlan(query: string, ctx: PlanningContext): FallbackResult {
@@ -186,6 +309,10 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
       selFeature ? "selection-explain" : "selection-explain-no-evidence",
     );
   }
+
+  // 4b. Phase 10 (P10.1.1): the explorer actions, one rule each, when the build executes them.
+  const explorer = phase10Rule(query, q, ctx, level);
+  if (explorer) return r(explorer.plan, explorer.rule);
 
   // 5. Ambiguity.
   if (RESIDUE_NUMBER.test(q)) return r(clarify(ctx, "other", "Which numbering, protein and chain? For beta-globin, translated numbering (Met = 1) and mature numbering differ by one."), "residue-number");

@@ -16,6 +16,7 @@ import type { HgncRecord } from "@helix/data-adapters";
 import { withSession, selectionFeature, type AnswerKind, type PlanningContext, type RetrievedSnippet, type World } from "./context.ts";
 import { deterministicPlan } from "./fallback.ts";
 import { validatePlan, type PlanValidation } from "./validate.ts";
+import { taughtActions } from "./prompt.ts";
 import { screenPlanFollowUps, type FollowUpScreen } from "./followups.ts";
 import type { Plan } from "./schema.ts";
 import { ProviderError } from "./providers/types.ts";
@@ -160,7 +161,8 @@ export class JourneyDirector {
       if (code === "unavailable") this.registry.markUnavailable(provider.id, (e as Error).message);
       return fallback(`provider ${provider.id} failed (${code}): ${(e as Error).message}`, null, null, null);
     }
-    const v = validatePlan(raw, ctx, { query });
+    // Phase 10: a model plan is held to the actions its prompt version teaches (prompt.ts taughtActions).
+    const v = validatePlan(raw, ctx, { query, taughtActions: taughtActions(ctx) });
     if (!v.ok) {
       return fallback(`provider plan rejected: ${v.issues.map((i) => `${i.code}${i.value ? ` ${i.value}` : ""}`).join(", ")}`, v, raw, providerMs);
     }
