@@ -11,7 +11,7 @@ export const NONCLINICAL_NOTICE =
 export async function buildManifest(
   build: SliceBuild,
   config: SliceConfig,
-  meta: { generatedAt: string; script: string; gitCommit: string | null; gitDirty: boolean | null; node: string; assembly: string },
+  meta: { generatedAt: string; script: string; gitCommit: string | null; gitDirty: boolean | null; node: string; assembly: string; mode?: "dynamic" },
 ): Promise<DatasetManifest> {
   const files = [];
   for (const f of build.files) {
@@ -23,7 +23,8 @@ export async function buildManifest(
     datasetId: config.datasetId,
     description: config.description,
     generatedAt: meta.generatedAt,
-    generator: { script: meta.script, gitCommit: meta.gitCommit, gitDirty: meta.gitDirty, node: meta.node },
+    // Phase 9 (P9.3.1): the mode is written only for a dynamic set, so a curated manifest keeps its bytes.
+    generator: { script: meta.script, gitCommit: meta.gitCommit, gitDirty: meta.gitDirty, node: meta.node, ...(meta.mode ? { mode: meta.mode } : {}) },
     assembly: meta.assembly,
     nonclinicalNotice: NONCLINICAL_NOTICE,
     sources: build.sources,

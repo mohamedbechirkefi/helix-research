@@ -1,0 +1,72 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "entrez_id": "348",
+    "mane_select": [
+     "ENST00000252486.9",
+     "NM_000041.4"
+    ],
+    "symbol": "APOE",
+    "prev_name": [
+     "Alzheimer disease 2 (APOE*E4-associated, late onset)"
+    ],
+    "hgnc_id": "HGNC:613",
+    "uniprot_ids": [
+     "P02649"
+    ],
+    "pubmed_id": [
+     10662539
+    ],
+    "mgd_id": [
+     "MGI:88057"
+    ],
+    "gene_group": [
+     "Apolipoproteins"
+    ],
+    "lsdb": [
+     "ALSOD, the Amyotrophic Lateral Sclerosis Online Genetic Database|http://alsod.iop.kcl.ac.uk/"
+    ],
+    "vega_id": "OTTHUMG00000128901",
+    "status": "Approved",
+    "ena": [
+     "K00396"
+    ],
+    "date_approved_reserved": "2001-06-22T00:00:00Z",
+    "rgd_id": [
+     "RGD:2138"
+    ],
+    "orphanet": 121390,
+    "gene_group_id": [
+     405
+    ],
+    "ucsc_id": "uc002pab.4",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "location": "19q13.32",
+    "refseq_accession": [
+     "NM_000041"
+    ],
+    "ensembl_gene_id": "ENSG00000130203",
+    "locus_type": "gene with protein product",
+    "agr": "HGNC:613",
+    "uuid": "56e459d3-5d4d-4aaa-b9af-32e09957f1ee",
+    "name": "apolipoprotein E",
+    "ccds_id": [
+     "CCDS12647"
+    ],
+    "locus_group": "protein-coding gene",
+    "prev_symbol": [
+     "AD2"
+    ],
+    "gencc": "HGNC:613"
+   }
+  ]
+ }
+}

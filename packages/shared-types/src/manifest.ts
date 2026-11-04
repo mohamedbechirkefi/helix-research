@@ -11,7 +11,14 @@ export const DatasetManifest = z.object({
   datasetId: z.string().regex(/^[a-z0-9-]+$/),
   description: z.string(),
   generatedAt: z.iso.datetime(),
-  generator: z.object({ script: z.string(), gitCommit: z.string().nullable(), gitDirty: z.boolean().nullable(), node: z.string() }),
+  generator: z.object({
+    script: z.string(),
+    gitCommit: z.string().nullable(),
+    gitDirty: z.boolean().nullable(),
+    node: z.string(),
+    /** Phase 9 (P9.3.1, plan section 16 rule 2): "dynamic" for a set built at request time in a browser; absent for a curated set (the curated manifests are unchanged). */
+    mode: z.enum(["dynamic"]).optional(),
+  }),
   assembly: z.string(),
   nonclinicalNotice: z.string(),
   sources: z.array(Provenance).min(1),

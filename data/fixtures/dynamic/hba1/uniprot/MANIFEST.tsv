@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+uniprotkb_P69905.json	2026-11-04T00:41:59Z	200	af788bdb772df0f194d26488643ec3f2a2f7f9affa1a18d151e148c96d6f6b14	398830	GET	https://rest.uniprot.org/uniprotkb/P69905.json	"{""content-type"":""application/json"",""x-uniprot-release"":""2026_03"",""x-uniprot-release-date"":""02-September-2026""}"	redacted 2026-11-04: proprietary database identifiers removed (Q-H-LIC-1, 9 removals); original sha256 7bd75c3a8e28a4a7c61c20a9efda889ca37c113ed2829b34c732d3ac1f98bcc8

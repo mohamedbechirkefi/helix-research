@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_HBA1.json	2026-11-04T00:42:00Z	200	4e83b65e92b251f725f9355b47b8f5740d1f0c983634447a72aa5ee62e50b63f	1721	GET	https://rest.genenames.org/fetch/symbol/HBA1	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-04: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 c34c9c8da4b6405baf24c0a5f7c636aa5f2c4559907f635e14f208ad015adc46

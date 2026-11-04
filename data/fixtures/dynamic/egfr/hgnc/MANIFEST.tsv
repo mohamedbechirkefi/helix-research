@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_EGFR.json	2026-11-04T00:28:11Z	200	c783621253d33dc0d0038102d99769ac2745a64e0cd34e750a964074a1ed6ab5	1824	GET	https://rest.genenames.org/fetch/symbol/EGFR	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-04: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 4a2d35f26be50d02b9ad34a2d8d7f921d39be66b16f18a44b7f2866f4126b8cd

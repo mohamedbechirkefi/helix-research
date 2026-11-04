@@ -21,3 +21,4 @@ export * from "./slice/spec.ts";
 export * from "./slice/build.ts";
 export * from "./slice/acquire.ts";
 export * from "./slice/manifest.ts";
+export * from "./slice/dynamic.ts";

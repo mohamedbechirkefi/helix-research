@@ -1,0 +1,92 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "hgnc_id": "HGNC:11998",
+    "alias_symbol": [
+     "p53",
+     "LFS1"
+    ],
+    "pubmed_id": [
+     6396087,
+     3456488,
+     2047879
+    ],
+    "uniprot_ids": [
+     "P04637"
+    ],
+    "symbol": "TP53",
+    "entrez_id": "7157",
+    "mane_select": [
+     "ENST00000269305.9",
+     "NM_000546.6"
+    ],
+    "date_approved_reserved": "1986-01-01T00:00:00Z",
+    "status": "Approved",
+    "ena": [
+     "AF307851"
+    ],
+    "gene_group": [
+     "p53 transcription factor family"
+    ],
+    "mgd_id": [
+     "MGI:98834"
+    ],
+    "vega_id": "OTTHUMG00000162125",
+    "lsdb": [
+     "IARC TP53 Mutation Database|http://www-p53.iarc.fr/",
+     "p53 UMD TP53 mutation database|http://p53.fr/",
+     "Database of Germline p53 Mutations|http://www.lf2.cuni.cz/projects/germline_mut_p53.htm",
+     "MUTP53LOAD, Mutant p53 Loss Of Activity Database|http://www.umd.be:2072/",
+     "LRG_321|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_321.xml"
+    ],
+    "cosmic": "TP53",
+    "alias_name": [
+     "Li-Fraumeni syndrome"
+    ],
+    "location": "17p13.1",
+    "gene_group_id": [
+     4068
+    ],
+    "date_name_changed": "2008-01-16T00:00:00Z",
+    "rgd_id": [
+     "RGD:3889"
+    ],
+    "orphanet": 120204,
+    "date_modified": "2023-01-20T00:00:00Z",
+    "ucsc_id": "uc060aur.1",
+    "locus_group": "protein-coding gene",
+    "name": "tumor protein p53",
+    "ccds_id": [
+     "CCDS11118",
+     "CCDS45605",
+     "CCDS45606",
+     "CCDS73963",
+     "CCDS73964",
+     "CCDS73965",
+     "CCDS73966",
+     "CCDS73967",
+     "CCDS73968",
+     "CCDS73969",
+     "CCDS73970",
+     "CCDS73971"
+    ],
+    "gencc": "HGNC:11998",
+    "locus_type": "gene with protein product",
+    "ensembl_gene_id": "ENSG00000141510",
+    "refseq_accession": [
+     "NM_000546"
+    ],
+    "agr": "HGNC:11998",
+    "uuid": "af0e6f77-4cbc-4808-9d7b-69826cca5861"
+   }
+  ]
+ }
+}

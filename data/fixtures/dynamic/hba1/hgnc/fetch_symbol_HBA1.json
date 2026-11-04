@@ -1,0 +1,79 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "uuid": "5e2574fb-adb5-4935-bb42-490e1ab95fca",
+    "agr": "HGNC:4823",
+    "ensembl_gene_id": "ENSG00000206172",
+    "refseq_accession": [
+     "NM_000558"
+    ],
+    "locus_type": "gene with protein product",
+    "gencc": "HGNC:4823",
+    "ccds_id": [
+     "CCDS10399"
+    ],
+    "name": "hemoglobin subunit alpha 1",
+    "locus_group": "protein-coding gene",
+    "ucsc_id": "uc002cfx.2",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "orphanet": 138671,
+    "rgd_id": [
+     "RGD:2782"
+    ],
+    "gene_group_id": [
+     940,
+     2293
+    ],
+    "date_name_changed": "2015-11-23T00:00:00Z",
+    "location": "16p13.3",
+    "lsdb": [
+     "HbVar: A Database of Human Hemoglobin Variants and Thalassemias|http://globin.cse.psu.edu/globin/hbvar/menu.html",
+     "The Globin Gene Server|http://lovd.bx.psu.edu/home.php?select_db=HBA1",
+     "LRG_1225|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_1225.xml"
+    ],
+    "vega_id": "OTTHUMG00000060138",
+    "mgd_id": [
+     "MGI:96015",
+     "MGI:96016"
+    ],
+    "gene_group": [
+     "Hemoglobin subunits",
+     "Proteins encoded by multiple genes"
+    ],
+    "ena": [
+     "AF349571"
+    ],
+    "status": "Approved",
+    "date_approved_reserved": "2001-06-22T00:00:00Z",
+    "prev_name": [
+     "hemoglobin, alpha 1"
+    ],
+    "entrez_id": "3039",
+    "mane_select": [
+     "ENST00000320868.9",
+     "NM_000558.5"
+    ],
+    "symbol": "HBA1",
+    "uniprot_ids": [
+     "P69905"
+    ],
+    "pubmed_id": [
+     1975428,
+     2649166
+    ],
+    "alias_symbol": [
+     "HBA-T3"
+    ],
+    "hgnc_id": "HGNC:4823"
+   }
+  ]
+ }
+}
