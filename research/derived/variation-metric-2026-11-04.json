@@ -1,0 +1,1055 @@
+{
+  "purpose": "Phase 9 P9.3.2 (docs/phase-9-generalisation.md section 6): the mean pairwise Jaccard distance between the five curated sets on three axes, so the claim that the journeys differ has numbers under it.",
+  "script": "helix-app apps/web/scripts/variation-metric.ts over test-support/variation.ts",
+  "generatedAt": "2026-11-04T01:52:40.165Z",
+  "helixApp": {
+    "commit": "796b0f3803aa49d5aacc008b60fc54ec38c023f7",
+    "dirtyTracked": true
+  },
+  "helixResearch": {
+    "commit": "c24f2f744573dbedcd31cc04a38543ddc0a5d4ed",
+    "dirtyTracked": false,
+    "pinnedInApp": "920f70b7fb9dd15a2508db7dd0ca0ef1b5a7bb26"
+  },
+  "buildWorlds": [
+    "protein",
+    "dna",
+    "pathway"
+  ],
+  "axesDefinition": {
+    "scene": "worlds whose required data the inventory has, the start world, every data kind the inventory reports, and the targets it names (transcript, variant kind and codon, a deletion's span, structure entry, mapped residue, contacts entry, predicted model, opening pathway)",
+    "journey": "every chapter the matcher offers, as <title> [<world>] <target>, with the app's BUILD_WORLDS",
+    "capabilities": "every key of the set's capability report with its availability",
+    "journeyShape": "supplementary (not one of the plan's three axes): every offered chapter as <id> [<world>] <focus kind>, without the set-specific targets, so the chapter sequence itself can be compared"
+  },
+  "sets": [
+    {
+      "datasetId": "hbb",
+      "symbol": "HBB",
+      "scene": [
+        "world:protein",
+        "world:dna",
+        "world:pathway",
+        "start-world:dna",
+        "kind:cdna-sequence",
+        "kind:cds-sequence",
+        "kind:exon-structure",
+        "kind:experimental-structure",
+        "kind:gene",
+        "kind:pathway-memberships",
+        "kind:predicted-structure",
+        "kind:protein-sequence",
+        "kind:residue-contacts",
+        "kind:residue-mapping",
+        "kind:structure-model-file",
+        "kind:transcript",
+        "kind:variant",
+        "transcript:ENST00000335295.4",
+        "variant-kind:substitution",
+        "variant-codon:7",
+        "structure:2HBS",
+        "residue:7@2HBS",
+        "contacts:2HBS",
+        "predicted-model:AF-P68871-F1",
+        "pathway-opening:R-HSA-9615710"
+      ],
+      "journey": [
+        "The HBB transcript [dna] transcript",
+        "Codon 7 [dna] codon 7",
+        "The mapped residue [protein] feature HbS_substitution on 2HBS",
+        "A contact in the crystal [protein] feature HbS_contact_H6_B on 2HBS",
+        "Where the protein is listed [pathway] pathway R-HSA-9615710"
+      ],
+      "capabilities": [
+        "transcriptView:available",
+        "proteinView:available",
+        "experimentalStructure:available",
+        "predictedStructure:available",
+        "verifiedResidueMapping:available",
+        "variantHighlight:available",
+        "pathwayView:available",
+        "associationView:available"
+      ],
+      "journeyShape": [
+        "transcript [dna] transcript",
+        "variant-codon [dna] codon",
+        "variant-residue [protein] feature",
+        "variant-contact [protein] feature",
+        "pathway-memberships [pathway] pathway"
+      ],
+      "facts": {
+        "transcriptId": "ENST00000335295.4",
+        "variant": {
+          "kind": "substitution",
+          "codon": 7,
+          "span": [
+            7
+          ],
+          "label": "HbS (sickle haemoglobin)"
+        },
+        "structure": {
+          "entryId": "2HBS",
+          "method": "X-RAY DIFFRACTION",
+          "coverageFraction": 0.9932,
+          "coverageText": "2HBS covers residues 2 to 147 of 147 (146 observed positions, 99.3 %; X-RAY DIFFRACTION, 2.05 A)"
+        },
+        "predictedModel": "AF-P68871-F1",
+        "pathwayOpening": {
+          "stableId": "R-HSA-9615710",
+          "name": "Late endosomal microautophagy"
+        },
+        "worlds": [
+          "protein",
+          "dna",
+          "pathway"
+        ],
+        "startWorld": "dna",
+        "offered": [
+          {
+            "id": "transcript",
+            "title": "The HBB transcript",
+            "world": "dna"
+          },
+          {
+            "id": "variant-codon",
+            "title": "Codon 7",
+            "world": "dna"
+          },
+          {
+            "id": "variant-residue",
+            "title": "The mapped residue",
+            "world": "protein"
+          },
+          {
+            "id": "variant-contact",
+            "title": "A contact in the crystal",
+            "world": "protein"
+          },
+          {
+            "id": "pathway-memberships",
+            "title": "Where the protein is listed",
+            "world": "pathway"
+          }
+        ],
+        "refused": []
+      },
+      "distinction": "HBB: a substitution at codon 7; 2HBS (x-ray diffraction, coverage 99.3 %); worlds protein, dna, pathway, starting in dna; 5 chapters offered (The HBB transcript; Codon 7; The mapped residue; A contact in the crystal; Where the protein is listed), of which only this set offers \"The HBB transcript\", \"Codon 7\", \"A contact in the crystal\"; 7 scene, 5 journey, 0 capability and 0 journey-shape strings are its alone.",
+      "unique": {
+        "scene": [
+          "transcript:ENST00000335295.4",
+          "variant-codon:7",
+          "structure:2HBS",
+          "residue:7@2HBS",
+          "contacts:2HBS",
+          "predicted-model:AF-P68871-F1",
+          "pathway-opening:R-HSA-9615710"
+        ],
+        "journey": [
+          "The HBB transcript [dna] transcript",
+          "Codon 7 [dna] codon 7",
+          "The mapped residue [protein] feature HbS_substitution on 2HBS",
+          "A contact in the crystal [protein] feature HbS_contact_H6_B on 2HBS",
+          "Where the protein is listed [pathway] pathway R-HSA-9615710"
+        ],
+        "capabilities": [],
+        "journeyShape": []
+      }
+    },
+    {
+      "datasetId": "cftr",
+      "symbol": "CFTR",
+      "scene": [
+        "world:protein",
+        "world:dna",
+        "world:pathway",
+        "start-world:dna",
+        "kind:cdna-sequence",
+        "kind:cds-sequence",
+        "kind:exon-structure",
+        "kind:experimental-structure",
+        "kind:gene",
+        "kind:pathway-memberships",
+        "kind:predicted-structure",
+        "kind:protein-sequence",
+        "kind:residue-contacts",
+        "kind:residue-mapping",
+        "kind:structure-model-file",
+        "kind:transcript",
+        "kind:variant",
+        "transcript:ENST00000003084.11",
+        "variant-kind:deletion",
+        "variant-codon:508",
+        "variant-span:507-508",
+        "structure:5UAK",
+        "residue:508@5UAK",
+        "contacts:5UAK",
+        "predicted-model:AF-P13569-F1",
+        "pathway-opening:R-HSA-5627083"
+      ],
+      "journey": [
+        "The CFTR transcript [dna] transcript",
+        "Codons 507 to 508 [dna] codon 508",
+        "The mapped residue [protein] feature F508del_deletion on 5UAK",
+        "A contact in the structure [protein] feature F508del_contact_A508_A on 5UAK",
+        "Where the protein is listed [pathway] pathway R-HSA-5627083"
+      ],
+      "capabilities": [
+        "transcriptView:available",
+        "proteinView:available",
+        "experimentalStructure:available",
+        "predictedStructure:available",
+        "verifiedResidueMapping:available",
+        "variantHighlight:available",
+        "pathwayView:available",
+        "associationView:available"
+      ],
+      "journeyShape": [
+        "transcript [dna] transcript",
+        "variant-codon [dna] codon",
+        "variant-residue [protein] feature",
+        "variant-contact [protein] feature",
+        "pathway-memberships [pathway] pathway"
+      ],
+      "facts": {
+        "transcriptId": "ENST00000003084.11",
+        "variant": {
+          "kind": "deletion",
+          "codon": 508,
+          "span": [
+            507,
+            508
+          ],
+          "label": "F508del (p.Phe508del)"
+        },
+        "structure": {
+          "entryId": "5UAK",
+          "method": "ELECTRON MICROSCOPY",
+          "coverageFraction": 0.7696,
+          "coverageText": "5UAK covers residues 5 to 1436 of 1,480 (1139 observed positions, 77.0 %; ELECTRON MICROSCOPY, 3.87 A)"
+        },
+        "predictedModel": "AF-P13569-F1",
+        "pathwayOpening": {
+          "stableId": "R-HSA-5627083",
+          "name": "RHO GTPases regulate CFTR trafficking"
+        },
+        "worlds": [
+          "protein",
+          "dna",
+          "pathway"
+        ],
+        "startWorld": "dna",
+        "offered": [
+          {
+            "id": "transcript",
+            "title": "The CFTR transcript",
+            "world": "dna"
+          },
+          {
+            "id": "variant-codon",
+            "title": "Codons 507 to 508",
+            "world": "dna"
+          },
+          {
+            "id": "variant-residue",
+            "title": "The mapped residue",
+            "world": "protein"
+          },
+          {
+            "id": "variant-contact",
+            "title": "A contact in the structure",
+            "world": "protein"
+          },
+          {
+            "id": "pathway-memberships",
+            "title": "Where the protein is listed",
+            "world": "pathway"
+          }
+        ],
+        "refused": []
+      },
+      "distinction": "CFTR: a deletion at codon 508 (span 507 to 508); 5UAK (electron microscopy, coverage 77.0 %); worlds protein, dna, pathway, starting in dna; 5 chapters offered (The CFTR transcript; Codons 507 to 508; The mapped residue; A contact in the structure; Where the protein is listed), of which only this set offers \"The CFTR transcript\", \"Codons 507 to 508\"; 9 scene, 5 journey, 0 capability and 0 journey-shape strings are its alone.",
+      "unique": {
+        "scene": [
+          "transcript:ENST00000003084.11",
+          "variant-kind:deletion",
+          "variant-codon:508",
+          "variant-span:507-508",
+          "structure:5UAK",
+          "residue:508@5UAK",
+          "contacts:5UAK",
+          "predicted-model:AF-P13569-F1",
+          "pathway-opening:R-HSA-5627083"
+        ],
+        "journey": [
+          "The CFTR transcript [dna] transcript",
+          "Codons 507 to 508 [dna] codon 508",
+          "The mapped residue [protein] feature F508del_deletion on 5UAK",
+          "A contact in the structure [protein] feature F508del_contact_A508_A on 5UAK",
+          "Where the protein is listed [pathway] pathway R-HSA-5627083"
+        ],
+        "capabilities": [],
+        "journeyShape": []
+      }
+    },
+    {
+      "datasetId": "brca1",
+      "symbol": "BRCA1",
+      "scene": [
+        "world:protein",
+        "world:dna",
+        "world:pathway",
+        "start-world:dna",
+        "kind:cdna-sequence",
+        "kind:cds-sequence",
+        "kind:exon-structure",
+        "kind:experimental-structure",
+        "kind:gene",
+        "kind:pathway-memberships",
+        "kind:predicted-structure",
+        "kind:protein-sequence",
+        "kind:residue-contacts",
+        "kind:residue-mapping",
+        "kind:structure-model-file",
+        "kind:transcript",
+        "kind:variant",
+        "transcript:ENST00000357654.9",
+        "variant-kind:substitution",
+        "variant-codon:61",
+        "structure:1JM7",
+        "residue:61@1JM7",
+        "contacts:1JM7",
+        "predicted-model:AF-P38398-F1",
+        "pathway-opening:R-HSA-1221632"
+      ],
+      "journey": [
+        "The BRCA1 transcript [dna] transcript",
+        "Codon 61 [dna] codon 61",
+        "The mapped residue [protein] feature C61G_substitution on 1JM7",
+        "A contact in the structure [protein] feature C61G_contact_A61_A on 1JM7",
+        "Where the protein is listed [pathway] pathway R-HSA-1221632"
+      ],
+      "capabilities": [
+        "transcriptView:available",
+        "proteinView:available",
+        "experimentalStructure:available",
+        "predictedStructure:available",
+        "verifiedResidueMapping:available",
+        "variantHighlight:available",
+        "pathwayView:available",
+        "associationView:available"
+      ],
+      "journeyShape": [
+        "transcript [dna] transcript",
+        "variant-codon [dna] codon",
+        "variant-residue [protein] feature",
+        "variant-contact [protein] feature",
+        "pathway-memberships [pathway] pathway"
+      ],
+      "facts": {
+        "transcriptId": "ENST00000357654.9",
+        "variant": {
+          "kind": "substitution",
+          "codon": 61,
+          "span": [
+            61
+          ],
+          "label": "C61G (p.Cys61Gly)"
+        },
+        "structure": {
+          "entryId": "1JM7",
+          "method": "SOLUTION NMR",
+          "coverageFraction": 0.0553,
+          "coverageText": "1JM7 covers residues 1 to 103 of 1,863 (103 observed positions, 5.5 %; SOLUTION NMR, 14 models, model 1 shown)"
+        },
+        "predictedModel": "AF-P38398-F1",
+        "pathwayOpening": {
+          "stableId": "R-HSA-1221632",
+          "name": "Meiotic synapsis"
+        },
+        "worlds": [
+          "protein",
+          "dna",
+          "pathway"
+        ],
+        "startWorld": "dna",
+        "offered": [
+          {
+            "id": "transcript",
+            "title": "The BRCA1 transcript",
+            "world": "dna"
+          },
+          {
+            "id": "variant-codon",
+            "title": "Codon 61",
+            "world": "dna"
+          },
+          {
+            "id": "variant-residue",
+            "title": "The mapped residue",
+            "world": "protein"
+          },
+          {
+            "id": "variant-contact",
+            "title": "A contact in the structure",
+            "world": "protein"
+          },
+          {
+            "id": "pathway-memberships",
+            "title": "Where the protein is listed",
+            "world": "pathway"
+          }
+        ],
+        "refused": []
+      },
+      "distinction": "BRCA1: a substitution at codon 61; 1JM7 (solution NMR, coverage 5.5 %); worlds protein, dna, pathway, starting in dna; 5 chapters offered (The BRCA1 transcript; Codon 61; The mapped residue; A contact in the structure; Where the protein is listed), of which only this set offers \"The BRCA1 transcript\", \"Codon 61\"; 7 scene, 5 journey, 0 capability and 0 journey-shape strings are its alone.",
+      "unique": {
+        "scene": [
+          "transcript:ENST00000357654.9",
+          "variant-codon:61",
+          "structure:1JM7",
+          "residue:61@1JM7",
+          "contacts:1JM7",
+          "predicted-model:AF-P38398-F1",
+          "pathway-opening:R-HSA-1221632"
+        ],
+        "journey": [
+          "The BRCA1 transcript [dna] transcript",
+          "Codon 61 [dna] codon 61",
+          "The mapped residue [protein] feature C61G_substitution on 1JM7",
+          "A contact in the structure [protein] feature C61G_contact_A61_A on 1JM7",
+          "Where the protein is listed [pathway] pathway R-HSA-1221632"
+        ],
+        "capabilities": [],
+        "journeyShape": []
+      }
+    },
+    {
+      "datasetId": "slc6a3",
+      "symbol": "SLC6A3",
+      "scene": [
+        "world:protein",
+        "world:dna",
+        "world:pathway",
+        "start-world:dna",
+        "kind:cdna-sequence",
+        "kind:cds-sequence",
+        "kind:exon-structure",
+        "kind:experimental-structure",
+        "kind:gene",
+        "kind:pathway-memberships",
+        "kind:predicted-structure",
+        "kind:protein-sequence",
+        "kind:residue-contacts",
+        "kind:residue-mapping",
+        "kind:structure-model-file",
+        "kind:transcript",
+        "kind:variant",
+        "transcript:ENST00000270349.12",
+        "variant-kind:substitution",
+        "variant-codon:85",
+        "structure:8Y2C",
+        "residue:85@8Y2C",
+        "contacts:8Y2C",
+        "predicted-model:AF-Q01959-F1",
+        "pathway-opening:R-HSA-442660"
+      ],
+      "journey": [
+        "The SLC6A3 transcript [dna] transcript",
+        "Codon 85 [dna] codon 85",
+        "The mapped residue [protein] feature R85W_substitution on 8Y2C",
+        "A contact in the structure [protein] feature R85W_contact_A85_A on 8Y2C",
+        "Where the protein is listed [pathway] pathway R-HSA-442660"
+      ],
+      "capabilities": [
+        "transcriptView:available",
+        "proteinView:available",
+        "experimentalStructure:available",
+        "predictedStructure:available",
+        "verifiedResidueMapping:available",
+        "variantHighlight:available",
+        "pathwayView:available",
+        "associationView:available"
+      ],
+      "journeyShape": [
+        "transcript [dna] transcript",
+        "variant-codon [dna] codon",
+        "variant-residue [protein] feature",
+        "variant-contact [protein] feature",
+        "pathway-memberships [pathway] pathway"
+      ],
+      "facts": {
+        "transcriptId": "ENST00000270349.12",
+        "variant": {
+          "kind": "substitution",
+          "codon": 85,
+          "span": [
+            85
+          ],
+          "label": "R85W (p.Arg85Trp)"
+        },
+        "structure": {
+          "entryId": "8Y2C",
+          "method": "ELECTRON MICROSCOPY",
+          "coverageFraction": 0.8532,
+          "coverageText": "8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A)"
+        },
+        "predictedModel": "AF-Q01959-F1",
+        "pathwayOpening": {
+          "stableId": "R-HSA-442660",
+          "name": "SLC-mediated transport of neurotransmitters"
+        },
+        "worlds": [
+          "protein",
+          "dna",
+          "pathway"
+        ],
+        "startWorld": "dna",
+        "offered": [
+          {
+            "id": "transcript",
+            "title": "The SLC6A3 transcript",
+            "world": "dna"
+          },
+          {
+            "id": "variant-codon",
+            "title": "Codon 85",
+            "world": "dna"
+          },
+          {
+            "id": "variant-residue",
+            "title": "The mapped residue",
+            "world": "protein"
+          },
+          {
+            "id": "variant-contact",
+            "title": "A contact in the structure",
+            "world": "protein"
+          },
+          {
+            "id": "pathway-memberships",
+            "title": "Where the protein is listed",
+            "world": "pathway"
+          }
+        ],
+        "refused": []
+      },
+      "distinction": "SLC6A3: a substitution at codon 85; 8Y2C (electron microscopy, coverage 85.3 %); worlds protein, dna, pathway, starting in dna; 5 chapters offered (The SLC6A3 transcript; Codon 85; The mapped residue; A contact in the structure; Where the protein is listed), of which only this set offers \"The SLC6A3 transcript\", \"Codon 85\"; 7 scene, 5 journey, 0 capability and 0 journey-shape strings are its alone.",
+      "unique": {
+        "scene": [
+          "transcript:ENST00000270349.12",
+          "variant-codon:85",
+          "structure:8Y2C",
+          "residue:85@8Y2C",
+          "contacts:8Y2C",
+          "predicted-model:AF-Q01959-F1",
+          "pathway-opening:R-HSA-442660"
+        ],
+        "journey": [
+          "The SLC6A3 transcript [dna] transcript",
+          "Codon 85 [dna] codon 85",
+          "The mapped residue [protein] feature R85W_substitution on 8Y2C",
+          "A contact in the structure [protein] feature R85W_contact_A85_A on 8Y2C",
+          "Where the protein is listed [pathway] pathway R-HSA-442660"
+        ],
+        "capabilities": [],
+        "journeyShape": []
+      }
+    },
+    {
+      "datasetId": "faah2",
+      "symbol": "FAAH2",
+      "scene": [
+        "world:dna",
+        "world:pathway",
+        "start-world:dna",
+        "kind:cdna-sequence",
+        "kind:cds-sequence",
+        "kind:exon-structure",
+        "kind:gene",
+        "kind:pathway-memberships",
+        "kind:predicted-structure",
+        "kind:protein-sequence",
+        "kind:transcript",
+        "transcript:ENST00000374900.5",
+        "predicted-model:AF-Q6GMR7-F1",
+        "pathway-opening:R-HSA-2142753"
+      ],
+      "journey": [
+        "The FAAH2 transcript [dna] transcript",
+        "The first codon [dna] codon 1",
+        "Where the protein is listed [pathway] pathway R-HSA-2142753"
+      ],
+      "capabilities": [
+        "transcriptView:available",
+        "proteinView:available",
+        "experimentalStructure:unavailable",
+        "predictedStructure:available",
+        "verifiedResidueMapping:unavailable",
+        "variantHighlight:unavailable",
+        "pathwayView:available",
+        "associationView:available"
+      ],
+      "journeyShape": [
+        "transcript [dna] transcript",
+        "first-codon [dna] codon",
+        "pathway-memberships [pathway] pathway"
+      ],
+      "facts": {
+        "transcriptId": "ENST00000374900.5",
+        "variant": null,
+        "structure": null,
+        "predictedModel": "AF-Q6GMR7-F1",
+        "pathwayOpening": {
+          "stableId": "R-HSA-2142753",
+          "name": "Arachidonate metabolism"
+        },
+        "worlds": [
+          "dna",
+          "pathway"
+        ],
+        "startWorld": "dna",
+        "offered": [
+          {
+            "id": "transcript",
+            "title": "The FAAH2 transcript",
+            "world": "dna"
+          },
+          {
+            "id": "first-codon",
+            "title": "The first codon",
+            "world": "dna"
+          },
+          {
+            "id": "pathway-memberships",
+            "title": "Where the protein is listed",
+            "world": "pathway"
+          }
+        ],
+        "refused": []
+      },
+      "distinction": "FAAH2: no curated variant; no experimental structure (predicted model AF-Q6GMR7-F1 only); worlds dna, pathway, starting in dna; 3 chapters offered (The FAAH2 transcript; The first codon; Where the protein is listed), of which only this set offers \"The FAAH2 transcript\", \"The first codon\"; 3 scene, 3 journey, 3 capability and 1 journey-shape strings are its alone.",
+      "unique": {
+        "scene": [
+          "transcript:ENST00000374900.5",
+          "predicted-model:AF-Q6GMR7-F1",
+          "pathway-opening:R-HSA-2142753"
+        ],
+        "journey": [
+          "The FAAH2 transcript [dna] transcript",
+          "The first codon [dna] codon 1",
+          "Where the protein is listed [pathway] pathway R-HSA-2142753"
+        ],
+        "capabilities": [
+          "experimentalStructure:unavailable",
+          "verifiedResidueMapping:unavailable",
+          "variantHighlight:unavailable"
+        ],
+        "journeyShape": [
+          "first-codon [dna] codon"
+        ]
+      }
+    }
+  ],
+  "axes": {
+    "scene": {
+      "axis": "scene",
+      "symbols": [
+        "HBB",
+        "CFTR",
+        "BRCA1",
+        "SLC6A3",
+        "FAAH2"
+      ],
+      "matrix": [
+        [
+          0,
+          0.5,
+          0.4375,
+          0.4375,
+          0.6071428571428572
+        ],
+        [
+          0.5,
+          0,
+          0.5,
+          0.5,
+          0.6206896551724138
+        ],
+        [
+          0.4375,
+          0.5,
+          0,
+          0.4375,
+          0.6071428571428572
+        ],
+        [
+          0.4375,
+          0.5,
+          0.4375,
+          0,
+          0.6071428571428572
+        ],
+        [
+          0.6071428571428572,
+          0.6206896551724138,
+          0.6071428571428572,
+          0.6071428571428572,
+          0
+        ]
+      ],
+      "pairs": [
+        {
+          "a": "HBB",
+          "b": "CFTR",
+          "distance": 0.5
+        },
+        {
+          "a": "HBB",
+          "b": "BRCA1",
+          "distance": 0.4375
+        },
+        {
+          "a": "HBB",
+          "b": "SLC6A3",
+          "distance": 0.4375
+        },
+        {
+          "a": "HBB",
+          "b": "FAAH2",
+          "distance": 0.6071428571428572
+        },
+        {
+          "a": "CFTR",
+          "b": "BRCA1",
+          "distance": 0.5
+        },
+        {
+          "a": "CFTR",
+          "b": "SLC6A3",
+          "distance": 0.5
+        },
+        {
+          "a": "CFTR",
+          "b": "FAAH2",
+          "distance": 0.6206896551724138
+        },
+        {
+          "a": "BRCA1",
+          "b": "SLC6A3",
+          "distance": 0.4375
+        },
+        {
+          "a": "BRCA1",
+          "b": "FAAH2",
+          "distance": 0.6071428571428572
+        },
+        {
+          "a": "SLC6A3",
+          "b": "FAAH2",
+          "distance": 0.6071428571428572
+        }
+      ],
+      "mean": 0.5254618226600986
+    },
+    "journey": {
+      "axis": "journey",
+      "symbols": [
+        "HBB",
+        "CFTR",
+        "BRCA1",
+        "SLC6A3",
+        "FAAH2"
+      ],
+      "matrix": [
+        [
+          0,
+          1,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          1,
+          0
+        ]
+      ],
+      "pairs": [
+        {
+          "a": "HBB",
+          "b": "CFTR",
+          "distance": 1
+        },
+        {
+          "a": "HBB",
+          "b": "BRCA1",
+          "distance": 1
+        },
+        {
+          "a": "HBB",
+          "b": "SLC6A3",
+          "distance": 1
+        },
+        {
+          "a": "HBB",
+          "b": "FAAH2",
+          "distance": 1
+        },
+        {
+          "a": "CFTR",
+          "b": "BRCA1",
+          "distance": 1
+        },
+        {
+          "a": "CFTR",
+          "b": "SLC6A3",
+          "distance": 1
+        },
+        {
+          "a": "CFTR",
+          "b": "FAAH2",
+          "distance": 1
+        },
+        {
+          "a": "BRCA1",
+          "b": "SLC6A3",
+          "distance": 1
+        },
+        {
+          "a": "BRCA1",
+          "b": "FAAH2",
+          "distance": 1
+        },
+        {
+          "a": "SLC6A3",
+          "b": "FAAH2",
+          "distance": 1
+        }
+      ],
+      "mean": 1
+    },
+    "capabilities": {
+      "axis": "capabilities",
+      "symbols": [
+        "HBB",
+        "CFTR",
+        "BRCA1",
+        "SLC6A3",
+        "FAAH2"
+      ],
+      "matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0.5454545454545454
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.5454545454545454
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.5454545454545454
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.5454545454545454
+        ],
+        [
+          0.5454545454545454,
+          0.5454545454545454,
+          0.5454545454545454,
+          0.5454545454545454,
+          0
+        ]
+      ],
+      "pairs": [
+        {
+          "a": "HBB",
+          "b": "CFTR",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "BRCA1",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "FAAH2",
+          "distance": 0.5454545454545454
+        },
+        {
+          "a": "CFTR",
+          "b": "BRCA1",
+          "distance": 0
+        },
+        {
+          "a": "CFTR",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "CFTR",
+          "b": "FAAH2",
+          "distance": 0.5454545454545454
+        },
+        {
+          "a": "BRCA1",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "BRCA1",
+          "b": "FAAH2",
+          "distance": 0.5454545454545454
+        },
+        {
+          "a": "SLC6A3",
+          "b": "FAAH2",
+          "distance": 0.5454545454545454
+        }
+      ],
+      "mean": 0.21818181818181817
+    },
+    "journeyShape": {
+      "axis": "journeyShape",
+      "symbols": [
+        "HBB",
+        "CFTR",
+        "BRCA1",
+        "SLC6A3",
+        "FAAH2"
+      ],
+      "matrix": [
+        [
+          0,
+          0,
+          0,
+          0,
+          0.6666666666666667
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.6666666666666667
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.6666666666666667
+        ],
+        [
+          0,
+          0,
+          0,
+          0,
+          0.6666666666666667
+        ],
+        [
+          0.6666666666666667,
+          0.6666666666666667,
+          0.6666666666666667,
+          0.6666666666666667,
+          0
+        ]
+      ],
+      "pairs": [
+        {
+          "a": "HBB",
+          "b": "CFTR",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "BRCA1",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "HBB",
+          "b": "FAAH2",
+          "distance": 0.6666666666666667
+        },
+        {
+          "a": "CFTR",
+          "b": "BRCA1",
+          "distance": 0
+        },
+        {
+          "a": "CFTR",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "CFTR",
+          "b": "FAAH2",
+          "distance": 0.6666666666666667
+        },
+        {
+          "a": "BRCA1",
+          "b": "SLC6A3",
+          "distance": 0
+        },
+        {
+          "a": "BRCA1",
+          "b": "FAAH2",
+          "distance": 0.6666666666666667
+        },
+        {
+          "a": "SLC6A3",
+          "b": "FAAH2",
+          "distance": 0.6666666666666667
+        }
+      ],
+      "mean": 0.2666666666666667
+    }
+  }
+}
