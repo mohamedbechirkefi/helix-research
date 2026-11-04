@@ -1,0 +1,2970 @@
+{
+ "date": "2026-11-04T02:40:53.516Z",
+ "tag": "p1011-app",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": [
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-domains-hbb-dna.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-domains-hbb-protein.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-representation-surface-hbb.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-dna.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-protein.jpg",
+  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-pathway.jpg"
+ ],
+ "scenarios": {
+  "hbb-transcript": {
+   "summary": {
+    "outcome": "executed",
+    "plan": [
+     "selectTranscript"
+    ],
+    "transcript": {
+     "id": "ENST00000335295.4"
+    }
+   },
+   "plan": {
+    "entities": {
+     "geneId": "ENSG00000244734",
+     "proteinId": null,
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [
+     "ensembl:ENSG00000244734"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "show_gene",
+    "actions": [
+     {
+      "type": "selectTranscript",
+      "transcriptId": "ENST00000335295.4"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "selectTranscript",
+      "status": "completed",
+      "feedback": "transcript ENST00000335295.4 is the MANE Select transcript, the one DNA World draws",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1114.0999999940395
+       },
+       {
+        "status": "validated",
+        "at": 1114.2999999821186
+       },
+       {
+        "status": "preparing",
+        "at": 1114.2999999821186,
+        "detail": "Selecting transcript ENST00000335295.4"
+       },
+       {
+        "status": "executing",
+        "at": 1114.2999999821186,
+        "detail": "Selecting transcript ENST00000335295.4"
+       },
+       {
+        "status": "completed",
+        "at": 1115.9000000059605,
+        "detail": "transcript ENST00000335295.4 is the MANE Select transcript, the one DNA World draws"
+       }
+      ],
+      "result": {
+       "transcriptId": "ENST00000335295.4",
+       "maneSelect": true,
+       "drawn": "ENST00000335295.4",
+       "rule": "mane_select",
+       "reason": "only transcript with MANE[].type == MANE_Select",
+       "candidatesConsidered": 19,
+       "candidates": [
+        {
+         "id": "ENST00000335295.4",
+         "maneSelect": true,
+         "source": "gene record selection (rule mane_select)"
+        },
+        {
+         "id": "ENST00000647020.1",
+         "maneSelect": false,
+         "source": "UniProt P68871 cross-reference"
+        },
+        {
+         "id": "ENST00000883533.1",
+         "maneSelect": false,
+         "source": "UniProt P68871 cross-reference"
+        }
+       ]
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": {
+     "id": "ENST00000335295.4"
+    },
+    "structure": null,
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": null,
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 0,
+    "camera": null,
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "record",
+      "text": "HBB (ENSG00000244734.6) is annotated on GRCh38 chromosome 11:5225464-5229395, strand -1. (evidence class 2: Database annotation/submission with review status.)1"
+     },
+     {
+      "kind": "record",
+      "text": "The selected transcript is MANE Select ENST00000335295.4 (NM_000518.5): the gene record's rule mane_select chose it (only transcript with MANE[].type == MANE_Select; 19 transcripts considered). It is the transcript DNA World draws and the only one with curated sequences. The protein record also names ENST00000647020.1, ENST00000883533.1, not curated here.1"
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "claims": {
+    "claims": 2,
+    "plannerSentences": 0,
+    "cards": 1,
+    "unsourced": [],
+    "badCards": []
+   },
+   "pageErrors": []
+  },
+  "hbb-transcript-refusal": {
+   "summary": {
+    "outcome": "answered",
+    "reason": "ENST00000647020.1 is not shown: only the MANE Select transcript is curated; the record lists it as a candidate (the curated transcript is ENST00000335295.4, MANE Select)."
+   },
+   "plan": {
+    "entities": {
+     "geneId": null,
+     "proteinId": null,
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "unsupported",
+    "intent": "show_gene",
+    "actions": [],
+    "reason": "ENST00000647020.1 is not shown: only the MANE Select transcript is curated; the record lists it as a candidate (the curated transcript is ENST00000335295.4, MANE Select)."
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": null,
+    "structure": null,
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": null,
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 0,
+    "camera": null,
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "planner",
+      "text": "Planner message (rule-based): ENST00000647020.1 is not shown: only the MANE Select transcript is curated; the record lists it as a candidate (the curated transcript is ENST00000335295.4, MANE Select)."
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-domains-dna": {
+   "summary": {
+    "bands": 145,
+    "panel": [
+     "uniprot-feature:P68871:Domain:3-147"
+    ],
+    "molAfterLoad": 580
+   },
+   "plan": {
+    "entities": {
+     "geneId": "ENSG00000244734",
+     "proteinId": "P68871",
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [
+     "uniprot:P68871"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "show_domains",
+    "actions": [
+     {
+      "type": "showProteinDomains",
+      "proteinAccession": "P68871"
+     },
+     {
+      "type": "revealEvidence",
+      "evidenceId": "uniprot:P68871"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "showProteinDomains",
+      "status": "completed",
+      "feedback": "Features of P68871 shown on the sequence and, where mapped, on the structure",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1067.8999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1068.699999988079
+       },
+       {
+        "status": "preparing",
+        "at": 1068.699999988079,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "executing",
+        "at": 1068.7999999821186,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "completed",
+        "at": 1077.2999999821186,
+        "detail": "Features of P68871 shown on the sequence and, where mapped, on the structure"
+       }
+      ],
+      "result": {
+       "proteinAccession": "P68871",
+       "features": [
+        {
+         "id": "uniprot-feature:P68871:Domain:3-147",
+         "type": "Domain",
+         "description": "Globin",
+         "start": 3,
+         "end": 147,
+         "hgvsRange": "c.7_441",
+         "structure": {
+          "structureId": "2HBS",
+          "ranges": [
+           {
+            "authAsymId": "B",
+            "labelAsymId": "B",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "D",
+            "labelAsymId": "D",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "F",
+            "labelAsymId": "F",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "H",
+            "labelAsymId": "H",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           }
+          ],
+          "mappedPositions": 145,
+          "unobservedPositions": 0
+         }
+        }
+       ],
+       "dnaBands": 145,
+       "structureResidues": null,
+       "structureId": "2HBS",
+       "checks": [
+        "id-in-trusted-context",
+        "protein-features-of-record",
+        "region-in-transcript",
+        "mapping-table-of-record",
+        "domain-readback"
+       ]
+      }
+     },
+     {
+      "index": 1,
+      "type": "revealEvidence",
+      "status": "completed",
+      "feedback": "Evidence uniprot:P68871 shown with its source",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1067.8999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1068.699999988079
+       },
+       {
+        "status": "preparing",
+        "at": 1077.5,
+        "detail": "Opening evidence uniprot:P68871"
+       },
+       {
+        "status": "executing",
+        "at": 1077.5,
+        "detail": "Opening evidence uniprot:P68871"
+       },
+       {
+        "status": "completed",
+        "at": 1079.0999999940395,
+        "detail": "Evidence uniprot:P68871 shown with its source"
+       }
+      ],
+      "result": {
+       "evidenceId": "uniprot:P68871"
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": null,
+    "structure": null,
+    "representation": "cartoon",
+    "domains": {
+     "proteinAccession": "P68871",
+     "featureIds": [
+      "uniprot-feature:P68871:Domain:3-147"
+     ],
+     "cdnaIndices": [
+      56,
+      59,
+      62,
+      65,
+      68,
+      71,
+      74,
+      77,
+      80,
+      83,
+      86,
+      89,
+      92,
+      95,
+      98,
+      101,
+      104,
+      107,
+      110,
+      113,
+      116,
+      119,
+      122,
+      125,
+      128,
+      131,
+      134,
+      137,
+      140,
+      143,
+      146,
+      149,
+      152,
+      155,
+      158,
+      161,
+      164,
+      167,
+      170,
+      173,
+      176,
+      179,
+      182,
+      185,
+      188,
+      191,
+      194,
+      197,
+      200,
+      203,
+      206,
+      209,
+      212,
+      215,
+      218,
+      221,
+      224,
+      227,
+      230,
+      233,
+      236,
+      239,
+      242,
+      245,
+      248,
+      251,
+      254,
+      257,
+      260,
+      263,
+      266,
+      269,
+      272,
+      275,
+      278,
+      281,
+      284,
+      287,
+      290,
+      293,
+      296,
+      299,
+      302,
+      305,
+      308,
+      311,
+      314,
+      317,
+      320,
+      323,
+      326,
+      329,
+      332,
+      335,
+      338,
+      341,
+      344,
+      347,
+      350,
+      353,
+      356,
+      359,
+      362,
+      365,
+      368,
+      371,
+      374,
+      377,
+      380,
+      383,
+      386,
+      389,
+      392,
+      395,
+      398,
+      401,
+      404,
+      407,
+      410,
+      413,
+      416,
+      419,
+      422,
+      425,
+      428,
+      431,
+      434,
+      437,
+      440,
+      443,
+      446,
+      449,
+      452,
+      455,
+      458,
+      461,
+      464,
+      467,
+      470,
+      473,
+      476,
+      479,
+      482,
+      485,
+      488
+     ],
+     "structureId": "2HBS",
+     "residueCount": 580,
+     "requestId": "q1"
+    },
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": {
+      "proteinAccession": "P68871",
+      "structureId": "2HBS",
+      "features": [
+       {
+        "id": "uniprot-feature:P68871:Domain:3-147",
+        "type": "Domain",
+        "start": 3,
+        "end": 147,
+        "hgvsRange": "c.7_441",
+        "ranges": [
+         {
+          "authAsymId": "B",
+          "labelAsymId": "B",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "D",
+          "labelAsymId": "D",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "F",
+          "labelAsymId": "F",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "H",
+          "labelAsymId": "H",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         }
+        ]
+       }
+      ],
+      "cdnaIndices": 145,
+      "residueCount": 580
+     },
+     "dnaBands": 145,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": null,
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [
+      "uniprot-feature:P68871:Domain:3-147"
+     ],
+     "pathwayOpened": null
+    },
+    "structures": 0,
+    "camera": null,
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "record",
+      "text": "P68871 (HBB_HUMAN) canonical sequence, 147 aa; initiator Met removed; chain 2-147. (evidence class 2: Database annotation/submission with review status.)1"
+     },
+     {
+      "kind": "record",
+      "text": "UniProt P68871 lists 1 feature of the types shown: Domain Globin, positions 3 to 147 (codons 3 to 147, c.7_441; ECO:0000255 PROSITE-ProRule:PRU00238). Marked in DNA World on those codons, and on 2HBS in a neutral colour where the mapping table of record maps them (the variant emphasis is kept).1"
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [
+     "Evidence: ECO:0000255 PROSITE-ProRule:PRU00238 · UniProt P68871, evidence class 2: Database annotation/submission with review status"
+    ],
+    "panelStructure": [
+     "2HBS: chain B 2 to 146, chain D 2 to 146, chain F 2 to 146, chain H 2 to 146 (mapping table of record)"
+    ]
+   },
+   "afterLoad": {
+    "domains": {
+     "proteinAccession": "P68871",
+     "structureId": "2HBS",
+     "features": [
+      {
+       "id": "uniprot-feature:P68871:Domain:3-147",
+       "type": "Domain",
+       "start": 3,
+       "end": 147,
+       "hgvsRange": "c.7_441",
+       "ranges": [
+        {
+         "authAsymId": "B",
+         "labelAsymId": "B",
+         "labelSeqStart": 2,
+         "labelSeqEnd": 146,
+         "authSeqStart": 2,
+         "authSeqEnd": 146,
+         "residues": 145
+        },
+        {
+         "authAsymId": "D",
+         "labelAsymId": "D",
+         "labelSeqStart": 2,
+         "labelSeqEnd": 146,
+         "authSeqStart": 2,
+         "authSeqEnd": 146,
+         "residues": 145
+        },
+        {
+         "authAsymId": "F",
+         "labelAsymId": "F",
+         "labelSeqStart": 2,
+         "labelSeqEnd": 146,
+         "authSeqStart": 2,
+         "authSeqEnd": 146,
+         "residues": 145
+        },
+        {
+         "authAsymId": "H",
+         "labelAsymId": "H",
+         "labelSeqStart": 2,
+         "labelSeqEnd": 146,
+         "authSeqStart": 2,
+         "authSeqEnd": 146,
+         "residues": 145
+        }
+       ]
+      }
+     ],
+     "cdnaIndices": 145,
+     "residueCount": 580
+    },
+    "dnaBands": 145,
+    "molDomainResidues": 580,
+    "molDomainChains": [
+     "B",
+     "D",
+     "F",
+     "H"
+    ],
+    "representation": "cartoon",
+    "representationTypes": [
+     "ball-and-stick",
+     "cartoon"
+    ],
+    "rigScale": {
+     "name": "base-pair",
+     "progress": 0.20128656604569836,
+     "distance": 2.4,
+     "goal": "base-pair",
+     "current": 2.4,
+     "flying": false,
+     "moving": false
+    },
+    "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+    "panel": [
+     "uniprot-feature:P68871:Domain:3-147"
+    ],
+    "pathwayOpened": null
+   },
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-domains-hbb-dna.jpg",
+   "pageErrors": []
+  },
+  "hbb-domains-protein": {
+   "summary": {
+    "mol": 580,
+    "emphasis": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "axe": 0
+   },
+   "plan": {
+    "entities": {
+     "geneId": "ENSG00000244734",
+     "proteinId": "P68871",
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [
+     "uniprot:P68871"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "show_domains",
+    "actions": [
+     {
+      "type": "showProteinDomains",
+      "proteinAccession": "P68871"
+     },
+     {
+      "type": "revealEvidence",
+      "evidenceId": "uniprot:P68871"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "showProteinDomains",
+      "status": "completed",
+      "feedback": "Features of P68871 shown on the sequence and, where mapped, on the structure",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 3225.199999988079
+       },
+       {
+        "status": "validated",
+        "at": 3226.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 3226.199999988079,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "executing",
+        "at": 3226.199999988079,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "completed",
+        "at": 3306.0999999940395,
+        "detail": "Features of P68871 shown on the sequence and, where mapped, on the structure"
+       }
+      ],
+      "result": {
+       "proteinAccession": "P68871",
+       "features": [
+        {
+         "id": "uniprot-feature:P68871:Domain:3-147",
+         "type": "Domain",
+         "description": "Globin",
+         "start": 3,
+         "end": 147,
+         "hgvsRange": "c.7_441",
+         "structure": {
+          "structureId": "2HBS",
+          "ranges": [
+           {
+            "authAsymId": "B",
+            "labelAsymId": "B",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "D",
+            "labelAsymId": "D",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "F",
+            "labelAsymId": "F",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           },
+           {
+            "authAsymId": "H",
+            "labelAsymId": "H",
+            "labelSeqStart": 2,
+            "labelSeqEnd": 146,
+            "authSeqStart": 2,
+            "authSeqEnd": 146,
+            "residues": 145
+           }
+          ],
+          "mappedPositions": 145,
+          "unobservedPositions": 0
+         }
+        }
+       ],
+       "dnaBands": 145,
+       "structureResidues": 580,
+       "structureId": "2HBS",
+       "checks": [
+        "id-in-trusted-context",
+        "protein-features-of-record",
+        "region-in-transcript",
+        "mapping-table-of-record",
+        "domain-readback"
+       ]
+      }
+     },
+     {
+      "index": 1,
+      "type": "revealEvidence",
+      "status": "completed",
+      "feedback": "Evidence uniprot:P68871 shown with its source",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 3225.199999988079
+       },
+       {
+        "status": "validated",
+        "at": 3226.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 3306.0999999940395,
+        "detail": "Opening evidence uniprot:P68871"
+       },
+       {
+        "status": "executing",
+        "at": 3306.0999999940395,
+        "detail": "Opening evidence uniprot:P68871"
+       },
+       {
+        "status": "completed",
+        "at": 3308.199999988079,
+        "detail": "Evidence uniprot:P68871 shown with its source"
+       }
+      ],
+      "result": {
+       "evidenceId": "uniprot:P68871"
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "protein",
+    "pointer": "molstar",
+    "transition": "completed",
+    "transcript": null,
+    "structure": "2HBS",
+    "representation": "cartoon",
+    "domains": {
+     "proteinAccession": "P68871",
+     "featureIds": [
+      "uniprot-feature:P68871:Domain:3-147"
+     ],
+     "cdnaIndices": [
+      56,
+      59,
+      62,
+      65,
+      68,
+      71,
+      74,
+      77,
+      80,
+      83,
+      86,
+      89,
+      92,
+      95,
+      98,
+      101,
+      104,
+      107,
+      110,
+      113,
+      116,
+      119,
+      122,
+      125,
+      128,
+      131,
+      134,
+      137,
+      140,
+      143,
+      146,
+      149,
+      152,
+      155,
+      158,
+      161,
+      164,
+      167,
+      170,
+      173,
+      176,
+      179,
+      182,
+      185,
+      188,
+      191,
+      194,
+      197,
+      200,
+      203,
+      206,
+      209,
+      212,
+      215,
+      218,
+      221,
+      224,
+      227,
+      230,
+      233,
+      236,
+      239,
+      242,
+      245,
+      248,
+      251,
+      254,
+      257,
+      260,
+      263,
+      266,
+      269,
+      272,
+      275,
+      278,
+      281,
+      284,
+      287,
+      290,
+      293,
+      296,
+      299,
+      302,
+      305,
+      308,
+      311,
+      314,
+      317,
+      320,
+      323,
+      326,
+      329,
+      332,
+      335,
+      338,
+      341,
+      344,
+      347,
+      350,
+      353,
+      356,
+      359,
+      362,
+      365,
+      368,
+      371,
+      374,
+      377,
+      380,
+      383,
+      386,
+      389,
+      392,
+      395,
+      398,
+      401,
+      404,
+      407,
+      410,
+      413,
+      416,
+      419,
+      422,
+      425,
+      428,
+      431,
+      434,
+      437,
+      440,
+      443,
+      446,
+      449,
+      452,
+      455,
+      458,
+      461,
+      464,
+      467,
+      470,
+      473,
+      476,
+      479,
+      482,
+      485,
+      488
+     ],
+     "structureId": "2HBS",
+     "residueCount": 580,
+     "requestId": "q2"
+    },
+    "highlighted": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "readback": {
+     "selection": [
+      {
+       "labelAsymId": "B",
+       "authAsymId": "B",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "D",
+       "authAsymId": "D",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "F",
+       "authAsymId": "F",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ],
+     "focus": [
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ]
+    },
+    "explorer": {
+     "domains": {
+      "proteinAccession": "P68871",
+      "structureId": "2HBS",
+      "features": [
+       {
+        "id": "uniprot-feature:P68871:Domain:3-147",
+        "type": "Domain",
+        "start": 3,
+        "end": 147,
+        "hgvsRange": "c.7_441",
+        "ranges": [
+         {
+          "authAsymId": "B",
+          "labelAsymId": "B",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "D",
+          "labelAsymId": "D",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "F",
+          "labelAsymId": "F",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         },
+         {
+          "authAsymId": "H",
+          "labelAsymId": "H",
+          "labelSeqStart": 2,
+          "labelSeqEnd": 146,
+          "authSeqStart": 2,
+          "authSeqEnd": 146,
+          "residues": 145
+         }
+        ]
+       }
+      ],
+      "cdnaIndices": 145,
+      "residueCount": 580
+     },
+     "dnaBands": 145,
+     "molDomainResidues": 580,
+     "molDomainChains": [
+      "B",
+      "D",
+      "F",
+      "H"
+     ],
+     "representation": "cartoon",
+     "representationTypes": [
+      "ball-and-stick",
+      "cartoon",
+      "interactions"
+     ],
+     "rigScale": {
+      "name": "base-pair",
+      "progress": 0.20128656604569836,
+      "distance": 2.4,
+      "goal": "base-pair",
+      "current": 2.4,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [
+      "uniprot-feature:P68871:Domain:3-147"
+     ],
+     "pathwayOpened": null
+    },
+    "structures": 1,
+    "camera": {
+     "target": [
+      22.189952431821844,
+      48.87946696619806,
+      35.14272760175248
+     ],
+     "position": [
+      22.189952431821844,
+      48.87946696619806,
+      55.9631887484266
+     ],
+     "radius": 7.967645535033244,
+     "inTransition": false
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "record",
+      "text": "P68871 (HBB_HUMAN) canonical sequence, 147 aa; initiator Met removed; chain 2-147. (evidence class 2: Database annotation/submission with review status.)2"
+     },
+     {
+      "kind": "record",
+      "text": "UniProt P68871 lists 1 feature of the types shown: Domain Globin, positions 3 to 147 (codons 3 to 147, c.7_441; ECO:0000255 PROSITE-ProRule:PRU00238). Marked in DNA World on those codons, and on 2HBS in a neutral colour where the mapping table of record maps them (the variant emphasis is kept).2"
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [
+     "Evidence: ECO:0000255 PROSITE-ProRule:PRU00238 · UniProt P68871, evidence class 2: Database annotation/submission with review status"
+    ],
+    "panelStructure": [
+     "2HBS: chain B 2 to 146, chain D 2 to 146, chain F 2 to 146, chain H 2 to 146 (mapping table of record)"
+    ]
+   },
+   "claims": {
+    "claims": 2,
+    "plannerSentences": 0,
+    "cards": 2,
+    "unsourced": [],
+    "badCards": []
+   },
+   "axe": [],
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-domains-hbb-protein.jpg",
+   "pageErrors": []
+  },
+  "hbb-domains-cancel": {
+   "summary": {
+    "attempts": 1,
+    "outcome": "cancelled",
+    "emphasis": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ]
+   },
+   "attempts": [
+    {
+     "stopped": {
+      "at": "executing",
+      "ms": 79.30000001192093
+     },
+     "outcome": "cancelled",
+     "statuses": [
+      "cancelled",
+      "cancelled"
+     ]
+    }
+   ],
+   "run": {
+    "status": "cancelled",
+    "reason": "cancelled by the user",
+    "actions": [
+     {
+      "index": 0,
+      "type": "showProteinDomains",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 3209.0999999940395
+       },
+       {
+        "status": "validated",
+        "at": 3210
+       },
+       {
+        "status": "preparing",
+        "at": 3210,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "executing",
+        "at": 3210,
+        "detail": "Reading the features of P68871 from its protein record"
+       },
+       {
+        "status": "cancelled",
+        "at": 3287.0999999940395,
+        "detail": "cancelled by the user"
+       }
+      ]
+     },
+     {
+      "index": 1,
+      "type": "revealEvidence",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 3209.0999999940395
+       },
+       {
+        "status": "validated",
+        "at": 3210
+       },
+       {
+        "status": "cancelled",
+        "at": 3287.2000000178814,
+        "detail": "cancelled by the user"
+       }
+      ]
+     }
+    ]
+   },
+   "view": {
+    "world": "protein",
+    "pointer": "molstar",
+    "transition": "completed",
+    "transcript": null,
+    "structure": "2HBS",
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "readback": {
+     "selection": [
+      {
+       "labelAsymId": "B",
+       "authAsymId": "B",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "D",
+       "authAsymId": "D",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "F",
+       "authAsymId": "F",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ],
+     "focus": [
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ]
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": "cartoon",
+     "representationTypes": [
+      "ball-and-stick",
+      "cartoon",
+      "interactions"
+     ],
+     "rigScale": {
+      "name": "base-pair",
+      "progress": 0.20128656604569836,
+      "distance": 2.4,
+      "goal": "base-pair",
+      "current": 2.4,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 1,
+    "camera": {
+     "target": [
+      22.189952431821844,
+      48.87946696619806,
+      35.14272760175248
+     ],
+     "position": [
+      22.189952431821844,
+      48.87946696619806,
+      55.9631887484266
+     ],
+     "radius": 7.967645535033244,
+     "inTransition": false
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [],
+    "status": "cancelled by the user",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-pathway": {
+   "summary": {
+    "opened": "R-HSA-9707616",
+    "byId": "R-HSA-9615710"
+   },
+   "plan": {
+    "entities": {
+     "geneId": "ENSG00000244734",
+     "proteinId": "P68871",
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [
+     "reactome:P68871"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "other",
+    "actions": [
+     {
+      "type": "showPathway",
+      "stableId": "R-HSA-9707616"
+     },
+     {
+      "type": "revealEvidence",
+      "evidenceId": "reactome:P68871"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "showPathway",
+      "status": "completed",
+      "feedback": "R-HSA-9707616 is open in Pathway World (membership only)",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1136.5999999940395
+       },
+       {
+        "status": "validated",
+        "at": 1137
+       },
+       {
+        "status": "preparing",
+        "at": 1137,
+        "detail": "Opening R-HSA-9707616 in Pathway World"
+       },
+       {
+        "status": "executing",
+        "at": 1137,
+        "detail": "Opening R-HSA-9707616 in Pathway World"
+       },
+       {
+        "status": "completed",
+        "at": 1138.3999999761581,
+        "detail": "R-HSA-9707616 is open in Pathway World (membership only)"
+       }
+      ],
+      "result": {
+       "stableId": "R-HSA-9707616",
+       "requested": "R-HSA-9707616"
+      }
+     },
+     {
+      "index": 1,
+      "type": "revealEvidence",
+      "status": "completed",
+      "feedback": "Evidence reactome:P68871 shown with its source",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1136.5999999940395
+       },
+       {
+        "status": "validated",
+        "at": 1137
+       },
+       {
+        "status": "preparing",
+        "at": 1138.3999999761581,
+        "detail": "Opening evidence reactome:P68871"
+       },
+       {
+        "status": "executing",
+        "at": 1138.5,
+        "detail": "Opening evidence reactome:P68871"
+       },
+       {
+        "status": "completed",
+        "at": 1144.699999988079,
+        "detail": "Evidence reactome:P68871 shown with its source"
+       }
+      ],
+      "result": {
+       "evidenceId": "reactome:P68871"
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "pathway",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": null,
+    "structure": null,
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": null,
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": "R-HSA-9707616"
+    },
+    "structures": 0,
+    "camera": null,
+    "pathways": {
+     "status": "ready",
+     "error": null,
+     "openedId": "R-HSA-9707616",
+     "loadedAt": 1134,
+     "membershipCount": 10,
+     "candidates": [
+      "R-HSA-983231",
+      "R-HSA-1237044",
+      "R-HSA-1247673",
+      "R-HSA-6798695",
+      "R-HSA-9613829",
+      "R-HSA-9615710",
+      "R-HSA-9707564",
+      "R-HSA-9707616"
+     ],
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": "R-HSA-9707616",
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "record",
+      "text": "Reactome 98 lists P68871 in 10 human pathway(s); the participants of 8 candidate membership(s) are kept; the world opens on Late endosomal microautophagy (R-HSA-9615710), the rule's choice. (evidence class 2: Database annotation/submission with review status.)1"
+     },
+     {
+      "kind": "record",
+      "text": "Heme signaling (R-HSA-9707616, under Cellular responses to stimuli) lists P68871 in Reactome 98: database annotation, class 2, membership only.1"
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-pathway-refusal": {
+   "summary": {
+    "reason": "No Reactome membership of P68871 matches \"glycolysis\"; the record lists 10 memberships: R-HSA-983231, R-HSA-1237044, R-HSA-1247673, R-HSA-2168880, R-HSA-6798695, R-HSA-9613829, R-HSA-9615710, R-HSA-9707564, R-HSA-9707616, R-HSA-9927020."
+   },
+   "plan": {
+    "entities": {
+     "geneId": null,
+     "proteinId": null,
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "unsupported",
+    "intent": "other",
+    "actions": [],
+    "reason": "No Reactome membership of P68871 matches \"glycolysis\"; the record lists 10 memberships: R-HSA-983231, R-HSA-1237044, R-HSA-1247673, R-HSA-2168880, R-HSA-6798695, R-HSA-9613829, R-HSA-9615710, R-HSA-9707564, R-HSA-9707616, R-HSA-9927020."
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": null,
+    "structure": null,
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": null,
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 0,
+    "camera": null,
+    "pathways": {
+     "status": "ready",
+     "error": null,
+     "openedId": null,
+     "loadedAt": 1117.699999988079,
+     "membershipCount": 10,
+     "candidates": [
+      "R-HSA-983231",
+      "R-HSA-1237044",
+      "R-HSA-1247673",
+      "R-HSA-6798695",
+      "R-HSA-9613829",
+      "R-HSA-9615710",
+      "R-HSA-9707564",
+      "R-HSA-9707616"
+     ],
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "planner",
+      "text": "Planner message (rule-based): No Reactome membership of P68871 matches \"glycolysis\"; the record lists 10 memberships: R-HSA-983231, R-HSA-1237044, R-HSA-1247673, R-HSA-2168880, R-HSA-6798695, R-HSA-9613829, R-HSA-9615710, R-HSA-9707564, R-HSA-9707616, R-HSA-9927020."
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-representation": {
+   "summary": {
+    "surface": [
+     "molecular-surface"
+    ],
+    "ballAndStick": [
+     "ball-and-stick"
+    ],
+    "wireframe": "\"wireframe\" is not one of the representations Helix draws; the closed list is cartoon, ball-and-stick, surface, spacefill.",
+    "cartoon": [
+     "ball-and-stick",
+     "cartoon"
+    ]
+   },
+   "plan": {
+    "entities": {
+     "geneId": null,
+     "proteinId": null,
+     "variantId": null,
+     "structureId": "2HBS"
+    },
+    "citations": [
+     "pdb:2HBS"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "show_structure",
+    "actions": [
+     {
+      "type": "setRepresentation",
+      "representation": "surface"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "setRepresentation",
+      "status": "completed",
+      "feedback": "The structure is drawn as surface; the emphasis is kept",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 3233.300000011921
+       },
+       {
+        "status": "validated",
+        "at": 3233.5
+       },
+       {
+        "status": "preparing",
+        "at": 3233.5999999940395,
+        "detail": "Drawing the structure as surface"
+       },
+       {
+        "status": "executing",
+        "at": 3233.5999999940395,
+        "detail": "Drawing the structure as surface"
+       },
+       {
+        "status": "completed",
+        "at": 5310.4000000059605,
+        "detail": "The structure is drawn as surface; the emphasis is kept"
+       }
+      ],
+      "result": {
+       "representation": "surface",
+       "types": [
+        "molecular-surface"
+       ],
+       "emphasisKept": 4
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "protein",
+    "pointer": "molstar",
+    "transition": "completed",
+    "transcript": null,
+    "structure": "2HBS",
+    "representation": "surface",
+    "domains": null,
+    "highlighted": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "readback": {
+     "selection": [
+      {
+       "labelAsymId": "B",
+       "authAsymId": "B",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "D",
+       "authAsymId": "D",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "F",
+       "authAsymId": "F",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ],
+     "focus": [
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ]
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": "surface",
+     "representationTypes": [
+      "molecular-surface"
+     ],
+     "rigScale": {
+      "name": "base-pair",
+      "progress": 0.20128656604569836,
+      "distance": 2.4,
+      "goal": "base-pair",
+      "current": 2.4,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 1,
+    "camera": {
+     "target": [
+      22.01578823071271,
+      48.392069858582936,
+      36.671522369503535
+     ],
+     "position": [
+      22.01578823071271,
+      48.392069858582936,
+      102.48229197249776
+     ],
+     "radius": 25.184691198261945,
+     "inTransition": true
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "record",
+      "text": "2HBS: X-RAY DIFFRACTION, 2.05 A resolution, deposited 1997-05-06. Primary citation PMID 9325099. (evidence class 1: Experimentally supported fact or observation.)2"
+     },
+     {
+      "kind": "location",
+      "text": "2HBS is drawn as surface (a public Mol* representation preset); the chain tones and the emphasis are re-applied.2"
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-representation-surface-hbb.jpg",
+   "pageErrors": []
+  },
+  "hbb-representation-dna": {
+   "summary": {
+    "reason": "The representation applies to the structure in Protein World; DNA World is on screen. Open the structure in Protein World first."
+   },
+   "plan": {
+    "entities": {
+     "geneId": null,
+     "proteinId": null,
+     "variantId": null,
+     "structureId": null
+    },
+    "citations": [],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "unsupported",
+    "intent": "show_structure",
+    "actions": [],
+    "reason": "The representation applies to the structure in Protein World; DNA World is on screen. Open the structure in Protein World first."
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": "completed",
+    "transcript": null,
+    "structure": "2HBS",
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": "cartoon",
+     "representationTypes": [
+      "ball-and-stick",
+      "cartoon"
+     ],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 1,
+    "camera": {
+     "target": [
+      21.45278719408813,
+      46.95849426511405,
+      40.01084245375884
+     ],
+     "position": [
+      21.45278719408813,
+      46.95849426511405,
+      208.2222010953578
+     ],
+     "radius": 64.37170008776219,
+     "inTransition": false
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "planner",
+      "text": "Planner message (rule-based): The representation applies to the structure in Protein World; DNA World is on screen. Open the structure in Protein World first."
+     }
+    ],
+    "status": "",
+    "bridges": [],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-transition": {
+   "summary": {
+    "stations": [
+     "codon",
+     "translation",
+     "numbering",
+     "structure"
+    ],
+    "bridge": "played",
+    "world": "protein"
+   },
+   "plan": {
+    "entities": {
+     "geneId": "ENSG00000244734",
+     "proteinId": "P68871",
+     "variantId": "NC_000011.10:g.5227002T>A",
+     "structureId": "2HBS"
+    },
+    "citations": [
+     "clinvar:VCV000015333",
+     "uniprot:VAR_002863",
+     "sifts:2HBS-P68871"
+    ],
+    "followUps": [],
+    "explanationLevel": "intermediate",
+    "outcome": "plan",
+    "intent": "locate_variant",
+    "actions": [
+     {
+      "type": "beginTransition",
+      "from": "dna",
+      "to": "protein"
+     },
+     {
+      "type": "focusCamera",
+      "target": {
+       "kind": "feature",
+       "featureId": "HbS_substitution"
+      }
+     },
+     {
+      "type": "highlightResidue",
+      "target": {
+       "kind": "feature",
+       "featureId": "HbS_substitution"
+      }
+     },
+     {
+      "type": "revealEvidence",
+      "evidenceId": "clinvar:VCV000015333"
+     }
+    ],
+    "reason": null
+   },
+   "run": {
+    "status": "completed",
+    "reason": null,
+    "actions": [
+     {
+      "index": 0,
+      "type": "beginTransition",
+      "status": "completed",
+      "feedback": "In Protein World",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.7999999821186
+       },
+       {
+        "status": "validated",
+        "at": 1120.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 1120.199999988079,
+        "detail": "From the codon to the residue, through the records"
+       },
+       {
+        "status": "executing",
+        "at": 1120.199999988079,
+        "detail": "From the codon to the residue, through the records"
+       },
+       {
+        "status": "completed",
+        "at": 5385.799999982119,
+        "detail": "In Protein World"
+       }
+      ],
+      "result": {
+       "from": "dna",
+       "to": "protein",
+       "loaded": {
+        "structureId": "2HBS",
+        "assembly": "model"
+       },
+       "chains": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H"
+       ],
+       "bridge": "played"
+      }
+     },
+     {
+      "index": 1,
+      "type": "focusCamera",
+      "status": "completed",
+      "feedback": "Focused on feature HbS_substitution",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.7999999821186
+       },
+       {
+        "status": "validated",
+        "at": 1120.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 5386,
+        "detail": "Focusing on feature HbS_substitution"
+       },
+       {
+        "status": "executing",
+        "at": 5386,
+        "detail": "Focusing on feature HbS_substitution"
+       },
+       {
+        "status": "completed",
+        "at": 6097.899999976158,
+        "detail": "Focused on feature HbS_substitution"
+       }
+      ],
+      "result": {
+       "focus": [
+        {
+         "labelAsymId": "H",
+         "authAsymId": "H",
+         "labelSeqId": 6,
+         "authSeqId": 6,
+         "compId": "VAL",
+         "entityId": "2"
+        }
+       ],
+       "cameraTarget": [
+        22.19,
+        48.88,
+        35.14
+       ],
+       "camera": {
+        "observed": true,
+        "startDelayMs": 47.1,
+        "transitionMs": 658.4,
+        "totalMs": 705.5
+       }
+      }
+     },
+     {
+      "index": 2,
+      "type": "highlightResidue",
+      "status": "completed",
+      "feedback": "Highlighted feature HbS_substitution (verified in the viewer)",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.7999999821186
+       },
+       {
+        "status": "validated",
+        "at": 1120.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 6098,
+        "detail": "Highlighting feature HbS_substitution"
+       },
+       {
+        "status": "executing",
+        "at": 6098.0999999940395,
+        "detail": "Highlighting feature HbS_substitution"
+       },
+       {
+        "status": "completed",
+        "at": 6205.699999988079,
+        "detail": "Highlighted feature HbS_substitution (verified in the viewer)"
+       }
+      ],
+      "result": {
+       "selection": [
+        {
+         "labelAsymId": "B",
+         "authAsymId": "B",
+         "labelSeqId": 6,
+         "authSeqId": 6,
+         "compId": "VAL",
+         "entityId": "2"
+        },
+        {
+         "labelAsymId": "D",
+         "authAsymId": "D",
+         "labelSeqId": 6,
+         "authSeqId": 6,
+         "compId": "VAL",
+         "entityId": "2"
+        },
+        {
+         "labelAsymId": "F",
+         "authAsymId": "F",
+         "labelSeqId": 6,
+         "authSeqId": 6,
+         "compId": "VAL",
+         "entityId": "2"
+        },
+        {
+         "labelAsymId": "H",
+         "authAsymId": "H",
+         "labelSeqId": 6,
+         "authSeqId": 6,
+         "compId": "VAL",
+         "entityId": "2"
+        }
+       ]
+      }
+     },
+     {
+      "index": 3,
+      "type": "revealEvidence",
+      "status": "completed",
+      "feedback": "Evidence clinvar:VCV000015333 shown with its source",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.7999999821186
+       },
+       {
+        "status": "validated",
+        "at": 1120.0999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 6205.899999976158,
+        "detail": "Opening evidence clinvar:VCV000015333"
+       },
+       {
+        "status": "executing",
+        "at": 6205.899999976158,
+        "detail": "Opening evidence clinvar:VCV000015333"
+       },
+       {
+        "status": "completed",
+        "at": 6210.399999976158,
+        "detail": "Evidence clinvar:VCV000015333 shown with its source"
+       }
+      ],
+      "result": {
+       "evidenceId": "clinvar:VCV000015333"
+      }
+     }
+    ]
+   },
+   "view": {
+    "world": "protein",
+    "pointer": "molstar",
+    "transition": "completed",
+    "transcript": null,
+    "structure": "2HBS",
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "readback": {
+     "selection": [
+      {
+       "labelAsymId": "B",
+       "authAsymId": "B",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "D",
+       "authAsymId": "D",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "F",
+       "authAsymId": "F",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      },
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ],
+     "focus": [
+      {
+       "labelAsymId": "H",
+       "authAsymId": "H",
+       "labelSeqId": 6,
+       "authSeqId": 6,
+       "compId": "VAL",
+       "entityId": "2"
+      }
+     ]
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": "cartoon",
+     "representationTypes": [
+      "ball-and-stick",
+      "cartoon",
+      "interactions"
+     ],
+     "rigScale": {
+      "name": "base-pair",
+      "progress": 0.20128656604569836,
+      "distance": 2.4,
+      "goal": "base-pair",
+      "current": 2.4,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 1,
+    "camera": {
+     "target": [
+      22.189952431821844,
+      48.87946696619806,
+      35.14272760175248
+     ],
+     "position": [
+      22.189952431821844,
+      48.87946696619806,
+      55.9631887484266
+     ],
+     "radius": 7.967645535033244,
+     "inTransition": false
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [
+     {
+      "kind": "location",
+      "text": "HbS (sickle haemoglobin): p.Glu7Val (translated numbering, Met = 1); Glu6Val (mature numbering); in 2HBS chains B/D/F/H residue 6 is VAL. Shown on 2HBS (asymmetric unit): VAL B6, VAL D6, VAL F6, VAL H6.1,2,3"
+     },
+     {
+      "kind": "location",
+      "text": "The camera is on VAL H6; rule: focus on chain H: the only mapped residue with an inter-chain protein contact in the curated contacts record (asymmetric unit, model 1, no symmetry mates).4"
+     },
+     {
+      "kind": "record",
+      "text": "ClinVar VCV000015333.184: Pathogenic. (evidence class 2: Database annotation/submission with review status.)1"
+     },
+     {
+      "kind": "record",
+      "text": "UniProt VAR_002863: E to V at position 7 (in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334). (evidence class 2: Database annotation/submission with review status.)2"
+     },
+     {
+      "kind": "record",
+      "text": "SIFTS maps P68871 2-147 to 2HBS entity 2 residues 1-146. (evidence class 2: Database annotation/submission with review status.)3"
+     },
+     {
+      "kind": "location",
+      "text": "From DNA World to Protein World through the bridge sequence: the codon, the amino acid, the protein position and the structure residue, each read from the records.5"
+     }
+    ],
+    "status": "",
+    "bridges": [
+     {
+      "requestId": "q1",
+      "query": "Take me from the DNA to the protein",
+      "status": "played",
+      "reason": null,
+      "stations": [
+       "codon",
+       "translation",
+       "numbering",
+       "structure"
+      ],
+      "startedAt": 1435,
+      "endedAt": 4668.5999999940395,
+      "interacted": false,
+      "reduced": false
+     }
+    ],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-transition-cancel": {
+   "summary": {
+    "outcome": "cancelled",
+    "world": "dna",
+    "structures": 0,
+    "bridge": "cancelled",
+    "next": "executed"
+   },
+   "run": {
+    "status": "cancelled",
+    "reason": "cancelled by the user",
+    "actions": [
+     {
+      "index": 0,
+      "type": "beginTransition",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.3999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1119.5999999940395
+       },
+       {
+        "status": "preparing",
+        "at": 1119.699999988079,
+        "detail": "From the codon to the residue, through the records"
+       },
+       {
+        "status": "executing",
+        "at": 1119.699999988079,
+        "detail": "From the codon to the residue, through the records"
+       },
+       {
+        "status": "cancelled",
+        "at": 1770.199999988079,
+        "detail": "cancelled by the user"
+       }
+      ]
+     },
+     {
+      "index": 1,
+      "type": "focusCamera",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.3999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1119.5999999940395
+       },
+       {
+        "status": "cancelled",
+        "at": 1770.199999988079,
+        "detail": "cancelled by the user"
+       }
+      ]
+     },
+     {
+      "index": 2,
+      "type": "highlightResidue",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.3999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1119.5999999940395
+       },
+       {
+        "status": "cancelled",
+        "at": 1770.2999999821186,
+        "detail": "cancelled by the user"
+       }
+      ]
+     },
+     {
+      "index": 3,
+      "type": "revealEvidence",
+      "status": "cancelled",
+      "feedback": "cancelled by the user",
+      "history": [
+       {
+        "status": "proposed",
+        "at": 1119.3999999761581
+       },
+       {
+        "status": "validated",
+        "at": 1119.5999999940395
+       },
+       {
+        "status": "cancelled",
+        "at": 1770.2999999821186,
+        "detail": "cancelled by the user"
+       }
+      ]
+     }
+    ]
+   },
+   "view": {
+    "world": "dna",
+    "pointer": "r3f",
+    "transition": null,
+    "transcript": null,
+    "structure": null,
+    "representation": "cartoon",
+    "domains": null,
+    "highlighted": null,
+    "readback": {
+     "selection": [],
+     "focus": []
+    },
+    "explorer": {
+     "domains": null,
+     "dnaBands": 0,
+     "molDomainResidues": 0,
+     "molDomainChains": [],
+     "representation": "cartoon",
+     "representationTypes": [],
+     "rigScale": {
+      "name": "transcript",
+      "progress": 0.5207636811406554,
+      "distance": 110,
+      "goal": "transcript",
+      "current": 110,
+      "flying": false,
+      "moving": false
+     },
+     "transcriptBar": "ENST00000335295.4: 628 nt, 3 exons, CDS c.1 to c.444",
+     "panel": [],
+     "pathwayOpened": null
+    },
+    "structures": 0,
+    "camera": {
+     "target": [
+      21.45278719408813,
+      46.95849426511405,
+      40.01084245375884
+     ],
+     "position": [
+      21.45278719408813,
+      46.95849426511405,
+      208.2222010953578
+     ],
+     "radius": 64.37170008776219,
+     "inTransition": false
+    },
+    "pathways": {
+     "status": "idle",
+     "error": null,
+     "openedId": null,
+     "loadedAt": null,
+     "membershipCount": null,
+     "candidates": null,
+     "facts": {
+      "membershipCount": 10,
+      "opening": {
+       "stableId": "R-HSA-9615710",
+       "name": "Late endosomal microautophagy"
+      },
+      "reason": "10 Reactome memberships; opens on Late endosomal microautophagy, R-HSA-9615710 (the rule's choice: fewest participants among non-disease pathways with a diagram)"
+     }
+    },
+    "pathwayWorld": null,
+    "pathwayNone": false,
+    "explanation": [],
+    "status": "cancelled by the user",
+    "bridges": [
+     {
+      "requestId": "q1",
+      "query": "Take me from the DNA to the protein",
+      "status": "cancelled",
+      "reason": "the request was cancelled during the sequence",
+      "stations": [
+       "codon",
+       "translation",
+       "numbering",
+       "structure"
+      ],
+      "startedAt": 1439.199999988079,
+      "endedAt": 1766.199999988079,
+      "interacted": false,
+      "reduced": false
+     }
+    ],
+    "panelEvidence": [],
+    "panelStructure": []
+   },
+   "pageErrors": []
+  },
+  "hbb-overview": {
+   "summary": {
+    "dna": "overview",
+    "proteinRadius": [
+     7.967645535033244,
+     64.37170008776219
+    ],
+    "pathway": null
+   },
+   "runs": {
+    "dna": {
+     "status": "completed",
+     "reason": null,
+     "actions": [
+      {
+       "index": 0,
+       "type": "returnToOverview",
+       "status": "completed",
+       "feedback": "At the overview",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 2484.4000000059605
+        },
+        {
+         "status": "validated",
+         "at": 2484.5
+        },
+        {
+         "status": "preparing",
+         "at": 2484.5,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "executing",
+         "at": 2484.5,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "completed",
+         "at": 3862,
+         "detail": "At the overview"
+        }
+       ],
+       "result": {
+        "world": "dna",
+        "readback": {
+         "scale": "overview",
+         "goal": "overview",
+         "distance": 30,
+         "goalDistance": 30
+        }
+       }
+      }
+     ]
+    },
+    "protein": {
+     "status": "completed",
+     "reason": null,
+     "actions": [
+      {
+       "index": 0,
+       "type": "returnToOverview",
+       "status": "completed",
+       "feedback": "At the overview",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 6666.200000017881
+        },
+        {
+         "status": "validated",
+         "at": 6666.5
+        },
+        {
+         "status": "preparing",
+         "at": 6666.5,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "executing",
+         "at": 6666.5,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "completed",
+         "at": 7360.600000023842,
+         "detail": "At the overview"
+        }
+       ],
+       "result": {
+        "world": "protein",
+        "readback": {
+         "emphasised": 4,
+         "radius": 64.37,
+         "camera": {
+          "observed": true,
+          "startDelayMs": 10.5,
+          "transitionMs": 681.6,
+          "totalMs": 692.1
+         }
+        }
+       }
+      }
+     ]
+    },
+    "pathway": {
+     "status": "completed",
+     "reason": null,
+     "actions": [
+      {
+       "index": 0,
+       "type": "returnToOverview",
+       "status": "completed",
+       "feedback": "At the overview",
+       "history": [
+        {
+         "status": "proposed",
+         "at": 8032.200000017881
+        },
+        {
+         "status": "validated",
+         "at": 8032.300000011921
+        },
+        {
+         "status": "preparing",
+         "at": 8032.300000011921,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "executing",
+         "at": 8032.300000011921,
+         "detail": "Back to the overview"
+        },
+        {
+         "status": "completed",
+         "at": 8033.9000000059605,
+         "detail": "At the overview"
+        }
+       ],
+       "result": {
+        "world": "pathway",
+        "readback": {
+         "openedId": null,
+         "memberships": 10
+        }
+       }
+      }
+     ]
+    }
+   },
+   "shots": [
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-dna.jpg",
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-protein.jpg",
+    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/shots-p10/p1011-overview-hbb-pathway.jpg"
+   ],
+   "pageErrors": []
+  },
+  "faah2-actions": {
+   "summary": {
+    "transcript": {
+     "outcome": "executed",
+     "plan": [
+      "selectTranscript"
+     ],
+     "transcript": {
+      "id": "ENST00000374900.5"
+     }
+    },
+    "domains": {
+     "outcome": "answered",
+     "reason": "The UniProt record of Q6GMR7 (FAAH2) lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger, so there is no domain to show."
+    },
+    "transition": {
+     "outcome": "answered",
+     "reason": "The only transition is from DNA World to Protein World (the bridge sequence, codon to residue through the records), and Protein World is not available for FAAH2: no experimental structure is cross-referenced for this protein."
+    },
+    "representation": {
+     "outcome": "answered",
+     "reason": "No structure can be drawn for FAAH2: no experimental structure is cross-referenced for this protein."
+    },
+    "overview": {
+     "outcome": "executed",
+     "goal": "overview"
+    },
+    "pathway": {
+     "outcome": "executed",
+     "opened": "R-HSA-2142753"
+    }
+   },
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}
