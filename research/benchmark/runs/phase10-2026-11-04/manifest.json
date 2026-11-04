@@ -1,0 +1,130 @@
+{
+ "study": "P10.3.1 Phase 10 reliability benchmark",
+ "set": {
+  "dir": "research/benchmark/phase10",
+  "frozenBy": "D-H023",
+  "hashesBefore": [
+   {
+    "file": "questions.jsonl",
+    "onDisk": "15858eb3f92a33f1e239dacc6e7d27f9f1d2b13228551f4d1184495e02030d94",
+    "readme": "15858eb3f92a33f1e239dacc6e7d27f9f1d2b13228551f4d1184495e02030d94",
+    "match": true
+   },
+   {
+    "file": "followups.jsonl",
+    "onDisk": "6522c9a73e38fe470b3469fcdbb3b5e19aad558ab4a0255285edd4513b2de092",
+    "readme": "6522c9a73e38fe470b3469fcdbb3b5e19aad558ab4a0255285edd4513b2de092",
+    "match": true
+   },
+   {
+    "file": "injection.jsonl",
+    "onDisk": "1e91538d8bceb2548c713c2e18c4c5d5c3b5c4f563754cb90e28613aaf2c3623",
+    "readme": "1e91538d8bceb2548c713c2e18c4c5d5c3b5c4f563754cb90e28613aaf2c3623",
+    "match": true
+   },
+   {
+    "file": "README.md",
+    "onDisk": "4a9a53be875530dd2af2d08b4fa4d95dba3c70828f6e5d9a8b5e9c1cd250c9d3",
+    "readme": null,
+    "match": true
+   }
+  ],
+  "hashesAfter": [
+   {
+    "file": "questions.jsonl",
+    "onDisk": "15858eb3f92a33f1e239dacc6e7d27f9f1d2b13228551f4d1184495e02030d94",
+    "readme": "15858eb3f92a33f1e239dacc6e7d27f9f1d2b13228551f4d1184495e02030d94",
+    "match": true
+   },
+   {
+    "file": "followups.jsonl",
+    "onDisk": "6522c9a73e38fe470b3469fcdbb3b5e19aad558ab4a0255285edd4513b2de092",
+    "readme": "6522c9a73e38fe470b3469fcdbb3b5e19aad558ab4a0255285edd4513b2de092",
+    "match": true
+   },
+   {
+    "file": "injection.jsonl",
+    "onDisk": "1e91538d8bceb2548c713c2e18c4c5d5c3b5c4f563754cb90e28613aaf2c3623",
+    "readme": "1e91538d8bceb2548c713c2e18c4c5d5c3b5c4f563754cb90e28613aaf2c3623",
+    "match": true
+   },
+   {
+    "file": "README.md",
+    "onDisk": "4a9a53be875530dd2af2d08b4fa4d95dba3c70828f6e5d9a8b5e9c1cd250c9d3",
+    "readme": null,
+    "match": true
+   }
+  ]
+ },
+ "runs": [
+  {
+   "planner": "deterministic",
+   "file": "deterministic.jsonl",
+   "commit": "546caa2-dirty",
+   "prompt": "helix-plan-prompt-v7 (library commit 6c6cfb7), decoding schema v3",
+   "units": 112,
+   "reps": 3,
+   "attempts": 1,
+   "outputs": 336,
+   "failures": 0,
+   "retries": 0,
+   "startedAt": "2026-11-04T13:56:53.363Z",
+   "endedAt": "2026-11-04T13:56:53.543Z",
+   "node": "v22.23.3"
+  },
+  {
+   "planner": "ollama:ministral-3:8b",
+   "file": "ministral-3-8b.jsonl",
+   "commit": "546caa2-dirty",
+   "prompt": "helix-plan-prompt-v7 (library commit 6c6cfb7), decoding schema v3",
+   "units": 112,
+   "reps": 3,
+   "attempts": 1,
+   "outputs": 336,
+   "failures": 0,
+   "retries": 0,
+   "startedAt": "2026-11-04T13:57:18.245Z",
+   "endedAt": "2026-11-04T15:26:59.401Z",
+   "ollama": {
+    "ollamaVersion": "0.40.6",
+    "model": "ministral-3:8b",
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "sizeBytes": 6022236616,
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M",
+     "context_length": 262144,
+     "embedding_length": 4096,
+     "runner": "ggml"
+    },
+    "capabilities": [
+     "completion",
+     "vision",
+     "tools"
+    ]
+   },
+   "providerConfig": {
+    "timeoutMs": 180000,
+    "numCtx": 8192,
+    "keepAlive": "60m",
+    "numPredict": 1024,
+    "temperature": 0,
+    "seed": "not sent (the Director sends none)",
+    "think": "not sent (the registry sets none)"
+   },
+   "warmup": {
+    "unit": "P10-HBB-01",
+    "wallMs": 45755,
+    "loadMs": 4877.520833,
+    "firstTokenMs": 21563.227
+   },
+   "node": "v22.23.3"
+  }
+ ]
+}
