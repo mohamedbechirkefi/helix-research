@@ -479,8 +479,8 @@ Under the Director's policy, 36/36 held. The rejected INJ-01 outputs fall back t
 ### 11.7 Reproduce
 
 ```sh
-export PATH=<helix-workspace>/.tools/node/bin:$PATH
 cd helix/helix-research
+export PATH="$PWD/../.tools/node/bin:$PATH"
 node scripts/ai-benchmark/phase10.ts --planner deterministic --reps 3
 node scripts/ai-benchmark/phase10.ts --planner ollama --model ministral-3:8b --reps 3   # about 90 minutes on the M1 Pro
 node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-2026-11-04
