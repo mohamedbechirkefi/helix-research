@@ -8,7 +8,7 @@
  * real defence is validation, since any identifier taken from the data block is ungrounded.
  */
 import type { PlanningContext } from "./context.ts";
-import { usesV2 } from "./schema.ts";
+import { MEASURED_PROMPT_ACTIONS, usesV2 } from "./schema.ts";
 
 export const PROMPT_VERSION = "helix-plan-prompt-v1";
 /** Phase 6 prompt, used only when the context executes compareVariants or highlightSequenceRegion. */
@@ -163,6 +163,18 @@ export function promptVersion(ctx: PlanningContext): string {
   if (!ctx.routeByCues) return PROMPT_VERSION_V3;
   if (ctx.cueRules !== "dh010") return PROMPT_VERSION_V4;
   return ctx.routingPrompt === "dh011" ? PROMPT_VERSION_V6 : PROMPT_VERSION_V5;
+}
+
+/**
+ * Phase 10 (P10.1.1): the actions a model plan may carry for the prompt version this context gets.
+ * Every prompt so far (v1 to v6) was measured with the Phase 6 registry and teaches none of the six
+ * Phase 10 actions, so a model plan is held to MEASURED_PROMPT_ACTIONS (validatePlan's taughtActions):
+ * a v5 plan carrying selectTranscript, showProteinDomains, showPathway, setRepresentation,
+ * beginTransition or returnToOverview is rejected as not executable and the rule-based planner
+ * answers, exactly as before Phase 10. Prompt v7 (P10.3.1) will teach them and widen this list.
+ */
+export function taughtActions(_ctx: PlanningContext): readonly string[] {
+  return MEASURED_PROMPT_ACTIONS;
 }
 
 /** A compact, model-facing rendering of the trusted context. */

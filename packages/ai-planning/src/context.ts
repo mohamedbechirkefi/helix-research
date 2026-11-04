@@ -111,6 +111,40 @@ export interface ContextSelection {
   /** The feature this residue belongs to, if any (resolved by deterministic code). */
   featureId: string | null;
 }
+/**
+ * Phase 10 (P10.1.1): a transcript the records name for the set's gene. The gene record names the
+ * selected transcript and its rule (it counts the candidates it considered without listing them); the
+ * protein record cross-references the Ensembl transcripts of this gene that encode the UniProt entry.
+ * Only the MANE Select transcript has curated sequences.
+ */
+export interface ContextTranscriptCandidate {
+  /** Versioned Ensembl transcript id. */
+  id: string;
+  maneSelect: boolean;
+  /** Which record names it. */
+  source: string;
+}
+/** Phase 10: the gene record's transcript selection (rule, reason, number of candidates considered). */
+export interface ContextTranscriptSelection {
+  selected: string;
+  rule: string;
+  reason: string;
+  candidatesConsidered: number;
+}
+/**
+ * Phase 10 (P10.1.1): one UniProt feature of the protein record of a type showProteinDomains shows
+ * (Domain, Region, Topological domain, Transmembrane, Zinc finger), read from the record with its
+ * positions (UniProt numbering, Met = 1) and its evidence codes.
+ */
+export interface ContextProteinFeature {
+  id: string;
+  proteinAccession: string;
+  type: string;
+  description: string;
+  start: number;
+  end: number;
+  evidences: string[];
+}
 export interface RetrievedSnippet {
   source: string;
   text: string;
@@ -182,6 +216,16 @@ export interface PlanningContext {
    */
   mode?: "dynamic";
   modeNote?: string;
+  /**
+   * Phase 10 (P10.1.1): the transcripts the records name for the gene, the gene record's selection,
+   * and the protein record's features of the showProteinDomains types (with the types present).
+   * Present only when `withExplorerRecords` added them (the app does; the Phase 3 to 9 contexts and
+   * their measured prompts never carry them, and the prompt rendering does not read them).
+   */
+  transcriptCandidates?: ContextTranscriptCandidate[];
+  transcriptSelection?: ContextTranscriptSelection;
+  proteinFeatures?: ContextProteinFeature[];
+  proteinFeatureTypes?: string[];
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
 }
@@ -678,6 +722,67 @@ export function buildHbbContext(b: HbbBundle): PlanningContext {
     loadedStructureId: null,
     retrieved: [],
   };
+}
+
+// ---------------------------------------------------------------------------------------
+// Phase 10 (P10.1.1): the records the six explorer actions consult, added to a built context.
+
+const GeneSelectionIn = z
+  .object({
+    id: z.object({ id: z.string() }).loose(),
+    selection: z.object({ rule: z.string(), reason: z.string(), candidatesConsidered: z.number(), selected: z.object({ id: z.string(), version: z.number() }).loose() }).loose(),
+  })
+  .loose();
+const ProteinFeaturesIn = z
+  .object({
+    accession: z.string(),
+    features: z.array(z.object({ type: z.string(), start: z.number().nullable(), end: z.number().nullable(), description: z.string().nullable(), evidences: z.array(z.string()) }).loose()),
+    xrefs: z
+      .object({
+        maneSelect: z.object({ transcript: z.string() }).loose().nullable().optional(),
+        ensembl: z.array(z.object({ transcript: z.string(), gene: z.string() }).loose()).optional(),
+      })
+      .loose(),
+  })
+  .loose();
+
+/** The feature types showProteinDomains reads (schema.ts DOMAIN_FEATURE_TYPES; repeated here to keep context.ts free of the schema import). */
+const EXPLORER_FEATURE_TYPES = ["Domain", "Region", "Topological domain", "Transmembrane", "Zinc finger"];
+const unversioned = (id: string) => id.replace(/\.\d+$/, "");
+
+/**
+ * The Phase 10 records of a set, from its gene and protein records: the transcript candidates (the
+ * gene record's selected transcript, then the protein record's Ensembl cross-references of the same
+ * gene, deduplicated by unversioned id; MANE Select when the protein record's MANE cross-reference or
+ * the gene record's mane_select rule names it), the gene record's selection, and the protein features
+ * of the explorer types in the record's order. Every value is read from the records.
+ */
+export function explorerRecords(b: { gene: unknown; protein: unknown }): Required<Pick<PlanningContext, "transcriptCandidates" | "transcriptSelection" | "proteinFeatures" | "proteinFeatureTypes">> {
+  const gene = GeneSelectionIn.parse(b.gene);
+  const protein = ProteinFeaturesIn.parse(b.protein);
+  const selected = `${gene.selection.selected.id}.${gene.selection.selected.version}`;
+  const mane = protein.xrefs.maneSelect?.transcript ?? (gene.selection.rule === "mane_select" ? selected : null);
+  const candidates: ContextTranscriptCandidate[] = [];
+  const add = (id: string, source: string) => {
+    if (candidates.some((c) => unversioned(c.id) === unversioned(id))) return;
+    candidates.push({ id, maneSelect: mane !== null && unversioned(mane) === unversioned(id), source });
+  };
+  add(selected, `gene record selection (rule ${gene.selection.rule})`);
+  for (const x of protein.xrefs.ensembl ?? []) if (unversioned(x.gene) === gene.id.id) add(x.transcript, `UniProt ${protein.accession} cross-reference`);
+  const proteinFeatures: ContextProteinFeature[] = protein.features
+    .filter((f) => EXPLORER_FEATURE_TYPES.includes(f.type) && f.start !== null && f.end !== null)
+    .map((f) => ({ id: `uniprot-feature:${protein.accession}:${f.type.replace(/\s+/g, "_")}:${f.start}-${f.end}`, proteinAccession: protein.accession, type: f.type, description: f.description ?? f.type, start: f.start!, end: f.end!, evidences: [...f.evidences] }));
+  return {
+    transcriptCandidates: candidates,
+    transcriptSelection: { selected, rule: gene.selection.rule, reason: gene.selection.reason, candidatesConsidered: gene.selection.candidatesConsidered },
+    proteinFeatures,
+    proteinFeatureTypes: EXPLORER_FEATURE_TYPES.filter((t) => proteinFeatures.some((f) => f.type === t)),
+  };
+}
+
+/** The context with the Phase 10 records added (a copy; the other fields are untouched). */
+export function withExplorerRecords(ctx: PlanningContext, b: { gene: unknown; protein: unknown }): PlanningContext {
+  return { ...ctx, ...explorerRecords(b) };
 }
 
 /** Returns a copy of the context with session state and retrieved text set. */

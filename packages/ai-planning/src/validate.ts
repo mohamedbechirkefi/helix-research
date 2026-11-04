@@ -85,7 +85,17 @@ function normaliseToken(kind: string, token: string): string {
 export interface ValidateOptions {
   /** The user's own query. Identifiers the user typed may be named in free text (e.g. to say they are unavailable), never used as action or entity ids. */
   query?: string;
+  /**
+   * The actions the planner was taught (Phase 10): a model plan is held to the actions its prompt
+   * version was measured with (MEASURED_PROMPT_ACTIONS for prompts v1 to v6), so a v5 plan carrying a
+   * Phase 10 action is rejected as not executable and the rule-based planner answers. Absent (the
+   * rule-based planner, the interpreter's re-validation): the context's executable actions only.
+   */
+  taughtActions?: readonly string[];
 }
+
+/** Phase 10: the reason a transcript other than the MANE Select one is refused (plan section 2). */
+export const NON_MANE_REASON = "only the MANE Select transcript is curated; the record lists it as a candidate";
 
 export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateOptions = {}): PlanValidation {
   const issues: ValidationIssue[] = [];
@@ -145,10 +155,15 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
       issues.push({ code: "prerequisite", path, message: `feature ${f.id} is not fully present in assembly "${loaded.assembly}" (present in: ${f.assemblies.join(", ")})` });
     }
   };
+  // Phase 10: the world on screen as the plan runs (for setRepresentation and beginTransition).
+  let world: string | null = ctx.currentWorld ?? null;
+  const experimental = ctx.structures.find((x) => x.origin === "experimental" && x.variantPlacement) ?? ctx.structures.find((x) => x.origin === "experimental") ?? null;
   plan.actions.forEach((a: Action, i) => {
     const path = `actions.${i}`;
     if (!ctx.executableActions.includes(a.type)) {
       issues.push({ code: "not-executable", path, value: a.type, message: `action ${a.type} is in the vocabulary but not executable in this build` });
+    } else if (opts.taughtActions && !opts.taughtActions.includes(a.type)) {
+      issues.push({ code: "not-executable", path, value: a.type, message: `action ${a.type} is executable in this build but not taught by the planner's prompt version; the rule-based planner plans it` });
     }
     switch (a.type) {
       case "resolveGene":
@@ -180,8 +195,53 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
       case "revealEvidence":
         if (!ids.evidence.has(a.evidenceId)) ungrounded(`${path}.evidenceId`, a.evidenceId, "evidence");
         break;
-      case "showProteinDomains":
-        if (!ids.proteins.has(a.proteinId)) ungrounded(`${path}.proteinId`, a.proteinId, "protein");
+      case "showProteinDomains": {
+        if (a.proteinId !== undefined) {
+          // The Phase 3 form: grounded as before; never executable.
+          if (!ids.proteins.has(a.proteinId)) ungrounded(`${path}.proteinId`, a.proteinId, "protein");
+          if (ctx.executableActions.includes(a.type)) issues.push({ code: "not-executable", path: `${path}.proteinId`, value: a.type, message: "showProteinDomains in its Phase 3 form (proteinId) is not executable; the executable form names proteinAccession" });
+          break;
+        }
+        const acc = a.proteinAccession!;
+        if (!ids.proteins.has(acc)) {
+          ungrounded(`${path}.proteinAccession`, acc, "protein");
+          break;
+        }
+        const feats = (ctx.proteinFeatures ?? []).filter((f) => f.proteinAccession === acc);
+        const present = [...new Set(feats.map((f) => f.type))];
+        if (feats.length === 0) {
+          issues.push({ code: "prerequisite", path, value: acc, message: ctx.proteinFeatures ? `the UniProt record of ${acc} lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger` : `the protein record's features are not in this context` });
+          break;
+        }
+        const missing = (a.featureTypes ?? []).filter((t) => !present.includes(t));
+        if (missing.length > 0) issues.push({ code: "prerequisite", path: `${path}.featureTypes`, value: missing.join(","), message: `the UniProt record of ${acc} lists no feature of type ${missing.join(", ")} (it lists ${present.join(", ")})` });
+        break;
+      }
+      case "selectTranscript": {
+        const candidates = ctx.transcriptCandidates ?? ctx.transcripts.map((t) => ({ id: t.versioned, maneSelect: t.label.startsWith("MANE Select"), source: "context" }));
+        const id = a.transcriptId;
+        const c = candidates.find((x) => x.id === id || x.id.replace(/\.\d+$/, "") === id);
+        if (!c) ungrounded(`${path}.transcriptId`, id, "transcript");
+        else if (!c.maneSelect) issues.push({ code: "prerequisite", path: `${path}.transcriptId`, value: id, message: `${c.id}: ${NON_MANE_REASON}` });
+        break;
+      }
+      case "showPathway": {
+        const pw = ctx.worlds.find((w) => w.id === "pathway");
+        if (!ids.worlds.has("pathway")) issues.push({ code: "world-unavailable", path, value: "pathway", message: `Pathway World is not available in this context${pw ? ` (${pw.reason})` : ""}` });
+        else if (a.stableId !== undefined && !(ctx.pathways ?? []).some((p) => p.stableId === a.stableId)) ungrounded(`${path}.stableId`, a.stableId, "pathway");
+        break;
+      }
+      case "setRepresentation":
+        if (!loaded) issues.push({ code: "prerequisite", path, message: "no structure is loaded, so there is no representation to change" });
+        else if (world !== null && world !== "protein") issues.push({ code: "prerequisite", path, value: world, message: `the representation applies to the structure in Protein World; ${world === "dna" ? "DNA" : world} World is on screen` });
+        break;
+      case "beginTransition":
+        if (a.from !== "dna" || a.to !== "protein") issues.push({ code: "prerequisite", path, value: `${a.from}>${a.to}`, message: `no transition from ${a.from} to ${a.to}; the only transition is from DNA World to Protein World` });
+        else if (!ids.worlds.has("protein")) issues.push({ code: "world-unavailable", path, value: "protein", message: `the only transition is from DNA World to Protein World, and Protein World is not available (${ctx.worlds.find((w) => w.id === "protein")?.reason ?? "no scene"})` });
+        else if (world !== null && world !== "dna") issues.push({ code: "prerequisite", path, value: world, message: `the transition starts in DNA World; ${world} World is on screen` });
+        else if (!loaded && experimental) loaded = { structureId: experimental.id, assembly: "model" };
+        break;
+      case "returnToOverview":
         break;
       case "compareVariants":
         a.variantIds.forEach((v, j) => {
@@ -198,6 +258,8 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
       case "cancelActions":
         break;
     }
+    const w = a.type === "enterWorld" ? a.world : a.type === "beginTransition" ? a.to : a.type === "loadStructure" || a.type === "focusCamera" || a.type === "highlightResidue" ? "protein" : a.type === "highlightSequenceRegion" ? "dna" : a.type === "showPathway" ? "pathway" : null;
+    if (w !== null && world !== null) world = w;
   });
 
   // Identifiers mentioned in free text must come from the trusted context.

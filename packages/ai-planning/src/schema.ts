@@ -5,9 +5,10 @@
  * then checked against the planning context by `validatePlan` (identifiers, capabilities,
  * prerequisites). Only a plan that passes both may reach the Scene Action Interpreter.
  *
- * The action vocabulary is the §7.2 subset needed for the HBB slice. `showProteinDomains`
- * and `compareVariants` are schema-only: they parse, but no build executes them yet, so
- * validation rejects them as not executable.
+ * The action vocabulary is the §7.2 subset needed for the HBB slice, grown in Phase 6
+ * (compareVariants, highlightSequenceRegion) and Phase 10 (selectTranscript, showProteinDomains,
+ * showPathway, setRepresentation, beginTransition, returnToOverview). Whether a build executes an
+ * action is the context's `executableActions`; validation rejects the others as not executable.
  */
 import { z } from "zod";
 import { WORLDS } from "./context.ts";
@@ -36,7 +37,7 @@ export const SequenceTarget = z.discriminatedUnion("kind", [
 ]);
 export type SequenceTarget = z.infer<typeof SequenceTarget>;
 
-const V1_MEMBERS = [
+const V1_CORE = [
   z.strictObject({ type: z.literal("resolveGene"), geneId: Id }),
   z.strictObject({ type: z.literal("resolveVariant"), variantId: Id }),
   /** assembly: "model" = the asymmetric unit, or a biological assembly id from the context. */
@@ -46,23 +47,65 @@ const V1_MEMBERS = [
   z.strictObject({ type: z.literal("highlightResidue"), target: SemanticTarget }),
   z.strictObject({ type: z.literal("revealEvidence"), evidenceId: Id }),
   z.strictObject({ type: z.literal("cancelActions") }),
-  z.strictObject({ type: z.literal("showProteinDomains"), proteinId: Id }),
 ] as const;
+/** The Phase 3 member lists showProteinDomains in its schema-only form `{ proteinId }` (never executed). */
+const V1_MEMBERS = [...V1_CORE, z.strictObject({ type: z.literal("showProteinDomains"), proteinId: Id })] as const;
 
 /** The Phase 3 action union (v1), kept verbatim so the Phase 3 decoding schema stays byte-identical. */
 export const ActionV1 = z.discriminatedUnion("type", [...V1_MEMBERS, z.strictObject({ type: z.literal("compareVariants"), variantIds: z.array(Id).min(2).max(4) })]);
 
-/**
- * The action vocabulary (v2, Phase 6). compareVariants now compares each listed variant with the
- * reference sequence of its transcript, so one variant id suffices (a v1 plan with two ids still
- * parses). highlightSequenceRegion marks a region of the transcript sequence. Whether a build
- * executes an action is the context's `executableActions`, checked by validatePlan.
- */
-export const Action = z.discriminatedUnion("type", [
-  ...V1_MEMBERS,
+const V2_SEQUENCE_MEMBERS = [
   z.strictObject({ type: z.literal("compareVariants"), variantIds: z.array(Id).min(1).max(4) }),
   z.strictObject({ type: z.literal("highlightSequenceRegion"), target: SequenceTarget }),
-]);
+] as const;
+
+/**
+ * The action vocabulary of Phase 6 (v2), kept verbatim: compareVariants compares each listed variant
+ * with the reference sequence of its transcript, so one variant id suffices (a v1 plan with two ids
+ * still parses); highlightSequenceRegion marks a region of the transcript sequence. The v2 decoding
+ * schema (`planJsonSchema("v2")`, sent with prompts v2 to v6) is built from it, so it stays
+ * byte-identical now that the vocabulary has grown (Phase 10).
+ */
+export const ActionV2 = z.discriminatedUnion("type", [...V1_MEMBERS, ...V2_SEQUENCE_MEMBERS]);
+
+/**
+ * Phase 10 (P10.1.1, docs/phase-10-ai-explorer.md section 2): the UniProt feature types
+ * showProteinDomains may show. The set a protein record offers is read from the record
+ * (`PlanningContext.proteinFeatureTypes`); this is the closed list it is taken from.
+ */
+export const DOMAIN_FEATURE_TYPES = ["Domain", "Region", "Topological domain", "Transmembrane", "Zinc finger"] as const;
+export type DomainFeatureType = (typeof DOMAIN_FEATURE_TYPES)[number];
+/** Phase 10: the closed list of structure representations setRepresentation may ask for (Mol* presets in the app). */
+export const REPRESENTATIONS = ["cartoon", "ball-and-stick", "surface", "spacefill"] as const;
+export type Representation = (typeof REPRESENTATIONS)[number];
+
+/**
+ * Phase 10 showProteinDomains: the protein accession (a protein of the trusted context) and, optionally,
+ * the feature types to show (from the closed list; the record decides which exist). The Phase 3 form
+ * `{ proteinId }` still parses so that a plan written in it is scored as before (schema-valid, not
+ * executable); validatePlan rejects it. Exactly one of the two keys is given.
+ */
+export const ShowProteinDomainsAction = z.strictObject({ type: z.literal("showProteinDomains"), proteinAccession: Id, featureTypes: z.array(z.enum(DOMAIN_FEATURE_TYPES)).min(1).max(DOMAIN_FEATURE_TYPES.length).optional() });
+const ShowProteinDomainsMember = z
+  .strictObject({ type: z.literal("showProteinDomains"), proteinAccession: Id.optional(), proteinId: Id.optional(), featureTypes: z.array(z.enum(DOMAIN_FEATURE_TYPES)).min(1).max(DOMAIN_FEATURE_TYPES.length).optional() })
+  .refine((a) => (a.proteinAccession === undefined) !== (a.proteinId === undefined), { message: "showProteinDomains names its protein once: proteinAccession (or the Phase 3 proteinId)" });
+
+/** The six actions of Phase 10 (P10.1.1). Semantic targets only: never a coordinate, a residue number or a mesh. */
+const V3_MEMBERS = [
+  z.strictObject({ type: z.literal("selectTranscript"), transcriptId: Id }),
+  z.strictObject({ type: z.literal("showPathway"), stableId: Id.optional() }),
+  z.strictObject({ type: z.literal("setRepresentation"), representation: z.enum(REPRESENTATIONS) }),
+  z.strictObject({ type: z.literal("beginTransition"), from: z.enum(WORLDS), to: z.enum(WORLDS) }),
+  z.strictObject({ type: z.literal("returnToOverview") }),
+] as const;
+
+/**
+ * The action vocabulary (v3, Phase 10): the Phase 6 vocabulary with showProteinDomains in its
+ * executable form and the five other Phase 10 actions. Whether a build executes an action is the
+ * context's `executableActions`, checked by validatePlan. The decoding schemas sent to a model are
+ * not built from it (they stay v1 and v2 until prompt v7).
+ */
+export const Action = z.discriminatedUnion("type", [...V1_CORE, ShowProteinDomainsMember, ...V2_SEQUENCE_MEMBERS, ...V3_MEMBERS]);
 export type Action = z.infer<typeof Action>;
 export const ACTION_TYPES = [
   "resolveGene",
@@ -76,11 +119,26 @@ export const ACTION_TYPES = [
   "showProteinDomains",
   "compareVariants",
   "highlightSequenceRegion",
+  "selectTranscript",
+  "showPathway",
+  "setRepresentation",
+  "beginTransition",
+  "returnToOverview",
 ] as const;
 export type ActionType = (typeof ACTION_TYPES)[number];
 /** Actions added in Phase 6. A context that lists one as executable gets the v2 prompt and decoding schema. */
 export const V2_ONLY_ACTIONS = ["compareVariants", "highlightSequenceRegion"] as const;
 export const usesV2 = (executableActions: readonly string[]): boolean => V2_ONLY_ACTIONS.some((a) => executableActions.includes(a));
+/** Actions added in Phase 10 (P10.1.1). No measured prompt (v1 to v6) teaches them; prompt v7 will. */
+export const PHASE10_ACTIONS = ["selectTranscript", "showProteinDomains", "showPathway", "setRepresentation", "beginTransition", "returnToOverview"] as const;
+export type Phase10ActionType = (typeof PHASE10_ACTIONS)[number];
+/**
+ * The actions a model plan may carry under the measured prompts v1 to v6: those the build executed
+ * when the prompt was measured (the Phase 6 registry). A model plan with any other action (the six
+ * Phase 10 actions, showProteinDomains included) is rejected by validatePlan when the director passes
+ * this list, and the rule-based planner answers, so the measured behaviour of those prompts is kept.
+ */
+export const MEASURED_PROMPT_ACTIONS = ["resolveGene", "resolveVariant", "loadStructure", "enterWorld", "focusCamera", "highlightResidue", "revealEvidence", "cancelActions", "compareVariants", "highlightSequenceRegion"] as const;
 
 export const INTENTS = [
   "locate_variant",
@@ -130,7 +188,7 @@ export type Plan = z.infer<typeof Plan>;
  * "v1" (default) is the Phase 3 schema, byte-identical; "v2" adds the Phase 6 actions.
  */
 export function planJsonSchema(version: "v1" | "v2" = "v1"): Record<string, unknown> {
-  const schema = version === "v1" ? Plan.extend({ actions: z.array(ActionV1).max(8) }) : Plan;
+  const schema = Plan.extend({ actions: z.array(version === "v1" ? ActionV1 : ActionV2).max(8) });
   const s = z.toJSONSchema(schema, { target: "draft-7" }) as Record<string, unknown>;
   delete s.$schema;
   return s;
