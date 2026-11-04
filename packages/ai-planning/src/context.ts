@@ -89,6 +89,13 @@ export interface ContextPathway {
   isOpening: boolean;
   isDisease: boolean;
   membership: string;
+  /**
+   * Author decision D-H024 answer 71 (2026-11-04): whether Pathway World can open this membership, that
+   * is, whether the record keeps its participants (participantsByPathway, the opening rule's candidates).
+   * showPathway is valid only on an openable membership; the others stay in the list and are answered
+   * from the record.
+   */
+  openable: boolean;
 }
 /**
  * One Open Targets disease association of the set's gene (Phase 9, P9.1.3; plan section 14 rule 4): a
@@ -301,9 +308,11 @@ export interface PlanningContext {
    * Phase 10 (P10.3.1, plan section 5 item 2): "v7" sends prompt v7 and the v3 decoding schema, which
    * teach the six Phase 10 actions and render the selection facts and the session strings. Absent: the
    * prompt the other fields choose (v1 to v6), unchanged. The app's default leaves it unset (prompt v5);
-   * shipping v7 is a decision taken after it is measured.
+   * shipping v7 is a decision taken after it is measured. Author decision D-H024 answer 70 (2026-11-04):
+   * "v8" sends prompt v8 (v7 plus the association rows and the openable pathway memberships) with the same
+   * v3 decoding schema.
    */
-  planPrompt?: "v7";
+  planPrompt?: "v7" | "v8";
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
 }
@@ -476,6 +485,8 @@ const PathwaysIn = z
         .loose(),
     ),
     openingPathway: z.object({ stableId: z.string(), name: z.string() }).loose().nullable(),
+    // D-H024 (71): the memberships whose participants the record keeps; absent means none is kept.
+    participantsByPathway: z.array(z.object({ stableId: z.string() }).loose()).optional(),
     evidence: z.array(Ev),
   })
   .loose();
@@ -491,6 +502,7 @@ export const pathwayEvidenceId = (accession: string): string => `reactome:${acce
  */
 export function pathwayContext(record: unknown): { accession: string; pathways: ContextPathway[]; evidence: ContextEvidence[] } {
   const p = PathwaysIn.parse(record);
+  const kept = new Set((p.participantsByPathway ?? []).map((x) => x.stableId));
   const pathways: ContextPathway[] = p.memberships.map((m) => {
     const top = m.topLevelPathways[0]?.name ?? null;
     const flags = [m.isDisease ? "a disease pathway" : null, m.isOpening ? "the membership Pathway World opens on, by rule (fewest participants among non-disease pathways with a diagram)" : null].filter((x): x is string => x !== null);
@@ -501,6 +513,7 @@ export function pathwayContext(record: unknown): { accession: string; pathways: 
       isOpening: m.isOpening,
       isDisease: m.isDisease,
       membership: `${m.name} (${m.stableId}${top ? `, under ${top}` : ""}) lists ${p.accession} in Reactome ${p.release}: database annotation, class 2, membership only${flags.length ? `; ${flags.join("; ")}` : ""}.`,
+      openable: kept.has(m.stableId),
     };
   });
   const evidence: ContextEvidence[] = [];
