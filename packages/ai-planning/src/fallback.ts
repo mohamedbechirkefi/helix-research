@@ -13,6 +13,7 @@ import { REPRESENTATIONS } from "./schema.ts";
 import { NON_MANE_REASON, extractIdTokens } from "./validate.ts";
 import { associationEvidenceId, pathwayEvidenceId, trustedContextJson, variantShortName, type PlanningContext } from "./context.ts";
 import { routeQuestion, type Routing } from "./routing.ts";
+import { contextualAnswer, deicticSubject } from "./contextual.ts";
 
 export const FALLBACK_VERSION = "helix-fallback-v1";
 
@@ -233,6 +234,57 @@ function phase10Rule(query: string, q: string, ctx: PlanningContext, level: Plan
   return null;
 }
 
+/**
+ * Phase 10 (P10.1.2, plan section 3): a question bound to the selection, answered from the selection
+ * facts. Applies only to contexts that carry the contextual records (the app's); Phase 3 to 9 contexts
+ * plan as before. The actions show the selection in the world on screen (the codon on the sequence in
+ * DNA World, the residue in Protein World; the recorded contacts of that exact residue when asked);
+ * the citations are the records the answer reads, never the variant's for a non-variant selection.
+ */
+function contextualRule(query: string, ctx: PlanningContext, level: Plan["explanationLevel"]): { plan: Plan; rule: string } | null {
+  const facts = ctx.selectionFacts ?? null;
+  const d = deicticSubject(query);
+  if (!facts) {
+    if (d && d.subject !== "residue") return { plan: clarify(ctx, "explain_selection", "Nothing is selected. Select a codon in DNA World or a residue in Protein World first."), rule: "contextual-nothing-selected" };
+    return null;
+  }
+  const answer = contextualAnswer(query, ctx);
+  if (!answer || !facts.binding) return null;
+  if (facts.binding.target === "codon" && !facts.codon) return { plan: clarify(ctx, "explain_selection", `No codon is linked to the selection${facts.unmappedReason ? `: ${facts.unmappedReason}` : ""}.`), rule: "contextual-no-codon" };
+  const known = new Set(ctx.evidence.map((e) => e.id));
+  const cited = [...new Set(answer.sentences.flatMap((x) => x.evidenceIds).filter((id) => known.has(id)))];
+  const actions: Action[] = [];
+  let rule = `contextual-${answer.kind}`;
+  const inDna = ctx.currentWorld === "dna" || (ctx.currentWorld !== "protein" && facts.binding.target === "codon");
+  if (inDna && facts.codon && ctx.sequenceSelection && sequenceActions(ctx)) {
+    actions.push({ type: "highlightSequenceRegion", target: { kind: "selection" } });
+  } else if (facts.residue && ctx.selection) {
+    const r = facts.residue;
+    const contact = answer.kind === "contacts" && facts.contacts?.status === "recorded" ? (ctx.features.find((f) => f.kind === "contact" && f.structureId === r.structureId && f.chains[0] === r.chainId && f.id.includes(`_contact_${r.chainId}${r.residueNumber}_`)) ?? null) : null;
+    if (contact) {
+      const t = { kind: "feature" as const, featureId: contact.id };
+      actions.push({ type: "focusCamera", target: t }, { type: "highlightResidue", target: t });
+      rule = "contextual-contacts-recorded";
+    } else {
+      actions.push({ type: "focusCamera", target: { kind: "selection" } }, { type: "highlightResidue", target: { kind: "selection" } });
+    }
+  }
+  actions.push(...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id })));
+  return {
+    plan: {
+      ...base(ctx),
+      outcome: "plan",
+      intent: "explain_selection",
+      entities: { geneId: null, proteinId: facts.protein?.accession ?? null, variantId: facts.variant?.id ?? null, structureId: facts.residue?.structureId ?? null },
+      actions,
+      citations: cited,
+      explanationLevel: level,
+      reason: null,
+    },
+    rule,
+  };
+}
+
 export function deterministicPlan(query: string, ctx: PlanningContext): FallbackResult {
   const q = fold(query);
   const gene = ctx.genes[0] ?? null;
@@ -270,6 +322,12 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
 
   // 3. Cancel.
   if (CANCEL.test(q)) return r({ ...base(ctx), outcome: "plan", intent: "cancel", actions: [{ type: "cancelActions" }], reason: null }, "cancel");
+
+  // 4a. Phase 10 (P10.1.2): a question bound to the selection (contexts with the contextual records only).
+  if (ctx.contextualRecords !== undefined) {
+    const c = contextualRule(query, ctx, level);
+    if (c) return r(c.plan, c.rule);
+  }
 
   // 4. Follow-ups that refer to the current selection.
   if (SELECTION_REF.test(q) || (/\b(it|ca)\b/.test(q) && COMPARE.test(q))) {

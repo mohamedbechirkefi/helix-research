@@ -145,6 +145,62 @@ export interface ContextProteinFeature {
   end: number;
   evidences: string[];
 }
+/** Phase 10 (P10.1.2): one feature of the protein record with its positions (UniProt numbering, Met = 1). */
+export interface ContextPositionFeature {
+  type: string;
+  description: string;
+  start: number;
+  end: number;
+  evidences: string[];
+}
+/** Phase 10 (P10.1.2): one residue entry of the contacts record (its partners without water and ligands; empty when the record computes none). */
+export interface ContextResidueContacts {
+  structureId: string;
+  chainId: string;
+  residueNumber: number;
+  compId: string;
+  partners: { chainId: string; residueNumber: number; compId: string }[];
+  /** The evidence id that states this entry, or null when the record has no statement for it. */
+  evidenceId: string | null;
+}
+export interface ContextualRecords {
+  proteinAccession: string;
+  positionFeatures: ContextPositionFeature[];
+  /** The contacts record's scope sentence and cutoff, when the set has one. */
+  contactsScope: { structureId: string; scope: string; cutoffAngstrom: number } | null;
+  residueContacts: ContextResidueContacts[];
+  /** The curated variant's translated position (Met = 1) and kind, when the set has one. */
+  variantPosition: number | null;
+  variantKind: "substitution" | "deletion" | null;
+  /** Record evidence the contextual answers cite that the base context does not carry (bound to its record by the app). */
+  evidence: ContextEvidence[];
+}
+/** Phase 10 (P10.1.2): what a deictic question was bound to. */
+export interface DeicticBinding {
+  /** The words that bound it ("this residue", "here", ...), or "implicit" for a question with no subject while a selection is present. */
+  subject: string;
+  target: "residue" | "codon";
+}
+/**
+ * Phase 10 (P10.1.2): the current selection as a trusted entity, with what the records say about it.
+ * Built by deterministic code (contextual.ts selectionFacts) from the selection bridge's link and the
+ * contextual records; never by a model.
+ */
+export interface SelectionFacts {
+  codon: { transcriptId: string; codon: number; bases: string; aminoAcid: string; aminoAcidName: string } | null;
+  residue: { structureId: string; chainId: string; residueNumber: number; compId: string } | null;
+  /** UniProt position (Met = 1) and the record's residue at it, when the selection maps to the protein. */
+  protein: { accession: string; position: number; residue: string } | null;
+  /** Why the selection has no protein position (the bridge's reason), when it has none. */
+  unmappedReason: string | null;
+  isVariantCodon: boolean;
+  isVariantResidue: boolean;
+  variant: { id: string; label: string; featureId: string } | null;
+  features: ContextPositionFeature[];
+  contacts: { status: "recorded" | "none-in-record" | "not-in-record" | "no-record"; entry: ContextResidueContacts | null; recordedFor: string[] } | null;
+  clinvar: { evidenceId: string; statement: string } | null;
+  binding: DeicticBinding | null;
+}
 export interface RetrievedSnippet {
   source: string;
   text: string;
@@ -226,6 +282,21 @@ export interface PlanningContext {
   transcriptSelection?: ContextTranscriptSelection;
   proteinFeatures?: ContextProteinFeature[];
   proteinFeatureTypes?: string[];
+  /**
+   * Phase 10 (P10.1.2, plan section 3): the records contextual questions read (every protein feature
+   * with its positions, every residue entry of the contacts record, the variant's position), added by
+   * `withContextualRecords` (contextual.ts); `selectionFacts` is the current selection as a trusted
+   * entity with what those records say about it, set per question by deterministic code. Absent in
+   * the Phase 3 to 9 contexts; the prompt rendering does not read them (prompt v5 unchanged).
+   */
+  contextualRecords?: ContextualRecords;
+  selectionFacts?: SelectionFacts | null;
+  /**
+   * Phase 10 (P10.2.1, plan section 4): the session's chosen depth ("brief", "standard", "detailed")
+   * and the interests inferred from the session's own actions, as plain strings. Never anything about
+   * the person. Absent in the Phase 3 to 9 contexts; the prompt rendering does not read it.
+   */
+  personalisation?: { depth: string; interests: string[] };
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
 }
@@ -486,7 +557,7 @@ export function pathwayWorldReason(b: Pick<HbbBundle, "capabilities" | "pathways
   return { available: false, reason: "no curated pathway records in this context" };
 }
 
-const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
+export const WATER_OR_LIGAND = new Set(["HOH", "HEM", "HOA"]);
 
 /**
  * Below this fraction of the protein's residues observed in the entry, the set states its coverage
