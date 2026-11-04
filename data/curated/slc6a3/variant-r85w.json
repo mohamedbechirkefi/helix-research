@@ -197,85 +197,85 @@
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-620",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T13-rsid-multiallelic",
         "result": "pass",
         "detail": "rs1064795122 alleles G/A (bi-allelic); A:p.Arg85Trp; recoder key(s) without a chromosome-level placement, not counted: T (NT_187547.1:g.128883C>A, NT_187547.1:128882:G:A)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T08-exon-walk-genomic",
         "result": "pass",
         "detail": "exon walk c.253 -> 1442945; hgvsg 1442945; variation 1442945",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T08-codon-span",
         "result": "pass",
         "detail": "own walk codon 85 -> 1442943-1442945; Ensembl map/cds 1442943-1442945 strand -1",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T09-forward-and-coding-base",
         "result": "pass",
         "detail": "forward-strand base at 1442945 = G; coding-strand c.253 = C",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T10-spdi-roundtrip",
         "result": "pass",
         "detail": "NC_000005.10:1442944:G:A <-> NC_000005.10:g.1442945G>A",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T11-codon-change",
         "result": "pass",
         "detail": "codon 85 CGG -> TGG; R -> W",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T12-hgvsp-agrees",
         "result": "pass",
         "detail": "computed p.Arg85Trp; variant_recoder ENSP00000270349.9:p.Arg85Trp, NP_001035.1:p.Arg85Trp",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T12-vep-agrees",
         "result": "pass",
         "detail": "VEP ENSP00000270349.9:p.Arg85Trp protein_start 85 cds_start 253 codons Cgg/Tgg",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "cdna-position",
         "result": "pass",
         "detail": "c.253 + 5' UTR 138 = 391; VEP cdna_start 391",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.85: UniProt residue R, HGVS ref R",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T17-mature-index",
         "result": "pass",
         "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T14-clinvar-record",
         "result": "pass",
         "detail": "VCV000421417.2 single nucleotide variant; spdi NC_000005.10:1442944:G:A; GRCh38 1442945; GRCh37 1443060; Likely pathogenic (criteria provided, single submitter)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 2

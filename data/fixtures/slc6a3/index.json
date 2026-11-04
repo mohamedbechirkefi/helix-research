@@ -1,5 +1,5 @@
 {
-  "description": "Offline fixtures for the slc6a3 set, recorded by scripts/data-preparation/build-gene.ts --gene slc6a3 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "description": "Offline fixtures for the slc6a3 set, recorded by scripts/data-preparation/build-gene.ts --gene slc6a3 --record-fixtures on 2026-11-04 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
   "inputs": {
     "ensemblInfoData": {
       "source": "ensembl",

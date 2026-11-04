@@ -746,37 +746,37 @@
         "check": "T41-pathway-accession",
         "result": "pass",
         "detail": "memberships requested for Q01959; protein record Q01959; specification Q01959",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T42-pathway-memberships-human",
         "result": "pass",
         "detail": "4 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T43-pathway-top-level",
         "result": "pass",
         "detail": "R-HSA-379401 -> R-HSA-112316; R-HSA-442660 -> R-HSA-382551; R-HSA-5619081 -> R-HSA-1643685; R-HSA-5660724 -> R-HSA-1643685",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T44-opening-pathway-rule",
         "result": "pass",
         "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters) has the fewest participants (44) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-442660 44; excluded: R-HSA-379401 (no diagram), R-HSA-5619081 (a disease pathway), R-HSA-5660724 (a disease pathway)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T45-opening-pathway-participants",
         "result": "pass",
         "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters): 44 participating physical entities, 21 distinct UniProt proteins; the set's protein Q01959 is among them as Q01959 in SLC6A3 [plasma membrane] (EntityWithAccessionedSequence)",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T46-candidate-participants",
         "result": "pass",
         "detail": "1 candidate(s): R-HSA-442660 44 entities, 21 proteins, set's protein listed",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 2

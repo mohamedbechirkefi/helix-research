@@ -104,49 +104,49 @@
         "check": "T20-entity-by-sifts",
         "result": "pass",
         "detail": "1 polymer entities; SIFTS Q01959 -> entity 1, chains A; mmCIF strands A",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T21-alignment-cross-check",
         "result": "pass",
         "detail": "entity 555 aa vs UniProt 620 aa: offset 65, identity 1.0000, mismatches ; SIFTS offset 65",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T22-rcsb-align-agrees",
         "result": "pass",
         "detail": "RCSB rcsb_polymer_entity_align ref_beg 66 <-> entity_beg 1",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T40-variant-residue-observed",
         "result": "pass",
         "detail": "8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T23-residue-from-atom-site",
         "result": "pass",
         "detail": "A/A label 20 auth 85 ARG; structure carries the reference residue",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T37-full-chain-agrees-with-variant-mapping",
         "result": "pass",
         "detail": "position 85: table A85 ARG; variant mapping record A85 ARG",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T24-wrong-numbering-detectable",
         "result": "pass",
         "detail": "label 85 in A is LEU (not ARG); no distinct mature numbering, so no other numbering exists to land elsewhere",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T25-struct-ref-seq-not-trusted",
         "result": "pass",
         "detail": "SIFTS selects label 20 (ARG); _struct_ref_seq would select label 20 (ARG); 0 disagreement(s) recorded as known issues",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 1

@@ -436,61 +436,61 @@
         "check": "uniprot-accession",
         "result": "pass",
         "detail": "Q01959 SC6A3_HUMAN, reviewed true",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T06-cds-shape",
         "result": "pass",
         "detail": "length 1863, starts ATG, ends TAG",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T07-translation-equals-ensembl-protein",
         "result": "pass",
         "detail": "translated 620 aa vs Ensembl 620 aa",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T07-translation-equals-uniprot",
         "result": "pass",
         "detail": "translated 620 aa vs UniProt 620 aa",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T07-uniprot-md5",
         "result": "pass",
         "detail": "computed 57654271DC6FD2B84CBC71DEB27BB38C, UniProt 57654271DC6FD2B84CBC71DEB27BB38C",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "uniprot-mane-xref",
         "result": "pass",
         "detail": "UniProt MANE-Select ENST00000270349.12 / ENSP00000270349.9 / NM_001044.5",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T15-initiator-met-and-chain",
         "result": "pass",
         "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-620",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T18-hgvsp-equals-uniprot-position",
         "result": "pass",
         "detail": "p.85: UniProt residue R, HGVS ref R",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T16-uniprot-natural-variant",
         "result": "pass",
         "detail": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       },
       {
         "check": "T31-drift-recorded",
         "result": "pass",
         "detail": "uniprot-xref-ensembl-gene-version: ENSG00000142319.20 vs ENSG00000142319.21; vep-swissprot-entry-version: Q01959.230 vs Q01959.233",
-        "at": "2026-11-03T23:57:48Z"
+        "at": "2026-11-04T00:12:43Z"
       }
     ],
     "evidenceCategory": 2
