@@ -100,10 +100,17 @@ const V3_MEMBERS = [
 ] as const;
 
 /**
+ * The decoding vocabulary of prompt v7 (P10.3.1): the Phase 6 decoding vocabulary with the six Phase 10
+ * actions, showProteinDomains in its executable form only (proteinAccession). The v3 decoding schema
+ * (`planJsonSchema("v3")`, sent with prompt v7 only) is built from it; v1 and v2 are unchanged.
+ */
+export const ActionV3 = z.discriminatedUnion("type", [...V1_CORE, ShowProteinDomainsAction, ...V2_SEQUENCE_MEMBERS, ...V3_MEMBERS]);
+
+/**
  * The action vocabulary (v3, Phase 10): the Phase 6 vocabulary with showProteinDomains in its
  * executable form and the five other Phase 10 actions. Whether a build executes an action is the
  * context's `executableActions`, checked by validatePlan. The decoding schemas sent to a model are
- * not built from it (they stay v1 and v2 until prompt v7).
+ * not built from it: v1 and v2 for prompts v1 to v6, v3 (ActionV3) for prompt v7.
  */
 export const Action = z.discriminatedUnion("type", [...V1_CORE, ShowProteinDomainsMember, ...V2_SEQUENCE_MEMBERS, ...V3_MEMBERS]);
 export type Action = z.infer<typeof Action>;
@@ -129,7 +136,7 @@ export type ActionType = (typeof ACTION_TYPES)[number];
 /** Actions added in Phase 6. A context that lists one as executable gets the v2 prompt and decoding schema. */
 export const V2_ONLY_ACTIONS = ["compareVariants", "highlightSequenceRegion"] as const;
 export const usesV2 = (executableActions: readonly string[]): boolean => V2_ONLY_ACTIONS.some((a) => executableActions.includes(a));
-/** Actions added in Phase 10 (P10.1.1). No measured prompt (v1 to v6) teaches them; prompt v7 will. */
+/** Actions added in Phase 10 (P10.1.1). No measured prompt (v1 to v6) teaches them; prompt v7 does. */
 export const PHASE10_ACTIONS = ["selectTranscript", "showProteinDomains", "showPathway", "setRepresentation", "beginTransition", "returnToOverview"] as const;
 export type Phase10ActionType = (typeof PHASE10_ACTIONS)[number];
 /**
@@ -185,10 +192,12 @@ export type Plan = z.infer<typeof Plan>;
 /**
  * The JSON Schema given to constrained decoders (Ollama `format`, WebLLM `response_format`).
  * Generic: identifiers are free strings, so the benchmark measures whether a model invents them.
- * "v1" (default) is the Phase 3 schema, byte-identical; "v2" adds the Phase 6 actions.
+ * "v1" (default) is the Phase 3 schema, byte-identical; "v2" adds the Phase 6 actions; "v3" (prompt v7
+ * only) adds the six Phase 10 actions.
  */
-export function planJsonSchema(version: "v1" | "v2" = "v1"): Record<string, unknown> {
-  const schema = Plan.extend({ actions: z.array(version === "v1" ? ActionV1 : ActionV2).max(8) });
+export type DecodingSchemaVersion = "v1" | "v2" | "v3";
+export function planJsonSchema(version: DecodingSchemaVersion = "v1"): Record<string, unknown> {
+  const schema = Plan.extend({ actions: z.array(version === "v1" ? ActionV1 : version === "v2" ? ActionV2 : ActionV3).max(8) });
   const s = z.toJSONSchema(schema, { target: "draft-7" }) as Record<string, unknown>;
   delete s.$schema;
   return s;
@@ -206,7 +215,7 @@ export function groundedPlanJsonSchema(ids: {
   assemblies: string[];
   features: string[];
   evidence: string[];
-}, version: "v1" | "v2" = "v1"): Record<string, unknown> {
+}, version: DecodingSchemaVersion = "v1"): Record<string, unknown> {
   const e = (xs: string[]) => (xs.length > 0 ? z.enum(xs as [string, ...string[]]) : z.never());
   const target = z.discriminatedUnion("kind", [
     z.strictObject({ kind: z.literal("feature"), featureId: e(ids.features) }),
@@ -230,11 +239,20 @@ export function groundedPlanJsonSchema(ids: {
   const action =
     version === "v1"
       ? z.discriminatedUnion("type", [...base])
-      : z.discriminatedUnion("type", [
-          ...base,
-          z.strictObject({ type: z.literal("compareVariants"), variantIds: z.array(e(ids.variants)).min(1).max(4) }),
-          z.strictObject({ type: z.literal("highlightSequenceRegion"), target: seqTarget }),
-        ]);
+      : version === "v2"
+        ? z.discriminatedUnion("type", [
+            ...base,
+            z.strictObject({ type: z.literal("compareVariants"), variantIds: z.array(e(ids.variants)).min(1).max(4) }),
+            z.strictObject({ type: z.literal("highlightSequenceRegion"), target: seqTarget }),
+          ])
+        : z.discriminatedUnion("type", [
+            ...base,
+            z.strictObject({ type: z.literal("compareVariants"), variantIds: z.array(e(ids.variants)).min(1).max(4) }),
+            z.strictObject({ type: z.literal("highlightSequenceRegion"), target: seqTarget }),
+            // Prompt v7: the Phase 10 actions; the protein is an enum of the context's proteins, the other ids stay free (validation grounds them).
+            z.strictObject({ type: z.literal("showProteinDomains"), proteinAccession: e(ids.proteins), featureTypes: z.array(z.enum(DOMAIN_FEATURE_TYPES)).min(1).max(DOMAIN_FEATURE_TYPES.length).optional() }),
+            ...V3_MEMBERS,
+          ]);
   const plan = z.strictObject({
     outcome: Outcome,
     intent: Intent,
