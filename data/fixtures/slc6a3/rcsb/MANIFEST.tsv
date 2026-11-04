@@ -1,0 +1,4 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+rest_v1_core_entry_8Y2C.json	2026-11-03T23:53:40Z	200	74bf251809ab66e2cc6cc7b1128a8891c59cb3c9d73d6004913e71a9b01ad241	11871	GET	https://data.rcsb.org/rest/v1/core/entry/8Y2C	"{""content-type"":""application/json""}"	
+rest_v1_core_polymer_entity_8Y2C_1.json	2026-11-03T23:53:41Z	200	ef58ad9abba2ef8e0a73db5ad7dd89528ed3f66dfc8a77f122ff6c234e3bae58	111938	GET	https://data.rcsb.org/rest/v1/core/polymer_entity/8Y2C/1	"{""content-type"":""application/json""}"	
+rest_v1_core_assembly_8Y2C_1.json	2026-11-03T23:53:41Z	200	127041aed33d3da1278492aa27ebc797799947c2e53f3bbaa0bfe59cd28418b9	2518	GET	https://data.rcsb.org/rest/v1/core/assembly/8Y2C/1	"{""content-type"":""application/json""}"	

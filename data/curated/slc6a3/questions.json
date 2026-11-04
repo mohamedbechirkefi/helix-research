@@ -1,0 +1,49 @@
+{
+  "kind": "questions",
+  "derivedFrom": [
+    "capabilities.json"
+  ],
+  "geneId": "ENSG00000142319",
+  "symbol": "SLC6A3",
+  "questions": [
+    {
+      "text": "Show me where the R85W mutation affects the SLC6A3 protein.",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "How does the DNA change for the R85W variant?",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "What does the R85W variant residue touch in the structure?",
+      "requires": [
+        "variantHighlight",
+        "experimentalStructure"
+      ]
+    },
+    {
+      "text": "Show the evidence for the R85W variant.",
+      "requires": [
+        "variantHighlight"
+      ]
+    },
+    {
+      "text": "Which pathways list SLC6A3?",
+      "requires": [
+        "pathwayView"
+      ]
+    },
+    {
+      "text": "What diseases are associated with SLC6A3?",
+      "requires": [
+        "associationView"
+      ]
+    }
+  ],
+  "bridgeQuestion": "See the R85W mutation on the protein."
+}

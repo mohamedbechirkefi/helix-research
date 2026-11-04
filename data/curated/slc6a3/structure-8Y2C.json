@@ -1,0 +1,278 @@
+{
+  "kind": "structure",
+  "entryId": "8Y2C",
+  "title": "Cryo-EM structure of human dopamine transporter in apo state",
+  "method": "ELECTRON MICROSCOPY",
+  "origin": "experimental",
+  "resolutionAngstrom": 3.16,
+  "modelCount": 1,
+  "modelShown": 1,
+  "nmrEnsemble": null,
+  "revision": {
+    "version": "1.4",
+    "date": "2025-07-16"
+  },
+  "depositionDate": "2024-01-25",
+  "citation": {
+    "title": "Dopamine reuptake and inhibitory mechanisms in human dopamine transporter.",
+    "journal": "Nature",
+    "year": 2024,
+    "pubmedId": "39112701",
+    "doi": "10.1038/s41586-024-07796-0"
+  },
+  "entities": [
+    {
+      "entityId": "1",
+      "type": "polymer",
+      "description": "Sodium-dependent dopamine transporter",
+      "moleculeCount": 1,
+      "mutation": null,
+      "sequence": "KIDFLLSVIGFAVDLANVWRFPYLCYKNGGGAFLVPYLLFMVIAGMPLFYMELALGQFNREGAAGVWKICPILKGVGFTVILISLYVGFFYNVIIAWALHYLFSSFTTELPWIHCNNSWNSPNCSDAHPGDSSGDSSGLNDTFGTTPAAEYFERGVLHLHQSHGIDDLGPPRWQLTACLVLVIVLLYFSLWKGVKTSGKVVWITATMPYVVLTALLLRGVTLPGAIDGIRAYLSVDFYRLCEASVWIDAATQVCFSLGVGFGVLIAFSSYNKFTNNCYRDAIVTTSINSLTSFSSGFVVFSFLGYMAQKHSVPIGDVAKDGPGLIFIIYPEAIATLPLSSAWAVVFFIMLLTLGIDSAMGGMESVITGLIDEFQLLHRHRELFTLFIVLATFLLSLFCVTNGGIYVFTLLDHFAAGTSILFGVLIEAIGVAWFYGVGQFSDDIQQMTGQRPSLYWRLCWKLVSPCFLLFVVVVSIVTFRPPHYGAYIFPDWANALGWVIATSSMAMVPIYAAYKFCSLPGSFREKLAYAIAPEKDRELVDRGEVRQFTLRHWLKV",
+      "strandIds": [
+        "A"
+      ],
+      "siftsUniprot": [
+        "Q01959"
+      ],
+      "uniprotFromEntry": [
+        "Q01959"
+      ],
+      "sequenceDifferences": []
+    },
+    {
+      "entityId": "2",
+      "type": "non-polymer",
+      "description": "2-acetamido-2-deoxy-beta-D-glucopyranose",
+      "moleculeCount": 2,
+      "mutation": null,
+      "sequence": null,
+      "strandIds": [],
+      "siftsUniprot": [],
+      "uniprotFromEntry": [],
+      "sequenceDifferences": []
+    }
+  ],
+  "mappedEntityId": "1",
+  "coverage": {
+    "uniprotAccession": "Q01959",
+    "chains": [
+      "A"
+    ],
+    "firstObservedPosition": 66,
+    "lastObservedPosition": 620,
+    "observedPositions": 529,
+    "mappedPositions": 555,
+    "proteinLength": 620,
+    "fraction": 0.8532,
+    "text": "8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A)"
+  },
+  "partners": [],
+  "chains": [
+    {
+      "labelAsymId": "A",
+      "authAsymId": "A",
+      "entityId": "1",
+      "entityType": "polymer"
+    },
+    {
+      "labelAsymId": "B",
+      "authAsymId": "A",
+      "entityId": "2",
+      "entityType": "non-polymer"
+    },
+    {
+      "labelAsymId": "C",
+      "authAsymId": "A",
+      "entityId": "2",
+      "entityType": "non-polymer"
+    }
+  ],
+  "assemblies": [
+    {
+      "id": "1",
+      "details": "author_defined_assembly",
+      "asymIds": [
+        "A",
+        "B",
+        "C"
+      ],
+      "polymerAsymIds": [
+        "A"
+      ]
+    }
+  ],
+  "defaultAssemblyId": "1",
+  "modelFile": {
+    "path": "8Y2C.cif",
+    "format": "mmcif",
+    "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+    "bytes": 471699
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/8Y2C.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/entry/8Y2C",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "74bf251809ab66e2cc6cc7b1128a8891c59cb3c9d73d6004913e71a9b01ad241",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/8Y2C/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:41Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "ef58ad9abba2ef8e0a73db5ad7dd89528ed3f66dfc8a77f122ff6c234e3bae58",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/assembly/8Y2C/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:41Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C-1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "127041aed33d3da1278492aa27ebc797799947c2e53f3bbaa0bfe59cd28418b9",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/8y2c",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": null,
+        "recordId": "8y2c",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "23785159a7dc708d083e192e6598c701ae6361bec49aeac6e948a309fc9294d2",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "field-select",
+      "sifts-entity-selection",
+      "classify-pdbx-mutation-numbering",
+      "coverage-from-sifts-and-atom-site",
+      "partners-from-struct-ref"
+    ],
+    "validation": [
+      {
+        "check": "structure-entry",
+        "result": "pass",
+        "detail": "8Y2C ELECTRON MICROSCOPY 3.16 A, rev 1.4",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "structure-revision-agrees",
+        "result": "pass",
+        "detail": "Data API rev 1.4; mmCIF rev 1.4",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "1 polymer entities; SIFTS Q01959 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T20-rcsb-entity-agrees",
+        "result": "pass",
+        "detail": "RCSB polymer_entity 8Y2C_1 uniprot Q01959",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 20 auth 85 ARG; structure carries the reference residue",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T19-pdbx-mutation-numbering",
+        "result": "pass",
+        "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T26-label-auth-kept",
+        "result": "pass",
+        "detail": "3 label chains, all with an auth chain id from the scheme tables; 2 non-polymer chains have label != auth (e.g. label B = auth A NAG 621)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T27-assemblies",
+        "result": "pass",
+        "detail": "assembly 1: A,B,C",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T47-structure-method",
+        "result": "pass",
+        "detail": "8Y2C method ELECTRON MICROSCOPY; resolution 3.16 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T48-structure-coverage",
+        "result": "pass",
+        "detail": "529 of 555 mapped positions observed in model 1 on chain(s) A, 66-620; protein length 620; fraction 0.8532 = 529/620; words match the numbers",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "8Y2C: ELECTRON MICROSCOPY, 3.16 A resolution, deposited 2024-01-25.",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A); SIFTS maps 555 position(s) of Q01959 onto chain(s) A.",
+      "qualifier": null,
+      "limitations": [
+        "The entry covers 529 of the protein's 620 residues; the rest has no experimental coordinates in this set, and a predicted model never stands in for it.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

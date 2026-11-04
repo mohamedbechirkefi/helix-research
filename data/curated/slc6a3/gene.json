@@ -1,0 +1,136 @@
+{
+  "kind": "gene",
+  "id": {
+    "id": "ENSG00000142319",
+    "version": 21
+  },
+  "symbol": "SLC6A3",
+  "description": "solute carrier family 6 member 3 [Source:HGNC Symbol;Acc:HGNC:11049]",
+  "biotype": "protein_coding",
+  "interval": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "5",
+    "refSeqAccession": null,
+    "start": 1392794,
+    "end": 1445514,
+    "strand": -1,
+    "convention": "1-based-closed"
+  },
+  "hgncId": "HGNC:11049",
+  "aliases": [
+    "DAT"
+  ],
+  "ncbiGeneId": "6531",
+  "transcriptCount": 9,
+  "selection": {
+    "rule": "mane_select",
+    "selected": {
+      "id": "ENST00000270349",
+      "version": 12
+    },
+    "candidatesConsidered": 9,
+    "reason": "only transcript with MANE[].type == MANE_Select",
+    "warnings": []
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/lookup/id/ENSG00000142319?expand=1;mane=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:30Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENSG00000142319",
+        "recordVersion": "21",
+        "assembly": "GRCh38.p14",
+        "sha256": "738ffce5af6709bc2d6eb460310798824a1ed1bb88b49f055ed6e7eddd75cf25",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:25Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "homo_sapiens",
+        "recordVersion": "GRCh38.p14",
+        "assembly": "GRCh38.p14",
+        "sha256": "e3341c8fb448141c964f139d655eb4f60e954dc725b456b839ac002906bae418",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "hgnc",
+        "url": "https://rest.genenames.org/fetch/symbol/SLC6A3",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:39Z",
+        "sourceRelease": null,
+        "recordId": "HGNC:11049",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "652f3ca4ced43e8a73a41acca583053814b8c9a558e4a48d852dca68180923af",
+        "licence": "CC0-1.0",
+        "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "normalise-interval",
+      "select-transcript",
+      "hgnc-resolve"
+    ],
+    "validation": [
+      {
+        "check": "T01-gene-identity",
+        "result": "pass",
+        "detail": "ENSG00000142319.21 SLC6A3",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "assembly-grch38",
+        "result": "pass",
+        "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T02-transcript-selection",
+        "result": "pass",
+        "detail": "mane_select: ENST00000270349.12 (only transcript with MANE[].type == MANE_Select); 9 candidates",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T04-hgnc-resolution",
+        "result": "pass",
+        "detail": "SLC6A3 -> HGNC:11049 ENSG00000142319",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T04-alias-DAT",
+        "result": "pass",
+        "detail": "alias DAT -> ENSG00000142319",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000142319.20 vs ENSG00000142319.21; vep-swissprot-entry-version: Q01959.230 vs Q01959.233",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "SLC6A3 (ENSG00000142319.21) is annotated on GRCh38 chromosome 5:1392794-1445514, strand -1.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

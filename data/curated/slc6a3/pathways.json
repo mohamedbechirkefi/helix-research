@@ -1,0 +1,798 @@
+{
+  "kind": "pathway-memberships",
+  "derivedFrom": [
+    "protein-Q01959.json"
+  ],
+  "accession": "Q01959",
+  "species": "Homo sapiens",
+  "release": "98",
+  "membershipCount": 4,
+  "memberships": [
+    {
+      "stableId": "R-HSA-379401",
+      "stableIdVersion": "R-HSA-379401.6",
+      "name": "Dopamine clearance from the synaptic cleft",
+      "schemaClass": "Pathway",
+      "species": "Homo sapiens",
+      "isDisease": false,
+      "hasDiagram": false,
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-112316",
+          "name": "Neuronal System"
+        }
+      ],
+      "participantCount": null,
+      "isOpening": false
+    },
+    {
+      "stableId": "R-HSA-442660",
+      "stableIdVersion": "R-HSA-442660.4",
+      "name": "SLC-mediated transport of neurotransmitters",
+      "schemaClass": "Pathway",
+      "species": "Homo sapiens",
+      "isDisease": false,
+      "hasDiagram": true,
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-382551",
+          "name": "Transport of small molecules"
+        }
+      ],
+      "participantCount": 44,
+      "isOpening": true
+    },
+    {
+      "stableId": "R-HSA-5619081",
+      "stableIdVersion": "R-HSA-5619081.4",
+      "name": "Defective neurotransmitter clearance by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+      "schemaClass": "Pathway",
+      "species": "Homo sapiens",
+      "isDisease": true,
+      "hasDiagram": true,
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-1643685",
+          "name": "Disease"
+        }
+      ],
+      "participantCount": null,
+      "isOpening": false
+    },
+    {
+      "stableId": "R-HSA-5660724",
+      "stableIdVersion": "R-HSA-5660724.5",
+      "name": "Defective transport of neurotransmitters by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+      "schemaClass": "Pathway",
+      "species": "Homo sapiens",
+      "isDisease": true,
+      "hasDiagram": true,
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-1643685",
+          "name": "Disease"
+        }
+      ],
+      "participantCount": null,
+      "isOpening": false
+    }
+  ],
+  "participantsByPathway": [
+    {
+      "stableId": "R-HSA-442660",
+      "name": "SLC-mediated transport of neurotransmitters",
+      "topLevelPathways": [
+        {
+          "stableId": "R-HSA-382551",
+          "name": "Transport of small molecules"
+        }
+      ],
+      "participantCount": 44,
+      "participants": [
+        {
+          "dbId": 352060,
+          "displayName": "SLC6A15 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q9H2J7",
+              "identifier": "Q9H2J7",
+              "displayName": "UniProt:Q9H2J7 SLC6A15",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 83910,
+          "displayName": "Na+ [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 352048,
+          "displayName": "ligands of SLC6A15 [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 352051,
+          "displayName": "ligands of SLC6A15 [extracellular region]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 74113,
+          "displayName": "Na+ [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 444088,
+          "displayName": "SLC6A5,9 [plasma membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "P48067",
+              "identifier": "P48067",
+              "displayName": "UniProt:P48067 SLC6A9",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q9Y345",
+              "identifier": "Q9Y345",
+              "displayName": "UniProt:Q9Y345 SLC6A5",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 266029,
+          "displayName": "Gly [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 188972,
+          "displayName": "Cl- [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 29424,
+          "displayName": "Gly [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 352022,
+          "displayName": "Cl- [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 444009,
+          "displayName": "SLC6A2 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P23975",
+              "identifier": "P23975",
+              "displayName": "UniProt:P23975 SLC6A2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 374935,
+          "displayName": "NAd [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 209789,
+          "displayName": "NAd [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 375471,
+          "displayName": "SLC6A14 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q9UN76",
+              "identifier": "Q9UN76",
+              "displayName": "UniProt:Q9UN76 SLC6A14",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 375459,
+          "displayName": "SLC6A14 ligands [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 375468,
+          "displayName": "SLC6A14 ligands [extracellular region]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 936481,
+          "displayName": "SLC32A1 [synaptic vesicle membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q9H598",
+              "identifier": "Q9H598",
+              "displayName": "UniProt:Q9H598 SLC32A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 428548,
+          "displayName": "H+ [synaptic vesicle]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 428592,
+          "displayName": "Inhibitory amino acids [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 70106,
+          "displayName": "H+ [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 428632,
+          "displayName": "Inhibitory amino acids [synaptic vesicle]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 2901780,
+          "displayName": "SLC22A1,SLC22A2 [plasma membrane]",
+          "schemaClass": "CandidateSet",
+          "proteins": [
+            {
+              "accession": "O15245",
+              "identifier": "O15245",
+              "displayName": "UniProt:O15245 SLC22A1",
+              "isSetProtein": false
+            },
+            {
+              "accession": "O15244",
+              "identifier": "O15244",
+              "displayName": "UniProt:O15244 SLC22A2",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 375483,
+          "displayName": "SLC6A19 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q695T7",
+              "identifier": "Q695T7",
+              "displayName": "UniProt:Q695T7 SLC6A19",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 375481,
+          "displayName": "neutral amino acids [cytosol]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 375458,
+          "displayName": "neutral amino acids [extracellular region]",
+          "schemaClass": "DefinedSet",
+          "proteins": []
+        },
+        {
+          "dbId": 428606,
+          "displayName": "SLC17A6,7,8 [synaptic vesicle membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "Q9P2U7",
+              "identifier": "Q9P2U7",
+              "displayName": "UniProt:Q9P2U7 SLC17A7",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q9P2U8",
+              "identifier": "Q9P2U8",
+              "displayName": "UniProt:Q9P2U8 SLC17A6",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q8NDX2",
+              "identifier": "Q8NDX2",
+              "displayName": "UniProt:Q8NDX2 SLC17A8",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 29404,
+          "displayName": "L-Glu [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 428614,
+          "displayName": "L-Glu [synaptic vesicle]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 352058,
+          "displayName": "SLC6A20 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q9NP91",
+              "identifier": "Q9NP91",
+              "displayName": "UniProt:Q9NP91 SLC6A20",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 352033,
+          "displayName": "L-Pro [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 113538,
+          "displayName": "L-Pro [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 444015,
+          "displayName": "SLC6A4 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "P31645",
+              "identifier": "P31645",
+              "displayName": "UniProt:P31645 SLC6A4",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 114523,
+          "displayName": "5HT [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 209914,
+          "displayName": "5HT [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 379482,
+          "displayName": "SLC6A3 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q01959",
+              "identifier": "Q01959",
+              "displayName": "UniProt:Q01959 SLC6A3",
+              "isSetProtein": true
+            }
+          ]
+        },
+        {
+          "dbId": 380873,
+          "displayName": "DA [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 159362,
+          "displayName": "DA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 444137,
+          "displayName": "SLC6A7 [plasma membrane]",
+          "schemaClass": "EntityWithAccessionedSequence",
+          "proteins": [
+            {
+              "accession": "Q99884",
+              "identifier": "Q99884",
+              "displayName": "UniProt:Q99884 SLC6A7",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 444011,
+          "displayName": "SLC6A GABA transporters [plasma membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "Q9NSD5",
+              "identifier": "Q9NSD5",
+              "displayName": "UniProt:Q9NSD5 SLC6A13",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P48066",
+              "identifier": "P48066",
+              "displayName": "UniProt:P48066 SLC6A11",
+              "isSetProtein": false
+            },
+            {
+              "accession": "P30531",
+              "identifier": "P30531",
+              "displayName": "UniProt:P30531 SLC6A1",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 352003,
+          "displayName": "GABA [extracellular region]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 352011,
+          "displayName": "GABA [cytosol]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 8875842,
+          "displayName": "SLC25A18,A22 [mitochondrial inner membrane]",
+          "schemaClass": "DefinedSet",
+          "proteins": [
+            {
+              "accession": "Q9H936",
+              "identifier": "Q9H936",
+              "displayName": "UniProt:Q9H936 SLC25A22",
+              "isSetProtein": false
+            },
+            {
+              "accession": "Q9H1K4",
+              "identifier": "Q9H1K4",
+              "displayName": "UniProt:Q9H1K4 SLC25A18",
+              "isSetProtein": false
+            }
+          ]
+        },
+        {
+          "dbId": 113552,
+          "displayName": "L-Glu [mitochondrial matrix]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        },
+        {
+          "dbId": 113529,
+          "displayName": "H+ [mitochondrial matrix]",
+          "schemaClass": "SimpleEntity",
+          "proteins": []
+        }
+      ],
+      "proteins": [
+        {
+          "accession": "O15244",
+          "identifier": "O15244",
+          "displayName": "UniProt:O15244 SLC22A2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "O15245",
+          "identifier": "O15245",
+          "displayName": "UniProt:O15245 SLC22A1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P23975",
+          "identifier": "P23975",
+          "displayName": "UniProt:P23975 SLC6A2",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P30531",
+          "identifier": "P30531",
+          "displayName": "UniProt:P30531 SLC6A1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P31645",
+          "identifier": "P31645",
+          "displayName": "UniProt:P31645 SLC6A4",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P48066",
+          "identifier": "P48066",
+          "displayName": "UniProt:P48066 SLC6A11",
+          "isSetProtein": false
+        },
+        {
+          "accession": "P48067",
+          "identifier": "P48067",
+          "displayName": "UniProt:P48067 SLC6A9",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q01959",
+          "identifier": "Q01959",
+          "displayName": "UniProt:Q01959 SLC6A3",
+          "isSetProtein": true
+        },
+        {
+          "accession": "Q695T7",
+          "identifier": "Q695T7",
+          "displayName": "UniProt:Q695T7 SLC6A19",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q8NDX2",
+          "identifier": "Q8NDX2",
+          "displayName": "UniProt:Q8NDX2 SLC17A8",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q99884",
+          "identifier": "Q99884",
+          "displayName": "UniProt:Q99884 SLC6A7",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H1K4",
+          "identifier": "Q9H1K4",
+          "displayName": "UniProt:Q9H1K4 SLC25A18",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H2J7",
+          "identifier": "Q9H2J7",
+          "displayName": "UniProt:Q9H2J7 SLC6A15",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H598",
+          "identifier": "Q9H598",
+          "displayName": "UniProt:Q9H598 SLC32A1",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9H936",
+          "identifier": "Q9H936",
+          "displayName": "UniProt:Q9H936 SLC25A22",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9NP91",
+          "identifier": "Q9NP91",
+          "displayName": "UniProt:Q9NP91 SLC6A20",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9NSD5",
+          "identifier": "Q9NSD5",
+          "displayName": "UniProt:Q9NSD5 SLC6A13",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9P2U7",
+          "identifier": "Q9P2U7",
+          "displayName": "UniProt:Q9P2U7 SLC17A7",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9P2U8",
+          "identifier": "Q9P2U8",
+          "displayName": "UniProt:Q9P2U8 SLC17A6",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9UN76",
+          "identifier": "Q9UN76",
+          "displayName": "UniProt:Q9UN76 SLC6A14",
+          "isSetProtein": false
+        },
+        {
+          "accession": "Q9Y345",
+          "identifier": "Q9Y345",
+          "displayName": "UniProt:Q9Y345 SLC6A5",
+          "isSetProtein": false
+        }
+      ],
+      "listsSetProtein": true
+    }
+  ],
+  "openingPathway": {
+    "stableId": "R-HSA-442660",
+    "name": "SLC-mediated transport of neurotransmitters",
+    "rule": "fewest-participants-non-disease-with-diagram",
+    "candidates": [
+      {
+        "stableId": "R-HSA-442660",
+        "participantCount": 44
+      }
+    ],
+    "reason": "R-HSA-442660 (SLC-mediated transport of neurotransmitters) has the fewest participants (44) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance"
+  },
+  "participantsNote": "A participant is one participating physical entity Reactome returns for the pathway (a complex, a defined or candidate set, a protein with a sequence, a small molecule, ...) with the UniProt reference gene products Reactome lists among its members; complexes and sets are not expanded further than that list. Counts are of physical entities. The participants response does not state each entity's species; the pathway itself is a Homo sapiens pathway. Participants are kept for every candidate of the opening rule (non-disease, with a diagram); the memberships the rule excluded have none.",
+  "provenance": {
+    "sources": [
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/database/version",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:43Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "data/database/version",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/mapping/UniProt/Q01959/pathways?species=9606",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:44Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "UniProt Q01959 pathways, species 9606",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "dcff7103665487475346d63dcb0726f9307e7249c6fd0780a2ab76409bbfe0ae",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/event/R-HSA-379401/ancestors",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:45Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-379401 ancestors",
+        "recordVersion": "6",
+        "assembly": null,
+        "sha256": "103677b0fcc95c312188354547328b47805fd5ecf211c36334e2084c0e58e0a8",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/event/R-HSA-442660/ancestors",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:46Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-442660 ancestors",
+        "recordVersion": "4",
+        "assembly": null,
+        "sha256": "0d530a380ad5139ddcea238128f1a3cc1b3770bec56c29fade09915045410831",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/event/R-HSA-5619081/ancestors",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:46Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-5619081 ancestors",
+        "recordVersion": "4",
+        "assembly": null,
+        "sha256": "a56ca96d260b1fe44dc4b6e094bf28690ce77977de2b7125869cf39d89b9a6dd",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/event/R-HSA-5660724/ancestors",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:47Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-5660724 ancestors",
+        "recordVersion": "5",
+        "assembly": null,
+        "sha256": "27a830ca0da0276ddab6dc79d81c5fb005c1865a878b0f79c1c464a688d077c9",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      },
+      {
+        "source": "reactome",
+        "url": "https://reactome.org/ContentService/data/participants/R-HSA-442660",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:47Z",
+        "sourceRelease": "Reactome 98",
+        "recordId": "R-HSA-442660 participants",
+        "recordVersion": "4",
+        "assembly": null,
+        "sha256": "61825a4ab7c014e5c70820bad0053b271dafe23824756e550dd2bf33cbab5b95",
+        "licence": "CC0-1.0",
+        "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "sort-by-stable-id",
+      "top-level-from-ancestors",
+      "participants-of-rule-candidates",
+      "opening-by-rule",
+      "uniprot-proteins-from-reference-entities",
+      "flag-set-protein"
+    ],
+    "validation": [
+      {
+        "check": "T41-pathway-accession",
+        "result": "pass",
+        "detail": "memberships requested for Q01959; protein record Q01959; specification Q01959",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T42-pathway-memberships-human",
+        "result": "pass",
+        "detail": "4 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T43-pathway-top-level",
+        "result": "pass",
+        "detail": "R-HSA-379401 -> R-HSA-112316; R-HSA-442660 -> R-HSA-382551; R-HSA-5619081 -> R-HSA-1643685; R-HSA-5660724 -> R-HSA-1643685",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T44-opening-pathway-rule",
+        "result": "pass",
+        "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters) has the fewest participants (44) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-442660 44; excluded: R-HSA-379401 (no diagram), R-HSA-5619081 (a disease pathway), R-HSA-5660724 (a disease pathway)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T45-opening-pathway-participants",
+        "result": "pass",
+        "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters): 44 participating physical entities, 21 distinct UniProt proteins; the set's protein Q01959 is among them as Q01959 in SLC6A3 [plasma membrane] (EntityWithAccessionedSequence)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T46-candidate-participants",
+        "result": "pass",
+        "detail": "1 candidate(s): R-HSA-442660 44 entities, 21 proteins, set's protein listed",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Reactome 98 lists Q01959 in 4 human pathway(s); the participants of 1 candidate membership(s) are kept; the world opens on SLC-mediated transport of neurotransmitters (R-HSA-442660), the rule's choice.",
+      "qualifier": "Reactome database version 98",
+      "limitations": [
+        "Membership says that the protein takes part in a curated pathway, never how, and never that a variant changes the pathway.",
+        "The opening pathway is the rule's choice (fewest participating physical entities among the non-disease memberships with a diagram), not a statement of importance; no membership ranks above the others.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

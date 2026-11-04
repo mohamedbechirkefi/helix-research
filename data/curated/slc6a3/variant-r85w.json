@@ -1,0 +1,344 @@
+{
+  "kind": "variant",
+  "key": "NC_000005.10:g.1442945G>A",
+  "commonName": "R85W (p.Arg85Trp)",
+  "rsId": "rs1064795122",
+  "rsAlleles": [
+    "G",
+    "A"
+  ],
+  "allele": {
+    "reference": "G",
+    "alternate": "A",
+    "strand": 1
+  },
+  "location": {
+    "assembly": "GRCh38",
+    "assemblyPatch": "GRCh38.p14",
+    "seqRegion": "5",
+    "refSeqAccession": "NC_000005.10",
+    "start": 1442945,
+    "end": 1442945,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "locationGRCh37": {
+    "assembly": "GRCh37",
+    "assemblyPatch": null,
+    "seqRegion": "5",
+    "refSeqAccession": null,
+    "start": 1443060,
+    "end": 1443060,
+    "strand": 1,
+    "convention": "1-based-closed"
+  },
+  "hgvs": {
+    "genomic": "NC_000005.10:g.1442945G>A",
+    "coding": [
+      "ENST00000270349.12:c.253C>T",
+      "NM_001044.5:c.253C>T"
+    ],
+    "protein": [
+      "ENSP00000270349.9:p.Arg85Trp",
+      "NP_001035.1:p.Arg85Trp"
+    ]
+  },
+  "spdi": "NC_000005.10:1442944:G:A",
+  "transcript": {
+    "id": "ENST00000270349",
+    "version": 12
+  },
+  "cdsPosition": 253,
+  "cdnaPosition": 391,
+  "proteinChangeComputed": "p.Arg85Trp",
+  "numbering": {
+    "translatedPosition": 85,
+    "maturePosition": null,
+    "matureLabel": null,
+    "translatedLabel": "p.Arg85Trp (translated numbering, Met = 1)"
+  },
+  "consequence": {
+    "terms": [
+      "missense_variant"
+    ],
+    "codons": "Cgg/Tgg",
+    "source": "Ensembl VEP (Ensembl 116)"
+  },
+  "clinvar": {
+    "accession": "VCV000421417",
+    "accessionVersion": "VCV000421417.2",
+    "title": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+    "classification": "Likely pathogenic",
+    "reviewStatus": "criteria provided, single submitter",
+    "lastEvaluated": "2019/01/03 00:00",
+    "proteinChange": "R85W",
+    "supportingSubmissionCount": 1,
+    "traitCount": 1,
+    "traitNote": "Trait names are not stored: ClinVar aggregates them across submissions, so they are not a list of effects of this variant, and some carry proprietary identifiers."
+  },
+  "provenance": {
+    "sources": [
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/variant_recoder/human/rs1064795122?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:52:26Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "rs1064795122",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "77695343347dfe3dec359187e3f0e9f5768bf730597976d360db179d5a407dd8",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/variation/human/rs1064795122?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:15Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "rs1064795122",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "9360a22df2078bf99dd611da76a3999845a2dcdaab9a724565911d98fe4caaba",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000270349.12:c.253C>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:39Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000270349.12:c.253C>T",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "bfa5fc1ba15fb51d223a6b29e609a3fdadba94c4991a7afa7dccd0ba3100fae2",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/map/cds/ENST00000270349/253..255?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:52:54Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000270349 codon 85",
+        "recordVersion": "12",
+        "assembly": "GRCh38.p14",
+        "sha256": "9a050c7aa92c0ac0412d823b47918f36dd6ece7d64fca9b8650bd89d6092aa67",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/sequence/region/human/5:1442925..1442965:1?content-type=application/json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:52:29Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "chromosome:GRCh38:5:1442925:1442965:1",
+        "recordVersion": null,
+        "assembly": "GRCh38.p14",
+        "sha256": "7767afc77a5afbe36e3a543988920c2fa53841393f4722ec033f15c42d56cced",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "ensembl",
+        "url": "https://rest.ensembl.org/sequence/id/ENST00000270349?type=cds;content-type=text/x-fasta",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:43Z",
+        "sourceRelease": "Ensembl 116",
+        "recordId": "ENST00000270349.12",
+        "recordVersion": "12",
+        "assembly": "GRCh38.p14",
+        "sha256": "544cda0ca68436374cb74a1ed5c1b16a3df9cba4340bbf72e655b1cc376e617d",
+        "licence": "Ensembl-no-restrictions",
+        "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/Q01959.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:44Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "Q01959",
+        "recordVersion": "entry 233, sequence 1",
+        "assembly": null,
+        "sha256": "afbb2aa48a24022b4672c8d0d586cddc638d64eaa9d379f4a0efa2933cadab96",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      },
+      {
+        "source": "ncbi-clinvar",
+        "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=421417&retmode=json&tool=helix-research",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:42Z",
+        "sourceRelease": "ClinVar Build261101-1245.1",
+        "recordId": "VCV000421417",
+        "recordVersion": "2",
+        "assembly": "GRCh38",
+        "sha256": "44ee7fdd055cf09479cbdf5e46601af640b3c9952e298832497ca92712f57b99",
+        "licence": "NCBI-public-domain",
+        "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+      }
+    ],
+    "transformations": [
+      "select-allele",
+      "filter-hgvs-to-selected-transcript",
+      "apply-substitution-to-cds",
+      "translate-codon",
+      "exon-walk",
+      "mature-index",
+      "drop-trait-names"
+    ],
+    "validation": [
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-620",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T13-rsid-multiallelic",
+        "result": "pass",
+        "detail": "rs1064795122 alleles G/A (bi-allelic); A:p.Arg85Trp; recoder key(s) without a chromosome-level placement, not counted: T (NT_187547.1:g.128883C>A, NT_187547.1:128882:G:A)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T08-exon-walk-genomic",
+        "result": "pass",
+        "detail": "exon walk c.253 -> 1442945; hgvsg 1442945; variation 1442945",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T08-codon-span",
+        "result": "pass",
+        "detail": "own walk codon 85 -> 1442943-1442945; Ensembl map/cds 1442943-1442945 strand -1",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T09-forward-and-coding-base",
+        "result": "pass",
+        "detail": "forward-strand base at 1442945 = G; coding-strand c.253 = C",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T10-spdi-roundtrip",
+        "result": "pass",
+        "detail": "NC_000005.10:1442944:G:A <-> NC_000005.10:g.1442945G>A",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T11-codon-change",
+        "result": "pass",
+        "detail": "codon 85 CGG -> TGG; R -> W",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T12-hgvsp-agrees",
+        "result": "pass",
+        "detail": "computed p.Arg85Trp; variant_recoder ENSP00000270349.9:p.Arg85Trp, NP_001035.1:p.Arg85Trp",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T12-vep-agrees",
+        "result": "pass",
+        "detail": "VEP ENSP00000270349.9:p.Arg85Trp protein_start 85 cds_start 253 codons Cgg/Tgg",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "cdna-position",
+        "result": "pass",
+        "detail": "c.253 + 5' UTR 138 = 391; VEP cdna_start 391",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "p.85: UniProt residue R, HGVS ref R",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T17-mature-index",
+        "result": "pass",
+        "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T14-clinvar-record",
+        "result": "pass",
+        "detail": "VCV000421417.2 single nucleotide variant; spdi NC_000005.10:1442944:G:A; GRCh38 1442945; GRCh37 1443060; Likely pathogenic (criteria provided, single submitter)",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "reviewed-clinical-submission",
+      "statement": "ClinVar VCV000421417.2: Likely pathogenic.",
+      "qualifier": "criteria provided, single submitter",
+      "limitations": [
+        "Aggregate classification across submissions; not clinical advice and not a statement of causation for every trait listed."
+      ]
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); the variant is known to this set from ClinVar and the reference sequences only.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    },
+    {
+      "category": 3,
+      "categoryLabel": "Computational prediction with confidence/limitations",
+      "basis": "reference-sequence-derivation",
+      "statement": "ENST00000270349.12:c.253C>T changes codon 85 CGG to TGG, giving p.Arg85Trp by translation.",
+      "qualifier": null,
+      "limitations": [
+        "Theoretically deduced from the reference sequence (HGVS writes such consequences in parentheses)."
+      ]
+    },
+    {
+      "category": 3,
+      "categoryLabel": "Computational prediction with confidence/limitations",
+      "basis": "computational-prediction",
+      "statement": "VEP consequence on ENST00000270349: missense_variant.",
+      "qualifier": null,
+      "limitations": [
+        "Computational prediction; not an experimental observation."
+      ]
+    }
+  ],
+  "codon": {
+    "number": 85,
+    "reference": "CGG",
+    "alternate": "TGG",
+    "genomic": {
+      "assembly": "GRCh38",
+      "assemblyPatch": "GRCh38.p14",
+      "seqRegion": "5",
+      "refSeqAccession": null,
+      "start": 1442943,
+      "end": 1442945,
+      "strand": -1,
+      "convention": "1-based-closed"
+    }
+  },
+  "aminoAcids": {
+    "reference": "R",
+    "alternate": "W"
+  }
+}

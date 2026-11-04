@@ -1,0 +1,174 @@
+{
+  "kind": "residue-mapping",
+  "uniprotAccession": "Q01959",
+  "uniprotPosition": 85,
+  "uniprotResidue": "R",
+  "maturePosition": null,
+  "entryId": "8Y2C",
+  "entityId": "1",
+  "method": "sifts",
+  "crossChecks": [
+    {
+      "method": "global alignment of entity sequence to UniProt",
+      "agrees": true,
+      "detail": "offset 65, identity 1.0000, 0 mismatch(es): "
+    },
+    {
+      "method": "RCSB rcsb_polymer_entity_align (SIFTS provenance)",
+      "agrees": true,
+      "detail": "ref_beg 66 <-> entity_beg 1, length 555"
+    },
+    {
+      "method": "mmCIF _struct_ref_seq (not used)",
+      "agrees": true,
+      "detail": "agrees with SIFTS"
+    }
+  ],
+  "residues": [
+    {
+      "entryId": "8Y2C",
+      "assemblyId": "1",
+      "entityId": "1",
+      "labelAsymId": "A",
+      "labelSeqId": 20,
+      "authAsymId": "A",
+      "authSeqId": "85",
+      "insCode": null,
+      "compId": "ARG",
+      "authCompId": "ARG"
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "pdbe-sifts",
+        "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/8y2c",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": null,
+        "recordId": "8y2c",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "23785159a7dc708d083e192e6598c701ae6361bec49aeac6e948a309fc9294d2",
+        "licence": "CC0-1.0",
+        "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+      },
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/8Y2C.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "rcsb",
+        "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/8Y2C/1",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:41Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C_1",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "ef58ad9abba2ef8e0a73db5ad7dd89528ed3f66dfc8a77f122ff6c234e3bae58",
+        "licence": "CC0-1.0",
+        "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+      },
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/Q01959.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:44Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "Q01959",
+        "recordVersion": "entry 233, sequence 1",
+        "assembly": null,
+        "sha256": "afbb2aa48a24022b4672c8d0d586cddc638d64eaa9d379f4a0efa2933cadab96",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "sifts-segment-lookup",
+      "poly-seq-scheme-auth-ids",
+      "atom-site-residue-name",
+      "alignment-cross-check"
+    ],
+    "validation": [
+      {
+        "check": "T20-entity-by-sifts",
+        "result": "pass",
+        "detail": "1 polymer entities; SIFTS Q01959 -> entity 1, chains A; mmCIF strands A",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T21-alignment-cross-check",
+        "result": "pass",
+        "detail": "entity 555 aa vs UniProt 620 aa: offset 65, identity 1.0000, mismatches ; SIFTS offset 65",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T22-rcsb-align-agrees",
+        "result": "pass",
+        "detail": "RCSB rcsb_polymer_entity_align ref_beg 66 <-> entity_beg 1",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T40-variant-residue-observed",
+        "result": "pass",
+        "detail": "8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T23-residue-from-atom-site",
+        "result": "pass",
+        "detail": "A/A label 20 auth 85 ARG; structure carries the reference residue",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T37-full-chain-agrees-with-variant-mapping",
+        "result": "pass",
+        "detail": "position 85: table A85 ARG; variant mapping record A85 ARG",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T24-wrong-numbering-detectable",
+        "result": "pass",
+        "detail": "label 85 in A is LEU (not ARG); no distinct mature numbering, so no other numbering exists to land elsewhere",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T25-struct-ref-seq-not-trusted",
+        "result": "pass",
+        "detail": "SIFTS selects label 20 (ARG); _struct_ref_seq would select label 20 (ARG); 0 disagreement(s) recorded as known issues",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "experimental-structure-observation",
+      "statement": "Residue A 85 is ARG in the deposited coordinates of 8Y2C (atom_site).",
+      "qualifier": null,
+      "limitations": []
+    },
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "SIFTS maps Q01959 66-620 to 8Y2C entity 1 residues 1-555.",
+      "qualifier": "identity 1, coverage 0.895",
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

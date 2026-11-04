@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_SLC6A3.json	2026-11-03T23:53:39Z	200	652f3ca4ced43e8a73a41acca583053814b8c9a558e4a48d852dca68180923af	1814	GET	https://rest.genenames.org/fetch/symbol/SLC6A3	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-03: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 8eda18e003d5efab3bc9bc6640faee3c13eba45514e7d77a0fa428e3d6930b79

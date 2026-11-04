@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+download_8Y2C.cif	2026-11-03T23:53:40Z	200	d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3	471699	GET	https://files.rcsb.org/download/8Y2C.cif	"{""content-type"":""chemical/x-cif"",""last-modified"":""Thu, 25 Sep 2025 17:53:27 GMT"",""etag"":""\""d4d4b5d9fa1f5d4ff21148981579519b-enc\""""}"	
