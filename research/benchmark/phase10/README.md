@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
 # Phase 10 reliability benchmark: items and oracles
 
-**Status: written and annotated 2026-11-04; NOT frozen; freezing is the author's decision (G-FREEZE).**
+**Status: written and annotated 2026-11-04; FROZEN 2026-11-04 by the author (helix D-H023, G-FREEZE), together with prompt v7 (helix-research 6c6cfb7), with the two oracle decisions as written: showProteinDomains is refused when the record lists no domain-type feature; forbidden claims are scored by rule, with every flagged row read by hand. Any edit to the item files after this line is a new study.**
 
 This folder is item 1 of section 5 of `docs/phase-10-ai-explorer.md`: the benchmark set across the five curated genes (HBB, CFTR, BRCA1, SLC6A3, FAAH2), with follow-up sequences and injection items. Every oracle was written by hand from the curated records in `data/curated/<set>/` **before any model saw any item** (invariant 1). No model, no planner and no test suite was run to write it. Prompt v7 does not exist yet; none of these wordings may go into a prompt.
 
