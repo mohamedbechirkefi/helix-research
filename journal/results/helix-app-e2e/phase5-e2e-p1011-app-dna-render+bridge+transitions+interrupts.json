@@ -1,0 +1,1416 @@
+{
+ "date": "2026-11-04T02:47:19.599Z",
+ "tag": "p1011-app",
+ "chrome": "Chrome/156.0.8078.80",
+ "scenarios": {
+  "dna-render": {
+   "glContexts": 1,
+   "label": "Illustrative geometry, real sequenceENST00000335295.4 cDNA, 628 nt (Ensembl); helix shape not to scaleIllustrative · class 5",
+   "count": 628,
+   "sequenceMatches": true,
+   "templateMatches": true,
+   "colourMismatch": 0,
+   "pairMismatch": 0,
+   "stepMismatch": 0,
+   "clicks": [
+    {
+     "i": 77,
+     "base": "T",
+     "selected": 77,
+     "unit": "base",
+     "card": "77",
+     "link": "mapped",
+     "linkReason": null,
+     "codon": 10
+    },
+    {
+     "i": 75,
+     "base": "A",
+     "selected": 75,
+     "unit": "base",
+     "card": "75",
+     "link": "mapped",
+     "linkReason": null,
+     "codon": 9
+    },
+    {
+     "i": 76,
+     "base": "G",
+     "selected": 76,
+     "unit": "base",
+     "card": "76",
+     "link": "mapped",
+     "linkReason": null,
+     "codon": 9
+    },
+    {
+     "i": 44,
+     "base": "G",
+     "selected": 44,
+     "unit": "base",
+     "card": "44",
+     "link": "none",
+     "linkReason": "this base is in the 5' UTR, which is not translated",
+     "codon": null
+    },
+    {
+     "i": 43,
+     "base": "A",
+     "selected": 43,
+     "unit": "base",
+     "card": "43",
+     "link": "none",
+     "linkReason": "this base is in the 5' UTR, which is not translated",
+     "codon": null
+    },
+    {
+     "i": 45,
+     "base": "A",
+     "selected": 45,
+     "unit": "base",
+     "card": "45",
+     "link": "none",
+     "linkReason": "this base is in the 5' UTR, which is not translated",
+     "codon": null
+    }
+   ],
+   "pageErrors": [],
+   "owner": {
+    "samples": 345,
+    "both": 0,
+    "duringTransition": 0
+   }
+  },
+  "bridge": {
+   "codon7": {
+    "link": {
+     "codon": 7,
+     "proteinPosition": 7,
+     "structureResidues": [
+      {
+       "structureId": "2HBS",
+       "labelAsymId": "B",
+       "labelSeqId": 6,
+       "authAsymId": "B",
+       "authSeqId": 6,
+       "compId": "VAL"
+      },
+      {
+       "structureId": "2HBS",
+       "labelAsymId": "D",
+       "labelSeqId": 6,
+       "authAsymId": "D",
+       "authSeqId": 6,
+       "compId": "VAL"
+      },
+      {
+       "structureId": "2HBS",
+       "labelAsymId": "F",
+       "labelSeqId": 6,
+       "authAsymId": "F",
+       "authSeqId": 6,
+       "compId": "VAL"
+      },
+      {
+       "structureId": "2HBS",
+       "labelAsymId": "H",
+       "labelSeqId": 6,
+       "authAsymId": "H",
+       "authSeqId": 6,
+       "compId": "VAL"
+      }
+     ],
+     "status": "mapped",
+     "reason": null,
+     "from": "dna"
+    },
+    "selected": {
+     "structureId": "2HBS",
+     "chainId": "H",
+     "residueNumber": 6,
+     "compId": "VAL"
+    },
+    "text": "Selected codonSelected codonGCcDNA69 / 628Codingc.19Codon7 / 148Exon1 of 3RegionCDSCodon 7 of ENST00000335295.4: c.19, exon 1, GRCh38 chr11:5227003GAG (Glu) = P68871 p.Glu7; HbS (sickle haemoglobin): GAG to GTG (Val)Structure: VAL B6, VAL D6, VAL F6, VAL H6 in 2HBS (label = auth, mapping of record)1628"
+   },
+   "toProtein": {
+    "plan": [
+     "loadStructure",
+     "focusCamera",
+     "highlightResidue"
+    ],
+    "status": "completed",
+    "readback": [
+     "VAL B6",
+     "VAL D6",
+     "VAL F6",
+     "VAL H6"
+    ],
+    "focus": [
+     "VAL H6"
+    ],
+    "world": "protein"
+   },
+   "structureToDna": [
+    {
+     "aimed": "H6",
+     "picked": {
+      "structureId": "2HBS",
+      "chainId": "H",
+      "residueNumber": 6,
+      "compId": "VAL"
+     },
+     "sequenceSelection": {
+      "transcriptId": "ENST00000335295.4",
+      "index": 68,
+      "unit": "codon",
+      "codon": 7
+     },
+     "link": {
+      "status": "mapped",
+      "reason": null,
+      "from": "structure"
+     }
+    },
+    {
+     "aimed": "B6",
+     "picked": {
+      "structureId": "2HBS",
+      "chainId": "B",
+      "residueNumber": 6,
+      "compId": "VAL"
+     },
+     "sequenceSelection": {
+      "transcriptId": "ENST00000335295.4",
+      "index": 68,
+      "unit": "codon",
+      "codon": 7
+     },
+     "link": {
+      "status": "mapped",
+      "reason": null,
+      "from": "structure"
+     }
+    },
+    {
+     "aimed": "H12",
+     "picked": {
+      "structureId": "2HBS",
+      "chainId": "H",
+      "residueNumber": 12,
+      "compId": "THR"
+     },
+     "sequenceSelection": {
+      "transcriptId": "ENST00000335295.4",
+      "index": 86,
+      "unit": "codon",
+      "codon": 13
+     },
+     "link": {
+      "status": "mapped",
+      "reason": null,
+      "from": "structure"
+     }
+    },
+    {
+     "aimed": "A12",
+     "picked": {
+      "structureId": "2HBS",
+      "chainId": "A",
+      "residueNumber": 12,
+      "compId": "ALA"
+     },
+     "sequenceSelection": null,
+     "link": {
+      "status": "none",
+      "reason": "no curated residue mapping of record links ALA A12 of 2HBS to P68871 in this dataset",
+      "from": "structure"
+     }
+    },
+    {
+     "aimed": "C30",
+     "picked": {
+      "structureId": "2HBS",
+      "chainId": "A",
+      "residueNumber": 12,
+      "compId": "ALA"
+     },
+     "sequenceSelection": null,
+     "link": {
+      "status": "none",
+      "reason": "no curated residue mapping of record links ALA A12 of 2HBS to P68871 in this dataset",
+      "from": "structure"
+     }
+    }
+   ],
+   "codon1": {
+    "link": {
+     "codon": 1,
+     "proteinPosition": 1,
+     "structureResidues": [],
+     "status": "none",
+     "reason": "codon 1 encodes the initiator Met (p.1), which P68871 records as removed; the mature chain starts at p.2, so no structure of the mature protein has a residue for it",
+     "from": "dna"
+    },
+    "highlighted": null,
+    "text": "No structure residue: codon 1 encodes the initiator Met (p.1), which P68871 records as removed; the mature chain starts at p.2, so no structure of the mature protein has a residue for it"
+   },
+   "codon1Protein": {
+    "plan": [
+     "enterWorld"
+    ],
+    "readback": [],
+    "highlighted": null
+   },
+   "stopCodon": {
+    "codon": 148,
+    "proteinPosition": null,
+    "structureResidues": [],
+    "status": "none",
+    "reason": "codon 148 (TAA) is the stop codon; it encodes no residue",
+    "from": "dna"
+   },
+   "owner": {
+    "samples": 562,
+    "both": 0,
+    "duringTransition": 0
+   },
+   "pageErrors": []
+  },
+  "transitions": {
+   "rows": [
+    {
+     "i": 1,
+     "cold": {
+      "wallMs": 1878,
+      "runMs": 1833.2,
+      "actions": [
+       "loadStructure",
+       "focusCamera",
+       "highlightResidue"
+      ],
+      "fade": {
+       "id": "t1",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 711.2,
+       "frames": 43,
+       "maxFrameMs": 19.2
+      }
+     },
+     "toDna": {
+      "wallMs": 776,
+      "runMs": 720.9,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t2",
+       "from": "protein",
+       "to": "dna",
+       "status": "completed",
+       "ms": 713.8,
+       "frames": 43,
+       "maxFrameMs": 27.1
+      }
+     },
+     "warm": {
+      "wallMs": 777,
+      "runMs": 719.4,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t3",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 711.7,
+       "frames": 43,
+       "maxFrameMs": 18.5
+      }
+     },
+     "dnaRestored": {
+      "before": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      },
+      "after": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      }
+     },
+     "molCameraMovedA": 0,
+     "selectionKept": [
+      7,
+      7,
+      7
+     ],
+     "readbackKept": [
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ]
+     ],
+     "hiddenMolstarKeptStructure": 1,
+     "worlds": [
+      "protein",
+      "dna",
+      "protein"
+     ],
+     "owners": [
+      "molstar",
+      "r3f",
+      "molstar"
+     ],
+     "layers": [
+      {
+       "dna": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       },
+       "protein": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       }
+      },
+      {
+       "dna": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       },
+       "protein": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       }
+      }
+     ],
+     "owner": {
+      "samples": 273,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "i": 2,
+     "cold": {
+      "wallMs": 1915,
+      "runMs": 1863.1,
+      "actions": [
+       "loadStructure",
+       "focusCamera",
+       "highlightResidue"
+      ],
+      "fade": {
+       "id": "t1",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 716,
+       "frames": 43,
+       "maxFrameMs": 17.9
+      }
+     },
+     "toDna": {
+      "wallMs": 776,
+      "runMs": 707.4,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t2",
+       "from": "protein",
+       "to": "dna",
+       "status": "completed",
+       "ms": 701.4,
+       "frames": 43,
+       "maxFrameMs": 18.6
+      }
+     },
+     "warm": {
+      "wallMs": 754,
+      "runMs": 720.8,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t3",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 711.3,
+       "frames": 43,
+       "maxFrameMs": 18.7
+      }
+     },
+     "dnaRestored": {
+      "before": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      },
+      "after": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      }
+     },
+     "molCameraMovedA": 0,
+     "selectionKept": [
+      7,
+      7,
+      7
+     ],
+     "readbackKept": [
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ]
+     ],
+     "hiddenMolstarKeptStructure": 1,
+     "worlds": [
+      "protein",
+      "dna",
+      "protein"
+     ],
+     "owners": [
+      "molstar",
+      "r3f",
+      "molstar"
+     ],
+     "layers": [
+      {
+       "dna": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       },
+       "protein": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       }
+      },
+      {
+       "dna": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       },
+       "protein": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       }
+      }
+     ],
+     "owner": {
+      "samples": 274,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "i": 3,
+     "cold": {
+      "wallMs": 1893,
+      "runMs": 1818.7,
+      "actions": [
+       "loadStructure",
+       "focusCamera",
+       "highlightResidue"
+      ],
+      "fade": {
+       "id": "t1",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 711.9,
+       "frames": 43,
+       "maxFrameMs": 19.2
+      }
+     },
+     "toDna": {
+      "wallMs": 774,
+      "runMs": 721.2,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t2",
+       "from": "protein",
+       "to": "dna",
+       "status": "completed",
+       "ms": 713.4,
+       "frames": 43,
+       "maxFrameMs": 32.4
+      }
+     },
+     "warm": {
+      "wallMs": 751,
+      "runMs": 722.3,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t3",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 712,
+       "frames": 43,
+       "maxFrameMs": 18.3
+      }
+     },
+     "dnaRestored": {
+      "before": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      },
+      "after": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      }
+     },
+     "molCameraMovedA": 0,
+     "selectionKept": [
+      7,
+      7,
+      7
+     ],
+     "readbackKept": [
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ]
+     ],
+     "hiddenMolstarKeptStructure": 1,
+     "worlds": [
+      "protein",
+      "dna",
+      "protein"
+     ],
+     "owners": [
+      "molstar",
+      "r3f",
+      "molstar"
+     ],
+     "layers": [
+      {
+       "dna": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       },
+       "protein": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       }
+      },
+      {
+       "dna": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       },
+       "protein": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       }
+      }
+     ],
+     "owner": {
+      "samples": 273,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "i": 4,
+     "cold": {
+      "wallMs": 1940,
+      "runMs": 1872.8,
+      "actions": [
+       "loadStructure",
+       "focusCamera",
+       "highlightResidue"
+      ],
+      "fade": {
+       "id": "t1",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 714.4,
+       "frames": 43,
+       "maxFrameMs": 18.5
+      }
+     },
+     "toDna": {
+      "wallMs": 774,
+      "runMs": 722.5,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t2",
+       "from": "protein",
+       "to": "dna",
+       "status": "completed",
+       "ms": 714.6,
+       "frames": 43,
+       "maxFrameMs": 28.1
+      }
+     },
+     "warm": {
+      "wallMs": 782,
+      "runMs": 720.2,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t3",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 711.7,
+       "frames": 43,
+       "maxFrameMs": 18.6
+      }
+     },
+     "dnaRestored": {
+      "before": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      },
+      "after": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      }
+     },
+     "molCameraMovedA": 0,
+     "selectionKept": [
+      7,
+      7,
+      7
+     ],
+     "readbackKept": [
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ]
+     ],
+     "hiddenMolstarKeptStructure": 1,
+     "worlds": [
+      "protein",
+      "dna",
+      "protein"
+     ],
+     "owners": [
+      "molstar",
+      "r3f",
+      "molstar"
+     ],
+     "layers": [
+      {
+       "dna": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       },
+       "protein": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       }
+      },
+      {
+       "dna": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       },
+       "protein": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       }
+      }
+     ],
+     "owner": {
+      "samples": 275,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "i": 5,
+     "cold": {
+      "wallMs": 1951,
+      "runMs": 1875.3,
+      "actions": [
+       "loadStructure",
+       "focusCamera",
+       "highlightResidue"
+      ],
+      "fade": {
+       "id": "t1",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 713.7,
+       "frames": 43,
+       "maxFrameMs": 18.8
+      }
+     },
+     "toDna": {
+      "wallMs": 784,
+      "runMs": 708.2,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t2",
+       "from": "protein",
+       "to": "dna",
+       "status": "completed",
+       "ms": 700.7,
+       "frames": 43,
+       "maxFrameMs": 18.5
+      }
+     },
+     "warm": {
+      "wallMs": 750,
+      "runMs": 721.1,
+      "actions": [
+       "enterWorld"
+      ],
+      "fade": {
+       "id": "t3",
+       "from": "dna",
+       "to": "protein",
+       "status": "completed",
+       "ms": 712.2,
+       "frames": 43,
+       "maxFrameMs": 18.6
+      }
+     },
+     "dnaRestored": {
+      "before": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      },
+      "after": {
+       "c": -83.13000000000001,
+       "d": 10.2
+      }
+     },
+     "molCameraMovedA": 0,
+     "selectionKept": [
+      7,
+      7,
+      7
+     ],
+     "readbackKept": [
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ],
+      [
+       "VAL B6",
+       "VAL D6",
+       "VAL F6",
+       "VAL H6"
+      ]
+     ],
+     "hiddenMolstarKeptStructure": 1,
+     "worlds": [
+      "protein",
+      "dna",
+      "protein"
+     ],
+     "owners": [
+      "molstar",
+      "r3f",
+      "molstar"
+     ],
+     "layers": [
+      {
+       "dna": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       },
+       "protein": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       }
+      },
+      {
+       "dna": {
+        "opacity": 1,
+        "pointerEvents": "auto",
+        "visibility": "visible"
+       },
+       "protein": {
+        "opacity": 0,
+        "pointerEvents": "none",
+        "visibility": "hidden"
+       }
+      }
+     ],
+     "owner": {
+      "samples": 274,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    }
+   ],
+   "summary": {
+    "coldRunMs": {
+     "n": 5,
+     "min": 1818.7,
+     "median": 1863.1,
+     "max": 1875.3,
+     "mean": 1852.6
+    },
+    "toDnaRunMs": {
+     "n": 5,
+     "min": 707.4,
+     "median": 720.9,
+     "max": 722.5,
+     "mean": 716
+    },
+    "warmRunMs": {
+     "n": 5,
+     "min": 719.4,
+     "median": 720.8,
+     "max": 722.3,
+     "mean": 720.8
+    },
+    "coldWallMs": {
+     "n": 5,
+     "min": 1878,
+     "median": 1915,
+     "max": 1951,
+     "mean": 1915.4
+    },
+    "fadeMs": {
+     "n": 15,
+     "min": 700.7,
+     "median": 712,
+     "max": 716,
+     "mean": 711.3
+    },
+    "fadeMaxFrameMs": {
+     "n": 15,
+     "min": 17.9,
+     "median": 18.6,
+     "max": 32.4,
+     "mean": 20.7
+    }
+   }
+  },
+  "interrupts": {
+   "rows": [
+    {
+     "via": "stop",
+     "kind": "cold-to-protein",
+     "interruptLatencyMs": 34,
+     "navStatus": "cancelled",
+     "navReason": "cancelled by the user",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.891329,
+     "selection": 7,
+     "structure": null,
+     "molStructures": 0,
+     "highlighted": null,
+     "readback": [],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": null,
+     "recovery": "completed",
+     "owner": {
+      "samples": 411,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "stop",
+     "kind": "warm-to-protein",
+     "interruptLatencyMs": 41,
+     "navStatus": "cancelled",
+     "navReason": "cancelled by the user",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.892661,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 774,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "stop",
+     "kind": "to-dna",
+     "interruptLatencyMs": 42,
+     "navStatus": "cancelled",
+     "navReason": "cancelled by the user",
+     "world": "protein",
+     "visible": "protein",
+     "pointerOwner": "molstar",
+     "layers": {
+      "dna": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      },
+      "protein": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      }
+     },
+     "midOpacity": 0.108796,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       2.4
+      ],
+      "after": [
+       -83.13000000000001,
+       2.4
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 590,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "escape",
+     "kind": "cold-to-protein",
+     "interruptLatencyMs": 26,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (Escape)",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.891887,
+     "selection": 7,
+     "structure": null,
+     "molStructures": 0,
+     "highlighted": null,
+     "readback": [],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": null,
+     "recovery": "completed",
+     "owner": {
+      "samples": 412,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "escape",
+     "kind": "warm-to-protein",
+     "interruptLatencyMs": 12,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (Escape)",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.892754,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 773,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "escape",
+     "kind": "to-dna",
+     "interruptLatencyMs": 18,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (Escape)",
+     "world": "protein",
+     "visible": "protein",
+     "pointerOwner": "molstar",
+     "layers": {
+      "dna": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      },
+      "protein": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      }
+     },
+     "midOpacity": 0.118033,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       2.4
+      ],
+      "after": [
+       -83.13000000000001,
+       2.4
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 591,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "pointer",
+     "kind": "cold-to-protein",
+     "interruptLatencyMs": 30,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (pointer on the stage)",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.891422,
+     "selection": 7,
+     "structure": null,
+     "molStructures": 0,
+     "highlighted": null,
+     "readback": [],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": null,
+     "recovery": "completed",
+     "owner": {
+      "samples": 412,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "pointer",
+     "kind": "warm-to-protein",
+     "interruptLatencyMs": 30,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (pointer on the stage)",
+     "world": "dna",
+     "visible": "dna",
+     "pointerOwner": "r3f",
+     "layers": {
+      "dna": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      },
+      "protein": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      }
+     },
+     "midOpacity": 0.892476,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       10.2
+      ],
+      "after": [
+       -83.13000000000001,
+       10.2
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 772,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    },
+    {
+     "via": "pointer",
+     "kind": "to-dna",
+     "interruptLatencyMs": 30,
+     "navStatus": "cancelled",
+     "navReason": "interrupted by the user (pointer on the stage)",
+     "world": "protein",
+     "visible": "protein",
+     "pointerOwner": "molstar",
+     "layers": {
+      "dna": {
+       "opacity": 0,
+       "pointerEvents": "none",
+       "visibility": "hidden"
+      },
+      "protein": {
+       "opacity": 1,
+       "pointerEvents": "auto",
+       "visibility": "visible"
+      }
+     },
+     "midOpacity": 0.112401,
+     "selection": 7,
+     "structure": "2HBS",
+     "molStructures": 1,
+     "highlighted": "HbS_substitution",
+     "readback": [
+      "VAL B6",
+      "VAL D6",
+      "VAL F6",
+      "VAL H6"
+     ],
+     "rigGoal": {
+      "before": [
+       -83.13000000000001,
+       2.4
+      ],
+      "after": [
+       -83.13000000000001,
+       2.4
+      ]
+     },
+     "molCameraMovedA": 0,
+     "recovery": "completed",
+     "owner": {
+      "samples": 592,
+      "both": 0,
+      "duringTransition": 0
+     },
+     "pageErrors": []
+    }
+   ],
+   "summary": {
+    "interruptLatencyMs": {
+     "n": 9,
+     "min": 12,
+     "median": 30,
+     "max": 42,
+     "mean": 29.2
+    }
+   }
+  }
+ },
+ "failures": []
+}
