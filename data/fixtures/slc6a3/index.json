@@ -1,0 +1,134 @@
+{
+  "description": "Offline fixtures for the slc6a3 set, recorded by scripts/data-preparation/build-gene.ts --gene slc6a3 --record-fixtures on 2026-11-03 from the live responses, redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/info_data.json"
+    },
+    "ensemblAssembly": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/info_assembly_homo_sapiens.json"
+    },
+    "geneLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json"
+    },
+    "transcriptLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/lookup_id_ENST00000270349_expand_1_utr_1_mane_1.json"
+    },
+    "cds": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/sequence_id_ENST00000270349_type_cds.fa"
+    },
+    "cdna": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/sequence_id_ENST00000270349_type_cdna.fa"
+    },
+    "ensemblProtein": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/sequence_id_ENSP00000270349.fa"
+    },
+    "genomicWindow": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/sequence_region_human_5_1442925..1442965_1.json"
+    },
+    "codonMap": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/map_cds_ENST00000270349_253..255.json"
+    },
+    "variation": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/variation_human_rs1064795122.json"
+    },
+    "variantRecoder": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/variant_recoder_human_rs1064795122_fields_id_hgvsg_hgvsc_hgvsp_spdi.json"
+    },
+    "vep": {
+      "source": "ensembl",
+      "path": "data/fixtures/slc6a3/ensembl/vep_human_hgvs_ENST00000270349.12_c.253C_3ET_hgvs_1_mane_1_canonical_1_uniprot_1.json"
+    },
+    "uniprot": {
+      "source": "uniprot",
+      "path": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json"
+    },
+    "mmcif": {
+      "source": "rcsb-files",
+      "path": "data/fixtures/slc6a3/rcsb-files/download_8Y2C.cif"
+    },
+    "rcsbEntry": {
+      "source": "rcsb",
+      "path": "data/fixtures/slc6a3/rcsb/rest_v1_core_entry_8Y2C.json"
+    },
+    "rcsbPolymerEntity": {
+      "source": "rcsb",
+      "path": "data/fixtures/slc6a3/rcsb/rest_v1_core_polymer_entity_8Y2C_1.json"
+    },
+    "rcsbAssembly": {
+      "source": "rcsb",
+      "path": "data/fixtures/slc6a3/rcsb/rest_v1_core_assembly_8Y2C_1.json"
+    },
+    "sifts": {
+      "source": "pdbe-sifts",
+      "path": "data/fixtures/slc6a3/pdbe-sifts/pdbe_api_mappings_uniprot_8y2c.json"
+    },
+    "clinvarSearch": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs1064795122_retmode_json_retmax_100_tool_helix-research.json"
+    },
+    "clinvar": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json"
+    },
+    "clinvarEinfo": {
+      "source": "ncbi-clinvar",
+      "path": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_einfo.fcgi_db_clinvar_retmode_json_tool_helix-research.json"
+    },
+    "hgnc": {
+      "source": "hgnc",
+      "path": "data/fixtures/slc6a3/hgnc/fetch_symbol_SLC6A3.json"
+    },
+    "alphafoldPrediction": {
+      "source": "alphafold",
+      "path": "data/fixtures/slc6a3/alphafold/api_prediction_Q01959.json"
+    },
+    "alphafoldModel": {
+      "source": "alphafold",
+      "path": "data/fixtures/slc6a3/alphafold/files_AF-Q01959-F1-model_v6.cif"
+    },
+    "reactomeVersion": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_database_version.json"
+    },
+    "reactomePathways": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_mapping_UniProt_Q01959_pathways_species_9606.json"
+    },
+    "reactomeAncestors:R-HSA-379401": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-379401_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-442660": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-442660_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5619081": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-5619081_ancestors.json"
+    },
+    "reactomeAncestors:R-HSA-5660724": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-5660724_ancestors.json"
+    },
+    "reactomeParticipants:R-HSA-442660": {
+      "source": "reactome",
+      "path": "data/fixtures/slc6a3/reactome/ContentService_data_participants_R-HSA-442660.json"
+    },
+    "opentargetsAssociations": {
+      "source": "opentargets",
+      "path": "data/fixtures/slc6a3/opentargets/api_v4_graphql.json"
+    }
+  },
+  "extra": {}
+}

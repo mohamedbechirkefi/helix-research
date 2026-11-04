@@ -1,0 +1,254 @@
+{
+  "purpose": "Phase 9 plan section 15 rule 1: the reference variant chosen by rule. One ClinVar esearch for the gene's missense variants classified Pathogenic or Likely pathogenic, one esummary for the uids, the summaries filtered on ClinVar's own words (classification; review status of at least minStars; a single-nucleotide single variant with a dbSNP id whose protein change is a substitution p.Xxx000Yyy) and ranked by review status, then supporting submissions, then accession number; then, in rank order, the structure candidate check (plan section 11 rule 4) over the UniProt entry's PDB cross-references that cover the residue, in UniProt's order. The first candidate whose residue is observed in a kept entry (wild type over the mapped segments, no declared mutation) is the choice, with that entry. Nothing here chooses a variant for being interesting; the specification's notes cite this report.",
+  "script": "scripts/data-preparation/find-variant.ts",
+  "startedAt": "2026-11-03T23:45:13Z",
+  "finishedAt": "2026-11-03T23:45:14Z",
+  "gitCommit": "6cc33a88a2ed9f82314f22125a4400e4b902dd7a",
+  "gitDirty": true,
+  "userAgent": "helix-research",
+  "symbol": "SLC6A3",
+  "accession": "Q01959",
+  "uniprot": {
+    "release": "2026_03",
+    "releaseDate": "02-September-2026",
+    "length": 620,
+    "pdbCrossReferences": 17
+  },
+  "clinvar": {
+    "term": "SLC6A3[gene] AND (\"clinsig pathogenic\"[Properties] OR \"clinsig likely pathogenic\"[Properties]) AND \"missense variant\"[Molecular consequence]",
+    "retmax": 100,
+    "esearch": {
+      "count": 6,
+      "returned": 6,
+      "capped": false
+    },
+    "recorded": {
+      "esearch": "research/raw/ncbi-clinvar/esearch_SLC6A3_missense_pathogenic.json",
+      "esummary": "research/raw/ncbi-clinvar/esummary_SLC6A3_missense_pathogenic_ids.json"
+    },
+    "filters": {
+      "classifications": [
+        "Pathogenic",
+        "Likely pathogenic",
+        "Pathogenic/Likely pathogenic"
+      ],
+      "minStars": 2,
+      "molecularConsequence": "missense variant",
+      "variantType": "single nucleotide variant",
+      "dbSnpId": "required",
+      "proteinChange": "p.Xxx000Yyy (frameshift, nonsense, deletion, duplication, insertion, synonymous skipped with the reason)"
+    }
+  },
+  "ranking": [
+    "review status (ClinVar's star level, practice guideline 4, expert panel 3, multiple submitters no conflicts 2)",
+    "supporting submissions (SCV count) descending",
+    "ClinVar accession number ascending"
+  ],
+  "structureRule": "lib/structure-candidates.ts over the UniProt PDB cross-references whose Chains property covers the residue, in UniProt's order; kept = residue observed in atom_site (model 1) on every mapped chain, entity equal to UniProt over the SIFTS-mapped segments, no pdbx_mutation; the structure responses are not kept here (the chosen entry's are recorded by the set's fixtures)",
+  "entriesFetched": [],
+  "stoppedBecause": "no eligible candidate",
+  "counts": {
+    "summarised": 6,
+    "eligible": 0,
+    "skipped": 6,
+    "structureChecked": 0,
+    "skippedByReason": {
+      "review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2); no dbSNP id among the variation cross-references": 1,
+      "review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2)": 2,
+      "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)": 3
+    }
+  },
+  "chosen": null,
+  "candidates": [
+    {
+      "uid": "4969368",
+      "accession": "VCV004969368",
+      "accessionVersion": "VCV004969368.1",
+      "accessionNumber": 4969368,
+      "title": "NM_001044.5(SLC6A3):c.941C>T (p.Ala314Val)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [],
+      "proteinChange": {
+        "hgvsP": "p.Ala314Val",
+        "referenceThree": "Ala",
+        "position": 314,
+        "alternateThree": "Val",
+        "referenceOne": "A",
+        "alternateOne": "V"
+      },
+      "skipReason": "review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2); no dbSNP id among the variation cross-references",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2); no dbSNP id among the variation cross-references"
+    },
+    {
+      "uid": "2054045",
+      "accession": "VCV002054045",
+      "accessionVersion": "VCV002054045.4",
+      "accessionNumber": 2054045,
+      "title": "NM_001044.5(SLC6A3):c.1156G>A (p.Gly386Arg)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs2126353885"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Gly386Arg",
+        "referenceThree": "Gly",
+        "position": 386,
+        "alternateThree": "Arg",
+        "referenceOne": "G",
+        "alternateOne": "R"
+      },
+      "skipReason": "review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2)"
+    },
+    {
+      "uid": "421417",
+      "accession": "VCV000421417",
+      "accessionVersion": "VCV000421417.2",
+      "accessionNumber": 421417,
+      "title": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs1064795122"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Arg85Trp",
+        "referenceThree": "Arg",
+        "position": 85,
+        "alternateThree": "Trp",
+        "referenceOne": "R",
+        "alternateOne": "W"
+      },
+      "skipReason": "review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"criteria provided, single submitter\" is 1 star (the rule asks for at least 2)"
+    },
+    {
+      "uid": "97017",
+      "accession": "VCV000097017",
+      "accessionVersion": "VCV000097017.1",
+      "accessionNumber": 97017,
+      "title": "NM_001044.5(SLC6A3):c.671T>C (p.Leu224Pro)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs431905515"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Leu224Pro",
+        "referenceThree": "Leu",
+        "position": 224,
+        "alternateThree": "Pro",
+        "referenceOne": "L",
+        "alternateOne": "P"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)"
+    },
+    {
+      "uid": "16764",
+      "accession": "VCV000016764",
+      "accessionVersion": "VCV000016764.1",
+      "accessionNumber": 16764,
+      "title": "NM_001044.5(SLC6A3):c.1184C>T (p.Pro395Leu)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs267607069"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Pro395Leu",
+        "referenceThree": "Pro",
+        "position": 395,
+        "alternateThree": "Leu",
+        "referenceOne": "P",
+        "alternateOne": "L"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)"
+    },
+    {
+      "uid": "16763",
+      "accession": "VCV000016763",
+      "accessionVersion": "VCV000016763.1",
+      "accessionNumber": 16763,
+      "title": "NM_001044.5(SLC6A3):c.1103T>A (p.Leu368Gln)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs267607068"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Leu368Gln",
+        "referenceThree": "Leu",
+        "position": 368,
+        "alternateThree": "Gln",
+        "referenceOne": "L",
+        "alternateOne": "Q"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 2)"
+    }
+  ]
+}

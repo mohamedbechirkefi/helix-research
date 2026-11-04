@@ -5,6 +5,9 @@ import { fixtureIndex, fixtureJson, fixtureText, loadFixtureInputs, loadRaw } fr
 import {
   AlphafoldAdapter,
   ClinvarAdapter,
+  clinvarGeneMissensePathogenicTerm,
+  clinvarUrls,
+  parseClinvarEsearchTranslation,
   EnsemblAdapter,
   HgncAdapter,
   HttpClient,
@@ -149,6 +152,30 @@ describe("RCSB, SIFTS, ClinVar, HGNC, AlphaFold adapters (recorded fixtures)", (
     expect(asked).toBe("https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research");
     expect(asked).not.toMatch(/email/i);
     await expect(new ClinvarAdapter(h).esearchRs("HBB[gene] OR 1=1")).rejects.toBeInstanceOf(InvalidParameterError);
+  });
+  it("ClinVar gene esearch (Phase 9, P9.2.3): the term from the symbol and ClinVar's fields, tool parameter only, retmax capped; the translation stack is read back", async () => {
+    expect(clinvarGeneMissensePathogenicTerm("SLC6A3")).toBe('SLC6A3[gene] AND ("clinsig pathogenic"[Properties] OR "clinsig likely pathogenic"[Properties]) AND "missense variant"[Molecular consequence]');
+    const url = clinvarUrls.esearchGeneMissensePathogenic("SLC6A3");
+    expect(url).toBe(`https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=${encodeURIComponent(clinvarGeneMissensePathogenicTerm("SLC6A3"))}&retmode=json&retmax=100&tool=helix-research`);
+    expect(url).not.toMatch(/email|api_key/i);
+    expect(() => clinvarUrls.esearchGeneMissensePathogenic("HBB[gene] OR 1=1")).toThrow(InvalidParameterError);
+    expect(() => clinvarUrls.esearchGeneMissensePathogenic("SLC6A3", 101)).toThrow(InvalidParameterError);
+    const body = { header: { type: "esearch", version: "0.3" }, esearchresult: { count: "6", retmax: "6", retstart: "0", idlist: ["4969368", "16763"], translationset: [], translationstack: [{ term: "SLC6A3[gene]", field: "gene", count: "729", explode: "N" }, { term: '"clinsig pathogenic"[Properties]', field: "Properties", count: "266140", explode: "N" }, "OR", "AND"], querytranslation: "SLC6A3[gene] AND ..." } };
+    let asked = "";
+    const h = new HttpClient({ fetch: async (u) => ((asked = String(u)), new Response(JSON.stringify(body))) });
+    const { data } = await new ClinvarAdapter(h).esearchGeneMissensePathogenic("SLC6A3", 50);
+    expect([data.count, data.uids, asked.includes("retmax=50")]).toEqual([6, ["4969368", "16763"], true]);
+    expect(parseClinvarEsearchTranslation(body)).toEqual({ queryTranslation: "SLC6A3[gene] AND ...", clauses: [{ term: "SLC6A3[gene]", field: "gene", count: 729 }, { term: '"clinsig pathogenic"[Properties]', field: "Properties", count: 266140 }], phrasesNotFound: [], fieldsNotFound: [], phrasesIgnored: [] });
+    expect(parseClinvarEsearchTranslation({ esearchresult: { count: "0", idlist: [], errorlist: { phrasesnotfound: ["clinsig nonsense"], fieldsnotfound: [] }, warninglist: { phrasesignored: ["and"], quotedphrasenotfound: [], outputmessages: ["No items found."] } } })).toMatchObject({ phrasesNotFound: ["clinsig nonsense"], phrasesIgnored: ["and"] });
+  });
+  it("ClinVar esummary (Phase 9, P9.2.3) also reads the variation names, variant types, dbSNP ids and molecular consequences", async () => {
+    const h = new HttpClient({ fetch: async () => new Response(inputs.clinvar.body) });
+    const recs = (await new ClinvarAdapter(h).esummary(["15333"])).data;
+    const hbs = recs.find((r) => r.uid === "15333")!;
+    expect(hbs.variationNames).toEqual([hbs.title]);
+    expect(hbs.variantTypes).toEqual(["single nucleotide variant"]);
+    expect(hbs.dbSnpIds).toEqual(["rs334"]);
+    expect(hbs.molecularConsequences).toContain("missense variant");
   });
   it("HGNC symbol fetch (H1) sends only the CORS-safelisted Accept header", async () => {
     let sent: HeadersInit | undefined;

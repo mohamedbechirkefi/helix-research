@@ -1,0 +1,510 @@
+{
+  "kind": "protein",
+  "accession": "Q01959",
+  "entryName": "SC6A3_HUMAN",
+  "reviewed": true,
+  "isoform": {
+    "isoformId": "canonical",
+    "isCanonical": true
+  },
+  "entryVersion": 233,
+  "sequenceVersion": 1,
+  "sequence": "MSKSKCSVGLMSSVVAPAKEPNAVGPKEVELILVKEQNGVQLTSSTLTNPRQSPVEAQDRETWGKKIDFLLSVIGFAVDLANVWRFPYLCYKNGGGAFLVPYLLFMVIAGMPLFYMELALGQFNREGAAGVWKICPILKGVGFTVILISLYVGFFYNVIIAWALHYLFSSFTTELPWIHCNNSWNSPNCSDAHPGDSSGDSSGLNDTFGTTPAAEYFERGVLHLHQSHGIDDLGPPRWQLTACLVLVIVLLYFSLWKGVKTSGKVVWITATMPYVVLTALLLRGVTLPGAIDGIRAYLSVDFYRLCEASVWIDAATQVCFSLGVGFGVLIAFSSYNKFTNNCYRDAIVTTSINSLTSFSSGFVVFSFLGYMAQKHSVPIGDVAKDGPGLIFIIYPEAIATLPLSSAWAVVFFIMLLTLGIDSAMGGMESVITGLIDEFQLLHRHRELFTLFIVLATFLLSLFCVTNGGIYVFTLLDHFAAGTSILFGVLIEAIGVAWFYGVGQFSDDIQQMTGQRPSLYWRLCWKLVSPCFLLFVVVVSIVTFRPPHYGAYIFPDWANALGWVIATSSMAMVPIYAAYKFCSLPGSFREKLAYAIAPEKDRELVDRGEVRQFTLRHWLKV",
+  "length": 620,
+  "md5": "57654271DC6FD2B84CBC71DEB27BB38C",
+  "crc64": "CD95009B6BA93108",
+  "numbering": "translated",
+  "processedChain": {
+    "start": 1,
+    "end": 620,
+    "featureId": "PRO_0000214751"
+  },
+  "initiatorMethionineRemoved": false,
+  "features": [
+    {
+      "type": "Chain",
+      "start": 1,
+      "end": 620,
+      "description": "Sodium-dependent dopamine transporter",
+      "featureId": "PRO_0000214751",
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 75,
+      "end": 75,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 77,
+      "end": 77,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 78,
+      "end": 78,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 79,
+      "end": 79,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 79,
+      "end": 79,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 79,
+      "end": 79,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 82,
+      "end": 82,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 149,
+      "end": 149,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 153,
+      "end": 153,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 317,
+      "end": 317,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 320,
+      "end": 320,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 321,
+      "end": 321,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 321,
+      "end": 321,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 353,
+      "end": 353,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 357,
+      "end": 357,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0007744 PDB:8Y2D",
+        "ECO:0007744 PDB:8Y2G",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 418,
+      "end": 418,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 421,
+      "end": 421,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 422,
+      "end": 422,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 422,
+      "end": 422,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0007744 PDB:8VBY",
+        "ECO:0007744 PDB:9EO4"
+      ],
+      "xrefs": []
+    },
+    {
+      "type": "Binding site",
+      "start": 423,
+      "end": 423,
+      "description": "",
+      "featureId": null,
+      "originalSequence": null,
+      "alternativeSequences": [],
+      "evidences": [
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0007744 PDB:8Y2D"
+      ],
+      "xrefs": []
+    }
+  ],
+  "xrefs": {
+    "maneSelect": {
+      "transcript": "ENST00000270349.12",
+      "protein": "ENSP00000270349.9",
+      "refSeqNucleotide": "NM_001044.5",
+      "refSeqProtein": "NP_001035.1"
+    },
+    "ensembl": [
+      {
+        "transcript": "ENST00000270349.12",
+        "protein": "ENSP00000270349.9",
+        "gene": "ENSG00000142319.20"
+      },
+      {
+        "transcript": "ENST00000621716.2",
+        "protein": "ENSP00000479597.1",
+        "gene": "ENSG00000276996.2"
+      }
+    ],
+    "pdb": [
+      {
+        "id": "8Y2C",
+        "method": "EM",
+        "resolution": "3.16 A",
+        "chains": "A=66-620"
+      }
+    ]
+  },
+  "comments": [
+    {
+      "type": "FUNCTION",
+      "text": "Mediates sodium- and chloride-dependent transport of dopamine (PubMed:10375632, PubMed:11093780, PubMed:1406597, PubMed:15505207, PubMed:19478460, PubMed:39112701, PubMed:39112703, PubMed:39112705, PubMed:8302271). Also mediates sodium- and chloride-dependent transport of norepinephrine (also known as noradrenaline) (By similarity). Regulator of light-dependent retinal hyaloid vessel regression, downstream of OPN5 signaling (By similarity)",
+      "evidences": [
+        "ECO:0000250 UniProtKB:P23977",
+        "ECO:0000250 UniProtKB:Q61327",
+        "ECO:0000269 PubMed:10375632",
+        "ECO:0000269 PubMed:11093780",
+        "ECO:0000269 PubMed:1406597",
+        "ECO:0000269 PubMed:15505207",
+        "ECO:0000269 PubMed:19478460",
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0000269 PubMed:8302271"
+      ]
+    },
+    {
+      "type": "SUBUNIT",
+      "text": "Monomer (PubMed:39112701, PubMed:39112703, PubMed:39112705). Homooligomer; disulfide-linked (Ref.16). Interacts with PRKCABP and TGFB1I1 (PubMed:11343649, PubMed:12177201). Interacts (via N-terminus) with SYNGR3 (via N-terminus) (By similarity). Interacts with SLC18A2 (By similarity). Interacts with TOR1A (ATP-bound); TOR1A regulates SLC6A3 subcellular location (PubMed:15505207). Interacts with alpha-synuclein/SNCA (PubMed:26442590). Interacts with SEPTIN4 (By similarity)",
+      "evidences": [
+        "ECO:0000250 UniProtKB:Q61327",
+        "ECO:0000269 PubMed:11343649",
+        "ECO:0000269 PubMed:12177201",
+        "ECO:0000269 PubMed:15505207",
+        "ECO:0000269 PubMed:26442590",
+        "ECO:0000269 PubMed:39112701",
+        "ECO:0000269 PubMed:39112703",
+        "ECO:0000269 PubMed:39112705",
+        "ECO:0000269 Reference:Ref.16"
+      ]
+    },
+    {
+      "type": "TISSUE SPECIFICITY",
+      "text": "Highly expressed in substantia nigra (PubMed:7637582). Expressed in axonal varicosities in dopaminergic nerve terminals (at protein level) (PubMed:17296554). Expressed in the striatum (at protein level) (PubMed:17296554)",
+      "evidences": [
+        "ECO:0000269 PubMed:17296554",
+        "ECO:0000269 PubMed:7637582"
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "uniprot",
+        "url": "https://rest.uniprot.org/uniprotkb/Q01959.json",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:50:44Z",
+        "sourceRelease": "UniProt 2026_03",
+        "recordId": "Q01959",
+        "recordVersion": "entry 233, sequence 1",
+        "assembly": null,
+        "sha256": "afbb2aa48a24022b4672c8d0d586cddc638d64eaa9d379f4a0efa2933cadab96",
+        "licence": "CC-BY-4.0",
+        "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-proprietary-xrefs",
+      "natural-variants-at-position-only",
+      "pdb-xrefs-of-selected-entry-only"
+    ],
+    "validation": [
+      {
+        "check": "uniprot-accession",
+        "result": "pass",
+        "detail": "Q01959 SC6A3_HUMAN, reviewed true",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T06-cds-shape",
+        "result": "pass",
+        "detail": "length 1863, starts ATG, ends TAG",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T07-translation-equals-ensembl-protein",
+        "result": "pass",
+        "detail": "translated 620 aa vs Ensembl 620 aa",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T07-translation-equals-uniprot",
+        "result": "pass",
+        "detail": "translated 620 aa vs UniProt 620 aa",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T07-uniprot-md5",
+        "result": "pass",
+        "detail": "computed 57654271DC6FD2B84CBC71DEB27BB38C, UniProt 57654271DC6FD2B84CBC71DEB27BB38C",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "uniprot-mane-xref",
+        "result": "pass",
+        "detail": "UniProt MANE-Select ENST00000270349.12 / ENSP00000270349.9 / NM_001044.5",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T15-initiator-met-and-chain",
+        "result": "pass",
+        "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-620",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T18-hgvsp-equals-uniprot-position",
+        "result": "pass",
+        "detail": "p.85: UniProt residue R, HGVS ref R",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T16-uniprot-natural-variant",
+        "result": "pass",
+        "detail": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T31-drift-recorded",
+        "result": "pass",
+        "detail": "uniprot-xref-ensembl-gene-version: ENSG00000142319.20 vs ENSG00000142319.21; vep-swissprot-entry-version: Q01959.230 vs Q01959.233",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Q01959 (SC6A3_HUMAN) canonical sequence, 620 aa; initiator Met not annotated as removed; chain 1-620.",
+      "qualifier": null,
+      "limitations": [
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

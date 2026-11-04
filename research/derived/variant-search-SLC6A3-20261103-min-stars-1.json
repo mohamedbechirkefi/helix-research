@@ -1,0 +1,518 @@
+{
+  "purpose": "Phase 9 plan section 15 rule 1: the reference variant chosen by rule. One ClinVar esearch for the gene's missense variants classified Pathogenic or Likely pathogenic, one esummary for the uids, the summaries filtered on ClinVar's own words (classification; review status of at least minStars; a single-nucleotide single variant with a dbSNP id whose protein change is a substitution p.Xxx000Yyy) and ranked by review status, then supporting submissions, then accession number; then, in rank order, the structure candidate check (plan section 11 rule 4) over the UniProt entry's PDB cross-references that cover the residue, in UniProt's order. The first candidate whose residue is observed in a kept entry (wild type over the mapped segments, no declared mutation) is the choice, with that entry. Nothing here chooses a variant for being interesting; the specification's notes cite this report.",
+  "script": "scripts/data-preparation/find-variant.ts",
+  "startedAt": "2026-11-03T23:47:23Z",
+  "finishedAt": "2026-11-03T23:47:25Z",
+  "gitCommit": "6cc33a88a2ed9f82314f22125a4400e4b902dd7a",
+  "gitDirty": true,
+  "userAgent": "helix-research",
+  "symbol": "SLC6A3",
+  "accession": "Q01959",
+  "uniprot": {
+    "release": "2026_03",
+    "releaseDate": "02-September-2026",
+    "length": 620,
+    "pdbCrossReferences": 17
+  },
+  "clinvar": {
+    "term": "SLC6A3[gene] AND (\"clinsig pathogenic\"[Properties] OR \"clinsig likely pathogenic\"[Properties]) AND \"missense variant\"[Molecular consequence]",
+    "retmax": 100,
+    "esearch": {
+      "count": 6,
+      "returned": 6,
+      "capped": false
+    },
+    "translation": {
+      "queryTranslation": "SLC6A3[gene] AND (\"clinsig pathogenic\"[Properties] OR \"clinsig likely pathogenic\"[Properties]) AND \"missense variant\"[Molecular consequence]",
+      "clauses": [
+        {
+          "term": "SLC6A3[gene]",
+          "field": "gene",
+          "count": 729
+        },
+        {
+          "term": "\"clinsig pathogenic\"[Properties]",
+          "field": "Properties",
+          "count": 266140
+        },
+        {
+          "term": "\"clinsig likely pathogenic\"[Properties]",
+          "field": "Properties",
+          "count": 183399
+        },
+        {
+          "term": "\"missense variant\"[Molecular consequence]",
+          "field": "Molecular consequence",
+          "count": 2604529
+        }
+      ],
+      "phrasesNotFound": [],
+      "fieldsNotFound": [],
+      "phrasesIgnored": []
+    },
+    "recorded": {
+      "esearch": "research/raw/ncbi-clinvar/esearch_SLC6A3_missense_pathogenic.json",
+      "esummary": "research/raw/ncbi-clinvar/esummary_SLC6A3_missense_pathogenic_ids.json",
+      "mode": "read from research/raw"
+    },
+    "filters": {
+      "classifications": [
+        "Pathogenic",
+        "Likely pathogenic",
+        "Pathogenic/Likely pathogenic"
+      ],
+      "minStars": 1,
+      "molecularConsequence": "missense variant",
+      "variantType": "single nucleotide variant",
+      "dbSnpId": "required",
+      "proteinChange": "p.Xxx000Yyy (frameshift, nonsense, deletion, duplication, insertion, synonymous skipped with the reason)"
+    }
+  },
+  "ranking": [
+    "review status (ClinVar's star level, practice guideline 4, expert panel 3, multiple submitters no conflicts 2)",
+    "supporting submissions (SCV count) descending",
+    "ClinVar accession number ascending"
+  ],
+  "structureRule": "lib/structure-candidates.ts over the UniProt PDB cross-references whose Chains property covers the residue, in UniProt's order; kept = residue observed in atom_site (model 1) on every mapped chain, entity equal to UniProt over the SIFTS-mapped segments, no pdbx_mutation; the structure responses are not kept here (the chosen entry's are recorded by the set's fixtures)",
+  "entriesFetched": [
+    "8VBY",
+    "8Y2C"
+  ],
+  "stoppedBecause": "rank 1 (VCV000421417, p.Arg85Trp) has its residue observed in 8Y2C",
+  "counts": {
+    "summarised": 6,
+    "eligible": 2,
+    "skipped": 4,
+    "structureChecked": 1,
+    "skippedByReason": {
+      "no dbSNP id among the variation cross-references": 1,
+      "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)": 3
+    }
+  },
+  "chosen": {
+    "uid": "421417",
+    "accession": "VCV000421417",
+    "accessionVersion": "VCV000421417.2",
+    "title": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+    "proteinChange": {
+      "hgvsP": "p.Arg85Trp",
+      "referenceThree": "Arg",
+      "position": 85,
+      "alternateThree": "Trp",
+      "referenceOne": "R",
+      "alternateOne": "W"
+    },
+    "dbSnpIds": [
+      "rs1064795122"
+    ],
+    "reviewStatus": "criteria provided, single submitter",
+    "reviewStars": 1,
+    "supportingSubmissions": 1,
+    "entry": {
+      "id": "8Y2C",
+      "method": "ELECTRON MICROSCOPY",
+      "resolutionAngstrom": 3.16,
+      "chains": [
+        "A"
+      ],
+      "observedOn": [
+        {
+          "labelAsymId": "A",
+          "authAsymId": "A",
+          "labelSeqId": 20,
+          "authSeqId": "85",
+          "compId": "ARG"
+        }
+      ],
+      "coverage": {
+        "firstObserved": 66,
+        "lastObserved": 620,
+        "observedPositions": 529,
+        "mappedPositions": 555,
+        "proteinLength": 620,
+        "fraction": 0.8532
+      }
+    }
+  },
+  "candidates": [
+    {
+      "uid": "421417",
+      "accession": "VCV000421417",
+      "accessionVersion": "VCV000421417.2",
+      "accessionNumber": 421417,
+      "title": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs1064795122"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Arg85Trp",
+        "referenceThree": "Arg",
+        "position": 85,
+        "alternateThree": "Trp",
+        "referenceOne": "R",
+        "alternateOne": "W"
+      },
+      "skipReason": null,
+      "rank": 1,
+      "structure": {
+        "residue": 85,
+        "uniprotResidue": "R",
+        "entriesCovering": [
+          "8VBY",
+          "8Y2C",
+          "8Y2D",
+          "8Y2E",
+          "8Y2F",
+          "8Y2G",
+          "9EO4",
+          "9J6R",
+          "9J6S",
+          "9J6T",
+          "9J6U",
+          "9J6V",
+          "9JKH",
+          "9JKI",
+          "9JKJ",
+          "9JKK",
+          "9JKM"
+        ],
+        "unparsedCrossReferences": [],
+        "candidates": [
+          {
+            "entryId": "8VBY",
+            "method": "ELECTRON MICROSCOPY",
+            "resolutionAngstrom": 3.19,
+            "rcsbResolutionCombined": [
+              3.19
+            ],
+            "modelCount": 1,
+            "nmrEnsemble": null,
+            "entityId": "1",
+            "chains": [
+              "A"
+            ],
+            "entityMutation": "I248Y",
+            "entityLength": 571,
+            "siftsSegments": [
+              {
+                "labelAsymId": "A",
+                "unpStart": 57,
+                "unpEnd": 620,
+                "labelSeqStart": 7,
+                "labelSeqEnd": 570
+              }
+            ],
+            "residue": {
+              "uniprotPosition": 85,
+              "uniprotResidue": "R",
+              "observedOn": [
+                {
+                  "labelAsymId": "A",
+                  "authAsymId": "A",
+                  "labelSeqId": 35,
+                  "authSeqId": "85",
+                  "compId": "ARG"
+                }
+              ],
+              "unobservedOn": [],
+              "coveredBySifts": true
+            },
+            "sequenceMismatches": [
+              {
+                "entityPos": 1,
+                "entity": "G",
+                "uniprotPos": 51,
+                "uniprot": "R",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 2,
+                "entity": "P",
+                "uniprotPos": 52,
+                "uniprot": "Q",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 3,
+                "entity": "G",
+                "uniprotPos": 53,
+                "uniprot": "S",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 4,
+                "entity": "G",
+                "uniprotPos": 54,
+                "uniprot": "P",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 5,
+                "entity": "R",
+                "uniprotPos": 55,
+                "uniprot": "V",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 6,
+                "entity": "M",
+                "uniprotPos": 56,
+                "uniprot": "E",
+                "insideMappedSegments": false,
+                "structRefSeqDif": "expression tag"
+              },
+              {
+                "entityPos": 198,
+                "entity": "Y",
+                "uniprotPos": 248,
+                "uniprot": "I",
+                "insideMappedSegments": true,
+                "structRefSeqDif": "engineered mutation"
+              }
+            ],
+            "coverage": {
+              "firstObserved": 58,
+              "lastObserved": 620,
+              "observedPositions": 553,
+              "mappedPositions": 564,
+              "proteinLength": 620,
+              "fraction": 0.8919
+            },
+            "otherPolymerEntities": [],
+            "observed": true,
+            "kept": false,
+            "verdict": "residue 85 observed, but the entity differs from UniProt inside the mapped segments at 248 (I to Y) and declares pdbx_mutation \"I248Y\"; the builder refuses a difference no selected variant explains (T38, T19); outside the mapped segments the entity differs at 51 (R to G, expression tag), 52 (Q to P, expression tag), 53 (S to G, expression tag), 54 (P to G, expression tag), 55 (V to R, expression tag), 56 (E to M, expression tag)"
+          },
+          {
+            "entryId": "8Y2C",
+            "method": "ELECTRON MICROSCOPY",
+            "resolutionAngstrom": 3.16,
+            "rcsbResolutionCombined": [
+              3.16
+            ],
+            "modelCount": 1,
+            "nmrEnsemble": null,
+            "entityId": "1",
+            "chains": [
+              "A"
+            ],
+            "entityMutation": null,
+            "entityLength": 555,
+            "siftsSegments": [
+              {
+                "labelAsymId": "A",
+                "unpStart": 66,
+                "unpEnd": 620,
+                "labelSeqStart": 1,
+                "labelSeqEnd": 555
+              }
+            ],
+            "residue": {
+              "uniprotPosition": 85,
+              "uniprotResidue": "R",
+              "observedOn": [
+                {
+                  "labelAsymId": "A",
+                  "authAsymId": "A",
+                  "labelSeqId": 20,
+                  "authSeqId": "85",
+                  "compId": "ARG"
+                }
+              ],
+              "unobservedOn": [],
+              "coveredBySifts": true
+            },
+            "sequenceMismatches": [],
+            "coverage": {
+              "firstObserved": 66,
+              "lastObserved": 620,
+              "observedPositions": 529,
+              "mappedPositions": 555,
+              "proteinLength": 620,
+              "fraction": 0.8532
+            },
+            "otherPolymerEntities": [],
+            "observed": true,
+            "kept": true,
+            "verdict": "residue 85 observed on A85 ARG; the entity equals UniProt over the mapped segments"
+          }
+        ],
+        "chosenEntry": "8Y2C"
+      },
+      "verdict": "chosen: residue 85 observed in 8Y2C (ELECTRON MICROSCOPY, 3.16 A), wild type over the mapped segments"
+    },
+    {
+      "uid": "2054045",
+      "accession": "VCV002054045",
+      "accessionVersion": "VCV002054045.4",
+      "accessionNumber": 2054045,
+      "title": "NM_001044.5(SLC6A3):c.1156G>A (p.Gly386Arg)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs2126353885"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Gly386Arg",
+        "referenceThree": "Gly",
+        "position": 386,
+        "alternateThree": "Arg",
+        "referenceOne": "G",
+        "alternateOne": "R"
+      },
+      "skipReason": null,
+      "rank": 2,
+      "structure": null,
+      "verdict": "not checked: a higher-ranked candidate was chosen"
+    },
+    {
+      "uid": "4969368",
+      "accession": "VCV004969368",
+      "accessionVersion": "VCV004969368.1",
+      "accessionNumber": 4969368,
+      "title": "NM_001044.5(SLC6A3):c.941C>T (p.Ala314Val)",
+      "classification": "Likely pathogenic",
+      "reviewStatus": "criteria provided, single submitter",
+      "reviewStars": 1,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [],
+      "proteinChange": {
+        "hgvsP": "p.Ala314Val",
+        "referenceThree": "Ala",
+        "position": 314,
+        "alternateThree": "Val",
+        "referenceOne": "A",
+        "alternateOne": "V"
+      },
+      "skipReason": "no dbSNP id among the variation cross-references",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: no dbSNP id among the variation cross-references"
+    },
+    {
+      "uid": "97017",
+      "accession": "VCV000097017",
+      "accessionVersion": "VCV000097017.1",
+      "accessionNumber": 97017,
+      "title": "NM_001044.5(SLC6A3):c.671T>C (p.Leu224Pro)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs431905515"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Leu224Pro",
+        "referenceThree": "Leu",
+        "position": 224,
+        "alternateThree": "Pro",
+        "referenceOne": "L",
+        "alternateOne": "P"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)"
+    },
+    {
+      "uid": "16764",
+      "accession": "VCV000016764",
+      "accessionVersion": "VCV000016764.1",
+      "accessionNumber": 16764,
+      "title": "NM_001044.5(SLC6A3):c.1184C>T (p.Pro395Leu)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs267607069"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Pro395Leu",
+        "referenceThree": "Pro",
+        "position": 395,
+        "alternateThree": "Leu",
+        "referenceOne": "P",
+        "alternateOne": "L"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)"
+    },
+    {
+      "uid": "16763",
+      "accession": "VCV000016763",
+      "accessionVersion": "VCV000016763.1",
+      "accessionNumber": 16763,
+      "title": "NM_001044.5(SLC6A3):c.1103T>A (p.Leu368Gln)",
+      "classification": "Pathogenic",
+      "reviewStatus": "no assertion criteria provided",
+      "reviewStars": 0,
+      "supportingSubmissions": 1,
+      "molecularConsequences": [
+        "missense variant"
+      ],
+      "variantTypes": [
+        "single nucleotide variant"
+      ],
+      "dbSnpIds": [
+        "rs267607068"
+      ],
+      "proteinChange": {
+        "hgvsP": "p.Leu368Gln",
+        "referenceThree": "Leu",
+        "position": 368,
+        "alternateThree": "Gln",
+        "referenceOne": "L",
+        "alternateOne": "Q"
+      },
+      "skipReason": "review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)",
+      "rank": null,
+      "structure": null,
+      "verdict": "skipped: review status \"no assertion criteria provided\" is 0 stars (the rule asks for at least 1)"
+    }
+  ]
+}

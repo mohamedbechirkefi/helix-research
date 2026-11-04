@@ -1,0 +1,60 @@
+{
+  "kind": "capabilities",
+  "derivedFrom": [
+    "gene.json",
+    "transcript.json",
+    "sequences.json",
+    "protein-Q01959.json",
+    "variant-r85w.json",
+    "clinvar-r85w.json",
+    "structure-8Y2C.json",
+    "residue-mapping-r85w-8Y2C.json",
+    "residue-mapping-Q01959-8Y2C.json",
+    "contacts-r85w-8Y2C.json",
+    "predicted-model-AF-Q01959-F1.json",
+    "pathways.json",
+    "associations.json"
+  ],
+  "geneId": "ENSG00000142319",
+  "symbol": "SLC6A3",
+  "transcriptView": {
+    "available": true,
+    "reason": "transcript ENST00000270349.12 selected by rule mane_select",
+    "evidenceCategory": 2
+  },
+  "proteinView": {
+    "available": true,
+    "reason": "UniProt Q01959; sequence equals the translated CDS",
+    "evidenceCategory": 2
+  },
+  "experimentalStructure": {
+    "available": true,
+    "reason": "8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A); 17 experimental entries cross-referenced (e.g. 8VBY, EM)",
+    "evidenceCategory": 1
+  },
+  "predictedStructure": {
+    "available": true,
+    "reason": "AF-Q01959-F1 v6; computational prediction, never shown as experimental",
+    "evidenceCategory": 3
+  },
+  "verifiedResidueMapping": {
+    "available": true,
+    "reason": "verified SIFTS + atom_site mapping for 8Y2C",
+    "evidenceCategory": 1
+  },
+  "variantHighlight": {
+    "available": true,
+    "reason": "variant position(s) 85 mapped to observed residues in an experimental structure",
+    "evidenceCategory": 1
+  },
+  "pathwayView": {
+    "available": true,
+    "reason": "4 Reactome memberships; opens on SLC-mediated transport of neurotransmitters, R-HSA-442660 (the rule's choice: fewest participants among non-disease pathways with a diagram)",
+    "evidenceCategory": 2
+  },
+  "associationView": {
+    "available": true,
+    "reason": "1222 Open Targets associations, 25 kept by score; top: parkinsonism-dystonia, infantile (score 0.7947447156574925); association, never causal",
+    "evidenceCategory": 2
+  }
+}

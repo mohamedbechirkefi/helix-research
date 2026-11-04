@@ -1,0 +1,81 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 1
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "refseq_accession": [
+     "NM_001044"
+    ],
+    "ensembl_gene_id": "ENSG00000142319",
+    "locus_type": "gene with protein product",
+    "agr": "HGNC:11049",
+    "iuphar": "HGNC:11049",
+    "uuid": "2196ef12-b6c4-4f61-80e5-db3796be72ba",
+    "name": "solute carrier family 6 member 3",
+    "ccds_id": [
+     "CCDS3863"
+    ],
+    "locus_group": "protein-coding gene",
+    "prev_symbol": [
+     "DAT1"
+    ],
+    "gencc": "HGNC:11049",
+    "rgd_id": [
+     "RGD:3715"
+    ],
+    "orphanet": 244693,
+    "date_name_changed": "2016-02-17T00:00:00Z",
+    "gene_group_id": [
+     2159
+    ],
+    "ucsc_id": "uc003jck.4",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "alias_name": [
+     "dopamine transporter",
+     "Sodium-dependent dopamine transporter"
+    ],
+    "location": "5p15.33",
+    "bioparadigms_slc": "SLC6A3",
+    "mgd_id": [
+     "MGI:94862"
+    ],
+    "gene_group": [
+     "Solute carrier family 6"
+    ],
+    "lsdb": [
+     "LOVD - Leiden Open Variation Database|https://grenada.lumc.nl/LOVD2/shared1/home.php?select_db=SLC6A3"
+    ],
+    "vega_id": "OTTHUMG00000131016",
+    "status": "Approved",
+    "date_approved_reserved": "1994-03-16T00:00:00Z",
+    "symbol": "SLC6A3",
+    "entrez_id": "6531",
+    "mane_select": [
+     "ENST00000270349.12",
+     "NM_001044.5"
+    ],
+    "prev_name": [
+     "solute carrier family 6 (neurotransmitter transporter, dopamine), member 3",
+     "dopamine transporter 1",
+     "solute carrier family 6 (neurotransmitter transporter), member 3"
+    ],
+    "hgnc_id": "HGNC:11049",
+    "alias_symbol": [
+     "DAT"
+    ],
+    "uniprot_ids": [
+     "Q01959"
+    ],
+    "pubmed_id": [
+     1406597
+    ]
+   }
+  ]
+ }
+}

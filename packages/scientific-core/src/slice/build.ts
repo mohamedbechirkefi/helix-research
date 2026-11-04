@@ -96,7 +96,7 @@ import { OPENING_PATHWAY_RULE, chooseOpeningPathway, isOpeningCandidate } from "
 import { AA_PDB_NAME, AA_THREE_LETTER, complement, reverseComplement } from "../sequence.ts";
 import { alignmentCrossCheck, assemblyOf, entityForAccession, labelAuthDivergences, mapUniprotChain, mapUniprotPosition, structRefSeqIssues } from "../structure-mapping.ts";
 import { selectTranscript } from "../transcript-selection.ts";
-import { type ResolvedAllele, type ResolvedDeletion, allelesAtSite, hgvsChangePart, resolveAllele, resolveDeletion } from "../variant.ts";
+import { type ResolvedAllele, type ResolvedDeletion, allelesAtSite, hgvsChangePart, resolveAllele, resolveDeletion, unplacedRecoderAlleles } from "../variant.ts";
 import { type RawRecord, type SliceConfig, type SliceInputName, type SliceInputs, type SliceVariant, ancestorsInput, participantsInput } from "./types.ts";
 
 export interface SliceFile {
@@ -308,7 +308,12 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         if (sub) {
           const allele = sub;
           const others = allelesAtSite(recoder, vctx);
-          check("T13-rsid-multiallelic", rsAlleles.length > 2 && others.filter((o) => o.coding.altAa === allele.coding.altAa).length === 1, `${vsel.rsId} alleles ${map38.allele_string}; ${others.map((o) => `${o.forwardAllele}:${o.coding.proteinChange}`).join(", ")}`, ["variant"]);
+          // Phase 9 (P9.2.3): a bi-allelic site passes with the words "(bi-allelic)"; a recoder key placed only on an
+          // alternate scaffold is named with its placements and is not another allele of the site. HBB, CFTR and
+          // BRCA1 (multi-allelic, every key placed on the chromosome) keep their detail byte for byte.
+          const unplaced = unplacedRecoderAlleles(recoder);
+          const unplacedText = unplaced.length > 0 ? `; recoder key(s) without a chromosome-level placement, not counted: ${unplaced.map((u) => `${u.allele} (${u.placements.join(", ")})`).join("; ")}` : "";
+          check("T13-rsid-multiallelic", rsAlleles.length >= 2 && others.length === rsAlleles.length - 1 && others.filter((o) => o.coding.altAa === allele.coding.altAa).length === 1, `${vsel.rsId} alleles ${map38.allele_string}${rsAlleles.length === 2 ? " (bi-allelic)" : ""}; ${others.map((o) => `${o.forwardAllele}:${o.coding.proteinChange}`).join(", ")}${unplacedText}`, ["variant"]);
           check("T08-exon-walk-genomic", allele.genomicPositionFromExonWalk === allele.genomicPosition && map38.start === allele.genomicPosition, `exon walk c.${allele.coding.cdsPosition} -> ${allele.genomicPositionFromExonWalk}; hgvsg ${allele.genomicPosition}; variation ${map38.start}`, ["variant"]);
           check("T08-codon-span", span.contiguous && codonMap.start === span.start && codonMap.end === span.end && codonMap.strand === transcript.interval.strand, `own walk codon ${allele.coding.codonNumber} -> ${span.start}-${span.end}; Ensembl map/cds ${codonMap.start}-${codonMap.end} strand ${codonMap.strand}`, ["variant"]);
           const baseAt = window.seq[allele.genomicPosition - winStart]?.toUpperCase();
@@ -388,10 +393,26 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const natVar = sub
           ? uni.features.find((f) => f.type === "Natural variant" && f.start === uniPos && f.end === uniPos && f.originalSequence === sub.coding.refAa && f.alternativeSequences.includes(sub.coding.altAa) && f.xrefs.includes(`dbSNP:${vsel.rsId}`))
           : uni.features.find((f) => f.type === "Natural variant" && f.start === del!.coding.deletedResidues[0]!.position && f.end === del!.coding.deletedResidues[del!.coding.deletedResidues.length - 1]!.position && f.alternativeSequences.length === 0 && (f.originalSequence === null || f.originalSequence === deletedAas) && f.xrefs.includes(`dbSNP:${vsel.rsId}`));
+        // Phase 9 (P9.2.3): an entry may annotate no natural variant at the position (Q01959 at 85, R85W being a
+        // single-submitter ClinVar record): there is then nothing to cross-check and the check passes with those
+        // words, and the variant record's UniProt evidence says so. A feature at the position that cites the rsID
+        // with another change is a disagreement and fails. HBB, CFTR and BRCA1 keep their detail unchanged.
+        const natPositions = sub ? [uniPos] : del!.coding.deletedResidues.map((r) => r.position);
+        const natAtPosition = uni.features.filter((f) => f.type === "Natural variant" && natPositions.some((p) => f.start <= p && p <= f.end));
+        const natCitingRs = natAtPosition.filter((f) => f.xrefs.includes(`dbSNP:${vsel.rsId}`));
+        const natCount = uni.features.filter((f) => f.type === "Natural variant").length;
+        const natAbsent = natVar === undefined && natCitingRs.length === 0;
+        const natAbsentText = `UniProt ${uni.accession} annotates no natural variant at position ${natPositions.join("-")} citing ${vsel.rsId} (${natCount} natural variant feature(s) in the entry${natAtPosition.length ? `, ${natAtPosition.length} at this position citing another dbSNP id or none` : ", none at this position"}); nothing to cross-check`;
         check(
           "T16-uniprot-natural-variant",
-          natVar !== undefined,
-          natVar ? (sub ? `${natVar.featureId} at ${natVar.start}: ${natVar.originalSequence}->${natVar.alternativeSequences.join("/")}; ${natVar.description}` : `${natVar.featureId} at ${natVar.start}${natVar.end !== natVar.start ? `-${natVar.end}` : ""}: ${natVar.originalSequence ?? deletedAas} missing (no alternative sequence); ${natVar.description}`) : "no matching natural variant",
+          natVar !== undefined || natAbsent,
+          natVar
+            ? sub
+              ? `${natVar.featureId} at ${natVar.start}: ${natVar.originalSequence}->${natVar.alternativeSequences.join("/")}; ${natVar.description}`
+              : `${natVar.featureId} at ${natVar.start}${natVar.end !== natVar.start ? `-${natVar.end}` : ""}: ${natVar.originalSequence ?? deletedAas} missing (no alternative sequence); ${natVar.description}`
+            : natAbsent
+              ? natAbsentText
+              : `UniProt annotates ${natCitingRs.map((f) => `${f.featureId} at ${f.start}: ${f.originalSequence ?? "?"}->${f.alternativeSequences.join("/") || "missing"}`).join(", ")} citing ${vsel.rsId}, which does not match the allele`,
           ["variant", "protein"],
         );
 
@@ -467,7 +488,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
           ["clinvar-record"],
         );
         const cvBuild = inputs.clinvarEinfo ? (json(inputs.clinvarEinfo) as { einforesult?: { dbinfo?: { dbbuild?: string }[] } }).einforesult?.dbinfo?.[0]?.dbbuild ?? null : null;
-        return { sel: vsel, kind: vsel.kind, recoder, variation, vep, sub, del, hgvsg, spdi, hgvsc, hgvsp, gStart, gEnd, refForward, altForward, cdsStart, cdsEnd, rsAlleles, codonMap, span, window, winStart, winEnd, tc, uniPos, refAa, altAa, proteinChange, mature, mLabel, natVar, cv, cv37, related, cvStars, cvConflicts, cvBasis, cvBuild };
+        return { sel: vsel, kind: vsel.kind, recoder, variation, vep, sub, del, hgvsg, spdi, hgvsc, hgvsp, gStart, gEnd, refForward, altForward, cdsStart, cdsEnd, rsAlleles, codonMap, span, window, winStart, winEnd, tc, uniPos, refAa, altAa, proteinChange, mature, mLabel, natVar, natAbsentText, cv, cv37, related, cvStars, cvConflicts, cvBasis, cvBuild };
       })(config.variant)
     : null;
 
@@ -1006,6 +1027,8 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
 
     if (V && PV) {
       const { tc, cv, cv37, natVar, uniPos, mature, mLabel, related, cvStars, cvConflicts, cvBasis, cvBuild } = V;
+      /** The variant record's UniProt line: the matching natural variant, or the absence stated (P9.2.3). */
+      const uniprotVariantEvidence = (text: string): ReturnType<typeof evidence> => (natVar ? evidence("curated-database-annotation", text, { qualifier: natVar.evidences.join("; ") }) : evidence("curated-database-annotation", `${V.natAbsentText.replace(/; nothing to cross-check$/, "")}; the variant is known to this set from ClinVar and the reference sequences only.`));
       const clinvarSummary = {
         accession: cv.accession,
         accessionVersion: cv.accessionVersion,
@@ -1040,7 +1063,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const allele = V.sub;
         const varEv = [
           evidence(classifyClinvarReview(cv.reviewStatus), `ClinVar ${cv.accessionVersion}: ${cv.classification}.`, { qualifier: cv.reviewStatus }),
-          evidence("curated-database-annotation", `UniProt ${natVar!.featureId}: ${natVar!.originalSequence} to ${natVar!.alternativeSequences.join("/")} at position ${natVar!.start} (${natVar!.description}).`, { qualifier: natVar!.evidences.join("; ") }),
+          uniprotVariantEvidence(natVar ? `UniProt ${natVar.featureId}: ${natVar.originalSequence} to ${natVar.alternativeSequences.join("/")} at position ${natVar.start} (${natVar.description}).` : ""),
           evidence("reference-sequence-derivation", `${allele.hgvsc[0]} changes codon ${allele.coding.codonNumber} ${allele.coding.refCodon} to ${allele.coding.altCodon}, giving ${allele.coding.proteinChange} by translation.`),
           evidence("computational-prediction", `VEP consequence on ${transcript.id.id}: ${tc.consequence_terms.join(", ")}.`),
         ];
@@ -1084,7 +1107,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const codonText = cd.affectedCodons.map((c) => (c.afterDeletion === null ? `codon ${c.number} ${c.reference} (${three(c.referenceAminoAcid)}) is deleted` : `codon ${c.number} ${c.reference} becomes ${c.afterDeletion} (${three(c.referenceAminoAcid)}${c.aminoAcidAfterDeletion === c.referenceAminoAcid ? ", unchanged" : ` to ${three(c.aminoAcidAfterDeletion!)}`})`)).join(", ");
         const varEv = [
           evidence(classifyClinvarReview(cv.reviewStatus), `ClinVar ${cv.accessionVersion}: ${cv.classification}.`, { qualifier: cv.reviewStatus }),
-          evidence("curated-database-annotation", `UniProt ${natVar!.featureId}: ${natVar!.originalSequence ?? deletedAas} missing at position ${natVar!.start}${natVar!.end !== natVar!.start ? `-${natVar!.end}` : ""} (${natVar!.description}).`, { qualifier: natVar!.evidences.join("; ") }),
+          uniprotVariantEvidence(natVar ? `UniProt ${natVar.featureId}: ${natVar.originalSequence ?? deletedAas} missing at position ${natVar.start}${natVar.end !== natVar.start ? `-${natVar.end}` : ""} (${natVar.description}).` : ""),
           evidence("reference-sequence-derivation", `${formatVersioned(transcript.id)}:${d.hgvsC} deletes ${cd.length} bases (${cd.deletedBases}) across codons ${first.number} to ${last.number}: ${codonText}; translating the CDS before and after gives ${cd.proteinChange}, the reading frame is kept.`),
           evidence("computational-prediction", `VEP consequence on ${transcript.id.id}: ${tc.consequence_terms.join(", ")}.`),
         ];

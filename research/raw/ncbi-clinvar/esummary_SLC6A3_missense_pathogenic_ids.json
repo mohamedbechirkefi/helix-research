@@ -1,0 +1,830 @@
+{
+ "header": {
+  "type": "esummary",
+  "version": "0.3"
+ },
+ "result": {
+  "16763": {
+   "uid": "16763",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000016763",
+   "accession_version": "VCV000016763.1",
+   "title": "NM_001044.5(SLC6A3):c.1103T>A (p.Leu368Gln)",
+   "variation_set": [
+    {
+     "measure_id": "31802",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA126861"
+      },
+      {
+       "db_source": "UniProtKB",
+       "db_id": "Q01959#VAR_063771"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "267607068"
+      }
+     ],
+     "variation_name": "NM_001044.5(SLC6A3):c.1103T>A (p.Leu368Gln)",
+     "cdna_change": "c.1103T>A",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1414744",
+       "stop": "1414744",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1414744",
+       "display_stop": "1414744",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1414859",
+       "stop": "1414859",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1414859",
+       "display_stop": "1414859",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1414743:A:T",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000038528"
+    ],
+    "rcv": [
+     "RCV000018249"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic",
+    "last_evaluated": "2009/06/01 00:00",
+    "review_status": "no assertion criteria provided",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "238455"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C5700336"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0054835"
+       }
+      ],
+      "trait_name": "Classic dopamine transporter deficiency syndrome"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001414744",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "L368Q",
+   "fda_recognized_database": ""
+  },
+  "16764": {
+   "uid": "16764",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000016764",
+   "accession_version": "VCV000016764.1",
+   "title": "NM_001044.5(SLC6A3):c.1184C>T (p.Pro395Leu)",
+   "variation_set": [
+    {
+     "measure_id": "31803",
+     "variation_xrefs": [
+      {
+       "db_source": "UniProtKB",
+       "db_id": "Q01959#VAR_063772"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "267607069"
+      },
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA126862"
+      }
+     ],
+     "variation_name": "NM_001044.5(SLC6A3):c.1184C>T (p.Pro395Leu)",
+     "cdna_change": "c.1184C>T",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1411443",
+       "stop": "1411443",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1411443",
+       "display_stop": "1411443",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1411328",
+       "stop": "1411328",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1411328",
+       "display_stop": "1411328",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00000",
+       "minor_allele": ""
+      },
+      {
+       "source": "Trans-Omics for Precision Medicine (TOPMed)",
+       "value": "0.00000",
+       "minor_allele": ""
+      },
+      {
+       "source": "The Genome Aggregation Database (gnomAD)",
+       "value": "0.00001",
+       "minor_allele": ""
+      },
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00001",
+       "minor_allele": ""
+      },
+      {
+       "source": "1000 Genomes Project",
+       "value": "0.00020",
+       "minor_allele": "A"
+      }
+     ],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1411327:G:A",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000038529"
+    ],
+    "rcv": [
+     "RCV000018250"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic",
+    "last_evaluated": "2009/06/01 00:00",
+    "review_status": "no assertion criteria provided",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "238455"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C5700336"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0054835"
+       }
+      ],
+      "trait_name": "Classic dopamine transporter deficiency syndrome"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001411328",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "P395L",
+   "fda_recognized_database": ""
+  },
+  "97017": {
+   "uid": "97017",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000097017",
+   "accession_version": "VCV000097017.1",
+   "title": "NM_001044.5(SLC6A3):c.671T>C (p.Leu224Pro)",
+   "variation_set": [
+    {
+     "measure_id": "102922",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA149714"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "431905515"
+      }
+     ],
+     "variation_name": "NM_001044.5(SLC6A3):c.671T>C (p.Leu224Pro)",
+     "cdna_change": "c.671T>C",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1421997",
+       "stop": "1421997",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1421997",
+       "display_stop": "1421997",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1422112",
+       "stop": "1422112",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1422112",
+       "display_stop": "1422112",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1421996:A:G",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000115343"
+    ],
+    "rcv": [
+     "RCV000083263"
+    ]
+   },
+   "germline_classification": {
+    "description": "Pathogenic",
+    "last_evaluated": "2011/01/01 00:00",
+    "review_status": "no assertion criteria provided",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "238455"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C5700336"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0054835"
+       }
+      ],
+      "trait_name": "Classic dopamine transporter deficiency syndrome"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001421997",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "L224P",
+   "fda_recognized_database": ""
+  },
+  "421417": {
+   "uid": "421417",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV000421417",
+   "accession_version": "VCV000421417.2",
+   "title": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+   "variation_set": [
+    {
+     "measure_id": "406650",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA16618134"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "1064795122"
+      }
+     ],
+     "variation_name": "NM_001044.5(SLC6A3):c.253C>T (p.Arg85Trp)",
+     "cdna_change": "c.253C>T",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1442945",
+       "stop": "1442945",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1442945",
+       "display_stop": "1442945",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1443060",
+       "stop": "1443060",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1443060",
+       "display_stop": "1443060",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [
+      {
+       "source": "The Genome Aggregation Database (gnomAD)",
+       "value": "0.00001",
+       "minor_allele": ""
+      }
+     ],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1442944:G:A",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV000570620"
+    ],
+    "rcv": [
+     "RCV000480943"
+    ]
+   },
+   "germline_classification": {
+    "description": "Likely pathogenic",
+    "last_evaluated": "2019/01/03 00:00",
+    "review_status": "criteria provided, single submitter",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "MedGen",
+        "db_id": "C3661900"
+       }
+      ],
+      "trait_name": "not provided"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001442945",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "R85W",
+   "fda_recognized_database": ""
+  },
+  "2054045": {
+   "uid": "2054045",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV002054045",
+   "accession_version": "VCV002054045.4",
+   "title": "NM_001044.5(SLC6A3):c.1156G>A (p.Gly386Arg)",
+   "variation_set": [
+    {
+     "measure_id": "2115795",
+     "variation_xrefs": [
+      {
+       "db_source": "ClinGen",
+       "db_id": "CA359082706"
+      },
+      {
+       "db_source": "dbSNP",
+       "db_id": "2126353885"
+      }
+     ],
+     "variation_name": "NM_001044.5(SLC6A3):c.1156G>A (p.Gly386Arg)",
+     "cdna_change": "c.1156G>A",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1414806",
+       "stop": "1414806",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1414806",
+       "display_stop": "1414806",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1414691",
+       "stop": "1414691",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1414691",
+       "display_stop": "1414691",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [
+      {
+       "source": "The Genome Aggregation Database (gnomAD), exomes",
+       "value": "0.00001",
+       "minor_allele": ""
+      }
+     ],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1414690:C:T",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV003263641"
+    ],
+    "rcv": [
+     "RCV002927690"
+    ]
+   },
+   "germline_classification": {
+    "description": "Likely pathogenic",
+    "last_evaluated": "2021/12/14 00:00",
+    "review_status": "criteria provided, single submitter",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [
+       {
+        "db_source": "Orphanet",
+        "db_id": "238455"
+       },
+       {
+        "db_source": "MedGen",
+        "db_id": "C2751067"
+       },
+       {
+        "db_source": "MONDO",
+        "db_id": "MONDO:0013150"
+       }
+      ],
+      "trait_name": "Parkinsonism-dystonia, infantile"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001414691",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "G386R",
+   "fda_recognized_database": ""
+  },
+  "4969368": {
+   "uid": "4969368",
+   "obj_type": "single nucleotide variant",
+   "accession": "VCV004969368",
+   "accession_version": "VCV004969368.1",
+   "title": "NM_001044.5(SLC6A3):c.941C>T (p.Ala314Val)",
+   "variation_set": [
+    {
+     "measure_id": "5072878",
+     "variation_xrefs": [],
+     "variation_name": "NM_001044.5(SLC6A3):c.941C>T (p.Ala314Val)",
+     "cdna_change": "c.941C>T",
+     "aliases": [],
+     "variation_loc": [
+      {
+       "status": "current",
+       "assembly_name": "GRCh38",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1416188",
+       "stop": "1416188",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1416188",
+       "display_stop": "1416188",
+       "assembly_acc_ver": "GCF_000001405.38",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      },
+      {
+       "status": "previous",
+       "assembly_name": "GRCh37",
+       "chr": "5",
+       "band": "5p15.33",
+       "start": "1416303",
+       "stop": "1416303",
+       "inner_start": "",
+       "inner_stop": "",
+       "outer_start": "",
+       "outer_stop": "",
+       "display_start": "1416303",
+       "display_stop": "1416303",
+       "assembly_acc_ver": "GCF_000001405.25",
+       "annotation_release": "",
+       "alt": "",
+       "ref": ""
+      }
+     ],
+     "allele_freq_set": [],
+     "variant_type": "single nucleotide variant",
+     "canonical_spdi": "NC_000005.10:1416187:G:A",
+     "common_name": ""
+    }
+   ],
+   "supporting_submissions": {
+    "scv": [
+     "SCV007961254"
+    ],
+    "rcv": [
+     "RCV006969826"
+    ]
+   },
+   "germline_classification": {
+    "description": "Likely pathogenic",
+    "last_evaluated": "2023/07/14 00:00",
+    "review_status": "criteria provided, single submitter",
+    "fda_recognized_database": "",
+    "trait_set": [
+     {
+      "trait_xrefs": [],
+      "trait_name": "SLC6A3-related disorder"
+     }
+    ]
+   },
+   "clinical_impact_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "oncogenicity_classification": {
+    "description": "",
+    "last_evaluated": "1/01/01 00:00",
+    "review_status": "",
+    "fda_recognized_database": "",
+    "trait_set": []
+   },
+   "record_status": "",
+   "gene_sort": "SLC6A3",
+   "chr_sort": "05",
+   "location_sort": "00000000000001416188",
+   "variation_set_name": "",
+   "variation_set_id": "",
+   "genes": [
+    {
+     "symbol": "SLC6A3",
+     "geneid": "6531",
+     "strand": "-",
+     "source": "submitted"
+    }
+   ],
+   "molecular_consequence_list": [
+    "missense variant"
+   ],
+   "protein_change": "A314V",
+   "fda_recognized_database": ""
+  },
+  "uids": [
+   "4969368",
+   "2054045",
+   "421417",
+   "97017",
+   "16764",
+   "16763"
+  ]
+ }
+}

@@ -1,0 +1,918 @@
+{
+  "kind": "disease-associations",
+  "derivedFrom": [
+    "gene.json"
+  ],
+  "ensemblGeneId": "ENSG00000142319",
+  "approvedSymbol": "SLC6A3",
+  "platform": {
+    "apiVersion": "26.9.0",
+    "dataVersion": "26.09"
+  },
+  "request": {
+    "pageIndex": 0,
+    "pageSize": 25,
+    "orderByScore": true
+  },
+  "count": 1222,
+  "keptCount": 25,
+  "associations": [
+    {
+      "diseaseId": "MONDO_0013150",
+      "diseaseName": "parkinsonism-dystonia, infantile",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        },
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.7947447156574925,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.30084188549120144
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.8456198688751903
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.8365213862795708
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "genomics_england",
+          "score": 0.9190679877429972
+        },
+        {
+          "id": "eva",
+          "score": 0.8934563586474197
+        },
+        {
+          "id": "uniprot_variants",
+          "score": 0.7599134970145264
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "gene2phenotype",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "orphanet",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0054835",
+      "diseaseName": "classic dopamine transporter deficiency syndrome",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        },
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.7622909126841366,
+      "datatypeScores": [
+        {
+          "id": "genetic_association",
+          "score": 0.8476264060401816
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.8149994713287221
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "genomics_england",
+          "score": 0.8897742701710087
+        },
+        {
+          "id": "eva",
+          "score": 0.8695546332965953
+        },
+        {
+          "id": "uniprot_variants",
+          "score": 0.7599134970145264
+        },
+        {
+          "id": "gene2phenotype",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "uniprot_literature",
+          "score": 0.607930797611621
+        }
+      ],
+      "droppedDatasourceIds": []
+    },
+    {
+      "diseaseId": "MONDO_0007743",
+      "diseaseName": "attention deficit-hyperactivity disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.6360135459506137,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.9669583785128045
+        },
+        {
+          "id": "clinical",
+          "score": 0.9978460696818153
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0002009",
+      "diseaseName": "major depressive disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.6258940696124526,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.6589464961879817
+        },
+        {
+          "id": "clinical",
+          "score": 0.9966008936250081
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004975",
+      "diseaseName": "Alzheimer disease",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.614357671883495,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.44422375084598104
+        },
+        {
+          "id": "affected_pathway",
+          "score": 0.47462246497174854
+        },
+        {
+          "id": "clinical",
+          "score": 0.882044465014109
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "crispr_screen",
+          "score": 0.47462246497174854
+        }
+      ],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0011122",
+      "diseaseName": "obesity disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.6128613761235928,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.5139180799759444
+        },
+        {
+          "id": "clinical",
+          "score": 0.9824145232592764
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0016158",
+      "diseaseName": "narcolepsy-cataplexy syndrome",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.5886787000285805,
+      "datatypeScores": [
+        {
+          "id": "clinical",
+          "score": 0.968331761347383
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0100081",
+      "diseaseName": "sleep disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.5717350354445566,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.18979531814947678
+        },
+        {
+          "id": "clinical",
+          "score": 0.930970953784197
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0002050",
+      "diseaseName": "depressive disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.5680237509860853,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.5402690879180924
+        },
+        {
+          "id": "clinical",
+          "score": 0.9073424841709212
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0021107",
+      "diseaseName": "narcolepsy",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.5620999372622099,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.11232298147717582
+        },
+        {
+          "id": "clinical",
+          "score": 0.9189955657307424
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "HP_0025502",
+      "diseaseName": "Overweight",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.5316852471028595,
+      "datatypeScores": [
+        {
+          "id": "clinical",
+          "score": 0.8745818589742326
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0007147",
+      "diseaseName": "obstructive sleep apnea syndrome",
+      "therapeuticAreas": [
+        {
+          "id": "OTAR_0000010",
+          "name": "respiratory or thoracic disease"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.5089217260079089,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.01823792392834863
+        },
+        {
+          "id": "clinical",
+          "score": 0.836225699081385
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005582",
+      "diseaseName": "binge eating disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        }
+      ],
+      "score": 0.5012198678797446,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.152595696290497
+        },
+        {
+          "id": "clinical",
+          "score": 0.8168388386684244
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005371",
+      "diseaseName": "mood disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.4743063906439819,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.11928704724650031
+        },
+        {
+          "id": "clinical",
+          "score": 0.7742336446916
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "HP_0001249",
+      "diseaseName": "Intellectual disability",
+      "therapeuticAreas": [
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.4715017657210829,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.021277577916406734
+        },
+        {
+          "id": "clinical",
+          "score": 0.06079307976116211
+        },
+        {
+          "id": "genetic_literature",
+          "score": 0.7599134970145264
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "genomics_england",
+          "score": 0.7599134970145264
+        }
+      ],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0007739",
+      "diseaseName": "Huntington disease",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        },
+        {
+          "id": "OTAR_0000018",
+          "name": "genetic, familial or congenital disease"
+        }
+      ],
+      "score": 0.47063051206998846,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.28475917812082885
+        },
+        {
+          "id": "clinical",
+          "score": 0.7599134970145264
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005303",
+      "diseaseName": "drug dependence",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        }
+      ],
+      "score": 0.46835850865092926,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.21001371603911742
+        },
+        {
+          "id": "clinical",
+          "score": 0.7599134970145264
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004980",
+      "diseaseName": "atopic eczema",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005046",
+          "name": "immune system disorder"
+        },
+        {
+          "id": "MONDO_0002051",
+          "name": "integumentary system disorder"
+        },
+        {
+          "id": "EFO_0000651",
+          "name": "phenotype"
+        }
+      ],
+      "score": 0.4619748183558772,
+      "datatypeScores": [
+        {
+          "id": "clinical",
+          "score": 0.7599134970145264
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence"
+      ]
+    },
+    {
+      "diseaseId": "EFO_0009086",
+      "diseaseName": "arteriosclerosis",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0004995",
+          "name": "cardiovascular disorder"
+        }
+      ],
+      "score": 0.4619748183558772,
+      "datatypeScores": [
+        {
+          "id": "clinical",
+          "score": 0.7599134970145264
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005559",
+      "diseaseName": "neurodegenerative disease",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.44295553100709034,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.09188098491129369
+        },
+        {
+          "id": "affected_pathway",
+          "score": 0.5812691310836465
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "reactome",
+          "score": 0.607930797611621
+        },
+        {
+          "id": "crispr_screen",
+          "score": 0.47462246497174854
+        }
+      ],
+      "droppedDatasourceIds": [
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0008575",
+      "diseaseName": "nicotine dependence",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        }
+      ],
+      "score": 0.42592114192585107,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.35964255311163057
+        },
+        {
+          "id": "clinical",
+          "score": 0.6826258092990329
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005146",
+      "diseaseName": "post-traumatic stress disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.4249034145972706,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.7891423683991832
+        },
+        {
+          "id": "clinical",
+          "score": 0.6594767343583332
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005090",
+      "diseaseName": "schizophrenia",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.42424273294537584,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.8203682749260803
+        },
+        {
+          "id": "animal_model",
+          "score": 0.44622120544692995
+        },
+        {
+          "id": "genetic_association",
+          "score": 0.19892846655180269
+        },
+        {
+          "id": "clinical",
+          "score": 0.6243067938130269
+        }
+      ],
+      "datasourceScores": [
+        {
+          "id": "eva",
+          "score": 0.19892846655180269
+        },
+        {
+          "id": "impc",
+          "score": 0.44622120544692995
+        }
+      ],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0005451",
+      "diseaseName": "eating disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005151",
+          "name": "endocrine system disorder"
+        }
+      ],
+      "score": 0.41279698151587485,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.21852916868479738
+        },
+        {
+          "id": "clinical",
+          "score": 0.6680932312041715
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    },
+    {
+      "diseaseId": "MONDO_0004985",
+      "diseaseName": "bipolar disorder",
+      "therapeuticAreas": [
+        {
+          "id": "MONDO_0002025",
+          "name": "psychiatric disorder"
+        },
+        {
+          "id": "MONDO_0005071",
+          "name": "nervous system disorder"
+        }
+      ],
+      "score": 0.4035759261868417,
+      "datatypeScores": [
+        {
+          "id": "literature",
+          "score": 0.49343815728063023
+        },
+        {
+          "id": "clinical",
+          "score": 0.6391798459414529
+        }
+      ],
+      "datasourceScores": [],
+      "droppedDatasourceIds": [
+        "clinical_precedence",
+        "europepmc"
+      ]
+    }
+  ],
+  "droppedDatasources": {
+    "excluded": [
+      "chembl",
+      "clinical_precedence",
+      "cancer_gene_census",
+      "europepmc"
+    ],
+    "observed": [
+      "clinical_precedence",
+      "europepmc"
+    ],
+    "reason": "share-alike or restricted sources of the Open Targets licence table (registry section 7): ChEMBL (CC BY-SA 3.0; its clinical-precedence evidence carries the datasource id clinical_precedence in release 26.09), Cancer Gene Census (commercial use restricted), Europe PMC (mixed); the Human Protein Atlas (CC BY-SA 3.0) is not an association datasource; their datasource scores are not redistributed here"
+  },
+  "datasourceIdsObserved": [
+    "clinical_precedence",
+    "crispr_screen",
+    "europepmc",
+    "eva",
+    "gene2phenotype",
+    "genomics_england",
+    "impc",
+    "orphanet",
+    "reactome",
+    "uniprot_literature",
+    "uniprot_variants"
+  ],
+  "note": "association, never causal; a score aggregates evidence, it does not state that the gene causes the disease",
+  "provenance": {
+    "sources": [
+      {
+        "source": "opentargets",
+        "url": "https://api.platform.opentargets.org/api/v4/graphql",
+        "method": "POST",
+        "retrievedAt": "2026-11-03T23:53:48Z",
+        "sourceRelease": "Open Targets 26.9.0 (data 26.09)",
+        "recordId": "target ENSG00000142319 associatedDiseases page 0 size 25",
+        "recordVersion": null,
+        "assembly": null,
+        "sha256": "cef24df66a9b95ffe4a7a3e64d7bcbbd2174499157efadf9eb4a05e471d7fa11",
+        "licence": "CC0-1.0",
+        "attribution": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
+      }
+    ],
+    "transformations": [
+      "field-select",
+      "drop-excluded-datasource-scores",
+      "keep-platform-order"
+    ],
+    "validation": [
+      {
+        "check": "T49-association-target",
+        "result": "pass",
+        "detail": "response target ENSG00000142319 SLC6A3; specification ENSG00000142319; gene record ENSG00000142319 SLC6A3",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T49-association-rows",
+        "result": "pass",
+        "detail": "25 row(s) kept of 1222 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top parkinsonism-dystonia, infantile (MONDO_0013150) 0.7947447156574925",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T50-association-order-and-exclusion",
+        "result": "pass",
+        "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: clinical_precedence, crispr_screen, europepmc, eva, gene2phenotype, genomics_england, impc, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: clinical_precedence, europepmc; no excluded id remains in the kept scores",
+        "at": "2026-11-03T23:57:48Z"
+      },
+      {
+        "check": "T51-association-versions",
+        "result": "pass",
+        "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 2
+  },
+  "evidence": [
+    {
+      "category": 2,
+      "categoryLabel": "Database annotation/submission with review status",
+      "basis": "curated-database-annotation",
+      "statement": "Open Targets 26.9.0 (data 26.09) lists 1222 disease associations for SLC6A3 (ENSG00000142319); the 25 highest-scoring are kept, the top being parkinsonism-dystonia, infantile (MONDO_0013150, score 0.7947447156574925).",
+      "qualifier": "Open Targets api 26.9.0, data 26.09",
+      "limitations": [
+        "An Open Targets association, never causal; a score aggregates evidence, it does not state that the gene causes the disease.",
+        "The overall score and the datatype scores are the platform's aggregates over every datasource, including the dropped ones (clinical_precedence, europepmc); the kept datasource scores exclude chembl, clinical_precedence, cancer_gene_census, europepmc.",
+        "Curated database annotation; the cited evidence is the curators' assessment, not an observation made here."
+      ]
+    }
+  ]
+}

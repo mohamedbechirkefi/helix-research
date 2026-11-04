@@ -111,8 +111,27 @@ export function allelesAtSite(
   recoder: EnsemblVariantRecoder,
   ctx: { transcript: Transcript; cds: string; refSeqTranscript: VersionedId | null; refSeqProtein: string | null },
 ): ResolvedAllele[] {
-  const alleles = [...new Set(recoder.flatMap((r) => Object.keys(r)))].sort();
+  const unplaced = new Set(unplacedRecoderAlleles(recoder).map((u) => u.allele));
+  const alleles = [...new Set(recoder.flatMap((r) => Object.keys(r)))].sort().filter((a) => !unplaced.has(a));
   return alleles.map((a) => resolveAllele(recoder, a, ctx));
+}
+
+/**
+ * Recoder allele keys that carry no chromosome-level (NC_) hgvsg or SPDI: an allele placed only on an
+ * alternate scaffold or patch (measured on 2026-11-03, rs1064795122: the key "T" lists NT_187547.1
+ * only, the same change seen from the reverse-oriented alt contig HSCHR5_3_CTG1). Such a key is not
+ * an allele of the primary-assembly site; it is reported with its placements, never resolved against
+ * the transcript and never counted as another allele (Phase 9, P9.2.3).
+ */
+export function unplacedRecoderAlleles(recoder: EnsemblVariantRecoder): { allele: string; placements: string[] }[] {
+  const out: { allele: string; placements: string[] }[] = [];
+  for (const r of recoder) {
+    for (const [allele, e] of Object.entries(r)) {
+      const placed = e.hgvsg.some((h) => /^NC_\d{6}\.\d+:g\./.test(h)) && e.spdi.some((x) => /^NC_\d{6}\.\d+:/.test(x));
+      if (!placed && !out.some((o) => o.allele === allele)) out.push({ allele, placements: [...e.hgvsg, ...e.spdi] });
+    }
+  }
+  return out.sort((a, b) => a.allele.localeCompare(b.allele));
 }
 
 // ---------------------------------------------------------------- in-frame deletions (Phase 9, plan section 11)

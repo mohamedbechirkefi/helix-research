@@ -1,0 +1,106 @@
+{
+  "kind": "residue-contacts",
+  "entryId": "8Y2C",
+  "scope": "asymmetric unit, model 1, no symmetry mates; the residue's own chain included beyond its covalent neighbours (one mapped chain)",
+  "cutoffAngstrom": 4.5,
+  "numbering": "auth_asym_id / auth_seq_id",
+  "chains": [
+    {
+      "residue": {
+        "entryId": "8Y2C",
+        "assemblyId": "1",
+        "entityId": "1",
+        "labelAsymId": "A",
+        "labelSeqId": 20,
+        "authAsymId": "A",
+        "authSeqId": "85",
+        "insCode": null,
+        "compId": "ARG",
+        "authCompId": "ARG"
+      },
+      "probeAtoms": [
+        "CD",
+        "CG",
+        "CZ",
+        "NE",
+        "NH1",
+        "NH2"
+      ],
+      "contacts": [
+        {
+          "authAsymId": "A",
+          "authSeqId": 88,
+          "compId": "TYR"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 89,
+          "compId": "LEU"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 316,
+          "compId": "THR"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 317,
+          "compId": "GLN"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 320,
+          "compId": "PHE"
+        },
+        {
+          "authAsymId": "A",
+          "authSeqId": 476,
+          "compId": "ASP"
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "sources": [
+      {
+        "source": "rcsb-files",
+        "url": "https://files.rcsb.org/download/8Y2C.cif",
+        "method": "GET",
+        "retrievedAt": "2026-11-03T23:53:40Z",
+        "sourceRelease": "PDB rev 1.4 2025-07-16",
+        "recordId": "8Y2C",
+        "recordVersion": "1.4",
+        "assembly": null,
+        "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+        "licence": "CC0-1.0",
+        "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+      }
+    ],
+    "transformations": [
+      "parse-mmcif",
+      "side-chain-atoms-beyond-cb",
+      "distance-cutoff"
+    ],
+    "validation": [
+      {
+        "check": "T28-contacts-computed",
+        "result": "pass",
+        "detail": "A85: A88,A89,A316,A317,A320,A476",
+        "at": "2026-11-03T23:57:48Z"
+      }
+    ],
+    "evidenceCategory": 1
+  },
+  "evidence": [
+    {
+      "category": 1,
+      "categoryLabel": "Experimentally supported fact or observation",
+      "basis": "computed-from-experimental-data",
+      "statement": "Within 4.5 A of the ARG side chain, in the asymmetric unit (the residue's own chain included beyond its covalent neighbours, since the entry has one mapped chain): chain A contacts residue(s) A88 TYR, A89 LEU, A316 THR, A317 GLN, A320 PHE, A476 ASP.",
+      "qualifier": null,
+      "limitations": [
+        "Computed by HELIX from deposited coordinates; depends on the deposited model and the stated cutoff."
+      ]
+    }
+  ]
+}

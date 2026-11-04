@@ -1,0 +1,992 @@
+{
+  "schema": "helix-dataset-manifest/1",
+  "datasetId": "slc6a3",
+  "description": "SLC6A3 (sodium-dependent dopamine transporter) generalisation set: gene, MANE Select transcript, sequences, UniProt Q01959, the R85W substitution chosen by rule, PDB 8Y2C (the human dopamine transporter, electron microscopy) and its residue mapping; the reference variant is a one-star ClinVar record because the gene has no missense record at two stars.",
+  "generatedAt": "2026-11-03T23:57:48Z",
+  "generator": {
+    "script": "scripts/data-preparation/build-gene.ts (offline)",
+    "gitCommit": "6cc33a88a2ed9f82314f22125a4400e4b902dd7a",
+    "gitDirty": true,
+    "node": "v22.23.3"
+  },
+  "assembly": "GRCh38.p14",
+  "nonclinicalNotice": "HELIX is a nonclinical research and education project. This dataset is not a clinical diagnostic, variant classification or medical advice resource.",
+  "sources": [
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:25Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "info/data",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:25Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "homo_sapiens",
+      "recordVersion": "GRCh38.p14",
+      "assembly": "GRCh38.p14",
+      "sha256": "e3341c8fb448141c964f139d655eb4f60e954dc725b456b839ac002906bae418",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENSG00000142319?expand=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:30Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSG00000142319",
+      "recordVersion": "21",
+      "assembly": "GRCh38.p14",
+      "sha256": "738ffce5af6709bc2d6eb460310798824a1ed1bb88b49f055ed6e7eddd75cf25",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/lookup/id/ENST00000270349?expand=1;utr=1;mane=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:43Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000270349",
+      "recordVersion": "12",
+      "assembly": "GRCh38.p14",
+      "sha256": "9df53ff9e2fb9558d6e6ab7f3441735280b621b50b6663938c9dc21812720384",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000270349?type=cds;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:43Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000270349.12",
+      "recordVersion": "12",
+      "assembly": "GRCh38.p14",
+      "sha256": "544cda0ca68436374cb74a1ed5c1b16a3df9cba4340bbf72e655b1cc376e617d",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000270349?type=cdna;content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:44Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000270349.12",
+      "recordVersion": "12",
+      "assembly": "GRCh38.p14",
+      "sha256": "98798a53af03ad8e1c618b5f3c4c8c3b900798f830af30840079beed7f592cd8",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/id/ENSP00000270349?content-type=text/x-fasta",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:44Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENSP00000270349.9",
+      "recordVersion": "9",
+      "assembly": "GRCh38.p14",
+      "sha256": "9e2205d642b429788814625b54e0f6101fb13618a5ad77bb1adaf43693e2e274",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/sequence/region/human/5:1442925..1442965:1?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:52:29Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "chromosome:GRCh38:5:1442925:1442965:1",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "7767afc77a5afbe36e3a543988920c2fa53841393f4722ec033f15c42d56cced",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/map/cds/ENST00000270349/253..255?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:52:54Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000270349 codon 85",
+      "recordVersion": "12",
+      "assembly": "GRCh38.p14",
+      "sha256": "9a050c7aa92c0ac0412d823b47918f36dd6ece7d64fca9b8650bd89d6092aa67",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/variation/human/rs1064795122?content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:15Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "rs1064795122",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "9360a22df2078bf99dd611da76a3999845a2dcdaab9a724565911d98fe4caaba",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/variant_recoder/human/rs1064795122?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:52:26Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "rs1064795122",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "77695343347dfe3dec359187e3f0e9f5768bf730597976d360db179d5a407dd8",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "ensembl",
+      "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000270349.12:c.253C>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:39Z",
+      "sourceRelease": "Ensembl 116",
+      "recordId": "ENST00000270349.12:c.253C>T",
+      "recordVersion": null,
+      "assembly": "GRCh38.p14",
+      "sha256": "bfa5fc1ba15fb51d223a6b29e609a3fdadba94c4991a7afa7dccd0ba3100fae2",
+      "licence": "Ensembl-no-restrictions",
+      "attribution": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "uniprot",
+      "url": "https://rest.uniprot.org/uniprotkb/Q01959.json",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:50:44Z",
+      "sourceRelease": "UniProt 2026_03",
+      "recordId": "Q01959",
+      "recordVersion": "entry 233, sequence 1",
+      "assembly": null,
+      "sha256": "afbb2aa48a24022b4672c8d0d586cddc638d64eaa9d379f4a0efa2933cadab96",
+      "licence": "CC-BY-4.0",
+      "attribution": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    },
+    {
+      "source": "rcsb-files",
+      "url": "https://files.rcsb.org/download/8Y2C.cif",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:40Z",
+      "sourceRelease": "PDB rev 1.4 2025-07-16",
+      "recordId": "8Y2C",
+      "recordVersion": "1.4",
+      "assembly": null,
+      "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+      "licence": "CC0-1.0",
+      "attribution": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/entry/8Y2C",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:40Z",
+      "sourceRelease": "PDB rev 1.4 2025-07-16",
+      "recordId": "8Y2C",
+      "recordVersion": "1.4",
+      "assembly": null,
+      "sha256": "74bf251809ab66e2cc6cc7b1128a8891c59cb3c9d73d6004913e71a9b01ad241",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/8Y2C/1",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:41Z",
+      "sourceRelease": "PDB rev 1.4 2025-07-16",
+      "recordId": "8Y2C_1",
+      "recordVersion": "1.4",
+      "assembly": null,
+      "sha256": "ef58ad9abba2ef8e0a73db5ad7dd89528ed3f66dfc8a77f122ff6c234e3bae58",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb",
+      "url": "https://data.rcsb.org/rest/v1/core/assembly/8Y2C/1",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:41Z",
+      "sourceRelease": "PDB rev 1.4 2025-07-16",
+      "recordId": "8Y2C-1",
+      "recordVersion": "1.4",
+      "assembly": null,
+      "sha256": "127041aed33d3da1278492aa27ebc797799947c2e53f3bbaa0bfe59cd28418b9",
+      "licence": "CC0-1.0",
+      "attribution": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "pdbe-sifts",
+      "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/8y2c",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:40Z",
+      "sourceRelease": null,
+      "recordId": "8y2c",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "23785159a7dc708d083e192e6598c701ae6361bec49aeac6e948a309fc9294d2",
+      "licence": "CC0-1.0",
+      "attribution": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+    },
+    {
+      "source": "ncbi-clinvar",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=421417&retmode=json&tool=helix-research",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:42Z",
+      "sourceRelease": "ClinVar Build261101-1245.1",
+      "recordId": "VCV000421417",
+      "recordVersion": "2",
+      "assembly": "GRCh38",
+      "sha256": "44ee7fdd055cf09479cbdf5e46601af640b3c9952e298832497ca92712f57b99",
+      "licence": "NCBI-public-domain",
+      "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "hgnc",
+      "url": "https://rest.genenames.org/fetch/symbol/SLC6A3",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:39Z",
+      "sourceRelease": null,
+      "recordId": "HGNC:11049",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "652f3ca4ced43e8a73a41acca583053814b8c9a558e4a48d852dca68180923af",
+      "licence": "CC0-1.0",
+      "attribution": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "ncbi-clinvar",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs1064795122&retmode=json&retmax=100&tool=helix-research",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:41Z",
+      "sourceRelease": "ClinVar Build261101-1245.1",
+      "recordId": "esearch rs1064795122",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "b522d773284b3e129ccac35fc0b824d4c8cd1a7de864359d2ef6e7fcc9b1665e",
+      "licence": "NCBI-public-domain",
+      "attribution": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/api/prediction/Q01959",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:43Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-Q01959-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "bacd9f1462190fde9d401dc5bf28796837c48411e2617defce78c1b51aa4d7ad",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "alphafold",
+      "url": "https://alphafold.ebi.ac.uk/files/AF-Q01959-F1-model_v6.cif",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:43Z",
+      "sourceRelease": "AlphaFold DB model v6",
+      "recordId": "AF-Q01959-F1",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "d8762eaf14990e671d2766b029e3dc2ec38a1c9621d3fd5c62c2e843eb0dfc0c",
+      "licence": "CC-BY-4.0",
+      "attribution": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/database/version",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:43Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "data/database/version",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/mapping/UniProt/Q01959/pathways?species=9606",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:44Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "UniProt Q01959 pathways, species 9606",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "dcff7103665487475346d63dcb0726f9307e7249c6fd0780a2ab76409bbfe0ae",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-379401/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:45Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-379401 ancestors",
+      "recordVersion": "6",
+      "assembly": null,
+      "sha256": "103677b0fcc95c312188354547328b47805fd5ecf211c36334e2084c0e58e0a8",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-442660/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:46Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-442660 ancestors",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "0d530a380ad5139ddcea238128f1a3cc1b3770bec56c29fade09915045410831",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-5619081/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:46Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-5619081 ancestors",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "a56ca96d260b1fe44dc4b6e094bf28690ce77977de2b7125869cf39d89b9a6dd",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-5660724/ancestors",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:47Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-5660724 ancestors",
+      "recordVersion": "5",
+      "assembly": null,
+      "sha256": "27a830ca0da0276ddab6dc79d81c5fb005c1865a878b0f79c1c464a688d077c9",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "reactome",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-442660",
+      "method": "GET",
+      "retrievedAt": "2026-11-03T23:53:47Z",
+      "sourceRelease": "Reactome 98",
+      "recordId": "R-HSA-442660 participants",
+      "recordVersion": "4",
+      "assembly": null,
+      "sha256": "61825a4ab7c014e5c70820bad0053b271dafe23824756e550dd2bf33cbab5b95",
+      "licence": "CC0-1.0",
+      "attribution": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "opentargets",
+      "url": "https://api.platform.opentargets.org/api/v4/graphql",
+      "method": "POST",
+      "retrievedAt": "2026-11-03T23:53:48Z",
+      "sourceRelease": "Open Targets 26.9.0 (data 26.09)",
+      "recordId": "target ENSG00000142319 associatedDiseases page 0 size 25",
+      "recordVersion": null,
+      "assembly": null,
+      "sha256": "cef24df66a9b95ffe4a7a3e64d7bcbbd2174499157efadf9eb4a05e471d7fa11",
+      "licence": "CC0-1.0",
+      "attribution": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
+    }
+  ],
+  "files": [
+    {
+      "path": "gene.json",
+      "sha256": "5626e6b5be94c9aae824d46410a8da0e19f9436219268ff57332f2c8845d8453",
+      "bytes": 4587,
+      "recordKind": "gene"
+    },
+    {
+      "path": "transcript.json",
+      "sha256": "bbde85448102d6a4c40f27e3a85f1533d9a1517b7d1c7d64864a718f142a19e9",
+      "bytes": 10684,
+      "recordKind": "transcript"
+    },
+    {
+      "path": "sequences.json",
+      "sha256": "ae23aa540e51266f2da5590c6657d50a300fcebf25892052958cb1d78325483f",
+      "bytes": 20552,
+      "recordKind": "sequence-set"
+    },
+    {
+      "path": "protein-Q01959.json",
+      "sha256": "daebc0141655fb2fba61807ae60cb6f773dc6a61679d7e6fef6543eebd4b1b09",
+      "bytes": 15031,
+      "recordKind": "protein"
+    },
+    {
+      "path": "variant-r85w.json",
+      "sha256": "7325209612da388aab6a72f41d28d3b8a49ccc74303d1b3188fdde441beb8eb5",
+      "bytes": 13304,
+      "recordKind": "variant"
+    },
+    {
+      "path": "clinvar-r85w.json",
+      "sha256": "6fbc66aed9c3f708b49d99a84eb2f618b8afb0419e43adef202e408a140dff98",
+      "bytes": 5236,
+      "recordKind": "clinvar-record"
+    },
+    {
+      "path": "structure-8Y2C.json",
+      "sha256": "90901c1558cd90051d4adfd6f822f1fa021f7f29f5c775f6c068fe199716f416",
+      "bytes": 9665,
+      "recordKind": "structure"
+    },
+    {
+      "path": "8Y2C.cif",
+      "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+      "bytes": 471699,
+      "recordKind": "mmcif"
+    },
+    {
+      "path": "residue-mapping-r85w-8Y2C.json",
+      "sha256": "c42f555868951db0918e5669ed7624d7a0208fddc0fcf25e7a5d1673501c29ff",
+      "bytes": 6158,
+      "recordKind": "residue-mapping"
+    },
+    {
+      "path": "residue-mapping-Q01959-8Y2C.json",
+      "sha256": "94d71c139da4b9a00cf76549b2d0e429e1de90bdf9caa33c287a496a1f9996be",
+      "bytes": 274690,
+      "recordKind": "residue-mapping-table"
+    },
+    {
+      "path": "contacts-r85w-8Y2C.json",
+      "sha256": "8f45498444d4272b991c9378c656584ec0c98be6be8b00edf27739792a0bcb2d",
+      "bytes": 2941,
+      "recordKind": "residue-contacts"
+    },
+    {
+      "path": "predicted-model-AF-Q01959-F1.json",
+      "sha256": "e0428e9ea9d3c5441f4a21767e88a549ca68a3ae307461edcbccb32d80dea5bb",
+      "bytes": 3166,
+      "recordKind": "predicted-model"
+    },
+    {
+      "path": "pathways.json",
+      "sha256": "47cb3117848351f1e255589d08965fe51b2f000cc722aa0bde669be51e95c687",
+      "bytes": 26796,
+      "recordKind": "pathway-memberships"
+    },
+    {
+      "path": "associations.json",
+      "sha256": "62174028599b0e92b7a2a7bb4cb3c49182df9cb3cbab77f527ee08d557c36a1c",
+      "bytes": 23284,
+      "recordKind": "disease-associations"
+    },
+    {
+      "path": "capabilities.json",
+      "sha256": "afc9ffdbf4ef172f5025f46547306bd670644fee765037b8af685827136aa631",
+      "bytes": 2006,
+      "recordKind": "capabilities"
+    },
+    {
+      "path": "questions.json",
+      "sha256": "3f15780e83195ae0a3bbd1e0f0a94c33c19f55a99d65bd16e1aada0ba8a8efc6",
+      "bytes": 1054,
+      "recordKind": "questions"
+    }
+  ],
+  "validation": [
+    {
+      "check": "T01-gene-identity",
+      "result": "pass",
+      "detail": "ENSG00000142319.21 SLC6A3",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "assembly-grch38",
+      "result": "pass",
+      "detail": "gene GRCh38; Ensembl default GRCh38 (GRCh38.p14)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T02-transcript-selection",
+      "result": "pass",
+      "detail": "mane_select: ENST00000270349.12 (only transcript with MANE[].type == MANE_Select); 9 candidates",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "transcript-lookup-matches-selection",
+      "result": "pass",
+      "detail": "ENST00000270349.12",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T05-exon-lengths-sum",
+      "result": "pass",
+      "detail": "sum of exon lengths 3942 vs transcript length 3942 (1-based closed)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "fasta-ids-versioned",
+      "result": "pass",
+      "detail": "ENST00000270349.12, ENST00000270349.12, ENSP00000270349.9",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T06-cds-length",
+      "result": "pass",
+      "detail": "CDS 1863 nt; exon walk 1863; (protein 620 + stop) x 3",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "cdna-length",
+      "result": "pass",
+      "detail": "cDNA 3942 vs transcript 3942",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "uniprot-accession",
+      "result": "pass",
+      "detail": "Q01959 SC6A3_HUMAN, reviewed true",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T06-cds-shape",
+      "result": "pass",
+      "detail": "length 1863, starts ATG, ends TAG",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T07-translation-equals-ensembl-protein",
+      "result": "pass",
+      "detail": "translated 620 aa vs Ensembl 620 aa",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T07-translation-equals-uniprot",
+      "result": "pass",
+      "detail": "translated 620 aa vs UniProt 620 aa",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T07-uniprot-md5",
+      "result": "pass",
+      "detail": "computed 57654271DC6FD2B84CBC71DEB27BB38C, UniProt 57654271DC6FD2B84CBC71DEB27BB38C",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "uniprot-mane-xref",
+      "result": "pass",
+      "detail": "UniProt MANE-Select ENST00000270349.12 / ENSP00000270349.9 / NM_001044.5",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T15-initiator-met-and-chain",
+      "result": "pass",
+      "detail": "no Initiator methionine feature (translated numbering is the processed numbering); Chain 1-620",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T04-hgnc-resolution",
+      "result": "pass",
+      "detail": "SLC6A3 -> HGNC:11049 ENSG00000142319",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T04-alias-DAT",
+      "result": "pass",
+      "detail": "alias DAT -> ENSG00000142319",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T13-rsid-multiallelic",
+      "result": "pass",
+      "detail": "rs1064795122 alleles G/A (bi-allelic); A:p.Arg85Trp; recoder key(s) without a chromosome-level placement, not counted: T (NT_187547.1:g.128883C>A, NT_187547.1:128882:G:A)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T08-exon-walk-genomic",
+      "result": "pass",
+      "detail": "exon walk c.253 -> 1442945; hgvsg 1442945; variation 1442945",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T08-codon-span",
+      "result": "pass",
+      "detail": "own walk codon 85 -> 1442943-1442945; Ensembl map/cds 1442943-1442945 strand -1",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T09-forward-and-coding-base",
+      "result": "pass",
+      "detail": "forward-strand base at 1442945 = G; coding-strand c.253 = C",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T10-spdi-roundtrip",
+      "result": "pass",
+      "detail": "NC_000005.10:1442944:G:A <-> NC_000005.10:g.1442945G>A",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T11-codon-change",
+      "result": "pass",
+      "detail": "codon 85 CGG -> TGG; R -> W",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T12-hgvsp-agrees",
+      "result": "pass",
+      "detail": "computed p.Arg85Trp; variant_recoder ENSP00000270349.9:p.Arg85Trp, NP_001035.1:p.Arg85Trp",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T12-vep-agrees",
+      "result": "pass",
+      "detail": "VEP ENSP00000270349.9:p.Arg85Trp protein_start 85 cds_start 253 codons Cgg/Tgg",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "cdna-position",
+      "result": "pass",
+      "detail": "c.253 + 5' UTR 138 = 391; VEP cdna_start 391",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T18-hgvsp-equals-uniprot-position",
+      "result": "pass",
+      "detail": "p.85: UniProt residue R, HGVS ref R",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T17-mature-index",
+      "result": "pass",
+      "detail": "no mature numbering: the processed chain starts at 1, so translated numbering is the numbering of record (mature index null)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T16-uniprot-natural-variant",
+      "result": "pass",
+      "detail": "UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T14-clinvar-record",
+      "result": "pass",
+      "detail": "VCV000421417.2 single nucleotide variant; spdi NC_000005.10:1442944:G:A; GRCh38 1442945; GRCh37 1443060; Likely pathogenic (criteria provided, single submitter)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T33-clinvar-search-covered",
+      "result": "pass",
+      "detail": "esearch rs1064795122: 1 uids; esummary returned 1 (421417)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T34-clinvar-review-status",
+      "result": "pass",
+      "detail": "VCV000421417.2: \"criteria provided, single submitter\" -> 1 star(s); conflicting false; evidence basis reviewed-clinical-submission",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T35-clinvar-related-records-separate",
+      "result": "pass",
+      "detail": "0 other record(s) for rs1064795122: 0 haplotype/compound (0 include NC_000005.10:1442944:G:A), 0 other allele/variant (none); none merged",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "structure-entry",
+      "result": "pass",
+      "detail": "8Y2C ELECTRON MICROSCOPY 3.16 A, rev 1.4",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "structure-revision-agrees",
+      "result": "pass",
+      "detail": "Data API rev 1.4; mmCIF rev 1.4",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T20-entity-by-sifts",
+      "result": "pass",
+      "detail": "1 polymer entities; SIFTS Q01959 -> entity 1, chains A; mmCIF strands A",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T20-rcsb-entity-agrees",
+      "result": "pass",
+      "detail": "RCSB polymer_entity 8Y2C_1 uniprot Q01959",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T21-alignment-cross-check",
+      "result": "pass",
+      "detail": "entity 555 aa vs UniProt 620 aa: offset 65, identity 1.0000, mismatches ; SIFTS offset 65",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T22-rcsb-align-agrees",
+      "result": "pass",
+      "detail": "RCSB rcsb_polymer_entity_align ref_beg 66 <-> entity_beg 1",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T40-variant-residue-observed",
+      "result": "pass",
+      "detail": "8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T23-residue-from-atom-site",
+      "result": "pass",
+      "detail": "A/A label 20 auth 85 ARG; structure carries the reference residue",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T36-full-chain-covers-sifts",
+      "result": "pass",
+      "detail": "555 positions (66-620); per chain A 555/555; 26 unobserved residue(s)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T37-full-chain-agrees-with-variant-mapping",
+      "result": "pass",
+      "detail": "position 85: table A85 ARG; variant mapping record A85 ARG",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T38-full-chain-residue-names",
+      "result": "pass",
+      "detail": "atom_site residue = UniProt residue at 555 of 555 positions; differs at none",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T39-full-chain-alignment-agrees",
+      "result": "pass",
+      "detail": "entity sequence at the mapped label_seq_id differs from UniProt at none; the independent alignment reports none",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T24-wrong-numbering-detectable",
+      "result": "pass",
+      "detail": "label 85 in A is LEU (not ARG); no distinct mature numbering, so no other numbering exists to land elsewhere",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T19-pdbx-mutation-numbering",
+      "result": "pass",
+      "detail": "_entity.pdbx_mutation absent: the entity declares no engineered mutation",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T25-struct-ref-seq-not-trusted",
+      "result": "pass",
+      "detail": "SIFTS selects label 20 (ARG); _struct_ref_seq would select label 20 (ARG); 0 disagreement(s) recorded as known issues",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T26-label-auth-kept",
+      "result": "pass",
+      "detail": "3 label chains, all with an auth chain id from the scheme tables; 2 non-polymer chains have label != auth (e.g. label B = auth A NAG 621)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T27-assemblies",
+      "result": "pass",
+      "detail": "assembly 1: A,B,C",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T28-contacts-computed",
+      "result": "pass",
+      "detail": "A85: A88,A89,A316,A317,A320,A476",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T32-alphafold-labelled",
+      "result": "pass",
+      "detail": "AF-Q01959-F1 v6; md5 match true; residue 85 in model = R (reference), so never used to place W",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T41-pathway-accession",
+      "result": "pass",
+      "detail": "memberships requested for Q01959; protein record Q01959; specification Q01959",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T42-pathway-memberships-human",
+      "result": "pass",
+      "detail": "4 membership(s) requested for species 9606: every species name is Homo sapiens; every schema class is a pathway; stable ids distinct",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T43-pathway-top-level",
+      "result": "pass",
+      "detail": "R-HSA-379401 -> R-HSA-112316; R-HSA-442660 -> R-HSA-382551; R-HSA-5619081 -> R-HSA-1643685; R-HSA-5660724 -> R-HSA-1643685",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T44-opening-pathway-rule",
+      "result": "pass",
+      "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters) has the fewest participants (44) among the 1 non-disease membership(s) with a diagram; the rule's choice, not a statement of importance; candidates by count: R-HSA-442660 44; excluded: R-HSA-379401 (no diagram), R-HSA-5619081 (a disease pathway), R-HSA-5660724 (a disease pathway)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T45-opening-pathway-participants",
+      "result": "pass",
+      "detail": "R-HSA-442660 (SLC-mediated transport of neurotransmitters): 44 participating physical entities, 21 distinct UniProt proteins; the set's protein Q01959 is among them as Q01959 in SLC6A3 [plasma membrane] (EntityWithAccessionedSequence)",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T46-candidate-participants",
+      "result": "pass",
+      "detail": "1 candidate(s): R-HSA-442660 44 entities, 21 proteins, set's protein listed",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T49-association-target",
+      "result": "pass",
+      "detail": "response target ENSG00000142319 SLC6A3; specification ENSG00000142319; gene record ENSG00000142319 SLC6A3",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T49-association-rows",
+      "result": "pass",
+      "detail": "25 row(s) kept of 1222 on the platform (page 0, size 25); every row has a disease id (ontology_number form), a name and an overall score between 0 and 1, and every datatype and datasource score is between 0 and 1; top parkinsonism-dystonia, infantile (MONDO_0013150) 0.7947447156574925",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T50-association-order-and-exclusion",
+      "result": "pass",
+      "detail": "rows in descending score order; excluded datasources chembl, clinical_precedence, cancer_gene_census, europepmc; observed in the response: clinical_precedence, crispr_screen, europepmc, eva, gene2phenotype, genomics_england, impc, orphanet, reactome, uniprot_literature, uniprot_variants; dropped: clinical_precedence, europepmc; no excluded id remains in the kept scores",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T51-association-versions",
+      "result": "pass",
+      "detail": "record api 26.9.0, data 26.09; the response's meta: api 26.9.0, data 26.09",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T47-structure-method",
+      "result": "pass",
+      "detail": "8Y2C method ELECTRON MICROSCOPY; resolution 3.16 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T48-structure-coverage",
+      "result": "pass",
+      "detail": "529 of 555 mapped positions observed in model 1 on chain(s) A, 66-620; protein length 620; fraction 0.8532 = 529/620; words match the numbers",
+      "at": "2026-11-03T23:57:48Z"
+    },
+    {
+      "check": "T31-drift-recorded",
+      "result": "pass",
+      "detail": "uniprot-xref-ensembl-gene-version: ENSG00000142319.20 vs ENSG00000142319.21; vep-swissprot-entry-version: Q01959.230 vs Q01959.233",
+      "at": "2026-11-03T23:57:48Z"
+    }
+  ],
+  "knownIssues": [
+    {
+      "id": "label-auth-chain-ids-differ-8Y2C",
+      "severity": "info",
+      "summary": "8Y2C: 2 non-polymer label chains have a different auth chain id",
+      "detail": "label B = auth A NAG 621; label C = auth A NAG 622",
+      "resolution": "ResidueRef keeps both label_* and auth_* ids; viewer commands must say which they use."
+    }
+  ],
+  "drift": [
+    {
+      "id": "uniprot-xref-ensembl-gene-version",
+      "subject": "ENSG00000142319",
+      "observedIn": "UniProt Q01959 Ensembl cross-reference",
+      "observedValue": "ENSG00000142319.20",
+      "referenceSource": "Ensembl lookup",
+      "referenceValue": "ENSG00000142319.21",
+      "fatal": false,
+      "note": "UniProt's cross-reference lags the Ensembl gene version; the transcript and protein versions agree, so mappings are unaffected."
+    },
+    {
+      "id": "vep-swissprot-entry-version",
+      "subject": "Q01959",
+      "observedIn": "Ensembl VEP swissprot field",
+      "observedValue": "Q01959.230",
+      "referenceSource": "UniProt REST entryVersion",
+      "referenceValue": "Q01959.233",
+      "fatal": false,
+      "note": "Entry versions change with annotation; HELIX compares the sequence (md5) instead."
+    }
+  ],
+  "attribution": [
+    {
+      "source": "alphafold",
+      "licence": "CC-BY-4.0",
+      "text": "AlphaFold DB (Google DeepMind and EMBL-EBI), CC BY 4.0. Predicted model; the in-file disclaimer is kept."
+    },
+    {
+      "source": "ensembl",
+      "licence": "Ensembl-no-restrictions",
+      "text": "Ensembl (EMBL-EBI), https://www.ensembl.org. Ensembl imposes no restrictions on use of its data; third-party content is excluded from this dataset."
+    },
+    {
+      "source": "hgnc",
+      "licence": "CC0-1.0",
+      "text": "HUGO Gene Nomenclature Committee (HGNC), https://www.genenames.org, CC0. Seal et al., NAR 2023."
+    },
+    {
+      "source": "ncbi-clinvar",
+      "licence": "NCBI-public-domain",
+      "text": "NCBI ClinVar via E-utilities. NCBI places no restrictions on use of the data; submitters may claim rights in their submissions. See the NCBI disclaimer and copyright notice."
+    },
+    {
+      "source": "opentargets",
+      "licence": "CC0-1.0",
+      "text": "Open Targets Platform, https://platform.opentargets.org, CC0 1.0 for the platform. Association scores and identifiers only; the datasource scores of share-alike or restricted sources (registry section 7) are dropped at parse time and named in the record."
+    },
+    {
+      "source": "pdbe-sifts",
+      "licence": "CC0-1.0",
+      "text": "SIFTS via the PDBe API (EMBL-EBI), CC0. Cite Dana et al., NAR 2019 and Velankar et al., NAR 2013."
+    },
+    {
+      "source": "rcsb",
+      "licence": "CC0-1.0",
+      "text": "RCSB PDB (rcsb.org) Data API, CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "rcsb-files",
+      "licence": "CC0-1.0",
+      "text": "wwPDB archive file served by RCSB PDB (files.rcsb.org), CC0 1.0. Original structure authors are credited in the entry citation."
+    },
+    {
+      "source": "reactome",
+      "licence": "CC0-1.0",
+      "text": "Reactome Content Service, https://reactome.org, data CC0 (attribution encouraged). Pathway membership is a curated annotation; diagrams and icons (CC BY 4.0) are not used."
+    },
+    {
+      "source": "uniprot",
+      "licence": "CC-BY-4.0",
+      "text": "UniProt Consortium, UniProtKB, https://www.uniprot.org, CC BY 4.0. Fields were selected and restructured by HELIX."
+    }
+  ]
+}

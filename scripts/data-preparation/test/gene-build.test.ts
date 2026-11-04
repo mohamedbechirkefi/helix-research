@@ -303,6 +303,82 @@ describe("the BRCA1 set (P9.2.2): a substitution on a domain structure, solution
   });
 });
 
+describe("the SLC6A3 set (P9.2.3): the generalisation test, a one-star substitution chosen by rule on a cryo-EM entry, built from its recorded fixtures (plan section 15)", () => {
+  let out: string;
+  let files: string[];
+  let manifest: DatasetManifest;
+  let structure: Structure;
+  beforeAll(async () => {
+    const dir = await mkdtemp(join(tmpdir(), "helix-slc6a3-build-"));
+    out = join(dir, "slc6a3");
+    await buildGene({ config: await readSpec("slc6a3"), mode: "fixtures", outDir: out, log: () => undefined });
+    files = (await readdir(out)).sort();
+    manifest = DatasetManifest.parse(JSON.parse(await readFile(join(out, "manifest.json"), "utf8")));
+    structure = Structure.parse(JSON.parse(await readFile(join(out, "structure-8Y2C.json"), "utf8")));
+  });
+  afterAll(async () => {
+    if (out) await rm(join(out, ".."), { recursive: true, force: true });
+  });
+  it("the variant record: a reverse-strand substitution, forward G>A at a bi-allelic site, codon 85 CGG to TGG, p.Arg85Trp, ClinVar VCV000421417 at one star stated as such, no UniProt natural variant at the position stated as such", async () => {
+    const v = Variant.parse(JSON.parse(await readFile(join(out, "variant-r85w.json"), "utf8")));
+    if (v.variantKind === "deletion") throw new Error("expected a substitution record");
+    expect([v.key, v.spdi, v.rsAlleles]).toEqual(["NC_000005.10:g.1442945G>A", "NC_000005.10:1442944:G:A", ["G", "A"]]);
+    expect(v.allele).toEqual({ reference: "G", alternate: "A", strand: 1 });
+    expect(v.codon).toMatchObject({ number: 85, reference: "CGG", alternate: "TGG" });
+    expect(v.codon.genomic.strand).toBe(-1);
+    expect([v.aminoAcids, v.proteinChangeComputed, v.cdsPosition]).toEqual([{ reference: "R", alternate: "W" }, "p.Arg85Trp", 253]);
+    expect(v.hgvs.coding).toEqual(["ENST00000270349.12:c.253C>T", "NM_001044.5:c.253C>T"]);
+    expect(v.consequence?.terms).toEqual(["missense_variant"]);
+    expect(v.clinvar).toMatchObject({ accessionVersion: "VCV000421417.2", classification: "Likely pathogenic", reviewStatus: "criteria provided, single submitter", supportingSubmissionCount: 1 });
+    expect(v.evidence[1]!.statement).toBe("UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); the variant is known to this set from ClinVar and the reference sequences only.");
+    const cv = JSON.parse(await readFile(join(out, "clinvar-r85w.json"), "utf8")) as { reviewStars: number | null; conflicts: { conflicting: boolean }; relatedRecords: unknown[] };
+    expect([cv.reviewStars, cv.conflicts.conflicting, cv.relatedRecords]).toEqual([1, false, []]);
+    const detail = (id: string) => manifest.validation.find((x) => x.check === id)?.detail;
+    expect(detail("T13-rsid-multiallelic")).toBe("rs1064795122 alleles G/A (bi-allelic); A:p.Arg85Trp; recoder key(s) without a chromosome-level placement, not counted: T (NT_187547.1:g.128883C>A, NT_187547.1:128882:G:A)");
+    expect(detail("T16-uniprot-natural-variant")).toBe("UniProt Q01959 annotates no natural variant at position 85 citing rs1064795122 (6 natural variant feature(s) in the entry, none at this position); nothing to cross-check");
+    expect(detail("T34-clinvar-review-status")).toBe('VCV000421417.2: "criteria provided, single submitter" -> 1 star(s); conflicting false; evidence basis reviewed-clinical-submission');
+  });
+  it("the structure record and T40: 8Y2C electron microscopy 3.16 A, one model, chain A, residue 85 observed as ARG (label 20, auth 85), coverage 66 to 620 of 620 in words and numbers, no partner polymer entity", () => {
+    expect([structure.entryId, structure.method, structure.resolutionAngstrom, structure.modelCount, structure.modelShown, structure.mappedEntityId, structure.partners]).toEqual(["8Y2C", "ELECTRON MICROSCOPY", 3.16, 1, 1, "1", []]);
+    expect(structure.coverage).toEqual({ uniprotAccession: "Q01959", chains: ["A"], firstObservedPosition: 66, lastObservedPosition: 620, observedPositions: 529, mappedPositions: 555, proteinLength: 620, fraction: 0.8532, text: "8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A)" });
+    expect(structure.coverage.fraction).toBe(Math.round((529 / 620) * 10000) / 10000);
+    expect(structure.entities.find((e) => e.entityId === "1")).toMatchObject({ uniprotFromEntry: ["Q01959"], mutation: null, sequenceDifferences: [] });
+    const detail = (id: string) => manifest.validation.find((x) => x.check === id)?.detail;
+    expect(detail("T40-variant-residue-observed")).toBe("8Y2C residue R85 (the R85W (p.Arg85Trp) position): A observed (label 20, auth 85, ARG); structurePreference variant-residue-observed");
+    expect(detail("T47-structure-method")).toBe("8Y2C method ELECTRON MICROSCOPY; resolution 3.16 A; 1 model(s) in atom_site; model 1 is the one mapped, measured and shown");
+    expect(detail("T48-structure-coverage")).toBe("529 of 555 mapped positions observed in model 1 on chain(s) A, 66-620; protein length 620; fraction 0.8532 = 529/620; words match the numbers");
+    expect(detail("T38-full-chain-residue-names")).toBe("atom_site residue = UniProt residue at 555 of 555 positions; differs at none");
+    expect(manifest.validation.filter((v) => v.result === "fail")).toEqual([]);
+    expect(manifest.validation.filter((v) => v.result === "warn")).toEqual([]);
+    expect(manifest.validation).toHaveLength(65);
+  });
+  it("mapping, contacts and the predicted model: residue 85 on chain A; six heavy-atom contacts of Arg85 within its own chain, Asp476 among them; the pLDDT fractions read from the prediction record", async () => {
+    const m = ResidueMapping.parse(JSON.parse(await readFile(join(out, "residue-mapping-r85w-8Y2C.json"), "utf8")));
+    expect(m.residues.map((r) => [r.labelAsymId, r.labelSeqId, r.authAsymId, r.authSeqId, r.compId])).toEqual([["A", 20, "A", "85", "ARG"]]);
+    const c = ResidueContacts.parse(JSON.parse(await readFile(join(out, "contacts-r85w-8Y2C.json"), "utf8")));
+    expect(c.chains[0]!.probeAtoms).toEqual(["CD", "CG", "CZ", "NE", "NH1", "NH2"]);
+    expect(c.chains[0]!.contacts.map((x) => `${x.authAsymId}${x.authSeqId} ${x.compId}`)).toEqual(["A88 TYR", "A89 LEU", "A316 THR", "A317 GLN", "A320 PHE", "A476 ASP"]);
+    const pm = JSON.parse(await readFile(join(out, "predicted-model-AF-Q01959-F1.json"), "utf8")) as { globalPlddt: number; plddtFractions: Record<string, number>; usableForVariantPlacement: boolean };
+    expect(pm.plddtFractions).toEqual({ veryLow: 0.113, low: 0.015, confident: 0.123, veryHigh: 0.75 });
+    expect([pm.globalPlddt, pm.usableForVariantPlacement]).toEqual([86.94, false]);
+  });
+  it("the capability report: all eight verdicts available with the coverage sentence, the one-star status unchanged; four Reactome memberships opening by rule; 1,222 associations with 25 kept; the six questions", async () => {
+    const cap = CapabilityReport.parse(JSON.parse(await readFile(join(out, "capabilities.json"), "utf8")));
+    for (const k of ["transcriptView", "proteinView", "experimentalStructure", "predictedStructure", "verifiedResidueMapping", "variantHighlight", "pathwayView", "associationView"] as const) expect(cap[k].available, k).toBe(true);
+    expect(cap.experimentalStructure.reason).toBe("8Y2C covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; ELECTRON MICROSCOPY, 3.16 A); 17 experimental entries cross-referenced (e.g. 8VBY, EM)");
+    expect(cap.pathwayView.reason).toBe("4 Reactome memberships; opens on SLC-mediated transport of neurotransmitters, R-HSA-442660 (the rule's choice: fewest participants among non-disease pathways with a diagram)");
+    const pw = PathwayMembershipsRecord.parse(JSON.parse(await readFile(join(out, "pathways.json"), "utf8")));
+    expect([pw.membershipCount, pw.participantsByPathway.length, pw.openingPathway?.stableId, pw.memberships.filter((x) => x.isDisease).length]).toEqual([4, 1, "R-HSA-442660", 2]);
+    const as = JSON.parse(await readFile(join(out, "associations.json"), "utf8")) as { count: number; keptCount: number; associations: { diseaseId: string; diseaseName: string }[] };
+    expect([as.count, as.keptCount, as.associations[0]!.diseaseId, as.associations[0]!.diseaseName]).toEqual([1222, 25, "MONDO_0013150", "parkinsonism-dystonia, infantile"]);
+    const q = QuestionsRecord.parse(JSON.parse(await readFile(join(out, "questions.json"), "utf8")));
+    expect(q.questions.map((x) => x.text)).toEqual(["Show me where the R85W mutation affects the SLC6A3 protein.", "How does the DNA change for the R85W variant?", "What does the R85W variant residue touch in the structure?", "Show the evidence for the R85W variant.", "Which pathways list SLC6A3?", "What diseases are associated with SLC6A3?"]);
+    expect(q.bridgeQuestion).toBe("See the R85W mutation on the protein.");
+    expect(files).toHaveLength(17);
+    expect(files).toContain("8Y2C.cif");
+  });
+});
+
 describe("the pathways record (P9.1.2, plan §12 rules 2 to 4): built from the recorded Reactome fixtures of each set", () => {
   const NOW = "2026-11-03T00:00:00Z";
   /** The record and capability file of a set built in memory from its fixtures. */
@@ -403,7 +479,7 @@ describe("the pathways record (P9.1.2, plan §12 rules 2 to 4): built from the r
 
 describe("no gene is hardcoded in the packages' sources (plan §9)", () => {
   /** Known HBB identifiers; the only place they may appear in code is the in-code mirror of data/specs/hbb.json. */
-  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"', "ENSG00000001626", "P13569", "rs113993960", "5UAK", '"CFTR"', "ENSG00000012048", "P38398", "rs28897672", "1JM7", '"BRCA1"'];
+  const IDENTIFIERS = ["ENSG00000244734", "ENST00000335295", "P68871", "2HBS", "rs334", '"HBB"', "ENSG00000001626", "P13569", "rs113993960", "5UAK", '"CFTR"', "ENSG00000012048", "P38398", "rs28897672", "1JM7", '"BRCA1"', "ENSG00000142319", "Q01959", "rs1064795122", "8Y2C", '"SLC6A3"'];
   const ALLOWED: Record<string, string> = {
     "packages/scientific-core/src/slice/types.ts": "HBB_CONFIG, the in-code mirror of data/specs/hbb.json (a test proves they are equal)",
     "packages/ai-planning/src/fallback.ts": "the Phase 7 fallback planner's HBB cue tables (rs334, 2HBS); generalised with the app in P9.3, outside the builder",

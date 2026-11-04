@@ -1,0 +1,33 @@
+{
+  "datasetId": "slc6a3",
+  "description": "SLC6A3 (sodium-dependent dopamine transporter) generalisation set: gene, MANE Select transcript, sequences, UniProt Q01959, the R85W substitution chosen by rule, PDB 8Y2C (the human dopamine transporter, electron microscopy) and its residue mapping; the reference variant is a one-star ClinVar record because the gene has no missense record at two stars.",
+  "identifiers": {
+    "ensemblGeneId": "ENSG00000142319",
+    "hgncSymbol": "SLC6A3",
+    "uniprotAccession": "Q01959"
+  },
+  "pdbId": "8Y2C",
+  "structurePreference": "variant-residue-observed",
+  "variant": {
+    "slug": "r85w",
+    "commonName": "R85W (p.Arg85Trp)",
+    "rsId": "rs1064795122",
+    "forwardAllele": "A",
+    "clinvarUid": "421417"
+  },
+  "genomicWindowFlank": 20,
+  "contactCutoffAngstrom": 4.5,
+  "includeAlphafold": true,
+  "pathways": true,
+  "associations": true,
+  "questions": [
+    { "text": "Show me where the R85W mutation affects the SLC6A3 protein.", "requires": ["variantHighlight", "experimentalStructure"] },
+    { "text": "How does the DNA change for the R85W variant?", "requires": ["variantHighlight"] },
+    { "text": "What does the R85W variant residue touch in the structure?", "requires": ["variantHighlight", "experimentalStructure"] },
+    { "text": "Show the evidence for the R85W variant.", "requires": ["variantHighlight"] },
+    { "text": "Which pathways list SLC6A3?", "requires": ["pathwayView"] },
+    { "text": "What diseases are associated with SLC6A3?", "requires": ["associationView"] }
+  ],
+  "bridgeQuestion": "See the R85W mutation on the protein.",
+  "notes": "Phase 9 P9.2.3 (docs/phase-9-generalisation.md section 15). HGNC:11049. The variant was chosen by rule, not by hand, with scripts/data-preparation/find-variant.ts --gene SLC6A3 --uniprot Q01959 on 2026-11-03 (UTC): one ClinVar esearch for the gene's missense variants classified Pathogenic or Likely pathogenic (term SLC6A3[gene] AND (\"clinsig pathogenic\"[Properties] OR \"clinsig likely pathogenic\"[Properties]) AND \"missense variant\"[Molecular consequence]; Entrez's translation stack shows every clause understood), one esummary for its six uids, ranked by review status, then supporting submissions, then accession number, and the structure candidate check for each candidate's residue over the UniProt entry's PDB cross-references. The rule's own pass (report research/derived/variant-search-SLC6A3-20261103.json) found no candidate at two stars or more: three records are 'no assertion criteria provided' (0 stars: p.Leu368Gln VCV000016763, p.Pro395Leu VCV000016764, p.Leu224Pro VCV000097017) and three are 'criteria provided, single submitter' (1 star: p.Arg85Trp VCV000421417, p.Gly386Arg VCV002054045, p.Ala314Val VCV004969368 which carries no dbSNP id). SAID LOUDLY: the set therefore takes the plan's fallback, a one-star variant, because no two-star missense record exists for this gene in ClinVar on that day; the fallback pass (--min-stars 1 --clinvar-recorded, reading the same two recorded responses so ClinVar was asked once; report research/derived/variant-search-SLC6A3-20261103-min-stars-1.json) ranked p.Arg85Trp first (VCV000421417.2, Likely pathogenic, criteria provided, single submitter, one supporting submission; the tie with p.Gly386Arg on stars and submissions is broken by the lower accession number) and found residue 85 observed in a kept entry, so p.Gly386Arg was not checked. The variant is the substitution R85W, dbSNP rs1064795122, ClinVar uid 421417: the gene is on the reverse strand, so c.253C>T is G>A on the forward strand and the forward allele is A, read from the recorded ClinVar summary's canonical SPDI (NC_000005.10:1442944:G:A) and confirmed by the recoder's allele key and by VEP in the build; every position, codon and residue in the records is read back from the responses. Structure: all 17 PDB cross-references of Q01959 cover residue 85 by their Chains property (8VBY, 8Y2C, 8Y2D, 8Y2E, 8Y2F, 8Y2G, 9EO4, 9J6R to 9J6V, 9JKH to 9JKM, in UniProt's order); 8VBY (electron microscopy, 3.19 A) observes residue 85 but declares pdbx_mutation I248Y and differs from UniProt at 248 inside the mapped segment, so the builder would refuse it (T38, T19); 8Y2C (electron microscopy, 3.16 A; the human dopamine transporter, one polymer entity, chain A, SIFTS 66 to 620 onto label 1 to 555) observes residue 85 on chain A as ARG (label 20, auth 85), equals UniProt over the mapped segment and declares no mutation, so 8Y2C is taken under structurePreference variant-residue-observed and the remaining fifteen entries were not fetched. It covers residues 66 to 620 of 620 (529 observed positions, 85.3 %; the N-terminal 65 residues are outside the construct) and has no partner polymer entity. The structure shows the wild-type residue at position 85; the mutant protein is never shown. The ClinVar record's one-star status is stated in the clinvar record's evidence class and review stars as for every set; nothing here upgrades it. Two builder generalisations were needed by this set and are recorded as findings (journal/2026-11-04-slc6a3-generalisation.md): the recoder lists a second key \"T\" for rs1064795122 that is placed only on the alternate scaffold NT_187547.1 (the same change seen from HSCHR5_3_CTG1), which T13 now names and does not count, and the site is bi-allelic (G/A), which T13 now accepts in words; UniProt Q01959 annotates no natural variant at position 85, which T16 now states instead of refusing, and the variant record's UniProt line says so."
+}
