@@ -41,6 +41,12 @@ export interface CapabilityInput {
    * highest-scoring kept association (plan section 14 rule 3).
    */
   associations: { count: number; kept: number; top: { diseaseName: string; score: number } | null } | null;
+  /**
+   * Phase 9 (P9.3.1, plan section 16 rules 1 and 5): "dynamic" when the set is built at request time
+   * from live retrievals; the reasons for an unselected structure and for the pathway and association
+   * views then say so instead of naming a gene specification. Absent or "curated": the Phase 9 wording.
+   */
+  mode?: "curated" | "dynamic";
 }
 
 const yes = (reason: string, evidenceCategory: number | null) => ({ available: true, reason, evidenceCategory });
@@ -58,11 +64,14 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
         ? yes(`UniProt ${i.protein.accession}; sequence equals the translated CDS`, 2)
         : no(`UniProt ${i.protein.accession} sequence does not equal the translated CDS`);
   const entries = `${i.experimentalStructures.length} experimental entr${i.experimentalStructures.length === 1 ? "y" : "ies"}`;
+  const dynamic = i.mode === "dynamic";
   const experimentalStructure =
     i.experimentalStructures.length === 0
       ? no("no experimental structure is cross-referenced for this protein")
       : i.selectedStructure === null
-        ? no(`no experimental structure selected in the gene specification; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method}) but none was selected, so none is shown`)
+        ? dynamic
+          ? no(`no experimental structure selected in dynamic mode; ${i.experimentalStructures.length} entr${i.experimentalStructures.length === 1 ? "y" : "ies"} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method}); there is no reviewed selection and no candidate check at request time, so none is shown`)
+          : no(`no experimental structure selected in the gene specification; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method}) but none was selected, so none is shown`)
         : i.selectedStructure.coverage !== undefined
           ? yes(`${i.selectedStructure.coverage}; ${entries} cross-referenced (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1)
           : yes(`${entries} (e.g. ${i.experimentalStructures[0]!.entryId}, ${i.experimentalStructures[0]!.method})`, 1);
@@ -76,7 +85,7 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
           experimentalStructure.available
             ? "experimental entries exist but no mapping was verified"
             : i.experimentalStructures.length > 0 && i.selectedStructure === null
-              ? "no experimental structure selected in the gene specification, so there is nothing to map onto"
+              ? `no experimental structure selected in ${dynamic ? "dynamic mode" : "the gene specification"}, so there is nothing to map onto`
               : "no experimental structure to map onto",
         );
   const unmapped = i.variantPositions.filter((p) => !i.verifiedMappings.some((m) => m.uniprotPosition === p));
@@ -91,7 +100,7 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
   // importance. With memberships but no qualifying one, the reason is the rule's own sentence.
   const pathwayView =
     i.pathways === null
-      ? no("pathways not requested in the gene specification")
+      ? no(dynamic ? "not requested in dynamic mode" : "pathways not requested in the gene specification")
       : i.pathways.membershipCount === 0
         ? no("no Reactome pathway lists this protein")
         : i.pathways.opening === null
@@ -101,7 +110,7 @@ export function capabilities(i: CapabilityInput): CapabilityReport {
   // the reason names the count and the top association's name and score, as the record states them.
   const associationView =
     i.associations === null
-      ? no("associations not requested in the gene specification")
+      ? no(dynamic ? "not requested in dynamic mode" : "associations not requested in the gene specification")
       : i.associations.kept === 0 || i.associations.top === null
         ? no("no Open Targets association for this gene")
         : yes(`${i.associations.count} Open Targets association${i.associations.count === 1 ? "" : "s"}, ${i.associations.kept} kept by score; top: ${i.associations.top.diseaseName} (score ${i.associations.top.score}); association, never causal`, 2);

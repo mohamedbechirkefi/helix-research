@@ -272,6 +272,24 @@ Endpoints already registered, used with a gene-level ClinVar search for the firs
 - **Open Targets, ENSG00000142319:** 1,222 associations; eleven datasource ids seen, `clinical_precedence` and `europepmc` dropped.
 - **Ensembl REST availability:** the first live build was refused with HTTP 500 on `lookup/id/ENSG00000142319` after the client's three retries; the second, minutes later, succeeded. No data was served by the refused request.
 
+## Phase 9 use from a browser: dynamic mode (2026-11-04, P9.3.1)
+
+Dynamic mode (plan section 16) builds a non-curated gene's set at request time in the visitor's browser, in a worker, through the same adapters and the same builder as a curated set. Which sources it calls, and why the others are not called:
+
+| Source | Called from the browser | Why, or why not |
+|---|---|---|
+| HGNC (section 8) | yes: `fetch/symbol/<query>`, then `fetch/alias_symbol/<query>` when the symbol returns no document, then `fetch/symbol/<approved symbol>` as input H1 | the resolution of what the visitor typed (approved symbol or alias; one approved protein-coding record with one Ensembl gene id and one UniProt accession, or a refusal that says why). Simple GETs with `Accept: application/json` (CORS-safelisted); the measured preflight allows no custom header, and none is sent. CC0 |
+| Ensembl REST (section 1) | yes: `info/data`, `info/assembly/homo_sapiens`, `lookup/id/<ENSG>`, `lookup/id/<ENST>`, `sequence/id/<ENST>` (cds, cdna), `sequence/id/<ENSP>` (E1 to E7) | the gene, the MANE Select transcript by the existing rule, the sequences. `content-type` in the query string; CORS documented. The blind back-off applies (no response header is readable from a page) |
+| UniProt (section 2) | yes: `uniprotkb/<accession>.json` (U1) | the protein entry; its release headers are exposed by the measured CORS policy, so the manifest row carries the release |
+| AlphaFold DB (section 4) | yes: `api/prediction/<accession>`, `files/AF-<accession>-F1-model_v<n>.cif` (A1) | the prediction record and the model file (listed, never shown as experimental; the file is read for its disclaimer and local pLDDT, as in a curated build). CORS measured `allow-origin *` on both |
+| RCSB PDB (section 3), PDBe SIFTS (section 10) | no | no experimental structure is selected in dynamic mode: there is no reviewed selection and no candidate check at request time (rule 1); the capability report says so with the count of entries UniProt cross-references |
+| NCBI ClinVar (section 5) | no | no reviewed variant list; a visitor-named dbSNP id is a later step. The documented identification (`tool`, `email`) cannot be sent as a user agent from a page, and no identifier is added to any dynamic request |
+| Reactome (section 6), Open Targets (section 7) | no | both terms discourage one-entity querying from every visitor's browser; the curated path records them once per set and dynamic mode does not ask (rule 1: `pathways` and `associations` false, "not requested in dynamic mode") |
+
+The worker's fetch refuses any other host before a request is made (`apps/web/src/dynamic/worker.ts`, the guard), and the browser's own user agent is the only identification sent. Measured live from the served app on 2026-11-04 (PTEN, `HELIX_LIVE=1`; the timings in the app's `e2e/results/phase9-e2e-p931-live.json`): the first run was refused by the client's own truncation check on `alphafold.ebi.ac.uk/api/prediction/P60484` (declared 1428 bytes, 7183 received: the browser decompresses the body and does not expose `Content-Encoding` across origins; the check now treats only a shortfall as truncation, see `docs/data-core.md`); the second run (00:52:06Z to 00:52:09Z) answered every one of the twelve requests 200 at the first attempt, no CORS refusal: HGNC 358 and 166 ms, Ensembl 543, 164, 418, 90, 78, 89 and 70 ms, UniProt 405 ms (release 2026_03 read from the exposed header), AlphaFold DB 227 and 223 ms; the build 32 ms; 2.9 s in all.
+
+The test inputs recorded for the five genes of rule 5 (`data/fixtures/dynamic/<symbol>/`, by `scripts/data-preparation/record-dynamic-fixtures.ts`, user agent `helix-research`): TP53 (P04637, 311 PDB cross-references), EGFR (P00533, 385), INS (P01308), APOE (P02649, 29) and HBA1 (P69905, 355; an entry shared with HBA2, so UniProt lists two MANE-Select cross-references). Shapes seen: the UniProt entries of TP53, EGFR, INS, APOE and HBA1 carried 17, 5, 9, 9 and 9 objects naming proprietary databases, redacted; every HGNC record carried one (`omim_id`), redacted; Ensembl answered HTTP 500 or 503 and timed out at 30 s on several requests across the recordings (retried by the client; one INS recording was refused after the three retries and run again).
+
 ## Not covered or unverified
 
 - NCBI pages behind reCAPTCHA: ClinVar programmatic-access and data-use pages, the E-utilities manual (API-key limit), the RefSeq FAQ.

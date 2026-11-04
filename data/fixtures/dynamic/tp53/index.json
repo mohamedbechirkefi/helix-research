@@ -1,0 +1,50 @@
+{
+  "description": "Dynamic-mode test inputs for TP53 (Phase 9, P9.3.1; plan section 16 rule 5), recorded once by scripts/data-preparation/record-dynamic-fixtures.ts on 2026-11-04 from the live responses of a dynamic build (HGNC, Ensembl, UniProt, AlphaFold DB only), redacted under Q-H-LIC-1 (proprietary database identifiers removed; each MANIFEST.tsv row carries the original sha256 in its redaction column). Test inputs, not a curated set. Paths are relative to the repository root. Each file is verified against its folder's MANIFEST.tsv sha256 when loaded.",
+  "inputs": {
+    "ensemblInfoData": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/info_data.json"
+    },
+    "ensemblAssembly": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/info_assembly_homo_sapiens.json"
+    },
+    "geneLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/lookup_id_ENSG00000141510_expand_1_mane_1.json"
+    },
+    "transcriptLookup": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/lookup_id_ENST00000269305_expand_1_utr_1_mane_1.json"
+    },
+    "cds": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/sequence_id_ENST00000269305_type_cds.fa"
+    },
+    "cdna": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/sequence_id_ENST00000269305_type_cdna.fa"
+    },
+    "ensemblProtein": {
+      "source": "ensembl",
+      "path": "data/fixtures/dynamic/tp53/ensembl/sequence_id_ENSP00000269305.fa"
+    },
+    "uniprot": {
+      "source": "uniprot",
+      "path": "data/fixtures/dynamic/tp53/uniprot/uniprotkb_P04637.json"
+    },
+    "hgnc": {
+      "source": "hgnc",
+      "path": "data/fixtures/dynamic/tp53/hgnc/fetch_symbol_TP53.json"
+    },
+    "alphafoldPrediction": {
+      "source": "alphafold",
+      "path": "data/fixtures/dynamic/tp53/alphafold/api_prediction_P04637.json"
+    },
+    "alphafoldModel": {
+      "source": "alphafold",
+      "path": "data/fixtures/dynamic/tp53/alphafold/files_AF-P04637-F1-model_v6.cif"
+    }
+  },
+  "extra": {}
+}

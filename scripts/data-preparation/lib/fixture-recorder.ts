@@ -113,9 +113,11 @@ interface FixtureIndexFile {
  * recorded inputs are added or replaced. A note naming the merged sources is appended to the
  * description once.
  */
-export async function writeFixtureSet(datasetId: string, redacted: Record<string, RedactedRecord>, description: string, opts: { merge?: boolean } = {}): Promise<RecordedFixtureSet> {
+export async function writeFixtureSet(datasetId: string, redacted: Record<string, RedactedRecord>, description: string, opts: { merge?: boolean; path?: string } = {}): Promise<RecordedFixtureSet> {
   if (!/^[a-z0-9][a-z0-9-]*$/.test(datasetId)) throw new Error(`dataset id "${datasetId}" is not a fixture set name`);
-  const dir = join(REPO_ROOT, "data/fixtures", datasetId);
+  // Phase 9 (P9.3.1): `path` places the set elsewhere under data/fixtures (the dynamic-mode test inputs, dynamic/<symbol>); the default is the dataset id.
+  if (opts.path !== undefined && !/^[a-z0-9][a-z0-9-]*(\/[a-z0-9][a-z0-9-]*)?$/.test(opts.path)) throw new Error(`fixture path "${opts.path}" is not a fixture set path`);
+  const dir = join(REPO_ROOT, "data/fixtures", opts.path ?? datasetId);
   if (opts.merge) return mergeFixtureSet(dir, redacted, description);
   const tmp = `${dir}.tmp-${process.pid}`;
   await rm(tmp, { recursive: true, force: true });

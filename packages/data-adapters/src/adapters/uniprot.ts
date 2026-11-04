@@ -79,7 +79,19 @@ export interface UniprotEntry {
   md5: string;
   crc64: string;
   features: UniprotFeature[];
+  /**
+   * Phase 9 (P9.3.1, found by INS): the entry's processing annotations (Signal, Transit peptide,
+   * Propeptide, Peptide), kept apart from `features` so that no curated record changes. An entry
+   * whose mature products are peptides (insulin) annotates these and no Chain.
+   */
+  processing: { type: string; start: number; end: number; description: string }[];
   maneSelect: { transcript: string; protein: string; refSeqNucleotide: string; refSeqProtein: string } | null;
+  /**
+   * Phase 9 (P9.3.1): every MANE-Select cross-reference of the entry, in the entry's order. One for
+   * almost every entry; two for an entry shared by two genes (P69905, haemoglobin alpha: HBA1 and
+   * HBA2 encode the same protein). `maneSelect` is the first of them, as before.
+   */
+  maneSelects: { transcript: string; protein: string; refSeqNucleotide: string; refSeqProtein: string }[];
   ensembl: { transcript: string; protein: string; gene: string }[];
   pdb: { id: string; method: string; resolution: string | null; chains: string }[];
   comments: { type: string; text: string; evidences: string[] }[];
@@ -121,7 +133,13 @@ export function parseUniprotEntry(json: unknown, url: string | null = null): Uni
       evidences: f.evidences.map(evidenceString).filter((s): s is string => s !== null),
       xrefs: f.featureCrossReferences.filter((x) => x.database === "dbSNP").map((x) => `${x.database}:${x.id}`),
     }));
-  const mane = raw.uniProtKBCrossReferences.find((x) => x.database === "MANE-Select");
+  const PROCESSING = new Set(["Signal", "Transit peptide", "Propeptide", "Peptide"]);
+  const processing = raw.features
+    .filter((f) => PROCESSING.has(f.type) && f.location.start.value !== null && f.location.end.value !== null)
+    .map((f) => ({ type: f.type, start: f.location.start.value!, end: f.location.end.value!, description: f.description }));
+  const manes = raw.uniProtKBCrossReferences.filter((x) => x.database === "MANE-Select");
+  const mane = manes[0];
+  const maneOf = (m: (typeof manes)[number]) => ({ transcript: m.id, protein: prop(m, "ProteinId") ?? "", refSeqNucleotide: prop(m, "RefSeqNucleotideId") ?? "", refSeqProtein: prop(m, "RefSeqProteinId") ?? "" });
   return {
     accession: raw.primaryAccession,
     entryName: raw.uniProtkbId,
@@ -134,14 +152,9 @@ export function parseUniprotEntry(json: unknown, url: string | null = null): Uni
     md5: raw.sequence.md5,
     crc64: raw.sequence.crc64,
     features,
-    maneSelect: mane
-      ? {
-          transcript: mane.id,
-          protein: prop(mane, "ProteinId") ?? "",
-          refSeqNucleotide: prop(mane, "RefSeqNucleotideId") ?? "",
-          refSeqProtein: prop(mane, "RefSeqProteinId") ?? "",
-        }
-      : null,
+    processing,
+    maneSelect: mane ? maneOf(mane) : null,
+    maneSelects: manes.map(maneOf),
     ensembl: raw.uniProtKBCrossReferences
       .filter((x) => x.database === "Ensembl")
       .map((x) => ({ transcript: x.id, protein: prop(x, "ProteinId") ?? "", gene: prop(x, "GeneId") ?? "" })),

@@ -59,7 +59,8 @@ export async function readManifest(dir: string): Promise<ManifestRow[]> {
 
 /** data/fixtures/<set>/index.json (Phase 9: one set per gene with recorded fixtures). */
 export async function fixtureIndex(set: string = DEFAULT_FIXTURE_SET): Promise<FixtureIndex> {
-  if (!/^[a-z0-9][a-z0-9-]*$/.test(set)) throw new Error(`fixture set "${set}" is not a valid name`);
+  // Phase 9 (P9.3.1): the dynamic-mode test inputs live one level down, data/fixtures/dynamic/<symbol>/.
+  if (!/^[a-z0-9][a-z0-9-]*(\/[a-z0-9][a-z0-9-]*)?$/.test(set)) throw new Error(`fixture set "${set}" is not a valid name`);
   return JSON.parse(await readFile(join(REPO_ROOT, "data/fixtures", set, "index.json"), "utf8")) as FixtureIndex;
 }
 

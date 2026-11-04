@@ -24,7 +24,7 @@ function hgnc(over: Partial<HgncRecord> = {}): HgncRecord {
   return { hgncId: "HGNC:1", symbol: "GENE1", name: "gene one", status: "Approved", aliases: [], previousSymbols: [], ensemblGeneId: "ENSG00000000001", ncbiGeneId: null, uniprotIds: ["P12345"], maneSelect: ["ENST00000000001.1", "NM_000001.1"], location: "1p1", locusType: "gene with protein product", ...over };
 }
 function uniprot(over: Partial<UniprotEntry> = {}): UniprotEntry {
-  return { accession: "P12345", entryName: "GENE1_HUMAN", reviewed: true, organism: { scientificName: "Homo sapiens", taxonId: 9606 }, entryVersion: 1, sequenceVersion: 1, sequence: "MA", length: 2, md5: "x", crc64: "y", features: [], maneSelect: null, ensembl: [], pdb: [], comments: [], ...over };
+  return { accession: "P12345", entryName: "GENE1_HUMAN", reviewed: true, organism: { scientificName: "Homo sapiens", taxonId: 9606 }, entryVersion: 1, sequenceVersion: 1, sequence: "MA", length: 2, md5: "x", crc64: "y", features: [], processing: [], maneSelect: null, maneSelects: [], ensembl: [], pdb: [], comments: [], ...over };
 }
 function transcript(id: string, mane: boolean, canonical = mane): EnsemblGeneRaw["Transcript"][number] {
   return { id, version: 1, display_name: "", biotype: "protein_coding", is_canonical: canonical ? 1 : 0, MANE: mane ? [{ type: "MANE_Select", refseq_match: "NM_000001.1" }] : [], assembly_name: "GRCh38", seq_region_name: "1", start: 1, end: 100, strand: 1, Exon: [], UTR: [] };

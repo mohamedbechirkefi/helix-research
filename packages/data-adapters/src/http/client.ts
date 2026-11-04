@@ -212,8 +212,12 @@ export class HttpClient {
       if (res.status < 200 || res.status >= 300) {
         throw new HttpStatusError(url, res.status, snippet);
       }
+      // A truncated body is shorter than its declared length. A longer body is a decompressed one whose
+      // Content-Encoding header the page cannot see: browsers expose only safelisted response headers across
+      // origins (measured 2026-11-04 in dynamic mode: AlphaFold DB declared 1428 bytes and the browser's fetch
+      // delivered 7183 decompressed bytes with no content-encoding header visible), so only a shortfall is a fault.
       const declared = res.headers.get("content-length");
-      if (declared !== null && !res.headers.get("content-encoding") && Number(declared) !== buf.byteLength) {
+      if (declared !== null && !res.headers.get("content-encoding") && buf.byteLength < Number(declared)) {
         throw new MalformedResponseError(url, "truncated", "", true, `declared ${declared} bytes, received ${buf.byteLength}`);
       }
       const kept: Record<string, string> = {};

@@ -90,6 +90,12 @@ export interface SliceConfig {
   questions: SliceQuestion[];
   /** The question offered first after a DNA World variant answer; absent when the set has none. */
   bridgeQuestion?: string;
+  /**
+   * Phase 9 (P9.3.1, plan section 16): "dynamic" for a set built at request time in a visitor's
+   * browser from live retrievals (slice/dynamic.ts), absent for a curated set. The builder reads it
+   * only to word the capability reasons and the manifest; a gene specification never carries it.
+   */
+  mode?: "dynamic";
 }
 
 /**

@@ -41,7 +41,7 @@ function record(over: Partial<ClinvarRecord> & { uid: string; title: string }): 
   };
 }
 function uniprot(sequence: string, pdb: UniprotEntry["pdb"]): UniprotEntry {
-  return { accession: "P00001", entryName: "GENE1_HUMAN", reviewed: true, organism: { scientificName: "Homo sapiens", taxonId: 9606 }, entryVersion: 1, sequenceVersion: 1, sequence, length: sequence.length, md5: "x", crc64: "y", features: [], maneSelect: null, ensembl: [], pdb, comments: [] };
+  return { accession: "P00001", entryName: "GENE1_HUMAN", reviewed: true, organism: { scientificName: "Homo sapiens", taxonId: 9606 }, entryVersion: 1, sequenceVersion: 1, sequence, length: sequence.length, md5: "x", crc64: "y", features: [], processing: [], maneSelect: null, maneSelects: [], ensembl: [], pdb, comments: [] };
 }
 function report(entryId: string, residue: number, o: { observed: boolean; kept: boolean; mutation?: string | null }): CandidateReport {
   return {

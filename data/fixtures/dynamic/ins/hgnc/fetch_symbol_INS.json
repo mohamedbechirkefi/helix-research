@@ -1,0 +1,74 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "refseq_accession": [
+     "NM_000207"
+    ],
+    "ensembl_gene_id": "ENSG00000254647",
+    "locus_type": "gene with protein product",
+    "agr": "HGNC:6081",
+    "iuphar": "HGNC:6081",
+    "uuid": "1f1118fb-2e42-4d28-acae-be329f818759",
+    "name": "insulin",
+    "ccds_id": [
+     "CCDS7729"
+    ],
+    "locus_group": "protein-coding gene",
+    "prev_symbol": [
+     "IDDM2",
+     "IDDM1"
+    ],
+    "gencc": "HGNC:6081",
+    "rgd_id": [
+     "RGD:2916"
+    ],
+    "orphanet": 168345,
+    "gene_group_id": [
+     1902,
+     3576
+    ],
+    "ucsc_id": "uc001lvo.2",
+    "date_modified": "2023-01-20T00:00:00Z",
+    "location": "11p15.5",
+    "mgd_id": [
+     "MGI:96573"
+    ],
+    "gene_group": [
+     "Neuropeptides",
+     "Insulin family"
+    ],
+    "vega_id": "OTTHUMG00000009558",
+    "status": "Approved",
+    "ena": [
+     "X70508"
+    ],
+    "date_approved_reserved": "2001-06-22T00:00:00Z",
+    "entrez_id": "3630",
+    "mane_select": [
+     "ENST00000381330.5",
+     "NM_000207.3"
+    ],
+    "symbol": "INS",
+    "prev_name": [
+     "insulin-dependent diabetes mellitus 2"
+    ],
+    "hgnc_id": "HGNC:6081",
+    "uniprot_ids": [
+     "P01308"
+    ],
+    "pubmed_id": [
+     6243748,
+     7773291
+    ]
+   }
+  ]
+ }
+}

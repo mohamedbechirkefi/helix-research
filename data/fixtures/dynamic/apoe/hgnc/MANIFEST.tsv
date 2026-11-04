@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_APOE.json	2026-11-04T00:31:15Z	200	bde409c71eb34b8d58ca14037cb0a4b85fb8e6dd9dfb233f0091242a2fa782c2	1428	GET	https://rest.genenames.org/fetch/symbol/APOE	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-04: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 b4d1937fc0e7d2dc30467fc80336160f7acc30f49bc0183ef43ccadb5ebe780c

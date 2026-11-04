@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_INS.json	2026-11-04T00:51:25Z	200	2f7f357f7e4e751544a5205f8d3fc96c28ad8331ef06324782fb153971678470	1373	GET	https://rest.genenames.org/fetch/symbol/INS	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-04: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 006b9279ae85891742008d62445c1587ea65e4c8568833073cdae518b5b4cce1

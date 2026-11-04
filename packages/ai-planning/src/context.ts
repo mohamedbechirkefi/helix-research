@@ -174,8 +174,32 @@ export interface PlanningContext {
    */
   routingPrompt?: "dh011";
   loadedStructureId: string | null;
+  /**
+   * Phase 9 (P9.3.1, plan section 16 rule 6): "dynamic" for a set built at request time in the
+   * visitor's browser from live retrievals, with `modeNote` the sentence the set's known limitations
+   * carry, so that an explanation can say it. Absent for a curated set: the Phase 3 to 8 contexts and
+   * their measured prompts are unchanged.
+   */
+  mode?: "dynamic";
+  modeNote?: string;
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
+}
+
+/**
+ * The sentence a dynamic set carries everywhere it states its limits (plan section 16 rule 6): not
+ * curated, no reviewed structure or variant selection, no pathway or association retrieval, built in
+ * this browser at this time from these releases. `releases` are the manifest's source releases
+ * ("Ensembl 116", "UniProt 2026_03", "AlphaFold DB model v6"), in the manifest's order, deduplicated.
+ */
+export function dynamicModeNote(a: { symbol: string; retrievedAt: string; releases: readonly string[] }): string {
+  const from = a.releases.length > 0 ? ` from ${a.releases.join(", ")}` : "";
+  return `${a.symbol} is a dynamic set, not curated: it was retrieved live and built in this browser at ${a.retrievedAt}${from}. No reviewed structure or variant selection was made and no pathway or association was retrieved; the journey stops at the transcript, the sequences and the protein record, with the predicted model listed, not loaded.`;
+}
+
+/** The context of a dynamic set: the same context with the mode and its sentence (rule 6). */
+export function withDynamicMode(ctx: PlanningContext, a: { symbol: string; retrievedAt: string; releases: readonly string[] }): PlanningContext {
+  return { ...ctx, mode: "dynamic", modeNote: dynamicModeNote(a) };
 }
 
 // ---------------------------------------------------------------------------------------

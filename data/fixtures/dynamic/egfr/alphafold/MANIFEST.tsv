@@ -1,0 +1,3 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+api_prediction_P00533.json	2026-11-04T00:28:11Z	200	6f0b5ba320021a23fe02e1f93bd92dfd4ce0871cdc91240fac8f5ce508ca8226	12049	GET	https://alphafold.ebi.ac.uk/api/prediction/P00533	"{""content-type"":""application/json""}"	
+files_AF-P00533-F1-model_v6.cif	2026-11-04T00:28:12Z	200	485413c9edb379204b45cae0191e4d44aa136d160da78ccbed69a4678f8e392f	1127973	GET	https://alphafold.ebi.ac.uk/files/AF-P00533-F1-model_v6.cif	"{""content-type"":""application/octet-stream"",""last-modified"":""Thu, 18 Sep 2025 15:32:47 GMT"",""etag"":""\""2515b966f956a0cd30b67d835798c63c\""""}"	

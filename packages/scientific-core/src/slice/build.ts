@@ -203,16 +203,26 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
   for (const o of translationChecks({ cds: cds.sequence, ensemblProtein: ensp.sequence, uniprotSequence: uni.sequence, uniprotMd5: uni.md5 })) {
     check(o.check === "cds-shape" ? "T06-cds-shape" : `T07-${o.check}`, o.pass, o.detail, ["sequences", "protein"]);
   }
-  check("uniprot-mane-xref", uni.maneSelect?.transcript === formatVersioned(transcript.id) && uni.maneSelect?.protein === formatVersioned(transcript.translation.id) && uni.maneSelect?.refSeqNucleotide === (transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null), `UniProt MANE-Select ${uni.maneSelect?.transcript} / ${uni.maneSelect?.protein} / ${uni.maneSelect?.refSeqNucleotide}`, ["protein", "transcript"]);
+  // Phase 9 (P9.3.1, found by HBA1): an entry shared by two genes (P69905, HBA1 and HBA2) carries one MANE-Select
+  // cross-reference per gene; the one that names the selected transcript is the set's, and the others are stated.
+  // An entry with one cross-reference (every other set) reads exactly as before.
+  const uniMane = uni.maneSelects.find((m) => m.transcript === formatVersioned(transcript.id)) ?? uni.maneSelect;
+  const otherManes = uni.maneSelects.filter((m) => m !== uniMane);
+  check("uniprot-mane-xref", uniMane?.transcript === formatVersioned(transcript.id) && uniMane?.protein === formatVersioned(transcript.translation.id) && uniMane?.refSeqNucleotide === (transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null), `UniProt MANE-Select ${uniMane?.transcript} / ${uniMane?.protein} / ${uniMane?.refSeqNucleotide}${otherManes.length > 0 ? `; the entry is shared: ${otherManes.length} other MANE-Select cross-reference${otherManes.length === 1 ? "" : "s"} (${otherManes.map((m) => `${m.transcript} / ${m.protein} / ${m.refSeqNucleotide}`).join("; ")}) belong${otherManes.length === 1 ? "s" : ""} to another gene encoding the same protein` : ""}`, ["protein", "transcript"]);
   const initMet = uni.features.find((f) => f.type === "Initiator methionine");
   const chainF = uni.features.find((f) => f.type === "Chain");
   // Phase 9: an entry with no Initiator methionine feature (the Met is kept) is as consistent as one that
   // annotates its removal; then the processed chain starts at 1 and translated numbering is the processed numbering.
   const initMetRemoved = initMet !== undefined && initMet.start === 1 && /removed/i.test(initMet.description);
+  // Phase 9 (P9.3.1, found by INS): an entry whose mature products are peptides annotates no Chain feature
+  // (insulin: Signal 1-24, Peptide 25-54, Propeptide 57-87, Peptide 90-110); its processing is consistent
+  // when those features exist, there is no processed chain, and translated numbering is the numbering of record.
+  const processing = uni.processing;
+  const chainWords = chainF ? `Chain ${chainF.start}-${chainF.end}` : processing.length > 0 ? `no Chain feature; processing annotated as ${processing.map((f) => `${f.type} ${f.start}-${f.end}${f.description ? ` (${f.description})` : ""}`).join(", ")}, so there is no processed chain and translated numbering is the numbering of record` : "no Chain feature and no processing annotation";
   check(
     "T15-initiator-met-and-chain",
-    chainF !== undefined && (initMet === undefined ? chainF.start >= 1 : initMetRemoved),
-    initMet ? `Initiator methionine ${initMet.start} "${initMet.description}"; Chain ${chainF?.start}-${chainF?.end}` : `no Initiator methionine feature (translated numbering is the processed numbering); Chain ${chainF?.start}-${chainF?.end}`,
+    chainF !== undefined ? (initMet === undefined ? chainF.start >= 1 : initMetRemoved) : initMet === undefined && processing.length > 0,
+    initMet ? `Initiator methionine ${initMet.start} "${initMet.description}"; ${chainWords}` : `no Initiator methionine feature (translated numbering is the processed numbering); ${chainWords}`,
     ["protein", "variant"],
   );
   const chainRange = chainF ? { start: chainF.start, end: chainF.end } : null;
@@ -234,7 +244,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         const recoder = parseEnsembl.variantRecoder(json(need("variantRecoder")), need("variantRecoder").url);
         const variation = parseEnsembl.variation(json(need("variation")), need("variation").url);
         const vep = parseEnsembl.vep(json(need("vep")), need("vep").url);
-        const vctx = { transcript, cds: cds.sequence, refSeqTranscript: transcript.refSeqMatch, refSeqProtein: uni.maneSelect?.refSeqProtein ?? null };
+        const vctx = { transcript, cds: cds.sequence, refSeqTranscript: transcript.refSeqMatch, refSeqProtein: uniMane?.refSeqProtein ?? null };
         const tId = formatVersioned(transcript.id);
         const map38 = variation.mappings.find((m) => m.assembly_name === "GRCh38");
         if (!map38) throw new ValidationFailedError("variation", `${vsel.rsId} has no GRCh38 mapping`);
@@ -854,7 +864,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
     vepSwissprot: V?.tc.swissprot ?? [],
     maneRefSeq: transcript.refSeqMatch ? formatVersioned(transcript.refSeqMatch) : null,
     hgncManeSelect: hgnc.maneSelect,
-    uniprotManeSelect: uni.maneSelect,
+    uniprotManeSelect: uniMane,
     clinvarTitle: V?.cv.title ?? null,
   });
   check("T31-drift-recorded", true, drift.length === 0 ? "no version drift" : drift.map((d) => `${d.id}: ${d.observedValue} vs ${d.referenceValue}`).join("; "), ["gene", "protein"], "warn");
@@ -1018,7 +1028,7 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
       initiatorMethionineRemoved: initMet !== undefined && /removed/i.test(initMet.description),
       // Natural variants are kept only at the selected variant's position; with no variant selected, none is kept.
       features: uni.features.filter((f) => f.type !== "Natural variant" || (V !== null && f.start <= V.uniPos && f.end >= V.uniPos)),
-      xrefs: { maneSelect: uni.maneSelect, ensembl: uni.ensembl, pdb: uni.pdb.filter((p) => p.id === config.pdbId) },
+      xrefs: { maneSelect: uniMane, ensembl: uni.ensembl, pdb: uni.pdb.filter((p) => p.id === config.pdbId) },
       comments: uni.comments,
       evidence: protEv,
       provenance: rp("protein", [P.U1], ["field-select", "drop-proprietary-xrefs", V ? "natural-variants-at-position-only" : "natural-variants-dropped-no-variant-selected", "pdb-xrefs-of-selected-entry-only"], protEv),
@@ -1446,6 +1456,8 @@ export async function buildSlice(inputs: SliceInputs, config: SliceConfig, ctx: 
         variantPositions: V ? [V.uniPos] : [],
         pathways: PW ? { membershipCount: PW.memberships.length, opening: PW.opening ? { stableId: PW.opening.stableId, name: PW.opening.name } : null, reason: PW.choice.reason } : null,
         associations: AS ? { count: AS.ot.count, kept: AS.rows.length, top: AS.rows[0] ? { diseaseName: AS.rows[0].diseaseName, score: AS.rows[0].score } : null } : null,
+        // Phase 9 (P9.3.1): a dynamic set's reasons say so; a curated set's wording is unchanged (the field is left out).
+        ...(config.mode === "dynamic" ? { mode: "dynamic" as const } : {}),
       }),
       derivedFrom: files.map((f) => f.path).filter((p) => p.endsWith(".json")),
     });
