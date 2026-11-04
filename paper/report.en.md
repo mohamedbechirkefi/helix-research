@@ -868,6 +868,8 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 
 **What the numbers point to.** The plan to let the model decide everything after validation is not supported by this set. A split that gives the model the explorer actions and the later follow-up turns and keeps the rules elsewhere would score higher here, but that estimate is in-sample and untested. The association result may come from prompt v7 rendering no association rows; testing that needs a new prompt version, which is a new study. These are findings for the author's gate review.
 
+**The author's answers, and a correction.** The author chose the split: the model for the six explorer actions and later follow-up turns, the rules elsewhere, with a new prompt v8 that shows the association rows and marks which pathways can be opened, a validator that refuses the rest, an app-side screen over the model's prose, and the loaded-structure fix (D-H024). Over the stored outputs the split would reach 309 of 336, but the rule was written after reading them, so that is an estimate; the measurement is a held-out set written before any model saw it. Running the new screen over the stored outputs also found 15 model outputs the rule list had missed, each describing a reference structure as showing the variant; the model's safe count falls to 294 and the policy's to 300 (HX-P10-2026-11-04-dh024-build; C111 corrected, C114).
+
 ### 9.8 Release-grade QA, performance and accessibility (Phase 11)
 
 To report:
