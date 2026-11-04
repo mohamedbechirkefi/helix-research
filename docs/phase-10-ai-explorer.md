@@ -1,0 +1,54 @@
+<!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
+# Phase 10: the advanced contextual AI explorer, the plan
+
+Authored 2026-11-04 when Phase 9 passed (helix D-H021). Governs ROADMAP Phase 10 (P10.1.1 to P10.4.1). The master prompt's rules that bind this phase: section 6 (the director's responsibilities and non-responsibilities; LLM output is untrusted, typed, validated, cancellable; true personalisation changes the scene, not only the narration, is inspectable and resettable, session-scoped, and never infers medical traits), section 7 (every action has a schema, semantic targets, prerequisites, scientific checks, capabilities, a lifecycle, a result, feedback, cancellation and a fallback; the interpreter, not the model, establishes chains and residues), section 8 (free to run: Ollama locally, the deterministic fallback for everything, no paid inference), section 14 (AI tests: valid schema, correct action choice, no invented citations, contextual follow-ups, refusal of unsupported actions, injection resistance from retrieved text, fallback behaviour, repeatability). Phase 9's discipline continues: rules before code, one step at a time, each verified before commit, reality logged when it contradicts a rule.
+
+## 1. What must be true at the end
+
+1. The action registry carries the six actions the roadmap names (selectTranscript, showProteinDomains, showPathway, setRepresentation, beginTransition, returnToOverview) with the full contract of section 7, executed by the deterministic interpreter and planned by both the rule-based planner and the model.
+2. A question about the current selection ("why is this residue important?", "what is this codon?") is bound to the shared world state and answered from the records only, with evidence, or refused when nothing is recorded.
+3. Session personalisation exists and is visible: what the session holds can be inspected and reset in one place; it changes depth, suggestions and chapter emphasis; it holds no medical inference and nothing persists.
+4. A reliability benchmark across the five curated genes, with follow-up sequences and injection items, written and annotated before any model sees it, run with the shipped local model and the rule-based planner under the same budget, reported with every raw result; prompt v7 frozen before the run.
+5. Failures are handled gracefully on the running app: invalid output, timeouts, stale responses, cancellation mid-plan and injected instructions each end in a stated state, never a broken scene.
+6. HBB's Phase 3 to 9 measured behaviour is kept for the measured prompt version, and the new prompt version is measured on its own.
+
+## 2. The extended registry (P10.1.1)
+
+| Action | Schema (semantic targets only) | Prerequisites and checks | Scene capability | Fallback |
+|---|---|---|---|---|
+| `selectTranscript` | `{ transcriptId }` from the gene record's candidates | the id is one of the gene record's candidates; only the MANE Select transcript has curated sequences, so any other id is refused with the reason "only the MANE Select transcript is curated; the record lists it as a candidate" | `sequence-view` | the explanation names the selected transcript and the rule that chose it |
+| `showProteinDomains` | `{ proteinAccession, featureTypes? }` | the protein record's UniProt features of type Domain, Region, Topological domain, Transmembrane, Zinc finger (the exact set read from the record); mapped to the structure through the mapping table where a structure exists, to the CDS in DNA World always | `residue-highlight`, `sequence-view` | DNA World regions only when there is no structure |
+| `showPathway` | `{ stableId? }` | the id is a membership of the set's pathways record; `pathwayView` available; no id opens the record's opening pathway | `world:pathway` | refusal with the capability reason |
+| `setRepresentation` | `{ representation }` from a closed list (cartoon, ball-and-stick, surface, spacefill) | Protein World on screen with a structure loaded; the representation is applied by the Mol* adapter through its public presets, the variant emphasis kept | `structure-viewer` | refusal when no structure is on screen |
+| `beginTransition` | `{ from, to }` worlds | the bridge sequence (D-H012, D-H013) as an action, with its stations; only `dna` to `protein` exists; interruptible | `world:protein`, the bridge | refusal naming the available transitions |
+| `returnToOverview` | `{}` | DNA World: the overview scale of P8.3.1; Protein World: Mol*'s reset view with the emphasis kept; Pathway World: the opened pathway's list | `camera` | none needed |
+
+Rules: the contract table in `docs/ai-architecture-and-action-contracts.md` is regenerated from the registry; every new action has a scientific check id where a record is consulted; lifecycle and cancellation reuse the Phase 4 machinery; the rule-based planner gains one rule per action with question patterns in the sets' words; the model learns them through prompt v7 (section 5). No new action may mutate a mesh or take a coordinate from the model.
+
+## 3. Contextual questions (P10.1.2)
+
+The shared world state already holds the world, the chapter, the selected codon and the selected residue. A question with a deictic subject ("this residue", "this codon", "here", "the selected one", or no subject with a selection present) binds to it before planning; the context handed to the planner carries the selection as a trusted entity with what the records say about it: the codon's bases and amino acid, the variant if the selection is the variant codon, the UniProt features covering the position, the contacts of the residue if recorded, the ClinVar line if the position is the variant's. "Why is this residue important?" is answered from those records with their evidence classes; when nothing beyond the sequence is recorded the answer says so and offers the nearest recorded thing (the variant codon, a domain). A question about a selection that is not the variant must never be answered with the variant's evidence. Tests: unit tests on the binding; E2E on HBB (the variant residue, a non-variant residue, a codon without features) and on one other set.
+
+## 4. Session personalisation (P10.2.1)
+
+What the session holds (in memory only): the depth the visitor chose (brief, standard, detailed; default standard), the worlds visited, the questions asked, the chapters completed, the interests inferred from those only (for example "structure" when the visitor spent time in Protein World). What it changes: explanation length and the number of evidence lines shown; which supported questions are offered first; whether the journey re-offers a completed chapter; the camera dwell of the tour under reduced motion is unchanged. What it never does: infer anything about the person (no health, no diagnosis, no demographic), store anything, or change a scientific statement. One card in the side panel lists everything held, in words, with a Reset button; the planner context carries the depth and the interests as plain strings so an explanation can say "at your detailed setting". Tests: the card lists exactly what the state holds; reset empties it; depth changes the explanation length deterministically on the rule-based path; nothing in storage after a session.
+
+## 5. The reliability benchmark (P10.3.1)
+
+1. **Items before any model run (invariant 1).** A new set, `research/benchmark/phase10/questions.jsonl`, across the five curated genes: for each gene the four supported questions in its words, the pathway and association questions, two contextual questions with a stated selection, one unsupported request, one ambiguous request; follow-up sequences of three turns per gene (a question, a follow-up on the result, a return to exploration); injection items where the retrieved text (a ClinVar title, a pathway name, a UniProt comment) carries an instruction, with the expected refusal. Each item carries its oracle (the expected action types in order, the expected world, the expected refusal or clarification, the forbidden claims) and is annotated by hand before any run. **Freezing the set is a gate (G-FREEZE): the author's word is asked before it is declared frozen; writing and annotating it is not.**
+2. **Prompt v7** teaches the six new actions and the contextual binding; it is frozen in the library before the run, and the measured v5 stays byte-identical for the HBB benchmarks of Phases 3 to 7.
+3. **Runs:** the shipped local model (ministral-3:8b through Ollama, temperature 0, three repeats) and the rule-based planner as the baseline under the same budget (invariant 6); no paid inference. Scoring as Phase 3: valid, correct action choice, safe (no invented identifier, no forbidden claim, refusal where expected), repeatable; per gene and overall; the raw outputs stored.
+4. **Report:** `docs/ai-model-benchmark.md` gains a Phase 10 section with the table, the per-gene breakdown, the injection results, the latency, and the policy the director keeps (what the model may decide, what the rule-based path always decides).
+
+## 6. Graceful failure (P10.3.1 with the suites)
+
+Browser scenarios on the running app for: an invalid plan (schema failure) ending in the refusal state with the reason; a provider timeout ending in the fallback explanation; a stale response after a gene switch discarded with the log saying so; a cancellation in the middle of a three-action plan leaving the scene consistent (the Phase 5 contracts extended to the new actions); an injected instruction in a retrieved text neither executed nor echoed. Each read back through the diagnostics and recorded.
+
+## 7. Order of work
+
+1. P10.1.1 the registry: contracts, interpreter, rule-based rules, Phase 10 suite scenarios per action on two sets.
+2. P10.1.2 contextual questions.
+3. P10.2.1 session personalisation.
+4. The benchmark items and oracles written and annotated (no model run); the G-FREEZE request to the author.
+5. Prompt v7 frozen; the runs; the report.
+6. The failure scenarios; the gate review.
