@@ -1,0 +1,1282 @@
+{
+ "date": "2026-11-04T15:50:51.961Z",
+ "tag": "p10-gate",
+ "base": "http://localhost:5190/",
+ "query": "&power=low",
+ "repeats": 3,
+ "lowPower": true,
+ "chrome": "Chrome/156.0.8078.80",
+ "budgets": {
+  "_comment": "Phase 8 performance budgets (ROADMAP P8.1.1; docs/qa-and-performance.md section 2). Read by e2e/budgets.mjs. Values are medians over the harness repeats unless named otherwise; ms, kB (1000 bytes, gzip over the wire), MB (2^20 bytes). Reference: the development Mac (Apple M1 Pro), system Google Chrome headless, viewport 1400x820, the vite preview on localhost.",
+  "start": {
+   "sceneReadyMs": 1000,
+   "welcomeInteractiveMs": 1200,
+   "dnaReadyMs": 1200,
+   "initialTransferKb": 1000,
+   "restTransferKb": 2000,
+   "jsHeapAtReadyMb": 96
+  },
+  "structure": {
+   "toProteinColdMs": 2500,
+   "toProteinWarmMs": 1600,
+   "toDnaMs": 1600,
+   "structureFetchMs": 300,
+   "jsHeapAfterLoadMb": 256,
+   "heapGrowthOverRoundTripsPct": 10,
+   "chromeTreeRssMb": 1500,
+   "roundTrips": 6
+  },
+  "frames": {
+   "vsyncOnMedianMs": 16.8,
+   "over33PerPage": 0,
+   "lowPowerOver33Per1000": 1,
+   "lowPowerLongestMs": 70,
+   "uncappedTourP95Ms": {
+    "1": 5,
+    "2": 8
+   },
+   "idleFrames": 0
+  },
+  "bundle": {
+   "sceneChunkGzipKb": 1100,
+   "totalGzipKb": 1900
+  }
+ },
+ "start": [
+  {
+   "repeat": 1,
+   "sceneReadyMs": 185,
+   "welcomeInteractiveMs": 195,
+   "dnaReadyMs": 339,
+   "resources": {
+    "navigation": {
+     "responseEndMs": 2,
+     "domContentLoadedMs": 88,
+     "loadMs": 88
+    },
+    "readyAtMs": 188,
+    "count": 32,
+    "transferKb": 1984.2,
+    "decodedKb": 7120.1,
+    "beforeReady": {
+     "count": 27,
+     "transferKb": 731.5
+    },
+    "files": [
+     {
+      "name": "index-BUJ5MSlm.js",
+      "transferKb": 420.1,
+      "durationMs": 33,
+      "startMs": 5,
+      "beforeReady": true
+     },
+     {
+      "name": "rolldown-runtime-XKyaHtl9.js",
+      "transferKb": 1,
+      "durationMs": 5,
+      "startMs": 5,
+      "beforeReady": true
+     },
+     {
+      "name": "preload-helper-Csn-3pix.js",
+      "transferKb": 88.6,
+      "durationMs": 11,
+      "startMs": 5,
+      "beforeReady": true
+     },
+     {
+      "name": "index-BEiuaqHH.css",
+      "transferKb": 11.1,
+      "durationMs": 5,
+      "startMs": 5,
+      "beforeReady": true
+     },
+     {
+      "name": "index.json",
+      "transferKb": 0.9,
+      "durationMs": 2,
+      "startMs": 88,
+      "beforeReady": true
+     },
+     {
+      "name": "helix-wordmark-DWh3tujJ.svg",
+      "transferKb": 38.4,
+      "durationMs": 5,
+      "startMs": 92,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-500-normal-YINYabwD.woff2",
+      "transferKb": 10.4,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-300-normal-C3kkMBb6.woff2",
+      "transferKb": 34.4,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-400-normal-gapTbOY8.woff2",
+      "transferKb": 33.7,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "manifest.json",
+      "transferKb": 11.1,
+      "durationMs": 2,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "gene.json",
+      "transferKb": 1.9,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "transcript.json",
+      "transferKb": 1.8,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "variant-hbs.json",
+      "transferKb": 3.7,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "protein-P68871.json",
+      "transferKb": 3.2,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-hbs-2HBS.json",
+      "transferKb": 2.4,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "structure-2HBS.json",
+      "transferKb": 3.6,
+      "durationMs": 3,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "contacts-hbs-2HBS.json",
+      "transferKb": 1.5,
+      "durationMs": 4,
+      "startMs": 113,
+      "beforeReady": true
+     },
+     {
+      "name": "predicted-model-AF-P68871-F1.json",
+      "transferKb": 1.7,
+      "durationMs": 4,
+      "startMs": 113,
+      "beforeReady": true
+     },
+     {
+      "name": "capabilities.json",
+      "transferKb": 1.1,
+      "durationMs": 4,
+      "startMs": 113,
+      "beforeReady": true
+     },
+     {
+      "name": "sequences.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 117,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-P68871-2HBS.json",
+      "transferKb": 9.1,
+      "durationMs": 2,
+      "startMs": 118,
+      "beforeReady": true
+     },
+     {
+      "name": "clinvar-hbs.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 121,
+      "beforeReady": true
+     },
+     {
+      "name": "questions.json",
+      "transferKb": 0.7,
+      "durationMs": 1,
+      "startMs": 122,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-500-normal-uokXdC-Q.woff2",
+      "transferKb": 35,
+      "durationMs": 10,
+      "startMs": 165,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-400-normal-DTRLJnHl.woff2",
+      "transferKb": 10.2,
+      "durationMs": 10,
+      "startMs": 165,
+      "beforeReady": true
+     },
+     {
+      "name": "version",
+      "transferKb": 0,
+      "durationMs": 1,
+      "startMs": 182,
+      "beforeReady": true
+     },
+     {
+      "name": "tags",
+      "transferKb": 0,
+      "durationMs": 21,
+      "startMs": 191,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CXso02sA.js",
+      "transferKb": 969.1,
+      "durationMs": 68,
+      "startMs": 191,
+      "beforeReady": false
+     },
+     {
+      "name": "color-DnDS9Snv.js",
+      "transferKb": 18.6,
+      "durationMs": 3,
+      "startMs": 191,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CJAlKLW6.css",
+      "transferKb": 16.2,
+      "durationMs": 3,
+      "startMs": 191,
+      "beforeReady": false
+     },
+     {
+      "name": "2HBS.cif",
+      "transferKb": 248.8,
+      "durationMs": 28,
+      "startMs": 192,
+      "beforeReady": false
+     }
+    ]
+   },
+   "jsHeapMb": 37.4,
+   "rssMb": 978,
+   "pageErrors": []
+  },
+  {
+   "repeat": 2,
+   "sceneReadyMs": 181,
+   "welcomeInteractiveMs": 191,
+   "dnaReadyMs": 327,
+   "resources": {
+    "navigation": {
+     "responseEndMs": 2,
+     "domContentLoadedMs": 88,
+     "loadMs": 88
+    },
+    "readyAtMs": 184,
+    "count": 32,
+    "transferKb": 1984.2,
+    "decodedKb": 7120.1,
+    "beforeReady": {
+     "count": 27,
+     "transferKb": 731.5
+    },
+    "files": [
+     {
+      "name": "rolldown-runtime-XKyaHtl9.js",
+      "transferKb": 1,
+      "durationMs": 4,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "index-BEiuaqHH.css",
+      "transferKb": 11.1,
+      "durationMs": 5,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "preload-helper-Csn-3pix.js",
+      "transferKb": 88.6,
+      "durationMs": 10,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "index-BUJ5MSlm.js",
+      "transferKb": 420.1,
+      "durationMs": 33,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "index.json",
+      "transferKb": 0.9,
+      "durationMs": 1,
+      "startMs": 87,
+      "beforeReady": true
+     },
+     {
+      "name": "helix-wordmark-DWh3tujJ.svg",
+      "transferKb": 38.4,
+      "durationMs": 5,
+      "startMs": 92,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-500-normal-YINYabwD.woff2",
+      "transferKb": 10.4,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-300-normal-C3kkMBb6.woff2",
+      "transferKb": 34.4,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-400-normal-gapTbOY8.woff2",
+      "transferKb": 33.7,
+      "durationMs": 11,
+      "startMs": 93,
+      "beforeReady": true
+     },
+     {
+      "name": "manifest.json",
+      "transferKb": 11.1,
+      "durationMs": 2,
+      "startMs": 109,
+      "beforeReady": true
+     },
+     {
+      "name": "gene.json",
+      "transferKb": 1.9,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "transcript.json",
+      "transferKb": 1.8,
+      "durationMs": 3,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "protein-P68871.json",
+      "transferKb": 3.2,
+      "durationMs": 2,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "variant-hbs.json",
+      "transferKb": 3.7,
+      "durationMs": 3,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "structure-2HBS.json",
+      "transferKb": 3.6,
+      "durationMs": 3,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-hbs-2HBS.json",
+      "transferKb": 2.4,
+      "durationMs": 3,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "contacts-hbs-2HBS.json",
+      "transferKb": 1.5,
+      "durationMs": 4,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "predicted-model-AF-P68871-F1.json",
+      "transferKb": 1.7,
+      "durationMs": 4,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "capabilities.json",
+      "transferKb": 1.1,
+      "durationMs": 4,
+      "startMs": 112,
+      "beforeReady": true
+     },
+     {
+      "name": "sequences.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 116,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-P68871-2HBS.json",
+      "transferKb": 9.1,
+      "durationMs": 2,
+      "startMs": 118,
+      "beforeReady": true
+     },
+     {
+      "name": "clinvar-hbs.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 121,
+      "beforeReady": true
+     },
+     {
+      "name": "questions.json",
+      "transferKb": 0.7,
+      "durationMs": 1,
+      "startMs": 122,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-400-normal-DTRLJnHl.woff2",
+      "transferKb": 10.2,
+      "durationMs": 10,
+      "startMs": 163,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-500-normal-uokXdC-Q.woff2",
+      "transferKb": 35,
+      "durationMs": 10,
+      "startMs": 163,
+      "beforeReady": true
+     },
+     {
+      "name": "version",
+      "transferKb": 0,
+      "durationMs": 1,
+      "startMs": 179,
+      "beforeReady": true
+     },
+     {
+      "name": "tags",
+      "transferKb": 0,
+      "durationMs": 13,
+      "startMs": 185,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CXso02sA.js",
+      "transferKb": 969.1,
+      "durationMs": 67,
+      "startMs": 188,
+      "beforeReady": false
+     },
+     {
+      "name": "color-DnDS9Snv.js",
+      "transferKb": 18.6,
+      "durationMs": 4,
+      "startMs": 188,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CJAlKLW6.css",
+      "transferKb": 16.2,
+      "durationMs": 3,
+      "startMs": 189,
+      "beforeReady": false
+     },
+     {
+      "name": "2HBS.cif",
+      "transferKb": 248.8,
+      "durationMs": 27,
+      "startMs": 189,
+      "beforeReady": false
+     }
+    ]
+   },
+   "jsHeapMb": 37.4,
+   "rssMb": 996,
+   "pageErrors": []
+  },
+  {
+   "repeat": 3,
+   "sceneReadyMs": 180,
+   "welcomeInteractiveMs": 190,
+   "dnaReadyMs": 327,
+   "resources": {
+    "navigation": {
+     "responseEndMs": 2,
+     "domContentLoadedMs": 86,
+     "loadMs": 86
+    },
+    "readyAtMs": 183,
+    "count": 32,
+    "transferKb": 1984.2,
+    "decodedKb": 7120.1,
+    "beforeReady": {
+     "count": 27,
+     "transferKb": 731.5
+    },
+    "files": [
+     {
+      "name": "index-BUJ5MSlm.js",
+      "transferKb": 420.1,
+      "durationMs": 32,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "rolldown-runtime-XKyaHtl9.js",
+      "transferKb": 1,
+      "durationMs": 4,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "index-BEiuaqHH.css",
+      "transferKb": 11.1,
+      "durationMs": 5,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "preload-helper-Csn-3pix.js",
+      "transferKb": 88.6,
+      "durationMs": 10,
+      "startMs": 4,
+      "beforeReady": true
+     },
+     {
+      "name": "index.json",
+      "transferKb": 0.9,
+      "durationMs": 1,
+      "startMs": 86,
+      "beforeReady": true
+     },
+     {
+      "name": "helix-wordmark-DWh3tujJ.svg",
+      "transferKb": 38.4,
+      "durationMs": 5,
+      "startMs": 90,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-500-normal-YINYabwD.woff2",
+      "transferKb": 10.4,
+      "durationMs": 10,
+      "startMs": 91,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-300-normal-C3kkMBb6.woff2",
+      "transferKb": 34.4,
+      "durationMs": 10,
+      "startMs": 92,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-400-normal-gapTbOY8.woff2",
+      "transferKb": 33.7,
+      "durationMs": 10,
+      "startMs": 92,
+      "beforeReady": true
+     },
+     {
+      "name": "manifest.json",
+      "transferKb": 11.1,
+      "durationMs": 2,
+      "startMs": 107,
+      "beforeReady": true
+     },
+     {
+      "name": "gene.json",
+      "transferKb": 1.9,
+      "durationMs": 2,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "transcript.json",
+      "transferKb": 1.8,
+      "durationMs": 2,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "protein-P68871.json",
+      "transferKb": 3.2,
+      "durationMs": 2,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "variant-hbs.json",
+      "transferKb": 3.7,
+      "durationMs": 3,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "structure-2HBS.json",
+      "transferKb": 3.6,
+      "durationMs": 3,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-hbs-2HBS.json",
+      "transferKb": 2.4,
+      "durationMs": 3,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "contacts-hbs-2HBS.json",
+      "transferKb": 1.5,
+      "durationMs": 4,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "predicted-model-AF-P68871-F1.json",
+      "transferKb": 1.7,
+      "durationMs": 4,
+      "startMs": 110,
+      "beforeReady": true
+     },
+     {
+      "name": "capabilities.json",
+      "transferKb": 1.1,
+      "durationMs": 4,
+      "startMs": 111,
+      "beforeReady": true
+     },
+     {
+      "name": "sequences.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 115,
+      "beforeReady": true
+     },
+     {
+      "name": "residue-mapping-P68871-2HBS.json",
+      "transferKb": 9.1,
+      "durationMs": 2,
+      "startMs": 116,
+      "beforeReady": true
+     },
+     {
+      "name": "clinvar-hbs.json",
+      "transferKb": 2.5,
+      "durationMs": 1,
+      "startMs": 119,
+      "beforeReady": true
+     },
+     {
+      "name": "questions.json",
+      "transferKb": 0.7,
+      "durationMs": 1,
+      "startMs": 121,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-mono-latin-400-normal-DTRLJnHl.woff2",
+      "transferKb": 10.2,
+      "durationMs": 9,
+      "startMs": 161,
+      "beforeReady": true
+     },
+     {
+      "name": "geist-sans-latin-500-normal-uokXdC-Q.woff2",
+      "transferKb": 35,
+      "durationMs": 9,
+      "startMs": 161,
+      "beforeReady": true
+     },
+     {
+      "name": "version",
+      "transferKb": 0,
+      "durationMs": 1,
+      "startMs": 177,
+      "beforeReady": true
+     },
+     {
+      "name": "tags",
+      "transferKb": 0,
+      "durationMs": 12,
+      "startMs": 184,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CXso02sA.js",
+      "transferKb": 969.1,
+      "durationMs": 67,
+      "startMs": 184,
+      "beforeReady": false
+     },
+     {
+      "name": "color-DnDS9Snv.js",
+      "transferKb": 18.6,
+      "durationMs": 3,
+      "startMs": 184,
+      "beforeReady": false
+     },
+     {
+      "name": "scene-CJAlKLW6.css",
+      "transferKb": 16.2,
+      "durationMs": 3,
+      "startMs": 184,
+      "beforeReady": false
+     },
+     {
+      "name": "2HBS.cif",
+      "transferKb": 248.8,
+      "durationMs": 27,
+      "startMs": 184,
+      "beforeReady": false
+     }
+    ]
+   },
+   "jsHeapMb": 37.4,
+   "rssMb": 998,
+   "pageErrors": []
+  }
+ ],
+ "structure": [
+  {
+   "repeat": 1,
+   "heapRestMb": 37.4,
+   "rssRestMb": 998,
+   "cold": {
+    "wallMs": 1603,
+    "fadeMs": 712.1,
+    "fetched": [],
+    "structureFetchMs": null,
+    "sceneChunkFetchMs": null
+   },
+   "heapAfterLoadMb": 79.6,
+   "rssAfterLoadMb": 1001,
+   "trips": [
+    {
+     "k": 1,
+     "toDnaMs": 1281,
+     "toProteinWarmMs": 1300,
+     "fetched": 0,
+     "heapMb": 80.1
+    },
+    {
+     "k": 2,
+     "toDnaMs": 1294,
+     "toProteinWarmMs": 1284,
+     "fetched": 0,
+     "heapMb": 80.3
+    },
+    {
+     "k": 3,
+     "toDnaMs": 1292,
+     "toProteinWarmMs": 1288,
+     "fetched": 0,
+     "heapMb": 80.6
+    },
+    {
+     "k": 4,
+     "toDnaMs": 1279,
+     "toProteinWarmMs": 1295,
+     "fetched": 0,
+     "heapMb": 80.7
+    },
+    {
+     "k": 5,
+     "toDnaMs": 1304,
+     "toProteinWarmMs": 1293,
+     "fetched": 0,
+     "heapMb": 80.8
+    },
+    {
+     "k": 6,
+     "toDnaMs": 1299,
+     "toProteinWarmMs": 1304,
+     "fetched": 0,
+     "heapMb": 80.8
+    }
+   ],
+   "heapAfterTripsMb": 80.8,
+   "rssAfterTripsMb": 980,
+   "structures": 1,
+   "pageErrors": []
+  },
+  {
+   "repeat": 2,
+   "heapRestMb": 37.4,
+   "rssRestMb": 983,
+   "cold": {
+    "wallMs": 1598,
+    "fadeMs": 700.5,
+    "fetched": [],
+    "structureFetchMs": null,
+    "sceneChunkFetchMs": null
+   },
+   "heapAfterLoadMb": 79.7,
+   "rssAfterLoadMb": 1047,
+   "trips": [
+    {
+     "k": 1,
+     "toDnaMs": 1282,
+     "toProteinWarmMs": 1287,
+     "fetched": 0,
+     "heapMb": 80.1
+    },
+    {
+     "k": 2,
+     "toDnaMs": 1302,
+     "toProteinWarmMs": 1296,
+     "fetched": 0,
+     "heapMb": 80.3
+    },
+    {
+     "k": 3,
+     "toDnaMs": 1299,
+     "toProteinWarmMs": 1293,
+     "fetched": 0,
+     "heapMb": 80.6
+    },
+    {
+     "k": 4,
+     "toDnaMs": 1293,
+     "toProteinWarmMs": 1303,
+     "fetched": 0,
+     "heapMb": 80.8
+    },
+    {
+     "k": 5,
+     "toDnaMs": 1287,
+     "toProteinWarmMs": 1294,
+     "fetched": 0,
+     "heapMb": 80.8
+    },
+    {
+     "k": 6,
+     "toDnaMs": 1297,
+     "toProteinWarmMs": 1297,
+     "fetched": 0,
+     "heapMb": 80.8
+    }
+   ],
+   "heapAfterTripsMb": 80.8,
+   "rssAfterTripsMb": 1035,
+   "structures": 1,
+   "pageErrors": []
+  },
+  {
+   "repeat": 3,
+   "heapRestMb": 37.4,
+   "rssRestMb": 935,
+   "cold": {
+    "wallMs": 1612,
+    "fadeMs": 701.9,
+    "fetched": [],
+    "structureFetchMs": null,
+    "sceneChunkFetchMs": null
+   },
+   "heapAfterLoadMb": 79.7,
+   "rssAfterLoadMb": 1035,
+   "trips": [
+    {
+     "k": 1,
+     "toDnaMs": 1299,
+     "toProteinWarmMs": 1291,
+     "fetched": 0,
+     "heapMb": 80.1
+    },
+    {
+     "k": 2,
+     "toDnaMs": 1306,
+     "toProteinWarmMs": 1297,
+     "fetched": 0,
+     "heapMb": 80.3
+    },
+    {
+     "k": 3,
+     "toDnaMs": 1307,
+     "toProteinWarmMs": 1283,
+     "fetched": 0,
+     "heapMb": 80.6
+    },
+    {
+     "k": 4,
+     "toDnaMs": 1294,
+     "toProteinWarmMs": 1293,
+     "fetched": 0,
+     "heapMb": 80.8
+    },
+    {
+     "k": 5,
+     "toDnaMs": 1292,
+     "toProteinWarmMs": 1286,
+     "fetched": 0,
+     "heapMb": 80.8
+    },
+    {
+     "k": 6,
+     "toDnaMs": 1294,
+     "toProteinWarmMs": 1292,
+     "fetched": 0,
+     "heapMb": 80.8
+    }
+   ],
+   "heapAfterTripsMb": 80.8,
+   "rssAfterTripsMb": 1074,
+   "structures": 1,
+   "pageErrors": []
+  }
+ ],
+ "bundle": {
+  "files": [
+   {
+    "name": "color-DnDS9Snv.js",
+    "rawKb": 49.6,
+    "gzipKb": 18.3
+   },
+   {
+    "name": "geist-mono-latin-400-normal-DTRLJnHl.woff2",
+    "rawKb": 9.9,
+    "gzipKb": 9.9
+   },
+   {
+    "name": "geist-mono-latin-500-normal-YINYabwD.woff2",
+    "rawKb": 10.1,
+    "gzipKb": 10.1
+   },
+   {
+    "name": "geist-sans-latin-300-normal-C3kkMBb6.woff2",
+    "rawKb": 34.1,
+    "gzipKb": 34.1
+   },
+   {
+    "name": "geist-sans-latin-400-normal-gapTbOY8.woff2",
+    "rawKb": 33.4,
+    "gzipKb": 33.4
+   },
+   {
+    "name": "geist-sans-latin-500-normal-uokXdC-Q.woff2",
+    "rawKb": 34.7,
+    "gzipKb": 34.7
+   },
+   {
+    "name": "helix-wordmark-DWh3tujJ.svg",
+    "rawKb": 118.8,
+    "gzipKb": 38.1
+   },
+   {
+    "name": "index-BEiuaqHH.css",
+    "rawKb": 63.6,
+    "gzipKb": 10.8
+   },
+   {
+    "name": "index-BUJ5MSlm.js",
+    "rawKb": 1507.3,
+    "gzipKb": 419.8
+   },
+   {
+    "name": "instrument-sans-latin-400-normal-DRC__1Mx.woff2",
+    "rawKb": 16.9,
+    "gzipKb": 16.9
+   },
+   {
+    "name": "instrument-sans-latin-500-normal-Dk9ku72i.woff2",
+    "rawKb": 17.2,
+    "gzipKb": 17.2
+   },
+   {
+    "name": "instrument-sans-latin-600-normal-B7fBEWYG.woff2",
+    "rawKb": 17.4,
+    "gzipKb": 17.4
+   },
+   {
+    "name": "instrument-serif-latin-400-italic-DKMiL14s.woff2",
+    "rawKb": 22.1,
+    "gzipKb": 22.1
+   },
+   {
+    "name": "instrument-serif-latin-400-normal-DnYpCC2O.woff2",
+    "rawKb": 21,
+    "gzipKb": 21
+   },
+   {
+    "name": "jetbrains-mono-latin-400-normal-V6pRDFza.woff2",
+    "rawKb": 21.2,
+    "gzipKb": 21.2
+   },
+   {
+    "name": "jetbrains-mono-latin-500-normal-BWZEU5yA.woff2",
+    "rawKb": 21.8,
+    "gzipKb": 21.8
+   },
+   {
+    "name": "main-C9BpTpvR.js",
+    "rawKb": 71.1,
+    "gzipKb": 24
+   },
+   {
+    "name": "main-sAwyGqBS.css",
+    "rawKb": 44.3,
+    "gzipKb": 8.9
+   },
+   {
+    "name": "mark-x-tile-180-Cf1L-Kae.png",
+    "rawKb": 12.8,
+    "gzipKb": 12.8
+   },
+   {
+    "name": "preload-helper-Csn-3pix.js",
+    "rawKb": 308.5,
+    "gzipKb": 88.3
+   },
+   {
+    "name": "rolldown-runtime-XKyaHtl9.js",
+    "rawKb": 0.7,
+    "gzipKb": 0.4
+   },
+   {
+    "name": "scene-CJAlKLW6.css",
+    "rawKb": 69.2,
+    "gzipKb": 15.9
+   },
+   {
+    "name": "scene-CXso02sA.js",
+    "rawKb": 3516.9,
+    "gzipKb": 968.8
+   },
+   {
+    "name": "sora-latin-300-normal-cp3Vmaam.woff2",
+    "rawKb": 14.9,
+    "gzipKb": 14.9
+   },
+   {
+    "name": "sora-latin-400-normal-CRt88UEn.woff2",
+    "rawKb": 14.7,
+    "gzipKb": 14.7
+   },
+   {
+    "name": "sora-latin-600-normal-Cdg4DaK0.woff2",
+    "rawKb": 15,
+    "gzipKb": 15
+   },
+   {
+    "name": "worker-i7X06xzy.js",
+    "rawKb": 272.6,
+    "gzipKb": 81
+   }
+  ],
+  "sceneChunkGzipKb": 968.8,
+  "totalGzipKb": 1991.5
+ },
+ "frames": [],
+ "checks": [
+  {
+   "name": "start: page load to scene ready",
+   "value": 181,
+   "budget": 1000,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "start: welcome interactive",
+   "value": 191,
+   "budget": 1200,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "start: DNA World ready",
+   "value": 327,
+   "budget": 1200,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "start: bytes over the wire before scene ready",
+   "value": 731.5,
+   "budget": 1000,
+   "cmp": "max",
+   "unit": "kB",
+   "ok": true
+  },
+  {
+   "name": "start: bytes over the wire at rest",
+   "value": 1984.2,
+   "budget": 2000,
+   "cmp": "max",
+   "unit": "kB",
+   "ok": true
+  },
+  {
+   "name": "start: JS heap at rest",
+   "value": 37.4,
+   "budget": 96,
+   "cmp": "max",
+   "unit": "MB",
+   "ok": true
+  },
+  {
+   "name": "structure: world switch to Protein World, cold",
+   "value": 1603,
+   "budget": 2500,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "structure: 2HBS fetch (cold switch, or the idle prefetch)",
+   "value": 27,
+   "budget": 300,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "structure: world switch to Protein World, warm",
+   "value": 1293,
+   "budget": 1600,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "structure: world switch to DNA World",
+   "value": 1294,
+   "budget": 1600,
+   "cmp": "max",
+   "unit": "ms",
+   "ok": true
+  },
+  {
+   "name": "structure: JS heap after the load",
+   "value": 79.7,
+   "budget": 256,
+   "cmp": "max",
+   "unit": "MB",
+   "ok": true
+  },
+  {
+   "name": "structure: heap growth over 6 round trips",
+   "value": 1.4,
+   "budget": 10,
+   "cmp": "max",
+   "unit": "%",
+   "ok": true
+  },
+  {
+   "name": "structure: Chrome process tree after the round trips",
+   "value": 1035,
+   "budget": 1500,
+   "cmp": "max",
+   "unit": "MB",
+   "ok": true
+  },
+  {
+   "name": "structure: one structure in Mol* after the round trips (every repeat)",
+   "value": 1,
+   "budget": 1,
+   "cmp": "min",
+   "unit": "",
+   "ok": true
+  },
+  {
+   "name": "bundle: scene chunk (Mol*, three) gzip",
+   "value": 968.8,
+   "budget": 1100,
+   "cmp": "max",
+   "unit": "kB",
+   "ok": true
+  },
+  {
+   "name": "bundle: all assets gzip",
+   "value": 1991.5,
+   "budget": 1900,
+   "cmp": "max",
+   "unit": "kB",
+   "ok": false
+  },
+  {
+   "name": "no page errors",
+   "value": 0,
+   "budget": 0,
+   "cmp": "max",
+   "unit": "",
+   "ok": true
+  }
+ ],
+ "ranges": {
+  "sceneReadyMs": [
+   180,
+   185
+  ],
+  "welcomeInteractiveMs": [
+   190,
+   195
+  ],
+  "dnaReadyMs": [
+   327,
+   339
+  ],
+  "coldMs": [
+   1598,
+   1612
+  ],
+  "warmMs": [
+   1283,
+   1304
+  ],
+  "toDnaMs": [
+   1279,
+   1307
+  ],
+  "heapAfterLoadMb": [
+   79.6,
+   79.7
+  ],
+  "heapAfterTripsMb": [
+   80.8,
+   80.8
+  ],
+  "rssAfterTripsMb": [
+   980,
+   1074
+  ]
+ }
+}
