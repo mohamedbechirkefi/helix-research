@@ -1,0 +1,371 @@
+{
+ "date": "2026-11-04T00:52:04.710Z",
+ "tag": "p931-live",
+ "chrome": "Chrome/156.0.8078.80",
+ "shots": [
+  "/private/tmp/claude-501/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p931-live/dynamic-live-pten.jpg"
+ ],
+ "scenarios": {
+  "dynamic-live": {
+   "symbol": "PTEN",
+   "retrievedAt": "2026-11-04T00:52:09Z",
+   "releases": [
+    "Ensembl 116",
+    "UniProt 2026_03",
+    "AlphaFold DB model v6"
+   ],
+   "totalMs": 2938,
+   "wallMs": 3061,
+   "timings": [
+    {
+     "step": "resolve",
+     "source": "hgnc",
+     "url": "https://rest.genenames.org/fetch/symbol/PTEN",
+     "status": 200,
+     "ms": 358,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:06Z"
+    },
+    {
+     "step": "E1",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+     "status": 200,
+     "ms": 543,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:07Z"
+    },
+    {
+     "step": "E2",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+     "status": 200,
+     "ms": 164,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:07Z"
+    },
+    {
+     "step": "E3",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/lookup/id/ENSG00000171862?expand=1;mane=1;content-type=application/json",
+     "status": 200,
+     "ms": 418,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "E4",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/lookup/id/ENST00000371953?expand=1;utr=1;mane=1;content-type=application/json",
+     "status": 200,
+     "ms": 90,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "E5",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/sequence/id/ENST00000371953?type=cds;content-type=text/x-fasta",
+     "status": 200,
+     "ms": 78,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "E6",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/sequence/id/ENST00000371953?type=cdna;content-type=text/x-fasta",
+     "status": 200,
+     "ms": 89,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "E7",
+     "source": "ensembl",
+     "url": "https://rest.ensembl.org/sequence/id/ENSP00000361021?content-type=text/x-fasta",
+     "status": 200,
+     "ms": 70,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "U1",
+     "source": "uniprot",
+     "url": "https://rest.uniprot.org/uniprotkb/P60484.json",
+     "status": 200,
+     "ms": 405,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "H1",
+     "source": "hgnc",
+     "url": "https://rest.genenames.org/fetch/symbol/PTEN",
+     "status": 200,
+     "ms": 166,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:08Z"
+    },
+    {
+     "step": "A1",
+     "source": "alphafold",
+     "url": "https://alphafold.ebi.ac.uk/api/prediction/P60484",
+     "status": 200,
+     "ms": 227,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:09Z"
+    },
+    {
+     "step": "A1-model",
+     "source": "alphafold",
+     "url": "https://alphafold.ebi.ac.uk/files/AF-P60484-F1-model_v6.cif",
+     "status": 200,
+     "ms": 223,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:09Z"
+    },
+    {
+     "step": "build",
+     "source": "builder",
+     "url": null,
+     "status": null,
+     "ms": 32,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:09Z"
+    },
+    {
+     "step": "manifest",
+     "source": "builder",
+     "url": null,
+     "status": null,
+     "ms": 1,
+     "attempts": 1,
+     "at": "2026-11-04T00:52:09Z"
+    }
+   ],
+   "liveRequestCount": 12,
+   "view": {
+    "url": "http://localhost:5193/?gene=PTEN&mode=dynamic&welcome=off&fadeMs=0",
+    "dataset": {
+     "id": "dynamic-pten",
+     "symbol": "PTEN",
+     "datasets": [
+      "brca1",
+      "cftr",
+      "faah2",
+      "hbb",
+      "slc6a3"
+     ],
+     "kinds": [
+      "gene",
+      "transcript",
+      "sequence-set",
+      "protein",
+      "predicted-model",
+      "capabilities"
+     ]
+    },
+    "dynamic": {
+     "symbol": "PTEN",
+     "retrievedAt": "2026-11-04T00:52:09Z",
+     "releases": [
+      "Ensembl 116",
+      "UniProt 2026_03",
+      "AlphaFold DB model v6"
+     ],
+     "requests": [
+      {
+       "step": "resolve",
+       "source": "hgnc",
+       "url": "https://rest.genenames.org/fetch/symbol/PTEN",
+       "status": 200,
+       "ms": 358,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:06Z"
+      },
+      {
+       "step": "E1",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+       "status": 200,
+       "ms": 543,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:07Z"
+      },
+      {
+       "step": "E2",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+       "status": 200,
+       "ms": 164,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:07Z"
+      },
+      {
+       "step": "E3",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/lookup/id/ENSG00000171862?expand=1;mane=1;content-type=application/json",
+       "status": 200,
+       "ms": 418,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "E4",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/lookup/id/ENST00000371953?expand=1;utr=1;mane=1;content-type=application/json",
+       "status": 200,
+       "ms": 90,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "E5",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/sequence/id/ENST00000371953?type=cds;content-type=text/x-fasta",
+       "status": 200,
+       "ms": 78,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "E6",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/sequence/id/ENST00000371953?type=cdna;content-type=text/x-fasta",
+       "status": 200,
+       "ms": 89,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "E7",
+       "source": "ensembl",
+       "url": "https://rest.ensembl.org/sequence/id/ENSP00000361021?content-type=text/x-fasta",
+       "status": 200,
+       "ms": 70,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "U1",
+       "source": "uniprot",
+       "url": "https://rest.uniprot.org/uniprotkb/P60484.json",
+       "status": 200,
+       "ms": 405,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "H1",
+       "source": "hgnc",
+       "url": "https://rest.genenames.org/fetch/symbol/PTEN",
+       "status": 200,
+       "ms": 166,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:08Z"
+      },
+      {
+       "step": "A1",
+       "source": "alphafold",
+       "url": "https://alphafold.ebi.ac.uk/api/prediction/P60484",
+       "status": 200,
+       "ms": 227,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:09Z"
+      },
+      {
+       "step": "A1-model",
+       "source": "alphafold",
+       "url": "https://alphafold.ebi.ac.uk/files/AF-P60484-F1-model_v6.cif",
+       "status": 200,
+       "ms": 223,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:09Z"
+      },
+      {
+       "step": "build",
+       "source": "builder",
+       "url": null,
+       "status": null,
+       "ms": 32,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:09Z"
+      },
+      {
+       "step": "manifest",
+       "source": "builder",
+       "url": null,
+       "status": null,
+       "ms": 1,
+       "attempts": 1,
+       "at": "2026-11-04T00:52:09Z"
+      }
+     ],
+     "totalMs": 2938
+    },
+    "fixture": null,
+    "welcomeOpen": false,
+    "dnaReady": true,
+    "world": "dna",
+    "codonTape": 404,
+    "plate": "Illustrative geometry, real sequenceENST00000371953.8 cDNA, 8515 nt (Ensembl); helix shape not to scaleRetrieved live at 2026-11-04T00:52:09Z, not curatedIllustrative · class 5",
+    "caption": "Retrieved live at 2026-11-04T00:52:09Z, not curated",
+    "banner": {
+     "text": "Retrieved live at 2026-11-04T00:52:09Z, not curated: PTEN was built in this browser from Ensembl 116, UniProt 2026_03, AlphaFold DB model v6; no reviewed structure or variant selection, no pathway or association retrieval. Nothing is stored between visits.",
+     "symbol": "PTEN",
+     "retrievedAt": "2026-11-04T00:52:09Z",
+     "role": "note",
+     "visible": true
+    },
+    "fixtureBanner": false,
+    "protein": {
+     "disabled": true,
+     "title": "no experimental structure selected in dynamic mode; 12 entries cross-referenced (e.g. 1D5R, X-ray); there is no reviewed selection and no candidate check at request time, so none is shown"
+    },
+    "pathway": {
+     "disabled": true,
+     "title": "not requested in dynamic mode"
+    },
+    "unavailableNote": "Protein World not available: no experimental structure selected in dynamic mode; 12 entries cross-referenced (e.g. 1D5R, X-ray); there is no reviewed selection and no candidate check at request time, so none is shown",
+    "reasonCard": "no experimental structure selected in dynamic mode; 12 entries cross-referenced (e.g. 1D5R, X-ray); there is no reviewed selection and no candidate check at request time, so none is shown",
+    "reasonSentence": "There is no Protein World for PTEN: no experimental structure selected in dynamic mode; 12 entries cross-referenced (e.g. 1D5R, X-ray); there is no reviewed selection and no candidate check at request time, so none is shown.",
+    "predicted": {
+     "model": "AF-P60484-F1",
+     "text": "Predicted · class 3AF-P60484-F1 · AlphaFold DB v6pLDDT 83.0 · 17 % very low, 5 % low · listed, not loaded"
+    },
+    "variantCard": false,
+    "comparison": false,
+    "limits": [
+     "nonclinical",
+     "one-gene",
+     "dynamic",
+     "no-structure",
+     "snapshot",
+     "illustrative-dna",
+     "predicted-model",
+     "ai",
+     "evidence-world",
+     "browsers"
+    ],
+    "structures": 0,
+    "verified": 6,
+    "supported": [],
+    "crumb": "PTEN",
+    "storage": 0
+   },
+   "shot": "/private/tmp/claude-501/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p931-live/dynamic-live-pten.jpg",
+   "axe": {
+    "violations": [],
+    "incomplete": [
+     {
+      "id": "color-contrast",
+      "count": 138
+     }
+    ]
+   },
+   "pageErrors": []
+  }
+ },
+ "failures": []
+}
