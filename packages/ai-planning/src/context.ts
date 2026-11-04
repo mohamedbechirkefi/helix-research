@@ -297,6 +297,13 @@ export interface PlanningContext {
    * the person. Absent in the Phase 3 to 9 contexts; the prompt rendering does not read it.
    */
   personalisation?: { depth: string; interests: string[] };
+  /**
+   * Phase 10 (P10.3.1, plan section 5 item 2): "v7" sends prompt v7 and the v3 decoding schema, which
+   * teach the six Phase 10 actions and render the selection facts and the session strings. Absent: the
+   * prompt the other fields choose (v1 to v6), unchanged. The app's default leaves it unset (prompt v5);
+   * shipping v7 is a decision taken after it is measured.
+   */
+  planPrompt?: "v7";
   /** Untrusted text shown to the model as data. Never grounding. */
   retrieved: RetrievedSnippet[];
 }

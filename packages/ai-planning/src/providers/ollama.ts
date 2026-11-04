@@ -7,8 +7,8 @@
  * A public website cannot reach a visitor's Ollama (403 from its CORS check), so this provider
  * is never offered to web visitors.
  */
-import { buildMessages, type ChatMessage } from "../prompt.ts";
-import { groundedPlanJsonSchema, planJsonSchema, usesV2 } from "../schema.ts";
+import { buildMessages, decodingSchemaVersion, type ChatMessage } from "../prompt.ts";
+import { groundedPlanJsonSchema, planJsonSchema } from "../schema.ts";
 import { now, ProviderError, type PlanProvider, type PlanRequest, type ProviderCapability, type ProviderOutput } from "./types.ts";
 import type { PlanningContext } from "../context.ts";
 
@@ -45,7 +45,8 @@ export function contextIdLists(ctx: PlanningContext) {
 
 export function schemaFor(req: PlanRequest): Record<string, unknown> {
   // A context that executes a Phase 6 action gets the v2 schema; otherwise the Phase 3 v1 schema, unchanged.
-  const v = usesV2(req.context.executableActions) ? "v2" : "v1";
+  // Prompt v7 (planPrompt "v7") gets the v3 schema, which can express the six Phase 10 actions.
+  const v = decodingSchemaVersion(req.context);
   return req.schemaMode === "grounded" ? groundedPlanJsonSchema(contextIdLists(req.context), v) : planJsonSchema(v);
 }
 
