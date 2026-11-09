@@ -69,7 +69,7 @@ A side observation: the re-run FU-FAAH2/2 refusal is worse prose than the stored
 2. **Loaded-structure rule kept as Phase 10 had it** ("phase10-fallback", the app's contextFor before D-H024 answer 74). That was the app's behaviour at the time of the run, not a re-statement, and is not part of answer 87.
 3. **Topics without an intent.** The corrected interests read each earlier turn's oracle actions through the app's `topicsOfPlan` with no intent, since the oracle states none (never `explain_evidence`); a single row's "evidence shown" trace adds nothing for the same reason. No Phase 10 single row carries that trace.
 4. **Scorer changes** (`phase10-score.ts`): a `--rescore` mode (contexts from the corrected harness); a `--validator phase10` basis writing `*.phase10-validator.*` beside the default files; a policy output now inherits the review verdict of the output it shows (the model's of the same repeat, or the rule plan of repeat 0). On the original run's files the last change gives the published 297 for the policy; before it, a policy needed its own review rows, which the Phase 10 review file never had.
-5. **The held-out harness shares the topics re-statement** (`phase10-heldout-lib.ts` uses `interestsFor`): helix-app review finding C reports P10H-FU-HBB/2 and /3 affected. Not re-measured here; answer 87 names the Phase 10 run.
+5. **The held-out harness shares the topics re-statement** (`phase10-heldout-lib.ts` uses `interestsFor`): helix-app review finding C reports P10H-FU-HBB/2 and /3 affected. Not re-measured here; answer 87 names the Phase 10 run. (Re-measured the same day on the coordinator's extension of answer 87: HX-P10-2026-11-09-heldout-rescore, 3 units' input changed, no verdict.)
 
 ## Failures
 

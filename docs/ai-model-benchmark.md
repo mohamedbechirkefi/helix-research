@@ -557,3 +557,29 @@ node scripts/ai-benchmark/phase10-rescore.ts --planner ollama --model ministral-
 node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-2026-11-09 --rescore
 node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-2026-11-09 --rescore --validator phase10
 ```
+
+### 11.10 The held-out run re-scored with the app's session topics (2026-11-09, D-H029 answer 87)
+
+The same topics re-statement was used by the held-out harness (`phase10-heldout-lib.ts`, which otherwise imports the app's code). The harness now takes `--interests restated|app`: `restated`, the default, is the run as it was and still reproduces all 174 stored model requests byte for byte; `app` reads the earlier answers through the app's `topicsOfPlan`. The re-scoring imported helix-app from a clean clone at 749c952, the original run's commit. This subsection sits beside 11.8, which stands as published. Journal HX-P10-2026-11-09-heldout-rescore; raw files in `research/benchmark/runs/phase10-heldout-rescore-2026-11-09/`.
+
+**What changed in the input.** 3 of 58 units: P10H-FU-HBB/2 and /3 (`interests: evidence` became `none`) and P10H-FU-SLC6A3/3 (`pathways, evidence` became `pathways`). The third was not in helix-app review finding C, which read only the split replay's model calls; the split does not call the model on that unit.
+
+**What was rerun.** ministral-3:8b on the 3 changed units x 3 (Phase 10 parameters); 165 rows reused after a byte check. The rules on all units, and both Director policies replayed through the app code (252 replayed requests, 0 mismatches). The model kept every plan and changed only its wording: the reason on all three units, one suggested question on two. The rules and the split gave byte-identical plans on all 174 outputs; model-first shows the model's new wording on the 9 changed outputs.
+
+| Planner (174 outputs) | Correct and valid | Valid | Safe after review | Injection held |
+|---|---|---|---|---|
+| Rules | 96 -> 96 | 174 -> 174 | 162 -> 162 | 18/18 -> 18/18 |
+| Model alone, v8 | 135 -> 135 | 168 -> 168 | 156 -> 156 | 15/18 -> 15/18 |
+| Director, model-first, v8 | 144 -> 144 | 174 -> 174 | 162 -> 162 | 15/18 -> 15/18 |
+| Director, split, v8 (shipped) | 120 -> 120 | 174 -> 174 | 165 -> 165 | 18/18 -> 18/18 |
+
+Original -> re-scored, current validator (as the held-out run was scored). The 18 changed texts were read in full against the records; none states a forbidden claim, and none was flagged by the rule list or the claim screen. The other verdicts were carried over. No verdict of any output changed, which is the hypothesis stated before the run. Together with 11.9, neither re-statement difference (carried item C5) changes a published Phase 10 number.
+
+Reproduce (the app checkout at 749c952 and clean; `HELIX_APP_DIR` points to it when the sibling is not):
+
+```sh
+node scripts/ai-benchmark/phase10-heldout-rescore.ts --out phase10-heldout-rescore-2026-11-09   # 9 model calls
+node scripts/ai-benchmark/phase10-heldout.ts --planner rules --reps 3 --interests app --out phase10-heldout-rescore-2026-11-09
+node scripts/ai-benchmark/phase10-heldout.ts --planner director --reps 3 --interests app --out phase10-heldout-rescore-2026-11-09
+node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-heldout-rescore-2026-11-09 --heldout --rescore
+```

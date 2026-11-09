@@ -14,7 +14,7 @@ import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { buildMessages, type Plan } from "@helix/ai-planning";
 import { RUNS_DIR } from "../lib.ts";
-import { DATASETS, interestsFor, loadSet, loadUnits, loadedStructureFor, sha256, unitBase, unitContext } from "../phase10-lib.ts";
+import { DATASETS, PHASE10_HELDOUT_DIR, interestsFor, loadSet, loadUnits, loadedStructureFor, sha256, unitBase, unitContext } from "../phase10-lib.ts";
 import { appAvailable, appSet, deterministicRegistry, messagesHash } from "../phase10-heldout-lib.ts";
 import { appInterests, appUnitContext, loadRescoreApp } from "../phase10-rescore-lib.ts";
 import { validateUnder } from "../phase10-score.ts";
@@ -103,5 +103,40 @@ describe.skipIf(!appAvailable())("re-scoring harness against the helix-app code"
       if (sha256(JSON.stringify(buildMessages(u.query, res.context))) !== sha256(JSON.stringify(buildMessages(u.query, c.ctx)))) differs.push(u.id);
     }
     expect(differs).toEqual([]);
+  });
+});
+
+describe.skipIf(!appAvailable())("held-out harness: the interests flag (D-H029 answer 87)", async () => {
+  const lib = await import("../phase10-heldout-lib.ts");
+  const app = appAvailable() ? await lib.loadApp() : null;
+  const units = loadUnits(PHASE10_HELDOUT_DIR);
+  const sets = new Map(DATASETS.map((d) => [d, appSet(app!, loadSet(d, { planPrompt: "v8" }))]));
+
+  it("the default ('restated') passes the research re-statement interestsFor, as the held-out run did; 'app' passes the app's topics", () => {
+    for (const u of units) {
+      const a = sets.get(u.dataset)!;
+      expect(lib.directorInputs(a, u).session.personalisation?.interests, u.id).toEqual(interestsFor(u));
+      expect(lib.directorInputs(a, u, { interests: "app", app: app! }).session.personalisation?.interests, u.id).toEqual(lib.appInterests(u, app!.topicsOfPlan));
+    }
+  });
+
+  it("the two rules disagree on P10H-FU-HBB/2, /3 and P10H-FU-SLC6A3/3 only", () => {
+    const differ = units.filter((u) => JSON.stringify(interestsFor(u)) !== JSON.stringify(lib.appInterests(u, app!.topicsOfPlan))).map((u) => u.id);
+    expect(differ).toEqual(["P10H-FU-HBB/2", "P10H-FU-HBB/3", "P10H-FU-SLC6A3/3"]);
+  });
+
+  const HELDOUT = join(RUNS_DIR, "phase10-heldout-2026-11-09");
+  const atRunCommit = existsSync(HELDOUT) && lib.appProvenance().commit.startsWith("749c952");
+  it.skipIf(!atRunCommit)("with the app at the held-out run's commit, 'restated' reproduces every stored model request", async () => {
+    const rows = readFileSync(join(HELDOUT, "ministral-3-8b.jsonl"), "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l) as { unit: string; messagesSha256: string; schemaSha256: string });
+    for (const u of units) {
+      const a = sets.get(u.dataset)!;
+      const inp = lib.directorInputs(a, u);
+      const res = await new app!.Director(deterministicRegistry(), inp.base, { policy: "split", claimFacts: a.claimFacts }).handle(u.query, inp.session, { temperature: 0 });
+      for (const r of rows.filter((x) => x.unit === u.id)) {
+        expect(r.messagesSha256, u.id).toBe(messagesHash(u.query, res.context));
+        expect(r.schemaSha256, u.id).toBe(lib.schemaHash(u.query, res.context));
+      }
+    }
   });
 });

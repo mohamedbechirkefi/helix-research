@@ -15,6 +15,11 @@
  * (phase10-lib.ts unitBase, answerKind, interestsFor), and the session object the app's controller passes
  * (questionSession, re-stated in directorSession below from helix-app apps/web/src/controller.ts).
  *
+ * Interests (D-H029 answer 87): the held-out run of 2026-11-09 used the research re-statement interestsFor, which
+ * counts any revealEvidence as the topic "evidence"; the app's topicsOfPlan (apps/web/src/session-profile.ts) does so
+ * only for intent explain_evidence. directorInputs keeps the original behaviour by default ("restated", so that run
+ * stays reproducible); "app" reads the earlier answers through the imported topicsOfPlan (appInterests below).
+ *
  * The app modules are loaded with a computed specifier so that this repository's typecheck does not compile
  * app sources; the shapes used are declared here.
  */
@@ -57,10 +62,11 @@ export const APP_FILES = [
 export const appAvailable = (): boolean => APP_FILES.every((f) => existsSync(join(APP_DIR, f)));
 
 /** The helix-app commit and the sha256 of each imported (or re-stated) file, for the manifest. */
-export function appProvenance(): { repo: "helix-app"; commit: string; filesClean: boolean; files: { path: string; sha256: string }[] } {
+export function appProvenance(opts: { withProfile?: boolean } = {}): { repo: "helix-app"; commit: string; filesClean: boolean; files: { path: string; sha256: string }[] } {
+  const files: string[] = [...APP_FILES, ...(opts.withProfile ? [APP_PROFILE_FILE] : [])];
   const commit = execFileSync("git", ["-C", APP_DIR, "rev-parse", "HEAD"], { encoding: "utf8" }).trim();
-  const status = execFileSync("git", ["-C", APP_DIR, "status", "--porcelain", "--", ...APP_FILES], { encoding: "utf8" }).trim();
-  return { repo: "helix-app", commit, filesClean: status === "", files: APP_FILES.map((path) => ({ path, sha256: sha256(readFileSync(join(APP_DIR, path))) })) };
+  const status = execFileSync("git", ["-C", APP_DIR, "status", "--porcelain", "--", ...files], { encoding: "utf8" }).trim();
+  return { repo: "helix-app", commit, filesClean: status === "", files: files.map((path) => ({ path, sha256: sha256(readFileSync(join(APP_DIR, path))) })) };
 }
 
 // ---- the shapes used from the app ----------------------------------------------------------------
@@ -125,7 +131,47 @@ export interface App {
   /** helix-app packages/ai-actions registry v3 and apps/web build-worlds.ts. */
   REGISTERED_ACTION_TYPES: readonly string[];
   BUILD_WORLDS: readonly World[];
+  /** helix-app apps/web/src/session-profile.ts topicsOfPlan (D-H029 answer 87). */
+  topicsOfPlan: TopicsOfPlan;
 }
+
+export type TopicsOfPlan = (plan: Pick<Plan, "outcome" | "intent" | "actions"> | null) => string[];
+
+/** The helix-app files the app-interests mode also imports (the provenance lists them beside APP_FILES). */
+export const APP_PROFILE_FILE = "apps/web/src/session-profile.ts";
+
+const TOPIC_ORDER = ["structure", "sequence", "domains", "pathways", "evidence"] as const;
+const WORLD_TOPIC: Partial<Record<string, (typeof TOPIC_ORDER)[number]>> = { protein: "structure", pathway: "pathways", evidence: "evidence" };
+
+/**
+ * The session's interests as the app infers them (helix-app session-profile.ts inferInterests): the worlds the session
+ * shows it visited, and the topics of the earlier answers read by the app's topicsOfPlan. The oracle of an earlier turn
+ * states actions, not an intent, so they are read with no intent (never explain_evidence). A single row's traces stand
+ * for the answer that left them, as in phase10-lib.ts interestsFor, except "evidence shown", whose answer's intent is
+ * not stated.
+ */
+export function appInterests(u: Unit, topicsOfPlan: TopicsOfPlan): string[] {
+  const topics = new Set<string>();
+  for (const s of [...u.earlierStates, u.session]) {
+    const t = WORLD_TOPIC[s.currentWorld];
+    if (t) topics.add(t);
+    if (s.pathwayOpen) topics.add("pathways");
+  }
+  for (const e of u.earlierExpected) {
+    const plan = { outcome: e.planOutcome, intent: null, actions: e.actions.map((step) => step[0]!) } as unknown as Plan;
+    for (const t of topicsOfPlan(plan)) topics.add(t);
+  }
+  if (u.turn === null) {
+    const s = u.session;
+    if (s.highlighted) topics.add("structure");
+    if (s.sequenceHighlight) topics.add("sequence");
+    if (s.domainsShown) topics.add("domains");
+  }
+  return TOPIC_ORDER.filter((t) => topics.has(t));
+}
+
+/** How a unit's interests are inferred: the research re-statement (the held-out run as it ran) or the app's topicsOfPlan. */
+export type InterestsRule = "restated" | "app";
 
 export async function loadApp(): Promise<App> {
   const imp = (rel: string): Promise<Record<string, unknown>> => import(join(APP_DIR, rel));
@@ -135,7 +181,8 @@ export async function loadApp(): Promise<App> {
   const resolver = await imp("packages/scene-engine/src/resolver.ts");
   const registry = await imp("packages/ai-actions/src/registry.ts");
   const worlds = await imp("apps/web/src/build-worlds.ts");
-  return { ...director, SelectionBridge: bridge.SelectionBridge, TranscriptModel: sequence.TranscriptModel, TargetResolver: resolver.TargetResolver, REGISTERED_ACTION_TYPES: registry.REGISTERED_ACTION_TYPES, BUILD_WORLDS: worlds.BUILD_WORLDS } as unknown as App;
+  const profile = await imp(APP_PROFILE_FILE);
+  return { ...director, SelectionBridge: bridge.SelectionBridge, TranscriptModel: sequence.TranscriptModel, TargetResolver: resolver.TargetResolver, REGISTERED_ACTION_TYPES: registry.REGISTERED_ACTION_TYPES, BUILD_WORLDS: worlds.BUILD_WORLDS, topicsOfPlan: profile.topicsOfPlan } as unknown as App;
 }
 
 // ---- the selection, as the app's bridge links it -------------------------------------------------
@@ -204,7 +251,7 @@ export function appSelection(a: AppSet, base: PlanningContext, u: Unit): AppSele
  * linked selection, the answer kind, the world on screen, the selection facts, depth and interests, and the
  * retrieved text when there is some.
  */
-export function directorInputs(a: AppSet, u: Unit): { base: PlanningContext; session: DirectorSessionLike; selection: AppSelection; pathwaysLoaded: boolean; associationsLoaded: boolean } {
+export function directorInputs(a: AppSet, u: Unit, opts: { interests?: InterestsRule; app?: Pick<App, "topicsOfPlan"> } = {}): { base: PlanningContext; session: DirectorSessionLike; selection: AppSelection; pathwaysLoaded: boolean; associationsLoaded: boolean } {
   const { base, pathwaysLoaded, associationsLoaded } = unitBase(a.set, u);
   const selection = appSelection(a, base, u);
   const retrieved = u.retrieved.map((r) => ({ source: `${r.source} ${r.field}`, text: r.text }));
@@ -215,7 +262,7 @@ export function directorInputs(a: AppSet, u: Unit): { base: PlanningContext; ses
     answer: answerKind(u),
     world: u.session.currentWorld,
     selectionFacts: selection.facts,
-    personalisation: { depth: "standard", interests: interestsFor(u) },
+    personalisation: { depth: "standard", interests: (opts.interests ?? "restated") === "app" ? appInterests(u, opts.app!.topicsOfPlan) : interestsFor(u) },
     ...(retrieved.length > 0 ? { retrieved } : {}),
   };
   return { base, session, selection, pathwaysLoaded, associationsLoaded };

@@ -3,7 +3,11 @@
  * Phase 10 held-out run (D-H024; set and prompt v8 frozen by D-H025).
  *
  *   node scripts/ai-benchmark/phase10-heldout.ts --planner rules|ollama|director [--model ministral-3:8b]
- *        [--reps 3] [--attempts 1] [--only <ids>] --out phase10-heldout-<date>
+ *        [--reps 3] [--attempts 1] [--only <ids>] [--interests restated|app] --out phase10-heldout-<date>
+ *
+ * --interests (D-H029 answer 87): "restated" (the default, the held-out run of 2026-11-09 as it ran) infers the
+ * session interests with the research re-statement interestsFor; "app" with the app's topicsOfPlan (appInterests in
+ * phase10-heldout-lib.ts), as the re-scoring run phase10-heldout-rescore-2026-11-09 does.
  *
  * Every unit of research/benchmark/phase10-heldout (40 questions, 4 three-turn follow-ups, 6 injection rows) is
  * planned by the helix-app Director, imported at run time (phase10-heldout-lib.ts), in the session the app's
@@ -52,6 +56,8 @@ const reps = Number(opt("reps", "3"));
 const attempts = Number(opt("attempts", "1"));
 const only = opt("only")?.split(",");
 const outName = opt("out");
+const interests = (opt("interests", "restated") as "restated" | "app");
+if (interests !== "restated" && interests !== "app") throw new Error(`unknown --interests ${String(interests)}`);
 if (!outName) throw new Error("--out <run dir name> is required");
 if (!["rules", "ollama", "director"].includes(planner)) throw new Error(`unknown --planner ${planner}`);
 const baseUrl = "http://127.0.0.1:11434";
@@ -63,7 +69,7 @@ const before = frozenHashes(PHASE10_HELDOUT_DIR);
 if (before.some((h) => !h.match)) throw new Error(`frozen set hash mismatch: ${JSON.stringify(before)}`);
 
 const app = await loadApp();
-const provenance = appProvenance();
+const provenance = appProvenance({ withProfile: interests === "app" });
 const sets = new Map<Dataset, AppSet>(DATASETS.map((d) => [d, appSet(app, loadSet(d, { planPrompt: "v8" }))]));
 let units = loadUnits(PHASE10_HELDOUT_DIR);
 if (only) units = units.filter((u) => only.includes(u.id) || (u.sequence !== null && only.includes(u.sequence)));
@@ -76,7 +82,7 @@ const seenMsgs = new Set<string>(existsSync(msgPath) ? readFileSync(msgPath, "ut
 /** The rule-based Director on the unit, which also yields the context the Director plans with. */
 async function rulesDirector(u: Unit) {
   const a = sets.get(u.dataset)!;
-  const inp = directorInputs(a, u);
+  const inp = directorInputs(a, u, { interests, app });
   const d = new app.Director(deterministicRegistry(), inp.base, { policy: "split", claimFacts: a.claimFacts });
   const t0 = performance.now();
   const res = await d.handle(u.query, inp.session, { temperature: 0 });
@@ -114,7 +120,7 @@ function logMessages(u: Unit, ctx: PlanningContext): { msgHash: string; schemaSh
 }
 
 const startedAt = new Date().toISOString();
-const runEntry: Record<string, unknown> = { planner, startedAt, units: units.length, reps, node: process.version, commit: gitCommit(), prompt: "helix-plan-prompt-v8 (library commit 3af6e04), decoding schema v3" };
+const runEntry: Record<string, unknown> = { planner, interests, startedAt, units: units.length, reps, node: process.version, commit: gitCommit(), prompt: "helix-plan-prompt-v8 (library commit 3af6e04), decoding schema v3" };
 let n = 0;
 let failures = 0;
 let retries = 0;
@@ -213,7 +219,7 @@ if (planner === "director") {
     for (let rep = 0; rep < reps; rep++) {
       for (const u of units) {
         const a = sets.get(u.dataset)!;
-        const inp = directorInputs(a, u);
+        const inp = directorInputs(a, u, { interests, app });
         const p = new ReplayProvider(modelId);
         p.current = stored.get(`${u.id}#${rep}`) ?? null;
         const d = new app.Director(await replayRegistry(p), inp.base, { policy, claimFacts: a.claimFacts });
@@ -267,7 +273,8 @@ if (!unchanged) console.error("FROZEN SET CHANGED DURING THE RUN");
 
 const manifestPath = join(outDir, "manifest.json");
 const manifest = existsSync(manifestPath) ? (JSON.parse(readFileSync(manifestPath, "utf8")) as Record<string, unknown>) : {};
-manifest.study = "Phase 10 held-out run (D-H024; set and prompt v8 frozen by D-H025)";
+manifest.study = interests === "app" ? "Re-scoring of the Phase 10 held-out run with the app's session topics (D-H029 answer 87)" : "Phase 10 held-out run (D-H024; set and prompt v8 frozen by D-H025)";
+manifest.interestsRule = interests === "app" ? "app (helix-app session-profile.ts topicsOfPlan, appInterests)" : "restated (phase10-lib.ts interestsFor)";
 manifest.set = { dir: "research/benchmark/phase10-heldout", frozenBy: "D-H025", tag: "p10-heldout-frozen (a95a337)", hashesBefore: before, hashesAfterLatestPass: after };
 manifest.prompt = { version: "helix-plan-prompt-v8", libraryCommit: "3af6e04", rulesSha256: "9f27640400c263f3db59ad60d94ae21dc79bc294b9ed272e50d3696a84df44f8" };
 manifest.loadedStructureRule = "app-dh024 (helix-app Director.contextFor after D-H024 answer 74; the app passes the structure on screen or null)";

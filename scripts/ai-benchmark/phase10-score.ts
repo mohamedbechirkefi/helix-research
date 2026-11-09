@@ -6,6 +6,9 @@
  *   node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-heldout-<date> --heldout
  *   node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-<date> --rescore [--validator phase10]
  *
+ * With --heldout --rescore (D-H029 answer 87): the held-out contexts with the session interests read by the app's
+ * topicsOfPlan (phase10-heldout-lib.ts directorInputs, interests "app").
+ *
  * With --rescore (D-H029 answer 87): the Phase 10 set and prompt v7, each unit's context built by the corrected
  * harness (phase10-rescore-lib.ts appUnitContext: the app's selection bridge and topicsOfPlan, imported from the
  * sibling helix-app checkout); the policy is replayed as for the Phase 10 run.
@@ -408,7 +411,7 @@ async function main(dir: string, opts: { heldout: boolean; rescore?: boolean; va
   const units = loadUnits(opts.heldout ? PHASE10_HELDOUT_DIR : undefined);
   const unitById = new Map(units.map((u) => [u.id, u]));
   const sets = new Map<Dataset, SetRecords>(DATASETS.map((d) => [d, loadSet(d, opts.heldout ? { planPrompt: "v8" } : {})]));
-  const ctxById = opts.heldout ? await heldoutContexts(units) : opts.rescore ? await rescoreContexts(units) : new Map(units.map((u) => [u.id, unitContext(sets.get(u.dataset)!, u).ctx]));
+  const ctxById = opts.heldout ? await heldoutContexts(units, opts.rescore ? "app" : "restated") : opts.rescore ? await rescoreContexts(units) : new Map(units.map((u) => [u.id, unitContext(sets.get(u.dataset)!, u).ctx]));
   const files = readdirSync(runDir).filter((f) => f.endsWith(".jsonl") && !f.startsWith("score-rows") && !["messages.jsonl", "claims-review.jsonl"].includes(f));
   const byPlanner = new Map<string, { rows: RawRow[]; attempts: RawRow[] }>();
   for (const f of files) {
@@ -553,14 +556,14 @@ function markdown(summary: Record<string, unknown>, units: Unit[], heldout = fal
 }
 
 /** The held-out units' contexts, as the helix-app Director builds them (imported only for the held-out run). */
-async function heldoutContexts(units: Unit[]): Promise<Map<string, PlanningContext>> {
+async function heldoutContexts(units: Unit[], interests: "restated" | "app" = "restated"): Promise<Map<string, PlanningContext>> {
   const lib = await import("./phase10-heldout-lib.ts");
   const app = await lib.loadApp();
   const sets = new Map(DATASETS.map((d) => [d, lib.appSet(app, loadSet(d, { planPrompt: "v8" }))]));
   const out = new Map<string, PlanningContext>();
   for (const u of units) {
     const a = sets.get(u.dataset)!;
-    const inp = lib.directorInputs(a, u);
+    const inp = lib.directorInputs(a, u, { interests, app });
     const d = new app.Director(lib.deterministicRegistry(), inp.base, { policy: "split", claimFacts: a.claimFacts });
     out.set(u.id, (await d.handle(u.query, inp.session, { temperature: 0 })).context);
   }
