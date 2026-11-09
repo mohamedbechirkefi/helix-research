@@ -3,17 +3,17 @@
  "tag": "p1012-app",
  "chrome": "Chrome/156.0.8078.80",
  "shots": [
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-domains-hbb-dna.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-domains-hbb-protein.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-representation-surface-hbb.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-dna.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-protein.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-pathway.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-h6.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-b6.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-codon20.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-cftr-a498.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-session-card.jpg"
+  "scratchpad/p1012-phase10/p1011-domains-hbb-dna.jpg",
+  "scratchpad/p1012-phase10/p1011-domains-hbb-protein.jpg",
+  "scratchpad/p1012-phase10/p1011-representation-surface-hbb.jpg",
+  "scratchpad/p1012-phase10/p1011-overview-hbb-dna.jpg",
+  "scratchpad/p1012-phase10/p1011-overview-hbb-protein.jpg",
+  "scratchpad/p1012-phase10/p1011-overview-hbb-pathway.jpg",
+  "scratchpad/p1012-phase10/p1012-context-hbb-h6.jpg",
+  "scratchpad/p1012-phase10/p1012-context-hbb-b6.jpg",
+  "scratchpad/p1012-phase10/p1012-context-hbb-codon20.jpg",
+  "scratchpad/p1012-phase10/p1012-context-cftr-a498.jpg",
+  "scratchpad/p1012-phase10/p1012-session-card.jpg"
  ],
  "scenarios": {
   "hbb-transcript": {
@@ -809,7 +809,7 @@
     ],
     "pathwayOpened": null
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-domains-hbb-dna.jpg",
+   "shot": "scratchpad/p1012-phase10/p1011-domains-hbb-dna.jpg",
    "pageErrors": []
   },
   "hbb-domains-protein": {
@@ -1344,7 +1344,7 @@
     "badCards": []
    },
    "axe": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-domains-hbb-protein.jpg",
+   "shot": "scratchpad/p1012-phase10/p1011-domains-hbb-protein.jpg",
    "pageErrors": []
   },
   "hbb-domains-cancel": {
@@ -2043,7 +2043,7 @@
     "panelEvidence": [],
     "panelStructure": []
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-representation-surface-hbb.jpg",
+   "shot": "scratchpad/p1012-phase10/p1011-representation-surface-hbb.jpg",
    "pageErrors": []
   },
   "hbb-representation-dna": {
@@ -2930,9 +2930,9 @@
     }
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-dna.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-protein.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1011-overview-hbb-pathway.jpg"
+    "scratchpad/p1012-phase10/p1011-overview-hbb-dna.jpg",
+    "scratchpad/p1012-phase10/p1011-overview-hbb-protein.jpg",
+    "scratchpad/p1012-phase10/p1011-overview-hbb-pathway.jpg"
    ],
    "pageErrors": []
   },
@@ -3231,7 +3231,7 @@
     "unsourced": [],
     "badCards": []
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-h6.jpg",
+   "shot": "scratchpad/p1012-phase10/p1012-context-hbb-h6.jpg",
    "pageErrors": []
   },
   "hbb-context-b6": {
@@ -3443,7 +3443,7 @@
     "unsourced": [],
     "badCards": []
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-b6.jpg",
+   "shot": "scratchpad/p1012-phase10/p1012-context-hbb-b6.jpg",
    "pageErrors": []
   },
   "hbb-context-codon": {
@@ -3580,7 +3580,7 @@
     "unsourced": [],
     "badCards": []
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-hbb-codon20.jpg",
+   "shot": "scratchpad/p1012-phase10/p1012-context-hbb-codon20.jpg",
    "pageErrors": []
   },
   "cftr-context": {
@@ -3991,7 +3991,7 @@
     "unsourced": [],
     "badCards": []
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-context-cftr-a498.jpg",
+   "shot": "scratchpad/p1012-phase10/p1012-context-cftr-a498.jpg",
    "pageErrors": []
   },
   "session-profile": {
@@ -4598,7 +4598,7 @@
     "reason": null
    },
    "axe": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase10/p1012-session-card.jpg",
+   "shot": "scratchpad/p1012-phase10/p1012-session-card.jpg",
    "pageErrors": []
   }
  },

@@ -3,13 +3,13 @@
  "tag": "p924-app",
  "chrome": "Chrome/156.0.8078.80",
  "shots": [
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-shots/faah2-welcome-message.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-shots/faah2-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-shots/faah2-evidence-world.jpg"
+  "scratchpad/phase9-shots/faah2-welcome-message.jpg",
+  "scratchpad/phase9-shots/faah2-dna-world.jpg",
+  "scratchpad/phase9-shots/faah2-evidence-world.jpg"
  ],
  "scenarios": {
   "faah2-welcome": {
-   "messageShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-shots/faah2-welcome-message.jpg",
+   "messageShot": "scratchpad/phase9-shots/faah2-welcome-message.jpg",
    "message": {
     "text": "FAAH2 resolves to FAAH2 (HGNC:26440), a curated set of this build; opening it.",
     "status": "switching"
@@ -303,7 +303,7 @@
     }
    },
    "cifRequests": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-shots/faah2-dna-world.jpg",
+   "shot": "scratchpad/phase9-shots/faah2-dna-world.jpg",
    "promptRulesHbbWords": [
     "hemoglobin",
     "globin",

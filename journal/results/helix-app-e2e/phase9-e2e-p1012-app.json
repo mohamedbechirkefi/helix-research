@@ -3,56 +3,56 @@
  "tag": "p1012-app",
  "chrome": "Chrome/156.0.8078.80",
  "shots": [
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/faah2-welcome-message.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/faah2-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/faah2-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-variant-card.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-variant-card-comparison.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-bridge-mid-play.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-protein-508.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-contacts.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-other-membership.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-chapter.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-cftr-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-faah2.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-question.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-coverage-card.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-bridge-mid-play.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-protein-61.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-contacts.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-pathway-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-coverage-card.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-bridge-mid-play.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-protein-85.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-contacts.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-pathway-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/hbb-caption-coverage.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-caption-coverage.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-hbb-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-cftr-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-faah2-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-brca1-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-slc6a3-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-hbb-question.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-welcome-retrieve-live.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-gauge-midway.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-set-welcome.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-set.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-welcome-retrieve-live.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-gauge-midway.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-set-welcome.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-set.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-failure-error.jpg"
+  "scratchpad/p1012-phase9/faah2-welcome-message.jpg",
+  "scratchpad/p1012-phase9/faah2-dna-world.jpg",
+  "scratchpad/p1012-phase9/faah2-evidence-world.jpg",
+  "scratchpad/p1012-phase9/cftr-dna-world.jpg",
+  "scratchpad/p1012-phase9/cftr-variant-card.jpg",
+  "scratchpad/p1012-phase9/cftr-variant-card-comparison.jpg",
+  "scratchpad/p1012-phase9/cftr-bridge-mid-play.jpg",
+  "scratchpad/p1012-phase9/cftr-protein-508.jpg",
+  "scratchpad/p1012-phase9/cftr-contacts.jpg",
+  "scratchpad/p1012-phase9/pathway-hbb-opened-first.jpg",
+  "scratchpad/p1012-phase9/pathway-hbb-other-membership.jpg",
+  "scratchpad/p1012-phase9/pathway-hbb-chapter.jpg",
+  "scratchpad/p1012-phase9/pathway-cftr-opened-first.jpg",
+  "scratchpad/p1012-phase9/pathway-faah2.jpg",
+  "scratchpad/p1012-phase9/pathway-hbb-question.jpg",
+  "scratchpad/p1012-phase9/brca1-dna-world.jpg",
+  "scratchpad/p1012-phase9/brca1-coverage-card.jpg",
+  "scratchpad/p1012-phase9/brca1-bridge-mid-play.jpg",
+  "scratchpad/p1012-phase9/brca1-protein-61.jpg",
+  "scratchpad/p1012-phase9/brca1-contacts.jpg",
+  "scratchpad/p1012-phase9/brca1-pathway-opened-first.jpg",
+  "scratchpad/p1012-phase9/slc6a3-dna-world.jpg",
+  "scratchpad/p1012-phase9/slc6a3-coverage-card.jpg",
+  "scratchpad/p1012-phase9/slc6a3-bridge-mid-play.jpg",
+  "scratchpad/p1012-phase9/slc6a3-protein-85.jpg",
+  "scratchpad/p1012-phase9/slc6a3-contacts.jpg",
+  "scratchpad/p1012-phase9/slc6a3-pathway-opened-first.jpg",
+  "scratchpad/p1012-phase9/hbb-caption-coverage.jpg",
+  "scratchpad/p1012-phase9/cftr-caption-coverage.jpg",
+  "scratchpad/p1012-phase9/associations-hbb-evidence-world.jpg",
+  "scratchpad/p1012-phase9/associations-cftr-evidence-world.jpg",
+  "scratchpad/p1012-phase9/associations-faah2-evidence-world.jpg",
+  "scratchpad/p1012-phase9/associations-brca1-evidence-world.jpg",
+  "scratchpad/p1012-phase9/associations-slc6a3-evidence-world.jpg",
+  "scratchpad/p1012-phase9/associations-hbb-question.jpg",
+  "scratchpad/p1012-phase9/dynamic-tp53-welcome-retrieve-live.jpg",
+  "scratchpad/p1012-phase9/dynamic-tp53-gauge-midway.jpg",
+  "scratchpad/p1012-phase9/dynamic-tp53-set-welcome.jpg",
+  "scratchpad/p1012-phase9/dynamic-tp53-set.jpg",
+  "scratchpad/p1012-phase9/dynamic-tp53-evidence-world.jpg",
+  "scratchpad/p1012-phase9/dynamic-apoe-welcome-retrieve-live.jpg",
+  "scratchpad/p1012-phase9/dynamic-apoe-gauge-midway.jpg",
+  "scratchpad/p1012-phase9/dynamic-apoe-set-welcome.jpg",
+  "scratchpad/p1012-phase9/dynamic-apoe-set.jpg",
+  "scratchpad/p1012-phase9/dynamic-apoe-evidence-world.jpg",
+  "scratchpad/p1012-phase9/dynamic-failure-error.jpg"
  ],
  "scenarios": {
   "faah2-welcome": {
-   "messageShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/faah2-welcome-message.jpg",
+   "messageShot": "scratchpad/p1012-phase9/faah2-welcome-message.jpg",
    "message": {
     "text": "FAAH2 resolves to FAAH2 (HGNC:26440), a curated set of this build; opening it.",
     "status": "switching"
@@ -386,7 +386,7 @@
     }
    },
    "cifRequests": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/faah2-dna-world.jpg",
+   "shot": "scratchpad/p1012-phase9/faah2-dna-world.jpg",
    "promptRulesHbbWords": [
     "hemoglobin",
     "globin",
@@ -986,8 +986,8 @@
     "selection": "Selected codonSelected codonTAcDNA1592 / 6070Codingc.1522Codon508 / 1481Exon11 of 27RegionCDSCodon 508 of ENST00000003084.11: c.1522, exon 11, GRCh38 chr7:117559593TTT (Phe) = P13569 p.Phe508; F508del (p.Phe508del): TTT deleted (Phe)Structure: PHE A508 in 5UAK (label = auth, mapping of record)16070"
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-dna-world.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-variant-card.jpg"
+    "scratchpad/p1012-phase9/cftr-dna-world.jpg",
+    "scratchpad/p1012-phase9/cftr-variant-card.jpg"
    ],
    "pageErrors": []
   },
@@ -1154,9 +1154,9 @@
     ]
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-variant-card-comparison.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-bridge-mid-play.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-protein-508.jpg"
+    "scratchpad/p1012-phase9/cftr-variant-card-comparison.jpg",
+    "scratchpad/p1012-phase9/cftr-bridge-mid-play.jpg",
+    "scratchpad/p1012-phase9/cftr-protein-508.jpg"
    ],
    "pageErrors": []
   },
@@ -1383,7 +1383,7 @@
     "focus": "pathway-world-close",
     "scrollable": true,
     "structures": 0,
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-opened-first.jpg"
+    "shot": "scratchpad/p1012-phase9/pathway-hbb-opened-first.jpg"
    },
    "otherMembership": {
     "open": true,
@@ -1547,7 +1547,7 @@
     "scrollable": true,
     "structures": 0,
     "keyboardNext": "R-HSA-1237044",
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-other-membership.jpg"
+    "shot": "scratchpad/p1012-phase9/pathway-hbb-other-membership.jpg"
    },
    "closed": {
     "closed": {
@@ -1580,7 +1580,7 @@
       "pathway-memberships"
      ]
     },
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-chapter.jpg",
+    "shot": "scratchpad/p1012-phase9/pathway-hbb-chapter.jpg",
     "pageErrors": []
    }
   },
@@ -1761,7 +1761,7 @@
    "focus": "pathway-world-close",
    "scrollable": true,
    "structures": 0,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-cftr-opened-first.jpg",
+   "shot": "scratchpad/p1012-phase9/pathway-cftr-opened-first.jpg",
    "pageErrors": []
   },
   "pathway-faah2": {
@@ -1859,7 +1859,7 @@
     },
     "text": "Reactome lists FAAH2's protein Q6GMR7 in 1 curated pathway. Pathway World opens on Arachidonate metabolism (R-HSA-2142753), the rule's choice among the memberships (fewest participants among non-disease pathways with a diagram), and any other membership can be opened. Membership is a database annotation (class 2): it says the protein takes part in a curated pathway, never how, and never that the variant changes the pathway."
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-faah2.jpg",
+   "shot": "scratchpad/p1012-phase9/pathway-faah2.jpg",
    "pageErrors": []
   },
   "pathway-question": {
@@ -1904,7 +1904,7 @@
    "world": "pathway",
    "opened": "R-HSA-9615710",
    "supportedChips": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/pathway-hbb-question.jpg",
+   "shot": "scratchpad/p1012-phase9/pathway-hbb-question.jpg",
    "pageErrors": []
   },
   "pathway-axe": {
@@ -2310,8 +2310,8 @@
     "text": "C61G (p.Cys61Gly). The variant changes one base of codon 61; the reference codon is shown as recorded in the CDS.?,?"
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-dna-world.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-coverage-card.jpg"
+    "scratchpad/p1012-phase9/brca1-dna-world.jpg",
+    "scratchpad/p1012-phase9/brca1-coverage-card.jpg"
    ],
    "pageErrors": []
   },
@@ -2435,8 +2435,8 @@
     }
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-bridge-mid-play.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-protein-61.jpg"
+    "scratchpad/p1012-phase9/brca1-bridge-mid-play.jpg",
+    "scratchpad/p1012-phase9/brca1-protein-61.jpg"
    ],
    "pageErrors": []
   },
@@ -2806,7 +2806,7 @@
    "focus": "pathway-world-close",
    "scrollable": true,
    "structures": 0,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/brca1-pathway-opened-first.jpg",
+   "shot": "scratchpad/p1012-phase9/brca1-pathway-opened-first.jpg",
    "pageErrors": []
   },
   "brca1-axe": {
@@ -3228,8 +3228,8 @@
     "text": "R85W (p.Arg85Trp). The variant changes one base of codon 85; the reference codon is shown as recorded in the CDS.?,?"
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-dna-world.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-coverage-card.jpg"
+    "scratchpad/p1012-phase9/slc6a3-dna-world.jpg",
+    "scratchpad/p1012-phase9/slc6a3-coverage-card.jpg"
    ],
    "pageErrors": []
   },
@@ -3352,8 +3352,8 @@
     }
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-bridge-mid-play.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-protein-85.jpg"
+    "scratchpad/p1012-phase9/slc6a3-bridge-mid-play.jpg",
+    "scratchpad/p1012-phase9/slc6a3-protein-85.jpg"
    ],
    "pageErrors": []
   },
@@ -3479,7 +3479,7 @@
    "focus": "pathway-world-close",
    "scrollable": true,
    "structures": 0,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/slc6a3-pathway-opened-first.jpg",
+   "shot": "scratchpad/p1012-phase9/slc6a3-pathway-opened-first.jpg",
    "pageErrors": []
   },
   "slc6a3-axe": {
@@ -3533,7 +3533,7 @@
      "frameCount": 1,
      "modelCount": 1
     },
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/hbb-caption-coverage.jpg",
+    "shot": "scratchpad/p1012-phase9/hbb-caption-coverage.jpg",
     "pageErrors": []
    },
    "cftr": {
@@ -3560,7 +3560,7 @@
      "frameCount": 1,
      "modelCount": 1
     },
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/cftr-caption-coverage.jpg",
+    "shot": "scratchpad/p1012-phase9/cftr-caption-coverage.jpg",
     "pageErrors": []
    }
   },
@@ -3655,7 +3655,7 @@
    "rows": 25,
    "chip": "Database annotation · class 2",
    "requests": 1,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-hbb-evidence-world.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-hbb-evidence-world.jpg",
    "pageErrors": []
   },
   "associations-cftr": {
@@ -3686,7 +3686,7 @@
    "rows": 25,
    "chip": "Database annotation · class 2",
    "requests": 1,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-cftr-evidence-world.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-cftr-evidence-world.jpg",
    "pageErrors": []
   },
   "associations-faah2": {
@@ -3716,7 +3716,7 @@
    "rows": 25,
    "chip": "Database annotation · class 2",
    "requests": 1,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-faah2-evidence-world.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-faah2-evidence-world.jpg",
    "pageErrors": []
   },
   "associations-brca1": {
@@ -3747,7 +3747,7 @@
    "rows": 25,
    "chip": "Database annotation · class 2",
    "requests": 1,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-brca1-evidence-world.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-brca1-evidence-world.jpg",
    "pageErrors": []
   },
   "associations-slc6a3": {
@@ -3778,7 +3778,7 @@
    "rows": 25,
    "chip": "Database annotation · class 2",
    "requests": 1,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-slc6a3-evidence-world.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-slc6a3-evidence-world.jpg",
    "pageErrors": []
   },
   "associations-question": {
@@ -3818,7 +3818,7 @@
    },
    "world": "dna",
    "supportedChips": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/associations-hbb-question.jpg",
+   "shot": "scratchpad/p1012-phase9/associations-hbb-question.jpg",
    "pageErrors": []
   },
   "associations-axe": {
@@ -3872,7 +3872,7 @@
     "navs": 0,
     "structures": 0
    },
-   "welcomeShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-welcome-retrieve-live.jpg",
+   "welcomeShot": "scratchpad/p1012-phase9/dynamic-tp53-welcome-retrieve-live.jpg",
    "gauge": {
     "done": 4,
     "total": 14,
@@ -3883,8 +3883,8 @@
     "step": "4 of 14: Ensembl: gene and transcripts",
     "busy": "true"
    },
-   "gaugeShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-gauge-midway.jpg",
-   "welcomeOnSetShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-set-welcome.jpg",
+   "gaugeShot": "scratchpad/p1012-phase9/dynamic-tp53-gauge-midway.jpg",
+   "welcomeOnSetShot": "scratchpad/p1012-phase9/dynamic-tp53-set-welcome.jpg",
    "view": {
     "url": "http://localhost:5193/?welcome=on&fadeMs=0&gene=TP53&mode=dynamic",
     "dataset": {
@@ -4222,7 +4222,7 @@
      "at": "2026-11-04T03:19:00Z"
     }
    ],
-   "setShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-set.jpg",
+   "setShot": "scratchpad/p1012-phase9/dynamic-tp53-set.jpg",
    "evidence": {
     "open": true,
     "versions": [
@@ -4314,7 +4314,7 @@
      "2026-11-04T03:19:00Z"
     ]
    },
-   "evidenceShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-tp53-evidence-world.jpg",
+   "evidenceShot": "scratchpad/p1012-phase9/dynamic-tp53-evidence-world.jpg",
    "axe": {
     "set": {
      "violations": [],
@@ -4364,7 +4364,7 @@
     "navs": 0,
     "structures": 0
    },
-   "welcomeShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-welcome-retrieve-live.jpg",
+   "welcomeShot": "scratchpad/p1012-phase9/dynamic-apoe-welcome-retrieve-live.jpg",
    "gauge": {
     "done": 6,
     "total": 14,
@@ -4375,8 +4375,8 @@
     "step": "6 of 14: Ensembl: CDS",
     "busy": "true"
    },
-   "gaugeShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-gauge-midway.jpg",
-   "welcomeOnSetShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-set-welcome.jpg",
+   "gaugeShot": "scratchpad/p1012-phase9/dynamic-apoe-gauge-midway.jpg",
+   "welcomeOnSetShot": "scratchpad/p1012-phase9/dynamic-apoe-set-welcome.jpg",
    "view": {
     "url": "http://localhost:5193/?welcome=on&fadeMs=0&gene=APOE&mode=dynamic",
     "dataset": {
@@ -4714,7 +4714,7 @@
      "at": "2026-11-04T03:19:17Z"
     }
    ],
-   "setShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-set.jpg",
+   "setShot": "scratchpad/p1012-phase9/dynamic-apoe-set.jpg",
    "evidence": {
     "open": true,
     "versions": [
@@ -4806,7 +4806,7 @@
      "2026-11-04T03:19:17Z"
     ]
    },
-   "evidenceShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-apoe-evidence-world.jpg",
+   "evidenceShot": "scratchpad/p1012-phase9/dynamic-apoe-evidence-world.jpg",
    "axe": {
     "set": {
      "violations": [],
@@ -4859,7 +4859,7 @@
      "why": "withheld"
     }
    ],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/p1012-phase9/dynamic-failure-error.jpg",
+   "shot": "scratchpad/p1012-phase9/dynamic-failure-error.jpg",
    "axe": {
     "violations": [],
     "incomplete": [

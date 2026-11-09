@@ -3,25 +3,25 @@
  "tag": "p912-app",
  "chrome": "Chrome/156.0.8078.80",
  "shots": [
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-welcome-message.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-evidence-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-dna-world.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-protein-508.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-contacts.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-other-membership.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-faah2.jpg",
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-question.jpg"
+  "scratchpad/phase9-p912/faah2-welcome-message.jpg",
+  "scratchpad/phase9-p912/faah2-dna-world.jpg",
+  "scratchpad/phase9-p912/faah2-evidence-world.jpg",
+  "scratchpad/phase9-p912/cftr-dna-world.jpg",
+  "scratchpad/phase9-p912/cftr-variant-card.jpg",
+  "scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
+  "scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
+  "scratchpad/phase9-p912/cftr-protein-508.jpg",
+  "scratchpad/phase9-p912/cftr-contacts.jpg",
+  "scratchpad/phase9-p912/pathway-hbb-opened-first.jpg",
+  "scratchpad/phase9-p912/pathway-hbb-other-membership.jpg",
+  "scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
+  "scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
+  "scratchpad/phase9-p912/pathway-faah2.jpg",
+  "scratchpad/phase9-p912/pathway-hbb-question.jpg"
  ],
  "scenarios": {
   "faah2-welcome": {
-   "messageShot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-welcome-message.jpg",
+   "messageShot": "scratchpad/phase9-p912/faah2-welcome-message.jpg",
    "message": {
     "text": "FAAH2 resolves to FAAH2 (HGNC:26440), a curated set of this build; opening it.",
     "status": "switching"
@@ -336,7 +336,7 @@
     }
    },
    "cifRequests": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/faah2-dna-world.jpg",
+   "shot": "scratchpad/phase9-p912/faah2-dna-world.jpg",
    "promptRulesHbbWords": [
     "hemoglobin",
     "globin",
@@ -905,8 +905,8 @@
     "selection": "Selected codonSelected codonTAcDNA1592 / 6070Codingc.1522Codon508 / 1481Exon11 of 27RegionCDSCodon 508 of ENST00000003084.11: c.1522, exon 11, GRCh38 chr7:117559593TTT (Phe) = P13569 p.Phe508; F508del (p.Phe508del): TTT deleted (Phe)Structure: PHE A508 in 5UAK (label = auth, mapping of record)16070"
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-dna-world.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card.jpg"
+    "scratchpad/phase9-p912/cftr-dna-world.jpg",
+    "scratchpad/phase9-p912/cftr-variant-card.jpg"
    ],
    "pageErrors": []
   },
@@ -1073,9 +1073,9 @@
     ]
    },
    "shots": [
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
-    "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/cftr-protein-508.jpg"
+    "scratchpad/phase9-p912/cftr-variant-card-comparison.jpg",
+    "scratchpad/phase9-p912/cftr-bridge-mid-play.jpg",
+    "scratchpad/phase9-p912/cftr-protein-508.jpg"
    ],
    "pageErrors": []
   },
@@ -1302,7 +1302,7 @@
     "focus": "pathway-world-close",
     "scrollable": true,
     "structures": 0,
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-opened-first.jpg"
+    "shot": "scratchpad/phase9-p912/pathway-hbb-opened-first.jpg"
    },
    "otherMembership": {
     "open": true,
@@ -1466,7 +1466,7 @@
     "scrollable": true,
     "structures": 0,
     "keyboardNext": "R-HSA-1237044",
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-other-membership.jpg"
+    "shot": "scratchpad/phase9-p912/pathway-hbb-other-membership.jpg"
    },
    "closed": {
     "closed": {
@@ -1499,7 +1499,7 @@
       "pathway-memberships"
      ]
     },
-    "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
+    "shot": "scratchpad/phase9-p912/pathway-hbb-chapter.jpg",
     "pageErrors": []
    }
   },
@@ -1680,7 +1680,7 @@
    "focus": "pathway-world-close",
    "scrollable": true,
    "structures": 0,
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
+   "shot": "scratchpad/phase9-p912/pathway-cftr-opened-first.jpg",
    "pageErrors": []
   },
   "pathway-faah2": {
@@ -1778,7 +1778,7 @@
     },
     "text": "Reactome lists FAAH2's protein Q6GMR7 in 1 curated pathway. Pathway World opens on Arachidonate metabolism (R-HSA-2142753), the rule's choice among the memberships (fewest participants among non-disease pathways with a diagram), and any other membership can be opened. Membership is a database annotation (class 2): it says the protein takes part in a curated pathway, never how, and never that the variant changes the pathway."
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-faah2.jpg",
+   "shot": "scratchpad/phase9-p912/pathway-faah2.jpg",
    "pageErrors": []
   },
   "pathway-question": {
@@ -1823,7 +1823,7 @@
    "world": "pathway",
    "opened": "R-HSA-9615710",
    "supportedChips": [],
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p912/pathway-hbb-question.jpg",
+   "shot": "scratchpad/phase9-p912/pathway-hbb-question.jpg",
    "pageErrors": []
   },
   "pathway-axe": {

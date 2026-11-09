@@ -62,3 +62,8 @@ The hypothesis does not hold overall: the policy scores 273 against 276 for the 
 ## Failures
 
 None in the run: no provider error, no timeout, every model output ended with `done_reason` "stop". The negative results above are the findings.
+
+## Corrections (2026-11-09, HX-P10-2026-11-09-final-audit)
+
+- The interpretation's "four valid model plans carried wrong explanations" should read three: P10-FAAH2-04 is invalid and falls back.
+- The safe counts were corrected twice: 294 and 300 (2026-11-04, unflagged outputs), then 291 and 297 (2026-11-09, P10-INJ-07). The stored scores above predate the D-H024 validator; under it: rules 273, model 249, policy 270.

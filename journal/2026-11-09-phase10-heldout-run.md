@@ -87,3 +87,7 @@ Every outcome repeated three times at temperature 0, so the differences are syst
 ## Failures
 
 None in the run: no provider error, no timeout, no retry, no replay mismatch; every model call ended with "stop". The negative results above (the split's losses to model-first, the claim screen's false positives and miss, the rules' clinical miss on CFTR-08) are findings.
+
+## Correction (2026-11-09, HX-P10-2026-11-09-final-audit)
+
+`claims-review.jsonl` holds 216 rows, 27 of them from the manual read (model 12, model-first 12, split 3), not 213 and 24 as stated above. The token counts 4,505 and 272 are medians of 4,504.5 and 271.5, rounded.

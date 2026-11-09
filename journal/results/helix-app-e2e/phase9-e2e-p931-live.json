@@ -3,7 +3,7 @@
  "tag": "p931-live",
  "chrome": "Chrome/156.0.8078.80",
  "shots": [
-  "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p931-live/dynamic-live-pten.jpg"
+  "scratchpad/phase9-p931-live/dynamic-live-pten.jpg"
  ],
  "scenarios": {
   "dynamic-live": {
@@ -354,7 +354,7 @@
     "crumb": "PTEN",
     "storage": 0
    },
-   "shot": "<tmp>/-Users-bechir-research/d17d72fe-4ad4-4cdb-b113-2cbf6d17ea36/scratchpad/phase9-p931-live/dynamic-live-pten.jpg",
+   "shot": "scratchpad/phase9-p931-live/dynamic-live-pten.jpg",
    "axe": {
     "violations": [],
     "incomplete": [
