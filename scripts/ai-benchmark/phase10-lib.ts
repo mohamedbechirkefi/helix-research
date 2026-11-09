@@ -52,16 +52,19 @@ export type Dataset = (typeof DATASETS)[number];
 
 export const sha256 = (s: string | Buffer): string => createHash("sha256").update(s).digest("hex");
 
+/** The held-out set of D-H024, frozen by D-H025 (same row format, ids P10H-). */
+export const PHASE10_HELDOUT_DIR = join(REPO_ROOT, "research", "benchmark", "phase10-heldout");
+
 /** sha256 of each frozen file on disk, and the value the README's integrity block states. */
-export function frozenHashes(): { file: string; onDisk: string; readme: string | null; match: boolean }[] {
-  const readme = readFileSync(join(PHASE10_DIR, "README.md"), "utf8");
+export function frozenHashes(dir: string = PHASE10_DIR): { file: string; onDisk: string; readme: string | null; match: boolean }[] {
+  const readme = readFileSync(join(dir, "README.md"), "utf8");
   const out = FROZEN_FILES.map((file) => {
-    const onDisk = sha256(readFileSync(join(PHASE10_DIR, file)));
+    const onDisk = sha256(readFileSync(join(dir, file)));
     const m = readme.match(new RegExp(`([0-9a-f]{64})\\s+${file.replace(".", "\\.")}`));
     const stated = m?.[1] ?? null;
     return { file, onDisk, readme: stated, match: stated === onDisk };
   });
-  return [...out, { file: "README.md", onDisk: sha256(readFileSync(join(PHASE10_DIR, "README.md"))), readme: null, match: true }];
+  return [...out, { file: "README.md", onDisk: sha256(readFileSync(join(dir, "README.md"))), readme: null, match: true }];
 }
 
 // ---- items -------------------------------------------------------------------------------------
@@ -76,6 +79,8 @@ export interface Expected {
   forbiddenIds?: string[];
   forbiddenStrings?: string[];
   world: World;
+  /** Held-out set only (README "Row format"): further worlds the plan may end in. */
+  worldAlternatives?: World[];
   refusalReason?: string;
   forbiddenClaims: string[];
 }
@@ -126,13 +131,13 @@ export interface Unit {
   earlierExpected: Expected[];
 }
 
-const jsonl = (file: string): Record<string, unknown>[] =>
-  readFileSync(join(PHASE10_DIR, file), "utf8")
+const jsonl = (dir: string, file: string): Record<string, unknown>[] =>
+  readFileSync(join(dir, file), "utf8")
     .split("\n")
     .filter((l) => l.trim().length > 0)
     .map((l) => JSON.parse(l) as Record<string, unknown>);
 
-export function loadUnits(): Unit[] {
+export function loadUnits(dir: string = PHASE10_DIR): Unit[] {
   const units: Unit[] = [];
   const row = (r: Record<string, unknown>, file: Unit["file"]): Unit => ({
     id: r.id as string,
@@ -151,8 +156,8 @@ export function loadUnits(): Unit[] {
     earlierStates: [],
     earlierExpected: [],
   });
-  for (const r of jsonl("questions.jsonl")) units.push(row(r, "questions"));
-  for (const r of jsonl("followups.jsonl")) {
+  for (const r of jsonl(dir, "questions.jsonl")) units.push(row(r, "questions"));
+  for (const r of jsonl(dir, "followups.jsonl")) {
     const turns = r.turns as { turn: number; query: string; selection: ItemSelection | null; assumes: SessionState; expected: Expected }[];
     turns.forEach((t, i) =>
       units.push({
@@ -174,7 +179,7 @@ export function loadUnits(): Unit[] {
       }),
     );
   }
-  for (const r of jsonl("injection.jsonl")) units.push(row(r, "injection"));
+  for (const r of jsonl(dir, "injection.jsonl")) units.push(row(r, "injection"));
   return units;
 }
 
@@ -198,6 +203,10 @@ interface VariantMapping {
 export interface SetRecords {
   dataset: Dataset;
   bundle: HbbBundle;
+  /** The context before restrictToBuild (built and with the explorer records), for the re-statement check. */
+  explorer: PlanningContext;
+  /** The sequence-set record (the app's TranscriptModel reads it). */
+  sequenceSet: unknown;
   pathways: unknown | null;
   associations: unknown | null;
   table: MappingTable | null;
@@ -223,7 +232,8 @@ export function restrictToBuild(ctx: PlanningContext, build: { worlds: readonly 
   };
 }
 
-export function loadSet(dataset: Dataset): SetRecords {
+/** `planPrompt`: "v7" for the Phase 10 run (the default), "v8" for the held-out run (D-H025). */
+export function loadSet(dataset: Dataset, opts: { planPrompt?: "v7" | "v8" } = {}): SetRecords {
   const dir = join(REPO_ROOT, "data", "curated", dataset);
   const manifest = JSON.parse(readFileSync(join(dir, "manifest.json"), "utf8")) as Manifest;
   const ofKind = (kind: string): unknown | null => {
@@ -245,7 +255,7 @@ export function loadSet(dataset: Dataset): SetRecords {
   const built0 = buildHbbContext(bundle);
   const withExplorer = withExplorerRecords(built0, { gene: bundle.gene, protein: bundle.protein });
   const built = restrictToBuild(withExplorer, { worlds: BUILD_WORLDS, actions: REGISTERED_ACTION_TYPES, reason: "no scene for this world in the Phase 6 build" });
-  const base: PlanningContext = { ...built, routeByCues: true, cueRules: "dh010", planPrompt: "v7" };
+  const base: PlanningContext = { ...built, routeByCues: true, cueRules: "dh010", planPrompt: opts.planPrompt ?? "v7" };
   base.contextualRecords = contextualRecords({ protein: bundle.protein, contacts: bundle.structure ? bundle.contacts : null, variant: bundle.variant });
   const seqs = ofKind("sequence-set") as { records: { sequenceKind: string; sourceId: string; sequence: string }[] };
   const tx = bundle.transcript as { id: { id: string; version: number } };
@@ -256,6 +266,8 @@ export function loadSet(dataset: Dataset): SetRecords {
   return {
     dataset,
     bundle,
+    explorer: withExplorer,
+    sequenceSet: seqs,
     pathways: ofKind("pathway-memberships"),
     associations: ofKind("disease-associations"),
     table: ofKind("residue-mapping-table") as MappingTable | null,
@@ -390,8 +402,11 @@ export interface UnitContext {
   notes: { answer: "first" | "follow-up"; pathwaysLoaded: boolean; associationsLoaded: boolean; selection: Residue | null; codon: number | null; binding: string | null; interests: string[] };
 }
 
-/** The planning context the app's Director would plan this unit in (prompt v7). */
-export function unitContext(set: SetRecords, u: Unit): UnitContext {
+/**
+ * The app's context for this unit before the session: the set's base context with the pathway and
+ * associations records joined when the session would have loaded them (see the header).
+ */
+export function unitBase(set: SetRecords, u: Unit): { base: PlanningContext; pathwaysLoaded: boolean; associationsLoaded: boolean } {
   const base: PlanningContext = { ...set.base, evidence: [...set.base.evidence] };
   const pathwayWorld = base.worlds.some((w) => w.id === "pathway" && w.available);
   const asked = [...u.earlierQueries, u.query];
@@ -407,13 +422,34 @@ export function unitContext(set: SetRecords, u: Unit): UnitContext {
     base.associations = add.associations;
     for (const e of add.evidence) if (!base.evidence.some((x) => x.id === e.id)) base.evidence.push(e);
   }
+  return { base, pathwaysLoaded, associationsLoaded };
+}
+
+/**
+ * How the session's loaded structure is read:
+ * - "phase10-fallback" (the Phase 10 run, 2026-11-04, and the default here so that run re-scores unchanged): the
+ *   selection's structure stands in whenever the item's session gives null (the app's contextFor before D-H024 answer 74);
+ * - "app-dh024" (the held-out run): the app's contextFor after D-H024 answer 74 (helix-app 7227aa3): a value the
+ *   session passes, null included, is taken at its word; the selection's structure stands in only when none is passed.
+ */
+export type LoadedStructureRule = "phase10-fallback" | "app-dh024";
+
+/** The loaded structure the Director names for this session (see LoadedStructureRule). */
+export function loadedStructureFor(session: Pick<SessionState, "loadedStructureId"> | { loadedStructureId?: string | null }, sel: { structureId: string } | null, rule: LoadedStructureRule): string | null {
+  if (rule === "app-dh024") return session.loadedStructureId !== undefined ? session.loadedStructureId : sel ? sel.structureId : null;
+  return session.loadedStructureId ?? (sel ? sel.structureId : null);
+}
+
+/** The planning context the app's Director would plan this unit in (the set's prompt: v7 by default, v8 for the held-out run). */
+export function unitContext(set: SetRecords, u: Unit, opts: { loadedStructure?: LoadedStructureRule } = {}): UnitContext {
+  const { base, pathwaysLoaded, associationsLoaded } = unitBase(set, u);
   const link = linkedSelection(set, u.selection);
   const answer = answerKind(u);
-  // helix-app Director.contextFor: loadedStructureId falls back to the selection's structure.
+  // helix-app Director.contextFor (see LoadedStructureRule).
   const sel = link.residue ? { ...link.residue, numbering: "auth" as const, featureId: selectionFeature(base, link.residue.structureId, link.residue.chainId, link.residue.residueNumber) } : null;
   const ctx0 = withSession(base, {
     selection: sel,
-    loadedStructureId: u.session.loadedStructureId ?? (sel ? sel.structureId : null),
+    loadedStructureId: loadedStructureFor(u.session, sel, opts.loadedStructure ?? "phase10-fallback"),
     retrieved: u.retrieved.map((r) => ({ source: `${r.source} ${r.field}`, text: r.text })),
     sequenceSelection: link.codon ? { transcriptId: link.codon.transcriptId, codon: link.codon.codon } : null,
     answer,

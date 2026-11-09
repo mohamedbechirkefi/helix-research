@@ -1,0 +1,229 @@
+{
+ "study": "Phase 10 held-out run (D-H024; set and prompt v8 frozen by D-H025)",
+ "set": {
+  "dir": "research/benchmark/phase10-heldout",
+  "frozenBy": "D-H025",
+  "tag": "p10-heldout-frozen (a95a337)",
+  "hashesBefore": [
+   {
+    "file": "questions.jsonl",
+    "onDisk": "ddecccf7ed1005df0aa0389c0468d106cff798da3a3a4a15a16f1e31eeab7da7",
+    "readme": "ddecccf7ed1005df0aa0389c0468d106cff798da3a3a4a15a16f1e31eeab7da7",
+    "match": true
+   },
+   {
+    "file": "followups.jsonl",
+    "onDisk": "57fc42a656dd6098564700e490f00d685ff70e185734a74c09d8206371f39925",
+    "readme": "57fc42a656dd6098564700e490f00d685ff70e185734a74c09d8206371f39925",
+    "match": true
+   },
+   {
+    "file": "injection.jsonl",
+    "onDisk": "186ac58f4bc848ea39e35898a7d7e59d2d1a60b3429e717958303d831a0b896b",
+    "readme": "186ac58f4bc848ea39e35898a7d7e59d2d1a60b3429e717958303d831a0b896b",
+    "match": true
+   },
+   {
+    "file": "README.md",
+    "onDisk": "d58e416caeb37e115ec3bbbe888f5c2d62376104e42625c6ebd14e575a6d2e34",
+    "readme": null,
+    "match": true
+   }
+  ],
+  "hashesAfterLatestPass": [
+   {
+    "file": "questions.jsonl",
+    "onDisk": "ddecccf7ed1005df0aa0389c0468d106cff798da3a3a4a15a16f1e31eeab7da7",
+    "readme": "ddecccf7ed1005df0aa0389c0468d106cff798da3a3a4a15a16f1e31eeab7da7",
+    "match": true
+   },
+   {
+    "file": "followups.jsonl",
+    "onDisk": "57fc42a656dd6098564700e490f00d685ff70e185734a74c09d8206371f39925",
+    "readme": "57fc42a656dd6098564700e490f00d685ff70e185734a74c09d8206371f39925",
+    "match": true
+   },
+   {
+    "file": "injection.jsonl",
+    "onDisk": "186ac58f4bc848ea39e35898a7d7e59d2d1a60b3429e717958303d831a0b896b",
+    "readme": "186ac58f4bc848ea39e35898a7d7e59d2d1a60b3429e717958303d831a0b896b",
+    "match": true
+   },
+   {
+    "file": "README.md",
+    "onDisk": "d58e416caeb37e115ec3bbbe888f5c2d62376104e42625c6ebd14e575a6d2e34",
+    "readme": null,
+    "match": true
+   }
+  ]
+ },
+ "prompt": {
+  "version": "helix-plan-prompt-v8",
+  "libraryCommit": "3af6e04",
+  "rulesSha256": "9f27640400c263f3db59ad60d94ae21dc79bc294b9ed272e50d3696a84df44f8"
+ },
+ "loadedStructureRule": "app-dh024 (helix-app Director.contextFor after D-H024 answer 74; the app passes the structure on screen or null)",
+ "app": {
+  "repo": "helix-app",
+  "commit": "749c952061d087a31ba59a68ada496ffcd997e1f",
+  "filesClean": true,
+  "files": [
+   {
+    "path": "packages/ai-director/src/director.ts",
+    "sha256": "4f316bf4cd84191a748cca3a389d6bfadb666075d310282a66d014ed0fc258ff"
+   },
+   {
+    "path": "packages/ai-director/src/claim-screen.ts",
+    "sha256": "0bb51d1e6a3df5e8ad7179ade114c47789a4b2b05989dad335cc9da6dd659ac9"
+   },
+   {
+    "path": "packages/ai-director/src/providers.ts",
+    "sha256": "fa3328554e07f1ba10b721b875de8eda602a0fe82fb23da331f1e70cffb93849"
+   },
+   {
+    "path": "packages/ai-director/src/next-questions.ts",
+    "sha256": "7e92f3ca0c407fe0ffe135cc15712e8f417140c240edaf16472abefa3e9dc586"
+   },
+   {
+    "path": "packages/ai-director/src/index.ts",
+    "sha256": "1a1dc5ef6eaadbe4a5d0c3bdfb1d9483a6d62169d37978b377d29e55bedd8ff3"
+   },
+   {
+    "path": "packages/scene-engine/src/bridge.ts",
+    "sha256": "c496f8bca76c8ad1ba0ddbced512568b2b92184101cf2ffdc3130a7fd6c0f7dd"
+   },
+   {
+    "path": "packages/scene-engine/src/resolver.ts",
+    "sha256": "2533e99df53931d8610d2a44396d43daae033c904020d3148bf3712df599ee9e"
+   },
+   {
+    "path": "packages/scene-engine/src/sequence.ts",
+    "sha256": "0abb666312f8c330f0bd3092c1e0e8666350fecdf1bb421e3d8e5de37bae9458"
+   },
+   {
+    "path": "packages/ai-actions/src/registry.ts",
+    "sha256": "33f2ff1822dbb95e7998b9d44607195435456b1b65a63ceb4e256a505cccc54e"
+   },
+   {
+    "path": "apps/web/src/build-worlds.ts",
+    "sha256": "67b091f82d6758125d29f4cf7a1fcff6e53076ea8ef1b381723dfe20b369b778"
+   },
+   {
+    "path": "apps/web/src/controller.ts",
+    "sha256": "7d7ee40ae5693736c957b65d3130709dd99ea71f50be1a671c7f06a9883efc7a"
+   }
+  ]
+ },
+ "restrictToBuildRestatedAgrees": {
+  "hbb": true,
+  "cftr": true,
+  "brca1": true,
+  "slc6a3": true,
+  "faah2": true
+ },
+ "runs": [
+  {
+   "planner": "rules",
+   "startedAt": "2026-11-09T12:46:06.101Z",
+   "units": 58,
+   "reps": 3,
+   "node": "v22.23.3",
+   "commit": "a95a337-dirty",
+   "prompt": "helix-plan-prompt-v8 (library commit 3af6e04), decoding schema v3",
+   "endedAt": "2026-11-09T12:46:06.347Z",
+   "outputs": 174,
+   "failures": 0,
+   "retries": 0,
+   "checks": {
+    "bridgeDisagree": 3,
+    "contextDisagree": 3,
+    "replayCalls": 0,
+    "replayMismatch": 0
+   },
+   "frozenUnchanged": true
+  },
+  {
+   "planner": "ollama",
+   "startedAt": "2026-11-09T12:46:12.557Z",
+   "units": 58,
+   "reps": 3,
+   "node": "v22.23.3",
+   "commit": "a95a337-dirty",
+   "prompt": "helix-plan-prompt-v8 (library commit 3af6e04), decoding schema v3",
+   "providerConfig": {
+    "timeoutMs": 180000,
+    "numCtx": 8192,
+    "keepAlive": "60m",
+    "numPredict": 1024,
+    "temperature": 0,
+    "seed": "not sent (the Director sends none)",
+    "think": "not sent (the registry sets none)"
+   },
+   "ollama": {
+    "ollamaVersion": "0.40.6",
+    "model": "ministral-3:8b",
+    "digest": "1922accd5827ebe6829e536369195db25eaf664528dc66206d646ea3bb386b71",
+    "sizeBytes": 6022236616,
+    "details": {
+     "parent_model": "",
+     "format": "gguf",
+     "family": "mistral3",
+     "families": [
+      "mistral3"
+     ],
+     "parameter_size": "8.9B",
+     "quantization_level": "Q4_K_M",
+     "context_length": 262144,
+     "embedding_length": 4096,
+     "runner": "ggml"
+    },
+    "capabilities": [
+     "completion",
+     "vision",
+     "tools"
+    ]
+   },
+   "warmup": {
+    "unit": "P10H-HBB-01",
+    "wallMs": 37502,
+    "loadMs": 5333.398291,
+    "firstTokenMs": 25470.161375
+   },
+   "endedAt": "2026-11-09T13:35:32.394Z",
+   "outputs": 174,
+   "failures": 0,
+   "retries": 0,
+   "checks": {
+    "bridgeDisagree": 3,
+    "contextDisagree": 3,
+    "replayCalls": 0,
+    "replayMismatch": 0
+   },
+   "frozenUnchanged": true
+  },
+  {
+   "planner": "director",
+   "startedAt": "2026-11-09T13:35:39.178Z",
+   "units": 58,
+   "reps": 3,
+   "node": "v22.23.3",
+   "commit": "a95a337-dirty",
+   "prompt": "helix-plan-prompt-v8 (library commit 3af6e04), decoding schema v3",
+   "replayOf": {
+    "file": "ministral-3-8b.jsonl",
+    "sha256": "47eb0b0d8dba52dd0bd1c7b4e2c599753c3e0c231fb1330b1aaf10cec10347e0"
+   },
+   "endedAt": "2026-11-09T13:35:39.467Z",
+   "outputs": 348,
+   "failures": 0,
+   "retries": 0,
+   "checks": {
+    "bridgeDisagree": 0,
+    "contextDisagree": 0,
+    "replayCalls": 252,
+    "replayMismatch": 0
+   },
+   "frozenUnchanged": true
+  }
+ ]
+}
