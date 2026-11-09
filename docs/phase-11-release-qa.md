@@ -61,6 +61,7 @@ The gate passes when every row below passes on the same build of record. Command
 | S26 | Desktop E2E (P11.5.1 to P11.5.3) | `node ../desktop/e2e/run.mjs --tag=<t>` (driving the built app; method chosen in P11.5.1, see that task) | offline HBB journey with the network blocked, the Ollama provider detected or not, one question to action with Ollama, the capability allowlist refusing an out-of-scope URL | exit 0 |
 | S27 | DMG checks (P11.5.4) | `codesign --verify --deep --strict`, `hdiutil verify`, a launch from a fresh macOS user account | packaging | exit 0 on both commands; the fresh-user launch recorded with a screenshot |
 | S28 | Manual passes (people, not scripts) | dropped by the author: no VoiceOver pass (D-H032), no usability sessions (D-H031); the Safari run is automated (D-H031) | what automation cannot judge | not run; the gap is a stated limitation |
+| S29 | Layout (added by D-H033) | `node e2e/layout.mjs --tag=<t> --dir=<scratch>` (helix-app) | the five desktop viewports from 1024 to 1920 px over every set and enabled world, the welcome, the bridge, the side panel, a scroll scenario, a resize across 1024 px, and the narrow page at 320 to 768 px | exit 0: no element overflowing its box, no text past the viewport or clipped, no document scroll, no overlay overlap, the narrow page with no 3D and 0 axe violations |
 
 Not in the gate suite, kept as development tools: the concept harnesses (`concepts.mjs`, `shots-p8*.mjs`), `demo-record.mjs`, `longframe*.mjs`, `analyze-trace.mjs`.
 
