@@ -924,7 +924,7 @@ The public demonstration, if the author decides to publish it. To report: what w
 - The Phase 0 to 2 journal entries are retrospective, written on the same day from recorded evidence; they were not written during the runs.
 - Several fields are recorded as "not recorded": durations, the exact Ollama model digest, the exact prompt.
 - The Phase 2 dataset manifest named its generating commit by a hash from before the history rewrite of 2026-11-01 (equivalent on the public branch: 3b89a9a). The Phase 6 rebuild records 4b30c60, which is on the public branch (section 9.3).
-- The work was carried out with substantial AI assistance (chapter 12). AI self-verification is not independent review; external review of the scientific claims is planned for Phase 11.
+- The work was carried out with substantial AI assistance (chapter 12). AI self-verification is not independent review. No external review of the scientific claims took place and none is planned: every claim was checked against its records by an AI-assisted audit only, with no independent domain expert (D-H031). Likewise no usability session with real users was run; usability was inspected by the AI (heuristic evaluation and cognitive walkthrough), which is not user testing.
 
 **Novelty.** The differentiation of section 3.5 is an inference from the sources read, not a measured user benefit. Whether a continuous cross-scale journey helps understanding needs a user study, which is not yet planned.
 

@@ -13,8 +13,8 @@ Authored 2026-11-09 when the author opened Phase 11 (helix D-H028: "pass to phas
 2. The agreed quality budgets (section 3) pass on that build, per device tier, with every number from a result file.
 3. Device tiers exist: the app chooses a rendering tier from what the device exposes, the visitor can override it, and each tier is measured.
 4. The no-LLM mode is a complete product: every curated journey, gene search over the bundled records, selection and highlighting, the supported questions and evidence browsing work with no model, verified on a production-like host.
-5. Accessibility is audited across every world and every curated set, including a manual VoiceOver pass by a person, and the findings are fixed or accepted by the author.
-6. Usability sessions with real people have run, their notes are kept without personal data, and their findings are fixed or recorded.
+5. Accessibility is audited across every world and every curated set, including a manual VoiceOver pass by the author, and the findings are fixed or accepted by the author.
+6. Usability is inspected, not user-tested (D-H031): a heuristic evaluation and a task walkthrough are written, each labelled as an inspection by the AI, never as user testing; their findings are fixed or recorded; the absence of sessions with real users is a stated limitation.
 7. Every claim the app displays is traced to its record (the scientific audit), and the security, privacy, supply-chain, licence and $0 cost reviews are written.
 8. The desktop build of amendment A-1 runs the HBB journey offline and answers a question with the user's local Ollama, measured against the web build, packaged as an ad-hoc signed DMG that is not distributed (distribution is the author's G-PUBLIC step).
 9. The carried items of Phases 7 to 10 (section 5) are each fixed, or accepted by the author as a documented limitation.
@@ -60,7 +60,7 @@ The gate passes when every row below passes on the same build of record. Command
 | S25 | Supply chain (P11.3.2) | `npm audit` in both repos and each experiment; `cargo audit` on the desktop crate; the licence scan of P11.3.3 | known advisories; licences of everything bundled | 0 high or critical advisories in anything that ships, or each accepted by the author with its reason |
 | S26 | Desktop E2E (P11.5.1 to P11.5.3) | `node ../desktop/e2e/run.mjs --tag=<t>` (driving the built app; method chosen in P11.5.1, see that task) | offline HBB journey with the network blocked, the Ollama provider detected or not, one question to action with Ollama, the capability allowlist refusing an out-of-scope URL | exit 0 |
 | S27 | DMG checks (P11.5.4) | `codesign --verify --deep --strict`, `hdiutil verify`, a launch from a fresh macOS user account | packaging | exit 0 on both commands; the fresh-user launch recorded with a screenshot |
-| S28 | Manual passes (people, not scripts) | the VoiceOver script (helix-app `docs/reviews/phase-7-accessibility-audit.md` section 7, extended), the Safari run, the usability sessions | what automation cannot judge | every deviation recorded; each fixed or accepted by the author |
+| S28 | Manual passes (people, not scripts) | the VoiceOver script (helix-app `docs/reviews/phase-7-accessibility-audit.md` section 7, extended), run by the author (no usability sessions, D-H031) | what automation cannot judge | every deviation recorded; each fixed or accepted by the author |
 
 Not in the gate suite, kept as development tools: the concept harnesses (`concepts.mjs`, `shots-p8*.mjs`), `demo-record.mjs`, `longframe*.mjs`, `analyze-trace.mjs`.
 
@@ -176,14 +176,16 @@ Each task: method, deliverable, evidence, acceptance rule, dependencies. A code 
 - **Acceptance:** 0 axe violations; every finding fixed or accepted by the author; the VoiceOver pass recorded with the VoiceOver and browser versions.
 - **Depends:** P11.1.1 (tiers change what is rendered); P11.6 layout items.
 
-### P11.2.2 Usability sessions
-- **Method (PROPOSAL, question 93):** five participants recruited by the author, run by the author as moderator, 30 to 40 minutes each, on the release candidate, think-aloud. The AI writes the script and the note template, and analyses the notes afterwards; it is not a tester and its own use of the app does not count as a session. Script: (1) first look without guidance, "what do you think this is?"; (2) find the sickle-cell variant in HBB and see what it changes in the protein; (3) ask HELIX a question of their own; (4) go back to the DNA and compare; (5) open the evidence for one statement and say what kind of evidence it is; (6) choose another gene; (7) one task with the keyboard only; (8) turn on reduced motion and repeat task 2; (9) the System Usability Scale questionnaire. Notes record what happened and what was said, with participant ids U1 to U5 only: no name, no contact detail, no recording unless the participant agrees, no health or genomic information asked or kept.
-- **Deliverable:** `docs/reviews/phase-11-usability/` (script, anonymised notes, findings table).
-- **Acceptance:** at least the agreed number of sessions run; each finding fixed, scheduled for Phase 12 or accepted by the author.
-- **Depends:** a stable candidate (after P11.6, P11.1.x, P11.2.1); the author's availability.
+### P11.2.2 Usability inspection (amended by D-H031; was: usability sessions)
+- **Why amended:** the author answered question 93 on 2026-11-09 that no participants are available, and that the project makes no usability claim. No session with real users runs in this phase.
+- **Method:** two inspections on the release candidate, both by the AI and labelled as such wherever they are cited. (1) A heuristic evaluation against Nielsen's ten usability heuristics, screen by screen over every world and every curated set, each finding with its screen, heuristic, severity (0 to 4) and a screenshot. (2) A cognitive walkthrough of the nine tasks of the former session script (first look; find the sickle-cell variant and what it changes; ask a question; back to the DNA; open the evidence for one statement; another gene; keyboard only; reduced motion; no questionnaire), answering at each step the walkthrough's four questions (will the user try this, notice the control, link it to the goal, see progress). Each finding is fixed, scheduled for Phase 12, or recorded as a limitation.
+- **What this is not:** not user testing, not evidence that real people can use the app, and not a System Usability Scale score; an inspection by the system's own builder has a known blind spot, stated in the limitations.
+- **Deliverable:** `docs/reviews/phase-11-usability/` (method, heuristic table, walkthrough table, findings).
+- **Acceptance:** every screen of S21 and every task inspected; each finding fixed, scheduled or recorded.
+- **Depends:** a stable candidate (after P11.6, P11.1.x, P11.2.1).
 
 ### P11.3.1 Scientific audit of every displayed claim
-- **Method:** a harness dumps every text the app displays per screen and per set (the accessibility tree and the DOM text of each screen of S21, the rule-based explanations of every supported question, the limitations, captions, evidence cards, chips and the dynamic banner) into an inventory; a script maps each sentence to the record field or the rule it comes from; a reader checks each against its record. Model prose (desktop and development pages only; a non-development host shows none, S17) is audited by class: the claim screen's held-out record and the model factual errors of the held-out audit (C9) are carried as limitations. External review: the report (section 10, "Process") says external review of the scientific claims is planned for Phase 11 (question 94).
+- **Method:** a harness dumps every text the app displays per screen and per set (the accessibility tree and the DOM text of each screen of S21, the rule-based explanations of every supported question, the limitations, captions, evidence cards, chips and the dynamic banner) into an inventory; a script maps each sentence to the record field or the rule it comes from; a reader checks each against its record. Model prose (desktop and development pages only; a non-development host shows none, S17) is audited by class: the claim screen's held-out record and the model factual errors of the held-out audit (C9) are carried as limitations. No external review (D-H031, question 94: no reviewer available). To compensate in part, every displayed sentence must map mechanically to a record field or a named rule (a sentence with no source fails the script, not the reader), each record field is traced to its upstream source and release, and the report states that the claims were checked against their records by an AI-assisted audit only, with no independent domain expert.
 - **Deliverable:** `docs/scientific-validation.md` section "Phase 11 audit" with the inventory, its sources and the findings.
 - **Acceptance:** every displayed sentence has a source; every mismatch fixed or stated.
 - **Depends:** P11.6 items C5 to C9.
@@ -251,12 +253,12 @@ Scope in section 7. **Deliverable:** helix-app `docs/security-review.md`. **Acce
 ## 6. Order of work
 
 1. The author answers questions 81 to 85 (suite and budgets), so nothing is measured against an unagreed bar (D-H028).
-2. P11.0 baseline (read-only on the product). In parallel, document work: P11.1.4 probe table, P11.3.4 French copy of 9.4 to 9.7, the usability script for question 93.
+2. P11.0 baseline (read-only on the product). In parallel, document work: P11.1.4 probe table, P11.3.4 French copy of 9.4 to 9.7, the usability inspection method (D-H031).
 3. P11.6 carried items C1, C6, C9, C11, C12, C15 (and C3, C5 as the author answers), each pinned first, with S1 to S18 rerun after each change set.
 4. P11.1.2 no-LLM suite, then P11.1.1 tiers, then P11.1.3 optimisation and soak.
 5. P11.2.1 accessibility (automated), then the VoiceOver and Safari passes by a person.
 6. P11.3.1 scientific audit; P11.3.2 security review (web part); P11.3.3 licence scan (web part).
-7. Release candidate: a build of record, S1 to S22 green, budgets green. Then P11.2.2 usability sessions on that candidate; fixes; S1 to S22 again.
+7. Release candidate: a build of record, S1 to S22 green, budgets green. Then P11.2.2 usability inspection on that candidate; fixes; S1 to S22 again.
 8. P11.5.1 to P11.5.4 desktop, then the desktop parts of P11.3.2 and P11.3.3.
 9. P11.4.1 gate: one build of record, the whole agreed suite, the budgets, the limitations, report 9.8 EN and FR.
 
@@ -303,8 +305,8 @@ The final list goes into helix-app `docs/known-limitations.md`, the in-app list 
 | Structures | 2HBS crystal carries Val; asymmetric-unit contacts; domain coverage (BRCA1 5.5 %); predicted models listed, not loaded | known-limitations.md |
 | Desktop | not notarised (Gatekeeper rejects); arm64 only; quarantine untested; Ollama installed by the user | HX-P1-2026-11-01-tauri-shell; report section 10 |
 | Supply chain | one high advisory in the dependency tree (C15) | HX-P11-2026-11-09-phase11-plan section 1 |
-| Process | AI-assisted work; one reader for explanation review found less than two readers did; external scientific review pending | HX-P10-2026-11-09-final-audit "Interpretation"; report section 10 "Process" |
-| Usability | to be filled from P11.2.2 | |
+| Process | AI-assisted work; one reader for explanation review found less than two readers did; no external scientific review and no independent domain expert (D-H031) | HX-P10-2026-11-09-final-audit "Interpretation"; report section 10 "Process" |
+| Usability | no sessions with real users; usability inspected by the AI only (heuristic evaluation, cognitive walkthrough); findings to be filled from P11.2.2 | D-H031 |
 | Tiers | to be filled from P11.1.1 | |
 
 ## 10. What needs the author
