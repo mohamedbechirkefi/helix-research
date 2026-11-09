@@ -13,7 +13,7 @@ Authored 2026-11-09 when the author opened Phase 11 (helix D-H028: "pass to phas
 2. The agreed quality budgets (section 3) pass on that build, per device tier, with every number from a result file.
 3. Device tiers exist: the app chooses a rendering tier from what the device exposes, the visitor can override it, and each tier is measured.
 4. The no-LLM mode is a complete product: every curated journey, gene search over the bundled records, selection and highlighting, the supported questions and evidence browsing work with no model, verified on a production-like host.
-5. Accessibility is audited across every world and every curated set, including a manual VoiceOver pass by the author, and the findings are fixed or accepted by the author.
+5. Accessibility is audited across every world and every curated set, with automated checks only (axe on every screen, keyboard paths, reduced motion, low power); no manual screen-reader pass (D-H032), stated as a limitation; and the findings are fixed or accepted by the author.
 6. Usability is inspected, not user-tested (D-H031): a heuristic evaluation and a task walkthrough are written, each labelled as an inspection by the AI, never as user testing; their findings are fixed or recorded; the absence of sessions with real users is a stated limitation.
 7. Every claim the app displays is traced to its record (the scientific audit), and the security, privacy, supply-chain, licence and $0 cost reviews are written.
 8. The desktop build of amendment A-1 runs the HBB journey offline and answers a question with the user's local Ollama, measured against the web build, packaged as an ad-hoc signed DMG that is not distributed (distribution is the author's G-PUBLIC step).
@@ -60,7 +60,7 @@ The gate passes when every row below passes on the same build of record. Command
 | S25 | Supply chain (P11.3.2) | `npm audit` in both repos and each experiment; `cargo audit` on the desktop crate; the licence scan of P11.3.3 | known advisories; licences of everything bundled | 0 high or critical advisories in anything that ships, or each accepted by the author with its reason |
 | S26 | Desktop E2E (P11.5.1 to P11.5.3) | `node ../desktop/e2e/run.mjs --tag=<t>` (driving the built app; method chosen in P11.5.1, see that task) | offline HBB journey with the network blocked, the Ollama provider detected or not, one question to action with Ollama, the capability allowlist refusing an out-of-scope URL | exit 0 |
 | S27 | DMG checks (P11.5.4) | `codesign --verify --deep --strict`, `hdiutil verify`, a launch from a fresh macOS user account | packaging | exit 0 on both commands; the fresh-user launch recorded with a screenshot |
-| S28 | Manual passes (people, not scripts) | the VoiceOver script (helix-app `docs/reviews/phase-7-accessibility-audit.md` section 7, extended), run by the author (no usability sessions, D-H031) | what automation cannot judge | every deviation recorded; each fixed or accepted by the author |
+| S28 | Manual passes (people, not scripts) | dropped by the author: no VoiceOver pass (D-H032), no usability sessions (D-H031); the Safari run is automated (D-H031) | what automation cannot judge | not run; the gap is a stated limitation |
 
 Not in the gate suite, kept as development tools: the concept harnesses (`concepts.mjs`, `shots-p8*.mjs`), `demo-record.mjs`, `longframe*.mjs`, `analyze-trace.mjs`.
 
@@ -171,9 +171,9 @@ Each task: method, deliverable, evidence, acceptance rule, dependencies. A code 
 - **Depends:** none.
 
 ### P11.2.1 Accessibility audit
-- **Method:** S21 (automated, all sets and worlds); the keyboard map for every new control since Phase 7 (domain panel, This session card, pathway list, dynamic retrieve button, explorer refusals); reduced motion and low power on every world; the VoiceOver script of the Phase 7 audit extended to Pathway World, a non-HBB set and the question flow, **run by a person** (the author or a tester; the AI cannot hear VoiceOver) in Safari and Chrome; zoom to 200 % and the 1024 px width.
+- **Method:** S21 (automated, all sets and worlds); the keyboard map for every new control since Phase 7 (domain panel, This session card, pathway list, dynamic retrieve button, explorer refusals); reduced motion and low power on every world; the accessibility tree of every screen dumped and checked by script (names, roles, landmarks, live-region text), in Chrome and Safari; no manual VoiceOver pass (D-H032: dropped by the author; what is announced by ear is not verified, a stated limitation); zoom to 200 % and the 1024 px width.
 - **Deliverable:** helix-app `docs/reviews/phase-11-accessibility-audit.md` with findings in the Phase 7 format (id, screen, finding, severity, state, evidence).
-- **Acceptance:** 0 axe violations; every finding fixed or accepted by the author; the VoiceOver pass recorded with the VoiceOver and browser versions.
+- **Acceptance:** 0 axe violations; every finding fixed or accepted by the author; the accessibility-tree check recorded with the browser versions.
 - **Depends:** P11.1.1 (tiers change what is rendered); P11.6 layout items.
 
 ### P11.2.2 Usability inspection (amended by D-H031; was: usability sessions)
@@ -256,7 +256,7 @@ Scope in section 7. **Deliverable:** helix-app `docs/security-review.md`. **Acce
 2. P11.0 baseline (read-only on the product). In parallel, document work: P11.1.4 probe table, P11.3.4 French copy of 9.4 to 9.7, the usability inspection method (D-H031).
 3. P11.6 carried items C1, C6, C9, C11, C12, C15 (and C3, C5 as the author answers), each pinned first, with S1 to S18 rerun after each change set.
 4. P11.1.2 no-LLM suite, then P11.1.1 tiers, then P11.1.3 optimisation and soak.
-5. P11.2.1 accessibility (automated), then the VoiceOver and Safari passes by a person.
+5. P11.2.1 accessibility (automated, Chrome and Safari; no manual pass, D-H032).
 6. P11.3.1 scientific audit; P11.3.2 security review (web part); P11.3.3 licence scan (web part).
 7. Release candidate: a build of record, S1 to S22 green, budgets green. Then P11.2.2 usability inspection on that candidate; fixes; S1 to S22 again.
 8. P11.5.1 to P11.5.4 desktop, then the desktop parts of P11.3.2 and P11.3.3.
