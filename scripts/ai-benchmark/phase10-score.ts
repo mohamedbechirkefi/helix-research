@@ -4,6 +4,16 @@
  *
  *   node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-<date>
  *   node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-heldout-<date> --heldout
+ *   node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-<date> --rescore [--validator phase10]
+ *
+ * With --rescore (D-H029 answer 87): the Phase 10 set and prompt v7, each unit's context built by the corrected
+ * harness (phase10-rescore-lib.ts appUnitContext: the app's selection bridge and topicsOfPlan, imported from the
+ * sibling helix-app checkout); the policy is replayed as for the Phase 10 run.
+ *
+ * --validator phase10: the validator as it was at the Phase 10 run, before D-H024 answer 71 (3af6e04, now
+ * c045aed) added the "pathway-not-openable" check; that check is the only change to validatePlan since, so the
+ * Phase 10 verdicts are the current ones with that issue removed. Writes score-rows.phase10-validator.jsonl and
+ * score-summary.phase10-validator.{json,md} beside the default (current validator) files.
  *
  * With --heldout (D-H025): the held-out set, prompt v8, each unit's context from the helix-app Director
  * (phase10-heldout-lib.ts), the Director's two policies scored from their replay files, `worldAlternatives`
@@ -220,9 +230,20 @@ export interface RowScore {
   signature: string;
 }
 
-export function scoreOutput(u: Pick<Unit, "id" | "category" | "query" | "session" | "expected">, ctx: PlanningContext, out: { planner: string; rep: number; raw: string; error: string | null }): RowScore {
+/** Which validator decides validity: the current one, or the Phase 10 one (the current one without D-H024's "pathway-not-openable"). */
+export type ValidatorBasis = "current" | "phase10";
+
+/** validatePlan under the stated basis (see ValidatorBasis). */
+export function validateUnder(raw: string, ctx: PlanningContext, query: string, basis: ValidatorBasis = "current"): ReturnType<typeof validatePlan> {
+  const v = validatePlan(raw, ctx, { query, taughtActions: taughtActions(ctx) });
+  if (basis === "current" || !v.schemaValid) return v;
+  const issues = v.issues.filter((i) => i.code !== "pathway-not-openable");
+  return { ...v, issues, ok: issues.length === 0 };
+}
+
+export function scoreOutput(u: Pick<Unit, "id" | "category" | "query" | "session" | "expected">, ctx: PlanningContext, out: { planner: string; rep: number; raw: string; error: string | null }, opts: { validator?: ValidatorBasis } = {}): RowScore {
   const exp = u.expected;
-  const v = out.error ? null : validatePlan(out.raw, ctx, { query: u.query, taughtActions: taughtActions(ctx) });
+  const v = out.error ? null : validateUnder(out.raw, ctx, u.query, opts.validator);
   const plan = v?.plan ?? null;
   const actions = (plan?.actions ?? []) as unknown as Record<string, unknown>[];
   const outcome = plan ? outcomeOf(plan, u.session.currentWorld) : null;
@@ -381,13 +402,14 @@ interface ReviewRow {
  * imported (phase10-heldout-lib.ts); the Director's policies are scored from their own replay files, so no policy
  * is derived here.
  */
-async function main(dir: string, opts: { heldout: boolean }) {
+async function main(dir: string, opts: { heldout: boolean; rescore?: boolean; validator?: ValidatorBasis }) {
   const runDir = resolve(dir);
+  const validator = opts.validator ?? "current";
   const units = loadUnits(opts.heldout ? PHASE10_HELDOUT_DIR : undefined);
   const unitById = new Map(units.map((u) => [u.id, u]));
   const sets = new Map<Dataset, SetRecords>(DATASETS.map((d) => [d, loadSet(d, opts.heldout ? { planPrompt: "v8" } : {})]));
-  const ctxById = opts.heldout ? await heldoutContexts(units) : new Map(units.map((u) => [u.id, unitContext(sets.get(u.dataset)!, u).ctx]));
-  const files = readdirSync(runDir).filter((f) => f.endsWith(".jsonl") && !["messages.jsonl", "score-rows.jsonl", "claims-review.jsonl"].includes(f));
+  const ctxById = opts.heldout ? await heldoutContexts(units) : opts.rescore ? await rescoreContexts(units) : new Map(units.map((u) => [u.id, unitContext(sets.get(u.dataset)!, u).ctx]));
+  const files = readdirSync(runDir).filter((f) => f.endsWith(".jsonl") && !f.startsWith("score-rows") && !["messages.jsonl", "claims-review.jsonl"].includes(f));
   const byPlanner = new Map<string, { rows: RawRow[]; attempts: RawRow[] }>();
   for (const f of files) {
     const all = readFileSync(join(runDir, f), "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l) as RawRow);
@@ -403,7 +425,7 @@ async function main(dir: string, opts: { heldout: boolean }) {
       rows.map((r) => {
         const u = unitById.get(r.unit);
         if (!u) throw new Error(`unknown unit ${r.unit}`);
-        return scoreOutput(u, ctxById.get(u.id)!, { planner, rep: r.rep, raw: r.raw, error: r.error ? `${r.error.code}: ${r.error.message}` : null });
+        return scoreOutput(u, ctxById.get(u.id)!, { planner, rep: r.rep, raw: r.raw, error: r.error ? `${r.error.code}: ${r.error.message}` : null }, { validator });
       }),
     );
   }
@@ -419,7 +441,7 @@ async function main(dir: string, opts: { heldout: boolean }) {
         const model = byPlanner.get(planner)!.rows.find((r) => r.unit === s.unit && r.rep === s.rep)!;
         const useModel = s.valid && s.echoes.length === 0;
         const raw = useModel ? model.raw : detRaw.get(s.unit)!;
-        return { ...scoreOutput(u, ctxById.get(u.id)!, { planner: `policy(${planner})`, rep: s.rep, raw, error: null }), fromFallback: !useModel } as RowScore & { fromFallback: boolean };
+        return { ...scoreOutput(u, ctxById.get(u.id)!, { planner: `policy(${planner})`, rep: s.rep, raw, error: null }, { validator }), fromFallback: !useModel } as RowScore & { fromFallback: boolean };
       }),
     );
   }
@@ -429,10 +451,16 @@ async function main(dir: string, opts: { heldout: boolean }) {
   if (existsSync(reviewPath)) {
     const review = readFileSync(reviewPath, "utf8").split("\n").filter(Boolean).map((l) => JSON.parse(l) as ReviewRow);
     const violating = new Set(review.filter((r) => r.verdict === "violation").map((r) => `${r.planner}|${r.unit}|${r.rep}`));
-    for (const [planner, rows] of scored) for (const r of rows) r.safeAfterReview = r.safe && !violating.has(`${planner}|${r.unit}|${r.rep}`);
+    // A replayed policy output (policy(<model>)) shows the text of the output it uses: the model's of the same repeat, or the rule-based plan of repeat 0.
+    const source = (planner: string, r: RowScore): string | null => {
+      const m = planner.match(/^policy\((.+)\)$/);
+      if (!m) return null;
+      return (r as RowScore & { fromFallback?: boolean }).fromFallback ? `deterministic|${r.unit}|0` : `${m[1]}|${r.unit}|${r.rep}`;
+    };
+    for (const [planner, rows] of scored) for (const r of rows) r.safeAfterReview = r.safe && !violating.has(`${planner}|${r.unit}|${r.rep}`) && !violating.has(source(planner, r) ?? "");
   }
   const groupsOf = (u: Unit) => ["overall", ...(u.file === "questions" ? ["questions"] : []), `gene:${u.dataset}`, `category:${categoryKey(u)}`, ...(u.category === "action" ? ["category:action"] : []), ...(u.category === "followup" ? ["category:followup"] : []), ...(u.category === "followup" && (u.turn ?? 0) > 1 ? ["category:followup:turn2+3"] : [])];
-  const summary: Record<string, unknown> = { runDir: basename(runDir), scoredAt: new Date().toISOString(), planners: {} as Record<string, unknown> };
+  const summary: Record<string, unknown> = { runDir: basename(runDir), scoredAt: new Date().toISOString(), ...(opts.rescore || validator !== "current" ? { validator, contexts: opts.rescore ? "corrected harness (phase10-rescore-lib.ts)" : "Phase 10 harness (phase10-lib.ts)" } : {}), planners: {} as Record<string, unknown> };
   const plannersOut = summary.planners as Record<string, unknown>;
   for (const [planner, rows] of scored) {
     const groups = new Map<string, RowScore[]>();
@@ -482,10 +510,11 @@ async function main(dir: string, opts: { heldout: boolean }) {
       claimFlags: rows.filter((r) => r.claimFlags.length > 0).map((r) => ({ unit: r.unit, rep: r.rep, flags: r.claimFlags, review: "pending" })),
     };
   }
-  writeFileSync(join(runDir, "score-rows.jsonl"), [...scored.values()].flat().map((r) => JSON.stringify(r)).join("\n") + "\n");
-  writeFileSync(join(runDir, "score-summary.json"), JSON.stringify(summary, null, 1) + "\n");
-  writeFileSync(join(runDir, "score-summary.md"), markdown(summary, units, opts.heldout));
-  console.log(`scored ${[...scored].map(([p, r]) => `${p}: ${r.length}`).join(", ")} -> ${runDir}/score-summary.{json,md}`);
+  const sfx = validator === "phase10" ? ".phase10-validator" : "";
+  writeFileSync(join(runDir, `score-rows${sfx}.jsonl`), [...scored.values()].flat().map((r) => JSON.stringify(r)).join("\n") + "\n");
+  writeFileSync(join(runDir, `score-summary${sfx}.json`), JSON.stringify(summary, null, 1) + "\n");
+  writeFileSync(join(runDir, `score-summary${sfx}.md`), markdown(summary, units, opts.heldout));
+  console.log(`scored ${[...scored].map(([p, r]) => `${p}: ${r.length}`).join(", ")} -> ${runDir}/score-summary${sfx}.{json,md}`);
 }
 
 function markdown(summary: Record<string, unknown>, units: Unit[], heldout = false): string {
@@ -538,8 +567,19 @@ async function heldoutContexts(units: Unit[]): Promise<Map<string, PlanningConte
   return out;
 }
 
+/** The Phase 10 units' contexts as the corrected harness builds them (D-H029 answer 87; imported only for --rescore). */
+async function rescoreContexts(units: Unit[]): Promise<Map<string, PlanningContext>> {
+  const [heldoutLib, lib] = await Promise.all([import("./phase10-heldout-lib.ts"), import("./phase10-rescore-lib.ts")]);
+  const app = await lib.loadRescoreApp();
+  const sets = new Map(DATASETS.map((d) => [d, heldoutLib.appSet(app, loadSet(d))]));
+  return new Map(units.map((u) => [u.id, lib.appUnitContext(sets.get(u.dataset)!, u, app.topicsOfPlan).ctx]));
+}
+
 if (process.argv[1] && resolve(process.argv[1]) === resolve(import.meta.filename)) {
   const dir = process.argv[2];
-  if (!dir) throw new Error("usage: node scripts/ai-benchmark/phase10-score.ts <run dir> [--heldout]");
-  await main(dir, { heldout: process.argv.includes("--heldout") });
+  if (!dir) throw new Error("usage: node scripts/ai-benchmark/phase10-score.ts <run dir> [--heldout | --rescore] [--validator current|phase10]");
+  const vi = process.argv.indexOf("--validator");
+  const validator = (vi >= 0 ? process.argv[vi + 1] : "current") as ValidatorBasis;
+  if (validator !== "current" && validator !== "phase10") throw new Error(`unknown --validator ${validator}`);
+  await main(dir, { heldout: process.argv.includes("--heldout"), rescore: process.argv.includes("--rescore"), validator });
 }

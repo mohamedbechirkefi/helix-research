@@ -527,3 +527,33 @@ node scripts/ai-benchmark/phase10-heldout.ts --planner ollama --model ministral-
 node scripts/ai-benchmark/phase10-heldout.ts --planner director --out phase10-heldout-2026-11-09
 node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-heldout-2026-11-09 --heldout
 ```
+
+### 11.9 The Phase 10 run re-scored with the corrected harness (2026-11-09, D-H029 answer 87)
+
+The author answered question 87 "fix it and rescore". The Phase 10 harness re-stated two app functions that differ from the app: the selection bridge (for HBB codon 7 the app selects 2HBS chain H residue 6, the re-statement chain B) and the session topics (the re-statement counted any `revealEvidence` as the topic "evidence"; the app's `topicsOfPlan` does so only for intent `explain_evidence`). The corrected harness (`scripts/ai-benchmark/phase10-rescore-lib.ts`) builds each Phase 10 unit with the app's own bridge and `topicsOfPlan`, imported from the sibling helix-app checkout (a418d8b, files clean, sha256 per file in the manifest); everything else, prompt v7 included, is as in Phase 10. `phase10-lib.ts` is unchanged and still reproduces every stored message of the original run. This subsection sits beside 11.1 to 11.8, which stand as published. Journal HX-P10-2026-11-09-rescore; raw files in `research/benchmark/runs/phase10-rescore-2026-11-09/`.
+
+**What changed in the input.** Comparing the chat messages byte for byte, 2 of 112 units changed: P10-FU-FAAH2/2 and /3, whose session line reads `interests: none` instead of `interests: evidence`. The bridge fix changes no unit: no Phase 10 row selects HBB codon 7, and the app's bridge links the same residue and codon as the re-statement on all 112. The corrected context equals the app Director's own context on all 112 units.
+
+**What was rerun.** The rules on all 112 units x 3. The model (ministral-3:8b, the Phase 10 parameters) on the 2 changed units x 3 only; the other 330 rows were reused after checking that their messages are byte-identical. FU-FAAH2/3 gave the stored output again; FU-FAAH2/2 gave a different refusal, wrong as before. The policy was replayed as in 11.1.
+
+| Planner (336 outputs) | Validator | Correct and valid | Valid | Safe after review | Injection held |
+|---|---|---|---|---|---|
+| Rules | Phase 10 | 276 -> 273 | 336 -> 336 | 327 -> 327 | 36/36 -> 36/36 |
+| ministral-3:8b, v7 | Phase 10 | 252 -> 252 | 306 -> 306 | 291 -> 291 | 33/36 -> 33/36 |
+| Director policy | Phase 10 | 273 -> 273 | 336 -> 336 | 297 -> 297 | 36/36 -> 36/36 |
+| Rules | current (D-H024) | 273 -> 273 | 333 -> 336 | 327 -> 327 | 36/36 -> 36/36 |
+| ministral-3:8b, v7 | current (D-H024) | 249 -> 249 | 297 -> 297 | 291 -> 291 | 33/36 -> 33/36 |
+| Director policy | current (D-H024) | 276 -> 276 | 333 -> 336 | 297 -> 297 | 36/36 -> 36/36 |
+
+Original -> re-scored. "Phase 10" is the validator the run was scored with (the current one without D-H024's `pathway-not-openable` check, the only change since); "current" replays the policy with the current validator deciding the fallback. The 270 stated for the policy in 11.5 keeps the policy's Phase 10 choices and re-validates them; computed that way, the re-scored outputs also give 270. Safe after review counts every reviewed violation of 11.5, the 2026-11-04 claim-screen correction and the P10-INJ-07 correction included.
+
+**The corrected contexts change no verdict.** Every difference in the table is P10-CFTR-13's rule-based plan, whose input did not change: the rule planner itself changed after Phase 10 (D-H024 answer 71 answers a request to open a non-openable pathway from the record), so the rerun reveals the Reactome record instead of opening R-HSA-5678895. On every changed input the rule plans are byte-identical to the stored ones, so with the Phase 10 rule planner held the table would show no change at all. Six changed outputs were read in full (FU-FAAH2/2 model, CFTR-13 rules; no forbidden claim, no claim-screen hit); the other verdicts were carried over. The hypothesis stated before the run, that the corrected contexts change no unit's verdict, holds.
+
+Reproduce:
+
+```sh
+node scripts/ai-benchmark/phase10-rescore.ts --planner deterministic --reps 3 --out phase10-rescore-2026-11-09
+node scripts/ai-benchmark/phase10-rescore.ts --planner ollama --model ministral-3:8b --reps 3 --out phase10-rescore-2026-11-09   # 6 model calls
+node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-2026-11-09 --rescore
+node scripts/ai-benchmark/phase10-score.ts research/benchmark/runs/phase10-rescore-2026-11-09 --rescore --validator phase10
+```
