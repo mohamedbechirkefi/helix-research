@@ -99,6 +99,8 @@ Measured on the build of record 65be05a (same rendering code as fefa19f; phase-1
 | All built assets gzip | <= 2,100 kB (raised by D-H024 answer 72) | 1,997 kB | same build | keep |
 | No page errors | 0 | 0 | 0 | keep |
 
+> **Agreed (D-H034, 2026-11-10, "agree all, b"):** every value proposed in helix-app `docs/reviews/phase-11-new-budgets.md` (measured in HX-P11-2026-11-10-new-budgets) is the budget; and the 3.1 long-frame rule becomes "at most one frame over 33.4 ms per 10 vsync-on pages, never two on one page, each listed" (option b of the P11.0 finding, HX-P11-2026-11-09-baseline). Encoded in helix-app `apps/web/e2e/budgets.json`. Device-tier and desktop rows are still to be measured.
+
 ### 3.2 New budgets (PROPOSAL: the metric and the reason are proposed now; every value is "to be measured" in P11.0 and brought back to the author in one table before the gate measures against it, question 83)
 
 | Area | Metric | Proposed rule for the value | Reason | Measured so far |
