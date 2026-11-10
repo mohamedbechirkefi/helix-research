@@ -177,6 +177,26 @@ describe("gene resolution", () => {
     expect(resolveGeneQuery("beta-globin", [hbb!, other]).status).toBe("ambiguous");
     expect(resolveGeneQuery("HBB", [hbb!, other]).status).toBe("resolved");
   });
+  // helix-app D-H036 item 4: a gene's full HGNC name, from the bundled records, opens it (no live lookup).
+  it("matches the full gene name, case-insensitive and whitespace-tolerant", async () => {
+    const [hbb] = parseHgnc(await fixtureJson("hgnc"));
+    expect(hbb!.name).toBe("hemoglobin subunit beta");
+    const cftr = { ...hbb!, hgncId: "HGNC:1884", symbol: "CFTR", name: "CF transmembrane conductance regulator", ensemblGeneId: "ENSG00000001626", aliases: ["ABC35"], previousSymbols: [] };
+    const recs = [hbb!, cftr];
+    for (const q of ["hemoglobin subunit beta", "Hemoglobin Subunit Beta", "  hemoglobin   subunit\tbeta  "]) {
+      expect(resolveGeneQuery(q, recs)).toEqual({ status: "resolved", matchedBy: "name", hgncId: "HGNC:4827", symbol: "HBB", ensemblGeneId: hbb!.ensemblGeneId });
+    }
+    expect(resolveGeneQuery("cf transmembrane conductance regulator", recs)).toMatchObject({ status: "resolved", matchedBy: "name", symbol: "CFTR" });
+    // Only the whole name: a part of it is not a match.
+    expect(resolveGeneQuery("hemoglobin", recs).status).toBe("not-found");
+    expect(resolveGeneQuery("subunit beta", recs).status).toBe("not-found");
+    // Symbols, aliases and previous symbols keep their order and wins.
+    expect(resolveGeneQuery("hbb", recs)).toMatchObject({ status: "resolved", matchedBy: "symbol", symbol: "HBB" });
+    expect(resolveGeneQuery("abc35", recs)).toMatchObject({ status: "resolved", matchedBy: "alias", symbol: "CFTR" });
+    // Two records with the same name are ambiguous, never a guess.
+    const twin = { ...cftr, hgncId: "HGNC:2", symbol: "TWIN", aliases: [] };
+    expect(resolveGeneQuery("CF transmembrane conductance regulator", [hbb!, cftr, twin]).status).toBe("ambiguous");
+  });
 });
 
 /** fetch mock answering the live acquisition URLs from recorded fixtures. */
