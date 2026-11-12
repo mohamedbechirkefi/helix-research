@@ -5,7 +5,7 @@ id:            HX-P11-2026-11-12-scientific-audit
 date:          2026-11-12
 phase:         P11 (P11.3.1, scientific audit of every displayed claim)
 hypothesis:    Every text the app displays on the rules' path maps mechanically to a record field or a named rule of the code, every displayed fact agrees with its record, and every displayed record field agrees with the raw body of its upstream source and release.
-git_commit:    helix-app 1bf3ada to the review commit (pin 67464a2; change 10fb938; harness 06e2c87, 58a4244; results and the review page in the review commit), pinned unchanged to helix-research 62d45de; helix-research 8b8bb60, f62b1f8 (scripts/data-preparation/trace-records.ts), docs and results in the commit of this entry; by a delegated agent on Opus 5.5
+git_commit:    helix-app 1bf3ada to faa4ee7 (pin 67464a2; change 10fb938; harness 06e2c87, 58a4244, 3488107, d357857; results and the review page faa4ee7), pinned unchanged to helix-research 62d45de; helix-research 8b8bb60, f62b1f8 (scripts/data-preparation/trace-records.ts), docs and results in the commit of this entry; by a delegated agent on Opus 5.5
 config:        helix-app e2e/text-inventory.mjs --run-a11y (S21 a11y.mjs --all-sets --texts, then the questions at three depths and the TP53 fixture), e2e/source-map.mjs; helix-research trace-records.ts, build-gene.ts --fixtures and compare-builds.ts for each set
 seed:          none
 data_version:  the five curated sets at helix-research 62d45de, unchanged; the TP53 dynamic fixtures of data/fixtures/dynamic/tp53
