@@ -157,8 +157,8 @@ describe("validation of the six actions", () => {
   it("showProteinDomains: a protein of the context with features of the explorer types; types read from the record", () => {
     expect(issues([{ type: "showProteinDomains", proteinAccession: "P68871" }], hbb())).toEqual([]);
     expect(issues([{ type: "showProteinDomains", proteinAccession: "P68871", featureTypes: ["Domain"] }], hbb())).toEqual([]);
-    expect(issues([{ type: "showProteinDomains", proteinAccession: "P68871", featureTypes: ["Transmembrane"] }], hbb())[0]?.[1]).toBe("the UniProt record of P68871 lists no feature of type Transmembrane (it lists Domain)");
-    expect(issues([{ type: "showProteinDomains", proteinAccession: "Q6GMR7" }], faah2())[0]?.[1]).toBe("the UniProt record of Q6GMR7 lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger");
+    expect(issues([{ type: "showProteinDomains", proteinAccession: "P68871", featureTypes: ["Transmembrane"] }], hbb())[0]?.[1]).toBe("Helix's copy of the UniProt record of P68871 keeps Domain features only, so it has no feature of type Transmembrane (it has Domain)");
+    expect(issues([{ type: "showProteinDomains", proteinAccession: "Q6GMR7" }], faah2())[0]?.[1]).toBe("Helix's copy of the UniProt record of Q6GMR7 keeps Domain features only and has none");
     // The Phase 3 form parses and is never executable.
     expect(issues([{ type: "showProteinDomains", proteinId: "P68871" }], hbb()).map((i) => i[0])).toEqual(["not-executable"]);
   });
@@ -243,7 +243,7 @@ describe("rule-based planner on FAAH2: the refusals with the records' reasons", 
   it("no domain in the record", () => {
     const { rule, plan } = run("Show the domains", faah2());
     expect(rule).toBe("domains-none");
-    expect(plan.reason).toBe("The UniProt record of Q6GMR7 (FAAH2) lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger, so there is no domain to show.");
+    expect(plan.reason).toBe("Helix's copy of the UniProt record of Q6GMR7 (FAAH2) keeps Domain features only, not Region, Topological domain, Transmembrane or Zinc finger, and it has no Domain feature, so there is no domain to show.");
   });
   it("beginTransition names the transition and the reason Protein World is unavailable", () => {
     const { rule, plan } = run("Take me from the DNA to the protein", faah2());

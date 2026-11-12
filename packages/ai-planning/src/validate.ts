@@ -217,11 +217,11 @@ export function validatePlan(raw: unknown, ctx: PlanningContext, opts: ValidateO
         const feats = (ctx.proteinFeatures ?? []).filter((f) => f.proteinAccession === acc);
         const present = [...new Set(feats.map((f) => f.type))];
         if (feats.length === 0) {
-          issues.push({ code: "prerequisite", path, value: acc, message: ctx.proteinFeatures ? `the UniProt record of ${acc} lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger` : `the protein record's features are not in this context` });
+          issues.push({ code: "prerequisite", path, value: acc, message: ctx.proteinFeatures ? `Helix's copy of the UniProt record of ${acc} keeps Domain features only and has none` : `the protein record's features are not in this context` });
           break;
         }
         const missing = (a.featureTypes ?? []).filter((t) => !present.includes(t));
-        if (missing.length > 0) issues.push({ code: "prerequisite", path: `${path}.featureTypes`, value: missing.join(","), message: `the UniProt record of ${acc} lists no feature of type ${missing.join(", ")} (it lists ${present.join(", ")})` });
+        if (missing.length > 0) issues.push({ code: "prerequisite", path: `${path}.featureTypes`, value: missing.join(","), message: `Helix's copy of the UniProt record of ${acc} keeps Domain features only, so it has no feature of type ${missing.join(", ")} (it has ${present.join(", ")})` });
         break;
       }
       case "selectTranscript": {

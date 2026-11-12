@@ -229,10 +229,13 @@ function phase10Rule(query: string, q: string, ctx: PlanningContext, level: Plan
   if (can(ctx, "showProteinDomains") && ctx.proteinFeatures !== undefined && (DOMAINS.test(q) || /\b(transmembrane|zinc fingers?|topological)\b/.test(q))) {
     if (!protein) return { plan: refuse(ctx, "show_domains", "No protein record is in this context."), rule: "domains-no-protein" };
     const feats = ctx.proteinFeatures.filter((f) => f.proteinAccession === protein.id);
-    if (feats.length === 0) return { plan: refuse(ctx, "show_domains", `The UniProt record of ${protein.id} (${symbol}) lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger, so there is no domain to show.`), rule: "domains-none" };
+    // P11-S-10 (D-H039 item 4): the protein records keep, of the explorer types, Domain only (data-adapters
+    // KEPT_FEATURE_TYPES; guarded by test/domain-refusal-wording.test.ts), so the refusals say what Helix's copy keeps,
+    // never that UniProt lists no feature of the other types (it does: FAAH2 a Transmembrane, TP53 20 Region features).
+    if (feats.length === 0) return { plan: refuse(ctx, "show_domains", `Helix's copy of the UniProt record of ${protein.id} (${symbol}) keeps Domain features only, not Region, Topological domain, Transmembrane or Zinc finger, and it has no Domain feature, so there is no domain to show.`), rule: "domains-none" };
     const asked = FEATURE_TYPE_WORDS.filter(([re]) => re.test(q)).map(([, t]) => t);
     const present = asked.filter((t) => feats.some((f) => f.type === t));
-    if (asked.length > 0 && present.length === 0) return { plan: refuse(ctx, "show_domains", `The UniProt record of ${protein.id} lists no feature of type ${asked.join(", ")}; it lists ${[...new Set(feats.map((f) => f.type))].join(", ")}.`), rule: "domains-type-none" };
+    if (asked.length > 0 && present.length === 0) return { plan: refuse(ctx, "show_domains", `Helix's copy of the UniProt record of ${protein.id} keeps Domain features only, so it has no feature of type ${asked.join(", ")}; it has ${[...new Set(feats.map((f) => f.type))].join(", ")} features.`), rule: "domains-type-none" };
     const ev = `uniprot:${protein.id}`;
     const cited = ctx.evidence.some((e) => e.id === ev) ? [ev] : [];
     return { plan: plan("show_domains", [{ type: "showProteinDomains", proteinAccession: protein.id, ...(present.length > 0 ? { featureTypes: present } : {}) }, ...cited.map((id) => ({ type: "revealEvidence" as const, evidenceId: id }))], cited, null, { geneId: gene?.id ?? null, proteinId: protein.id }), rule: "protein-domains" };
