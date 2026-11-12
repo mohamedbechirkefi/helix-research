@@ -307,7 +307,7 @@ The final list goes into helix-app `docs/known-limitations.md`, the in-app list 
 | Data | snapshot with versions; ClinVar drift; one-star SLC6A3 variant (D-H020); opening pathway by rule (D-H019); associations never causal | known-limitations.md; D-H019, D-H020 |
 | Structures | 2HBS crystal carries Val; asymmetric-unit contacts; domain coverage (BRCA1 5.5 %); predicted models listed, not loaded | known-limitations.md |
 | Desktop | not notarised (Gatekeeper rejects); arm64 only; quarantine untested; Ollama installed by the user | HX-P1-2026-11-01-tauri-shell; report section 10 |
-| Supply chain | one high advisory in the dependency tree (C15) | HX-P11-2026-11-09-phase11-plan section 1 |
+| Supply chain | `npm audit` 0 vulnerabilities in both repositories and the four experiments (C15 closed: body-parser 2.4.0 since D-H029); the desktop crate graph not yet audited (P11.5.3); two copies of zod in the main bundle; no Content Security Policy served until a host exists (Phase 12) | helix-app `docs/security-review.md`; HX-P11-2026-11-12-security |
 | Process | AI-assisted work; one reader for explanation review found less than two readers did; no external scientific review and no independent domain expert (D-H031) | HX-P10-2026-11-09-final-audit "Interpretation"; report section 10 "Process" |
 | Usability | no sessions with real users; usability inspected by the AI only (heuristic evaluation, cognitive walkthrough); findings to be filled from P11.2.2 | D-H031 |
 | Tiers | to be filled from P11.1.1 | |
