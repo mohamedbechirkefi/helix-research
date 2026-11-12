@@ -76,14 +76,39 @@ const bodyText = (h: string): string | null => {
 interface Source { source: string; url: string; sha256: string; sourceRelease: string | null; recordId?: string | null; recordVersion?: string | null }
 interface Row { set: string; record: string; field: string; record_value: unknown; upstream_value: unknown; source: string; release: string | null; body: string; state: "agrees" | "differs" | "no body" }
 const rows: Row[] = [];
-const sourceRows: { set: string; source: string; url: string; release: string | null; sha256: string; body: string; where: string }[] = [];
+const sourceRows: { set: string; source: string; url: string; release: string | null; sha256: string; body: string; where: string; publicRedaction?: string }[] = [];
 const problems: string[] = [];
 /**
  * Manifest rows whose body is recorded nowhere, stated as a finding of the P11.3.1 audit (docs/scientific-validation.md
  * section 7.5): reported, not failed. P11-S-01: the HBB set was last built from the Phase 6 live snapshot, whose
- * Ensembl assembly and codon-map bodies are no longer in the local cache and were never recorded as fixtures.
+ * Ensembl assembly and codon-map bodies are no longer in the local cache. Since D-H041 the codon map is recorded
+ * (data/fixtures/hbb/curated, rebuilt by key order to the cited sha256), so only the assembly body is stated.
  */
-const STATED: { set: string; url: RegExp; finding: string }[] = [{ set: "hbb", url: /\/info\/assembly\/homo_sapiens\?|\/map\/cds\/ENST00000335295\/19\.\.21\?/, finding: "P11-S-01" }];
+const STATED: { set: string; url: RegExp; finding: string }[] = [{ set: "hbb", url: /\/info\/assembly\/homo_sapiens\?/, finding: "P11-S-01" }];
+/**
+ * D-H041: a body the local cache holds whose public copy is its Q-H-LIC-1 redaction (a MANIFEST.tsv row whose redaction
+ * column names the body's sha256 as its original): reported beside the cache path, so that the public evidence of
+ * that row is visible.
+ */
+const redactedCopy = new Map<string, string>();
+function readRedactions(dir: string): void {
+  if (!existsSync(dir)) return;
+  for (const n of readdirSync(dir)) {
+    const p = join(dir, n);
+    if (statSync(p).isDirectory()) readRedactions(p);
+    else if (n === "MANIFEST.tsv") {
+      const [head, ...lines] = readFileSync(p, "utf8").split("\n").filter((l) => l.trim().length > 0);
+      const cols = head!.split("\t");
+      for (const l of lines) {
+        const f = l.split("\t");
+        const m = /original sha256 ([0-9a-f]{64})/.exec(f[cols.indexOf("redaction")] ?? "");
+        if (m && !redactedCopy.has(m[1]!)) redactedCopy.set(m[1]!, relative(REPO_ROOT, join(dir, f[cols.indexOf("file")]!)));
+      }
+    }
+  }
+}
+readRedactions(join(REPO_ROOT, "research/raw"));
+for (const s of SETS) readRedactions(join(REPO_ROOT, "data/fixtures", s));
 const stated: string[] = [];
 
 const readJson = (p: string): any => JSON.parse(readFileSync(p, "utf8"));
@@ -94,7 +119,8 @@ for (const set of SETS) {
   const manifest = readJson(join(dir, "manifest.json"));
   for (const s of manifest.sources as Source[]) {
     const b = bodies.get(s.sha256);
-    sourceRows.push({ set, source: s.source, url: s.url, release: s.sourceRelease ?? null, sha256: s.sha256, body: b ? b.path : "not found", where: b ? b.where : "not found" });
+    const red = b?.where === "local snapshot cache" ? redactedCopy.get(s.sha256) : undefined;
+    sourceRows.push({ set, source: s.source, url: s.url, release: s.sourceRelease ?? null, sha256: s.sha256, body: b ? b.path : "not found", where: b ? b.where : "not found", ...(red ? { publicRedaction: red } : {}) });
     if (!b) {
       const k = STATED.find((x) => x.set === set && x.url.test(s.url));
       if (k) stated.push(`${set}: manifest source ${s.source} ${s.url}: no recorded body (stated finding ${k.finding})`);
@@ -208,11 +234,11 @@ for (const set of SETS) {
   }));
 }
 
-const counts = { sets: SETS.length, sourceRows: sourceRows.length, bodiesPublic: sourceRows.filter((r) => r.where === "public fixture").length, bodiesLocalCacheOnly: sourceRows.filter((r) => r.where === "local snapshot cache").length, bodiesNotFound: sourceRows.filter((r) => r.where === "not found").length, fieldChecks: rows.length, agree: rows.filter((r) => r.state === "agrees").length, differ: rows.filter((r) => r.state === "differs").length, noBody: rows.filter((r) => r.state === "no body").length };
+const counts = { sets: SETS.length, sourceRows: sourceRows.length, bodiesPublic: sourceRows.filter((r) => r.where === "public fixture").length, bodiesLocalCacheOnly: sourceRows.filter((r) => r.where === "local snapshot cache").length, bodiesLocalCacheOnlyWithPublicRedaction: sourceRows.filter((r) => r.where === "local snapshot cache" && r.publicRedaction).length, bodiesNotFound: sourceRows.filter((r) => r.where === "not found").length, fieldChecks: rows.length, agree: rows.filter((r) => r.state === "agrees").length, differ: rows.filter((r) => r.state === "differs").length, noBody: rows.filter((r) => r.state === "no body").length };
 const result = { date: new Date().toISOString(), suite: "P11.3.1 upstream trace", counts, fields: rows, sources: sourceRows, stated, problems };
 if (OUT) writeFileSync(OUT, JSON.stringify(result, null, 1));
 for (const p of stated) console.log(`  stated: ${p}`);
 for (const p of problems) console.log(`  ${p}`);
-console.log(`trace: ${counts.sourceRows} manifest source rows (${counts.bodiesPublic} bodies in the public fixtures, ${counts.bodiesLocalCacheOnly} in the local snapshot cache only, ${counts.bodiesNotFound} not found); ${counts.fieldChecks} field checks: ${counts.agree} agree, ${counts.differ} differ, ${counts.noBody} without a body`);
+console.log(`trace: ${counts.sourceRows} manifest source rows (${counts.bodiesPublic} bodies in the public fixtures, ${counts.bodiesLocalCacheOnly} in the local snapshot cache only (${counts.bodiesLocalCacheOnlyWithPublicRedaction} of them with a public Q-H-LIC-1 redaction), ${counts.bodiesNotFound} not found); ${counts.fieldChecks} field checks: ${counts.agree} agree, ${counts.differ} differ, ${counts.noBody} without a body`);
 console.log(problems.length ? `FAIL ${problems.length}` : "PASS");
 process.exit(problems.length ? 1 : 0);
