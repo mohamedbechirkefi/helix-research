@@ -1,0 +1,2 @@
+file	retrieved_utc	http_status	sha256	bytes	method	url	headers	redaction
+fetch_symbol_HBB.json	2026-11-02T02:28:18Z	200	848a4aa84b0b296e82e1771a2a07f4bcc2c914416ac4586707813e7eab9ab9a8	1695	GET	https://rest.genenames.org/fetch/symbol/HBB	"{""content-type"":""application/json;charset=utf-8""}"	redacted 2026-11-02: proprietary database identifiers removed (Q-H-LIC-1, 1 removal); original sha256 9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473

@@ -1,0 +1,425 @@
+{
+  "date": "2026-11-12",
+  "set": "data/fixtures/hbb/curated",
+  "inputs": [
+    {
+      "input": "ensemblInfoData",
+      "how": "public",
+      "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+      "citedSha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+      "path": "research/raw/ensembl/info_data.json",
+      "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+      "redacted": false
+    },
+    {
+      "input": "ensemblAssembly",
+      "how": "substitute",
+      "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+      "citedSha256": "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785",
+      "path": "research/raw/ensembl/assembly_homo_sapiens.json",
+      "sha256": "f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e",
+      "redacted": false,
+      "note": "sha256 f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e (retrieved 2026-11-01T18:15:35Z); no key order of a public body of this URL gives the cited sha256"
+    },
+    {
+      "input": "geneLookup",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
+      "citedSha256": "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+      "path": "data/fixtures/hbb/curated/ensembl/lookup_id_ENSG00000244734_expand_1_mane_1.json",
+      "sha256": "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+      "bytes": 23415,
+      "redacted": false
+    },
+    {
+      "input": "transcriptLookup",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
+      "citedSha256": "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+      "path": "data/fixtures/hbb/curated/ensembl/lookup_id_ENST00000335295_expand_1_utr_1_mane_1.json",
+      "sha256": "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+      "bytes": 2013,
+      "redacted": false
+    },
+    {
+      "input": "cds",
+      "how": "public",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
+      "citedSha256": "29c6c4bfdcb16e7dd60449d343f77422614ccb6dcec6c247abc2f54555c665a2",
+      "path": "research/raw/ensembl/seq_ENST00000335295_cds.fa",
+      "sha256": "29c6c4bfdcb16e7dd60449d343f77422614ccb6dcec6c247abc2f54555c665a2",
+      "redacted": false
+    },
+    {
+      "input": "cdna",
+      "how": "public",
+      "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cdna;content-type=text/x-fasta",
+      "citedSha256": "454eb079badbaae5fe62d40acbcd9b66c32f4919f5f876dfdbf26c470a535d9c",
+      "path": "research/raw/ensembl/seq_ENST00000335295_cdna.fa",
+      "sha256": "454eb079badbaae5fe62d40acbcd9b66c32f4919f5f876dfdbf26c470a535d9c",
+      "redacted": false
+    },
+    {
+      "input": "ensemblProtein",
+      "how": "public",
+      "url": "https://rest.ensembl.org/sequence/id/ENSP00000333994?content-type=text/x-fasta",
+      "citedSha256": "1b692b7c3ecea1db563500856ee02d07e97f4edb7208d3c2d5016f8c4daddaf8",
+      "path": "research/raw/ensembl/seq_ENSP00000333994_protein.fa",
+      "sha256": "1b692b7c3ecea1db563500856ee02d07e97f4edb7208d3c2d5016f8c4daddaf8",
+      "redacted": false
+    },
+    {
+      "input": "genomicWindow",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
+      "citedSha256": "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+      "path": "data/fixtures/hbb/curated/ensembl/sequence_region_human_11_5226982..5227022_1.json",
+      "sha256": "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+      "bytes": 146,
+      "redacted": false
+    },
+    {
+      "input": "codonMap",
+      "how": "reconstructed",
+      "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
+      "citedSha256": "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288",
+      "path": "data/fixtures/hbb/curated/ensembl/map_cds_ENST00000335295_19..21.json",
+      "sha256": "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288",
+      "bytes": 151,
+      "redacted": false,
+      "note": "the key order of research/raw/ensembl/map_cds_ENST00000335295_19-21.json whose sha256 is the cited one"
+    },
+    {
+      "input": "variation",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/variation/human/rs334?content-type=application/json",
+      "citedSha256": "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
+      "path": "data/fixtures/hbb/curated/ensembl/variation_human_rs334.json",
+      "sha256": "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
+      "bytes": 1316,
+      "redacted": false
+    },
+    {
+      "input": "variantRecoder",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+      "citedSha256": "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5",
+      "path": "data/fixtures/hbb/curated/ensembl/variant_recoder_human_rs334_fields_id_hgvsg_hgvsc_hgvsp_spdi.json",
+      "sha256": "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5",
+      "bytes": 4122,
+      "redacted": false
+    },
+    {
+      "input": "vep",
+      "how": "cache",
+      "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000335295.4:c.20A>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+      "citedSha256": "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
+      "path": "data/fixtures/hbb/curated/ensembl/vep_human_hgvs_ENST00000335295.4_c.20A_3ET_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+      "sha256": "41577afa3182ca1e6af7eae0918d9aa2e41cb5444f41fdc6a242478180628ef5",
+      "bytes": 18968,
+      "redacted": true
+    },
+    {
+      "input": "uniprot",
+      "how": "public-redacted",
+      "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
+      "citedSha256": "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+      "path": "research/raw/uniprot/P68871.json",
+      "sha256": "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd",
+      "redacted": false,
+      "note": "the recorder's redaction leaves uniprot (after redaction): $.comments[10].texts[0].value: MIM number (MIM:611162); referenced: the Phase 1 redaction of the same bytes"
+    },
+    {
+      "input": "mmcif",
+      "how": "public",
+      "url": "https://files.rcsb.org/download/2HBS.cif",
+      "citedSha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+      "path": "research/raw/rcsb/2HBS.cif",
+      "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+      "redacted": false
+    },
+    {
+      "input": "rcsbEntry",
+      "how": "public",
+      "url": "https://data.rcsb.org/rest/v1/core/entry/2HBS",
+      "citedSha256": "c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b",
+      "path": "research/raw/rcsb/entry_2HBS.json",
+      "sha256": "c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b",
+      "redacted": false
+    },
+    {
+      "input": "rcsbPolymerEntity",
+      "how": "public",
+      "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
+      "citedSha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+      "path": "research/raw/rcsb/polymer_entity_2HBS_2.json",
+      "sha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+      "redacted": false
+    },
+    {
+      "input": "rcsbAssembly",
+      "how": "public",
+      "url": "https://data.rcsb.org/rest/v1/core/assembly/2HBS/1",
+      "citedSha256": "c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded",
+      "path": "research/raw/rcsb/assembly_2HBS_1.json",
+      "sha256": "c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded",
+      "redacted": false
+    },
+    {
+      "input": "sifts",
+      "how": "public",
+      "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
+      "citedSha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+      "path": "research/raw/pdbe/sifts_mappings_uniprot_2hbs.json",
+      "sha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+      "redacted": false
+    },
+    {
+      "input": "clinvarSearch",
+      "how": "cache",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research",
+      "citedSha256": "6068d4bd3c1beb897d7745937505d481bcc05307eaed38fc0e46911de00fddf6",
+      "path": "data/fixtures/hbb/curated/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs334_retmode_json_retmax_100_tool_helix-research.json",
+      "sha256": "6068d4bd3c1beb897d7745937505d481bcc05307eaed38fc0e46911de00fddf6",
+      "bytes": 370,
+      "redacted": false
+    },
+    {
+      "input": "clinvar",
+      "how": "cache",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
+      "citedSha256": "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+      "path": "data/fixtures/hbb/curated/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_446748_446747_446738_446737_446736_446735_446731_446730_15333_15175_retmode_js.json",
+      "sha256": "a7b2b45952e02e45863f9883252f068ef7a5d2b8c9c919d05e5219f843a1964f",
+      "bytes": 74517,
+      "redacted": true
+    },
+    {
+      "input": "clinvarEinfo",
+      "how": "cache",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/einfo.fcgi?db=clinvar&retmode=json&tool=helix-research",
+      "citedSha256": "03a3bfd63e050dd50ccde996765af048fd8baa1f42c04cefed12c881e9d21a79",
+      "path": "data/fixtures/hbb/curated/ncbi-clinvar/entrez_eutils_einfo.fcgi_db_clinvar_retmode_json_tool_helix-research.json",
+      "sha256": "0c6758dca3c3b20e71c5a8aca3e653466f0a532df9349c6ee315c2548e01d49f",
+      "bytes": 14709,
+      "redacted": true
+    },
+    {
+      "input": "hgnc",
+      "how": "cache",
+      "url": "https://rest.genenames.org/fetch/symbol/HBB",
+      "citedSha256": "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+      "path": "data/fixtures/hbb/curated/hgnc/fetch_symbol_HBB.json",
+      "sha256": "848a4aa84b0b296e82e1771a2a07f4bcc2c914416ac4586707813e7eab9ab9a8",
+      "bytes": 1695,
+      "redacted": true
+    },
+    {
+      "input": "alphafoldPrediction",
+      "how": "public",
+      "url": "https://alphafold.ebi.ac.uk/api/prediction/P68871",
+      "citedSha256": "7a4ab449f01a2d36cac886f2f3d360552f52a1d1147c4525b4765b9324704078",
+      "path": "research/raw/alphafold/prediction_P68871.json",
+      "sha256": "7a4ab449f01a2d36cac886f2f3d360552f52a1d1147c4525b4765b9324704078",
+      "redacted": false
+    },
+    {
+      "input": "alphafoldModel",
+      "how": "public",
+      "url": "https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif",
+      "citedSha256": "0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e",
+      "path": "research/raw/alphafold/AF-P68871-F1-model_v6.cif",
+      "sha256": "0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e",
+      "redacted": false
+    },
+    {
+      "input": "reactomeVersion",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/database/version",
+      "citedSha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+      "path": "research/raw/reactome/database_version.txt",
+      "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+      "redacted": false
+    },
+    {
+      "input": "reactomePathways",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/mapping/UniProt/P68871/pathways?species=9606",
+      "citedSha256": "1607a87618d8e26483293a3caa4d8b5bcd80b2d17c026ae8961b323089190014",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_mapping_UniProt_P68871_pathways_species_9606.json",
+      "sha256": "1607a87618d8e26483293a3caa4d8b5bcd80b2d17c026ae8961b323089190014",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-983231",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-983231/ancestors",
+      "citedSha256": "dd417a87d4d176ef99c70721424d9cb8615596d238339710dc3672d71d71a006",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-983231_ancestors.json",
+      "sha256": "dd417a87d4d176ef99c70721424d9cb8615596d238339710dc3672d71d71a006",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-1237044",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-1237044/ancestors",
+      "citedSha256": "fc1ba5f261537b28ce6300f6e440c1c7db99ed56e52596dbc05519d57d82ec5d",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1237044_ancestors.json",
+      "sha256": "fc1ba5f261537b28ce6300f6e440c1c7db99ed56e52596dbc05519d57d82ec5d",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-1247673",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-1247673/ancestors",
+      "citedSha256": "9cff5d7728e5d1f75e78c817d85c8e2d6a47db7cb02e7af05e04d8fe80136f00",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1247673_ancestors.json",
+      "sha256": "9cff5d7728e5d1f75e78c817d85c8e2d6a47db7cb02e7af05e04d8fe80136f00",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-2168880",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-2168880/ancestors",
+      "citedSha256": "1b520f961969fd7b248c64306e97902b0c95cb0afedf93e3742436867fbf6b4e",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-2168880_ancestors.json",
+      "sha256": "1b520f961969fd7b248c64306e97902b0c95cb0afedf93e3742436867fbf6b4e",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-6798695",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-6798695/ancestors",
+      "citedSha256": "239a6fb7f5aea53026216dfa1070e421c7a82fb34ca97fbdf773112d4d8b15f3",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-6798695_ancestors.json",
+      "sha256": "239a6fb7f5aea53026216dfa1070e421c7a82fb34ca97fbdf773112d4d8b15f3",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-9613829",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9613829/ancestors",
+      "citedSha256": "1f973ad51abc17af540e34afdb718b87a3055011f3c7b1cc2fc42cdaa5064f78",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9613829_ancestors.json",
+      "sha256": "1f973ad51abc17af540e34afdb718b87a3055011f3c7b1cc2fc42cdaa5064f78",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-9615710",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9615710/ancestors",
+      "citedSha256": "da8e992b215f956b648e7b83da30a82661c17980a8c9598d8c5309100d6c751e",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9615710_ancestors.json",
+      "sha256": "da8e992b215f956b648e7b83da30a82661c17980a8c9598d8c5309100d6c751e",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-9707564",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9707564/ancestors",
+      "citedSha256": "119908e81aa27ab1bc28c198be0008543559706d2427dd50a4d06fe8e2c91981",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707564_ancestors.json",
+      "sha256": "119908e81aa27ab1bc28c198be0008543559706d2427dd50a4d06fe8e2c91981",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-9707616",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9707616/ancestors",
+      "citedSha256": "e446574c64896587f712115aaaf65df075635d4acb2969b2143cb5843d110ca2",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707616_ancestors.json",
+      "sha256": "e446574c64896587f712115aaaf65df075635d4acb2969b2143cb5843d110ca2",
+      "redacted": false
+    },
+    {
+      "input": "reactomeAncestors:R-HSA-9927020",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/event/R-HSA-9927020/ancestors",
+      "citedSha256": "0f713613baf0637942611de39672438af7dc0deb4229c3008474d0b7a294330b",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9927020_ancestors.json",
+      "sha256": "0f713613baf0637942611de39672438af7dc0deb4229c3008474d0b7a294330b",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-983231",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-983231",
+      "citedSha256": "fa5210cd0c3469b5c33dd8d1d2a10eab1d53c91e3a56a4e43ec3d059622b6575",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-983231.json",
+      "sha256": "fa5210cd0c3469b5c33dd8d1d2a10eab1d53c91e3a56a4e43ec3d059622b6575",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-1237044",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-1237044",
+      "citedSha256": "ba1678841b57c9fd906ddd8fd0bb1ce421d19039bef858ea51ecf990f8bb0c60",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1237044.json",
+      "sha256": "ba1678841b57c9fd906ddd8fd0bb1ce421d19039bef858ea51ecf990f8bb0c60",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-1247673",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-1247673",
+      "citedSha256": "c45ceea19299506ff46cb55287d46593a014db83f4e7711bca47a64f3ab2979d",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1247673.json",
+      "sha256": "c45ceea19299506ff46cb55287d46593a014db83f4e7711bca47a64f3ab2979d",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-6798695",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-6798695",
+      "citedSha256": "df8de64d3460c35307f52f5cfbe5fc2bd4533c81845761836546e0d579dcd86d",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-6798695.json",
+      "sha256": "df8de64d3460c35307f52f5cfbe5fc2bd4533c81845761836546e0d579dcd86d",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-9613829",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9613829",
+      "citedSha256": "fbf05417ab64303154d9a609073b10bfe67b31cc8897b4403172fa8b8067fb93",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9613829.json",
+      "sha256": "fbf05417ab64303154d9a609073b10bfe67b31cc8897b4403172fa8b8067fb93",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-9615710",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9615710",
+      "citedSha256": "a6eb82c067c0a13f55bcb5b32be2a8905ce1ce2ce5c8aa6a094f5aefefa9e354",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9615710.json",
+      "sha256": "a6eb82c067c0a13f55bcb5b32be2a8905ce1ce2ce5c8aa6a094f5aefefa9e354",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-9707564",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707564",
+      "citedSha256": "49e69ada0e61b8a612630e3430debc1365ec37cd1d7e74564f39af56557b8ad6",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707564.json",
+      "sha256": "49e69ada0e61b8a612630e3430debc1365ec37cd1d7e74564f39af56557b8ad6",
+      "redacted": false
+    },
+    {
+      "input": "reactomeParticipants:R-HSA-9707616",
+      "how": "public",
+      "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707616",
+      "citedSha256": "82941f8f6ccd388df5f7941ac068e43e5640ac805308b14470e549014ed49b86",
+      "path": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707616.json",
+      "sha256": "82941f8f6ccd388df5f7941ac068e43e5640ac805308b14470e549014ed49b86",
+      "redacted": false
+    },
+    {
+      "input": "opentargetsAssociations",
+      "how": "public",
+      "url": "https://api.platform.opentargets.org/api/v4/graphql",
+      "citedSha256": "14b55819285992e3536dd9f3f612f6be89cb7b6122d4d5bcc4a49e1bcc048109",
+      "path": "data/fixtures/hbb/opentargets/api_v4_graphql.json",
+      "sha256": "14b55819285992e3536dd9f3f612f6be89cb7b6122d4d5bcc4a49e1bcc048109",
+      "redacted": false
+    }
+  ]
+}

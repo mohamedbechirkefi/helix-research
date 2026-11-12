@@ -1,0 +1,78 @@
+{
+ "responseHeader": {
+  "status": 0,
+  "QTime": 0
+ },
+ "response": {
+  "numFound": 1,
+  "start": 0,
+  "numFoundExact": true,
+  "docs": [
+   {
+    "gene_group": [
+     "Hemoglobin subunits"
+    ],
+    "mgd_id": [
+     "MGI:5474850",
+     "MGI:5474852"
+    ],
+    "vega_id": "OTTHUMG00000066678",
+    "lsdb": [
+     "HbVar: A Database of Human Hemoglobin Variants and Thalassemias|http://globin.cse.psu.edu/globin/hbvar/menu.html",
+     "The Globin Gene Server|http://lovd.bx.psu.edu/home.php?select_db=HBB",
+     "LRG_1232|http://ftp.ebi.ac.uk/pub/databases/lrgex/LRG_1232.xml"
+    ],
+    "date_approved_reserved": "2001-06-22T00:00:00Z",
+    "status": "Approved",
+    "ena": [
+     "J00173"
+    ],
+    "entrez_id": "3043",
+    "mane_select": [
+     "ENST00000335295.4",
+     "NM_000518.5"
+    ],
+    "symbol": "HBB",
+    "prev_name": [
+     "hemoglobin, beta"
+    ],
+    "hgnc_id": "HGNC:4827",
+    "alias_symbol": [
+     "CD113t-C",
+     "beta-globin"
+    ],
+    "pubmed_id": [
+     2649166
+    ],
+    "uniprot_ids": [
+     "P68871"
+    ],
+    "locus_type": "gene with protein product",
+    "refseq_accession": [
+     "NM_000518"
+    ],
+    "ensembl_gene_id": "ENSG00000244734",
+    "agr": "HGNC:4827",
+    "uuid": "68e4a101-e720-4cbb-b9a0-563fad35b57e",
+    "iuphar": "HGNC:4827",
+    "locus_group": "protein-coding gene",
+    "name": "hemoglobin subunit beta",
+    "ccds_id": [
+     "CCDS7753"
+    ],
+    "gencc": "HGNC:4827",
+    "gene_group_id": [
+     940
+    ],
+    "date_name_changed": "2015-11-23T00:00:00Z",
+    "rgd_id": [
+     "RGD:2783"
+    ],
+    "orphanet": 122376,
+    "date_modified": "2023-01-20T00:00:00Z",
+    "ucsc_id": "uc001mae.2",
+    "location": "11p15.4"
+   }
+  ]
+ }
+}

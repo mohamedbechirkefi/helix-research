@@ -1,0 +1,51 @@
+{
+  "script": "a first version of scripts/data-preparation/record-hbb-curated-inputs.ts (not committed): one fetch() per URL, no retry, redirect refused, request header User-Agent helix-research only (the build scripts default; no email, no other identifier); D-H041 item 4 authorised exactly these two free, unauthenticated GET requests",
+  "requests": [
+    {
+      "name": "ensemblAssembly",
+      "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+      "method": "GET",
+      "requestHeaders": {
+        "User-Agent": "helix-research"
+      },
+      "date": "2026-11-12T18:18:18Z",
+      "status": 200,
+      "bytes": 12640,
+      "sha256": "7901167c6ef3bc8889b0b18b5a9e91e62f5e7b6e0ae225985f5ca79c48b2c457",
+      "curatedSha256": "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785",
+      "sameBytesAsCurated": false,
+      "headers": {
+        "content-type": "application/json",
+        "x-ratelimit-limit": "55000",
+        "x-ratelimit-remaining": "54974"
+      },
+      "bodyKept": false,
+      "sameContentAsCurated": "unknown (body lost; the same 12,640 bytes as the five assembly bodies recorded from 2026-11-01 to 2026-11-03, which agree once their keys are sorted)"
+    },
+    {
+      "name": "codonMap",
+      "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
+      "method": "GET",
+      "requestHeaders": {
+        "User-Agent": "helix-research"
+      },
+      "date": "2026-11-12T18:18:20Z",
+      "status": 200,
+      "bytes": 151,
+      "sha256": "530b914f6d1e654873cf94091670945a0ce1330da68d648a5051ef81077c68e5",
+      "curatedSha256": "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288",
+      "sameBytesAsCurated": false,
+      "headers": {
+        "content-type": "application/json",
+        "x-ratelimit-limit": "55000",
+        "x-ratelimit-remaining": "54999"
+      },
+      "bodyKept": false,
+      "bodyRecovered": "{\"mappings\":[{\"start\":5227001,\"strand\":-1,\"rank\":0,\"coord_system\":\"chromosome\",\"gap\":0,\"end\":5227003,\"assembly_name\":\"GRCh38\",\"seq_region_name\":\"11\"}]}",
+      "bodyRecoveredSha256": "530b914f6d1e654873cf94091670945a0ce1330da68d648a5051ef81077c68e5",
+      "sameContentAsCurated": true
+    }
+  ],
+  "note": "The run stopped after both responses had been received and hashed, before anything was written: the fixture recorder refused to redact the cached UniProt body (a MIM number left in free text). The response bodies were therefore not kept, and no further request was made. The codon map body was recovered afterwards without a request: of the 40,320 key orders of the Phase 1 body of the same URL (research/raw/ensembl/map_cds_ENST00000335295_19-21.json), exactly one has the sha256 recorded here; it is given below. The assembly body (12 top-level keys and 194 region objects, each in its own key order) cannot be recovered that way and is lost; only its size and sha256 are recorded.",
+  "ensemblRelease": "not reported by either endpoint (neither body nor the kept headers name a release); the curated set cites Ensembl 116 for both, from the info/data body of 2026-11-02"
+}
