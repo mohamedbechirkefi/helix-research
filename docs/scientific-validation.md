@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
 # Scientific validation (P2.5.3)
 
-**Status:** Phase 2, updated for Phase 6 and Phase 9 (the CFTR set and the deletion branch, 2026-11-03; section 2, Phase 9 table). **Last HBB run:** live build of `data/curated/hbb/` started 2026-11-02T02:26:08Z from commit `4b30c60` (clean tree), Ensembl 116, UniProt 2026_03, PDB 2HBS revision 1.5 (2026-08-12), ClinVar Build261025-1250.1 (record VCV000015333.184), AlphaFold DB model v6. Journal: HX-P6-2026-11-02-hbb-rebuild. The Phase 2 run (2026-11-01T19:27:28Z, 46 checks) is HX-P2-2026-11-01-hbb-dataset-build.
+**Status:** Phase 2, updated for Phase 6, Phase 9 and the Phase 11 audit of every displayed claim (section 7, 2026-11-12) (the CFTR set and the deletion branch, 2026-11-03; section 2, Phase 9 table). **Last HBB run:** live build of `data/curated/hbb/` started 2026-11-02T02:26:08Z from commit `4b30c60` (clean tree), Ensembl 116, UniProt 2026_03, PDB 2HBS revision 1.5 (2026-08-12), ClinVar Build261025-1250.1 (record VCV000015333.184), AlphaFold DB model v6. Journal: HX-P6-2026-11-02-hbb-rebuild. The Phase 2 run (2026-11-01T19:27:28Z, 46 checks) is HX-P2-2026-11-01-hbb-dataset-build.
 
 > **Commit hashes after the history rewrite (note added 2026-11-02, resolved the same day).** On 2026-11-01 the public history was rewritten to remove an email address (see `paper/report.en.md`, chapter 11). The Phase 2 build recorded `0692bff` as its generator commit (and `aeb7b43` for an earlier pair of builds); both are from before the rewrite and are not on `main`, where the same commits are `3b89a9a` and `701cd57`. The Phase 6 rebuild replaced that manifest: `generator.gitCommit` is now `4b30c60`, which is on `main`. The Phase 2 hashes are kept here only to identify the earlier runs.
 
@@ -237,3 +237,167 @@ The record is a database annotation (class 2) and says so in every reader: an as
 - Whether Mol* selects by label or auth ids by default (P1.4.1, another agent).
 - The HGVS normaliser for indels: not written in general (scientific model §5). Phase 9 resolves one further kind, the in-frame deletion named by its HGVS c. in the specification and confirmed by the variant recoder: the c. span is never normalised here; what is computed is the equivalence of the SPDI, the HGVS g. and the ClinVar location by stripping the SPDI's repeated context and shifting the net deletion within the recorded genomic window. Tested on a forward-strand gene (CFTR); on a reverse-strand gene the c. and g. 3' rules point in opposite directions and T08 would need the shift as well.
 - Contacts of the deleted CFTR residue with residues of its own chain are reported within the asymmetric unit only; the entry is a single-particle reconstruction, so no symmetry mates exist.
+
+## 7. Phase 11 audit (P11.3.1): every displayed claim against its record and its upstream release
+
+**Status:** run on 2026-11-12 on the build of helix-app 10fb938 (the commits after it change tests and suite scripts only) (pinned, unchanged, to helix-research 62d45de), by an AI agent. **The claims were checked against their records by an AI-assisted audit only, with no independent domain expert (D-H031: no reviewer is available).** To compensate in part, the check is mechanical wherever it can be: every displayed sentence must map to a record field or a named rule of the code, or the script fails; every record field the app displays is traced to the raw body it was read from and to that body's source and release. What the scripts cannot judge (whether a sentence is well worded, or whether a record itself is right about biology) is not judged here. Journal: HX-P11-2026-11-12-scientific-audit. Review page: helix-app `docs/reviews/phase-11-scientific-audit.md`. Result files are tagged `p11sci`.
+
+### 7.1 Method
+
+1. **Inventory** (helix-app `apps/web/e2e/text-inventory.mjs`, Chrome 157 headless). Every text the app displays, read in the browser: on each of the 80 S21 screens (`a11y.mjs --all-sets --texts`: the five curated sets in every world each set enables, under reduced motion and low power, the 1024 px width and the 200 % zooms, the welcome, the bridge, the selection, the This session card, the domain panel, the two explorer refusals, a recorded TP53 dynamic set, the development panel), the DOM text blocks, the attribute texts (aria-label, title, alt, placeholder) and the accessibility names Chrome computes, and the Mol* in-scene label. Then, on the rule-based path, every supported question of each set's questions record and its bridge question, asked as S19 asks them (31 questions), each explanation read from the ask record (sentence, kind, evidence ids) at the standard depth and re-composed at the brief and detailed depths (93 explanations), with the page's text after each answer; and the TP53 fixture's explorer question. The content of a closed `<details>` (the limitations list, the evidence index) is kept and flagged, since a visitor opens it. Ollama requests are refused, every other non-local host is refused: the explanations are the rules' only. The texts are deduplicated: 9,215 distinct texts.
+2. **Source map** (`apps/web/e2e/source-map.mjs`). Each text is mapped mechanically, in this order: a codon text of the codon tape, the narrow page or a base (recomputed from the CDS); the selection card (every number recomputed from the transcript, sequences and variant records); Mol*'s hover and selection readout (entity, entry, chain and residue looked up in the structure and mapping records); a value of a record of the set it was shown on (file and JSON path); a string literal or JSX text of the shipped code (file and the enclosing function or constant; helix-app `apps/web/src`, `packages/*/src` and helix-research `packages/*/src`, parsed with TypeScript's own parser); an instance of a template of the shipped code (a template literal, or a JSX element mixing text and expressions); a token (a base, a codon, an amino-acid code, a sequence position within the set's lengths, a number); a composite (a mapped prefix and a mapped rest, recursively); and, last, an entry of the allowlist `apps/web/e2e/source-map-allowlist.json`, each with its reason. A template with fewer than eight letters of fixed text counts only when every word of each slot is a record word, a code word or a number. A text with no source fails the script (exit 1).
+3. **Reader check, against the records.** Every fact token of a template slot or a constant (an identifier, a number, a position, a residue) must be found in the set's records: as a value or part of one, as a number at the precision shown, as a position within the set's sequence lengths, or as an identifier whose base is in the record. Every explanation sentence the rules wrote is checked by kind: an evidence line's statement, class and label against the record's evidence entry; a location's residues against the mapping tables; the contacts against the contacts record (waters left out, the cutoff); the memberships, the associations (order, name, id, score to two decimals) and the protein features (type, description, positions, codons and c. ranges recomputed) against their records; ClinVar's accession version and classification; the brief and detailed notes' counts. A mismatch that is not a stated finding (`apps/web/e2e/source-map-findings.json`) fails the script.
+4. **Reader check, against the upstream release** (helix-research `scripts/data-preparation/trace-records.ts`, no live call). Every source row of each set's manifest (URL, sha256, release) is looked up by its sha256 among the recorded raw bodies (the public fixtures `research/raw` and `data/fixtures/<set>`, and the local snapshot cache `.cache/helix-raw`, which is not in the repository). The displayed fields of each record are compared with the raw body of the record's own provenance source, parsed independently of the builder: the gene (Ensembl id, version, interval, description; HGNC symbol, id, aliases), the transcript (id, exon count, translation length), the protein (accession, length, entry version, every feature's type, positions and description), the variant (rsId, HGVS p. in the VEP body, consequence terms), ClinVar (accession version, classification, review status, last evaluated, supporting submissions), the structure (method, resolution, revision), the predicted model (id, version, global pLDDT), the pathway memberships (stable id, name, disease flag; the Reactome release) and the disease associations (count, platform versions, every kept row's disease id, name and score). In addition each set is rebuilt from its committed fixtures (`build-gene.ts --gene <set> --fixtures`) and compared with the committed set (`compare-builds.ts`).
+5. **Model prose, by class.** A language model runs only on development and desktop pages, when a local model is available; a non-development host never creates a model provider (S17, S19). Where it runs, it chooses the actions only: since D-H029 (question 88) the explanation, the announcement and the follow-up offers are written by the app, and the model's own text stays on the ask record (the diagnostics hook), which no screen renders (the development panel shows the request, the actions and the providers, not the model's words; checked in `apps/web/src/ui/Instrument.tsx` DevPanel). Model prose is therefore audited by class, through the carried items of section 7.6, not in this inventory.
+
+### 7.2 Inventory counts
+
+| Set | S21 screens | Questions asked (supported + bridge) | Distinct texts shown on the set | bridge | controls and panels | development panel | dna world | dynamic set | evidence world | explanation | narrow page | pathway world | protein world | welcome and startup |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| HBB | 31 | 7 | 1,285 | 543 | 493 | 487 | 509 | 0 | 498 | 740 | 504 | 250 | 612 | 118 |
+| CFTR | 12 | 7 | 3,741 | 0 | 0 | 0 | 3,237 | 0 | 443 | 3,481 | 0 | 231 | 187 | 0 |
+| BRCA1 | 12 | 7 | 4,566 | 0 | 0 | 0 | 3,990 | 0 | 462 | 4,297 | 0 | 300 | 213 | 0 |
+| SLC6A3 | 12 | 7 | 1,951 | 0 | 0 | 0 | 1,482 | 0 | 399 | 1,749 | 0 | 255 | 205 | 0 |
+| FAAH2 | 10 | 2 | 1,703 | 0 | 1,265 | 0 | 1,276 | 0 | 309 | 352 | 0 | 321 | 0 | 0 |
+| TP53 (dynamic) | 3 | 1 | 1,123 | 0 | 0 | 0 | 0 | 1,041 | 191 | 983 | 0 | 0 | 0 | 0 |
+
+A text shown on several sets or screen classes is counted once in each; the distinct total is 9,215 (8,828 DOM text blocks, 231 attribute texts, 288 accessibility names that differ from both, 9 Mol* labels; 80 screens, 31 questions, 93 explanations at three depths). By kind of text:
+
+| Kind | Distinct texts |
+|---|---|
+| sequence views and variant card | 7,104 |
+| Evidence World records | 735 |
+| Pathway World | 443 |
+| other interface | 314 |
+| explanation and its announcement | 294 |
+| evidence cards | 206 |
+| captions and structure notes | 134 |
+| This session card | 72 |
+| limitations list | 70 |
+| bridge sequence | 47 |
+| welcome, startup and narrow page | 46 |
+| journey and tour | 38 |
+| controls and layers | 31 |
+| chips and suggestions | 28 |
+| AI status | 8 |
+| development panel | 7 |
+| dynamic banner and dynamic notes | 5 |
+
+Source map: 9,215 of 9,215 texts mapped, **0 without a source**; by class: template 6,192, record 2,047, token 695, constant 230, composite 39, interface 12. Reader check: 4,909 codon texts against the CDS (0 differ), 13 selection-card texts recomputed (0 differ), 322 explanation sentences with 504 checks by kind (0 failed); 5 mismatches in all, 0 not stated as a finding.
+
+### 7.3 Sources
+
+| Class | Source | Distinct texts |
+|---|---|---|
+| record field | residue-mapping-P13569-5UAK.json | 993 |
+| record field | pathways.json | 327 |
+| record field | part of a record value | 179 |
+| record field | manifest.json | 157 |
+| record field | residue-mapping-P38398-1JM7.json | 92 |
+| record field | residue-mapping-P68871-2HBS.json | 43 |
+| record field | associations.json | 39 |
+| record field | residue-mapping-Q01959-8Y2C.json | 36 |
+| record field | questions.json | 30 |
+| record field | gene.json | 27 |
+| record field | clinvar-hbs.json | 16 |
+| record field | clinvar-c61g.json | 13 |
+| record field | 31 further sources | 95 |
+| template | `helix-app/apps/web/src/App.tsx` codonItems | 4,674 |
+| template | `helix-app/apps/web/src/App.tsx` SequencePanel | 168 |
+| template | `helix-app/apps/web/src/ui/NarrowPage.tsx` sequence | 148 |
+| template | `helix-app/apps/web/src/phase6.tsx` EvidenceWorld | 132 |
+| template | `helix-app/apps/web/src/phase6.tsx` ComparisonTable | 102 |
+| template | `helix-app/apps/web/src/App.tsx` App | 98 |
+| template | `helix-app/apps/web/src/ui/EvidenceCard.tsx` EvidenceCard | 82 |
+| template | `helix-app/apps/web/src/evidence.ts` composeStandard.text | 76 |
+| template | `helix-app/apps/web/src/evidence.ts` applyDepth.text | 61 |
+| template | `helix-research/packages/scientific-core/src/slice/build.ts` PR | 50 |
+| template | `helix-app/apps/web/src/dna/labels.ts` labelsForScale.text | 46 |
+| template | `helix-app/packages/ai-director/src/director.ts` shown | 37 |
+| template | `helix-app/apps/web/src/controller.ts` curated | 36 |
+| template | `helix-app/apps/web/src/App.tsx` rows.value | 33 |
+| template | 78 further sources | 449 |
+| constant | `helix-app/apps/web/src/phase6.tsx` EvidenceWorld | 26 |
+| constant | `helix-app/apps/web/src/phase6.tsx` KNOWN_LIMITATIONS.text | 14 |
+| constant | `helix-app/apps/web/src/App.tsx` App | 12 |
+| constant | `helix-app/apps/web/src/ui/Instrument.tsx` ProteinCaption | 9 |
+| constant | `helix-app/apps/web/src/phase6.tsx` Welcome | 9 |
+| constant | `helix-app/packages/design-system/src/components/BridgeSequence.tsx` BridgeSequence | 8 |
+| constant | `helix-app/apps/web/src/phase6.tsx` AssociationsSection | 7 |
+| constant | `helix-app/apps/web/src/ui/PathwayWorld.tsx` PathwayWorld | 6 |
+| constant | `helix-app/apps/web/src/session-profile.ts` describeProfile.label | 5 |
+| constant | `helix-app/apps/web/src/App.tsx` SelectionCard | 5 |
+| constant | `helix-app/apps/web/src/App.tsx` rows.label | 5 |
+| constant | `helix-app/apps/web/src/ui/Instrument.tsx` DevPanel | 5 |
+| constant | `helix-research/packages/scientific-core/src/checks.ts` translationChecks | 4 |
+| constant | `helix-app/apps/web/src/ui/SessionCard.tsx` SessionCard | 4 |
+| constant | 84 further sources | 111 |
+| token | a sequence position (an index of the codon tape, the sequence ruler or a list), within the set's sequence lengths | 527 |
+| token | a number rendered by the template of its element | 117 |
+| token | sequence views: a base, codon or amino-acid code rendered from the sequences record | 50 |
+| token | the retrieval time of the dynamic set (this browser's clock at retrieval, D-H022) | 1 |
+| composite | a mapped prefix and a mapped rest (sentences, a label and its value, list items) | 39 |
+| interface (allowlist) | Mol* (third-party viewer) controls and their tooltips inside Protein World's viewer layer: interface labels of the library, no scientific st | 11 |
+| interface (allowlist) | the visitor's own questions, echoed in order in the This session card (visitor input, never a statement of Helix; a question of a set's ques | 1 |
+
+The full map (every text, its class, its source, its slots) is `source-map-p11sci.json` (`mapped`); the templates and constants are named by file and enclosing function or constant, the record fields by file and JSON path.
+
+### 7.4 Upstream trace
+
+Manifest source rows: 199 over the five sets; 188 bodies found in the public fixtures, 9 in the local snapshot cache only, 2 not found (all HBB, finding P11-S-01). Field checks against the raw bodies: 159, 159 agree, 0 differ.
+
+| Source | Release recorded in the manifests |
+|---|---|
+| alphafold | AlphaFold DB model v6 |
+| ensembl | Ensembl 116 |
+| hgnc | none recorded |
+| ncbi-clinvar | ClinVar Build261025-1250.1, ClinVar Build261101-1245.1 |
+| opentargets | Open Targets 26.9.0 (data 26.09) |
+| pdbe-sifts | none recorded |
+| rcsb | PDB rev 1.4 2024-03-06, PDB rev 1.4 2024-05-22, PDB rev 1.4 2025-07-16, PDB rev 1.5 2026-08-12 |
+| rcsb-files | PDB rev 1.4 2024-03-06, PDB rev 1.4 2024-05-22, PDB rev 1.4 2025-07-16, PDB rev 1.5 2026-08-12 |
+| reactome | Reactome 98 |
+| uniprot | UniProt 2026_03 |
+
+| Set | Field checks | Agree |
+|---|---|---|
+| HBB | 34 | 34 |
+| CFTR | 34 | 34 |
+| BRCA1 | 34 | 34 |
+| SLC6A3 | 34 | 34 |
+| FAAH2 | 23 | 23 |
+
+**Rebuild from the committed fixtures** (`build-gene.ts --gene <set> --fixtures --out <scratch>`, then `compare-builds.ts data/curated/<set> <scratch>`; `journal/results/compare-<set>-committed-vs-fixtures-rebuild-p11sci.txt`). CFTR, BRCA1, SLC6A3 and FAAH2: every record identical apart from the allowed timestamps; the only other differences are the two generator fields (`script` offline against fixtures, and `gitCommit`). The compare script exits 1 on those two fields, as it must. HBB: 58 other differences (finding P11-S-01); the offline rebuild from the local snapshot no longer runs (`build-hbb-offline-p11sci.log`).
+
+### 7.5 Findings
+
+States: **fixed** (pin commit, then change commit), **open for the author** (a proposal, not built), **note** (a fact; nothing displayed is wrong).
+
+| Id | Text | Where | Record | Upstream | State |
+|---|---|---|---|---|---|
+| P11-S-01 | Every HBB text that reads the ClinVar record, for example "ClinVar VCV000015333.184 review status: criteria provided, multiple submitters, no conflicts ..." with the qualifier "75 supporting submissions" | HBB: Evidence World, the explanations of the variant questions, the limitations list ("moved from version 183 to 184") | `clinvar-hbs.json`, `variant-hbs.json`: VCV000015333.184, 75 submissions, ClinVar Build261025-1250.1 | The HBB set was last built offline from the Phase 6 live snapshot (2026-11-02). Of its 44 manifest rows, 33 bodies are in the public fixtures, 9 only in the local snapshot cache (not in the repository) and 2 recorded nowhere (Ensembl `info/assembly/homo_sapiens` and `map/cds/ENST00000335295/19..21`; the cache no longer holds them, so `build-gene.ts --gene hbb --offline` stops with "cache absent for ensemblAssembly"). The public fixtures are the Phase 1 and 2 bodies: rebuilt from them, the set differs from the committed one in 58 values (ClinVar .183 and 74 submissions, no ClinVar build, the URLs that still carried the redacted email parameter, the raw-body hashes). Every displayed field checked against the recorded bodies (public and cached) agrees: 34 of 34 | **open for the author.** S23 asks that the curated sets regenerate byte-identically from the recorded raw inputs; HBB does not from the public ones. Options: (a) add the 9 cached Phase 6 bodies to the HBB fixtures and re-record the two missing Ensembl bodies (two free live GET requests, which this pass does not make); (b) rebuild HBB from the public fixtures (ClinVar back to .183: a record change and a new data version); (c) accept and state it. Recommendation (a). No record was edited |
+| P11-S-02 | "Its wording is never a scientific claim. Its suggested next questions are shown only when a fixed filter finds them nonclinical and answerable with the curated data." | the limitations list, every set and screen; helix-app `docs/known-limitations.md` | none (a statement about the code) | helix-app `controller.ts` `nextQuestions`: since D-H029 (88) a model's follow-ups are not offered; `evidence.ts` `composeExplanation`: its wording never reaches the screen | **fixed**: "Its wording is never shown: the app writes every sentence from the plan and the records, and its suggested next questions are not offered." (helix-app pin 67464a2, change 10fb938) |
+| P11-S-03 | "each score aggregates the platform's evidence for a target-disease pair, with the scores of share-alike or restricted sources dropped." | the limitations list of every set with associations; `docs/known-limitations.md` | `associations.json` evidence limitation: "The overall score and the datatype scores are the platform's aggregates over every datasource, including the dropped ones (clinical_precedence, europepmc)" | Open Targets 26.9.0 (data 26.09): each kept row's `score` equals the platform's overall score in the body | **fixed** (the line read as if the score left those sources out): "each score aggregates the platform's evidence for a target-disease pair, share-alike or restricted sources included; their own scores are not shown." (pin 67464a2, change 10fb938) |
+| P11-S-04 | Mol*'s readout "Sodium-dependent dopamine transporter 8Y2C \| Model 1 \| Instance 1_555 \| A \| ARG 20 [auth 85]", beside the app's "ARG A85" and "R85W" | SLC6A3, Protein World (hover and selection) | `residue-mapping-r85w-8Y2C.json`: label_seq_id 20, auth_seq_id 85 | PDB 8Y2C revision 1.4 (2025-07-16) | **note**: the readout agrees with the record. Mol* leads with the label numbering and gives the deposited number in brackets; every Helix text uses the deposited (auth) number. On HBB, CFTR and BRCA1 the two coincide at the residues shown. **Open for the author**: ask Mol* for the auth numbering in its readout (a shipped change, bytes not measured) or say it in the Protein World caption |
+| P11-S-05 | the HGNC and PDBe SIFTS rows of the record versions | Evidence World, every set | the manifests: `sourceRelease` null on every HGNC and SIFTS row | neither states a release in its response (SIFTS is updated weekly, `docs/data-source-registry.md`) | **note**: the retrieval date stands for the release; nothing displayed claims one |
+| P11-S-06 | gene search by a previous HGNC symbol (ABCC7 or CF for CFTR, DAT1 for SLC6A3, AMDD for FAAH2) | the welcome's gene search | `gene.json` aliases are HGNC's `alias_symbol` only | HGNC `prev_symbol` | **note**: nothing displayed is wrong; a previous symbol is not searchable |
+| P11-S-07 | "... can hold the scene for one frame of up to about 0.15 s" | the limitations list | none (a measurement) | D-H036, helix-app `budgets.json` tiers | **note**: a performance figure, whose evidence is the Phase 11 tiers review, not a curated record; the generic number check passes it only because some record number rounds to 0.15 (listed in `source-map-findings.json`) |
+| P11-S-08 | `docs/phase-11-release-qa.md` P11.3.1 named the model factual errors "C9" | the plan | none | none | **fixed** (this document's companion plan): C8 is the factual-errors item, C9 the clarify messages |
+| P11-S-09 | "Only HBB (beta-globin), its HbS variant and one experimental structure (PDB 2HBS) are curated in this build. Other genes are refused rather than built from uncurated data." | shipped (helix-app `phase6.tsx` `KNOWN_LIMITATIONS`, line `one-gene`), never displayed: `limitationsFor` always writes that line from the datasets index | none | none | **open for the author**: an outdated text of 171 bytes in the bundle that no screen shows; emptying it would give the bytes-at-rest budget about that much room. Not done: not a displayed claim, and the budget is the author's. helix-app `docs/known-limitations.md` row `one-gene` now describes the line the app writes |
+| P11-S-10 | "The UniProt record of Q6GMR7 (FAAH2) lists no feature of type Domain, Region, Topological domain, Transmembrane or Zinc finger, so there is no domain to show." (and the same for P04637, TP53, and, by reading the rule, Q01959, SLC6A3; the variant "The UniProt record of P13569 lists no feature of type Transmembrane; it lists Domain." for a typed request on CFTR, or "Zinc finger" on BRCA1, also by reading the rule: the suites do not ask those) | the explanation and its announcement ("Refused: ...") after a domain question; S21's FAAH2 refusal screen, the TP53 explorer answer | `protein-Q6GMR7.json`: no feature of those types; the protein records keep only UniProt's Domain type of the five (helix-research `packages/data-adapters/src/adapters/uniprot.ts` `KEPT_FEATURE_TYPES`; the rules' explorer types are `DOMAIN_FEATURE_TYPES` in `packages/ai-planning/src/schema.ts`) | the recorded UniProt bodies list them: FAAH2 1 Transmembrane; TP53 20 Region; CFTR 13 Topological domain, 12 Transmembrane, 3 Region; BRCA1 9 Region, 1 Zinc finger; SLC6A3 7 Topological domain, 12 Transmembrane, 1 Region (UniProt 2026_03) | **open for the author.** The sentence is true of Helix's record and false of UniProt, which it names. Found by the source map's UniProt check (`source-map-p11sci-pin-uniprot.json`, exit 1), then stated. Options: (a) reword the two refusals in `fallback.ts` (`validate.ts` carries the same wording in two issue messages, not shown to a visitor) to name the record Helix keeps, for example "The protein record of Q6GMR7 (FAAH2) keeps no UniProt feature of type ...", which needs a rules version with both frozen-set scores, a helix-research packages commit and a pin move; the bytes depend on the wording ("The protein record of" for "The UniProt record of" costs 0 bytes) and are not measured; (b) keep the four other types in the protein records (a data change in every curated record, then the domain answers would show transmembrane helices); (c) state it as a limitation. Recommendation (a), then (b) if the domain answers should show those types. The domain answer itself ("UniProt P68871 lists 1 feature of the types shown: Domain Globin ...") was checked and agrees with UniProt, because it counts the Domain type only |
+
+Counts: 10 findings. Fixed: 3 (P11-S-02 and P11-S-03 in the app, P11-S-08 in the plan). Open for the author: 4 (P11-S-01, P11-S-04, P11-S-09, P11-S-10). Notes: 3 (P11-S-05 to P11-S-07). **No displayed fact differs from its record** (codons, selection card, explanation sentences by kind, fact tokens), and no displayed record field differs from its upstream body; the one displayed statement that differs from upstream is P11-S-10, a statement about UniProt that holds only for Helix's reduced copy.
+
+### 7.6 Model prose, carried as limitations
+
+- **C4, the claim screen's held-out record** (D-H026 answer 76): on the held-out text the claim screen caught no new violation: 0 true hits, 7 false positives, 1 miss. It is kept as a safety net and is not evidence that model prose is free of forbidden claims.
+- **C8, model factual errors outside the forbidden-claim list** (HX-P10-2026-11-09-final-audit finding 6): P10H-HBB-08 says the record gives no binding residue; HBB-04, FU-HBB/1 and FAAH2-02 say Open Targets "lists 25" where the record keeps 25 of 552 and of 51; FU-SLC6A3/3 gives a wrong reason for non-openable pathways. None of these reaches a visitor's explanation since D-H029 (88); the model's text is kept on the ask record only.
+- **Where model prose can appear:** only on development and desktop pages, where a model can run, and there only on the ask record, not on screen (section 7.1, item 5); never on a non-development host (S17, S19). Should a later change render the model's text, these two limitations apply to it in full. The audit above covers the rules' path only.
+
+### 7.7 What this audit does not show
+
+- That the records are right about biology: a record is compared with its upstream body, not with the literature; the upstream databases' own errors pass through.
+- That a sentence is well understood by a visitor: wording was read by the same AI that wrote the scripts; no domain expert and no visitor read it (D-H031).
+- The text drawn by Mol* inside the canvas other than its emphasis label, and Mol*'s own interface labels (allowlisted, section 7.3).
+- Texts on states the suites do not reach (an error a recorded fixture cannot produce, a question outside the records' questions and the two refusals). The Phase 7 art-direction prototypes (`?concept=`, a separate chunk the app never renders) are left out of the code the map reads.
+- How strong each number check is. A codon, a selection-card line, an explanation sentence, Mol*'s readout and a UniProt claim are recomputed from their own record; any other number in a template slot is only required to appear somewhere in the set's records at the precision shown, or to lie within the set's sequence lengths when it is a position. That second check catches a number that exists nowhere, not a number swapped with another of the same set (P11-S-07 passes it by coincidence).

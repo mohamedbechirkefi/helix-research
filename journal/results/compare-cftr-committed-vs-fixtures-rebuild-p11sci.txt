@@ -1,0 +1,20 @@
+files compared: 17
+byte-identical files: 3
+allowed differences (timestamps and dependent hashes): 193
+  associations.json: 4
+  clinvar-f508del.json: 3
+  contacts-f508del-5UAK.json: 1
+  gene.json: 10
+  manifest.json: 83
+  pathways.json: 6
+  predicted-model-AF-P13569-F1.json: 1
+  protein-P13569.json: 10
+  residue-mapping-P13569-5UAK.json: 4
+  residue-mapping-f508del-5UAK.json: 8
+  sequences.json: 32
+  structure-5UAK.json: 11
+  transcript.json: 6
+  variant-f508del.json: 14
+other differences: 2
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitCommit: "878450a664c652c6feb6dcf9d869ef53ac98cb96" != "ed1d561752713c1857904f7d66f39dddeed4e12e" (value)

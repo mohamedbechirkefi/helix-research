@@ -1,0 +1,68 @@
+files compared: 17
+byte-identical files: 3
+allowed differences (timestamps and dependent hashes): 245
+  associations.json: 4
+  clinvar-hbs.json: 5
+  contacts-hbs-2HBS.json: 2
+  gene.json: 10
+  manifest.json: 104
+  pathways.json: 6
+  predicted-model-AF-P68871-F1.json: 3
+  protein-P68871.json: 11
+  residue-mapping-P68871-2HBS.json: 8
+  residue-mapping-hbs-2HBS.json: 11
+  sequences.json: 36
+  structure-2HBS.json: 15
+  transcript.json: 8
+  variant-hbs.json: 22
+other differences: 58
+  clinvar-hbs.json $.accessionVersion: "VCV000015333.184" != "VCV000015333.183" (value)
+  clinvar-hbs.json $.recordVersion: 184 != 183 (value)
+  clinvar-hbs.json $.clinvarBuild: "Build261025-1250.1" != null (value)
+  clinvar-hbs.json $.supportingSubmissionCount: 75 != 74 (value)
+  clinvar-hbs.json $.provenance.sources[0].url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research" != "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research&email=[redacted]" (value)
+  clinvar-hbs.json $.provenance.sources[0].sourceRelease: "ClinVar Build261025-1250.1" != null (value)
+  clinvar-hbs.json $.provenance.sources[1].url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research" != "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research&email=[redacted]" (value)
+  clinvar-hbs.json $.provenance.sources[1].sourceRelease: "ClinVar Build261025-1250.1" != null (value)
+  clinvar-hbs.json $.provenance.sources[1].recordVersion: "184" != "183" (value)
+  clinvar-hbs.json $.provenance.sources[1].sha256: "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4" != "ecb86bd570b851768c7e9fc0b918ead8270d72baa1e20e217501c5e9d9e3609d" (value)
+  clinvar-hbs.json $.provenance.validation[1].detail: "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission" != "VCV000015333.183: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission" (value)
+  clinvar-hbs.json $.evidence[0].statement: "ClinVar VCV000015333.184 review status: criteria provided, multiple submitters, no conflicts (2 of 4 review stars in ClinVar's scale); ClinVar reports no conflicting classifications for this record." != "ClinVar VCV000015333.183 review status: criteria provided, multiple submitters, no conflicts (2 of 4 review stars in ClinVar's scale); ClinVar reports no conflicting classifications for this record." (value)
+  clinvar-hbs.json $.evidence[0].qualifier: "classification Pathogenic; 75 supporting submissions; last evaluated 2026/07/01 00:00" != "classification Pathogenic; 74 supporting submissions; last evaluated 2026/07/01 00:00" (value)
+  gene.json $.provenance.sources[0].sha256: "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1" != "0da67c9bb3fa65d11938bf55347c8c940c47a19426ae84dac1894ee23bef1c08" (value)
+  gene.json $.provenance.sources[1].sha256: "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785" != "f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e" (value)
+  gene.json $.provenance.sources[2].sha256: "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473" != "166dc349c88ebaaf3a6337449c222cbc4af61e0407539aa696b40055138efd72" (value)
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitCommit: "8845ce912c7d7341e8aa5f4ddb9a0e8a2c84825f" != "ed1d561752713c1857904f7d66f39dddeed4e12e" (value)
+  manifest.json $.sources[1].sha256: "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785" != "f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e" (value)
+  manifest.json $.sources[2].sha256: "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1" != "0da67c9bb3fa65d11938bf55347c8c940c47a19426ae84dac1894ee23bef1c08" (value)
+  manifest.json $.sources[3].sha256: "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7" != "893480b9ecaac6d492ec510a5e59dd1163f4077f3b62cf657630fa1c1b570476" (value)
+  manifest.json $.sources[7].sha256: "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e" != "922b694de6ce0a97100295cf7c61a695f3858a942bd375c841efa855e28936a8" (value)
+  manifest.json $.sources[8].sha256: "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288" != "36c36e002e2a9101fb19111ccaabc33b2bfb9ebb08ea9781f722e914e9452c74" (value)
+  manifest.json $.sources[9].url: "https://rest.ensembl.org/variation/human/rs334?content-type=application/json" != "https://rest.ensembl.org/variation/human/rs334?phenotypes=1;content-type=application/json" (value)
+  manifest.json $.sources[9].sha256: "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47" != "cfb3c31fb7451e0604bc50504d3bd647f6a2ef732014daf0535b0bc319d6b4a9" (value)
+  manifest.json $.sources[10].sha256: "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5" != "9f723fb6cafb98e237824825f13dc15f822712dde246c931859fead130dbd5c1" (value)
+  manifest.json $.sources[11].sha256: "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f" != "41f237d47d976d60b59d4e9b73aee67d5db1ccecfcf925a2e9322d555413e26b" (value)
+  manifest.json $.sources[12].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  manifest.json $.sources[18].url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research" != "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research&email=[redacted]" (value)
+  manifest.json $.sources[18].sourceRelease: "ClinVar Build261025-1250.1" != null (value)
+  manifest.json $.sources[18].recordVersion: "184" != "183" (value)
+  manifest.json $.sources[18].sha256: "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4" != "ecb86bd570b851768c7e9fc0b918ead8270d72baa1e20e217501c5e9d9e3609d" (value)
+  manifest.json $.sources[19].sha256: "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473" != "166dc349c88ebaaf3a6337449c222cbc4af61e0407539aa696b40055138efd72" (value)
+  manifest.json $.sources[20].url: "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research" != "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research&email=[redacted]" (value)
+  manifest.json $.sources[20].sourceRelease: "ClinVar Build261025-1250.1" != null (value)
+  manifest.json $.validation[30].detail: "VCV000015333.184 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)" != "VCV000015333.183 single nucleotide variant; spdi NC_000011.10:5227001:T:A; GRCh38 5227002; GRCh37 5248232; Pathogenic (criteria provided, multiple submitters, no conflicts)" (value)
+  manifest.json $.validation[32].detail: "VCV000015333.184: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission" != "VCV000015333.183: \"criteria provided, multiple submitters, no conflicts\" -> 2 star(s); conflicting false; evidence basis reviewed-clinical-submission" (value)
+  protein-P68871.json $.provenance.sources[0].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  residue-mapping-P68871-2HBS.json $.provenance.sources[3].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  residue-mapping-hbs-2HBS.json $.provenance.sources[3].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  sequences.json $.records[3].provenance.sources[0].sha256: "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e" != "922b694de6ce0a97100295cf7c61a695f3858a942bd375c841efa855e28936a8" (value)
+  transcript.json $.provenance.sources[0].sha256: "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7" != "893480b9ecaac6d492ec510a5e59dd1163f4077f3b62cf657630fa1c1b570476" (value)
+  transcript.json $.provenance.sources[1].sha256: "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1" != "0da67c9bb3fa65d11938bf55347c8c940c47a19426ae84dac1894ee23bef1c08" (value)
+  variant-hbs.json $.clinvar.accessionVersion: "VCV000015333.184" != "VCV000015333.183" (value)
+  variant-hbs.json $.clinvar.supportingSubmissionCount: 75 != 74 (value)
+  variant-hbs.json $.provenance.sources[0].sha256: "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5" != "9f723fb6cafb98e237824825f13dc15f822712dde246c931859fead130dbd5c1" (value)
+  variant-hbs.json $.provenance.sources[1].url: "https://rest.ensembl.org/variation/human/rs334?content-type=application/json" != "https://rest.ensembl.org/variation/human/rs334?phenotypes=1;content-type=application/json" (value)
+  variant-hbs.json $.provenance.sources[1].sha256: "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47" != "cfb3c31fb7451e0604bc50504d3bd647f6a2ef732014daf0535b0bc319d6b4a9" (value)
+  variant-hbs.json $.provenance.sources[2].sha256: "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f" != "41f237d47d976d60b59d4e9b73aee67d5db1ccecfcf925a2e9322d555413e26b" (value)
+  variant-hbs.json $.provenance.sources[3].sha256: "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288" != "36c36e002e2a9101fb19111ccaabc33b2bfb9ebb08ea9781f722e914e9452c74" (value)

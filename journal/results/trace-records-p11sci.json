@@ -1,0 +1,6834 @@
+{
+ "date": "2026-11-12T01:33:44.918Z",
+ "suite": "P11.3.1 upstream trace",
+ "counts": {
+  "sets": 5,
+  "sourceRows": 199,
+  "bodiesPublic": 188,
+  "bodiesLocalCacheOnly": 9,
+  "bodiesNotFound": 2,
+  "fieldChecks": 159,
+  "agree": 159,
+  "differ": 0,
+  "noBody": 0
+ },
+ "fields": [
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "id.id",
+   "record_value": "ENSG00000244734",
+   "upstream_value": "ENSG00000244734",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "id.version",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "interval [start, end, strand]",
+   "record_value": [
+    5225464,
+    5229395,
+    -1
+   ],
+   "upstream_value": [
+    5225464,
+    5229395,
+    -1
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "description",
+   "record_value": "hemoglobin subunit beta [Source:HGNC Symbol;Acc:HGNC:4827]",
+   "upstream_value": "hemoglobin subunit beta [Source:HGNC Symbol;Acc:HGNC:4827]",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "symbol",
+   "record_value": "HBB",
+   "upstream_value": "HBB",
+   "source": "hgnc",
+   "release": null,
+   "body": ".cache/helix-raw/blob/9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "hgncId",
+   "record_value": "HGNC:4827",
+   "upstream_value": "HGNC:4827",
+   "source": "hgnc",
+   "release": null,
+   "body": ".cache/helix-raw/blob/9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "aliases (HGNC alias_symbol; previous symbols are not kept)",
+   "record_value": [
+    "CD113t-C",
+    "beta-globin"
+   ],
+   "upstream_value": [
+    "CD113t-C",
+    "beta-globin"
+   ],
+   "source": "hgnc",
+   "release": null,
+   "body": ".cache/helix-raw/blob/9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "gene.json",
+   "field": "selection.selected (MANE Select)",
+   "record_value": "ENST00000335295",
+   "upstream_value": "ENST00000335295",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "transcript.json",
+   "field": "id",
+   "record_value": "ENST00000335295.4",
+   "upstream_value": "ENST00000335295.4",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "transcript.json",
+   "field": "exons",
+   "record_value": 3,
+   "upstream_value": 3,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "transcript.json",
+   "field": "translation length",
+   "record_value": 147,
+   "upstream_value": 147,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "protein-P68871.json",
+   "field": "accession",
+   "record_value": "P68871",
+   "upstream_value": "P68871",
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": ".cache/helix-raw/blob/937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "protein-P68871.json",
+   "field": "length",
+   "record_value": 147,
+   "upstream_value": 147,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": ".cache/helix-raw/blob/937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "protein-P68871.json",
+   "field": "entryVersion",
+   "record_value": 219,
+   "upstream_value": 219,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": ".cache/helix-raw/blob/937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "protein-P68871.json",
+   "field": "features [type, start, end, description] (every one)",
+   "record_value": [
+    [
+     "Initiator methionine",
+     1,
+     1,
+     "Removed"
+    ],
+    [
+     "Chain",
+     2,
+     147,
+     "Hemoglobin subunit beta"
+    ],
+    [
+     "Domain",
+     3,
+     147,
+     "Globin"
+    ],
+    [
+     "Binding site",
+     2,
+     2,
+     ""
+    ],
+    [
+     "Binding site",
+     3,
+     3,
+     ""
+    ],
+    [
+     "Binding site",
+     64,
+     64,
+     "distal binding residue"
+    ],
+    [
+     "Binding site",
+     83,
+     83,
+     ""
+    ],
+    [
+     "Binding site",
+     93,
+     93,
+     "proximal binding residue"
+    ],
+    [
+     "Binding site",
+     144,
+     144,
+     ""
+    ],
+    [
+     "Modified residue",
+     2,
+     2,
+     "N-acetylvaline"
+    ],
+    [
+     "Modified residue",
+     2,
+     2,
+     "N-pyruvate 2-iminyl-valine; in Hb A1b"
+    ],
+    [
+     "Modified residue",
+     10,
+     10,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     13,
+     13,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     45,
+     45,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     51,
+     51,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     60,
+     60,
+     "N6-acetyllysine"
+    ],
+    [
+     "Modified residue",
+     83,
+     83,
+     "N6-acetyllysine"
+    ],
+    [
+     "Modified residue",
+     88,
+     88,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     94,
+     94,
+     "S-nitrosocysteine"
+    ],
+    [
+     "Modified residue",
+     145,
+     145,
+     "N6-acetyllysine; alternate"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in G-Makassar; dbSNP:rs334"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in Hb C; confers resistance to severe malaria; dbSNP:rs33930165"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in Machida; dbSNP:rs33930165"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334"
+    ]
+   ],
+   "upstream_value": [
+    [
+     "Initiator methionine",
+     1,
+     1,
+     "Removed"
+    ],
+    [
+     "Chain",
+     2,
+     147,
+     "Hemoglobin subunit beta"
+    ],
+    [
+     "Domain",
+     3,
+     147,
+     "Globin"
+    ],
+    [
+     "Binding site",
+     2,
+     2,
+     ""
+    ],
+    [
+     "Binding site",
+     3,
+     3,
+     ""
+    ],
+    [
+     "Binding site",
+     64,
+     64,
+     "distal binding residue"
+    ],
+    [
+     "Binding site",
+     83,
+     83,
+     ""
+    ],
+    [
+     "Binding site",
+     93,
+     93,
+     "proximal binding residue"
+    ],
+    [
+     "Binding site",
+     144,
+     144,
+     ""
+    ],
+    [
+     "Modified residue",
+     2,
+     2,
+     "N-acetylvaline"
+    ],
+    [
+     "Modified residue",
+     2,
+     2,
+     "N-pyruvate 2-iminyl-valine; in Hb A1b"
+    ],
+    [
+     "Modified residue",
+     10,
+     10,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     13,
+     13,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     45,
+     45,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     51,
+     51,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     60,
+     60,
+     "N6-acetyllysine"
+    ],
+    [
+     "Modified residue",
+     83,
+     83,
+     "N6-acetyllysine"
+    ],
+    [
+     "Modified residue",
+     88,
+     88,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     94,
+     94,
+     "S-nitrosocysteine"
+    ],
+    [
+     "Modified residue",
+     145,
+     145,
+     "N6-acetyllysine; alternate"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in G-Makassar; dbSNP:rs334"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in Hb C; confers resistance to severe malaria; dbSNP:rs33930165"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in Machida; dbSNP:rs33930165"
+    ],
+    [
+     "Natural variant",
+     7,
+     7,
+     "in SKCA; Hb S; at heterozygosity confers resistance to malaria; dbSNP:rs334"
+    ]
+   ],
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": ".cache/helix-raw/blob/937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "variant-hbs.json",
+   "field": "rsId",
+   "record_value": "rs334",
+   "upstream_value": "rs334",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "variant-hbs.json",
+   "field": "hgvs.protein in the VEP body",
+   "record_value": [
+    "ENSP00000333994.3:p.Glu7Val"
+   ],
+   "upstream_value": [
+    "ENSP00000333994.3:p.Glu7Val"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "variant-hbs.json",
+   "field": "consequence terms",
+   "record_value": [
+    "missense_variant"
+   ],
+   "upstream_value": [
+    "missense_variant"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": ".cache/helix-raw/blob/7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "clinvar-hbs.json",
+   "field": "accessionVersion",
+   "record_value": "VCV000015333.184",
+   "upstream_value": "VCV000015333.184",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261025-1250.1",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "clinvar-hbs.json",
+   "field": "classification",
+   "record_value": "Pathogenic",
+   "upstream_value": "Pathogenic",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261025-1250.1",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "clinvar-hbs.json",
+   "field": "reviewStatus",
+   "record_value": "criteria provided, multiple submitters, no conflicts",
+   "upstream_value": "criteria provided, multiple submitters, no conflicts",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261025-1250.1",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "clinvar-hbs.json",
+   "field": "lastEvaluated",
+   "record_value": "2026/07/01 00:00",
+   "upstream_value": "2026/07/01 00:00",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261025-1250.1",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "clinvar-hbs.json",
+   "field": "supportingSubmissionCount",
+   "record_value": 75,
+   "upstream_value": 75,
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261025-1250.1",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "structure-2HBS.json",
+   "field": "method",
+   "record_value": "X-RAY DIFFRACTION",
+   "upstream_value": "X-RAY DIFFRACTION",
+   "source": "rcsb",
+   "release": "PDB rev 1.5 2026-08-12",
+   "body": "research/raw/rcsb/entry_2HBS.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "structure-2HBS.json",
+   "field": "resolutionAngstrom",
+   "record_value": 2.05,
+   "upstream_value": 2.05,
+   "source": "rcsb",
+   "release": "PDB rev 1.5 2026-08-12",
+   "body": "research/raw/rcsb/entry_2HBS.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "structure-2HBS.json",
+   "field": "revision.version",
+   "record_value": "1.5",
+   "upstream_value": "1.5",
+   "source": "rcsb",
+   "release": "PDB rev 1.5 2026-08-12",
+   "body": "research/raw/rcsb/entry_2HBS.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "predicted-model-AF-P68871-F1.json",
+   "field": "modelId",
+   "record_value": "AF-P68871-F1",
+   "upstream_value": "AF-P68871-F1",
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "research/raw/alphafold/prediction_P68871.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "predicted-model-AF-P68871-F1.json",
+   "field": "globalPlddt",
+   "record_value": 97.19,
+   "upstream_value": 97.19,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "research/raw/alphafold/prediction_P68871.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "predicted-model-AF-P68871-F1.json",
+   "field": "modelVersion",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "research/raw/alphafold/prediction_P68871.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "pathways.json",
+   "field": "memberships [stableId, name, isDisease]",
+   "record_value": [
+    [
+     "R-HSA-983231",
+     "Factors involved in megakaryocyte development and platelet production",
+     false
+    ],
+    [
+     "R-HSA-1237044",
+     "Erythrocytes take up carbon dioxide and release oxygen",
+     false
+    ],
+    [
+     "R-HSA-1247673",
+     "Erythrocytes take up oxygen and release carbon dioxide",
+     false
+    ],
+    [
+     "R-HSA-2168880",
+     "Scavenging of heme from plasma",
+     false
+    ],
+    [
+     "R-HSA-6798695",
+     "Neutrophil degranulation",
+     false
+    ],
+    [
+     "R-HSA-9613829",
+     "Chaperone Mediated Autophagy",
+     false
+    ],
+    [
+     "R-HSA-9615710",
+     "Late endosomal microautophagy",
+     false
+    ],
+    [
+     "R-HSA-9707564",
+     "Cytoprotection by HMOX1",
+     false
+    ],
+    [
+     "R-HSA-9707616",
+     "Heme signaling",
+     false
+    ],
+    [
+     "R-HSA-9927020",
+     "Heme assimilation",
+     true
+    ]
+   ],
+   "upstream_value": [
+    [
+     "R-HSA-983231",
+     "Factors involved in megakaryocyte development and platelet production",
+     false
+    ],
+    [
+     "R-HSA-1237044",
+     "Erythrocytes take up carbon dioxide and release oxygen",
+     false
+    ],
+    [
+     "R-HSA-1247673",
+     "Erythrocytes take up oxygen and release carbon dioxide",
+     false
+    ],
+    [
+     "R-HSA-2168880",
+     "Scavenging of heme from plasma",
+     false
+    ],
+    [
+     "R-HSA-6798695",
+     "Neutrophil degranulation",
+     false
+    ],
+    [
+     "R-HSA-9613829",
+     "Chaperone Mediated Autophagy",
+     false
+    ],
+    [
+     "R-HSA-9615710",
+     "Late endosomal microautophagy",
+     false
+    ],
+    [
+     "R-HSA-9707564",
+     "Cytoprotection by HMOX1",
+     false
+    ],
+    [
+     "R-HSA-9707616",
+     "Heme signaling",
+     false
+    ],
+    [
+     "R-HSA-9927020",
+     "Heme assimilation",
+     true
+    ]
+   ],
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_mapping_UniProt_P68871_pathways_species_9606.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "pathways.json",
+   "field": "release",
+   "record_value": "98",
+   "upstream_value": "98",
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "associations.json",
+   "field": "count",
+   "record_value": 552,
+   "upstream_value": 552,
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/hbb/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "associations.json",
+   "field": "platform [api, data]",
+   "record_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "upstream_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/hbb/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "hbb",
+   "record": "associations.json",
+   "field": "kept associations [diseaseId, name, score] (every one)",
+   "record_value": [
+    [
+     "MONDO_0019402",
+     "beta thalassemia",
+     0.8419637829866822
+    ],
+    [
+     "MONDO_0011382",
+     "sickle cell disease",
+     0.8128308239928407
+    ],
+    [
+     "MONDO_0011381",
+     "dominant beta-thalassemia",
+     0.7901742206016966
+    ],
+    [
+     "MONDO_0018023",
+     "hemoglobin M disease",
+     0.7743150245494539
+    ],
+    [
+     "MONDO_0002280",
+     "anemia",
+     0.7729954979286199
+    ],
+    [
+     "MONDO_0013517",
+     "beta-thalassemia HBB/LCRB",
+     0.7683999457877154
+    ],
+    [
+     "MONDO_0018749",
+     "hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome",
+     0.757266871937964
+    ],
+    [
+     "MONDO_0054801",
+     "erythrocytosis, familial, 6",
+     0.7506859146184642
+    ],
+    [
+     "MONDO_0007705",
+     "Heinz body anemia",
+     0.7263614646162218
+    ],
+    [
+     "MONDO_0000984",
+     "thalassemia",
+     0.7261171100329605
+    ],
+    [
+     "EFO_0004272",
+     "anemia (phenotype)",
+     0.7039852628921623
+    ],
+    [
+     "HP_0001891",
+     "Iron deficiency anemia",
+     0.6868567747043721
+    ],
+    [
+     "MONDO_0016486",
+     "beta-thalassemia major",
+     0.657602491335024
+    ],
+    [
+     "MONDO_0016672",
+     "hereditary persistence of fetal hemoglobin-sickle cell disease syndrome",
+     0.6393370383258196
+    ],
+    [
+     "MONDO_0016489",
+     "delta-beta-thalassemia",
+     0.6354682294565781
+    ],
+    [
+     "MONDO_0016487",
+     "beta-thalassemia intermedia",
+     0.6300093548630569
+    ],
+    [
+     "MONDO_0021559",
+     "non-autoimmune hemolytic anemia",
+     0.5916336181409918
+    ],
+    [
+     "MONDO_0005570",
+     "hematologic disorder",
+     0.5792487387609927
+    ],
+    [
+     "EFO_1001797",
+     "Hemoglobin SC Disease",
+     0.5741757372904811
+    ],
+    [
+     "MONDO_0044348",
+     "hemoglobinopathy",
+     0.5599695879838086
+    ],
+    [
+     "MONDO_0011399",
+     "alpha thalassemia spectrum",
+     0.5525561612690644
+    ],
+    [
+     "MONDO_0003847",
+     "hereditary disease",
+     0.5441930794575595
+    ],
+    [
+     "MONDO_0003689",
+     "familial hemolytic anemia",
+     0.5284940591455863
+    ],
+    [
+     "MONDO_0016669",
+     "sickle cell-hemoglobin c disease syndrome",
+     0.5174117965585825
+    ],
+    [
+     "MONDO_0005393",
+     "gout",
+     0.4847245330449315
+    ]
+   ],
+   "upstream_value": [
+    [
+     "MONDO_0019402",
+     "beta thalassemia",
+     0.8419637829866822
+    ],
+    [
+     "MONDO_0011382",
+     "sickle cell disease",
+     0.8128308239928407
+    ],
+    [
+     "MONDO_0011381",
+     "dominant beta-thalassemia",
+     0.7901742206016966
+    ],
+    [
+     "MONDO_0018023",
+     "hemoglobin M disease",
+     0.7743150245494539
+    ],
+    [
+     "MONDO_0002280",
+     "anemia",
+     0.7729954979286199
+    ],
+    [
+     "MONDO_0013517",
+     "beta-thalassemia HBB/LCRB",
+     0.7683999457877154
+    ],
+    [
+     "MONDO_0018749",
+     "hereditary persistence of fetal hemoglobin-beta-thalassemia syndrome",
+     0.757266871937964
+    ],
+    [
+     "MONDO_0054801",
+     "erythrocytosis, familial, 6",
+     0.7506859146184642
+    ],
+    [
+     "MONDO_0007705",
+     "Heinz body anemia",
+     0.7263614646162218
+    ],
+    [
+     "MONDO_0000984",
+     "thalassemia",
+     0.7261171100329605
+    ],
+    [
+     "EFO_0004272",
+     "anemia (phenotype)",
+     0.7039852628921623
+    ],
+    [
+     "HP_0001891",
+     "Iron deficiency anemia",
+     0.6868567747043721
+    ],
+    [
+     "MONDO_0016486",
+     "beta-thalassemia major",
+     0.657602491335024
+    ],
+    [
+     "MONDO_0016672",
+     "hereditary persistence of fetal hemoglobin-sickle cell disease syndrome",
+     0.6393370383258196
+    ],
+    [
+     "MONDO_0016489",
+     "delta-beta-thalassemia",
+     0.6354682294565781
+    ],
+    [
+     "MONDO_0016487",
+     "beta-thalassemia intermedia",
+     0.6300093548630569
+    ],
+    [
+     "MONDO_0021559",
+     "non-autoimmune hemolytic anemia",
+     0.5916336181409918
+    ],
+    [
+     "MONDO_0005570",
+     "hematologic disorder",
+     0.5792487387609927
+    ],
+    [
+     "EFO_1001797",
+     "Hemoglobin SC Disease",
+     0.5741757372904811
+    ],
+    [
+     "MONDO_0044348",
+     "hemoglobinopathy",
+     0.5599695879838086
+    ],
+    [
+     "MONDO_0011399",
+     "alpha thalassemia spectrum",
+     0.5525561612690644
+    ],
+    [
+     "MONDO_0003847",
+     "hereditary disease",
+     0.5441930794575595
+    ],
+    [
+     "MONDO_0003689",
+     "familial hemolytic anemia",
+     0.5284940591455863
+    ],
+    [
+     "MONDO_0016669",
+     "sickle cell-hemoglobin c disease syndrome",
+     0.5174117965585825
+    ],
+    [
+     "MONDO_0005393",
+     "gout",
+     0.4847245330449315
+    ]
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/hbb/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "id.id",
+   "record_value": "ENSG00000001626",
+   "upstream_value": "ENSG00000001626",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "id.version",
+   "record_value": 20,
+   "upstream_value": 20,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "interval [start, end, strand]",
+   "record_value": [
+    117287120,
+    117715971,
+    1
+   ],
+   "upstream_value": [
+    117287120,
+    117715971,
+    1
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "description",
+   "record_value": "CF transmembrane conductance regulator [Source:HGNC Symbol;Acc:HGNC:1884]",
+   "upstream_value": "CF transmembrane conductance regulator [Source:HGNC Symbol;Acc:HGNC:1884]",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "symbol",
+   "record_value": "CFTR",
+   "upstream_value": "CFTR",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/cftr/hgnc/fetch_symbol_CFTR.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "hgncId",
+   "record_value": "HGNC:1884",
+   "upstream_value": "HGNC:1884",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/cftr/hgnc/fetch_symbol_CFTR.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "aliases (HGNC alias_symbol; previous symbols are not kept)",
+   "record_value": [
+    "ABC35",
+    "CFTR/MRP",
+    "MRP7",
+    "TNR-CFTR",
+    "dJ760C5.1"
+   ],
+   "upstream_value": [
+    "ABC35",
+    "CFTR/MRP",
+    "MRP7",
+    "TNR-CFTR",
+    "dJ760C5.1"
+   ],
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/cftr/hgnc/fetch_symbol_CFTR.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "gene.json",
+   "field": "selection.selected (MANE Select)",
+   "record_value": "ENST00000003084",
+   "upstream_value": "ENST00000003084",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "transcript.json",
+   "field": "id",
+   "record_value": "ENST00000003084.11",
+   "upstream_value": "ENST00000003084.11",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENST00000003084_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "transcript.json",
+   "field": "exons",
+   "record_value": 27,
+   "upstream_value": 27,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENST00000003084_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "transcript.json",
+   "field": "translation length",
+   "record_value": 1480,
+   "upstream_value": 1480,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENST00000003084_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "protein-P13569.json",
+   "field": "accession",
+   "record_value": "P13569",
+   "upstream_value": "P13569",
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "protein-P13569.json",
+   "field": "length",
+   "record_value": 1480,
+   "upstream_value": 1480,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "protein-P13569.json",
+   "field": "entryVersion",
+   "record_value": 286,
+   "upstream_value": 286,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "protein-P13569.json",
+   "field": "features [type, start, end, description] (every one)",
+   "record_value": [
+    [
+     "Chain",
+     1,
+     1480,
+     "Cystic fibrosis transmembrane conductance regulator"
+    ],
+    [
+     "Domain",
+     81,
+     365,
+     "ABC transmembrane type-1 1"
+    ],
+    [
+     "Domain",
+     423,
+     646,
+     "ABC transporter 1"
+    ],
+    [
+     "Domain",
+     859,
+     1155,
+     "ABC transmembrane type-1 2"
+    ],
+    [
+     "Domain",
+     1210,
+     1443,
+     "ABC transporter 2"
+    ],
+    [
+     "Binding site",
+     401,
+     401,
+     ""
+    ],
+    [
+     "Binding site",
+     434,
+     434,
+     ""
+    ],
+    [
+     "Binding site",
+     458,
+     465,
+     ""
+    ],
+    [
+     "Binding site",
+     493,
+     493,
+     ""
+    ],
+    [
+     "Binding site",
+     1219,
+     1219,
+     ""
+    ],
+    [
+     "Binding site",
+     1244,
+     1251,
+     ""
+    ],
+    [
+     "Modified residue",
+     549,
+     549,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     660,
+     660,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     670,
+     670,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     686,
+     686,
+     "Phosphoserine; by PKC"
+    ],
+    [
+     "Modified residue",
+     700,
+     700,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     712,
+     712,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     717,
+     717,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     737,
+     737,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     753,
+     753,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     768,
+     768,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     790,
+     790,
+     "Phosphoserine; by PKC"
+    ],
+    [
+     "Modified residue",
+     795,
+     795,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     813,
+     813,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     1444,
+     1444,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1456,
+     1456,
+     "Phosphoserine"
+    ],
+    [
+     "Natural variant",
+     220,
+     1480,
+     "in CF"
+    ],
+    [
+     "Natural variant",
+     508,
+     508,
+     "in dbSNP:rs74571530"
+    ],
+    [
+     "Natural variant",
+     508,
+     508,
+     "in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960"
+    ]
+   ],
+   "upstream_value": [
+    [
+     "Chain",
+     1,
+     1480,
+     "Cystic fibrosis transmembrane conductance regulator"
+    ],
+    [
+     "Domain",
+     81,
+     365,
+     "ABC transmembrane type-1 1"
+    ],
+    [
+     "Domain",
+     423,
+     646,
+     "ABC transporter 1"
+    ],
+    [
+     "Domain",
+     859,
+     1155,
+     "ABC transmembrane type-1 2"
+    ],
+    [
+     "Domain",
+     1210,
+     1443,
+     "ABC transporter 2"
+    ],
+    [
+     "Binding site",
+     401,
+     401,
+     ""
+    ],
+    [
+     "Binding site",
+     434,
+     434,
+     ""
+    ],
+    [
+     "Binding site",
+     458,
+     465,
+     ""
+    ],
+    [
+     "Binding site",
+     493,
+     493,
+     ""
+    ],
+    [
+     "Binding site",
+     1219,
+     1219,
+     ""
+    ],
+    [
+     "Binding site",
+     1244,
+     1251,
+     ""
+    ],
+    [
+     "Modified residue",
+     549,
+     549,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     660,
+     660,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     670,
+     670,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     686,
+     686,
+     "Phosphoserine; by PKC"
+    ],
+    [
+     "Modified residue",
+     700,
+     700,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     712,
+     712,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     717,
+     717,
+     "Phosphothreonine"
+    ],
+    [
+     "Modified residue",
+     737,
+     737,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     753,
+     753,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     768,
+     768,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     790,
+     790,
+     "Phosphoserine; by PKC"
+    ],
+    [
+     "Modified residue",
+     795,
+     795,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     813,
+     813,
+     "Phosphoserine; by PKA"
+    ],
+    [
+     "Modified residue",
+     1444,
+     1444,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1456,
+     1456,
+     "Phosphoserine"
+    ],
+    [
+     "Natural variant",
+     220,
+     1480,
+     "in CF"
+    ],
+    [
+     "Natural variant",
+     508,
+     508,
+     "in dbSNP:rs74571530"
+    ],
+    [
+     "Natural variant",
+     508,
+     508,
+     "in CF and CBAVD; most common mutation in Caucasian CF chromosomes; impairs protein folding and stability; causes local changes to the surface that mediates interactions between domains; decreases frequency of channel opening in vitro; binds to the cytokeratin-8 and through this binding is primed for the degradation pathway that ends in the proteasome thus impairing trafficking; impairs maturation and trafficking to the cell membrane; impairs recycling to the cell membrane after endocytosis; abolishes MARCHF2-mediated degradation; dbSNP:rs121909001 and dbSNP:rs113993960"
+    ]
+   ],
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "variant-f508del.json",
+   "field": "rsId",
+   "record_value": "rs113993960",
+   "upstream_value": "rs113993960",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/variation_human_rs113993960.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "variant-f508del.json",
+   "field": "hgvs.protein in the VEP body",
+   "record_value": [
+    "ENSP00000003084.6:p.Phe508del"
+   ],
+   "upstream_value": [
+    "ENSP00000003084.6:p.Phe508del"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/vep_human_hgvs_ENST00000003084.11_c.1521_1523del_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "variant-f508del.json",
+   "field": "consequence terms",
+   "record_value": [
+    "inframe_deletion"
+   ],
+   "upstream_value": [
+    "inframe_deletion"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/cftr/ensembl/vep_human_hgvs_ENST00000003084.11_c.1521_1523del_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "clinvar-f508del.json",
+   "field": "accessionVersion",
+   "record_value": "VCV000007105.214",
+   "upstream_value": "VCV000007105.214",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "clinvar-f508del.json",
+   "field": "classification",
+   "record_value": "Pathogenic",
+   "upstream_value": "Pathogenic",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "clinvar-f508del.json",
+   "field": "reviewStatus",
+   "record_value": "practice guideline",
+   "upstream_value": "practice guideline",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "clinvar-f508del.json",
+   "field": "lastEvaluated",
+   "record_value": "2004/03/03 00:00",
+   "upstream_value": "2004/03/03 00:00",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "clinvar-f508del.json",
+   "field": "supportingSubmissionCount",
+   "record_value": 102,
+   "upstream_value": 102,
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "structure-5UAK.json",
+   "field": "method",
+   "record_value": "ELECTRON MICROSCOPY",
+   "upstream_value": "ELECTRON MICROSCOPY",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-03-06",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_entry_5UAK.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "structure-5UAK.json",
+   "field": "resolutionAngstrom",
+   "record_value": 3.87,
+   "upstream_value": 3.87,
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-03-06",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_entry_5UAK.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "structure-5UAK.json",
+   "field": "revision.version",
+   "record_value": "1.4",
+   "upstream_value": "1.4",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-03-06",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_entry_5UAK.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "predicted-model-AF-P13569-F1.json",
+   "field": "modelId",
+   "record_value": "AF-P13569-F1",
+   "upstream_value": "AF-P13569-F1",
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/cftr/alphafold/api_prediction_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "predicted-model-AF-P13569-F1.json",
+   "field": "globalPlddt",
+   "record_value": 75.62,
+   "upstream_value": 75.62,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/cftr/alphafold/api_prediction_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "predicted-model-AF-P13569-F1.json",
+   "field": "modelVersion",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/cftr/alphafold/api_prediction_P13569.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "pathways.json",
+   "field": "memberships [stableId, name, isDisease]",
+   "record_value": [
+    [
+     "R-HSA-382556",
+     "ABC-family protein mediated transport",
+     false
+    ],
+    [
+     "R-HSA-5627083",
+     "RHO GTPases regulate CFTR trafficking",
+     false
+    ],
+    [
+     "R-HSA-5678895",
+     "Defective CFTR causes cystic fibrosis",
+     true
+    ],
+    [
+     "R-HSA-5689880",
+     "Ub-specific processing proteases",
+     false
+    ],
+    [
+     "R-HSA-8856825",
+     "Cargo recognition for clathrin-mediated endocytosis",
+     false
+    ],
+    [
+     "R-HSA-8856828",
+     "Clathrin-mediated endocytosis",
+     false
+    ],
+    [
+     "R-HSA-9013406",
+     "RHOQ GTPase cycle",
+     false
+    ],
+    [
+     "R-HSA-9613829",
+     "Chaperone Mediated Autophagy",
+     false
+    ],
+    [
+     "R-HSA-9615710",
+     "Late endosomal microautophagy",
+     false
+    ],
+    [
+     "R-HSA-9646399",
+     "Aggrephagy",
+     false
+    ],
+    [
+     "R-HSA-9925563",
+     "Developmental Lineage of Pancreatic Ductal Cells",
+     false
+    ]
+   ],
+   "upstream_value": [
+    [
+     "R-HSA-382556",
+     "ABC-family protein mediated transport",
+     false
+    ],
+    [
+     "R-HSA-5627083",
+     "RHO GTPases regulate CFTR trafficking",
+     false
+    ],
+    [
+     "R-HSA-5678895",
+     "Defective CFTR causes cystic fibrosis",
+     true
+    ],
+    [
+     "R-HSA-5689880",
+     "Ub-specific processing proteases",
+     false
+    ],
+    [
+     "R-HSA-8856825",
+     "Cargo recognition for clathrin-mediated endocytosis",
+     false
+    ],
+    [
+     "R-HSA-8856828",
+     "Clathrin-mediated endocytosis",
+     false
+    ],
+    [
+     "R-HSA-9013406",
+     "RHOQ GTPase cycle",
+     false
+    ],
+    [
+     "R-HSA-9613829",
+     "Chaperone Mediated Autophagy",
+     false
+    ],
+    [
+     "R-HSA-9615710",
+     "Late endosomal microautophagy",
+     false
+    ],
+    [
+     "R-HSA-9646399",
+     "Aggrephagy",
+     false
+    ],
+    [
+     "R-HSA-9925563",
+     "Developmental Lineage of Pancreatic Ductal Cells",
+     false
+    ]
+   ],
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_mapping_UniProt_P13569_pathways_species_9606.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "pathways.json",
+   "field": "release",
+   "record_value": "98",
+   "upstream_value": "98",
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "associations.json",
+   "field": "count",
+   "record_value": 1889,
+   "upstream_value": 1889,
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/cftr/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "associations.json",
+   "field": "platform [api, data]",
+   "record_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "upstream_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/cftr/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "cftr",
+   "record": "associations.json",
+   "field": "kept associations [diseaseId, name, score] (every one)",
+   "record_value": [
+    [
+     "MONDO_0009061",
+     "cystic fibrosis",
+     0.9211437412666207
+    ],
+    [
+     "MONDO_0010178",
+     "congenital bilateral aplasia of vas deferens from CFTR mutation",
+     0.8242369387799563
+    ],
+    [
+     "MONDO_0008185",
+     "hereditary chronic pancreatitis",
+     0.7176978195828634
+    ],
+    [
+     "MONDO_0008887",
+     "bronchiectasis with or without elevated sweat chloride 1",
+     0.6974181697318506
+    ],
+    [
+     "MONDO_0018801",
+     "congenital bilateral absence of vas deferens",
+     0.5958758005516537
+    ],
+    [
+     "MONDO_0004822",
+     "bronchiectasis",
+     0.5792060296837725
+    ],
+    [
+     "MONDO_7770004",
+     "CFTR-related disorder",
+     0.576866736837493
+    ],
+    [
+     "MONDO_0015796",
+     "acute lung injury",
+     0.5465064621837545
+    ],
+    [
+     "MONDO_0001673",
+     "diarrheal disease",
+     0.5434934764467871
+    ],
+    [
+     "HP_0011962",
+     "Obstructive azoospermia",
+     0.5381454434079411
+    ],
+    [
+     "MONDO_0001751",
+     "cholestasis",
+     0.46691531278878945
+    ],
+    [
+     "MONDO_0005087",
+     "respiratory system disorder",
+     0.4557896326922099
+    ],
+    [
+     "MONDO_0018453",
+     "familial atypical multiple mole melanoma syndrome",
+     0.4255712026694341
+    ],
+    [
+     "MONDO_0004652",
+     "bacterial pneumonia",
+     0.41971596218472246
+    ],
+    [
+     "MONDO_0004982",
+     "pancreatitis",
+     0.40915775961576223
+    ],
+    [
+     "MONDO_0015607",
+     "partial chromosome Y deletion",
+     0.406537840153172
+    ],
+    [
+     "MONDO_0005015",
+     "diabetes mellitus",
+     0.3978833714792073
+    ],
+    [
+     "MONDO_0005308",
+     "ciliopathy",
+     0.38415143232166127
+    ],
+    [
+     "MONDO_0005002",
+     "chronic obstructive pulmonary disease",
+     0.38391901252751137
+    ],
+    [
+     "MONDO_0003847",
+     "hereditary disease",
+     0.37601310934927595
+    ],
+    [
+     "MONDO_0005003",
+     "chronic pancreatitis",
+     0.37254052986958164
+    ],
+    [
+     "EFO_0801077",
+     "cystic fibrosis-related diabetes",
+     0.3661444202239283
+    ],
+    [
+     "HP_0100582",
+     "Nasal polyposis",
+     0.35913570983285664
+    ],
+    [
+     "HP_0040270",
+     "Impaired glucose tolerance",
+     0.35486020770010535
+    ],
+    [
+     "MONDO_0005275",
+     "lung disorder",
+     0.3461294783817022
+    ]
+   ],
+   "upstream_value": [
+    [
+     "MONDO_0009061",
+     "cystic fibrosis",
+     0.9211437412666207
+    ],
+    [
+     "MONDO_0010178",
+     "congenital bilateral aplasia of vas deferens from CFTR mutation",
+     0.8242369387799563
+    ],
+    [
+     "MONDO_0008185",
+     "hereditary chronic pancreatitis",
+     0.7176978195828634
+    ],
+    [
+     "MONDO_0008887",
+     "bronchiectasis with or without elevated sweat chloride 1",
+     0.6974181697318506
+    ],
+    [
+     "MONDO_0018801",
+     "congenital bilateral absence of vas deferens",
+     0.5958758005516537
+    ],
+    [
+     "MONDO_0004822",
+     "bronchiectasis",
+     0.5792060296837725
+    ],
+    [
+     "MONDO_7770004",
+     "CFTR-related disorder",
+     0.576866736837493
+    ],
+    [
+     "MONDO_0015796",
+     "acute lung injury",
+     0.5465064621837545
+    ],
+    [
+     "MONDO_0001673",
+     "diarrheal disease",
+     0.5434934764467871
+    ],
+    [
+     "HP_0011962",
+     "Obstructive azoospermia",
+     0.5381454434079411
+    ],
+    [
+     "MONDO_0001751",
+     "cholestasis",
+     0.46691531278878945
+    ],
+    [
+     "MONDO_0005087",
+     "respiratory system disorder",
+     0.4557896326922099
+    ],
+    [
+     "MONDO_0018453",
+     "familial atypical multiple mole melanoma syndrome",
+     0.4255712026694341
+    ],
+    [
+     "MONDO_0004652",
+     "bacterial pneumonia",
+     0.41971596218472246
+    ],
+    [
+     "MONDO_0004982",
+     "pancreatitis",
+     0.40915775961576223
+    ],
+    [
+     "MONDO_0015607",
+     "partial chromosome Y deletion",
+     0.406537840153172
+    ],
+    [
+     "MONDO_0005015",
+     "diabetes mellitus",
+     0.3978833714792073
+    ],
+    [
+     "MONDO_0005308",
+     "ciliopathy",
+     0.38415143232166127
+    ],
+    [
+     "MONDO_0005002",
+     "chronic obstructive pulmonary disease",
+     0.38391901252751137
+    ],
+    [
+     "MONDO_0003847",
+     "hereditary disease",
+     0.37601310934927595
+    ],
+    [
+     "MONDO_0005003",
+     "chronic pancreatitis",
+     0.37254052986958164
+    ],
+    [
+     "EFO_0801077",
+     "cystic fibrosis-related diabetes",
+     0.3661444202239283
+    ],
+    [
+     "HP_0100582",
+     "Nasal polyposis",
+     0.35913570983285664
+    ],
+    [
+     "HP_0040270",
+     "Impaired glucose tolerance",
+     0.35486020770010535
+    ],
+    [
+     "MONDO_0005275",
+     "lung disorder",
+     0.3461294783817022
+    ]
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/cftr/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "id.id",
+   "record_value": "ENSG00000012048",
+   "upstream_value": "ENSG00000012048",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "id.version",
+   "record_value": 28,
+   "upstream_value": 28,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "interval [start, end, strand]",
+   "record_value": [
+    43044292,
+    43170245,
+    -1
+   ],
+   "upstream_value": [
+    43044292,
+    43170245,
+    -1
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "description",
+   "record_value": "BRCA1 DNA repair associated [Source:HGNC Symbol;Acc:HGNC:1100]",
+   "upstream_value": "BRCA1 DNA repair associated [Source:HGNC Symbol;Acc:HGNC:1100]",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "symbol",
+   "record_value": "BRCA1",
+   "upstream_value": "BRCA1",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/brca1/hgnc/fetch_symbol_BRCA1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "hgncId",
+   "record_value": "HGNC:1100",
+   "upstream_value": "HGNC:1100",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/brca1/hgnc/fetch_symbol_BRCA1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "aliases (HGNC alias_symbol; previous symbols are not kept)",
+   "record_value": [
+    "BRCC1",
+    "FANCS",
+    "PPP1R53",
+    "RNF53"
+   ],
+   "upstream_value": [
+    "BRCC1",
+    "FANCS",
+    "PPP1R53",
+    "RNF53"
+   ],
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/brca1/hgnc/fetch_symbol_BRCA1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "gene.json",
+   "field": "selection.selected (MANE Select)",
+   "record_value": "ENST00000357654",
+   "upstream_value": "ENST00000357654",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "transcript.json",
+   "field": "id",
+   "record_value": "ENST00000357654.9",
+   "upstream_value": "ENST00000357654.9",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENST00000357654_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "transcript.json",
+   "field": "exons",
+   "record_value": 23,
+   "upstream_value": 23,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENST00000357654_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "transcript.json",
+   "field": "translation length",
+   "record_value": 1863,
+   "upstream_value": 1863,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENST00000357654_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "protein-P38398.json",
+   "field": "accession",
+   "record_value": "P38398",
+   "upstream_value": "P38398",
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "protein-P38398.json",
+   "field": "length",
+   "record_value": 1863,
+   "upstream_value": 1863,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "protein-P38398.json",
+   "field": "entryVersion",
+   "record_value": 285,
+   "upstream_value": 285,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "protein-P38398.json",
+   "field": "features [type, start, end, description] (every one)",
+   "record_value": [
+    [
+     "Chain",
+     1,
+     1863,
+     "Breast cancer type 1 susceptibility protein"
+    ],
+    [
+     "Domain",
+     1642,
+     1736,
+     "BRCT 1"
+    ],
+    [
+     "Domain",
+     1756,
+     1855,
+     "BRCT 2"
+    ],
+    [
+     "Modified residue",
+     1,
+     1,
+     "N-acetylmethionine"
+    ],
+    [
+     "Modified residue",
+     114,
+     114,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     395,
+     395,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     398,
+     398,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     423,
+     423,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     434,
+     434,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     551,
+     551,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     694,
+     694,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     708,
+     708,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     725,
+     725,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     753,
+     753,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     840,
+     840,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     988,
+     988,
+     "Phosphoserine; by CHEK2"
+    ],
+    [
+     "Modified residue",
+     1009,
+     1009,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1143,
+     1143,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1189,
+     1189,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1191,
+     1191,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1211,
+     1211,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1217,
+     1217,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1218,
+     1218,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1280,
+     1280,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1328,
+     1328,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1336,
+     1336,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1342,
+     1342,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1387,
+     1387,
+     "Phosphoserine; by ATM and ATR"
+    ],
+    [
+     "Modified residue",
+     1394,
+     1394,
+     "Phosphothreonine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1423,
+     1423,
+     "Phosphoserine; by ATM and ATR"
+    ],
+    [
+     "Modified residue",
+     1457,
+     1457,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1524,
+     1524,
+     "Phosphoserine; by ATM"
+    ],
+    [
+     "Modified residue",
+     1542,
+     1542,
+     "Phosphoserine"
+    ],
+    [
+     "Natural variant",
+     61,
+     61,
+     "in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672"
+    ]
+   ],
+   "upstream_value": [
+    [
+     "Chain",
+     1,
+     1863,
+     "Breast cancer type 1 susceptibility protein"
+    ],
+    [
+     "Domain",
+     1642,
+     1736,
+     "BRCT 1"
+    ],
+    [
+     "Domain",
+     1756,
+     1855,
+     "BRCT 2"
+    ],
+    [
+     "Modified residue",
+     1,
+     1,
+     "N-acetylmethionine"
+    ],
+    [
+     "Modified residue",
+     114,
+     114,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     395,
+     395,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     398,
+     398,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     423,
+     423,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     434,
+     434,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     551,
+     551,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     694,
+     694,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     708,
+     708,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     725,
+     725,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     753,
+     753,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     840,
+     840,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     988,
+     988,
+     "Phosphoserine; by CHEK2"
+    ],
+    [
+     "Modified residue",
+     1009,
+     1009,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1143,
+     1143,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1189,
+     1189,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1191,
+     1191,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1211,
+     1211,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1217,
+     1217,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1218,
+     1218,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1280,
+     1280,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1328,
+     1328,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1336,
+     1336,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1342,
+     1342,
+     "Phosphoserine"
+    ],
+    [
+     "Modified residue",
+     1387,
+     1387,
+     "Phosphoserine; by ATM and ATR"
+    ],
+    [
+     "Modified residue",
+     1394,
+     1394,
+     "Phosphothreonine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1423,
+     1423,
+     "Phosphoserine; by ATM and ATR"
+    ],
+    [
+     "Modified residue",
+     1457,
+     1457,
+     "Phosphoserine; by ATR; in vitro"
+    ],
+    [
+     "Modified residue",
+     1524,
+     1524,
+     "Phosphoserine; by ATM"
+    ],
+    [
+     "Modified residue",
+     1542,
+     1542,
+     "Phosphoserine"
+    ],
+    [
+     "Natural variant",
+     61,
+     61,
+     "in BC and OC; pathogenic; no interaction with BAP1; dbSNP:rs28897672"
+    ]
+   ],
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "variant-c61g.json",
+   "field": "rsId",
+   "record_value": "rs28897672",
+   "upstream_value": "rs28897672",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/variation_human_rs28897672.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "variant-c61g.json",
+   "field": "hgvs.protein in the VEP body",
+   "record_value": [
+    "ENSP00000350283.3:p.Cys61Gly"
+   ],
+   "upstream_value": [
+    "ENSP00000350283.3:p.Cys61Gly"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/vep_human_hgvs_ENST00000357654.9_c.181T_3EG_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "variant-c61g.json",
+   "field": "consequence terms",
+   "record_value": [
+    "missense_variant"
+   ],
+   "upstream_value": [
+    "missense_variant"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/brca1/ensembl/vep_human_hgvs_ENST00000357654.9_c.181T_3EG_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "clinvar-c61g.json",
+   "field": "accessionVersion",
+   "record_value": "VCV000017661.165",
+   "upstream_value": "VCV000017661.165",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "clinvar-c61g.json",
+   "field": "classification",
+   "record_value": "Pathogenic",
+   "upstream_value": "Pathogenic",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "clinvar-c61g.json",
+   "field": "reviewStatus",
+   "record_value": "reviewed by expert panel",
+   "upstream_value": "reviewed by expert panel",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "clinvar-c61g.json",
+   "field": "lastEvaluated",
+   "record_value": "2015/08/10 00:00",
+   "upstream_value": "2015/08/10 00:00",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "clinvar-c61g.json",
+   "field": "supportingSubmissionCount",
+   "record_value": 77,
+   "upstream_value": 77,
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "structure-1JM7.json",
+   "field": "method",
+   "record_value": "SOLUTION NMR",
+   "upstream_value": "SOLUTION NMR",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-05-22",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_entry_1JM7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "structure-1JM7.json",
+   "field": "resolutionAngstrom",
+   "record_value": null,
+   "upstream_value": null,
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-05-22",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_entry_1JM7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "structure-1JM7.json",
+   "field": "revision.version",
+   "record_value": "1.4",
+   "upstream_value": "1.4",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2024-05-22",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_entry_1JM7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "predicted-model-AF-P38398-F1.json",
+   "field": "modelId",
+   "record_value": "AF-P38398-F1",
+   "upstream_value": "AF-P38398-F1",
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/brca1/alphafold/api_prediction_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "predicted-model-AF-P38398-F1.json",
+   "field": "globalPlddt",
+   "record_value": 41.59,
+   "upstream_value": 41.59,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/brca1/alphafold/api_prediction_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "predicted-model-AF-P38398-F1.json",
+   "field": "modelVersion",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/brca1/alphafold/api_prediction_P38398.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "pathways.json",
+   "field": "memberships [stableId, name, isDisease]",
+   "record_value": [
+    [
+     "R-HSA-69473",
+     "G2/M DNA damage checkpoint",
+     false
+    ],
+    [
+     "R-HSA-912446",
+     "Meiotic recombination",
+     false
+    ],
+    [
+     "R-HSA-1221632",
+     "Meiotic synapsis",
+     false
+    ],
+    [
+     "R-HSA-3108214",
+     "SUMOylation of DNA damage response and repair proteins",
+     false
+    ],
+    [
+     "R-HSA-5685938",
+     "HDR through Single Strand Annealing (SSA)",
+     false
+    ],
+    [
+     "R-HSA-5685942",
+     "HDR through Homologous Recombination (HRR)",
+     false
+    ],
+    [
+     "R-HSA-5689901",
+     "Metalloprotease DUBs",
+     false
+    ],
+    [
+     "R-HSA-5693554",
+     "Resolution of D-loop Structures through Synthesis-Dependent Strand Annealing (SDSA)",
+     false
+    ],
+    [
+     "R-HSA-5693565",
+     "Recruitment and ATM-mediated phosphorylation of repair and signaling proteins at DNA double strand breaks",
+     false
+    ],
+    [
+     "R-HSA-5693568",
+     "Resolution of D-loop Structures through Holliday Junction Intermediates",
+     false
+    ],
+    [
+     "R-HSA-5693571",
+     "Nonhomologous End-Joining (NHEJ)",
+     false
+    ],
+    [
+     "R-HSA-5693579",
+     "Homologous DNA Pairing and Strand Exchange",
+     false
+    ],
+    [
+     "R-HSA-5693607",
+     "Processing of DNA double-strand break ends",
+     false
+    ],
+    [
+     "R-HSA-5693616",
+     "Presynaptic phase of homologous DNA pairing and strand exchange",
+     false
+    ],
+    [
+     "R-HSA-6796648",
+     "TP53 Regulates Transcription of DNA Repair Genes",
+     false
+    ],
+    [
+     "R-HSA-6804756",
+     "Regulation of TP53 Activity through Phosphorylation",
+     false
+    ],
+    [
+     "R-HSA-8951664",
+     "Neddylation",
+     false
+    ],
+    [
+     "R-HSA-8953750",
+     "Transcriptional Regulation by E2F6",
+     false
+    ],
+    [
+     "R-HSA-9663199",
+     "Defective DNA double strand break response due to BRCA1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9699150",
+     "Defective DNA double strand break response due to BARD1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9701192",
+     "Defective homologous recombination repair (HRR) due to BRCA1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9704331",
+     "Defective HDR through Homologous Recombination Repair (HRR) due to PALB2 loss of BRCA1 binding function",
+     true
+    ],
+    [
+     "R-HSA-9704646",
+     "Defective HDR through Homologous Recombination Repair (HRR) due to PALB2 loss of BRCA2/RAD51/RAD51C binding function",
+     true
+    ],
+    [
+     "R-HSA-9709570",
+     "Impaired BRCA2 binding to RAD51",
+     true
+    ],
+    [
+     "R-HSA-9709603",
+     "Impaired BRCA2 binding to PALB2",
+     true
+    ],
+    [
+     "R-HSA-9755511",
+     "KEAP1-NFE2L2 pathway",
+     false
+    ],
+    [
+     "R-HSA-9825895",
+     "Regulation of MITF-M-dependent genes involved in DNA replication, damage repair and senescence",
+     false
+    ],
+    [
+     "R-HSA-9974237",
+     "Negative Regulation of DNA Double Strand Break Response",
+     false
+    ]
+   ],
+   "upstream_value": [
+    [
+     "R-HSA-69473",
+     "G2/M DNA damage checkpoint",
+     false
+    ],
+    [
+     "R-HSA-912446",
+     "Meiotic recombination",
+     false
+    ],
+    [
+     "R-HSA-1221632",
+     "Meiotic synapsis",
+     false
+    ],
+    [
+     "R-HSA-3108214",
+     "SUMOylation of DNA damage response and repair proteins",
+     false
+    ],
+    [
+     "R-HSA-5685938",
+     "HDR through Single Strand Annealing (SSA)",
+     false
+    ],
+    [
+     "R-HSA-5685942",
+     "HDR through Homologous Recombination (HRR)",
+     false
+    ],
+    [
+     "R-HSA-5689901",
+     "Metalloprotease DUBs",
+     false
+    ],
+    [
+     "R-HSA-5693554",
+     "Resolution of D-loop Structures through Synthesis-Dependent Strand Annealing (SDSA)",
+     false
+    ],
+    [
+     "R-HSA-5693565",
+     "Recruitment and ATM-mediated phosphorylation of repair and signaling proteins at DNA double strand breaks",
+     false
+    ],
+    [
+     "R-HSA-5693568",
+     "Resolution of D-loop Structures through Holliday Junction Intermediates",
+     false
+    ],
+    [
+     "R-HSA-5693571",
+     "Nonhomologous End-Joining (NHEJ)",
+     false
+    ],
+    [
+     "R-HSA-5693579",
+     "Homologous DNA Pairing and Strand Exchange",
+     false
+    ],
+    [
+     "R-HSA-5693607",
+     "Processing of DNA double-strand break ends",
+     false
+    ],
+    [
+     "R-HSA-5693616",
+     "Presynaptic phase of homologous DNA pairing and strand exchange",
+     false
+    ],
+    [
+     "R-HSA-6796648",
+     "TP53 Regulates Transcription of DNA Repair Genes",
+     false
+    ],
+    [
+     "R-HSA-6804756",
+     "Regulation of TP53 Activity through Phosphorylation",
+     false
+    ],
+    [
+     "R-HSA-8951664",
+     "Neddylation",
+     false
+    ],
+    [
+     "R-HSA-8953750",
+     "Transcriptional Regulation by E2F6",
+     false
+    ],
+    [
+     "R-HSA-9663199",
+     "Defective DNA double strand break response due to BRCA1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9699150",
+     "Defective DNA double strand break response due to BARD1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9701192",
+     "Defective homologous recombination repair (HRR) due to BRCA1 loss of function",
+     true
+    ],
+    [
+     "R-HSA-9704331",
+     "Defective HDR through Homologous Recombination Repair (HRR) due to PALB2 loss of BRCA1 binding function",
+     true
+    ],
+    [
+     "R-HSA-9704646",
+     "Defective HDR through Homologous Recombination Repair (HRR) due to PALB2 loss of BRCA2/RAD51/RAD51C binding function",
+     true
+    ],
+    [
+     "R-HSA-9709570",
+     "Impaired BRCA2 binding to RAD51",
+     true
+    ],
+    [
+     "R-HSA-9709603",
+     "Impaired BRCA2 binding to PALB2",
+     true
+    ],
+    [
+     "R-HSA-9755511",
+     "KEAP1-NFE2L2 pathway",
+     false
+    ],
+    [
+     "R-HSA-9825895",
+     "Regulation of MITF-M-dependent genes involved in DNA replication, damage repair and senescence",
+     false
+    ],
+    [
+     "R-HSA-9974237",
+     "Negative Regulation of DNA Double Strand Break Response",
+     false
+    ]
+   ],
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_mapping_UniProt_P38398_pathways_species_9606.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "pathways.json",
+   "field": "release",
+   "record_value": "98",
+   "upstream_value": "98",
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "associations.json",
+   "field": "count",
+   "record_value": 1324,
+   "upstream_value": 1324,
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/brca1/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "associations.json",
+   "field": "platform [api, data]",
+   "record_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "upstream_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/brca1/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "brca1",
+   "record": "associations.json",
+   "field": "kept associations [diseaseId, name, score] (every one)",
+   "record_value": [
+    [
+     "MONDO_0007254",
+     "breast cancer",
+     0.8436508158150241
+    ],
+    [
+     "MONDO_0003582",
+     "hereditary breast ovarian cancer syndrome",
+     0.8278837838347972
+    ],
+    [
+     "MONDO_0054748",
+     "Fanconi anemia, complementation group S",
+     0.8173531116391729
+    ],
+    [
+     "MONDO_0008170",
+     "ovarian cancer",
+     0.8106717720582334
+    ],
+    [
+     "MONDO_0021100",
+     "breast neoplasm",
+     0.7998733941854641
+    ],
+    [
+     "MONDO_0011450",
+     "breast-ovarian cancer, familial, susceptibility to, 1",
+     0.7989584217005636
+    ],
+    [
+     "MONDO_0021068",
+     "ovarian neoplasm",
+     0.7880972295269321
+    ],
+    [
+     "MONDO_0004992",
+     "cancer",
+     0.7789700201953356
+    ],
+    [
+     "MONDO_0004989",
+     "breast carcinoma",
+     0.7760181640980255
+    ],
+    [
+     "MONDO_0005070",
+     "neoplasm",
+     0.6910970936616534
+    ],
+    [
+     "MONDO_0700268",
+     "BRCA1-related cancer predisposition",
+     0.6786872317143081
+    ],
+    [
+     "MONDO_0016419",
+     "hereditary breast carcinoma",
+     0.6647839364415694
+    ],
+    [
+     "MONDO_0013685",
+     "pancreatic cancer, susceptibility to, 4",
+     0.6599812277286587
+    ],
+    [
+     "MONDO_0005140",
+     "ovarian carcinoma",
+     0.6474609998919243
+    ],
+    [
+     "MONDO_0015278",
+     "familial pancreatic carcinoma",
+     0.6279438174869719
+    ],
+    [
+     "EFO_0009580",
+     "prophylactic surgery",
+     0.5949681090508243
+    ],
+    [
+     "MONDO_0001416",
+     "female reproductive organ cancer",
+     0.5896642309497533
+    ],
+    [
+     "MONDO_0004986",
+     "urinary bladder carcinoma",
+     0.5877098158622236
+    ],
+    [
+     "MONDO_0015356",
+     "hereditary neoplastic syndrome",
+     0.5812420607480764
+    ],
+    [
+     "EFO_0009642",
+     "follow-up",
+     0.5696899490651873
+    ],
+    [
+     "EFO_0009717",
+     "bilateral oophorectomy",
+     0.5676700509013556
+    ],
+    [
+     "MONDO_0001056",
+     "gastric cancer",
+     0.5652916815050448
+    ],
+    [
+     "MONDO_0002447",
+     "endometrial carcinoma",
+     0.5626977256011917
+    ],
+    [
+     "MONDO_0024881",
+     "secondary malignant neoplasm",
+     0.5539781374898577
+    ],
+    [
+     "MONDO_0001187",
+     "urinary bladder cancer",
+     0.5429889185217545
+    ]
+   ],
+   "upstream_value": [
+    [
+     "MONDO_0007254",
+     "breast cancer",
+     0.8436508158150241
+    ],
+    [
+     "MONDO_0003582",
+     "hereditary breast ovarian cancer syndrome",
+     0.8278837838347972
+    ],
+    [
+     "MONDO_0054748",
+     "Fanconi anemia, complementation group S",
+     0.8173531116391729
+    ],
+    [
+     "MONDO_0008170",
+     "ovarian cancer",
+     0.8106717720582334
+    ],
+    [
+     "MONDO_0021100",
+     "breast neoplasm",
+     0.7998733941854641
+    ],
+    [
+     "MONDO_0011450",
+     "breast-ovarian cancer, familial, susceptibility to, 1",
+     0.7989584217005636
+    ],
+    [
+     "MONDO_0021068",
+     "ovarian neoplasm",
+     0.7880972295269321
+    ],
+    [
+     "MONDO_0004992",
+     "cancer",
+     0.7789700201953356
+    ],
+    [
+     "MONDO_0004989",
+     "breast carcinoma",
+     0.7760181640980255
+    ],
+    [
+     "MONDO_0005070",
+     "neoplasm",
+     0.6910970936616534
+    ],
+    [
+     "MONDO_0700268",
+     "BRCA1-related cancer predisposition",
+     0.6786872317143081
+    ],
+    [
+     "MONDO_0016419",
+     "hereditary breast carcinoma",
+     0.6647839364415694
+    ],
+    [
+     "MONDO_0013685",
+     "pancreatic cancer, susceptibility to, 4",
+     0.6599812277286587
+    ],
+    [
+     "MONDO_0005140",
+     "ovarian carcinoma",
+     0.6474609998919243
+    ],
+    [
+     "MONDO_0015278",
+     "familial pancreatic carcinoma",
+     0.6279438174869719
+    ],
+    [
+     "EFO_0009580",
+     "prophylactic surgery",
+     0.5949681090508243
+    ],
+    [
+     "MONDO_0001416",
+     "female reproductive organ cancer",
+     0.5896642309497533
+    ],
+    [
+     "MONDO_0004986",
+     "urinary bladder carcinoma",
+     0.5877098158622236
+    ],
+    [
+     "MONDO_0015356",
+     "hereditary neoplastic syndrome",
+     0.5812420607480764
+    ],
+    [
+     "EFO_0009642",
+     "follow-up",
+     0.5696899490651873
+    ],
+    [
+     "EFO_0009717",
+     "bilateral oophorectomy",
+     0.5676700509013556
+    ],
+    [
+     "MONDO_0001056",
+     "gastric cancer",
+     0.5652916815050448
+    ],
+    [
+     "MONDO_0002447",
+     "endometrial carcinoma",
+     0.5626977256011917
+    ],
+    [
+     "MONDO_0024881",
+     "secondary malignant neoplasm",
+     0.5539781374898577
+    ],
+    [
+     "MONDO_0001187",
+     "urinary bladder cancer",
+     0.5429889185217545
+    ]
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/brca1/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "id.id",
+   "record_value": "ENSG00000142319",
+   "upstream_value": "ENSG00000142319",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "id.version",
+   "record_value": 21,
+   "upstream_value": 21,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "interval [start, end, strand]",
+   "record_value": [
+    1392794,
+    1445514,
+    -1
+   ],
+   "upstream_value": [
+    1392794,
+    1445514,
+    -1
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "description",
+   "record_value": "solute carrier family 6 member 3 [Source:HGNC Symbol;Acc:HGNC:11049]",
+   "upstream_value": "solute carrier family 6 member 3 [Source:HGNC Symbol;Acc:HGNC:11049]",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "symbol",
+   "record_value": "SLC6A3",
+   "upstream_value": "SLC6A3",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/slc6a3/hgnc/fetch_symbol_SLC6A3.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "hgncId",
+   "record_value": "HGNC:11049",
+   "upstream_value": "HGNC:11049",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/slc6a3/hgnc/fetch_symbol_SLC6A3.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "aliases (HGNC alias_symbol; previous symbols are not kept)",
+   "record_value": [
+    "DAT"
+   ],
+   "upstream_value": [
+    "DAT"
+   ],
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/slc6a3/hgnc/fetch_symbol_SLC6A3.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "gene.json",
+   "field": "selection.selected (MANE Select)",
+   "record_value": "ENST00000270349",
+   "upstream_value": "ENST00000270349",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "transcript.json",
+   "field": "id",
+   "record_value": "ENST00000270349.12",
+   "upstream_value": "ENST00000270349.12",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENST00000270349_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "transcript.json",
+   "field": "exons",
+   "record_value": 15,
+   "upstream_value": 15,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENST00000270349_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "transcript.json",
+   "field": "translation length",
+   "record_value": 620,
+   "upstream_value": 620,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENST00000270349_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "protein-Q01959.json",
+   "field": "accession",
+   "record_value": "Q01959",
+   "upstream_value": "Q01959",
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "protein-Q01959.json",
+   "field": "length",
+   "record_value": 620,
+   "upstream_value": 620,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "protein-Q01959.json",
+   "field": "entryVersion",
+   "record_value": 233,
+   "upstream_value": 233,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "protein-Q01959.json",
+   "field": "features [type, start, end, description] (every one)",
+   "record_value": [
+    [
+     "Chain",
+     1,
+     620,
+     "Sodium-dependent dopamine transporter"
+    ],
+    [
+     "Binding site",
+     75,
+     75,
+     ""
+    ],
+    [
+     "Binding site",
+     77,
+     77,
+     ""
+    ],
+    [
+     "Binding site",
+     78,
+     78,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     82,
+     82,
+     ""
+    ],
+    [
+     "Binding site",
+     149,
+     149,
+     ""
+    ],
+    [
+     "Binding site",
+     153,
+     153,
+     ""
+    ],
+    [
+     "Binding site",
+     317,
+     317,
+     ""
+    ],
+    [
+     "Binding site",
+     320,
+     320,
+     ""
+    ],
+    [
+     "Binding site",
+     321,
+     321,
+     ""
+    ],
+    [
+     "Binding site",
+     321,
+     321,
+     ""
+    ],
+    [
+     "Binding site",
+     353,
+     353,
+     ""
+    ],
+    [
+     "Binding site",
+     357,
+     357,
+     ""
+    ],
+    [
+     "Binding site",
+     418,
+     418,
+     ""
+    ],
+    [
+     "Binding site",
+     421,
+     421,
+     ""
+    ],
+    [
+     "Binding site",
+     422,
+     422,
+     ""
+    ],
+    [
+     "Binding site",
+     422,
+     422,
+     ""
+    ],
+    [
+     "Binding site",
+     423,
+     423,
+     ""
+    ]
+   ],
+   "upstream_value": [
+    [
+     "Chain",
+     1,
+     620,
+     "Sodium-dependent dopamine transporter"
+    ],
+    [
+     "Binding site",
+     75,
+     75,
+     ""
+    ],
+    [
+     "Binding site",
+     77,
+     77,
+     ""
+    ],
+    [
+     "Binding site",
+     78,
+     78,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     79,
+     79,
+     ""
+    ],
+    [
+     "Binding site",
+     82,
+     82,
+     ""
+    ],
+    [
+     "Binding site",
+     149,
+     149,
+     ""
+    ],
+    [
+     "Binding site",
+     153,
+     153,
+     ""
+    ],
+    [
+     "Binding site",
+     317,
+     317,
+     ""
+    ],
+    [
+     "Binding site",
+     320,
+     320,
+     ""
+    ],
+    [
+     "Binding site",
+     321,
+     321,
+     ""
+    ],
+    [
+     "Binding site",
+     321,
+     321,
+     ""
+    ],
+    [
+     "Binding site",
+     353,
+     353,
+     ""
+    ],
+    [
+     "Binding site",
+     357,
+     357,
+     ""
+    ],
+    [
+     "Binding site",
+     418,
+     418,
+     ""
+    ],
+    [
+     "Binding site",
+     421,
+     421,
+     ""
+    ],
+    [
+     "Binding site",
+     422,
+     422,
+     ""
+    ],
+    [
+     "Binding site",
+     422,
+     422,
+     ""
+    ],
+    [
+     "Binding site",
+     423,
+     423,
+     ""
+    ]
+   ],
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "variant-r85w.json",
+   "field": "rsId",
+   "record_value": "rs1064795122",
+   "upstream_value": "rs1064795122",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/variation_human_rs1064795122.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "variant-r85w.json",
+   "field": "hgvs.protein in the VEP body",
+   "record_value": [
+    "ENSP00000270349.9:p.Arg85Trp"
+   ],
+   "upstream_value": [
+    "ENSP00000270349.9:p.Arg85Trp"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/vep_human_hgvs_ENST00000270349.12_c.253C_3ET_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "variant-r85w.json",
+   "field": "consequence terms",
+   "record_value": [
+    "missense_variant"
+   ],
+   "upstream_value": [
+    "missense_variant"
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/slc6a3/ensembl/vep_human_hgvs_ENST00000270349.12_c.253C_3ET_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "clinvar-r85w.json",
+   "field": "accessionVersion",
+   "record_value": "VCV000421417.2",
+   "upstream_value": "VCV000421417.2",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "clinvar-r85w.json",
+   "field": "classification",
+   "record_value": "Likely pathogenic",
+   "upstream_value": "Likely pathogenic",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "clinvar-r85w.json",
+   "field": "reviewStatus",
+   "record_value": "criteria provided, single submitter",
+   "upstream_value": "criteria provided, single submitter",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "clinvar-r85w.json",
+   "field": "lastEvaluated",
+   "record_value": "2019/01/03 00:00",
+   "upstream_value": "2019/01/03 00:00",
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "clinvar-r85w.json",
+   "field": "supportingSubmissionCount",
+   "record_value": 1,
+   "upstream_value": 1,
+   "source": "ncbi-clinvar",
+   "release": "ClinVar Build261101-1245.1",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "structure-8Y2C.json",
+   "field": "method",
+   "record_value": "ELECTRON MICROSCOPY",
+   "upstream_value": "ELECTRON MICROSCOPY",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2025-07-16",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_entry_8Y2C.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "structure-8Y2C.json",
+   "field": "resolutionAngstrom",
+   "record_value": 3.16,
+   "upstream_value": 3.16,
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2025-07-16",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_entry_8Y2C.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "structure-8Y2C.json",
+   "field": "revision.version",
+   "record_value": "1.4",
+   "upstream_value": "1.4",
+   "source": "rcsb",
+   "release": "PDB rev 1.4 2025-07-16",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_entry_8Y2C.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "predicted-model-AF-Q01959-F1.json",
+   "field": "modelId",
+   "record_value": "AF-Q01959-F1",
+   "upstream_value": "AF-Q01959-F1",
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/slc6a3/alphafold/api_prediction_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "predicted-model-AF-Q01959-F1.json",
+   "field": "globalPlddt",
+   "record_value": 86.94,
+   "upstream_value": 86.94,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/slc6a3/alphafold/api_prediction_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "predicted-model-AF-Q01959-F1.json",
+   "field": "modelVersion",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/slc6a3/alphafold/api_prediction_Q01959.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "pathways.json",
+   "field": "memberships [stableId, name, isDisease]",
+   "record_value": [
+    [
+     "R-HSA-379401",
+     "Dopamine clearance from the synaptic cleft",
+     false
+    ],
+    [
+     "R-HSA-442660",
+     "SLC-mediated transport of neurotransmitters",
+     false
+    ],
+    [
+     "R-HSA-5619081",
+     "Defective neurotransmitter clearance by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+     true
+    ],
+    [
+     "R-HSA-5660724",
+     "Defective transport of neurotransmitters by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+     true
+    ]
+   ],
+   "upstream_value": [
+    [
+     "R-HSA-379401",
+     "Dopamine clearance from the synaptic cleft",
+     false
+    ],
+    [
+     "R-HSA-442660",
+     "SLC-mediated transport of neurotransmitters",
+     false
+    ],
+    [
+     "R-HSA-5619081",
+     "Defective neurotransmitter clearance by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+     true
+    ],
+    [
+     "R-HSA-5660724",
+     "Defective transport of neurotransmitters by SLC6A3 causes Parkinsonism-dystonia infantile (PKDYS)",
+     true
+    ]
+   ],
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_mapping_UniProt_Q01959_pathways_species_9606.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "pathways.json",
+   "field": "release",
+   "record_value": "98",
+   "upstream_value": "98",
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "associations.json",
+   "field": "count",
+   "record_value": 1222,
+   "upstream_value": 1222,
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/slc6a3/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "associations.json",
+   "field": "platform [api, data]",
+   "record_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "upstream_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/slc6a3/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "slc6a3",
+   "record": "associations.json",
+   "field": "kept associations [diseaseId, name, score] (every one)",
+   "record_value": [
+    [
+     "MONDO_0013150",
+     "parkinsonism-dystonia, infantile",
+     0.7947447156574925
+    ],
+    [
+     "MONDO_0054835",
+     "classic dopamine transporter deficiency syndrome",
+     0.7622909126841366
+    ],
+    [
+     "MONDO_0007743",
+     "attention deficit-hyperactivity disorder",
+     0.6360135459506137
+    ],
+    [
+     "MONDO_0002009",
+     "major depressive disorder",
+     0.6258940696124526
+    ],
+    [
+     "MONDO_0004975",
+     "Alzheimer disease",
+     0.614357671883495
+    ],
+    [
+     "MONDO_0011122",
+     "obesity disorder",
+     0.6128613761235928
+    ],
+    [
+     "MONDO_0016158",
+     "narcolepsy-cataplexy syndrome",
+     0.5886787000285805
+    ],
+    [
+     "MONDO_0100081",
+     "sleep disorder",
+     0.5717350354445566
+    ],
+    [
+     "MONDO_0002050",
+     "depressive disorder",
+     0.5680237509860853
+    ],
+    [
+     "MONDO_0021107",
+     "narcolepsy",
+     0.5620999372622099
+    ],
+    [
+     "HP_0025502",
+     "Overweight",
+     0.5316852471028595
+    ],
+    [
+     "MONDO_0007147",
+     "obstructive sleep apnea syndrome",
+     0.5089217260079089
+    ],
+    [
+     "MONDO_0005582",
+     "binge eating disorder",
+     0.5012198678797446
+    ],
+    [
+     "MONDO_0005371",
+     "mood disorder",
+     0.4743063906439819
+    ],
+    [
+     "HP_0001249",
+     "Intellectual disability",
+     0.4715017657210829
+    ],
+    [
+     "MONDO_0007739",
+     "Huntington disease",
+     0.47063051206998846
+    ],
+    [
+     "MONDO_0005303",
+     "drug dependence",
+     0.46835850865092926
+    ],
+    [
+     "MONDO_0004980",
+     "atopic eczema",
+     0.4619748183558772
+    ],
+    [
+     "EFO_0009086",
+     "arteriosclerosis",
+     0.4619748183558772
+    ],
+    [
+     "MONDO_0005559",
+     "neurodegenerative disease",
+     0.44295553100709034
+    ],
+    [
+     "MONDO_0008575",
+     "nicotine dependence",
+     0.42592114192585107
+    ],
+    [
+     "MONDO_0005146",
+     "post-traumatic stress disorder",
+     0.4249034145972706
+    ],
+    [
+     "MONDO_0005090",
+     "schizophrenia",
+     0.42424273294537584
+    ],
+    [
+     "MONDO_0005451",
+     "eating disorder",
+     0.41279698151587485
+    ],
+    [
+     "MONDO_0004985",
+     "bipolar disorder",
+     0.4035759261868417
+    ]
+   ],
+   "upstream_value": [
+    [
+     "MONDO_0013150",
+     "parkinsonism-dystonia, infantile",
+     0.7947447156574925
+    ],
+    [
+     "MONDO_0054835",
+     "classic dopamine transporter deficiency syndrome",
+     0.7622909126841366
+    ],
+    [
+     "MONDO_0007743",
+     "attention deficit-hyperactivity disorder",
+     0.6360135459506137
+    ],
+    [
+     "MONDO_0002009",
+     "major depressive disorder",
+     0.6258940696124526
+    ],
+    [
+     "MONDO_0004975",
+     "Alzheimer disease",
+     0.614357671883495
+    ],
+    [
+     "MONDO_0011122",
+     "obesity disorder",
+     0.6128613761235928
+    ],
+    [
+     "MONDO_0016158",
+     "narcolepsy-cataplexy syndrome",
+     0.5886787000285805
+    ],
+    [
+     "MONDO_0100081",
+     "sleep disorder",
+     0.5717350354445566
+    ],
+    [
+     "MONDO_0002050",
+     "depressive disorder",
+     0.5680237509860853
+    ],
+    [
+     "MONDO_0021107",
+     "narcolepsy",
+     0.5620999372622099
+    ],
+    [
+     "HP_0025502",
+     "Overweight",
+     0.5316852471028595
+    ],
+    [
+     "MONDO_0007147",
+     "obstructive sleep apnea syndrome",
+     0.5089217260079089
+    ],
+    [
+     "MONDO_0005582",
+     "binge eating disorder",
+     0.5012198678797446
+    ],
+    [
+     "MONDO_0005371",
+     "mood disorder",
+     0.4743063906439819
+    ],
+    [
+     "HP_0001249",
+     "Intellectual disability",
+     0.4715017657210829
+    ],
+    [
+     "MONDO_0007739",
+     "Huntington disease",
+     0.47063051206998846
+    ],
+    [
+     "MONDO_0005303",
+     "drug dependence",
+     0.46835850865092926
+    ],
+    [
+     "MONDO_0004980",
+     "atopic eczema",
+     0.4619748183558772
+    ],
+    [
+     "EFO_0009086",
+     "arteriosclerosis",
+     0.4619748183558772
+    ],
+    [
+     "MONDO_0005559",
+     "neurodegenerative disease",
+     0.44295553100709034
+    ],
+    [
+     "MONDO_0008575",
+     "nicotine dependence",
+     0.42592114192585107
+    ],
+    [
+     "MONDO_0005146",
+     "post-traumatic stress disorder",
+     0.4249034145972706
+    ],
+    [
+     "MONDO_0005090",
+     "schizophrenia",
+     0.42424273294537584
+    ],
+    [
+     "MONDO_0005451",
+     "eating disorder",
+     0.41279698151587485
+    ],
+    [
+     "MONDO_0004985",
+     "bipolar disorder",
+     0.4035759261868417
+    ]
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/slc6a3/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "id.id",
+   "record_value": "ENSG00000165591",
+   "upstream_value": "ENSG00000165591",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "id.version",
+   "record_value": 9,
+   "upstream_value": 9,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "interval [start, end, strand]",
+   "record_value": [
+    57286632,
+    57490641,
+    1
+   ],
+   "upstream_value": [
+    57286632,
+    57490641,
+    1
+   ],
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "description",
+   "record_value": "fatty acid amide hydrolase 2 [Source:HGNC Symbol;Acc:HGNC:26440]",
+   "upstream_value": "fatty acid amide hydrolase 2 [Source:HGNC Symbol;Acc:HGNC:26440]",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "symbol",
+   "record_value": "FAAH2",
+   "upstream_value": "FAAH2",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/faah2/hgnc/fetch_symbol_FAAH2.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "hgncId",
+   "record_value": "HGNC:26440",
+   "upstream_value": "HGNC:26440",
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/faah2/hgnc/fetch_symbol_FAAH2.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "aliases (HGNC alias_symbol; previous symbols are not kept)",
+   "record_value": [
+    "FAAH-2",
+    "FLJ31204",
+    "RP11-479E16.1"
+   ],
+   "upstream_value": [
+    "FAAH-2",
+    "FLJ31204",
+    "RP11-479E16.1"
+   ],
+   "source": "hgnc",
+   "release": null,
+   "body": "data/fixtures/faah2/hgnc/fetch_symbol_FAAH2.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "gene.json",
+   "field": "selection.selected (MANE Select)",
+   "record_value": "ENST00000374900",
+   "upstream_value": "ENST00000374900",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "transcript.json",
+   "field": "id",
+   "record_value": "ENST00000374900.5",
+   "upstream_value": "ENST00000374900.5",
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENST00000374900_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "transcript.json",
+   "field": "exons",
+   "record_value": 11,
+   "upstream_value": 11,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENST00000374900_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "transcript.json",
+   "field": "translation length",
+   "record_value": 532,
+   "upstream_value": 532,
+   "source": "ensembl",
+   "release": "Ensembl 116",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENST00000374900_expand_1_utr_1_mane_1.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "protein-Q6GMR7.json",
+   "field": "accession",
+   "record_value": "Q6GMR7",
+   "upstream_value": "Q6GMR7",
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "protein-Q6GMR7.json",
+   "field": "length",
+   "record_value": 532,
+   "upstream_value": 532,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "protein-Q6GMR7.json",
+   "field": "entryVersion",
+   "record_value": 167,
+   "upstream_value": 167,
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "protein-Q6GMR7.json",
+   "field": "features [type, start, end, description] (every one)",
+   "record_value": [
+    [
+     "Chain",
+     1,
+     532,
+     "Fatty-acid amide hydrolase 2"
+    ]
+   ],
+   "upstream_value": [
+    [
+     "Chain",
+     1,
+     532,
+     "Fatty-acid amide hydrolase 2"
+    ]
+   ],
+   "source": "uniprot",
+   "release": "UniProt 2026_03",
+   "body": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "predicted-model-AF-Q6GMR7-F1.json",
+   "field": "modelId",
+   "record_value": "AF-Q6GMR7-F1",
+   "upstream_value": "AF-Q6GMR7-F1",
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/faah2/alphafold/api_prediction_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "predicted-model-AF-Q6GMR7-F1.json",
+   "field": "globalPlddt",
+   "record_value": 93.94,
+   "upstream_value": 93.94,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/faah2/alphafold/api_prediction_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "predicted-model-AF-Q6GMR7-F1.json",
+   "field": "modelVersion",
+   "record_value": 6,
+   "upstream_value": 6,
+   "source": "alphafold",
+   "release": "AlphaFold DB model v6",
+   "body": "data/fixtures/faah2/alphafold/api_prediction_Q6GMR7.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "pathways.json",
+   "field": "memberships [stableId, name, isDisease]",
+   "record_value": [
+    [
+     "R-HSA-2142753",
+     "Arachidonate metabolism",
+     false
+    ]
+   ],
+   "upstream_value": [
+    [
+     "R-HSA-2142753",
+     "Arachidonate metabolism",
+     false
+    ]
+   ],
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_mapping_UniProt_Q6GMR7_pathways_species_9606.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "pathways.json",
+   "field": "release",
+   "record_value": "98",
+   "upstream_value": "98",
+   "source": "reactome",
+   "release": "Reactome 98",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "associations.json",
+   "field": "count",
+   "record_value": 51,
+   "upstream_value": 51,
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/faah2/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "associations.json",
+   "field": "platform [api, data]",
+   "record_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "upstream_value": [
+    "26.9.0",
+    "26.09"
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/faah2/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  },
+  {
+   "set": "faah2",
+   "record": "associations.json",
+   "field": "kept associations [diseaseId, name, score] (every one)",
+   "record_value": [
+    [
+     "MONDO_0005044",
+     "hypertensive disorder",
+     0.30166961116895136
+    ],
+    [
+     "MONDO_0002146",
+     "hypogonadism",
+     0.2389516098716363
+    ],
+    [
+     "MONDO_0005148",
+     "type 2 diabetes mellitus",
+     0.12758032829534677
+    ],
+    [
+     "MONDO_0005339",
+     "androgenetic alopecia",
+     0.08407743127591912
+    ],
+    [
+     "MONDO_0007915",
+     "systemic lupus erythematosus",
+     0.04835544948228543
+    ],
+    [
+     "MONDO_0005267",
+     "heart disorder",
+     0.03981571383267482
+    ],
+    [
+     "MONDO_0002050",
+     "depressive disorder",
+     0.036485600338431665
+    ],
+    [
+     "MONDO_0004907",
+     "alopecia",
+     0.028640885936696343
+    ],
+    [
+     "MONDO_0005070",
+     "neoplasm",
+     0.022174791281082105
+    ],
+    [
+     "HP_0007367",
+     "Atrophy/Degeneration affecting the central nervous system",
+     0.02101393325752595
+    ],
+    [
+     "MONDO_0007763",
+     "nonpapillary renal cell carcinoma",
+     0.013489664695991615
+    ],
+    [
+     "MONDO_0002025",
+     "psychiatric disorder",
+     0.011456975495225754
+    ],
+    [
+     "MONDO_0005258",
+     "autism spectrum disorder",
+     0.008315546730405791
+    ],
+    [
+     "Orphanet_91088",
+     "Other metabolic disease",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005066",
+     "metabolic disease",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005105",
+     "melanoma",
+     0.0073915970936940375
+    ],
+    [
+     "HP_0001249",
+     "Intellectual disability",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005061",
+     "lung adenocarcinoma",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0100096",
+     "COVID-19",
+     0.005913277674955229
+    ],
+    [
+     "MONDO_0019115",
+     "obesity due to melanocortin 4 receptor deficiency",
+     0.0052357146080332755
+    ],
+    [
+     "MONDO_0011122",
+     "obesity disorder",
+     0.0052357146080332755
+    ],
+    [
+     "MONDO_0005081",
+     "preeclampsia",
+     0.0051741179655858255
+    ],
+    [
+     "MONDO_0005379",
+     "neurotic disorder",
+     0.004619748183558772
+    ],
+    [
+     "EFO_0010954",
+     "cask-related x-linked intellectual disability",
+     0.0044349582562164215
+    ],
+    [
+     "MONDO_0700092",
+     "neurodevelopmental disorder",
+     0.0036957985468470188
+    ]
+   ],
+   "upstream_value": [
+    [
+     "MONDO_0005044",
+     "hypertensive disorder",
+     0.30166961116895136
+    ],
+    [
+     "MONDO_0002146",
+     "hypogonadism",
+     0.2389516098716363
+    ],
+    [
+     "MONDO_0005148",
+     "type 2 diabetes mellitus",
+     0.12758032829534677
+    ],
+    [
+     "MONDO_0005339",
+     "androgenetic alopecia",
+     0.08407743127591912
+    ],
+    [
+     "MONDO_0007915",
+     "systemic lupus erythematosus",
+     0.04835544948228543
+    ],
+    [
+     "MONDO_0005267",
+     "heart disorder",
+     0.03981571383267482
+    ],
+    [
+     "MONDO_0002050",
+     "depressive disorder",
+     0.036485600338431665
+    ],
+    [
+     "MONDO_0004907",
+     "alopecia",
+     0.028640885936696343
+    ],
+    [
+     "MONDO_0005070",
+     "neoplasm",
+     0.022174791281082105
+    ],
+    [
+     "HP_0007367",
+     "Atrophy/Degeneration affecting the central nervous system",
+     0.02101393325752595
+    ],
+    [
+     "MONDO_0007763",
+     "nonpapillary renal cell carcinoma",
+     0.013489664695991615
+    ],
+    [
+     "MONDO_0002025",
+     "psychiatric disorder",
+     0.011456975495225754
+    ],
+    [
+     "MONDO_0005258",
+     "autism spectrum disorder",
+     0.008315546730405791
+    ],
+    [
+     "Orphanet_91088",
+     "Other metabolic disease",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005066",
+     "metabolic disease",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005105",
+     "melanoma",
+     0.0073915970936940375
+    ],
+    [
+     "HP_0001249",
+     "Intellectual disability",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0005061",
+     "lung adenocarcinoma",
+     0.0073915970936940375
+    ],
+    [
+     "MONDO_0100096",
+     "COVID-19",
+     0.005913277674955229
+    ],
+    [
+     "MONDO_0019115",
+     "obesity due to melanocortin 4 receptor deficiency",
+     0.0052357146080332755
+    ],
+    [
+     "MONDO_0011122",
+     "obesity disorder",
+     0.0052357146080332755
+    ],
+    [
+     "MONDO_0005081",
+     "preeclampsia",
+     0.0051741179655858255
+    ],
+    [
+     "MONDO_0005379",
+     "neurotic disorder",
+     0.004619748183558772
+    ],
+    [
+     "EFO_0010954",
+     "cask-related x-linked intellectual disability",
+     0.0044349582562164215
+    ],
+    [
+     "MONDO_0700092",
+     "neurodevelopmental disorder",
+     0.0036957985468470188
+    ]
+   ],
+   "source": "opentargets",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "body": "data/fixtures/faah2/opentargets/api_v4_graphql.json",
+   "state": "agrees"
+  }
+ ],
+ "sources": [
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+   "body": "data/fixtures/faah2/ensembl/info_data.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785",
+   "body": "not found",
+   "where": "not found"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENSG00000244734?expand=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "body": ".cache/helix-raw/blob/4a14735158db7387ab2cdcb15cce6047cee7a577c467516a5ff3330c9d573fd1",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENST00000335295?expand=1;utr=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+   "body": ".cache/helix-raw/blob/6bd81ab0c7546f7ca649ad8aa70b152810f7c26871e152bd8baf0d89b940e3b7",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cds;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "29c6c4bfdcb16e7dd60449d343f77422614ccb6dcec6c247abc2f54555c665a2",
+   "body": "research/raw/ensembl/seq_ENST00000335295_cds.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000335295?type=cdna;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "454eb079badbaae5fe62d40acbcd9b66c32f4919f5f876dfdbf26c470a535d9c",
+   "body": "research/raw/ensembl/seq_ENST00000335295_cdna.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENSP00000333994?content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "1b692b7c3ecea1db563500856ee02d07e97f4edb7208d3c2d5016f8c4daddaf8",
+   "body": "research/raw/ensembl/seq_ENSP00000333994_protein.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/region/human/11:5226982..5227022:1?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+   "body": ".cache/helix-raw/blob/aafa18887b119d569e55d94a96145dabb216b9e127d799a8a635268b8698db1e",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "0c2aee121f1176c4274d2b7f39927d2a12a46a8c56279e77e36eebd40e8fe288",
+   "body": "not found",
+   "where": "not found"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variation/human/rs334?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
+   "body": ".cache/helix-raw/blob/1a46a7488a97fae72fc45f77da52f70b6b0da74eb7ffd3180e86494cb3461f47",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variant_recoder/human/rs334?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5",
+   "body": ".cache/helix-raw/blob/fca7954ee6846d797c22621b7fa17a86497b3dfb9916a384c888d91c97b2a2c5",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000335295.4:c.20A>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
+   "body": ".cache/helix-raw/blob/7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "uniprot",
+   "url": "https://rest.uniprot.org/uniprotkb/P68871.json",
+   "release": "UniProt 2026_03",
+   "sha256": "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "body": ".cache/helix-raw/blob/937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "rcsb-files",
+   "url": "https://files.rcsb.org/download/2HBS.cif",
+   "release": "PDB rev 1.5 2026-08-12",
+   "sha256": "e6991972885992e7f110833e2d491953a34e4c4b8a238804c09ec06b8ebf2ea2",
+   "body": "research/raw/rcsb/2HBS.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/entry/2HBS",
+   "release": "PDB rev 1.5 2026-08-12",
+   "sha256": "c498b718f147aca3787f4957c0b714b1da10a2f2321f514b4d2d55478a15d29b",
+   "body": "research/raw/rcsb/entry_2HBS.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/2HBS/2",
+   "release": "PDB rev 1.5 2026-08-12",
+   "sha256": "339ba25fd47cb276d8fbe8de91b06966493a5d06eda9d203a429e44496553e93",
+   "body": "research/raw/rcsb/polymer_entity_2HBS_2.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/assembly/2HBS/1",
+   "release": "PDB rev 1.5 2026-08-12",
+   "sha256": "c1e073c00af03c1953aeba670eba340c6551d17939918154346e1dc8a3f90ded",
+   "body": "research/raw/rcsb/assembly_2HBS_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "pdbe-sifts",
+   "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/2hbs",
+   "release": null,
+   "sha256": "c177a26930c737eb54c9bdccd2f1a727ba74a65edd5396c64ad9182ed151bffd",
+   "body": "research/raw/pdbe/sifts_mappings_uniprot_2hbs.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=446748,446747,446738,446737,446736,446735,446731,446730,15333,15175&retmode=json&tool=helix-research",
+   "release": "ClinVar Build261025-1250.1",
+   "sha256": "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "body": ".cache/helix-raw/blob/cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "hgnc",
+   "url": "https://rest.genenames.org/fetch/symbol/HBB",
+   "release": null,
+   "sha256": "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+   "body": ".cache/helix-raw/blob/9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473",
+   "where": "local snapshot cache"
+  },
+  {
+   "set": "hbb",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs334&retmode=json&retmax=100&tool=helix-research",
+   "release": "ClinVar Build261025-1250.1",
+   "sha256": "6068d4bd3c1beb897d7745937505d481bcc05307eaed38fc0e46911de00fddf6",
+   "body": "research/raw/ncbi-clinvar/esearch_rs334.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/api/prediction/P68871",
+   "release": "AlphaFold DB model v6",
+   "sha256": "7a4ab449f01a2d36cac886f2f3d360552f52a1d1147c4525b4765b9324704078",
+   "body": "research/raw/alphafold/prediction_P68871.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-P68871-F1-model_v6.cif",
+   "release": "AlphaFold DB model v6",
+   "sha256": "0c1603478734a034d38f807a57badc41c2e2086daaa98334d218a9c70ace1f4e",
+   "body": "research/raw/alphafold/AF-P68871-F1-model_v6.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/database/version",
+   "release": "Reactome 98",
+   "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/mapping/UniProt/P68871/pathways?species=9606",
+   "release": "Reactome 98",
+   "sha256": "1607a87618d8e26483293a3caa4d8b5bcd80b2d17c026ae8961b323089190014",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_mapping_UniProt_P68871_pathways_species_9606.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-983231/ancestors",
+   "release": "Reactome 98",
+   "sha256": "dd417a87d4d176ef99c70721424d9cb8615596d238339710dc3672d71d71a006",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-983231_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-1237044/ancestors",
+   "release": "Reactome 98",
+   "sha256": "fc1ba5f261537b28ce6300f6e440c1c7db99ed56e52596dbc05519d57d82ec5d",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1237044_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-1247673/ancestors",
+   "release": "Reactome 98",
+   "sha256": "9cff5d7728e5d1f75e78c817d85c8e2d6a47db7cb02e7af05e04d8fe80136f00",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-1247673_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-2168880/ancestors",
+   "release": "Reactome 98",
+   "sha256": "1b520f961969fd7b248c64306e97902b0c95cb0afedf93e3742436867fbf6b4e",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-2168880_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-6798695/ancestors",
+   "release": "Reactome 98",
+   "sha256": "239a6fb7f5aea53026216dfa1070e421c7a82fb34ca97fbdf773112d4d8b15f3",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-6798695_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9613829/ancestors",
+   "release": "Reactome 98",
+   "sha256": "1f973ad51abc17af540e34afdb718b87a3055011f3c7b1cc2fc42cdaa5064f78",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9613829_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9615710/ancestors",
+   "release": "Reactome 98",
+   "sha256": "da8e992b215f956b648e7b83da30a82661c17980a8c9598d8c5309100d6c751e",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9615710_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9707564/ancestors",
+   "release": "Reactome 98",
+   "sha256": "119908e81aa27ab1bc28c198be0008543559706d2427dd50a4d06fe8e2c91981",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707564_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9707616/ancestors",
+   "release": "Reactome 98",
+   "sha256": "e446574c64896587f712115aaaf65df075635d4acb2969b2143cb5843d110ca2",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9707616_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9927020/ancestors",
+   "release": "Reactome 98",
+   "sha256": "0f713613baf0637942611de39672438af7dc0deb4229c3008474d0b7a294330b",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_event_R-HSA-9927020_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-983231",
+   "release": "Reactome 98",
+   "sha256": "fa5210cd0c3469b5c33dd8d1d2a10eab1d53c91e3a56a4e43ec3d059622b6575",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-983231.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-1237044",
+   "release": "Reactome 98",
+   "sha256": "ba1678841b57c9fd906ddd8fd0bb1ce421d19039bef858ea51ecf990f8bb0c60",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1237044.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-1247673",
+   "release": "Reactome 98",
+   "sha256": "c45ceea19299506ff46cb55287d46593a014db83f4e7711bca47a64f3ab2979d",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-1247673.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-6798695",
+   "release": "Reactome 98",
+   "sha256": "df8de64d3460c35307f52f5cfbe5fc2bd4533c81845761836546e0d579dcd86d",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-6798695.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9613829",
+   "release": "Reactome 98",
+   "sha256": "fbf05417ab64303154d9a609073b10bfe67b31cc8897b4403172fa8b8067fb93",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9613829.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9615710",
+   "release": "Reactome 98",
+   "sha256": "a6eb82c067c0a13f55bcb5b32be2a8905ce1ce2ce5c8aa6a094f5aefefa9e354",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9615710.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707564",
+   "release": "Reactome 98",
+   "sha256": "49e69ada0e61b8a612630e3430debc1365ec37cd1d7e74564f39af56557b8ad6",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707564.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9707616",
+   "release": "Reactome 98",
+   "sha256": "82941f8f6ccd388df5f7941ac068e43e5640ac805308b14470e549014ed49b86",
+   "body": "data/fixtures/hbb/reactome/ContentService_data_participants_R-HSA-9707616.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "hbb",
+   "source": "opentargets",
+   "url": "https://api.platform.opentargets.org/api/v4/graphql",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "sha256": "14b55819285992e3536dd9f3f612f6be89cb7b6122d4d5bcc4a49e1bcc048109",
+   "body": "data/fixtures/hbb/opentargets/api_v4_graphql.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+   "body": "data/fixtures/faah2/ensembl/info_data.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "2d8e6ea1b25df837cd3b1c29d9057a3fe44f8af276deb6419210a922e26ac109",
+   "body": "data/fixtures/cftr/ensembl/info_assembly_homo_sapiens.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENSG00000001626?expand=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "d1632174e6cd6161b95b5e7f0ec21edafe51102079b15396f376b223abe0fbb3",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENSG00000001626_expand_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENST00000003084?expand=1;utr=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "c4f0ee3cb9255e74aea6904d0a012a14a95941e365ae1ac423412a7179763507",
+   "body": "data/fixtures/cftr/ensembl/lookup_id_ENST00000003084_expand_1_utr_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000003084?type=cds;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "3952913983111caf9afe4ed1f739f5eff1a94f85421c39423b99df207c84f38f",
+   "body": "data/fixtures/cftr/ensembl/sequence_id_ENST00000003084_type_cds.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000003084?type=cdna;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "96494af3e570c11c806adb86478b13269dcbab2a7fcce4c7d8f6b1c8e97d956b",
+   "body": "data/fixtures/cftr/ensembl/sequence_id_ENST00000003084_type_cdna.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENSP00000003084?content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "ba02fb68b73e5b5791fb9b405e7f2426bdf708802b81d2ebc94b1f066d9abe70",
+   "body": "data/fixtures/cftr/ensembl/sequence_id_ENSP00000003084.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/region/human/7:117559572..117559614:1?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "663426315ec0e523674e7f074214ff06abc8a6aeb08ff12222e75a1a4c2b522f",
+   "body": "data/fixtures/cftr/ensembl/sequence_region_human_7_117559572..117559614_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/map/cds/ENST00000003084/1521..1523?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "8ed35572b5b5ca47b724087ac29688642509917c6b00681ba6baa3f85d383f79",
+   "body": "data/fixtures/cftr/ensembl/map_cds_ENST00000003084_1521..1523.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variation/human/rs113993960?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "50aacc8b079938457ef3dba4616f06b77fd248165c27bbabd6bb8f034dec113c",
+   "body": "data/fixtures/cftr/ensembl/variation_human_rs113993960.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variant_recoder/human/rs113993960?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "2d7d8a6e9d1cdcce724111946e997ebe42b99470d6c24de54f453503687f3c7e",
+   "body": "data/fixtures/cftr/ensembl/variant_recoder_human_rs113993960_fields_id_hgvsg_hgvsc_hgvsp_spdi.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000003084.11:c.1521_1523del?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "6e04f9694af41f7ee7f564948ea524f86cddfee14a860773638a55a58feb00ec",
+   "body": "data/fixtures/cftr/ensembl/vep_human_hgvs_ENST00000003084.11_c.1521_1523del_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "uniprot",
+   "url": "https://rest.uniprot.org/uniprotkb/P13569.json",
+   "release": "UniProt 2026_03",
+   "sha256": "2b7b2ea3cabf7d9bf660b5e7bf70a420f46b5e8c26016d542ebd8dcb1c38dcd8",
+   "body": "data/fixtures/cftr/uniprot/uniprotkb_P13569.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "rcsb-files",
+   "url": "https://files.rcsb.org/download/5UAK.cif",
+   "release": "PDB rev 1.4 2024-03-06",
+   "sha256": "9df8db7f71796a6b66254012d0f64711725bce57f6d21f1b62c2563cd6afea23",
+   "body": "data/fixtures/cftr/rcsb-files/download_5UAK.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/entry/5UAK",
+   "release": "PDB rev 1.4 2024-03-06",
+   "sha256": "f718412b3ca990f4a2ba386d9d6a2c01f0adc54f83e8a2f99c883eb64346d362",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_entry_5UAK.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/5UAK/1",
+   "release": "PDB rev 1.4 2024-03-06",
+   "sha256": "1115beaeec4c5de6df425d76d69cf267a802a06eef4a6638f1d186bda580e5ff",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_polymer_entity_5UAK_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/assembly/5UAK/1",
+   "release": "PDB rev 1.4 2024-03-06",
+   "sha256": "589df7824a500401cb6b47c07a485de36be3fde7b659b2f459c8bb7ccf65d9fd",
+   "body": "data/fixtures/cftr/rcsb/rest_v1_core_assembly_5UAK_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "pdbe-sifts",
+   "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/5uak",
+   "release": null,
+   "sha256": "0d26c8a2e5016ea1be08372757985d89ed6d50b3f89968da064afc42edf95779",
+   "body": "data/fixtures/cftr/pdbe-sifts/pdbe_api_mappings_uniprot_5uak.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=634837,7105&retmode=json&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "7b725d0d1d234e74eacc2bd61986bb526b96abcf317a1b665c6ba12886c30a66",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_634837_7105_retmode_json_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "hgnc",
+   "url": "https://rest.genenames.org/fetch/symbol/CFTR",
+   "release": null,
+   "sha256": "6f7ceddd51e45b2dcea64cf49784ae0142217821bb1e27ac1bd5cd3d8b5ecc32",
+   "body": "data/fixtures/cftr/hgnc/fetch_symbol_CFTR.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs113993960&retmode=json&retmax=100&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "96f73ee016699953e08b6473679bc63b09c9506dbaad2988a63683625385b47f",
+   "body": "data/fixtures/cftr/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs113993960_retmode_json_retmax_100_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/api/prediction/P13569",
+   "release": "AlphaFold DB model v6",
+   "sha256": "defdf4427b9d9420ad9e9033106ddf4cc541cb930abb693e412cd213e4de4207",
+   "body": "data/fixtures/cftr/alphafold/api_prediction_P13569.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-P13569-F1-model_v6.cif",
+   "release": "AlphaFold DB model v6",
+   "sha256": "12525bdff67442baa038db09fe07d236f91c1f2e0e794f44eb33fe773b4b6590",
+   "body": "data/fixtures/cftr/alphafold/files_AF-P13569-F1-model_v6.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/database/version",
+   "release": "Reactome 98",
+   "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/mapping/UniProt/P13569/pathways?species=9606",
+   "release": "Reactome 98",
+   "sha256": "3c904ee6be18c9b5ca7101a1c47d8a3483ef4e3e6d60134d341359cfd3b80417",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_mapping_UniProt_P13569_pathways_species_9606.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-382556/ancestors",
+   "release": "Reactome 98",
+   "sha256": "0edb7ec36f03c50e64e52f3f5b1baabe7664130622d564e1cd0c4535e8b9f4ea",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-382556_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5627083/ancestors",
+   "release": "Reactome 98",
+   "sha256": "cdd2a0182d6996d2bf86dba447b9723ecc60c428f7fdae3294d5541c42e0728c",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-5627083_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5678895/ancestors",
+   "release": "Reactome 98",
+   "sha256": "5d041c8723a1ac7f886601ac9cf79756031651f83f638484962166880838df59",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-5678895_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5689880/ancestors",
+   "release": "Reactome 98",
+   "sha256": "72452d9374ccb8a0ac3cd384b0f8275108f77e3007ccb0fe185406dba1b6a79b",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-5689880_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-8856825/ancestors",
+   "release": "Reactome 98",
+   "sha256": "faceeedf0cb5f964f6f2d71e21474f2e18c994b9f98a02a1d8c8ec2dad7fdc88",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-8856825_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-8856828/ancestors",
+   "release": "Reactome 98",
+   "sha256": "46f90076e9b4fa876b22a7352e894c016f72c74b7342d7301a2d776a02d7fd29",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-8856828_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9013406/ancestors",
+   "release": "Reactome 98",
+   "sha256": "06cde03ee5ea32bcbd3d6ce51b55c8b7820b7dc476796542513f9586a0889f6e",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9013406_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9613829/ancestors",
+   "release": "Reactome 98",
+   "sha256": "1f973ad51abc17af540e34afdb718b87a3055011f3c7b1cc2fc42cdaa5064f78",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9613829_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9615710/ancestors",
+   "release": "Reactome 98",
+   "sha256": "da8e992b215f956b648e7b83da30a82661c17980a8c9598d8c5309100d6c751e",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9615710_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9646399/ancestors",
+   "release": "Reactome 98",
+   "sha256": "1a48c61c64b7cff1b4f8336301b40ab831e30e23d76caf4c29b6ef23539c513a",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9646399_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9925563/ancestors",
+   "release": "Reactome 98",
+   "sha256": "e1d907b98e0201be9240316a9f4a5d42b3a4cda46c3a63a43b61a7ae9f546345",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_event_R-HSA-9925563_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-382556",
+   "release": "Reactome 98",
+   "sha256": "30c23a310c7f613a5b39360fb95e189be86ac61a67d8c70abd37b28b2b8f0efa",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-382556.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-5627083",
+   "release": "Reactome 98",
+   "sha256": "4669b4c347cccc359758b7f40a7df67df5931db8def22d257949c20a29a7399b",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-5627083.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-8856825",
+   "release": "Reactome 98",
+   "sha256": "6f5c8847b476c18c11ebc5e4719e1c1ac82af401cfb071901ecc26b08f69f1cf",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-8856825.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-8856828",
+   "release": "Reactome 98",
+   "sha256": "ee9004213a2719489b79edb1538137f4fdbcb103f6dcbc6957e7a05c3ffaea57",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-8856828.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9613829",
+   "release": "Reactome 98",
+   "sha256": "fbf05417ab64303154d9a609073b10bfe67b31cc8897b4403172fa8b8067fb93",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9613829.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9615710",
+   "release": "Reactome 98",
+   "sha256": "a6eb82c067c0a13f55bcb5b32be2a8905ce1ce2ce5c8aa6a094f5aefefa9e354",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9615710.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9646399",
+   "release": "Reactome 98",
+   "sha256": "292c0a8a4e4b68bbd63a5292fa9cced2e85440cbd8abf41648af6fbe34e58e99",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9646399.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9925563",
+   "release": "Reactome 98",
+   "sha256": "c59d6c67fe053092758b3a268e7db6b134eaf6852a8a0b315b7a14136b51d92d",
+   "body": "data/fixtures/cftr/reactome/ContentService_data_participants_R-HSA-9925563.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "cftr",
+   "source": "opentargets",
+   "url": "https://api.platform.opentargets.org/api/v4/graphql",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "sha256": "386c67eaae7408eb1709bb293bfe0702191a85c48e630fd8842d03c3190daaea",
+   "body": "data/fixtures/cftr/opentargets/api_v4_graphql.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+   "body": "data/fixtures/faah2/ensembl/info_data.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "90550c9fd2da340bf3236749e3ebeefdea0839be4e5bbaa51f39d1d972974671",
+   "body": "data/fixtures/brca1/ensembl/info_assembly_homo_sapiens.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENSG00000012048?expand=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "a0c4133da7a227498e11141a7e820a1c6506a7c62f3ae4c175dce376c6b89cb1",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENSG00000012048_expand_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENST00000357654?expand=1;utr=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "01041b946f3e06f8acb00906d1ea432fc43f294988c560de026be1f70b09cefa",
+   "body": "data/fixtures/brca1/ensembl/lookup_id_ENST00000357654_expand_1_utr_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000357654?type=cds;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "4eeb4acd4b1b692dc2f9319aec3530a0a4f254694d49000694414749f287ae46",
+   "body": "data/fixtures/brca1/ensembl/sequence_id_ENST00000357654_type_cds.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000357654?type=cdna;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "63de558d9a0b44c072c35634d8f9ca567da1d67a24b9f2b2b437d85a18281ca1",
+   "body": "data/fixtures/brca1/ensembl/sequence_id_ENST00000357654_type_cdna.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENSP00000350283?content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "7b33f5766efd0f34b81272bd5bbd9c20ecd7bef8d689c15a5478a6f221af0cc2",
+   "body": "data/fixtures/brca1/ensembl/sequence_id_ENSP00000350283.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/region/human/17:43106467..43106507:1?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "1665ace8803053b2de602b2f4f029a2a97b9d786e2dd1ecd79ddf5564a61cded",
+   "body": "data/fixtures/brca1/ensembl/sequence_region_human_17_43106467..43106507_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/map/cds/ENST00000357654/181..183?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "787bda47cd5513d3df10da1cd84b7d7d00ba6bd1cb2061640490c6b9af80d28a",
+   "body": "data/fixtures/brca1/ensembl/map_cds_ENST00000357654_181..183.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variation/human/rs28897672?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "f4591e4ad80f640b9c36c40c8b03056e02988aa03d3c1a94936eba06ffb1db49",
+   "body": "data/fixtures/brca1/ensembl/variation_human_rs28897672.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variant_recoder/human/rs28897672?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "f39a42fdd69bca783d856ee61a167b3e7b7d307f9e19bfff571c846f9c56f5f7",
+   "body": "data/fixtures/brca1/ensembl/variant_recoder_human_rs28897672_fields_id_hgvsg_hgvsc_hgvsp_spdi.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000357654.9:c.181T>G?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "a5e180b485e875dc438c4d1819aec50ad01e80365f06645e4e9a6dade523b24b",
+   "body": "data/fixtures/brca1/ensembl/vep_human_hgvs_ENST00000357654.9_c.181T_3EG_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "uniprot",
+   "url": "https://rest.uniprot.org/uniprotkb/P38398.json",
+   "release": "UniProt 2026_03",
+   "sha256": "c5a914de75ea088c6fd36f1cfbab444d7a24bf1e19ba2390e229cc3afb252c73",
+   "body": "data/fixtures/brca1/uniprot/uniprotkb_P38398.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "rcsb-files",
+   "url": "https://files.rcsb.org/download/1JM7.cif",
+   "release": "PDB rev 1.4 2024-05-22",
+   "sha256": "65d936f01a246d59a6a1ebbedb53c3e67e3a4e297dbb3ae55f0e1747014426a4",
+   "body": "data/fixtures/brca1/rcsb-files/download_1JM7.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/entry/1JM7",
+   "release": "PDB rev 1.4 2024-05-22",
+   "sha256": "8c6c9d4fbde65cf7b05fd80c7a59f0ad702834a97859c8c5336de82782093aaa",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_entry_1JM7.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/1JM7/1",
+   "release": "PDB rev 1.4 2024-05-22",
+   "sha256": "84882618023e7d8770f4e665aff0b73ebc68b26c4386798e9d1b55bb991a11d2",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_polymer_entity_1JM7_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/assembly/1JM7/1",
+   "release": "PDB rev 1.4 2024-05-22",
+   "sha256": "c612a9b8b6f8dfe165e847c0fc48cffa87e52e34b0eae42a399f4d59538b07be",
+   "body": "data/fixtures/brca1/rcsb/rest_v1_core_assembly_1JM7_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "pdbe-sifts",
+   "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/1jm7",
+   "release": null,
+   "sha256": "453c35fbe84717c8cd202624a096b17c8b6625516dd6323af0ed4bb790d91fae",
+   "body": "data/fixtures/brca1/pdbe-sifts/pdbe_api_mappings_uniprot_1jm7.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=54360,54359,17661&retmode=json&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "9b53d25732c39a559b9bc3ce4f3405e27275cc3d3f3aca2d833756cca2796f7b",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_54360_54359_17661_retmode_json_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "hgnc",
+   "url": "https://rest.genenames.org/fetch/symbol/BRCA1",
+   "release": null,
+   "sha256": "7ad75eee598fff2701d02d243480ef74043a1123aae36016e511e631da4027d0",
+   "body": "data/fixtures/brca1/hgnc/fetch_symbol_BRCA1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs28897672&retmode=json&retmax=100&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "e4b9393d1dfb5c39505c9c2827ca77bd85b4ecf922d003d8e0ddfb8a8519ec4f",
+   "body": "data/fixtures/brca1/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs28897672_retmode_json_retmax_100_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/api/prediction/P38398",
+   "release": "AlphaFold DB model v6",
+   "sha256": "b1f5643bc84f39b12894fbfc103713456f4c08f4867c7b5b6de6f7f7a895cc83",
+   "body": "data/fixtures/brca1/alphafold/api_prediction_P38398.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-P38398-F1-model_v6.cif",
+   "release": "AlphaFold DB model v6",
+   "sha256": "119c411fb688fa36051126df1bd7b9dd228f4cc0c2653fb9791352618007d2eb",
+   "body": "data/fixtures/brca1/alphafold/files_AF-P38398-F1-model_v6.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/database/version",
+   "release": "Reactome 98",
+   "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/mapping/UniProt/P38398/pathways?species=9606",
+   "release": "Reactome 98",
+   "sha256": "3f40439bee900fc557206b5a10b05c093d88b41a871f8d387d3f4298a6c3f28f",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_mapping_UniProt_P38398_pathways_species_9606.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-69473/ancestors",
+   "release": "Reactome 98",
+   "sha256": "d1464b9c78066761c2925f539ba0199fbc0cb681dfbd97322c0ff7ec513efb43",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-69473_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-912446/ancestors",
+   "release": "Reactome 98",
+   "sha256": "2de61117aa1d5054db6ffde4c033e65c89e489b1c6ed51384a4f30303946d4c0",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-912446_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-1221632/ancestors",
+   "release": "Reactome 98",
+   "sha256": "6fb81737ecfe0c5ee3e98d9718916f136e0095da4a9c0e05482bc0efdd1733ac",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-1221632_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-3108214/ancestors",
+   "release": "Reactome 98",
+   "sha256": "ee36b037fbc19b69d13766f671d32039b2c0524f8b7d93a96908b0d764524dce",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-3108214_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5685938/ancestors",
+   "release": "Reactome 98",
+   "sha256": "068bb1ac2ae2634e92a79bbccf6522eb2ab3e9a3ccfe003c0d2284d43d03b1f4",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5685938_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5685942/ancestors",
+   "release": "Reactome 98",
+   "sha256": "6b1198003ecf1bfabc5f297d427680760f5b69e67e389ca5d7665584b9185565",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5685942_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5689901/ancestors",
+   "release": "Reactome 98",
+   "sha256": "09e713cdcedea13b9e6326ad13bb5c758db0e8d9d5af8fdbac38069ac6a98b9b",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5689901_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693554/ancestors",
+   "release": "Reactome 98",
+   "sha256": "e6c63dc0d4dc57f0da8736b594e6454fe9c88bd3bff5fad48bd1e8280c67789b",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693554_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693565/ancestors",
+   "release": "Reactome 98",
+   "sha256": "50585ea8047f813a2a4f5d1c1037c239bad0dcb7286f034748f03b2ed9a60d46",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693565_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693568/ancestors",
+   "release": "Reactome 98",
+   "sha256": "5889e5128787b4e16f0dde0e65b5341807fd2f6989c9af6ad4c4a0774aebcd4a",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693568_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693571/ancestors",
+   "release": "Reactome 98",
+   "sha256": "2cbe1671741e4c22b1137976977da32c74b98fefe42ab705a248d5e5ab85f7ab",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693571_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693579/ancestors",
+   "release": "Reactome 98",
+   "sha256": "d277bff9036fd20f373d16af9717f2af4a9801627c58039254a87e41b14ea34e",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693579_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693607/ancestors",
+   "release": "Reactome 98",
+   "sha256": "b0010ead2508aa346627dddfefbcbbc9c48d2560e316d2d5b029bb7a95a41aba",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693607_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5693616/ancestors",
+   "release": "Reactome 98",
+   "sha256": "fe9431f83454d08e0e764cca8b1800b80c531ee1db73f2508addd047865e5e4d",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-5693616_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-6796648/ancestors",
+   "release": "Reactome 98",
+   "sha256": "e96057dd8437f1db8492ceb63359b1d6df11fee064ba6ebbbf2770ef46e2d146",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-6796648_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-6804756/ancestors",
+   "release": "Reactome 98",
+   "sha256": "df86f4713e30e1981a80111b0fd6e96960d5b7229bea2c0c1dddf86287025694",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-6804756_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-8951664/ancestors",
+   "release": "Reactome 98",
+   "sha256": "f04c2d2a46dd5fb194f6d8ac21ba99d86c105684b6b22f7f393747b444c3f1eb",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-8951664_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-8953750/ancestors",
+   "release": "Reactome 98",
+   "sha256": "820962e0d46ff8bdbe167c21ffcf47c4af7c3ac2ab0fbb754989215f6448a78e",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-8953750_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9663199/ancestors",
+   "release": "Reactome 98",
+   "sha256": "6595222a055f18906cd08cf7a29823914cc86ff1217101ab769952fb9e0914f6",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9663199_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9699150/ancestors",
+   "release": "Reactome 98",
+   "sha256": "a0c69926296b76d29457646b09dd5d9a4f79857364bc3d594b80101b68498667",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9699150_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9701192/ancestors",
+   "release": "Reactome 98",
+   "sha256": "b557281245572bea4eee9dd55f292c94f7a2a41e1270a593256357b83f018a47",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9701192_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9704331/ancestors",
+   "release": "Reactome 98",
+   "sha256": "26b0f491c90bbee7f5a397cf9c52ba54a05df34c881538e1e5bd541df26bd638",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9704331_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9704646/ancestors",
+   "release": "Reactome 98",
+   "sha256": "aa9dbc27f087b4fc1a848274ce14a07c84607ea7839145786e1317b2e400334b",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9704646_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9709570/ancestors",
+   "release": "Reactome 98",
+   "sha256": "d90411c13537e5c68bb55eeaaab5118d9fe86df1985cdfaa499a615408701d71",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9709570_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9709603/ancestors",
+   "release": "Reactome 98",
+   "sha256": "5af971e70c5bb815d7e0820afd3ce8f8bb0a599ae03b14bb8ab134f2d74dccab",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9709603_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9755511/ancestors",
+   "release": "Reactome 98",
+   "sha256": "180bd4ed1353d0c50712858c19c41c36b8ee0446aabbc49451d6eb2dcb50c157",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9755511_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9825895/ancestors",
+   "release": "Reactome 98",
+   "sha256": "abb971282728e094ed4a2e853451c30925b7b56f8e6a4541da37ab66dd718142",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9825895_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-9974237/ancestors",
+   "release": "Reactome 98",
+   "sha256": "6f260f95b8005c76a6bf9bb396c98cdc47d160979027d9046a16fdd65409bbaa",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_event_R-HSA-9974237_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-912446",
+   "release": "Reactome 98",
+   "sha256": "2ac813dfdebb8b18607cf3e07083fa373eb71aedc10d8647afbaac15e2e21d38",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-912446.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-1221632",
+   "release": "Reactome 98",
+   "sha256": "e6e00bb33ed603b50dda8cab45d10503578a188920f05f282ae47d2f682392dd",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-1221632.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-3108214",
+   "release": "Reactome 98",
+   "sha256": "6cd2927b2a65357169e1f2fa8d302dc9cc7ff8210a0a955d98e753bfe2a8c3ac",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-3108214.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-5693571",
+   "release": "Reactome 98",
+   "sha256": "d8b0990910c5073907865c04a83f3da8982de835956ded2f8886c77696f87106",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-5693571.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-6796648",
+   "release": "Reactome 98",
+   "sha256": "59f2ebc16b653db26e4bf3bf4cca739ad9fa168de1b8c8b9a6176cc7a5a45c56",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-6796648.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-6804756",
+   "release": "Reactome 98",
+   "sha256": "103ba4be9bf70d028229a4a555d8b6e7cd4058db1476ad7d35efbe7214b9e365",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-6804756.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-8951664",
+   "release": "Reactome 98",
+   "sha256": "0d8abc69470c4c98167e259d22e63b045813f67a93867cec8de68fa71d2f7c06",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-8951664.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-8953750",
+   "release": "Reactome 98",
+   "sha256": "fe4f9babbb971b099e6abf672a4a80a55861b87ba7acad8dc80a51678f504545",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-8953750.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-9755511",
+   "release": "Reactome 98",
+   "sha256": "9e919a0aacc7a572aadf0438911c90993e120ab764a52eefd0ea75e0e22979c7",
+   "body": "data/fixtures/brca1/reactome/ContentService_data_participants_R-HSA-9755511.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "brca1",
+   "source": "opentargets",
+   "url": "https://api.platform.opentargets.org/api/v4/graphql",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "sha256": "0da740ac145e5c4ed6f27933f69d8f2c5ac3ec36825c192f27424c2ee74075cf",
+   "body": "data/fixtures/brca1/opentargets/api_v4_graphql.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+   "body": "data/fixtures/faah2/ensembl/info_data.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "e3341c8fb448141c964f139d655eb4f60e954dc725b456b839ac002906bae418",
+   "body": "data/fixtures/slc6a3/ensembl/info_assembly_homo_sapiens.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENSG00000142319?expand=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "738ffce5af6709bc2d6eb460310798824a1ed1bb88b49f055ed6e7eddd75cf25",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENSG00000142319_expand_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENST00000270349?expand=1;utr=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "9df53ff9e2fb9558d6e6ab7f3441735280b621b50b6663938c9dc21812720384",
+   "body": "data/fixtures/slc6a3/ensembl/lookup_id_ENST00000270349_expand_1_utr_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000270349?type=cds;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "544cda0ca68436374cb74a1ed5c1b16a3df9cba4340bbf72e655b1cc376e617d",
+   "body": "data/fixtures/slc6a3/ensembl/sequence_id_ENST00000270349_type_cds.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000270349?type=cdna;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "98798a53af03ad8e1c618b5f3c4c8c3b900798f830af30840079beed7f592cd8",
+   "body": "data/fixtures/slc6a3/ensembl/sequence_id_ENST00000270349_type_cdna.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENSP00000270349?content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "9e2205d642b429788814625b54e0f6101fb13618a5ad77bb1adaf43693e2e274",
+   "body": "data/fixtures/slc6a3/ensembl/sequence_id_ENSP00000270349.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/region/human/5:1442925..1442965:1?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "7767afc77a5afbe36e3a543988920c2fa53841393f4722ec033f15c42d56cced",
+   "body": "data/fixtures/slc6a3/ensembl/sequence_region_human_5_1442925..1442965_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/map/cds/ENST00000270349/253..255?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "9a050c7aa92c0ac0412d823b47918f36dd6ece7d64fca9b8650bd89d6092aa67",
+   "body": "data/fixtures/slc6a3/ensembl/map_cds_ENST00000270349_253..255.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variation/human/rs1064795122?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "9360a22df2078bf99dd611da76a3999845a2dcdaab9a724565911d98fe4caaba",
+   "body": "data/fixtures/slc6a3/ensembl/variation_human_rs1064795122.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/variant_recoder/human/rs1064795122?fields=id,hgvsg,hgvsc,hgvsp,spdi;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "77695343347dfe3dec359187e3f0e9f5768bf730597976d360db179d5a407dd8",
+   "body": "data/fixtures/slc6a3/ensembl/variant_recoder_human_rs1064795122_fields_id_hgvsg_hgvsc_hgvsp_spdi.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/vep/human/hgvs/ENST00000270349.12:c.253C>T?hgvs=1;mane=1;canonical=1;uniprot=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "bfa5fc1ba15fb51d223a6b29e609a3fdadba94c4991a7afa7dccd0ba3100fae2",
+   "body": "data/fixtures/slc6a3/ensembl/vep_human_hgvs_ENST00000270349.12_c.253C_3ET_hgvs_1_mane_1_canonical_1_uniprot_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "uniprot",
+   "url": "https://rest.uniprot.org/uniprotkb/Q01959.json",
+   "release": "UniProt 2026_03",
+   "sha256": "afbb2aa48a24022b4672c8d0d586cddc638d64eaa9d379f4a0efa2933cadab96",
+   "body": "data/fixtures/slc6a3/uniprot/uniprotkb_Q01959.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "rcsb-files",
+   "url": "https://files.rcsb.org/download/8Y2C.cif",
+   "release": "PDB rev 1.4 2025-07-16",
+   "sha256": "d1071554998f5f77da98cea1b65d4e3e497d518195de1ff7fa0d60b6b90cecb3",
+   "body": "data/fixtures/slc6a3/rcsb-files/download_8Y2C.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/entry/8Y2C",
+   "release": "PDB rev 1.4 2025-07-16",
+   "sha256": "74bf251809ab66e2cc6cc7b1128a8891c59cb3c9d73d6004913e71a9b01ad241",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_entry_8Y2C.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/polymer_entity/8Y2C/1",
+   "release": "PDB rev 1.4 2025-07-16",
+   "sha256": "ef58ad9abba2ef8e0a73db5ad7dd89528ed3f66dfc8a77f122ff6c234e3bae58",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_polymer_entity_8Y2C_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "rcsb",
+   "url": "https://data.rcsb.org/rest/v1/core/assembly/8Y2C/1",
+   "release": "PDB rev 1.4 2025-07-16",
+   "sha256": "127041aed33d3da1278492aa27ebc797799947c2e53f3bbaa0bfe59cd28418b9",
+   "body": "data/fixtures/slc6a3/rcsb/rest_v1_core_assembly_8Y2C_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "pdbe-sifts",
+   "url": "https://www.ebi.ac.uk/pdbe/api/mappings/uniprot/8y2c",
+   "release": null,
+   "sha256": "23785159a7dc708d083e192e6598c701ae6361bec49aeac6e948a309fc9294d2",
+   "body": "data/fixtures/slc6a3/pdbe-sifts/pdbe_api_mappings_uniprot_8y2c.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=clinvar&id=421417&retmode=json&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "44ee7fdd055cf09479cbdf5e46601af640b3c9952e298832497ca92712f57b99",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esummary.fcgi_db_clinvar_id_421417_retmode_json_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "hgnc",
+   "url": "https://rest.genenames.org/fetch/symbol/SLC6A3",
+   "release": null,
+   "sha256": "652f3ca4ced43e8a73a41acca583053814b8c9a558e4a48d852dca68180923af",
+   "body": "data/fixtures/slc6a3/hgnc/fetch_symbol_SLC6A3.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "ncbi-clinvar",
+   "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=clinvar&term=rs1064795122&retmode=json&retmax=100&tool=helix-research",
+   "release": "ClinVar Build261101-1245.1",
+   "sha256": "b522d773284b3e129ccac35fc0b824d4c8cd1a7de864359d2ef6e7fcc9b1665e",
+   "body": "data/fixtures/slc6a3/ncbi-clinvar/entrez_eutils_esearch.fcgi_db_clinvar_term_rs1064795122_retmode_json_retmax_100_tool_helix-research.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/api/prediction/Q01959",
+   "release": "AlphaFold DB model v6",
+   "sha256": "bacd9f1462190fde9d401dc5bf28796837c48411e2617defce78c1b51aa4d7ad",
+   "body": "data/fixtures/slc6a3/alphafold/api_prediction_Q01959.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-Q01959-F1-model_v6.cif",
+   "release": "AlphaFold DB model v6",
+   "sha256": "d8762eaf14990e671d2766b029e3dc2ec38a1c9621d3fd5c62c2e843eb0dfc0c",
+   "body": "data/fixtures/slc6a3/alphafold/files_AF-Q01959-F1-model_v6.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/database/version",
+   "release": "Reactome 98",
+   "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/mapping/UniProt/Q01959/pathways?species=9606",
+   "release": "Reactome 98",
+   "sha256": "dcff7103665487475346d63dcb0726f9307e7249c6fd0780a2ab76409bbfe0ae",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_mapping_UniProt_Q01959_pathways_species_9606.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-379401/ancestors",
+   "release": "Reactome 98",
+   "sha256": "103677b0fcc95c312188354547328b47805fd5ecf211c36334e2084c0e58e0a8",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-379401_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-442660/ancestors",
+   "release": "Reactome 98",
+   "sha256": "0d530a380ad5139ddcea238128f1a3cc1b3770bec56c29fade09915045410831",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-442660_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5619081/ancestors",
+   "release": "Reactome 98",
+   "sha256": "a56ca96d260b1fe44dc4b6e094bf28690ce77977de2b7125869cf39d89b9a6dd",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-5619081_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-5660724/ancestors",
+   "release": "Reactome 98",
+   "sha256": "27a830ca0da0276ddab6dc79d81c5fb005c1865a878b0f79c1c464a688d077c9",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_event_R-HSA-5660724_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-442660",
+   "release": "Reactome 98",
+   "sha256": "61825a4ab7c014e5c70820bad0053b271dafe23824756e550dd2bf33cbab5b95",
+   "body": "data/fixtures/slc6a3/reactome/ContentService_data_participants_R-HSA-442660.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "slc6a3",
+   "source": "opentargets",
+   "url": "https://api.platform.opentargets.org/api/v4/graphql",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "sha256": "cef24df66a9b95ffe4a7a3e64d7bcbbd2174499157efadf9eb4a05e471d7fa11",
+   "body": "data/fixtures/slc6a3/opentargets/api_v4_graphql.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/data?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "86e87c46ae1a424702676493d024d0508ce60f6c951b0b2803ce10269e09c20c",
+   "body": "data/fixtures/faah2/ensembl/info_data.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "2ccbe40c2e947deb37dbfe26b25c86d44f8cca46962c9e3abd34cfe85443af3b",
+   "body": "data/fixtures/faah2/ensembl/info_assembly_homo_sapiens.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENSG00000165591?expand=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "cd2c9548130a0f84b58973b5fefc947b9a3e53c5c7d96872581065086c6cc772",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENSG00000165591_expand_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/lookup/id/ENST00000374900?expand=1;utr=1;mane=1;content-type=application/json",
+   "release": "Ensembl 116",
+   "sha256": "8024220154852da67a87c20440714fcb7d87e0642762fa7f9cd207c745b05d81",
+   "body": "data/fixtures/faah2/ensembl/lookup_id_ENST00000374900_expand_1_utr_1_mane_1.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cds;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "347547d01d78cd237743a2cb3a34fc38fa24bccca16e85c415e55092c373839e",
+   "body": "data/fixtures/faah2/ensembl/sequence_id_ENST00000374900_type_cds.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENST00000374900?type=cdna;content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "b4d17bcd35a9454d94668e51538fc9317e5cc4ade5bd31faedead010000b56fc",
+   "body": "data/fixtures/faah2/ensembl/sequence_id_ENST00000374900_type_cdna.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "ensembl",
+   "url": "https://rest.ensembl.org/sequence/id/ENSP00000364035?content-type=text/x-fasta",
+   "release": "Ensembl 116",
+   "sha256": "1871489dafa71f5862d9f22879fa83f58683d58645866a0d388eccc75a0dd382",
+   "body": "data/fixtures/faah2/ensembl/sequence_id_ENSP00000364035.fa",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "uniprot",
+   "url": "https://rest.uniprot.org/uniprotkb/Q6GMR7.json",
+   "release": "UniProt 2026_03",
+   "sha256": "ee7c28aa75990b8e2fdb74e7b8be50e1be526df70a852f8ac9e9c0ba59042664",
+   "body": "data/fixtures/faah2/uniprot/uniprotkb_Q6GMR7.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "hgnc",
+   "url": "https://rest.genenames.org/fetch/symbol/FAAH2",
+   "release": null,
+   "sha256": "24f2d066766a0e0ffe9f4f4d8fa4aca8055c6b9b3ba84e95749258ea096ce67f",
+   "body": "data/fixtures/faah2/hgnc/fetch_symbol_FAAH2.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/api/prediction/Q6GMR7",
+   "release": "AlphaFold DB model v6",
+   "sha256": "dc6f3447fb9ddf48b6572ccc72fe224ca26c2b0228385c269bf05b10375fe4f9",
+   "body": "data/fixtures/faah2/alphafold/api_prediction_Q6GMR7.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "alphafold",
+   "url": "https://alphafold.ebi.ac.uk/files/AF-Q6GMR7-F1-model_v6.cif",
+   "release": "AlphaFold DB model v6",
+   "sha256": "b2bbbc23cf81aa9fafe3d71f4cbd1d93d94fe64ca3cbadc3abaff101b91f0c1f",
+   "body": "data/fixtures/faah2/alphafold/files_AF-Q6GMR7-F1-model_v6.cif",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/database/version",
+   "release": "Reactome 98",
+   "sha256": "29db0c6782dbd5000559ef4d9e953e300e2b479eed26d887ef3f92b921c06a67",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_database_version.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/mapping/UniProt/Q6GMR7/pathways?species=9606",
+   "release": "Reactome 98",
+   "sha256": "9a426a53033fcb460475d202bf8980a067abb06609fde5fd0dfe6d31be730ab9",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_mapping_UniProt_Q6GMR7_pathways_species_9606.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/event/R-HSA-2142753/ancestors",
+   "release": "Reactome 98",
+   "sha256": "095f562984b0d4fa1fdfa69b79575b7e612eb90cadbbc29a562d5e3fc53f9dce",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_event_R-HSA-2142753_ancestors.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "reactome",
+   "url": "https://reactome.org/ContentService/data/participants/R-HSA-2142753",
+   "release": "Reactome 98",
+   "sha256": "549fcde9976af71a16e9dbde1b6a0bb928b50bebd0c8a819f73ef72151cf9eab",
+   "body": "data/fixtures/faah2/reactome/ContentService_data_participants_R-HSA-2142753.json",
+   "where": "public fixture"
+  },
+  {
+   "set": "faah2",
+   "source": "opentargets",
+   "url": "https://api.platform.opentargets.org/api/v4/graphql",
+   "release": "Open Targets 26.9.0 (data 26.09)",
+   "sha256": "089735db4b8a8c1224938aa32e98fb9ef6016e61d446c00f3880e02e4b9274d7",
+   "body": "data/fixtures/faah2/opentargets/api_v4_graphql.json",
+   "where": "public fixture"
+  }
+ ],
+ "stated": [
+  "hbb: manifest source ensembl https://rest.ensembl.org/info/assembly/homo_sapiens?content-type=application/json: no recorded body (stated finding P11-S-01)",
+  "hbb: manifest source ensembl https://rest.ensembl.org/map/cds/ENST00000335295/19..21?content-type=application/json: no recorded body (stated finding P11-S-01)"
+ ],
+ "problems": []
+}

@@ -894,9 +894,10 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 
 The author then settled the open points. When an answer, a clarification or a refusal appears, a short line now announces it, using the rules' own first sentence, never model text. Arrow keys inside a codon step through its three bases. The world notes stay visible above an open layer. Choosing a world while the evidence is open changes the world behind it and says so. Select boxes show the same focus ring in every browser. All three browsers still show no axe violations (C141). To fit within the size budget, two pieces of styling were simplified. The page at rest is now 23 bytes under its 2,000 kB budget, so any further shipped change needs room made first (C142).
 
+**The scientific audit of every displayed claim.** Helix has no independent reviewer of its science (D-H031), so the audit was made as mechanical as possible and run by the AI. A script collected every text the app shows on the rules' path: 9,215 distinct texts from 80 screens and the answers to 31 questions at three depths. A second script traced each text to the record field or the named piece of code that writes it. None was left without a source (C143). The facts were then checked against their records, with codons and selection lines recomputed from the sequences and each answer sentence checked by kind. A third script compared 159 displayed record fields with the raw responses they were built from. Nothing differed (C144). The audit did find two limitation lines that described the code or a record wrongly, and they were fixed. It also found a refusal that says UniProt lists no domain-like feature when only Helix's reduced copy lacks them; that one is left to the author (C145). One provenance gap remains: the HBB set can no longer be rebuilt exactly from the public recorded inputs (P11-S-01). The claims were checked against their records by an AI-assisted audit only, with no independent domain expert.
+
 To report:
 - the accessibility audit;
-- the scientific audit of every displayed claim against its records;
 - the security, privacy and supply-chain review;
 - desktop quality assurance.
 

@@ -1,0 +1,20 @@
+files compared: 17
+byte-identical files: 3
+allowed differences (timestamps and dependent hashes): 185
+  associations.json: 4
+  clinvar-r85w.json: 3
+  contacts-r85w-8Y2C.json: 1
+  gene.json: 6
+  manifest.json: 79
+  pathways.json: 6
+  predicted-model-AF-Q01959-F1.json: 1
+  protein-Q01959.json: 10
+  residue-mapping-Q01959-8Y2C.json: 4
+  residue-mapping-r85w-8Y2C.json: 8
+  sequences.json: 32
+  structure-8Y2C.json: 11
+  transcript.json: 6
+  variant-r85w.json: 14
+other differences: 2
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitCommit: "af21d471ea60232b271a5859db54cabe4d81078a" != "ed1d561752713c1857904f7d66f39dddeed4e12e" (value)
