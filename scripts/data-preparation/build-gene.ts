@@ -5,6 +5,8 @@
  *   node scripts/data-preparation/build-gene.ts --gene hbb                live fetch (default)
  *   node scripts/data-preparation/build-gene.ts --gene hbb --offline      rebuild from the last live snapshot in .cache/
  *   node scripts/data-preparation/build-gene.ts --gene hbb --fixtures     build from the recorded fixtures (data/fixtures/<gene>/)
+ *   node scripts/data-preparation/build-gene.ts --gene hbb --fixtures --fixture-set hbb/curated
+ *        build from another recorded set under data/fixtures/ (D-H041: hbb/curated, the inputs of the committed HBB set)
  *   node scripts/data-preparation/build-gene.ts --gene <id> --record-fixtures   live build that also records
  *        every input, redacted (Q-H-LIC-1), as data/fixtures/<id>/ with MANIFEST.tsv files and index.json
  *        (with --offline: the same recording from the snapshot of the last live acquisition)
@@ -27,10 +29,10 @@ function log(m: string): void {
 }
 
 export async function runBuildGene(args: string[]): Promise<void> {
-  const { gene, mode, outDir, recordFixtures, liveSources } = parseBuildArgs(args);
-  if (!gene) throw new Error("usage: build-gene.ts --gene <name> [--offline [--live-sources=reactome,opentargets]|--fixtures|--record-fixtures] [--out <dir>]");
+  const { gene, mode, outDir, recordFixtures, liveSources, fixtureSet } = parseBuildArgs(args);
+  if (!gene) throw new Error("usage: build-gene.ts --gene <name> [--offline [--live-sources=reactome,opentargets]|--fixtures [--fixture-set <set>]|--record-fixtures] [--out <dir>]");
   const config = await readSpec(gene);
-  const r = await buildGene({ config, mode, recordFixtures, liveSources, ...(outDir ? { outDir } : {}), log });
+  const r = await buildGene({ config, mode, recordFixtures, liveSources, ...(outDir ? { outDir } : {}), ...(fixtureSet ? { fixtureSet } : {}), log });
   process.stdout.write(`${JSON.stringify(r.build.summary, null, 2)}\n`);
 }
 

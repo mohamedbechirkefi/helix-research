@@ -98,7 +98,7 @@ export async function readSpec(gene: string): Promise<SliceConfig> {
 }
 
 /** Parse the command line shared by build-gene.ts and build-hbb.ts. */
-export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null; recordFixtures: boolean | "live-sources"; liveSources: LiveSource[] } {
+export function parseBuildArgs(args: string[]): { gene: string | null; mode: BuildMode; outDir: string | null; recordFixtures: boolean | "live-sources"; liveSources: LiveSource[]; fixtureSet?: string } {
   const mode: BuildMode = args.includes("--offline") ? "offline" : args.includes("--fixtures") ? "fixtures" : "live";
   const value = (flag: string): string | null => {
     const eq = args.find((a) => a.startsWith(`${flag}=`));
@@ -124,7 +124,10 @@ export function parseBuildArgs(args: string[]): { gene: string | null; mode: Bui
     if (liveSources.length === 0) throw new Error("--live-sources needs at least one source name");
   }
   if (recordFixtures === "live-sources" && liveSources.length === 0) throw new Error("--record-fixtures=live needs --live-sources (it records only the sources fetched live beside the offline snapshot)");
-  return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures, liveSources };
+  // D-H041 (P11-S-01): a fixture set other than data/fixtures/<datasetId>/, such as hbb/curated (the HBB set's own inputs).
+  const fixtureSet = value("--fixture-set");
+  if (fixtureSet !== null && mode !== "fixtures") throw new Error("--fixture-set names the recorded fixture set a build reads; it needs --fixtures");
+  return { gene: value("--gene"), mode, outDir: value("--out"), recordFixtures, liveSources, ...(fixtureSet !== null ? { fixtureSet } : {}) };
 }
 
 async function snapshotInputs(cache: RecordCache, store: FsStore, datasetId: string, inputs: SliceInputs, at: string): Promise<void> {
