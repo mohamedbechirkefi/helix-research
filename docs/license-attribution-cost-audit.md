@@ -174,7 +174,7 @@ New items from this pass are in section 8 (findings) and section 9 (questions).
 | Mol* (`molstar`) | 5.13.1 | MIT ("Copyright (c) 2017 - now, Mol* contributors") | `node_modules/molstar/LICENSE` and file headers | Shipped (molecular renderer, MVS extension) |
 | MolViewSpec (MVS extension inside `molstar`) | as in molstar 5.13.1 | MIT (same package) | file headers in `lib/extensions/mvs/` | Shipped |
 | three.js (`three`) | 0.186.1 | MIT ("Copyright © 2010-2026 three.js authors") | `node_modules/three/LICENSE` | Shipped (R3F layer) |
-| React Three Fiber (`@react-three/fiber`) | 9.8.2 | MIT | `package.json` (the npm tarball has **no LICENSE file**; no other copy of the repository's licence file exists on this machine, including the npm cache, checked 2026-11-12; P11-LIC-01) | Shipped |
+| React Three Fiber (`@react-three/fiber`) | 9.8.2 | MIT | the repository's `LICENSE` at tag v9.8.2 ("Copyright (c) 2019-2025 Poimandres"), vendored in helix-app `apps/web/vendor/licences/` because the npm tarball has **no LICENSE file** (P11-LIC-01, fixed under D-H040) | Shipped |
 | React, React DOM | 19.3.1 | MIT | `package.json`, and `LICENSE` in each package (read at P11.3.3) | Shipped |
 | Tauri (`tauri` crate) | 2.12.4 | Apache-2.0 OR MIT | `Cargo.toml` in the cargo registry | Shipped in the desktop build |
 | `tauri-build` | 2.7.3 | Apache-2.0 OR MIT | `Cargo.toml` | Build tool |
@@ -226,7 +226,7 @@ New items from this pass are in section 8 (findings) and section 9 (questions).
 
 | Package | Version | Licence | Licence file read | Chunks |
 |---|---|---|---|---|
-| @react-three/fiber | 9.8.2 | MIT | none shipped (finding P11-LIC-01) | index |
+| @react-three/fiber | 9.8.2 | MIT | none shipped; the repository's LICENSE at tag v9.8.2, vendored (P11-LIC-01, D-H040) | index |
 | @ungap/structured-clone | 1.4.0 | ISC | `LICENSE` | scene |
 | bail | 2.0.2 | MIT | `license` | scene |
 | ccount | 2.0.1 | MIT | `license` | scene |
@@ -382,16 +382,16 @@ Of note: R3F's `dist/events-*.esm.js` embeds React's reconciler ("@license React
 
 | Id | Finding | State |
 |---|---|---|
-| P11-LIC-01 | `@react-three/fiber` 9.8.2 ships no licence file, and no copy of the upstream `LICENSE` exists on this machine (both installed copies and the npm cache hold the same 9.8.2 tarball). The notices carry the standard MIT text with the package.json author and repository, and say the copyright line is to be checked | open for the author (Q1) |
+| P11-LIC-01 | `@react-three/fiber` 9.8.2 ships no licence file, and no copy of the upstream `LICENSE` exists on this machine (both installed copies and the npm cache hold the same 9.8.2 tarball). The notices carry the standard MIT text with the package.json author and repository, and say the copyright line is to be checked | fixed (D-H040 answer 1): the repository's LICENSE at tag v9.8.2 fetched once (one free GET, 2026-11-12, sha256 in `apps/web/vendor/licences/PROVENANCE.md`) and used by the generator for that exact version |
 | P11-LIC-02 | Before this pass the web build carried no licence text: no notices file, and the minifier removes every JavaScript comment (the only notices left in the 7 built scripts are three comment blocks inside Mol*'s GLSL shader strings, which survive because they are string content). The MIT, ISC, BSD and Apache conditions on copies were not met by any build that would have been distributed (none was) | fixed: ab9a7ae pin, defe711 change |
 | P11-LIC-03 | Mol* 5.13.1 embeds third-party code whose notices exist only in source comments, lost in the bundle: three.js, gl-matrix, chroma.js (BSD), ColorBrewer (Apache-2.0), IHME (BSD 3-Clause), Photopea UZIP, rc-slider (Alipay), Math.NET, NGL, netcdfjs and others; three icon sets licensed by URL only; and a CC BY-SA 3.0 snippet (Stack Overflow answer 30134826). Now copied into the notices. Inference: unmodified redistribution with the attribution and the licence URL meets CC BY-SA 3.0's conditions for that snippet; share-alike would bind an adaptation of it, and Helix does not adapt it | fixed for attribution; the CC BY-SA point is Q3 |
 | P11-LIC-04 | The research packages (helix-research, Helix NC research licence) are bundled into the proprietary web build (scientific-core, data-adapters, shared-types, ai-planning). Inference: the author holds the copyright of both and may license the build on other terms (question 98 (a)); no third party's code is in those packages (CLA, `NOTICE.md`) | note |
 | P11-LIC-05 | `vendor/fonts/PROVENANCE.md` said the shipped app does not load the vendored fonts; it loads Geist Sans and Geist Mono at rest, and all 15 files are in the build | fixed (doc) |
-| P11-LIC-06 | The CC BY 4.0 attributions (UniProt, AlphaFold DB) name the licence without a link to it; the URI is now one click away in the notices | met by Inference; Q2 |
-| P11-LIC-07 | The ClinVar attribution says "See the NCBI disclaimer and copyright notice" with no link; the URL is now in the notices. The ClinVar-specific statement is still unread (section 5 item 4) | partly met; Q2; item 4 open |
+| P11-LIC-06 | The CC BY 4.0 attributions (UniProt, AlphaFold DB) name the licence without a link to it; the URI is now one click away in the notices | met by Inference; kept as built (D-H040 answer 2) |
+| P11-LIC-07 | The ClinVar attribution says "See the NCBI disclaimer and copyright notice" with no link; the URL is now in the notices. The ClinVar-specific statement is still unread (section 5 item 4) | partly met; kept as built (D-H040 answer 2); item 4 open, an author's browser visit |
 | P11-LIC-08 | The wordmark's rights are not cleared (answer 98 (a)) | open, author action |
 | P11-LIC-09 | Requested citations not displayed: the PDB entries' primary citations and the Open Targets paper (both CC0 sources; courtesy requests, not conditions) | note |
-| P11-LIC-10 | The concept prototypes ship in the build with four font families (10 files, 182,324 bytes) that the default page never fetches | note; Q4 |
+| P11-LIC-10 | The concept prototypes ship in the build with four font families (10 files, 182,324 bytes) that the default page never fetches | note; left out of the Phase 12 build (D-H040 answer 4) |
 
 ## 9. Questions for the author
 
@@ -402,6 +402,8 @@ Of note: R3F's `dist/events-*.esm.js` embeds React's reconciler ("@license React
 5. **Section 5 item 4.** One manual browser visit to the ClinVar data-use page and the RefSeq FAQ to record their statements (free; no script can pass the reCAPTCHA).
 
 The wordmark clearance (answer 98 (a)) is already owed by the author and is not asked again.
+
+**Answers (author, 2026-11-12, D-H040):** 1 (a), done (P11-LIC-01 fixed); 2 (a), kept as built; 3 (a), accepted as unmodified redistribution with its attribution; 4 (b), the concept prototypes and their four font families are left out of the Phase 12 build. Section 5 item 4 (the ClinVar and RefSeq usage pages behind reCAPTCHA) stays open for one browser visit by the author.
 
 ## 10. Deferred to P11.5.4 (desktop)
 
