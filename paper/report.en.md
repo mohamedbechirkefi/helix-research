@@ -903,10 +903,12 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **Licences, attribution and cost (web part).** The licence audit was finished for the web build; the desktop part waits for the desktop package. The list of third-party code was taken from the build itself, not from the dependency lockfile: the build now records every module of every script it writes, including the scripts loaded later and the background worker, and attributes each to its package. The build holds 89 third-party packages, against 229 runtime entries in the lockfile: 86 under the MIT licence, one each under ISC, Apache-2.0 and 0BSD, and no server-side package (C156). Until this pass the build carried no licence text at all, because the minifier removes every comment and there was no notices file. The build now writes one, with each package's full licence text read from the installed package, 53 copyright notices that bundled files carry from code they took from other projects (Mol* carries most of them, one under a share-alike licence), the fonts' licences and the data sources' terms. Visitors open it from Evidence World; the page never downloads it, so the only cost at rest is the 233 bytes of the link (C157). Every data source of the shipped sets has its attribution on screen in Evidence World. The two licences that ask for more than a name are only partly served in the cards themselves: the Creative Commons licence link for UniProt and AlphaFold DB, and the NCBI notice for ClinVar, are reached through the notices (C158). All 15 font files match their recorded origin and are under the SIL Open Font License; the React Three Fiber package ships no licence file, so its upstream copyright line could not be checked without a network request (C159). The project has still spent nothing: every journal entry records a cost of zero, the tools are free and installed in user space, the data and the live-mode services need no key, and the model runs locally (C160). Two items remain with the author: clearing the rights to the wordmark before any release, and a manual check of ClinVar's own data-use page, which blocks scripted access.
 
+**The limitations document.** The limitations of the phase were gathered into one document, by area, each with what it means for a visitor, its evidence and its state; section 10 summarises it. The app's own list gained two lines. The line on the AI now states the 500-character limit on questions, which the box otherwise applies without a word. A last line says that the facts shown were checked by scripts and an AI-assisted audit, with no independent domain expert, and that no usability test with real users was run. The two lines add 99 bytes to the page at rest, which stays 25,482 bytes under its budget [C161]. Every displayed text, 9,219 of them now, still maps to a record field or a named piece of code with no mismatch, and the accessibility scan still finds no violation [C162]. Of the sixteen items carried into the phase, twelve are fixed, at least in the part the author decided, and two are accepted as limitations by a decision (the rare long frame and the claim screen's record). The other two are recorded as limitations as the plan proposed, with no explicit decision of the author: a dbSNP variant for a live gene, and the naming and search of pathway participants, whose other two parts were fixed [C163]. After the author's licence answers (D-H040), the React Three Fiber licence text in the notices comes from its repository at the bundled version, fetched once [C164].
+
 To report:
-- the accessibility audit;
-- the desktop part of the security review (after P11.5.3);
-- desktop quality assurance.
+- the usability inspection (P11.2.2);
+- the desktop build, its quality assurance, and the desktop parts of the security and licence reviews (P11.5);
+- the gate review.
 
 **Milestone:** frozen report, source of the article.
 
@@ -918,24 +920,42 @@ The public demonstration, if the author decides to publish it. To report: what w
 
 ## 10. Limits and threats to validity
 
-**Scope.**
-- One gene, one variant, one experimental structure. Every scientific check is proven for this slice only. The off-by-one numbering and the label/auth coincidence are properties of 2HBS, not general rules (sections 4.3, 4.4).
-- The Val6 contact analysis is limited to the asymmetric unit, with a single cutoff. Its interpretation as the lateral fibre contact is an inference (section 4.5) [C10].
+The complete list of limitations, each with what it means for a visitor, its evidence and its state, is the limitations document of Phase 11 (helix-app `docs/known-limitations.md`). The app shows a visitor the lines that apply to what they see [C161, C162]. This section summarises it. Two areas are still pending: usability (task P11.2.2) and the desktop build (P11.5).
 
-**Time.**
-- All records were retrieved on one day. ClinVar classifications, UniProt numbering of features and Ensembl transcript versions can change. The build records drift instead of failing on it, but a future release could still change a displayed value.
+**Scope.**
+- Five curated genes, each with at most one curated variant and one experimental structure. Every scientific check is proven for these sets only. The off-by-one numbering and the label/auth coincidence are properties of 2HBS, not general rules (sections 4.3, 4.4); on SLC6A3 the molecular viewer's own readout leads with the label numbering beside Helix's author numbering, a point left to the author (P11-S-04).
+- A gene outside the five can be built live in the visitor's browser, without curation, and stops at the transcript, the sequences and the protein record; a visitor cannot name a dbSNP variant for it.
+- The Val6 contact analysis is limited to the asymmetric unit, with a single cutoff. Its interpretation as the lateral fibre contact is an inference (section 4.5) [C10].
+- Helix is nonclinical. Pathway membership and disease associations are database annotations, never mechanisms or causes.
+
+**Time and data.**
+- Records are shown as a snapshot with their retrieval dates and versions. ClinVar classifications, UniProt features and Ensembl transcript versions can change. The build records drift instead of failing on it, but a future release could still change a displayed value.
 - The Ensembl platform transition puts the REST API's future in doubt (section 3.1).
+- The HBB set can no longer be rebuilt byte for byte from the public recorded inputs: two Ensembl responses were recorded nowhere and the public ClinVar fixture is an older version (P11-S-01, left to the author). Every displayed record field still agrees with its raw upstream response [C144].
 
 **Measurement.**
-- The performance figures are single runs on one fast laptop (Apple M1 Pro), in headless Chrome and in WKWebView.
-- They are main-thread frame intervals, not GPU timers.
-- With vsync on, they only show that no frame was missed.
-- No low-end hardware was tested. The long-frame anomaly is characterised but its trigger is unexplained [C19, C48, C56].
+- Every budget is measured on one fast laptop (Apple M1 Pro) in headless Chrome over localhost. Firefox, Safari and the desktop webview were not measured for performance. Slower machines were emulated by slowing the processor and by software rendering, not tested on real devices [C131, C135].
+- The figures are main-thread frame intervals, not GPU timers; with vsync on they only show that no frame was missed. GPU memory is counted as resources, not measured in bytes.
+- The frame budget has no margin on this machine: the same build reads 16.8 ms, the limit, on a quiet machine and 17.0 ms on a loaded one, and the build before the D-H039 changes also missed it [C140, C155].
+- A single long frame appears on a few pages and an idle frame at rest appeared once; neither trigger is explained [C19, C48, C56, C123, C128].
+- On a slower processor a click that starts a camera move can hold the scene for one long frame, which no rendering tier removes [C132, C135].
 - CORS was measured outside a browser, once per source, and not on error responses [C12].
 
-**AI.** The Phase 1 desktop experiment made a single call to a single model, and its prompt was not stored verbatim [C23]. Phase 3 measured the frequency of such errors on a small, single-gene benchmark; its own limits are in section 8.8.
+**Browsers and accessibility.**
+- Firefox ran every older suite except two that need Chrome's own protocol or failed intermittently, and Safari ran only part of them; the Safari failures of the camera and sound suites (wheel zoom, the remembered sound setting) and the intermittent Firefox failure are not explained [C139].
+- Accessibility was checked by script only, with no screen reader listened to (D-H032) [C138, C141]. Text contrast over the 3D scene cannot be computed by the checker and was looked at on screenshots by the AI only.
+- The 3D worlds need a window at least 1,024 pixels wide; phones and tablets get a reading page without 3D and without questions [C122].
 
-**Desktop distribution.**
+**AI.**
+- A public web page has no language model: the rules answer a limited set of questions [C130]. A question is limited to 500 characters [C152].
+- On a development page, and later on the desktop build, a local model chooses actions. Its accuracy on the held-out set is reported in section 9.7 [C115, C116], and it takes seconds to plan; the visitor never reads its wording. The claim screen caught no new violation on held-out text (D-H026), and the prompts still use HBB names as routing examples (D-H029).
+- The Phase 1 desktop experiment made a single call to a single model, and its prompt was not stored verbatim [C23]. Phase 3 measured the frequency of such errors on a small, single-gene benchmark; its own limits are in section 8.8.
+
+**Security and licences.**
+- No Content Security Policy is served until a host exists; it is written and tested, and must be sent as a response header [C148]. Integrity against a hostile host rests on HTTPS, and the development switches `?dev` and `?diagnostics` work on any host. The review was automated and run by the AI, with no penetration test.
+- ClinVar's own data-use page could not be read by a script, and the rights to the author-supplied wordmark are not yet cleared; both are the author's to settle before any release [C158].
+
+**Desktop distribution.** The desktop build of Phase 11 is not built yet. From Phase 1:
 - The build is not notarised, and Gatekeeper rejects it.
 - The behaviour of a downloaded, quarantined copy was not tested.
 - The build is arm64 only.
@@ -944,7 +964,8 @@ The public demonstration, if the author decides to publish it. To report: what w
 - The Phase 0 to 2 journal entries are retrospective, written on the same day from recorded evidence; they were not written during the runs.
 - Several fields are recorded as "not recorded": durations, the exact Ollama model digest, the exact prompt.
 - The Phase 2 dataset manifest named its generating commit by a hash from before the history rewrite of 2026-11-01 (equivalent on the public branch: 3b89a9a). The Phase 6 rebuild records 4b30c60, which is on the public branch (section 9.3).
-- The work was carried out with substantial AI assistance (chapter 12). AI self-verification is not independent review. No external review of the scientific claims took place and none is planned: every claim was checked against its records by an AI-assisted audit only, with no independent domain expert (D-H031). Likewise no usability session with real users was run; usability was inspected by the AI (heuristic evaluation and cognitive walkthrough), which is not user testing.
+- The work was carried out with substantial AI assistance (chapter 12). AI self-verification is not independent review. No external review of the scientific claims took place and none is planned: every claim was checked against its records by an AI-assisted audit only, with no independent domain expert (D-H031) [C143, C154]. Likewise no usability session with real users was run; usability is to be inspected by the AI (heuristic evaluation and cognitive walkthrough, P11.2.2), which is not user testing.
+- Of the sixteen items carried into Phase 11, two are recorded as limitations without an explicit decision of the author [C163].
 
 **Novelty.** The differentiation of section 3.5 is an inference from the sources read, not a measured user benefit. Whether a continuous cross-scale journey helps understanding needs a user study, which is not yet planned.
 

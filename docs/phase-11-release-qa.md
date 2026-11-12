@@ -282,35 +282,11 @@ The desktop track (step 8) depends only on P11.1.1 and can start earlier if the 
 
 Evidence to collect, each with its source: the toolchain (Node, npm, uv, Python, Rust, Tauri, Chrome) free and user-space; every npm and cargo dependency under a free licence; the data sources' terms (no paid tier, no BigQuery for Open Targets, `docs/license-attribution-cost-audit.md` section 1); the model (ministral-3:8b, Apache-2.0, run locally; no paid inference anywhere, no cloud fallback); fonts SIL OFL 1.1; the wordmark produced by the author (no purchase recorded); no Apple Developer membership (the DMG is ad-hoc signed); no hosting, no domain; usability sessions unpaid unless the author decides otherwise (G-SPEND). Bandwidth: a visitor's own (the 1,989.6 kB at rest; dynamic mode's API calls), stated in the limitations. The audit states the sum: $0, or names each exception the author approved.
 
-## 9. Limitations (skeleton for the gate; evidence so far)
+## 9. Limitations (the final document)
 
-The final list goes into helix-app `docs/known-limitations.md`, the in-app list where it applies, and report section 10.
+The skeleton that stood here has been replaced by the limitations document itself, helix-app `docs/known-limitations.md` (2026-11-12, helix-app 196efd2; journal HX-P11-2026-11-12-limitations). It holds the in-app list (section 1), the whole list in thirteen areas, each row with its consequence for a visitor, its evidence and its state (section 2: scope, science and data, AI, performance and hardware, device tiers, viewports and browsers, accessibility, usability, security and privacy, supply chain, licences, process and cost, desktop), the outcome of every carried item C1 to C16 of section 5 (section 3), and the questions left to the author (section 6). The lines that apply to what a visitor sees are in the app (`KNOWN_LIMITATIONS`), and report section 10 summarises the document.
 
-| Area | Limitation | Evidence so far |
-|---|---|---|
-| Scope | nonclinical; five curated genes plus a dynamic mode without structure, variant, pathway or associations | known-limitations.md (the in-app list) |
-| Hardware | every budget measured on one Mac in headless Chrome over localhost; no low-end or mobile device | qa-and-performance.md section 6; report section 10 "Measurement" |
-| Browsers | Safari, Firefox and the desktop webview not run by the suites | known-limitations.md `browsers` |
-| Viewports | no layout below the tested widths (1400 and 1100 px); phone use unsupported | phase-7-accessibility-audit; question 91 |
-| WebGL | no path without WebGL2 today | HX-P11-2026-11-09-phase11-plan section 3; P11.1.1 |
-| GPU memory | not measured | qa-and-performance.md section 2.6; P11.1.3 |
-| Contrast over the canvas | axe cannot judge it (11 to 305 incomplete nodes per screen) | `a11y-p10-close.json` |
-| AI on the web | no model on a public web page; the rules answer a limited set of questions | phase-10-final.md section 2 (non-development host); S19 |
-| In-browser model | not included; WebGPU absent in WKWebView on macOS 15.3.1; Phase 3 quality and size | HX-P3-2026-11-01-webllm-browser; HX-P1-2026-11-01-tauri-shell |
-| Model latency | 14.2 s median, 26.6 s p90 planning (Phase 10 benchmark); split follow-ups wait 18 to 22 s for a discarded plan | phase-10.md; phase-10-close.md section 6 |
-| Model accuracy | held-out correct and valid: split 120/174, model-first 144/174; safe after review 165 and 162 | C115, C116; phase-10.md held-out table |
-| Model prose | the claim screen caught no new violation on held-out text (0 true hits, 7 false positives, 1 miss); factual errors outside the forbidden-claim list | D-H026; HX-P10-2026-11-09-final-audit finding 6 |
-| Split routing | first answers that match a non-explorer rule never reach the model, even when an explorer action was asked | phase-10.md held-out section |
-| Benchmark | oracle-versus-app states (a highlight with no selection) in 11 Phase 10 and 6 held-out units; harness re-statements differ on two points | phase-10-final.md finding C; C5 |
-| Rules | missed wordings for beginTransition, returnToOverview, "spacefill", a pathway named in words; MANE run on non-MANE requests; domains on the BRCT row | phase-10.md "Open findings" |
-| RM14 | the mixed-question routing gap left open by the author | D-H011 |
-| Data | snapshot with versions; ClinVar drift; one-star SLC6A3 variant (D-H020); opening pathway by rule (D-H019); associations never causal | known-limitations.md; D-H019, D-H020 |
-| Structures | 2HBS crystal carries Val; asymmetric-unit contacts; domain coverage (BRCA1 5.5 %); predicted models listed, not loaded | known-limitations.md |
-| Desktop | not notarised (Gatekeeper rejects); arm64 only; quarantine untested; Ollama installed by the user | HX-P1-2026-11-01-tauri-shell; report section 10 |
-| Supply chain | `npm audit` 0 vulnerabilities in both repositories and the four experiments (C15 closed: body-parser 2.4.0 since D-H029); the desktop crate graph not yet audited (P11.5.3); two copies of zod in the main bundle; no Content Security Policy served until a host exists (Phase 12) | helix-app `docs/security-review.md`; HX-P11-2026-11-12-security |
-| Process | AI-assisted work; one reader for explanation review found less than two readers did; no external scientific review and no independent domain expert (D-H031) | HX-P10-2026-11-09-final-audit "Interpretation"; report section 10 "Process" |
-| Usability | no sessions with real users; usability inspected by the AI only (heuristic evaluation, cognitive walkthrough); findings to be filled from P11.2.2 | D-H031 |
-| Tiers | to be filled from P11.1.1 | |
+Two rows are pending and are filled by later tasks: **Usability** (P11.2.2, the AI's inspection, D-H031) and **Desktop** (P11.5.1 to P11.5.4). The gate review (P11.4.1) rereads the document on the build of record.
 
 ## 10. What needs the author
 
