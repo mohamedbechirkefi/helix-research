@@ -83,6 +83,10 @@ Raw: helix-app `apps/desktop/e2e/results/desktop-e2e-p1152.json`, `desktop-chrom
 - The first launch is the first after a rebuild, with WebKit's caches warm from earlier launches: not a cold boot.
 - The model's timing includes a model already loaded or not by earlier calls (keep_alive 60m), so 26.9 s and 11.4 s are not comparable runs.
 
+## Coordinator verification
+
+Rerun on helix-app abfbf39 (tag v49, 2026-11-13), each by exit code: helix-app npm test, typecheck, check:pin; cargo test and `cargo clippy -- -D warnings` in apps/desktop/src-tauri; the desktop build (`npm run build` in apps/desktop); S26 (`node e2e/run.mjs`, 9 scenarios, 0 failures: the offline HBB journey with one proxied request, the blocked control, and the app process reaching only 127.0.0.1:11434; the AI scenario and the absent-Ollama scenario; the scope refusals; dynamic mode offline); chrome-compare: all exit 0. Launch times on this run (load about 3, not budgets): 2,267 ms on the first launch after the build, then 848 ms and 1,137 ms. The author confirmed the agent's choices (D-H046, 2026-11-13): dynamic mode kept on desktop; a scoped opener for external evidence links added in P11.5.3 (a stated limitation until then); version 0.0.0 and identifier local.helix.desktop until Phase 12; the in-app browsers line updated after P11.5.3; plan section 7 item 5 amended to the three Ollama URLs. The coordinator's own result files were removed by exact name.
+
 ## Interpretation
 
 Supported. The same web build runs in WKWebView with the R3F scene and Mol* rendering as in Chrome (the one visible difference is the rasterisation of Mol*'s label text); the HBB journey completes offline with no request leaving the app except to the user's Ollama; the desktop provider set lets ministral-3:8b choose an executed action, and without Ollama the rules answer with the stated reason and guidance. No web file changed.
