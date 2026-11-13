@@ -294,7 +294,29 @@ function contextualRule(query: string, ctx: PlanningContext, level: Plan["explan
   };
 }
 
-export function deterministicPlan(query: string, ctx: PlanningContext): FallbackResult {
+/**
+ * D-H043 item 1 (P11-U-01): what the caller knows about the build beyond the planning context. `buildSets` are the
+ * gene symbols of the build's curated sets (the app's datasets index); the foreign-gene refusal names a gene among
+ * them as another curated set rather than as missing. Kept outside the context so that the trusted context, the
+ * prompts and the claim screen do not change. Absent: the earlier sentence for every gene.
+ */
+export interface RuleOptions {
+  buildSets?: readonly string[];
+}
+
+/** The foreign-gene refusal (D-H043 item 1): genes among the build's curated sets, then genes outside the build. */
+export function foreignGeneReason(genes: readonly string[], openSymbol: string | undefined, buildSets: readonly string[] = []): string {
+  const build = new Set(buildSets.map((s) => s.toUpperCase()));
+  const inBuild = genes.filter((g) => build.has(g));
+  const outside = genes.filter((g) => !build.has(g));
+  const parts: string[] = [];
+  if (inBuild.length === 1) parts.push(`${inBuild[0]} is one of this build's curated sets, not the one open here; open it from the welcome (Choose another gene).`);
+  else if (inBuild.length > 1) parts.push(`${inBuild.join(", ")} are among this build's curated sets, not the one open here; open one from the welcome (Choose another gene).`);
+  if (outside.length > 0) parts.push(`${outside.join(", ")} is not in the curated records available here; only ${openSymbol ?? "the curated gene"} is.`);
+  return parts.join(" ");
+}
+
+export function deterministicPlan(query: string, ctx: PlanningContext, opts: RuleOptions = {}): FallbackResult {
   const q = fold(query);
   const gene = ctx.genes[0] ?? null;
   const protein = ctx.proteins[0] ?? null;
@@ -321,7 +343,7 @@ export function deterministicPlan(query: string, ctx: PlanningContext): Fallback
   const foreignIds = extractIdTokens(query).filter((t) => !trusted.includes(t.token.toLowerCase()));
   if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
   const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
-  if (geneLike.length > 0) return r(refuse(ctx, "other", `${[...new Set(geneLike)].join(", ")} is not in the curated records available here; only ${[...symbols][0] ?? "the curated gene"} is.`), "foreign-gene");
+  if (geneLike.length > 0) return r(refuse(ctx, "other", foreignGeneReason([...new Set(geneLike)], [...symbols][0], opts.buildSets)), "foreign-gene");
   // Phase 9: a named variant is foreign only when the trusted context does not carry it (the set's own variant may be one of these names, F508del on the CFTR set).
   const namedVariant = q.match(OTHER_VARIANTS);
   if (namedVariant && !trusted.includes(namedVariant[1]!)) {
