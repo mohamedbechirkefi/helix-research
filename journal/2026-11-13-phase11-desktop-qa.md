@@ -87,6 +87,33 @@ Opener: 3 URLs handed over, 4 refused, opener command refused by the ACL, notice
 
 One Mac, loaded (load 2 to 4.6 during the frame pages); three pages per set; the desktop drives moves with the page's own events, the web with puppeteer's; "cold" launch is not a cold file cache; the frames after start are not attributed; the quarantine propagation that Finder applies when a user opens a quarantined image was not reproduced by the command-line mount; the hand-off to the browser and the Gatekeeper dialog were not exercised.
 
+## Coordinator verification
+
+On helix-app 26a5d70 and helix-research 88fa4d2 (tag v50) the coordinator reran, each read by its exit code: every web suite; the frame files alone (dpr 1 and dpr 2 first runs 17 ms, reruns 16.7 ms; low power 16.7 ms), within the web budget after the D-H038 rerun; the unit tests (630 in helix-app, 564 in helix-research); `cargo test` and `cargo clippy`; the desktop build; S26 (`node e2e/run.mjs`, 0 failures); `chrome-compare.mjs`. All exited 0. The one-minute load average was 3.4 to 4.7. The coordinator removed its own result files by exact name.
+
+## D-H047 and the desktop judgement
+
+**The decision (author, 2026-11-13).** (1) Desktop frame rule (b): worst-move median at most 17 ms on WebKit's whole-millisecond clock, mean reported; frames over 33.4 ms allowed only as the first frame of a move, each at most 70 ms; 0 idle frames after moves and in Protein World; the extra drawing in the first part of the rest window after start is reported, not judged, and is a Phase 12 item with the tour's long first frame; one automatic rerun on a breach (D-H038). (2) Cold launch 2,500 ms, warm launch 1,200 ms, resident memory 800 MB after the 6 round trips with at most 10 % growth, world switches at the web values, `.app` 15 MB, DMG 10 MB. (3) P11-SEC-14 accepted as a limitation. (4) S27's fresh-account launch not run; it and the real hand-off of a link to the browser are untested limitations; S27 reduced to what was automated, the plan's S27 row amended.
+
+**Encoding.** helix-app 89d7595 (pin: the judge moved unchanged from `apps/desktop/e2e/run.mjs` to `e2e/desktop-budgets.ts`, same verdicts on `desktop-e2e-p1153-measure.json`; 12 tests stating D-H047, all failing), 85c1088 (change: `apps/web/e2e/budgets.json` `desktop` section; the judge; `run.mjs` prints the rule, judges launch when named, frames, memory and a new `size` measurement, reruns a breached frame set once, exits 1 on any breach; 642 tests pass), 0c606f6 (results and documents). Implementer's choices, stated in helix-app `docs/reviews/phase-11-desktop-qa.md` section 11: low power keeps the web's per-1,000 and longest-frame rows with the 17 ms median and the idle rule (the plan says only "the same values"); "first frame" is interval index 0 of the `performance.now` intervals; warm launch is the median of the later launches; memory, growth and switches are medians of the runs; sizes in MB of 2^20 bytes, and a missing DMG or one older than the app fails; any breached frame row (not only the median) triggers the rerun.
+
+**The run.** `npm run build` and `npm run dmg` (both exit 0), then `node e2e/run.mjs --tag=dh047-measure --only=launch,frames,memory,size`, nothing else from this task running, 20:17 to 20:22 CET. One-minute load average 4.48 at the start (just after the build), 2.2 to 2.9 during the frame pages, 2.28 at the end. **Exit 0; every row within budget; no rerun was triggered.**
+
+| Row | Measured | Budget |
+|---|---|---|
+| Cold launch (first after the build) | 822 ms | 2,500 ms |
+| Warm launch (median of 2) | 458 ms | 1,200 ms |
+| Default frames: worst-move median (worst mean) | 17 ms (17.08 ms) | 17 ms |
+| Default frames: over 33.4 ms not a move's first; longest first frame | 0 (10 long frames, all at index 0, 35 to 67 ms); 67 ms (tour) | 0; 70 ms |
+| Low power: median; per 1,000; longest | 17 ms; 0.85; 44 ms | 17 ms; 1; 70 ms |
+| Idle frames after moves and in Protein World (both sets) | 0 | 0 |
+| Idle frames at rest, reported | 73 default, 63 low power; drawing ends 309 to 465 ms into the rest window | not judged |
+| RSS after 6 round trips (median of 3); growth | 470.4 MB (444.6 to 480.0); -0.1 % (-3.6 to +3.1) | 800 MB; 10 % |
+| Switches cold / warm / to DNA (medians) | 1,240 / 730 / 722 ms | 2,500 / 1,600 / 1,600 ms |
+| `.app`; DMG | 10.28 MB (10,524 kB); 6.31 MB (6,617,111 bytes, sha256 b51dfda8fe8e88a820e7b6eae0f36d322aa23514f2cbd4a3a66da4fcbe9c2ef8) | 15 MB; 10 MB |
+
+The tour's first frame came within 3 ms of its 70 ms ceiling. S26 after the runner change: `node e2e/run.mjs --tag=dh047` exit 0, 11 app runs, 0 failures (load 2.1 to 6.0, the model scenarios raising it). Raw: helix-app `apps/desktop/e2e/results/desktop-e2e-dh047-measure.json`, `desktop-e2e-dh047.json`. Three pages or runs per set on one machine that was not quiet; no interval computed. One run is a pass on the rule as agreed, not evidence that the margin of the first frame holds on another machine or under more load.
+
 ## Interpretation
 
 (1) Supported. (2) Contradicted for frames as written: the webview holds the display's rate, but the 16.8 ms median is not measurable on WebKit's clock and a camera move's first frame is long; start and memory are within proposed desktop budgets. (3) Supported. (4) Supported for the two commands; Gatekeeper rejects a quarantined copy for lack of notarisation, as expected for an ad-hoc signature. (5) Supported.
@@ -101,3 +128,4 @@ Continue to the gate. Proposed desktop budgets go to the author (helix-app `docs
 - helix-app `apps/desktop/` (`src-tauri/opener-origins.json`, `src/lib.rs`, `shell/probe.ts`, `e2e/run.mjs`, `scripts/dmg.mjs`, `scripts/rust-notices.mjs`, `licences/vendor/`, `licences/rust-crates.json`) and the result files listed above
 - the DMG: helix-app `dist/Helix-0.0.0-arm64.dmg` (git-ignored, not committed, not distributed)
 - helix-research `docs/license-attribution-cost-audit.md` section 10; `paper/report.en.md` 9.8 and 10; `paper/claims.md` C180 to C185
+- D-H047: helix-app `apps/desktop/e2e/desktop-budgets.ts`, `apps/desktop/test/desktop-budgets.test.ts`, `apps/web/e2e/budgets.json` (`desktop`), `apps/desktop/e2e/results/desktop-e2e-dh047-measure.json` and `desktop-e2e-dh047.json`; `docs/reviews/phase-11-desktop-qa.md` section 11; helix-research `docs/phase-11-release-qa.md` Desktop rows and S27; `paper/claims.md` C186
