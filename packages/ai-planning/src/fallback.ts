@@ -298,7 +298,8 @@ function contextualRule(query: string, ctx: PlanningContext, level: Plan["explan
  * D-H043 item 1 (P11-U-01): what the caller knows about the build beyond the planning context. `buildSets` are the
  * gene symbols of the build's curated sets (the app's datasets index); the foreign-gene refusal names a gene among
  * them as another curated set rather than as missing. Kept outside the context so that the trusted context, the
- * prompts and the claim screen do not change. Absent: the earlier sentence for every gene.
+ * prompts and the claim screen do not change. Absent: the earlier sentence for every gene. D-H044 item 2 (rules
+ * version 6): the same symbols are also recognised as gene names in the question (upper-case, as the existing pattern).
  */
 export interface RuleOptions {
   buildSets?: readonly string[];
@@ -342,7 +343,10 @@ export function deterministicPlan(query: string, ctx: PlanningContext, opts: Rul
   const trusted = trustedContextJson(ctx).toLowerCase();
   const foreignIds = extractIdTokens(query).filter((t) => !trusted.includes(t.token.toLowerCase()));
   if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
-  const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
+  // D-H044 item 2: the build's curated set symbols are gene names too (SLC6A3 matches neither the list nor the pattern,
+  // HBB is in neither); upper-case tokens only, as the pattern above; the open set's own symbols stay excluded.
+  const buildSymbols = new Set((opts.buildSets ?? []).map((s) => s.toUpperCase()));
+  const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || buildSymbols.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
   if (geneLike.length > 0) return r(refuse(ctx, "other", foreignGeneReason([...new Set(geneLike)], [...symbols][0], opts.buildSets)), "foreign-gene");
   // Phase 9: a named variant is foreign only when the trusted context does not carry it (the set's own variant may be one of these names, F508del on the CFTR set).
   const namedVariant = q.match(OTHER_VARIANTS);
