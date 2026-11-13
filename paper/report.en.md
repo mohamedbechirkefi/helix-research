@@ -915,8 +915,10 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The desktop shell and its local AI (P11.5.1, P11.5.2).** The desktop app wraps the same web build in a native macOS window made with Tauri; the files it serves are identical to the web build's, and no web file changed. A hook the app already carried tells it that it runs on the desktop, so it offers the user's own Ollama beside the rules. The app may reach only three addresses of that local server; every other address, another port and any navigation away from the app were refused when tried. Tauri's browser automation does not support macOS, so a script inside the app plays the visitor and reports. Every request of the window went to a local proxy that refused and logged it. On the curated HBB journey, from the welcome through the five chapters, both 3D worlds and the evidence, no request left the window except one deliberate control, which was blocked; the app itself reached only the local model [C177]. The DNA scene and Mol* render in the macOS webview as in Chrome: the pictures match to within a few levels of brightness, except the text of Mol*'s residue label [C178]. With Ollama running, the local model turned a question into an executed action. With the model made unreachable, the rules answered, and the status card said why and how to install Ollama and fetch the model; the app never downloads a model itself [C179]. The audit of the desktop's Rust dependencies found no known vulnerability. Frames, memory and the package are the next tasks; the measured launch times are not yet budgets.
 
+**Desktop quality assurance and the package (P11.5.3, P11.5.4).** Links to the cited data sources now open in the system browser: the app hands a link to the browser only when it is a secure address on one of the ten sites its records cite, a list a test derives from the records themselves; every other address was refused, and the page itself has no way to ask for a browser [C180]. The security rules were checked in the running app: a script from elsewhere, a script written into the page, code built from text, an outside image, an outside frame and a request to an unlisted site were each refused, and none of them reached the network [C181]. The same performance scenario as on the web was run in the macOS webview, on a machine that was not quiet. The webview keeps the display's rate, but its clock counts whole milliseconds, so the web's median rule (16.8 ms) cannot be met there as written; the first frame of a camera move took 36 to 64 ms, where Chrome stayed under 33.4 ms in its rerun. After start the scene drew for about 0.4 s longer than in Chrome, for a reason not yet found. The app reached its welcome in about 0.5 s from a warm start and about 0.9 to 1.2 s on the first launch after a build; after six trips between the worlds it used about 454 MB, against about 1 GB for Chrome [C182]. Desktop budgets are proposed for the author, not agreed. The app is packaged as a disk image with an install note and every licence text. The signature checks pass; with the mark a download leaves, macOS's own check rejects the copy because it is not notarised, which the note explains. The launch from a fresh user account is left to the author [C183]. The fifteen Rust packages that publish no licence file now carry their upstream texts, and the five under the Mozilla Public License are named with where their source is found [C184]. The app's own limitations line now says what the desktop run showed, at a cost of 73 bytes [C185].
+
 To report:
-- the desktop quality assurance and package (P11.5.3, P11.5.4), and the rest of the desktop parts of the security and licence reviews;
+- the author's verdict on the proposed desktop budgets and the fresh-account launch;
 - the gate review.
 
 **Milestone:** frozen report, source of the article.
@@ -944,7 +946,7 @@ The complete list of limitations, each with what it means for a visitor, its evi
 - The HBB set can be rebuilt from public recorded inputs to the same values, but not byte for byte: 14 provenance hashes of five sources differ, because four responses it cites must be published redacted and one Ensembl response was recorded nowhere (P11-S-01; accepted by the author as a limitation, D-H042) [C167, C168]. Every displayed record field still agrees with its raw upstream response [C144].
 
 **Measurement.**
-- Every budget is measured on one fast laptop (Apple M1 Pro) in headless Chrome over localhost. Firefox, Safari and the desktop webview were not measured for performance. Slower machines were emulated by slowing the processor and by software rendering, not tested on real devices [C131, C135].
+- Every budget is measured on one fast laptop (Apple M1 Pro) in headless Chrome over localhost. Firefox and Safari were not measured for performance; the desktop webview was, and does not meet the web's frame rule as written (section 9.8) [C182]. Slower machines were emulated by slowing the processor and by software rendering, not tested on real devices [C131, C135].
 - The figures are main-thread frame intervals, not GPU timers; with vsync on they only show that no frame was missed. GPU memory is counted as resources, not measured in bytes.
 - The frame budget has no margin on this machine: the same build reads 16.8 ms, the limit, on a quiet machine and 17.0 ms on a loaded one, and the build before the D-H039 changes also missed it [C140, C155].
 - A single long frame appears on a few pages and an idle frame at rest appeared once; neither trigger is explained [C19, C48, C56, C123, C128].
@@ -965,10 +967,11 @@ The complete list of limitations, each with what it means for a visitor, its evi
 - No Content Security Policy is served until a host exists; it is written and tested, and must be sent as a response header [C148]. Integrity against a hostile host rests on HTTPS, and the development switches `?dev` and `?diagnostics` work on any host. The review was automated and run by the AI, with no penetration test.
 - ClinVar's own data-use page could not be read by a script, and the rights to the author-supplied wordmark are not yet cleared; both are the author's to settle before any release [C158].
 
-**Desktop distribution.** The desktop build of Phase 11 is not built yet. From Phase 1:
-- The build is not notarised, and Gatekeeper rejects it.
-- The behaviour of a downloaded, quarantined copy was not tested.
-- The build is arm64 only.
+**Desktop distribution.** The desktop build of Phase 11 is packaged but not distributed:
+- The build is not notarised; with the quarantine mark a download sets, macOS's own check rejects it, and a user must open it by hand as the install note explains [C183].
+- The launch from a fresh user account has not been run (the author's step).
+- The build is arm64 only and was tested on one Mac.
+- The first frame of a camera move can take up to about 0.06 s in the webview [C182].
 
 **Process.**
 - The Phase 0 to 2 journal entries are retrospective, written on the same day from recorded evidence; they were not written during the runs.

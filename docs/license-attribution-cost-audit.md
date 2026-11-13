@@ -1,7 +1,7 @@
 <!-- SPDX-License-Identifier: LicenseRef-Helix-NC-Research-1.0 -->
 # Licence, attribution and cost audit (final for the web build, P11.3.3)
 
-**Status:** final for the web build on 2026-11-12 (task P11.3.3 of `docs/phase-11-release-qa.md`, web part). The desktop crate graph and the notices inside the DMG are **deferred to P11.5.4** (section 10). Drafted at P1.3.2 (2026-11-01); sections 2, 3 and 6 keep their Phase 1 text where nothing changed, with the P11.3.3 additions marked.
+**Status:** final for the web build on 2026-11-12 (task P11.3.3 of `docs/phase-11-release-qa.md`, web part). The desktop crate graph and the notices inside the DMG, deferred to P11.5.4, were **done on 2026-11-13** (section 10; helix-app `docs/reviews/phase-11-desktop-qa.md` section 6). Drafted at P1.3.2 (2026-11-01); sections 2, 3 and 6 keep their Phase 1 text where nothing changed, with the P11.3.3 additions marked.
 
 This is a working audit, not legal advice. "Inference" marks our reading of a licence. Data-source details and policy quotes are in `docs/data-source-registry.md`. Journal entry: `journal/2026-11-12-phase11-licence.md` (HX-P11-2026-11-12-licence). Raw results: helix-app `apps/web/e2e/results/*p11lic*`. Review page: helix-app `docs/reviews/phase-11-licence-audit.md`.
 
@@ -18,7 +18,7 @@ This is a working audit, not legal advice. "Inference" marks our reading of a li
 | Google Chrome 157.0.8103.52 | $0 (free download, installed by the author) | `--version`; used headless by every browser suite |
 | Firefox 158.0.1 | $0, user space | `helix/.tools/firefox/firefox/mac_arm-stable_158.0.1`, installed through `@puppeteer/browsers` (D-H031); MPL-2.0 |
 | Safari 18.3 | $0 (part of macOS) | `Info.plist` CFBundleShortVersionString 18.3; Remote Automation enabled by the author (D-H031) |
-| Rust and Tauri | $0, user space | `~/.cargo/bin/cargo` 1.97.0; Tauri crates under Apache-2.0 OR MIT (section 6); the desktop build is checked in P11.5.4 (section 10) |
+| Rust and Tauri | $0, user space | `~/.cargo/bin/cargo` 1.97.0; cargo-audit 0.22.2 in `helix/.tools`; 276 crates, all under free licences, Tauri crates under their MIT option (section 10) |
 | git 2.42.1, gh 2.82.1 | $0 | GPL-2.0 (`COPYING`) and MIT (`LICENSE`, "Copyright (c) 2019 GitHub Inc.") read from the installed copies (section 5 item 2); development tools, not distributed |
 | npm dependencies in the web build | $0, all free licences | 89 packages: 86 MIT, 1 ISC, 1 Apache-2.0, 1 0BSD (section 7); none is paid, none needs a key or an account |
 | Data sources | $0, no key, no paid tier | section 2: every source is a free public endpoint used without authentication; Open Targets through its GraphQL API or downloads, never BigQuery (section 1 rule); the calls are listed in `research/raw/*/MANIFEST.tsv` |
@@ -27,7 +27,7 @@ This is a working audit, not legal advice. "Inference" marks our reading of a li
 | Fonts | $0 | SIL OFL 1.1, from the free npm registry (section 4.1) |
 | Wordmark | $0 recorded | produced by the author with ChatGPT image generation (helix-app `brand/author-supplied/PROVENANCE.md`); no purchase recorded; rights to be cleared by the author before any release (section 4.2) |
 | Hosting and domain | none | nothing is published in Phase 11 (question 98 (a), D-H030); the Phase 12 host is the author's G-PUBLIC decision |
-| Apple Developer Program | none | the DMG is ad hoc signed (question 97 (a), D-H030); the one journal entry about signing records `cost: 0 (no Apple Developer account; ad hoc signature)` |
+| Apple Developer Program | none | the DMG is ad hoc signed (question 97 (a), D-H030; `Signature=adhoc`, `TeamIdentifier=not set`, HX-P11-2026-11-13-desktop-qa); no notarisation, no keychain; the system's `codesign`, `hdiutil`, `spctl` and `syspolicy_check` are part of macOS |
 | CI and GitHub | $0 recorded | helix-research has one workflow, `.github/workflows/cla.yml` (CLA Assistant, pinned by SHA, D-H004), on a GitHub-hosted `ubuntu-latest` runner, triggered only by pull-request events; helix-app has no workflow. Inference: Actions minutes on a public repository and a private repository without workflows cost nothing; not checked live |
 | Usability sessions and expert review | none | replaced by an AI inspection and an AI-assisted audit (D-H031); no participant was paid |
 | Journals | 0 in every entry | `grep "^cost:" journal/*.md`: 79 entries carry a `cost:` field, every one starts with `0` (66 plain `0`, the others `0` with a reason such as "local inference" or "no model call, no live API call"); a search for "purchas", "invoice", "subscription" and dollar amounts finds nothing |
@@ -405,10 +405,15 @@ The wordmark clearance (answer 98 (a)) is already owed by the author and is not 
 
 **Answers (author, 2026-11-12, D-H040):** 1 (a), done (P11-LIC-01 fixed); 2 (a), kept as built; 3 (a), accepted as unmodified redistribution with its attribution; 4 (b), the concept prototypes and their four font families are left out of the Phase 12 build. Section 5 item 4 (the ClinVar and RefSeq usage pages behind reCAPTCHA) stays open for one browser visit by the author.
 
-## 10. Deferred to P11.5.4 (desktop)
+## 10. The desktop build (P11.5.1 to P11.5.4; done 2026-11-13)
 
-Not built in this pass (P11.5.1 to P11.5.4 come after the web candidate, question 95 (a)). That pass will:
+Deferred from the web pass; done in P11.5.1 (the generator), P11.5.3 and P11.5.4 (journal HX-P11-2026-11-13-desktop-qa; helix-app `docs/reviews/phase-11-desktop-qa.md` section 6).
 
-- generate the desktop notices from the crate graph of the built `tauri-shell` (`cargo metadata` of the release build for aarch64-apple-darwin, each crate's licence file from the cargo registry), taking the Tauri crates under their MIT option (98 (a)), and carry the Unicode-3.0, MPL-2.0 (with where the source of those files is available), CDLA-Permissive-2.0, Zlib, BSD-3-Clause, ISC and BSL-1.0 texts of section 6;
-- put `THIRD-PARTY-NOTICES` (the web notices of this pass plus the crate notices) and helix-app's licence inside the DMG, and check them in the mounted image;
-- confirm the desktop bundles no model (question 96 (a)), the Rust toolchain's licence from the installed toolchain, and $0 for the desktop build (ad hoc signature, question 97 (a)).
+- **Crate notices from the crate graph.** helix-app `apps/desktop/scripts/rust-notices.mjs` reads `cargo metadata` for aarch64-apple-darwin and writes the bundled `THIRD-PARTY-NOTICES-RUST.txt` and `apps/desktop/licences/rust-crates.json`: 276 crates (262 linked, 14 build time only); the MIT option wherever offered (98 (a)); each entry with its licence, the option taken, its authors (no e-mail addresses), its repository and crates.io address, and its licence texts. Licences in the graph: MIT, Apache-2.0, Zlib, BSD-3-Clause, Unicode-3.0, BSL-1.0 options, CC0-1.0 or MIT-0 options, 0BSD option, Unlicense options and MPL-2.0 (counts in `rust-crates.json` `byLicence`). The Phase 1 shell's CDLA-Permissive-2.0 crate (`webpki-roots`) is not in the desktop graph (the HTTP plugin's TLS features are off).
+- **The 15 crates without a licence file** (the objc2 family of 12, alloc-stdlib, selectors, tauri-plugin): upstream texts vendored in helix-app `apps/desktop/licences/vendor/` with `PROVENANCE.md` (URL at the crate's publishing commit, date, sha256; each one free unauthenticated GET). The objc2 repository and servo/stylo carry no licence text; their `LICENSE.md` (objc2) and per-file notices (stylo) name MIT and MPL-2.0, and SPDX's texts (license-list-data v3.29.0) are used. A crate with no file and no vendored text stops the notices build. **Inference:** this meets the MIT and BSD notice conditions for these crates.
+- **MPL-2.0.** cssparser 0.37.0, cssparser-macros 0.7.1, dtoa-short 0.3.5, option-ext 0.2.0 and selectors 0.38.0, unmodified, compiled into the binary. The Rust notices say where their Source Code Form is (crates.io at the exact version, and the repository) and carry the licence text (MPL-2.0 section 3.2). **Inference:** nothing more is owed while the files are unmodified.
+- **Inside the app and the DMG.** `LICENSE.txt` (helix-app), `THIRD-PARTY-NOTICES.txt` (web build) and `THIRD-PARTY-NOTICES-RUST.txt` are in `Helix.app/Contents/Resources`, in the Help menu, and at the top of the DMG beside the install note; checked byte for byte in the mounted image.
+- **No model bundled** (96 (a)): the binary embeds the web build and the curated data; without Ollama the rules answer (S26 `ai-absent`).
+- **Rust toolchain licence:** Rust is Apache-2.0 OR MIT (the project's own statement); the installed toolchain's licence files were not re-read here (development tool, not distributed).
+- **$0** for the desktop build: free crates and npm packages, the system's signing and disk image tools, an ad-hoc signature (97 (a)); no Apple membership, no notarisation, no paid tool.
+
