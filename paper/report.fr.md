@@ -927,6 +927,8 @@ L'auteur a ensuite réglé les points ouverts. Lorsqu'une réponse, une clarific
 
 **La construction de publication (P12.1.1).** La construction de publication exclut les prototypes de concept et leurs polices, comme l'exigeait la décision sur les licences, et sa page au repos transfère 1,970,226 octets, soit 5,079 de moins qu'à la revue de passage de la phase 11, ou 1,786,664 avec brotli. La sonde de fonctionnalité de zod étant désactivée, la politique servie ne signale plus rien de la part de l'application [C192]. Un seul fichier d'en-têtes généré, au format de Cloudflare, porte chaque en-tête qu'exige la revue de sécurité. Sur un serveur local qui applique les règles d'en-têtes de Cloudflare, la vérification de l'hébergement a satisfait chaque exigence pouvant tenir sur une adresse locale, alors qu'un serveur n'envoyant aucun en-tête en a manqué onze ; le produit sans modèle y a aussi réussi [C193]. Ce que Cloudflare envoie lui-même ne peut être montré que sur une adresse réelle.
 
+**Noms de gènes (règles, version 7).** Les règles reconnaissent désormais un autre gène curé saisi en minuscules, sous un alias ou par son nom complet, chaque terme étant lu dans les enregistrements de gènes de la construction, jamais dans une liste écrite à la main. Les deux jeux de référence figés obtiennent exactement les mêmes scores qu'avant, unité par unité : le changement ne touche donc que des questions extérieures à ces jeux [C194]. Un ancien symbole comme DAT1, ou un nom de protéine comme « dopamine transporter » (transporteur de la dopamine), n'est toujours pas reconnu : aucun des deux ne figure dans les enregistrements.
+
 ---
 
 ## 10. Limites et menaces à la validité

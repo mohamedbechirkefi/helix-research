@@ -927,6 +927,8 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The release build (P12.1.1).** The release build leaves out the concept prototypes and their fonts, as the licence decision required, and its page at rest transfers 1,970,226 bytes, 5,079 fewer than at the Phase 11 gate, or 1,786,664 with brotli. With zod's feature probe turned off, the served policy no longer reports anything from the app [C192]. One generated header file in Cloudflare's format carries every header the security review requires. On a local server that applies Cloudflare's header rules, the host check passed every requirement that can hold on a local address, while a server sending no headers failed eleven; the product without a model passed there too [C193]. What Cloudflare itself sends can only be shown on a real address.
 
+**Gene names (rules version 7).** The rules now recognise another curated gene typed in lower case, as an alias or by its full name, with every term read from the gene records in the build, never from a hand-written list. Both frozen benchmark sets score exactly as before, unit for unit, so the change touches only questions outside them [C194]. A previous symbol such as DAT1, or a protein name such as "dopamine transporter", is still not recognised: neither is in the records.
+
 ---
 
 ## 10. Limits and threats to validity
