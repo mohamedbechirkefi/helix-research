@@ -1,0 +1,34 @@
+files compared: 17
+byte-identical files: 3
+allowed differences (timestamps and dependent hashes): 222
+  associations.json: 4
+  clinvar-hbs.json: 3
+  contacts-hbs-2HBS.json: 2
+  gene.json: 8
+  manifest.json: 93
+  pathways.json: 7
+  predicted-model-AF-P68871-F1.json: 3
+  protein-P68871.json: 11
+  residue-mapping-P68871-2HBS.json: 8
+  residue-mapping-hbs-2HBS.json: 11
+  sequences.json: 35
+  structure-2HBS.json: 15
+  transcript.json: 6
+  variant-hbs.json: 16
+other differences: 16
+  clinvar-hbs.json $.provenance.sources[1].sha256: "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4" != "a7b2b45952e02e45863f9883252f068ef7a5d2b8c9c919d05e5219f843a1964f" (value)
+  gene.json $.provenance.sources[1].sha256: "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785" != "f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e" (value)
+  gene.json $.provenance.sources[2].sha256: "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473" != "848a4aa84b0b296e82e1771a2a07f4bcc2c914416ac4586707813e7eab9ab9a8" (value)
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitCommit: "8845ce912c7d7341e8aa5f4ddb9a0e8a2c84825f" != "31b8e762c48700f6a16c645a3aed6baf0b08dd66" (value)
+  manifest.json $.sources[1].sha256: "b4ef64317272c7269f7e5580fb1f81f9034e9fa64df113bfafde38fa566e7785" != "f5e35d79a1c78d81941661ad160291638c21d61947c156a5f4475d1f316d0b0e" (value)
+  manifest.json $.sources[11].sha256: "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f" != "41577afa3182ca1e6af7eae0918d9aa2e41cb5444f41fdc6a242478180628ef5" (value)
+  manifest.json $.sources[12].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  manifest.json $.sources[18].sha256: "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4" != "a7b2b45952e02e45863f9883252f068ef7a5d2b8c9c919d05e5219f843a1964f" (value)
+  manifest.json $.sources[19].sha256: "9934371175ef17542ca3dc627cfdbf72eb5bd69bc261cfb8755462fe6ac23473" != "848a4aa84b0b296e82e1771a2a07f4bcc2c914416ac4586707813e7eab9ab9a8" (value)
+  protein-P68871.json $.provenance.sources[0].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  residue-mapping-P68871-2HBS.json $.provenance.sources[3].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  residue-mapping-hbs-2HBS.json $.provenance.sources[3].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  variant-hbs.json $.provenance.sources[2].sha256: "7d2544cff741ce6e0689f82b3147b3a93f30bf763f9f097b3a47b0234255e48f" != "41577afa3182ca1e6af7eae0918d9aa2e41cb5444f41fdc6a242478180628ef5" (value)
+  variant-hbs.json $.provenance.sources[6].sha256: "937a46d0da699853316d18ae8becb21e949eed48ec8e1c8d2fdbd9bc2798fd12" != "c883f44cc9404a44381b581e3902fae9ad9b4cef38ee8255c5f01181e83090bd" (value)
+  variant-hbs.json $.provenance.sources[7].sha256: "cb7f848bcf2dfa8c4d84bbe098c66281f72af396b51de4b54d48c561fe2cd0e4" != "a7b2b45952e02e45863f9883252f068ef7a5d2b8c9c919d05e5219f843a1964f" (value)

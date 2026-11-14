@@ -1,0 +1,14 @@
+files compared: 10
+byte-identical files: 2
+allowed differences (timestamps and dependent hashes): 93
+  associations.json: 4
+  gene.json: 8
+  manifest.json: 39
+  pathways.json: 6
+  predicted-model-AF-Q6GMR7-F1.json: 1
+  protein-Q6GMR7.json: 8
+  sequences.json: 21
+  transcript.json: 6
+other differences: 2
+  manifest.json $.generator.script: "scripts/data-preparation/build-gene.ts (offline)" != "scripts/data-preparation/build-gene.ts (fixtures)" (value)
+  manifest.json $.generator.gitCommit: "61512ac3ee74ed54f6c2f13be61b8ed9a6ca4b7c" != "31b8e762c48700f6a16c645a3aed6baf0b08dd66" (value)
