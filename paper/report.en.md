@@ -929,6 +929,8 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **Gene names (rules version 7).** The rules now recognise another curated gene typed in lower case, as an alias or by its full name, with every term read from the gene records in the build, never from a hand-written list. Both frozen benchmark sets score exactly as before, unit for unit, so the change touches only questions outside them [C194]. A previous symbol such as DAT1, or a protein name such as "dopamine transporter", is still not recognised: neither is in the records.
 
+**The Safari failures.** The two Safari failures left open at the gate came from Safari's test automation, not from the app. Its simulated wheel delivered only half the scroll it was sent, so the zoom stopped early, and it kept nothing in local storage from one automated step to the next, even on a page without the app. With the test harness sending each wheel step separately, the zoom suite passes in Safari, and the four storage checks are recorded as not runnable there; no app code changed [C195]. A real mouse or trackpad in an ordinary Safari window was not tested.
+
 ---
 
 ## 10. Limits and threats to validity

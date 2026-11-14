@@ -929,6 +929,8 @@ L'auteur a ensuite réglé les points ouverts. Lorsqu'une réponse, une clarific
 
 **Noms de gènes (règles, version 7).** Les règles reconnaissent désormais un autre gène curé saisi en minuscules, sous un alias ou par son nom complet, chaque terme étant lu dans les enregistrements de gènes de la construction, jamais dans une liste écrite à la main. Les deux jeux de référence figés obtiennent exactement les mêmes scores qu'avant, unité par unité : le changement ne touche donc que des questions extérieures à ces jeux [C194]. Un ancien symbole comme DAT1, ou un nom de protéine comme « dopamine transporter » (transporteur de la dopamine), n'est toujours pas reconnu : aucun des deux ne figure dans les enregistrements.
 
+**Les échecs dans Safari.** Les deux échecs dans Safari laissés ouverts à la revue venaient de l'automatisation de test de Safari, non de l'application. Sa molette simulée ne transmettait que la moitié du défilement envoyé, si bien que le zoom s'arrêtait trop tôt, et elle ne conservait rien dans le stockage local d'une étape automatisée à la suivante, même sur une page sans l'application. Avec un banc de test qui envoie chaque pas de molette séparément, la suite du zoom passe dans Safari, et les quatre vérifications du stockage sont consignées comme non exécutables dans ce navigateur ; aucun code de l'application n'a changé [C195]. Une vraie souris ou un vrai pavé tactile dans une fenêtre Safari ordinaire n'ont pas été testés.
+
 ---
 
 ## 10. Limites et menaces à la validité
