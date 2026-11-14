@@ -53,8 +53,6 @@ describe("the rules recognise the build's curated set symbols as gene names (D-H
   it("not widened: a symbol neither in the build nor matched by the earlier pattern is not recognised", () => {
     expect(onHbb("Show GAPDH", BUILD_SETS).rule).not.toBe("foreign-gene");
   });
-  it("case as the existing pattern: a lower-case symbol is out of scope", () => {
-    expect(onHbb("show slc6a3", BUILD_SETS).rule).not.toBe("foreign-gene");
-    expect(onHbb("show cftr", BUILD_SETS).rule).not.toBe("foreign-gene");
-  });
+  // Rules version 6 left a lower-case symbol out of scope ("show slc6a3", "show cftr"); rules version 7 (D-H051
+  // question 104 (a)) recognises it, with aliases and names: foreign-gene-build-names.test.ts.
 });
