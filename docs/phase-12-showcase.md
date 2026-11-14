@@ -104,6 +104,8 @@ New genes, new actions, new prompt versions or benchmark studies, a public in-br
 
 Questions continue the Helix numbering (100 was the last, D-H030). Each has options and a recommendation.
 
+**Answered (D-H051, 2026-11-14): every recommendation.** 101 (a), 102 (a), 103 (a) (you confirmed D6 by choosing it), 104 (a), 105 (a), 106 (a), 107 (a), 108 (b), 109 (a), 110 (a). The PROPOSAL marks in sections 2 and 4 are agreed as written.
+
 101. **Publish the demo (Q-1, G-PUBLIC).** (a) Build and check everything locally, including against a local server that behaves as the host would; decide at the gate whether to publish; (b) decide now to publish a public demo at the end of the phase; (c) never publish: the deliverable is the locally reproducible experience, the case study and the recording. **Recommendation: (a).** The decision is better made on the finished build and the host table.
 
 102. **The host.** (a) The agent assesses free static hosts against `security-review.md` section 8 from their current documentation and brings back a table; you choose, and you create any account yourself; (b) you name a host now. A host that cannot send a CSP header fails requirement 2, since the meta element exceeds the bytes budget. **Recommendation: (a).**
