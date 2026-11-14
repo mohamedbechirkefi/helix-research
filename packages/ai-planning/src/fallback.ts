@@ -303,6 +303,43 @@ function contextualRule(query: string, ctx: PlanningContext, level: Plan["explan
  */
 export interface RuleOptions {
   buildSets?: readonly string[];
+  /**
+   * D-H051 question 104 (a) (rules version 7): the curated gene records of the build's sets (the datasets index: the
+   * HGNC symbol, aliases and approved name of each), so that another curated gene is recognised in any case, by an
+   * alias or by its name. Absent: the symbols of `buildSets` only (in any case from version 7).
+   */
+  buildGenes?: readonly BuildGene[];
+}
+
+/** One curated set's gene as the datasets index carries it (D-H051 question 104 (a)). */
+export interface BuildGene {
+  symbol: string;
+  name?: string | null;
+  aliases?: readonly string[];
+}
+
+const termPattern = (t: string) => new RegExp(`(?<![a-z0-9])${t.split(" ").map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("\\s+")}(?![a-z0-9])`, "g");
+const termOf = (t: string) => fold(t).trim().replace(/\s+/g, " ");
+
+/**
+ * D-H051 question 104 (a) (rules version 7): the build's other curated genes named in the question, by symbol in any
+ * case, HGNC alias or HGNC approved name: case-insensitive (folded), whole-word (no letter or digit either side),
+ * whitespace-tolerant inside a name, terms of at least three characters with a letter. The open set's symbol,
+ * aliases and name are blanked first and its gene is skipped; a term shared by two sets is not used.
+ */
+export function buildGeneMentions(query: string, open: readonly { symbol: string; name?: string | null; aliases: readonly string[] }[], openSymbols: ReadonlySet<string>, opts: RuleOptions): { symbol: string; start: number; end: number }[] {
+  const owners = new Map<string, Set<string>>();
+  for (const g of [...(opts.buildSets ?? []).map((symbol) => ({ symbol }) as BuildGene), ...(opts.buildGenes ?? [])]) {
+    const sym = g.symbol.toUpperCase();
+    if (openSymbols.has(sym)) continue;
+    for (const t of [g.symbol, ...(g.aliases ?? []), ...(g.name ? [g.name] : [])].map(termOf)) if (t.length >= 3 && /[a-z]/.test(t)) (owners.get(t) ?? owners.set(t, new Set()).get(t)!).add(sym);
+  }
+  if (owners.size === 0) return [];
+  let q = fold(query);
+  for (const t of open.flatMap((g) => [g.symbol, ...g.aliases, ...(g.name ? [g.name] : [])]).map(termOf)) if (t.length >= 3) q = q.replace(termPattern(t), (m) => " ".repeat(m.length));
+  const hits: { symbol: string; start: number; end: number }[] = [];
+  for (const [t, syms] of owners) if (syms.size === 1) for (const m of q.matchAll(termPattern(t))) hits.push({ symbol: [...syms][0]!, start: m.index, end: m.index + m[0].length });
+  return hits;
 }
 
 /** The foreign-gene refusal (D-H043 item 1): genes among the build's curated sets, then genes outside the build. */
@@ -345,9 +382,13 @@ export function deterministicPlan(query: string, ctx: PlanningContext, opts: Rul
   if (foreignIds.length > 0) return r(refuse(ctx, "other", `${foreignIds.map((t) => t.token).join(", ")} is not in the curated records available here (${ctx.contextId}).`), "foreign-id");
   // D-H044 item 2: the build's curated set symbols are gene names too (SLC6A3 matches neither the list nor the pattern,
   // HBB is in neither); upper-case tokens only, as the pattern above; the open set's own symbols stay excluded.
-  const buildSymbols = new Set((opts.buildSets ?? []).map((s) => s.toUpperCase()));
-  const geneLike = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].map((m) => m[0]).filter((t) => (OUT_OF_CONTEXT_GENES.has(t) || buildSymbols.has(t) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(t)) && !symbols.has(t));
-  if (geneLike.length > 0) return r(refuse(ctx, "other", foreignGeneReason([...new Set(geneLike)], [...symbols][0], opts.buildSets)), "foreign-gene");
+  // D-H051 question 104 (a) (rules version 7): the build's other curated genes in any case, by alias or by name
+  // (buildGeneMentions); an upper-case token inside such a mention is that curated set, not a gene outside the build.
+  const buildSymbols = new Set([...(opts.buildSets ?? []), ...(opts.buildGenes ?? []).map((g) => g.symbol)].map((s) => s.toUpperCase()));
+  const named = buildGeneMentions(query, ctx.genes, symbols, opts);
+  const tokens = [...query.matchAll(/\b[A-Z][A-Z0-9]{1,7}\b/g)].filter((m) => (OUT_OF_CONTEXT_GENES.has(m[0]) || buildSymbols.has(m[0]) || /^[A-Z]{2,6}\d{1,2}[A-Z]?$/.test(m[0])) && !symbols.has(m[0]));
+  const geneLike = [...tokens.filter((m) => !named.some((n) => m.index >= n.start && m.index + m[0].length <= n.end)).map((m) => ({ symbol: m[0], start: m.index })), ...named].sort((a, b) => a.start - b.start).map((h) => h.symbol);
+  if (geneLike.length > 0) return r(refuse(ctx, "other", foreignGeneReason([...new Set(geneLike)], [...symbols][0], [...buildSymbols])), "foreign-gene");
   // Phase 9: a named variant is foreign only when the trusted context does not carry it (the set's own variant may be one of these names, F508del on the CFTR set).
   const namedVariant = q.match(OTHER_VARIANTS);
   if (namedVariant && !trusted.includes(namedVariant[1]!)) {
