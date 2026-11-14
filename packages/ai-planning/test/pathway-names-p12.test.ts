@@ -33,8 +33,9 @@ describe("P11-U-15: a pathway with no matching membership is refused with the pa
     expect(plan.reason).not.toMatch(/R-HSA-/);
   });
   it("every name, without ids, when the names fit and the names with ids do not", () => {
-    const names = ["Transport of bile salts and organic acids, metal ions and amine compounds across the membrane", "Na+/Cl- dependent neurotransmitter transporters", "Dopamine clearance from the synaptic cleft", "Reuptake of the neurotransmitter dopamine into the presynaptic neuron"];
+    const names = ["Transport of bile salts and organic acids, metal ions and amine compounds across the membrane", "Na+/Cl- dependent neurotransmitter transporters at the plasma membrane", "Dopamine clearance from the synaptic cleft", "Reuptake of the neurotransmitter dopamine into the presynaptic neuron"];
     const { plan } = run("Show the glycolysis pathway", hbb({ pathways: names.map(membership) }));
+    // With their ids the list is 413 characters; without, 368.
     expect(plan.reason).toBe(`No Reactome membership of P68871 matches "glycolysis"; the record lists 4 memberships: ${names.join("; ")}.`);
   });
   it("a short list keeps its names with their ids", () => {

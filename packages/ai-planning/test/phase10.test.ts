@@ -205,7 +205,8 @@ describe("rule-based planner, one rule per action, on HBB", () => {
   it("a pathway with no matching membership is refused with the record's list", () => {
     const { rule, plan } = run("Show the glycolysis pathway", hbb());
     expect(rule).toBe("pathway-no-membership");
-    expect(plan.reason).toBe('No Reactome membership of P68871 matches "glycolysis"; the record lists 10 memberships: R-HSA-983231, R-HSA-1237044, R-HSA-1247673, R-HSA-2168880, R-HSA-6798695, R-HSA-9613829, R-HSA-9615710, R-HSA-9707564, R-HSA-9707616, R-HSA-9927020.');
+    // Rules version 8 (D-H051 104 (a), P11-U-15): names, not stable ids; the wording is pinned in pathway-names-p12.test.ts.
+    expect(plan.reason).toMatch(/^No Reactome membership of P68871 matches "glycolysis"; the record lists 10 memberships, among them Factors involved in megakaryocyte development/);
   });
   it("the Phase 9 pathway questions keep their rule", () => {
     expect(run("Which pathways list HBB?", hbb()).rule).toBe("pathway-world");

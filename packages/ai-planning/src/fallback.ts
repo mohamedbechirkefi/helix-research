@@ -213,7 +213,16 @@ function phase10Rule(query: string, q: string, ctx: PlanningContext, level: Plan
         const head = `No Reactome membership of ${protein?.id ?? symbol} matches "${named}"`;
         const byName = `${head}; the record lists ${memberships.map((m) => `${m.name} (${m.stableId})`).join("; ")}.`;
         const byId = `${head}; the record lists ${memberships.length} membership${memberships.length === 1 ? "" : "s"}: ${memberships.map((m) => m.stableId).join(", ")}.`;
-        return { plan: refuse(ctx, "other", memberships.length === 0 ? `${head}.` : byName.length <= 400 ? byName : byId.slice(0, 400)), rule: "pathway-no-membership" };
+        // D-H051 question 104 (a) (rules version 8, P11-U-15): past the plan's 400 characters, the pathways' names
+        // (every one, else the whole names that fit in the record's order and how many more), not their stable ids.
+        const n = memberships.length;
+        const names = memberships.map((m) => m.name);
+        const allNames = `${head}; the record lists ${n} memberships: ${names.join("; ")}.`;
+        const some = (k: number) => `${head}; the record lists ${n} memberships, among them ${names.slice(0, k).join("; ")}; and ${n - k} more, listed in Pathway World.`;
+        let k = 0;
+        while (k < n && some(k + 1).length <= 400) k++;
+        const reason = n === 0 ? `${head}.` : byName.length <= 400 ? byName : allNames.length <= 400 ? allNames : k > 0 ? some(k) : byId.slice(0, 400);
+        return { plan: refuse(ctx, "other", reason), rule: "pathway-no-membership" };
       }
       // D-H024 (71): a listed membership whose participants the record does not keep cannot be drawn; answer from the record.
       if (!hit.openable) {
