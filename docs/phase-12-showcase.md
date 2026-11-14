@@ -23,7 +23,7 @@ Authored 2026-11-14 when the author passed the Phase 11 gate and started Phase 1
 
 The gate suite of Phase 11 (S1 to S27 and S29 as agreed in D-H029, D-H033 and D-H047, `phase-11-release-qa.md` section 2) is rerun on the Phase 12 build of record, with the same commands and pass rules. Two suites are added:
 
-- **S30, host check** (new, `apps/web/e2e/host-check.mjs`): fetches the served build at a given URL and checks each requirement of `security-review.md` section 8, one line per requirement, exit 0 only if every one holds; then runs S6, S19 and S21 against that URL. Run against the local static server always, and against the public URL if one exists.
+- **S30, host check** (new, `apps/web/e2e/host-check.mjs`): fetches the served build at a given URL and checks each requirement of `security-review.md` section 8, one line per requirement, exit 0 only if every one holds; then runs S21, S6's model-free scenarios and S19's web half (`--web-port`) against that URL. *(Amended 2026-11-14, HX-P12-2026-11-14-p1211: on 127.0.0.1 the page counts as a development page and calls the local model, which the served policy refuses, so the whole S6 and S19 cannot run there; their model and development parts stay with the development preview.)* Run against the local static server always, and against the public URL if one exists.
 - **S31, release contents** (new): the build contains no concept prototype, no font family outside the notices, no source map, no development switch reachable (`?dev`, `?diagnostics` stay as accepted under P11-SEC-02 unless question 106 changes that), and the version and identifier set in question 105.
 
 ## 3. Budgets

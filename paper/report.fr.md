@@ -923,7 +923,9 @@ L'auteur a ensuite réglé les points ouverts. Lorsqu'une réponse, une clarific
 
 ### 9.9 Vitrine de portfolio et lancement (phase 12)
 
-La démonstration publique, si l'auteur décide de la publier. À rapporter : ce qui a été publié et où, et les limites éventuellement divulguées.
+**Le plan et l'hébergeur.** La phase s'est ouverte sur la décision de l'auteur (D-H050) avec un plan dont les critères de fin placent la publication en dernier : tout est construit et vérifié localement, et l'auteur décide à la revue de passage si la démonstration devient publique. L'auteur a retenu chaque recommandation (D-H051) : le code source du produit reste privé, l'étude de cas et l'enregistrement vont dans le dépôt de recherche public, dix petits constats d'utilisabilité sont corrigés, et la version publiée est la 1.0.0. Parmi les hébergeurs statiques gratuits examinés au regard de la revue de sécurité, trois ne peuvent envoyer aucun en-tête de politique, dont cette application a besoin, puisque la politique sous forme d'élément de page dépasserait le budget de taille. L'auteur a choisi Cloudflare (D-H052).
+
+**La construction de publication (P12.1.1).** La construction de publication exclut les prototypes de concept et leurs polices, comme l'exigeait la décision sur les licences, et sa page au repos transfère 1,970,226 octets, soit 5,079 de moins qu'à la revue de passage de la phase 11, ou 1,786,664 avec brotli. La sonde de fonctionnalité de zod étant désactivée, la politique servie ne signale plus rien de la part de l'application [C192]. Un seul fichier d'en-têtes généré, au format de Cloudflare, porte chaque en-tête qu'exige la revue de sécurité. Sur un serveur local qui applique les règles d'en-têtes de Cloudflare, la vérification de l'hébergement a satisfait chaque exigence pouvant tenir sur une adresse locale, alors qu'un serveur n'envoyant aucun en-tête en a manqué onze ; le produit sans modèle y a aussi réussi [C193]. Ce que Cloudflare envoie lui-même ne peut être montré que sur une adresse réelle.
 
 ---
 

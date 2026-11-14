@@ -923,7 +923,9 @@ The author then settled the open points. When an answer, a clarification or a re
 
 ### 9.9 Portfolio showcase and launch (Phase 12)
 
-The public demonstration, if the author decides to publish it. To report: what was released and where, and any limits disclosed.
+**The plan and the host.** The phase opened on the author's word (D-H050) with a plan whose end criteria put publication last: everything is built and checked locally, and the author decides at the gate whether the demo goes public. The author took every recommendation (D-H051): the product source stays private, the case study and recording go to the public research repository, ten small usability findings are fixed, and the release is version 1.0.0. Of the free static hosts read against the security review, three cannot send a policy header at all, which this app needs, since the policy as a page element would exceed the size budget. The author chose Cloudflare (D-H052).
+
+**The release build (P12.1.1).** The release build leaves out the concept prototypes and their fonts, as the licence decision required, and its page at rest transfers 1,970,226 bytes, 5,079 fewer than at the Phase 11 gate, or 1,786,664 with brotli. With zod's feature probe turned off, the served policy no longer reports anything from the app [C192]. One generated header file in Cloudflare's format carries every header the security review requires. On a local server that applies Cloudflare's header rules, the host check passed every requirement that can hold on a local address, while a server sending no headers failed eleven; the product without a model passed there too [C193]. What Cloudflare itself sends can only be shown on a real address.
 
 ---
 
