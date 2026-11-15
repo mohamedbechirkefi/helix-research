@@ -389,7 +389,7 @@ Of note: R3F's `dist/events-*.esm.js` embeds React's reconciler ("@license React
 | P11-LIC-05 | `vendor/fonts/PROVENANCE.md` said the shipped app does not load the vendored fonts; it loads Geist Sans and Geist Mono at rest, and all 15 files are in the build | fixed (doc) |
 | P11-LIC-06 | The CC BY 4.0 attributions (UniProt, AlphaFold DB) name the licence without a link to it; the URI is now one click away in the notices | met by Inference; kept as built (D-H040 answer 2) |
 | P11-LIC-07 | The ClinVar attribution says "See the NCBI disclaimer and copyright notice" with no link; the URL is now in the notices. The ClinVar-specific statement is still unread (section 5 item 4) | partly met; kept as built (D-H040 answer 2); item 4 closed 2026-11-15 by the author's visit (HX-P12-2026-11-15-ncbi-pages) |
-| P11-LIC-08 | The wordmark's rights are not cleared (answer 98 (a)) | open, author action |
+| P11-LIC-08 | The wordmark's rights are not cleared (answer 98 (a)) | closed: cleared by the author, 2026-11-15 (the terms clause, the prompt record, a trademark search; the author's statement, not checked by the agent) |
 | P11-LIC-09 | Requested citations not displayed: the PDB entries' primary citations and the Open Targets paper (both CC0 sources; courtesy requests, not conditions) | note |
 | P11-LIC-10 | The concept prototypes ship in the build with four font families (10 files, 182,324 bytes) that the default page never fetches | note; left out of the Phase 12 build (D-H040 answer 4) |
 
