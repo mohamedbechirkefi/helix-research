@@ -189,7 +189,7 @@
 ## 9. NCBI Gene and RefSeq
 
 - **Endpoints:** E-utilities `db=gene`, `db=nuccore`, `db=protein`. Used: `esearch` (`HBB[sym] AND Homo sapiens[orgn]`, which returned GeneIDs 3043 and 85344; 85344 is KRT89P, a false hit) and `esummary` (3043).
-- **Versioning, rate limits, CORS, licence:** as section 5. The RefSeq FAQ (https://www.ncbi.nlm.nih.gov/books/NBK50679/) returned reCAPTCHA; a RefSeq-specific usage statement is **unverified**.
+- **Versioning, rate limits, CORS, licence:** as section 5. The RefSeq FAQ (https://www.ncbi.nlm.nih.gov/books/NBK50679/) returned reCAPTCHA to scripts. The author read it in a browser on 2026-11-15 (HX-P12-2026-11-15-ncbi-pages): the part read gives citation guidance only (accession with version, NCBI Handbook, O'Leary et al. NAR 2016), with no usage restriction.
 - **Note:** esummary `genomicinfo` appears 0-based (5225463-5227070 vs Ensembl 1-based 5225464-5227071).
 
 ## 10. PDBe API and SIFTS
@@ -292,7 +292,7 @@ The test inputs recorded for the five genes of rule 5 (`data/fixtures/dynamic/<s
 
 ## Not covered or unverified
 
-- NCBI pages behind reCAPTCHA: ClinVar programmatic-access and data-use pages, the E-utilities manual (API-key limit), the RefSeq FAQ.
+- NCBI pages behind reCAPTCHA: ClinVar programmatic-access page, the E-utilities manual (API-key limit). The ClinVar data-use page and the RefSeq FAQ were read by the author in a browser on 2026-11-15 (HX-P12-2026-11-15-ncbi-pages).
 - UniProt and AlphaFold DB numeric rate limits: not documented on the pages read.
 - Behaviour of CORS on error responses (429/5xx): not tested. If an error response lacks `Access-Control-Allow-Origin`, the browser reports a network error instead of 429.
 - Ensembl "Image Reuse" and "name and logo" policies: listed in the legal index, not read.
