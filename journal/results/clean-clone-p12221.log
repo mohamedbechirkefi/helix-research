@@ -1,0 +1,23 @@
+Environment: 15.3.1 arm64; node v22.23.3; npm 10.9.9; git 2.42.1; empty npm cache at .npm-cache
+2026-11-15 15:29:27 | cwd=work | git clone <helix>/helix-research helix-research | exit=0 | 2s | log=logs/00-git_clone.log
+2026-11-15 15:29:32 | cwd=work | git clone <helix>/helix-app helix-app | exit=0 | 5s | log=logs/01-git_clone.log
+2026-11-15 15:30:02 | cwd=work/helix-research | npm ci | exit=0 | 23s | log=logs/02-npm_ci_.log
+2026-11-15 15:30:19 | cwd=work/helix-research | npm test | exit=0 | 12s | log=logs/03-npm_test_.log
+2026-11-15 15:30:26 | cwd=work/helix-research | npm run typecheck | exit=0 | 7s | log=logs/04-npm_run_typecheck_.log
+2026-11-15 15:31:21 | cwd=work/helix-app | npm ci | exit=0 | 51s | log=logs/05-npm_ci_.log
+2026-11-15 15:31:26 | cwd=work/helix-app | npm run check:pin | exit=0 | 0s | log=logs/06-npm_run_check_pin_.log
+2026-11-15 15:31:31 | cwd=work/helix-app | npm test | exit=0 | 5s | log=logs/07-npm_test_.log
+2026-11-15 15:31:42 | cwd=work/helix-app | npm run typecheck | exit=0 | 11s | log=logs/08-npm_run_typecheck_.log
+2026-11-15 15:31:49 | cwd=work/helix-app | npm run web:build | exit=0 | 2s | log=logs/09-npm_run_web_build_.log
+2026-11-15 15:31:51 | cwd=work/helix-app | npm run release:build | exit=0 | 2s | log=logs/10-npm_run_release_build_.log
+2026-11-15 15:32:13 | cwd=work/helix-app | curl -s http://localhost:5199/ | exit=0 | 0s | http 200 498B
+2026-11-15 15:32:13 | cwd=work/helix-app | curl -s http://localhost:5199/data/index.json | exit=0 | 0s | http 200 3511B
+2026-11-15 15:32:13 | cwd=work/helix-app | curl -s http://localhost:5199/release-manifest.json | exit=0 | 0s | http 200 14591B
+2026-11-15 15:32:26 | cwd=work/helix-app | npm run preview -w @helix-app/web -- --port 5199 (background, served HTTP 200 for /, /data/index.json, /release-manifest.json; stopped with kill of its own two PIDs) | exit=n/a (killed by me) | ~25s | log=logs/preview-try1.log
+2026-11-15 15:33:16 | cwd=work/helix-research | npm run build:gene -- --gene hbb --fixtures --out <scratch>/p12221-clone/out-hbb-fixtures | exit=0 | 1s | log=logs/15-npm_run_build_gene______gene_hbb___fixtures___out.log
+# order test: helix-app installed and tested with the sibling helix-research cloned but NOT installed
+2026-11-15 15:33:32 | cwd=order-test | git clone -q <helix>/helix-research helix-research && git clone -q <helix>/helix-app helix-app | exit=0 | 7s | log=logs/16-git_clone__q.log
+2026-11-15 15:33:38 | cwd=order-test/helix-app | npm ci | exit=0 | 6s | log=logs/17-npm_ci_.log
+2026-11-15 15:33:42 | cwd=order-test/helix-app | npm test | exit=1 | 4s | log=logs/18-npm_test_.log
+2026-11-15 15:33:43 | cwd=order-test/helix-app | npm run web:build | exit=1 | 1s | log=logs/19-npm_run_web_build_.log
+# order-test folder removed after the run (logs 16-19 kept)
