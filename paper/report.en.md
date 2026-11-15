@@ -933,6 +933,8 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The Safari failures.** The two Safari failures left open at the gate came from Safari's test automation, not from the app. Its simulated wheel delivered only half the scroll it was sent, so the zoom stopped early, and it kept nothing in local storage from one automated step to the next, even on a page without the app. With the test harness sending each wheel step separately, the zoom suite passes in Safari, and the four storage checks are recorded as not runnable there; no app code changed [C195]. A real mouse or trackpad in an ordinary Safari window was not tested.
 
+**The build of record.** The whole Phase 11 test suite was run again on one build that includes every Phase 12 change, with the same commands and pass rules as at the Phase 11 gate, plus the new host and release-contents checks. Every judged check passes [C197]. Four first failures were faults in the tests, not in the app. Three suites still expected behaviour that this phase changed on purpose: the welcome after a choice, the pathway refusal, and how reference numbers are read. In the fourth, I left out an option the release-build step had added. They were corrected without touching the app. Two results are recorded as open notes. In Firefox, the 3D view sometimes creates a second graphics context at start; the Phase 11 build does the same about as often, so it is not new. And in the desktop app on a busy machine, one frame in the middle of a move took up to 40 ms on four passes. The agreed rerun passed, but whether the cause was the load or the build was not established.
+
 ---
 
 ## 10. Limits and threats to validity
