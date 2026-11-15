@@ -77,7 +77,7 @@ From the limitations document, the security review, the licence audit and the de
 | P11-LIC-10 | Concept prototypes and their four font families out of the build | D-H040 (4) | P12.1.1, S31 |
 | D-H046 | Release version (now 0.0.0) and desktop identifier (now `local.helix.desktop`) | question 105 | P12.1.3 |
 | P11-LIC-08 | Wordmark clearance: the terms clause, the prompt record, a trademark search | D-H011, D-H030 (98): the author's action | author |
-| P11-LIC-07 | One browser visit to the ClinVar data-use page and the RefSeq FAQ (reCAPTCHA blocks scripts) | D-H040: the author's action | author |
+| P11-LIC-07 | One browser visit to the ClinVar data-use page and the RefSeq FAQ (reCAPTCHA blocks scripts) | D-H040: the author's action; done 2026-11-15 (HX-P12-2026-11-15-ncbi-pages) | author |
 | D6 | The private app consumes the non-commercial research packages because the author owns both; confirm before release | open | author (question 103) |
 | D-H030 (97) | The ad-hoc signed DMG stays local until this phase decides | question 103 | author |
 | Q-1 | Whether the built demo is published, and where | question 101, 102 | author |
