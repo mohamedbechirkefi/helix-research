@@ -935,6 +935,8 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The build of record.** The whole Phase 11 test suite was run again on one build that includes every Phase 12 change, with the same commands and pass rules as at the Phase 11 gate, plus the new host and release-contents checks. Every judged check passes [C197]. Four first failures were faults in the tests, not in the app. Three suites still expected behaviour that this phase changed on purpose: the welcome after a choice, the pathway refusal, and how reference numbers are read. In the fourth, I left out an option the release-build step had added. They were corrected without touching the app. Two results are recorded as open notes. In Firefox, the 3D view sometimes creates a second graphics context at start; the Phase 11 build does the same about as often, so it is not new. And in the desktop app on a busy machine, one frame in the middle of a move took up to 40 ms on four passes. The agreed rerun passed, but whether the cause was the load or the build was not established.
 
+**The demo recording.** A 93-second recording was made from the release build of that same build of record, every shot from the real app, with a numbered caption on each chapter and no voice [C198]. It shows the welcome, the sickle-cell question answered by the rules, the follow-up the rules suggest, the evidence, a second gene retrieved live, and, labelled as the development page, a follow-up planned by the local model. Two waits are shown faster, each with a badge giving its real time: the live retrieval took 22.7 s and the model's planning 41.5 s. The recording stays unpublished until the gate.
+
 ---
 
 ## 10. Limits and threats to validity
