@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 924" width="1040" height="924" role="img" aria-labelledby="title desc">
+  <!-- Copyright (c) 2026 Mohamed Bechir Kefi. All rights reserved. -->
+  <title id="title">Helix world and journey engine</title>
+  <desc id="desc">The journey engine declares the worlds, inventories the data of a set, plans and matches chapters and runs the journey. The app controller turns navigation and chapters into deterministic plans that the Scene Action Interpreter executes through the world executors and the stage; the session store is the one authority the interface reads; the selection bridge links codons, protein positions and structure residues.</desc>
+  <style>
+    .t { font: 600 19px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .st { font: 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .h { font: 600 13px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .b { font: 11.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #2f3640; }
+    .m { font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #4a5260; }
+    .g { font: 600 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .n { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .cap { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #5a6270; }
+    .box { fill: #ffffff; stroke: #7d8797; stroke-width: 1; }
+    .key { fill: #fff8e6; stroke: #b08a2e; stroke-width: 1.2; }
+    .a { fill: none; stroke: #3d4452; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3d4452"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="924" fill="#ffffff"/>
+
+  <text class="t" x="20" y="32">World and journey engine</text>
+  <text class="st" x="20" y="52">Every scene change is a plan the interpreter validates and runs: a question, a world switch or a journey chapter. The session store is the one authority.</text>
+
+  <!-- journey-engine -->
+  <rect x="20" y="72" width="300" height="636" rx="8" fill="#f3f7fc" stroke="#9fb3cc" stroke-width="1.2"/>
+  <text class="g" x="32" y="91">packages/journey-engine</text>
+
+  <rect class="box" x="35" y="104" width="270" height="70" rx="5"/>
+  <text class="h" x="45" y="122">WorldModule, defineWorld()</text>
+  <text class="m" x="45" y="137">journey-engine/src/world.ts</text>
+  <text class="b" x="45" y="152">renderer, required data, actions,</text>
+  <text class="b" x="45" y="166">costs, fallbacks, accessibility</text>
+  <path class="a" d="M170,174 V194" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="196" width="270" height="84" rx="5"/>
+  <text class="h" x="45" y="214">The worlds</text>
+  <text class="m" x="45" y="229">worlds.ts: PHASE9_WORLDS</text>
+  <text class="b" x="45" y="244">DNA_WORLD (r3f), PROTEIN_WORLD</text>
+  <text class="b" x="45" y="258">(molstar), PATHWAY_WORLD (dom),</text>
+  <text class="b" x="45" y="272">registered in a WorldRegistry</text>
+
+  <rect class="box" x="35" y="302" width="270" height="70" rx="5"/>
+  <text class="h" x="45" y="320">inventoryFromRecords()</text>
+  <text class="m" x="45" y="335">inventory.ts</text>
+  <text class="b" x="45" y="350">the data kinds the set has; each</text>
+  <text class="b" x="45" y="364">absent kind carries its reason</text>
+  <path class="a" d="M170,372 V392" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="394" width="270" height="56" rx="5"/>
+  <text class="h" x="45" y="412">planVariantJourney()</text>
+  <text class="m" x="45" y="427">planner.ts</text>
+  <text class="b" x="45" y="442">a deterministic chapter plan</text>
+  <path class="a" d="M170,450 V470" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="472" width="270" height="70" rx="5"/>
+  <text class="h" x="45" y="490">matchChapters()</text>
+  <text class="m" x="45" y="505">chapter.ts</text>
+  <text class="b" x="45" y="520">a chapter is offered only if its world</text>
+  <text class="b" x="45" y="534">and data exist, else a refusal code</text>
+  <path class="a" d="M170,542 V562" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="564" width="270" height="56" rx="5"/>
+  <text class="h" x="45" y="582">JourneyRuntime</text>
+  <text class="m" x="45" y="597">journey.ts</text>
+  <text class="b" x="45" y="612">guided or free; next, back, resume</text>
+
+  <rect class="box" x="35" y="642" width="270" height="56" rx="5"/>
+  <text class="h" x="45" y="660">chooseStartWorld()</text>
+  <text class="m" x="45" y="675">start.ts</text>
+  <text class="b" x="45" y="690">first of dna, protein with its data</text>
+
+  <!-- apps/web -->
+  <rect x="340" y="72" width="340" height="500" rx="8" fill="#f7f4fb" stroke="#b4a6cc" stroke-width="1.2"/>
+  <text class="g" x="352" y="91">apps/web (helix-app)</text>
+
+  <rect class="box" x="355" y="104" width="310" height="70" rx="5"/>
+  <text class="h" x="365" y="122">App.tsx and WorldSwitcher</text>
+  <text class="m" x="365" y="137">apps/web/src/App.tsx; design-system</text>
+  <text class="b" x="365" y="152">world buttons, chapter list, codon strip;</text>
+  <text class="b" x="365" y="166">renders the stage and the DOM worlds</text>
+  <path class="a" d="M510,174 V194" marker-end="url(#ah)"/>
+
+  <rect class="key" x="355" y="196" width="310" height="84" rx="5"/>
+  <text class="h" x="365" y="214">AppController</text>
+  <text class="m" x="365" y="229">apps/web/src/controller.ts</text>
+  <text class="b" x="365" y="244">navigate() and the chapters of JourneyRuntime</text>
+  <text class="b" x="365" y="258">become deterministic plans (runPlan); bridge</text>
+  <text class="b" x="365" y="272">sync; BUILD_WORLDS from build-worlds.ts</text>
+  <path class="a" d="M510,280 V300" marker-end="url(#ah)"/>
+
+  <rect class="box" x="355" y="302" width="310" height="70" rx="5"/>
+  <text class="h" x="365" y="320">Bridge sequence (D-H013)</text>
+  <text class="m" x="365" y="335">bridge/gate.ts, bridge-chain.ts, ui/Bridge.tsx</text>
+  <text class="b" x="365" y="350">four record stations, played before a DNA</text>
+  <text class="b" x="365" y="364">to Protein move from a variant scene</text>
+  <path class="a" d="M510,372 V392" marker-end="url(#ah)"/>
+
+  <rect class="box" x="355" y="394" width="310" height="70" rx="5"/>
+  <text class="h" x="365" y="412">WorldExecutors</text>
+  <text class="m" x="365" y="427">apps/web/src/stage.ts</text>
+  <text class="b" x="365" y="442">wraps the Mol* executors; protein actions</text>
+  <text class="b" x="365" y="456">first bring Protein World on screen</text>
+  <path class="a" d="M510,464 V484" marker-end="url(#ah)"/>
+
+  <rect class="box" x="355" y="486" width="310" height="70" rx="5"/>
+  <text class="h" x="365" y="504">Stage</text>
+  <text class="m" x="365" y="519">apps/web/src/stage.ts</text>
+  <text class="b" x="365" y="534">two layers, one pointer owner; transition():</text>
+  <text class="b" x="365" y="548">a fade, interruptible, each world's state kept</text>
+
+  <!-- scene-engine -->
+  <rect x="700" y="72" width="320" height="422" rx="8" fill="#f2f8f4" stroke="#9cc0a8" stroke-width="1.2"/>
+  <text class="g" x="712" y="91">packages/scene-engine</text>
+
+  <rect class="key" x="715" y="104" width="290" height="98" rx="5"/>
+  <text class="h" x="725" y="122">SessionStore</text>
+  <text class="m" x="725" y="137">scene-engine/src/session.ts</text>
+  <text class="b" x="725" y="152">version; epoch, bumped when the subject</text>
+  <text class="b" x="725" y="166">changes; world, pointer owner, selection,</text>
+  <text class="b" x="725" y="180">transition, journey</text>
+
+  <rect class="box" x="715" y="224" width="290" height="70" rx="5"/>
+  <text class="h" x="725" y="242">SceneActionInterpreter</text>
+  <text class="m" x="725" y="257">scene-engine/src/interpreter.ts</text>
+  <text class="b" x="725" y="272">the only writer of world; stops a running</text>
+  <text class="b" x="725" y="286">step when someone changes the subject</text>
+  <path class="a" d="M860,224 V204" marker-end="url(#ah)"/>
+
+  <rect class="box" x="715" y="316" width="290" height="70" rx="5"/>
+  <text class="h" x="725" y="334">SelectionBridge</text>
+  <text class="m" x="725" y="349">scene-engine/src/bridge.ts</text>
+  <text class="b" x="725" y="364">codon k, protein position k, structure</text>
+  <text class="b" x="725" y="378">residue through the SIFTS table, no offset</text>
+
+  <rect class="box" x="715" y="408" width="140" height="70" rx="5"/>
+  <text class="h" x="725" y="426">TranscriptModel</text>
+  <text class="m" x="725" y="441">sequence.ts</text>
+  <text class="b" x="725" y="456">cDNA, CDS and</text>
+  <text class="b" x="725" y="470">codons, from records</text>
+
+  <rect class="box" x="865" y="408" width="140" height="70" rx="5"/>
+  <text class="h" x="875" y="426">TargetResolver</text>
+  <text class="m" x="875" y="441">resolver.ts</text>
+  <text class="b" x="875" y="456">a feature to its</text>
+  <text class="b" x="875" y="470">chains and residues</text>
+
+  <path class="a" d="M785,386 V406" marker-end="url(#ah)"/>
+  <path class="a" d="M935,386 V406" marker-end="url(#ah)"/>
+  <path class="a" d="M1005,351 H1012 V153 H1007" marker-end="url(#ah)"/>
+
+  <!-- cross-container arrows -->
+  <path class="a" d="M713,139 H667" marker-end="url(#ah)"/>
+  <text class="n" x="669" y="133">reads</text>
+  <path class="a" d="M665,245 H713" marker-end="url(#ah)"/>
+  <text class="n" x="672" y="239">plans</text>
+  <path class="a" d="M715,272 H690 V405 H667" marker-end="url(#ah)"/>
+  <path class="a" d="M305,592 H330 V262 H353" marker-end="url(#ah)"/>
+  <path class="a" d="M305,670 H330"/>
+
+  <!-- worlds on screen -->
+  <rect x="20" y="728" width="1000" height="124" rx="8" fill="#fbfaf5" stroke="#a39e8a" stroke-width="1.2"/>
+  <text class="g" x="32" y="747">Worlds on screen (apps/web/src)</text>
+
+  <rect class="box" x="35" y="756" width="230" height="84" rx="5"/>
+  <text class="h" x="45" y="774">DNA World</text>
+  <text class="m" x="45" y="789">dna/DnaWorld.tsx (R3F canvas)</text>
+  <text class="b" x="45" y="804">rig.ts DnaRig; the tour: views.ts</text>
+  <text class="b" x="45" y="818">tourKeys and camera-path.ts Tour</text>
+
+  <rect class="box" x="280" y="756" width="230" height="84" rx="5"/>
+  <text class="h" x="290" y="774">Protein World</text>
+  <text class="m" x="290" y="789">molstar/lazy.ts, molstar/scene.ts</text>
+  <text class="b" x="290" y="804">Mol* created on first need;</text>
+  <text class="b" x="290" y="818">highlight and focus read back</text>
+
+  <rect class="box" x="560" y="756" width="230" height="84" rx="5"/>
+  <text class="h" x="570" y="774">Pathway World</text>
+  <text class="m" x="570" y="789">ui/PathwayWorld.tsx</text>
+  <text class="b" x="570" y="804">a 2D layer over the stage:</text>
+  <text class="b" x="570" y="818">Reactome memberships</text>
+
+  <rect class="box" x="805" y="756" width="200" height="84" rx="5"/>
+  <text class="h" x="815" y="774">Evidence World</text>
+  <text class="m" x="815" y="789">phase6.tsx EvidenceWorld</text>
+  <text class="b" x="815" y="804">a DOM layer opened from</text>
+  <text class="b" x="815" y="818">App.tsx; not a WorldModule</text>
+
+  <!-- to the worlds -->
+  <path class="a" d="M440,556 V718 H245 V754" marker-end="url(#ah)"/>
+  <path class="a" d="M395,718 V754" marker-end="url(#ah)"/>
+  <text class="n" x="448" y="640">the two 3D layers</text>
+  <path class="a" d="M665,440 H673 V754" marker-end="url(#ah)"/>
+  <text class="n" x="681" y="640">showPathway</text>
+  <text class="n" x="681" y="654">(PathwayLayer)</text>
+
+  <!-- legend -->
+  <path class="a" d="M20,874 H60" marker-end="url(#ah)"/>
+  <text class="n" x="68" y="878">call, plan or data flow</text>
+  <rect class="key" x="230" y="866" width="26" height="16" rx="3"/>
+  <text class="n" x="264" y="878">the controller and the store, the two hubs</text>
+  <text class="n" x="560" y="878">The bridge's mirror of a structure pick is a derived commit (no epoch bump).</text>
+
+  <text class="cap" x="20" y="900">Drawn from: helix-app docs/journey-and-world-architecture.md; packages/journey-engine/src (world, worlds, inventory, planner, chapter, journey, start); packages/scene-engine/src</text>
+  <text class="cap" x="20" y="915">(session, interpreter, bridge, sequence, resolver); apps/web/src (App.tsx, controller.ts, build-worlds.ts, stage.ts, bridge/, dna/, molstar/, ui/PathwayWorld.tsx, phase6.tsx).</text>
+</svg>

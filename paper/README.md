@@ -10,7 +10,7 @@ This folder holds the written outputs of the Helix research phase. They are draf
 | `report.en.md` | Detailed technical report, English. The working master. | Draft 0.9 (2026-11-15): every chapter drafted, Phases 0 to 12; frozen as the source of the article; final after the author's review at the Phase 12 gate |
 | `report.fr.md` | Full French copy of the report | Final copy of draft 0.9 (2026-11-15); parity check clean (`scripts/report/check_fr_parity.py`); links rechecked (`journal/results/link-check-2026-11-15-final.tsv`). Earlier copies: 2026-11-02 from drafts 0.3 and 0.6 |
 | `claims.md` | Claims register: every claim in the report and article, with its evidence | Live (C01 to C200) |
-| `article.en.md`, `article.fr.md` | Short article made from the frozen report | Draft 1 (2026-11-15), EN and FR, claims a subset of the register; kept local until the author's word (G-PUBLIC) |
+| `article.en.md`, `article.fr.md` | Short article made from the frozen report | Draft 1 (2026-11-15), EN and FR, claims a subset of the register; published with the Phase 12 showcase on the author's word (D-H053) |
 
 ## Rules
 

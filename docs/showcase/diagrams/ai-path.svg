@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 990" width="1040" height="990" role="img" aria-labelledby="title desc">
+  <!-- Copyright (c) 2026 Mohamed Bechir Kefi. All rights reserved. -->
+  <title id="title">Helix AI path</title>
+  <desc id="desc">A plain-language question goes to the app controller and the Director. The rule-based planner runs first; the split policy decides whether a local model is called; a model plan must pass schema validation, groundedness, the echo and claim screens and the split acceptance, otherwise the rule-based plan answers. Follow-ups are filtered for every plan. The Scene Action Interpreter re-validates the plan and executes it through the world executors; the explanation is written by the app.</desc>
+  <style>
+    .t { font: 600 19px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .st { font: 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .h { font: 600 13px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .b { font: 11.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #2f3640; }
+    .m { font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #4a5260; }
+    .g { font: 600 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .n { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .nr { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #a3261d; }
+    .cap { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #5a6270; }
+    .box { fill: #ffffff; stroke: #7d8797; stroke-width: 1; }
+    .key { fill: #fff8e6; stroke: #b08a2e; stroke-width: 1.2; }
+    .ext { fill: #fbfaf5; stroke: #8a8f99; stroke-width: 1.2; stroke-dasharray: 5 3; }
+    .a { fill: none; stroke: #3d4452; stroke-width: 1.4; }
+    .ar { fill: none; stroke: #a3261d; stroke-width: 1.4; stroke-dasharray: 5 3; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3d4452"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#a3261d"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="990" fill="#ffffff"/>
+
+  <text class="t" x="20" y="32">AI path: question, validated action plan, scene</text>
+  <text class="st" x="20" y="52">No plan reaches the scene unvalidated. A model only proposes actions; any failed check gives the rule-based plan, and the app writes what the visitor reads.</text>
+
+  <!-- top row -->
+  <rect class="box" x="20" y="70" width="230" height="56" rx="5"/>
+  <text class="h" x="30" y="88">Visitor's question</text>
+  <text class="m" x="30" y="103">design-system AskBar.tsx</text>
+  <text class="b" x="30" y="118">plain language, up to 500 characters</text>
+  <path class="a" d="M250,98 H278" marker-end="url(#ah)"/>
+
+  <rect class="box" x="280" y="70" width="280" height="56" rx="5"/>
+  <text class="h" x="290" y="88">AppController.ask()</text>
+  <text class="m" x="290" y="103">apps/web/src/controller.ts</text>
+  <text class="b" x="290" y="118">supersedes any running request</text>
+  <path class="a" d="M420,126 V148" marker-end="url(#ah)"/>
+  <text class="n" x="428" y="142">handle(query, session)</text>
+
+  <!-- context column -->
+  <rect x="20" y="150" width="270" height="300" rx="8" fill="#f3f7fc" stroke="#9fb3cc" stroke-width="1.2"/>
+  <text class="g" x="32" y="169">Planning context (built by code)</text>
+
+  <rect class="box" x="35" y="180" width="240" height="70" rx="5"/>
+  <text class="h" x="45" y="198">buildHbbContext()</text>
+  <text class="m" x="45" y="213">ai-planning/src/context.ts</text>
+  <text class="b" x="45" y="228">trusted ids from the curated</text>
+  <text class="b" x="45" y="242">records, never from a model</text>
+  <path class="a" d="M155,250 V270" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="272" width="240" height="70" rx="5"/>
+  <text class="h" x="45" y="290">restrictToBuild()</text>
+  <text class="m" x="45" y="305">ai-director/src/providers.ts</text>
+  <text class="b" x="45" y="320">only the worlds and actions</text>
+  <text class="b" x="45" y="334">this build executes</text>
+  <path class="a" d="M155,342 V362" marker-end="url(#ah)"/>
+
+  <rect class="box" x="35" y="364" width="240" height="70" rx="5"/>
+  <text class="h" x="45" y="382">contextFor(), withSelectionFacts()</text>
+  <text class="m" x="45" y="397">director.ts, contextual.ts</text>
+  <text class="b" x="45" y="412">selection, loaded structure,</text>
+  <text class="b" x="45" y="426">first answer or follow-up</text>
+
+
+  <!-- outside the app: local model -->
+  <rect class="ext" x="20" y="470" width="270" height="124" rx="8"/>
+  <text class="g" x="32" y="489">Outside the app</text>
+  <rect class="box" x="35" y="498" width="240" height="84" rx="5"/>
+  <text class="h" x="45" y="516">Local Ollama server</text>
+  <text class="m" x="45" y="531">ministral-3:8b, /api/chat</text>
+  <text class="b" x="45" y="546">development page, or the desktop</text>
+  <text class="b" x="45" y="560">app through its shell fetch;</text>
+  <text class="b" x="45" y="574">never the public page</text>
+
+  <!-- Director container -->
+  <rect x="310" y="150" width="410" height="760" rx="8" fill="#f7f4fb" stroke="#b4a6cc" stroke-width="1.2"/>
+  <text class="g" x="706" y="169" text-anchor="end">Director.handle(), ai-director/src/director.ts</text>
+
+  <path class="a" d="M275,215 H328" marker-end="url(#ah)"/>
+  <text class="n" x="281" y="209">context</text>
+  <path class="a" d="M277,527 H328" marker-start="url(#ah)" marker-end="url(#ah)"/>
+  <rect class="box" x="330" y="180" width="230" height="70" rx="5"/>
+  <text class="h" x="340" y="198">deterministicPlan()</text>
+  <text class="m" x="340" y="213">ai-planning/src/fallback.ts</text>
+  <text class="b" x="340" y="228">rules first: safety refusals,</text>
+  <text class="b" x="340" y="242">cue routing (routing.ts)</text>
+  <path class="a" d="M445,250 V270" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="272" width="230" height="56" rx="5"/>
+  <text class="h" x="340" y="290">splitRoute()</text>
+  <text class="m" x="340" y="305">ai-director/src/director.ts</text>
+  <text class="b" x="340" y="320">prompt v8 policy, seven rows</text>
+  <path class="a" d="M445,328 V348" marker-end="url(#ah)"/>
+  <text class="n" x="453" y="343">call the model</text>
+
+  <rect class="box" x="330" y="350" width="230" height="70" rx="5"/>
+  <text class="h" x="340" y="368">ProviderRegistry</text>
+  <text class="m" x="340" y="383">ai-planning/src/providers/</text>
+  <text class="b" x="340" y="398">public page: rules only;</text>
+  <text class="b" x="340" y="412">dev, desktop: OllamaProvider</text>
+  <path class="a" d="M445,420 V440" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="442" width="230" height="84" rx="5"/>
+  <text class="h" x="340" y="460">OllamaProvider.plan()</text>
+  <text class="m" x="340" y="475">providers/ollama.ts, prompt.ts</text>
+  <text class="b" x="340" y="490">prompt v8, the plan's JSON</text>
+  <text class="b" x="340" y="504">Schema as the decoding format;</text>
+  <text class="b" x="340" y="518">returns raw text</text>
+  <path class="a" d="M445,526 V546" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="548" width="230" height="84" rx="5"/>
+  <text class="h" x="340" y="566">validatePlan()</text>
+  <text class="m" x="340" y="581">ai-planning/src/validate.ts</text>
+  <text class="b" x="340" y="596">JSON, strict schema (schema.ts),</text>
+  <text class="b" x="340" y="610">grounded ids, capabilities,</text>
+  <text class="b" x="340" y="624">prerequisites, one world</text>
+  <path class="a" d="M445,632 V652" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="654" width="230" height="70" rx="5"/>
+  <text class="h" x="340" y="672">Echo and claim screens</text>
+  <text class="m" x="340" y="687">retrievedEchoes(), claim-screen.ts</text>
+  <text class="b" x="340" y="702">the model's prose read against</text>
+  <text class="b" x="340" y="716">the records</text>
+  <path class="a" d="M445,724 V744" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="746" width="230" height="56" rx="5"/>
+  <text class="h" x="340" y="764">splitAccepts()</text>
+  <text class="m" x="340" y="779">ai-director/src/director.ts</text>
+  <text class="b" x="340" y="794">explorer action or follow-up</text>
+  <path class="a" d="M445,802 V822" marker-end="url(#ah)"/>
+  <text class="n" x="453" y="816">model plan</text>
+
+  <!-- rule-based plan and the reject collector -->
+  <rect class="key" x="580" y="272" width="125" height="90" rx="5"/>
+  <text class="h" x="590" y="290">Rule-based plan</text>
+  <text class="b" x="590" y="307">answers when the</text>
+  <text class="b" x="590" y="321">model is not called</text>
+  <text class="b" x="590" y="335">or a check rejects</text>
+  <text class="b" x="590" y="349">the model's plan</text>
+
+  <path class="a" d="M560,215 H642 V270" marker-end="url(#ah)"/>
+  <path class="a" d="M560,300 H578" marker-end="url(#ah)"/>
+  <text class="n" x="567" y="262">rule</text>
+  <path class="ar" d="M560,590 H642 M560,689 H642 M560,774 H642 V364" marker-end="url(#ahr)"/>
+  <text class="nr" x="650" y="594">rejected</text>
+  <text class="nr" x="650" y="693">rejected</text>
+  <text class="nr" x="650" y="778">not used</text>
+  <path class="a" d="M695,362 V822" marker-end="url(#ah)"/>
+
+  <rect class="box" x="330" y="824" width="375" height="56" rx="5"/>
+  <text class="h" x="340" y="842">screenPlanFollowUps()</text>
+  <text class="m" x="340" y="857">ai-planning/src/followups.ts</text>
+  <text class="b" x="340" y="872">every plan's follow-ups, five deterministic checks</text>
+  <text class="n" x="330" y="900">Result to the interpreter: plan, context, epoch, source</text>
+
+  <!-- Scene container -->
+  <rect x="740" y="150" width="280" height="760" rx="8" fill="#f2f8f4" stroke="#9cc0a8" stroke-width="1.2"/>
+  <text class="g" x="752" y="169">Scene (helix-app)</text>
+
+  <path class="a" d="M705,852 H730 V215 H753" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="180" width="250" height="70" rx="5"/>
+  <text class="h" x="765" y="198">SceneActionInterpreter</text>
+  <text class="m" x="765" y="213">scene-engine/src/interpreter.ts</text>
+  <text class="b" x="765" y="228">re-validates, checks the epoch;</text>
+  <text class="b" x="765" y="242">all actions run or none</text>
+  <path class="a" d="M880,250 V270" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="272" width="250" height="56" rx="5"/>
+  <text class="h" x="765" y="290">ACTION_REGISTRY</text>
+  <text class="m" x="765" y="305">ai-actions/src/registry.ts</text>
+  <text class="b" x="765" y="320">contracts: prerequisites, checks</text>
+  <path class="a" d="M880,328 V348" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="350" width="250" height="84" rx="5"/>
+  <text class="h" x="765" y="368">Target resolution</text>
+  <text class="m" x="765" y="383">resolver.ts, sequence-actions.ts</text>
+  <text class="b" x="765" y="398">TargetResolver, SequenceResolver,</text>
+  <text class="b" x="765" y="412">DomainResolver: positions read</text>
+  <text class="b" x="765" y="426">from the records only</text>
+  <path class="a" d="M880,434 V454" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="456" width="250" height="98" rx="5"/>
+  <text class="h" x="765" y="474">WorldExecutors</text>
+  <text class="m" x="765" y="489">apps/web/src/stage.ts</text>
+  <text class="b" x="765" y="504">Mol* (molstar/scene.ts),</text>
+  <text class="b" x="765" y="518">DNA World (dna/DnaWorld.tsx),</text>
+  <text class="b" x="765" y="532">Pathway (ui/PathwayWorld.tsx);</text>
+  <text class="b" x="765" y="546">highlight and focus read back</text>
+  <path class="a" d="M880,554 V574" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="576" width="250" height="56" rx="5"/>
+  <text class="h" x="765" y="594">SessionStore</text>
+  <text class="m" x="765" y="609">scene-engine/src/session.ts</text>
+  <text class="b" x="765" y="624">a commit per action; epoch</text>
+  <path class="a" d="M880,632 V652" marker-end="url(#ah)"/>
+
+  <rect class="key" x="755" y="654" width="250" height="70" rx="5"/>
+  <text class="h" x="765" y="672">composeExplanation()</text>
+  <text class="m" x="765" y="687">apps/web/src/evidence.ts</text>
+  <text class="b" x="765" y="702">sentences written by the app</text>
+  <text class="b" x="765" y="716">from the actions and the records</text>
+  <path class="a" d="M880,724 V744" marker-end="url(#ah)"/>
+
+  <rect class="box" x="755" y="746" width="250" height="70" rx="5"/>
+  <text class="h" x="765" y="764">nextQuestions()</text>
+  <text class="m" x="765" y="779">ai-director/src/next-questions.ts</text>
+  <text class="b" x="765" y="794">suggestion chips, through</text>
+  <text class="b" x="765" y="808">filterFollowUps() again</text>
+
+  <!-- legend -->
+  <path class="a" d="M20,932 H60" marker-end="url(#ah)"/>
+  <text class="n" x="68" y="936">flow of the question and the plan</text>
+  <path class="ar" d="M270,932 H310" marker-end="url(#ahr)"/>
+  <text class="n" x="318" y="936">model plan rejected or not used: the rule-based plan answers</text>
+  <rect class="key" x="660" y="924" width="26" height="16" rx="3"/>
+  <text class="n" x="694" y="936">written by deterministic code</text>
+
+  <text class="cap" x="20" y="960">Drawn from: helix-research packages/ai-planning/src (context, fallback, routing, validate, schema, followups, prompt, providers/);</text>
+  <text class="cap" x="20" y="975">helix-app packages/ai-director/src (director, providers, claim-screen, next-questions), packages/ai-actions, packages/scene-engine, apps/web/src (controller, stage, evidence).</text>
+</svg>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 850" width="1040" height="850" role="img" aria-labelledby="title desc">
+  <!-- Copyright (c) 2026 Mohamed Bechir Kefi. All rights reserved. -->
+  <title id="title">Helix desktop shell</title>
+  <desc id="desc">The desktop app is a Tauri 2 shell around the same apps/web build. Rust opens one window on tauri://localhost, injects the shell script that hands the app a fetch limited to three endpoints of the user's local Ollama, routes that fetch through the scoped HTTP plugin, guards navigation and hands cited source links to the system browser. The webview runs under the web CSP plus Tauri's IPC origin; the dynamic-mode worker uses the webview's own fetch to the four public APIs.</desc>
+  <style>
+    .t { font: 600 19px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .st { font: 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .h { font: 600 13px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .b { font: 11.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #2f3640; }
+    .m { font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #4a5260; }
+    .g { font: 600 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .n { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .cap { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #5a6270; }
+    .box { fill: #ffffff; stroke: #7d8797; stroke-width: 1; }
+    .key { fill: #fff8e6; stroke: #b08a2e; stroke-width: 1.2; }
+    .ref { fill: #fdf3f2; stroke: #a3261d; stroke-width: 1.1; stroke-dasharray: 5 3; }
+    .a { fill: none; stroke: #3d4452; stroke-width: 1.4; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3d4452"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="850" fill="#ffffff"/>
+
+  <text class="t" x="20" y="32">Desktop shell: Tauri 2 around the same web build</text>
+  <text class="st" x="20" y="52">The app imports nothing from the shell. The shell sets one hook before the page starts; only the Rust side may reach the local model or open a browser.</text>
+
+  <!-- build -->
+  <rect x="20" y="72" width="230" height="700" rx="8" fill="#f3f7fc" stroke="#9fb3cc" stroke-width="1.2"/>
+  <text class="g" x="32" y="92">Build: apps/desktop/scripts</text>
+
+  <rect class="box" x="35" y="140" width="200" height="98" rx="5"/>
+  <text class="h" x="45" y="158">npm run build</text>
+  <text class="m" x="45" y="173">apps/desktop/package.json</text>
+  <text class="b" x="45" y="188">build:web, build:shell,</text>
+  <text class="b" x="45" y="202">build:notices, then</text>
+  <text class="b" x="45" y="216">tauri build --bundles app</text>
+
+  <rect class="box" x="35" y="318" width="200" height="70" rx="5"/>
+  <text class="h" x="45" y="336">build-shell.mjs</text>
+  <text class="m" x="45" y="351">scripts/build-shell.mjs</text>
+  <text class="b" x="45" y="366">shell/shell.ts bundled to</text>
+  <text class="b" x="45" y="380">dist-shell/shell.js</text>
+
+  <rect class="box" x="35" y="458" width="200" height="84" rx="5"/>
+  <text class="h" x="45" y="476">build-web.mjs</text>
+  <text class="m" x="45" y="491">scripts/build-web.mjs</text>
+  <text class="b" x="45" y="506">apps/web's own Vite build,</text>
+  <text class="b" x="45" y="520">HELIX_RELEASE=1, into</text>
+  <text class="b" x="45" y="534">web-dist, with the data</text>
+
+  <rect class="box" x="35" y="562" width="200" height="70" rx="5"/>
+  <text class="h" x="45" y="580">rust-notices.mjs</text>
+  <text class="m" x="45" y="595">scripts/rust-notices.mjs</text>
+  <text class="b" x="45" y="610">cargo metadata to</text>
+  <text class="b" x="45" y="624">THIRD-PARTY-NOTICES-RUST.txt</text>
+
+  <rect class="box" x="35" y="652" width="200" height="84" rx="5"/>
+  <text class="h" x="45" y="670">dmg.mjs</text>
+  <text class="m" x="45" y="685">scripts/dmg.mjs</text>
+  <text class="b" x="45" y="700">Helix.app, ad-hoc signed</text>
+  <text class="b" x="45" y="714">(signingIdentity "-"), in</text>
+  <text class="b" x="45" y="728">a DMG; not notarised</text>
+
+  <!-- Helix.app -->
+  <rect x="262" y="72" width="533" height="700" rx="8" fill="#f7f4fb" stroke="#b4a6cc" stroke-width="1.2"/>
+  <text class="g" x="274" y="92">Helix.app (apps/desktop, Tauri 2)</text>
+
+  <!-- Rust process -->
+  <rect x="278" y="110" width="507" height="302" rx="6" fill="#fbf6ee" stroke="#c9a86a" stroke-width="1"/>
+  <text class="g" x="771" y="404" text-anchor="end">Rust: src-tauri/src/lib.rs, run()</text>
+
+  <rect class="box" x="290" y="140" width="235" height="84" rx="5"/>
+  <text class="h" x="300" y="158">HTTP plugin, scoped</text>
+  <text class="m" x="300" y="173">tauri-plugin-http</text>
+  <text class="b" x="300" y="188">capabilities/default.json: the</text>
+  <text class="b" x="300" y="202">main window only, three URLs</text>
+  <text class="b" x="300" y="216">of localhost:11434</text>
+
+  <rect class="box" x="290" y="236" width="235" height="70" rx="5"/>
+  <text class="h" x="300" y="254">Navigation guard</text>
+  <text class="m" x="300" y="269">on_navigation, on_new_window</text>
+  <text class="b" x="300" y="284">never leaves tauri://localhost;</text>
+  <text class="b" x="300" y="298">no window opens from the page</text>
+  <path class="a" d="M525,271 H538" marker-end="url(#ah)"/>
+
+  <rect class="box" x="290" y="318" width="235" height="70" rx="5"/>
+  <text class="h" x="300" y="336">Initialization script</text>
+  <text class="m" x="300" y="351">initialization_script()</text>
+  <text class="b" x="300" y="366">__HELIX_DESKTOP_CONFIG__,</text>
+  <text class="b" x="300" y="380">then dist-shell/shell.js</text>
+
+  <rect class="box" x="540" y="140" width="235" height="70" rx="5"/>
+  <text class="h" x="550" y="158">Main window</text>
+  <text class="m" x="550" y="173">WebviewWindowBuilder "main"</text>
+  <text class="b" x="550" y="188">tauri://localhost/index.html,</text>
+  <text class="b" x="550" y="202">frontendDist ../web-dist</text>
+
+  <rect class="box" x="540" y="222" width="235" height="84" rx="5"/>
+  <text class="h" x="550" y="240">Opener, called from Rust</text>
+  <text class="m" x="550" y="255">opener-origins.json</text>
+  <text class="b" x="550" y="270">https links on the ten cited</text>
+  <text class="b" x="550" y="284">source origins; the webview</text>
+  <text class="b" x="550" y="298">has no opener permission</text>
+
+  <rect class="box" x="540" y="318" width="235" height="70" rx="5"/>
+  <text class="h" x="550" y="336">Menus, notice windows</text>
+  <text class="m" x="550" y="351">build_menu(), open_text_window()</text>
+  <text class="b" x="550" y="366">About, licence, notices; these</text>
+  <text class="b" x="550" y="380">windows get no capability</text>
+
+  <!-- webview -->
+  <rect x="278" y="428" width="507" height="332" rx="6" fill="#f2f8f4" stroke="#9cc0a8" stroke-width="1"/>
+  <text class="g" x="771" y="752" text-anchor="end">WKWebView: the unchanged apps/web build</text>
+
+  <rect class="box" x="290" y="458" width="235" height="70" rx="5"/>
+  <text class="h" x="300" y="476">Shell hook</text>
+  <text class="m" x="300" y="491">apps/desktop/shell/shell.ts</text>
+  <text class="b" x="300" y="506">__HELIX_SHELL__ = { platform:</text>
+  <text class="b" x="300" y="520">"desktop", fetch }</text>
+  <path class="a" d="M407,528 V538" marker-end="url(#ah)"/>
+
+  <rect class="key" x="290" y="540" width="235" height="84" rx="5"/>
+  <text class="h" x="300" y="558">Shell fetch</text>
+  <text class="m" x="300" y="573">shell/ollama-fetch.ts</text>
+  <text class="b" x="300" y="588">makeShellFetch(), ollamaUrl():</text>
+  <text class="b" x="300" y="602">/api/version, /tags, /chat only;</text>
+  <text class="b" x="300" y="616">127.0.0.1 mapped to localhost</text>
+
+  <rect class="key" x="540" y="458" width="235" height="70" rx="5"/>
+  <text class="h" x="550" y="476">Content Security Policy</text>
+  <text class="m" x="550" y="491">tauri.conf.json, app.security</text>
+  <text class="b" x="550" y="506">CSP_WEB plus ipc: and</text>
+  <text class="b" x="550" y="520">http://ipc.localhost; no :11434</text>
+
+  <rect class="box" x="540" y="540" width="235" height="70" rx="5"/>
+  <text class="h" x="550" y="558">The app, unchanged</text>
+  <text class="m" x="550" y="573">apps/web/src/main.tsx, controller.ts</text>
+  <text class="b" x="550" y="588">platform "desktop": the rules and</text>
+  <text class="b" x="550" y="602">OllamaProvider, split policy</text>
+  <path class="a" d="M540,580 H527" marker-end="url(#ah)"/>
+
+  <rect class="box" x="540" y="622" width="235" height="50" rx="5"/>
+  <text class="h" x="550" y="640">Dynamic-mode worker</text>
+  <text class="m" x="550" y="656">apps/web/src/dynamic/worker.ts</text>
+
+  <rect class="box" x="540" y="684" width="235" height="56" rx="5"/>
+  <text class="h" x="550" y="702">Curated data, bundled</text>
+  <text class="m" x="550" y="717">web-dist/data/&lt;set&gt;/</text>
+  <text class="b" x="550" y="732">hash-checked by prepare-data</text>
+
+  <!-- arrows inside the app -->
+  <path class="a" d="M407,388 V456" marker-end="url(#ah)"/>
+  <text class="n" x="415" y="422">injected before any page script</text>
+  <path class="a" d="M290,600 H284 V182 H288" marker-end="url(#ah)"/>
+  <text class="n" x="300" y="648">IPC to the plugin</text>
+  <text class="n" x="300" y="662">(ipc://, in connect-src)</text>
+
+  <!-- build arrows -->
+  <path class="a" d="M235,353 H260" marker-end="url(#ah)"/>
+  <path class="a" d="M235,500 H260" marker-end="url(#ah)"/>
+  <path class="a" d="M235,597 H260" marker-end="url(#ah)"/>
+  <path class="a" d="M262,694 H237" marker-end="url(#ah)"/>
+
+  <!-- outside -->
+  <rect x="805" y="72" width="220" height="700" rx="8" fill="#fbfaf5" stroke="#8a8f99" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text class="g" x="817" y="92">Outside the app</text>
+
+  <rect class="box" x="818" y="140" width="194" height="84" rx="5"/>
+  <text class="h" x="828" y="158">Local Ollama</text>
+  <text class="m" x="828" y="173">localhost:11434</text>
+  <text class="b" x="828" y="188">the user's own install with</text>
+  <text class="b" x="828" y="202">ministral-3:8b; Helix never</text>
+  <text class="b" x="828" y="216">pulls or bundles a model</text>
+
+  <rect class="box" x="818" y="240" width="194" height="56" rx="5"/>
+  <text class="h" x="828" y="258">System browser</text>
+  <text class="b" x="828" y="274">opens a cited source page</text>
+  <text class="b" x="828" y="288">outside the app</text>
+
+  <rect class="ref" x="818" y="420" width="194" height="98" rx="5"/>
+  <text class="h" x="828" y="438">Refused and logged</text>
+  <text class="b" x="828" y="454">other hosts, ports and paths</text>
+  <text class="b" x="828" y="468">(for example /api/pull),</text>
+  <text class="b" x="828" y="482">leaving tauri://localhost,</text>
+  <text class="b" x="828" y="496">new windows, fs and shell</text>
+  <text class="b" x="828" y="510">plugins (not installed)</text>
+
+  <rect class="box" x="818" y="612" width="194" height="84" rx="5"/>
+  <text class="h" x="828" y="630">Public APIs</text>
+  <text class="b" x="828" y="646">Ensembl REST, HGNC REST,</text>
+  <text class="b" x="828" y="660">UniProt REST, AlphaFold DB;</text>
+  <text class="b" x="828" y="674">allowed by connect-src,</text>
+  <text class="b" x="828" y="688">not by the HTTP plugin</text>
+
+  <path class="a" d="M407,140 V102 H800 V170 H816" marker-end="url(#ah)"/>
+  <path class="a" d="M775,268 H816" marker-end="url(#ah)"/>
+  <path class="a" d="M775,647 H816" marker-end="url(#ah)"/>
+
+  <!-- legend -->
+  <path class="a" d="M20,794 H60" marker-end="url(#ah)"/>
+  <text class="n" x="68" y="798">call, injection or build output</text>
+  <rect class="key" x="250" y="786" width="26" height="16" rx="3"/>
+  <text class="n" x="284" y="798">the two limits on what the page can reach</text>
+  <rect class="ref" x="560" y="786" width="26" height="16" rx="3"/>
+  <text class="n" x="594" y="798">refused by the scope, the guard or the CSP</text>
+
+  <text class="cap" x="20" y="824">Drawn from: helix-app docs/reviews/phase-11-desktop-shell.md; apps/desktop/src-tauri/src/lib.rs, tauri.conf.json, capabilities/default.json, opener-origins.json;</text>
+  <text class="cap" x="20" y="839">apps/desktop/shell/shell.ts, ollama-fetch.ts; apps/desktop/scripts/; apps/desktop/package.json; apps/web/src/main.tsx, controller.ts; packages/ai-director/src/providers.ts.</text>
+</svg>

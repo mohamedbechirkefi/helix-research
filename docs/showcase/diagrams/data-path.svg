@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 800" width="1040" height="800" role="img" aria-labelledby="title desc">
+  <!-- Copyright (c) 2026 Mohamed Bechir Kefi. All rights reserved. -->
+  <title id="title">Helix data path</title>
+  <desc id="desc">From the public sources, through helix-research's data preparation, to the curated per-gene sets with sha256 manifests, and how the app copies, serves and verifies them; plus the dynamic mode, where a browser worker builds a set live for a gene that is not curated.</desc>
+  <style>
+    .t { font: 600 19px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .st { font: 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .h { font: 600 13px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .hs { font: 600 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #1b1f24; }
+    .b { font: 11.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #2f3640; }
+    .m { font: 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; fill: #4a5260; }
+    .g { font: 600 12px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .n { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #4a5260; }
+    .nd { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #0f6f73; }
+    .cap { font: 10.5px system-ui, -apple-system, Helvetica, Arial, sans-serif; fill: #5a6270; }
+    .box { fill: #ffffff; stroke: #7d8797; stroke-width: 1; }
+    .src { fill: #fbfaf5; stroke: #a39e8a; stroke-width: 1; }
+    .srcd { fill: #fbfaf5; stroke: #0f7c80; stroke-width: 2; }
+    .key { fill: #fff8e6; stroke: #b08a2e; stroke-width: 1.2; }
+    .a { fill: none; stroke: #3d4452; stroke-width: 1.4; }
+    .ad { fill: none; stroke: #0f7c80; stroke-width: 1.6; stroke-dasharray: 6 4; }
+    .bus { fill: none; stroke: #8a8f99; stroke-width: 1.2; }
+  </style>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#3d4452"/>
+    </marker>
+    <marker id="ahd" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#0f7c80"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1040" height="800" fill="#ffffff"/>
+
+  <text class="t" x="20" y="32">Data path: public sources, curated sets, the page</text>
+  <text class="st" x="20" y="52">Build time in Node (helix-research), then copy, serve and verify (helix-app). Every file is checked against its manifest sha256 before it is used.</text>
+
+  <!-- Public sources -->
+  <text class="g" x="20" y="78">Public sources (free, no key). Second line: the source id written in each manifest.</text>
+  <g>
+    <rect class="src" x="20" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="72" y="103" text-anchor="middle">RCSB PDB</text>
+    <text class="m" x="72" y="118" text-anchor="middle">rcsb(-files)</text>
+
+    <rect class="src" x="132" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="184" y="103" text-anchor="middle">PDBe SIFTS</text>
+    <text class="m" x="184" y="118" text-anchor="middle">pdbe-sifts</text>
+
+    <rect class="src" x="244" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="296" y="103" text-anchor="middle">NCBI ClinVar</text>
+    <text class="m" x="296" y="118" text-anchor="middle">ncbi-clinvar</text>
+
+    <rect class="src" x="356" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="408" y="103" text-anchor="middle">Reactome</text>
+    <text class="m" x="408" y="118" text-anchor="middle">reactome</text>
+
+    <rect class="src" x="468" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="520" y="103" text-anchor="middle">Open Targets</text>
+    <text class="m" x="520" y="118" text-anchor="middle">opentargets</text>
+
+    <rect class="srcd" x="580" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="632" y="103" text-anchor="middle">Ensembl REST</text>
+    <text class="m" x="632" y="118" text-anchor="middle">ensembl</text>
+
+    <rect class="srcd" x="692" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="744" y="103" text-anchor="middle">HGNC REST</text>
+    <text class="m" x="744" y="118" text-anchor="middle">hgnc</text>
+
+    <rect class="srcd" x="804" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="856" y="103" text-anchor="middle">UniProt REST</text>
+    <text class="m" x="856" y="118" text-anchor="middle">uniprot</text>
+
+    <rect class="srcd" x="916" y="86" width="104" height="42" rx="5"/>
+    <text class="hs" x="968" y="103" text-anchor="middle">AlphaFold DB</text>
+    <text class="m" x="968" y="118" text-anchor="middle">alphafold</text>
+  </g>
+
+  <!-- helix-research container -->
+  <rect x="20" y="164" width="525" height="526" rx="8" fill="#f3f7fc" stroke="#9fb3cc" stroke-width="1.2"/>
+  <text class="g" x="531" y="183" text-anchor="end">helix-research (public research core)</text>
+
+  <!-- left column -->
+  <rect class="box" x="40" y="196" width="260" height="56" rx="5"/>
+  <text class="h" x="50" y="214">data-adapters</text>
+  <text class="m" x="50" y="229">packages/data-adapters/src</text>
+  <text class="b" x="50" y="244">HttpClient and one adapter per source</text>
+
+  <rect class="box" x="40" y="272" width="260" height="56" rx="5"/>
+  <text class="h" x="50" y="290">acquireSlice()</text>
+  <text class="m" x="50" y="305">scientific-core/src/slice/acquire.ts</text>
+  <text class="b" x="50" y="320">the raw responses a set needs</text>
+
+  <rect class="box" x="40" y="348" width="260" height="70" rx="5"/>
+  <text class="h" x="50" y="366">buildGene()</text>
+  <text class="m" x="50" y="381">scripts/data-preparation/build-gene.ts</text>
+  <text class="b" x="50" y="396">modes: live, offline (from the snapshot)</text>
+  <text class="b" x="50" y="410">or fixtures (recorded inputs)</text>
+
+  <rect class="box" x="40" y="440" width="260" height="56" rx="5"/>
+  <text class="h" x="50" y="458">buildSlice()</text>
+  <text class="m" x="50" y="473">scientific-core/src/slice/build.ts</text>
+  <text class="b" x="50" y="488">normalise, map coordinates, run checks</text>
+
+  <rect class="box" x="40" y="516" width="260" height="56" rx="5"/>
+  <text class="h" x="50" y="534">buildManifest()</text>
+  <text class="m" x="50" y="549">scientific-core/src/slice/manifest.ts</text>
+  <text class="b" x="50" y="564">sources, files with sha256, checks</text>
+
+  <rect class="key" x="40" y="592" width="260" height="82" rx="5"/>
+  <text class="h" x="50" y="611">data/curated/&lt;gene&gt;/</text>
+  <text class="b" x="50" y="628">records *.json and manifest.json</text>
+  <text class="b" x="50" y="643">sets: brca1, cftr, faah2, hbb, slc6a3</text>
+  <text class="b" x="50" y="658">written to a temp folder, then swapped in</text>
+
+  <path class="a" d="M170,252 V270" marker-end="url(#ah)"/>
+  <path class="a" d="M170,328 V346" marker-end="url(#ah)"/>
+  <path class="a" d="M170,418 V438" marker-end="url(#ah)"/>
+  <path class="a" d="M170,496 V514" marker-end="url(#ah)"/>
+  <path class="a" d="M170,572 V590" marker-end="url(#ah)"/>
+
+  <!-- right column -->
+  <rect class="box" x="320" y="272" width="205" height="56" rx="5"/>
+  <text class="h" x="330" y="290">RecordCache snapshot</text>
+  <text class="m" x="330" y="305">data-adapters/src/cache.ts</text>
+  <text class="b" x="330" y="320">.cache/helix-raw (offline mode)</text>
+  <path class="a" d="M340,330 V338 H282 V346" marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+  <rect class="box" x="320" y="348" width="205" height="56" rx="5"/>
+  <text class="h" x="330" y="366">Gene specification</text>
+  <text class="m" x="330" y="381">data/specs/&lt;gene&gt;.json</text>
+  <text class="b" x="330" y="396">loadGeneSpec(), slice/spec.ts</text>
+  <path class="a" d="M320,376 H302" marker-end="url(#ah)"/>
+
+  <rect class="box" x="320" y="440" width="205" height="70" rx="5"/>
+  <text class="h" x="330" y="458">Recorded fixtures</text>
+  <text class="m" x="330" y="473">data/fixtures/&lt;gene&gt;/</text>
+  <text class="b" x="330" y="488">redacted by redaction.ts</text>
+  <text class="b" x="330" y="502">(OMIM and HGMD ids removed)</text>
+  <path class="a" d="M302,404 H310 V475 H318" marker-start="url(#ah)" marker-end="url(#ah)"/>
+
+  <rect class="box" x="320" y="516" width="205" height="56" rx="5"/>
+  <text class="h" x="330" y="534">sha256Hex()</text>
+  <text class="m" x="330" y="549">data-adapters/src/hash.ts</text>
+  <text class="b" x="330" y="564">hash of every written file</text>
+  <path class="a" d="M320,544 H302" marker-end="url(#ah)"/>
+
+  <rect class="box" x="320" y="592" width="205" height="82" rx="5"/>
+  <text class="h" x="330" y="611">Rebuild checks</text>
+  <text class="m" x="330" y="627">compare-builds.ts</text>
+  <text class="m" x="330" y="641">trace-records.ts</text>
+  <text class="b" x="330" y="658">rebuild, compare, trace fields</text>
+  <path class="a" d="M300,633 H318" marker-end="url(#ah)"/>
+
+  <!-- helix-app container -->
+  <rect x="560" y="164" width="460" height="526" rx="8" fill="#f7f4fb" stroke="#b4a6cc" stroke-width="1.2"/>
+  <text class="g" x="575" y="183">helix-app (private product)</text>
+
+  <!-- curated sets into the app -->
+  <path class="a" d="M170,674 V682 H552 V307 H573" marker-end="url(#ah)"/>
+  <text class="n" x="360" y="700">copied from the pinned checkout</text>
+
+  <!-- Build-time bus: every source to data-adapters -->
+  <path class="bus" d="M72,128 V136 M184,128 V136 M296,128 V136 M408,128 V136 M520,128 V136 M632,128 V136 M744,128 V136 M856,128 V136 M968,128 V136 M72,136 H968"/>
+  <path class="a" d="M170,136 V194" marker-end="url(#ah)"/>
+  <text class="n" x="178" y="153">HTTPS at build time (Node)</text>
+
+  <!-- Run-time bus: four sources to the browser worker -->
+  <path class="ad" d="M644,128 V144 M756,128 V144 M868,128 V144 M980,128 V144 M644,144 H1012 V322 H1008" marker-end="url(#ahd)"/>
+  <text class="nd" x="652" y="157">run time: the dynamic-mode worker in the visitor's browser</text>
+
+  <!-- static column -->
+  <rect class="box" x="575" y="196" width="215" height="56" rx="5"/>
+  <text class="h" x="585" y="214">Research pin</text>
+  <text class="m" x="585" y="229">package.json helix.researchCommit</text>
+  <text class="b" x="585" y="244">checked by npm run check:pin</text>
+  <path class="a" d="M682,252 V270" marker-end="url(#ah)"/>
+
+  <rect class="box" x="575" y="272" width="215" height="70" rx="5"/>
+  <text class="h" x="585" y="290">copy-data.mjs</text>
+  <text class="m" x="585" y="305">apps/web/scripts/copy-data.mjs</text>
+  <text class="b" x="585" y="320">npm run prepare-data: sha256</text>
+  <text class="b" x="585" y="334">check per file, then index.json</text>
+  <path class="a" d="M682,342 V362" marker-end="url(#ah)"/>
+
+  <rect class="box" x="575" y="364" width="215" height="56" rx="5"/>
+  <text class="h" x="585" y="382">public/data/&lt;id&gt;/</text>
+  <text class="m" x="585" y="397">apps/web/public/data</text>
+  <text class="b" x="585" y="412">sets and index.json, into the build</text>
+  <path class="a" d="M682,420 V440" marker-end="url(#ah)"/>
+
+  <rect class="box" x="575" y="442" width="215" height="70" rx="5"/>
+  <text class="h" x="585" y="460">release-build.mjs</text>
+  <text class="m" x="585" y="475">scripts/release-build.mjs</text>
+  <text class="b" x="585" y="490">dist/release-manifest.json:</text>
+  <text class="b" x="585" y="504">sha256 of every built file</text>
+  <path class="a" d="M682,512 V532" marker-end="url(#ah)"/>
+
+  <rect class="box" x="575" y="534" width="215" height="70" rx="5"/>
+  <text class="h" x="585" y="552">loadCuratedBundle()</text>
+  <text class="m" x="585" y="567">apps/web/src/data.ts</text>
+  <text class="b" x="585" y="582">assembleBundle(): sha256 of each</text>
+  <text class="b" x="585" y="596">file checked before it is parsed</text>
+  <path class="a" d="M682,604 V616" marker-end="url(#ah)"/>
+
+  <rect class="key" x="575" y="618" width="215" height="56" rx="5"/>
+  <text class="h" x="585" y="636">AppController.create()</text>
+  <text class="m" x="585" y="651">apps/web/src/controller.ts</text>
+  <text class="b" x="585" y="666">the bundle feeds worlds and planner</text>
+
+  <!-- dynamic column -->
+  <rect class="box" x="805" y="196" width="200" height="56" rx="5"/>
+  <text class="h" x="815" y="214">retrieveDynamic()</text>
+  <text class="m" x="815" y="229">apps/web/src/dynamic/client.ts</text>
+  <text class="m" x="815" y="244">?gene=SYMBOL&amp;mode=dynamic</text>
+  <path class="a" d="M905,252 V270" marker-end="url(#ah)"/>
+
+  <rect class="box" x="805" y="272" width="200" height="100" rx="5"/>
+  <text class="h" x="815" y="290">Web Worker</text>
+  <text class="m" x="815" y="305">apps/web/src/dynamic/worker.ts</text>
+  <text class="b" x="815" y="320">guardedFetch: four hosts only;</text>
+  <text class="b" x="815" y="334">resolveDynamicGene(), then the</text>
+  <text class="b" x="815" y="348">same acquireSlice, buildSlice and</text>
+  <text class="b" x="815" y="362">buildManifest (mode "dynamic")</text>
+  <path class="a" d="M905,372 V392" marker-end="url(#ah)"/>
+
+  <rect class="box" x="805" y="394" width="200" height="70" rx="5"/>
+  <text class="h" x="815" y="412">bundleFromMemory()</text>
+  <text class="m" x="815" y="427">apps/web/src/data.ts</text>
+  <text class="b" x="815" y="442">same sha256 check, in memory;</text>
+  <text class="b" x="815" y="456">nothing is stored</text>
+  <path class="a" d="M905,464 V646 H792" marker-end="url(#ah)"/>
+  <text class="n" x="913" y="546">set labelled</text>
+  <text class="n" x="913" y="560">"not curated"</text>
+  <text class="n" x="913" y="574">on screen</text>
+
+  <!-- legend -->
+  <path class="a" d="M20,716 H60" marker-end="url(#ah)"/>
+  <text class="n" x="68" y="720">data flow (build, page load); double head: read and written</text>
+  <path class="ad" d="M420,716 H460" marker-end="url(#ahd)"/>
+  <text class="n" x="468" y="720">dynamic mode, live in the browser</text>
+  <rect class="srcd" x="690" y="708" width="26" height="16" rx="3"/>
+  <text class="n" x="724" y="720">also fetched live (DYNAMIC_SOURCES)</text>
+  <rect class="key" x="20" y="732" width="26" height="16" rx="3"/>
+  <text class="n" x="54" y="744">the curated sets and the app's entry point</text>
+
+  <text class="cap" x="20" y="772">Drawn from: helix-research scripts/data-preparation/build-gene.ts and lib/build-gene.ts; packages/scientific-core/src/slice/ (acquire, build, manifest, spec, dynamic);</text>
+  <text class="cap" x="20" y="787">packages/data-adapters/src; data/curated/*/manifest.json. helix-app apps/web/scripts/copy-data.mjs; scripts/release-build.mjs, check-research-pin.mjs; apps/web/src/data.ts, dynamic/, controller.ts.</text>
+</svg>
