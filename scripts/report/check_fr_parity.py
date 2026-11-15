@@ -5,7 +5,7 @@ import re, sys, collections
 en = open(sys.argv[1], encoding='utf-8').read()
 fr = open(sys.argv[2], encoding='utf-8').read()
 def nums(t): return collections.Counter(re.findall(r'\d+(?:[.,:]\d+)*(?:-\d+(?:[.,]\d+)*)*', t))
-def cids(t): return collections.Counter(re.findall(r'\bC\d{2}\b', t))
+def cids(t): return collections.Counter(re.findall(r'\bC\d{2,3}\b', t))
 def hx(t): return collections.Counter(re.findall(r'HX-[A-Za-z0-9-]+', t))
 for name, f in [('numbers', nums), ('claim ids', cids), ('HX ids', hx)]:
     a, b = f(en), f(fr)
