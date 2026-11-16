@@ -31,14 +31,14 @@ packages/
 scripts/
   data-preparation/    build-gene.ts (and the build-hbb.ts wrapper), compare-builds.ts, fixture recording, finders
   ai-benchmark/        benchmark runs, scoring and reports
-  report/              French parity and link checks for the report (Python)
+  report/              PDF build, French parity and link checks, demo frames for the figures
   research/            research scripts (Python): raw captures and cross-checks
 data/
   specs/               one gene specification per curated set
   curated/             the curated sets: brca1, cftr, faah2, hbb, slc6a3
   fixtures/            the recorded inputs of each set, for offline rebuilds and tests
 docs/                  research, data core, validation, benchmark, registry and phase plans
-paper/                 report.en.md, report.fr.md, claims.md
+paper/                 report and article (EN, FR), claims.md, figures/, build/ (the PDFs)
 journal/               the experiment journal and its raw result files
 research/              Phase 1 notes, raw captures, benchmark material, risk register
 licenses/              the MIT text of the initial commit
@@ -86,12 +86,20 @@ npm run bench:ai -- --provider ollama --model <model>   # AI benchmark run again
 
 ## The report
 
-- [`paper/report.en.md`](paper/report.en.md): the detailed technical report, English master, drafted as the work happened. Its header table gives the version and which sections are drafted.
-- [`paper/report.fr.md`](paper/report.fr.md): the full French copy, with the same numbers and claims.
-- [`paper/claims.md`](paper/claims.md): the claims register. Every claim in the report has a row with its evidence (C01 to C198 as of 2026-11-15).
+Version 1.0 (2026-11-16), published as the release [`v1.0-report`](https://github.com/mohamedbechirkefi/helix-research/releases/tag/v1.0-report).
+
+| | English | French |
+|---|---|---|
+| Technical report (PDF) | [`report-en.pdf`](paper/build/report-en.pdf) | [`report-fr.pdf`](paper/build/report-fr.pdf) |
+| Article (PDF) | [`article-en.pdf`](paper/build/article-en.pdf) | [`article-fr.pdf`](paper/build/article-fr.pdf) |
+| Sources (Markdown) | [`report.en.md`](paper/report.en.md), [`article.en.md`](paper/article.en.md) | [`report.fr.md`](paper/report.fr.md), [`article.fr.md`](paper/article.fr.md) |
+
+- The English text is the master, drafted as the work happened; the French copies carry the same numbers and claims.
+- [`paper/claims.md`](paper/claims.md): the claims register. Every claim in the report and the article has a row with its evidence (C01 to C203).
+- The live demo: https://helix.kefimohamedbechir.workers.dev/
 - `journal/`: the experiment journal that the report and the register cite.
 
-The rules (no claim without a row, no untraceable number, negative results reported, bilingual parity) are in [`paper/README.md`](paper/README.md). Publishing the report or an article is the author's decision.
+The rules (no claim without a row, no untraceable number, negative results reported, bilingual parity) are in [`paper/README.md`](paper/README.md), with the build of the PDFs and the release checklist.
 
 ## Use by helix-app
 

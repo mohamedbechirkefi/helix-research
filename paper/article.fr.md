@@ -5,8 +5,9 @@
 
 | | |
 |---|---|
-| Version | Version 1, 2026-11-15, d'après la version 0.9 du rapport ; non publiée |
-| Source | Rapport technique `paper/report.en.md` (version 0.9, figée le 2026-11-15) |
+| Version | Version 1.0, 2026-11-16, d'après la version 1.0 du rapport ; publiée avec le rapport (version v1.0-report) |
+| Nombres | Notation de la version anglaise (virgule des milliers, point décimal), pour que les deux versions soient identiques chiffre pour chiffre |
+| Source | Rapport technique `paper/report.en.md` (version 1.0, 2026-11-16) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (voir `LICENSE`) |
 
 **Avertissement non clinique.** Helix est un projet de recherche et d'enseignement. Rien dans cet article ne constitue un diagnostic, une interprétation de variant pour une personne ou un avis médical. Les classifications ClinVar sont rapportées en tant qu'enregistrements, et non en tant que recommandations.
@@ -82,6 +83,9 @@ Une mise en évidence ou un focus ne compte comme effectué que lorsque les gest
 
 L'explication est rédigée par un code déterministe à partir des enregistrements curés. Chaque phrase qui formule une affirmation cite un identifiant de preuve avec sa provenance [C45], et chaque énoncé affiché porte l'une des six classes de preuve, de l'observation expérimentale dans une structure déposée jusqu'à l'inférence. Un modèle AlphaFold prédit est étiqueté comme prédit et n'est jamais utilisé pour placer un variant.
 
+![Evidence World : chaque énoncé avec sa classe de preuve, et l'enregistrement ClinVar avec son statut de revue, ses soumissions et sa version. Image à 0:55.0 de l'enregistrement de démonstration.](figures/demo-evidence.jpg)
+
+
 ### 3.4 Repli déterministe
 
 Le repli est une liste ordonnée de règles portant sur la requête de l'utilisateur. Il ne lit jamais le texte récupéré, si bien que des instructions injectées ne peuvent pas l'atteindre. Il refuse d'abord les demandes cliniques et les demandes de code, rejette ensuite les identifiants hors du contexte, demande une clarification pour les questions ambiguës, planifie les commandes prises en charge, et répond à tout le reste comme non pris en charge, sans deviner. Ses 69 plans du banc d'essai de la phase 3 ont tous réussi la validation, et ses erreurs sur le jeu réservé étaient sûres : une clarification ou un plan qui en fait moins que demandé [C40].
@@ -91,6 +95,9 @@ Le repli est une liste ordonnée de règles portant sur la requête de l'utilisa
 Une page web publique n'a pas de modèle de langage. Sans modèle, les règles répondent à chaque question prise en charge et à chaque question de pont des cinq jeux curés et les exécutent (30 sur 30), sur un hébergeur statique proche de la production et sur une page de développement où le modèle local est injoignable, et aucune requête n'atteint le modèle [C130]. Le modèle est un planificateur facultatif sur une page de développement et dans la version de bureau. Le visiteur ne lit jamais de texte rédigé par le modèle : l'application rédige une phrase à partir des actions du plan, et les suggestions de suivi du modèle ne sont pas proposées [C121]. Rien de ce que le visiteur saisit ou de ce que renvoient les bases de données n'est transformé en balisage de page ou en code [C147].
 
 ---
+
+![Le chemin de l'IA : de la question du visiteur, par le contexte et le Director (les règles d'abord, puis un modèle local facultatif, la validation et le filtrage des affirmations), jusqu'aux exécuteurs de scène et à l'explication. Chaque boîte nomme du code de la construction de référence de la phase 12.](figures/ai-path.svg)
+
 
 ## 4 La correspondance scientifique et ce qu'elle a détecté
 
@@ -110,6 +117,9 @@ Tableau 1. HbS à travers les couches (tableau 4.2 du rapport).
 Chaque étape met en jeu un écueil connu. HBB est sur le brin inverse, si bien que le changement est T>A sur le brin direct et A>T sur le brin codant. Un identifiant dbSNP n'est pas un allèle : pour rs334, l'allèle C donne p.Glu7Gly et l'allèle G donne p.Glu7Ala, si bien que Helix associe le variant à l'allèle et à sa description HGVS, jamais à rs334 seul. La méthionine initiatrice est retirée dans la protéine mature, si bien que le « Glu6Val » de la littérature classique et le p.Glu7Val de la nomenclature HGVS désignent le même changement.
 
 La correspondance a été reconstruite sous forme de code dans trois paquets TypeScript qui n'utilisent que des API de la plateforme web, si bien que le même code s'exécute dans un navigateur, dans l'enveloppe de bureau et sous Node [C27]. La construction en ligne du 2026-11-01 a réussi les 46 vérifications ; tout échec d'une vérification de niveau erreur interrompt la construction, et rien n'est écrit [C24]. Deux constructions en ligne consécutives n'ont différé que par les horodatages et les empreintes qui les intègrent [C25].
+
+![Protein World après la question « Show me where the sickle-cell mutation affects hemoglobin. », à laquelle répondent les règles : la valine 6 de la chaîne H de l'entrée PDB 2HBS, avec la fiche de correspondance (codon 7, numérotation 7 → 6). Image à 0:21.5 de l'enregistrement de démonstration.](figures/demo-val6.jpg)
+
 
 ### 4.2 Une incohérence de numérotation à l'intérieur de 2HBS
 
@@ -181,6 +191,9 @@ SLC6A3 a été conçu comme un test de l'affirmation selon laquelle rien n'est c
 
 Un gène reconnu sans jeu curé peut être récupéré en direct dans le navigateur du visiteur, par le même constructeur et le même chargeur, à partir d'Ensembl, de HGNC, d'UniProt et d'AlphaFold DB uniquement, et rien n'est conservé d'une visite à l'autre [C105]. Une exécution en direct sur PTEN a demandé 12 requêtes et 2,938 ms ; lors de la revue de passage de la phase 11, une seule exécution a récupéré, construit et affiché PTEN en 17.1 s [C190]. Il s'agit dans les deux cas d'exécutions uniques face à des services qui évoluent.
 
+![Mode en direct : PTEN, non curé, construit dans le navigateur à partir de quatre services publics, avec la bannière qui le dit ; Protein World est refusé faute de structure revue. Image à 1:09.5 de l'enregistrement de démonstration.](figures/demo-pten.jpg)
+
+
 ### 6.4 Limites de la généralisation
 
 Chaque vérification scientifique n'est démontrée que pour les cinq jeux curés. Un gène en direct s'arrête au transcrit, aux séquences et à l'enregistrement de la protéine, et un visiteur ne peut pas nommer de variant dbSNP pour celui-ci, une limite que l'auteur a acceptée [C165]. Une mesure de variation sur les cinq jeux donne 0.525 sur l'inventaire des scènes et 0.218 sur le vecteur des capacités ; sur le parcours tel qu'il était défini à l'origine, elle donne 1.000 par construction et ne dit rien, et un axe supplémentaire de forme du parcours donne 0.267, quatre jeux partageant une même forme [C106]. La mesure montre que les jeux diffèrent ; elle ne montre pas que les parcours aident quiconque à les comprendre.
@@ -214,6 +227,8 @@ L'application de bureau enveloppe la même construction web dans une fenêtre Ta
 La construction de publication exclut les prototypes de concept et leurs polices, et transfère 1,970,226 octets au repos [C192]. Un seul fichier d'en-têtes généré, au format de l'hébergeur, porte chaque en-tête qu'exige la revue de sécurité. Sur un serveur local qui applique les règles d'en-têtes de cet hébergeur, la vérification de l'hébergement a satisfait chaque exigence pouvant tenir sur une adresse locale, alors qu'un serveur n'envoyant aucun en-tête en a manqué onze [C193]. Ce que l'hébergeur envoie lui-même ne peut être montré que sur une adresse réelle.
 
 La suite de la phase 11 a été relancée sur une seule construction qui contient tous les changements de la phase 12. Tous les contrôles jugés passent [C197]. Quatre premiers échecs venaient des tests, non de l'application, et ont été corrigés sans toucher l'application. Deux résultats restent ouverts : Firefox crée parfois un second contexte graphique au démarrage, comme le fait la construction de la phase 11, et dans l'application de bureau, sur une machine chargée, une image au milieu d'un mouvement a atteint jusqu'à 40 ms sur quatre passes ; la reprise convenue a réussi, et il n'est pas établi si la charge ou la construction en était la cause. Un enregistrement de 93 secondes a été fait à partir de cette construction, chaque plan venant de l'application réelle [C198]. Chaque étape des README des dépôts a été exécutée sur des clones neufs et sort avec 0, une fois le dépôt de recherche installé en premier, un ordre qui n'était écrit nulle part auparavant [C199]. Le projet a dépensé $0 [C200].
+
+L'auteur a ensuite déployé publiquement la construction de publication. Sur l'adresse réelle, le premier déploiement a manqué deux exigences de l'hébergement, le type et la compression des fichiers de structure, ce qui portait les octets au repos au-delà du budget ; avec les deux types nommés dans le fichier d'en-têtes, le second déploiement a satisfait chaque exigence applicable, avec des octets au repos entre 1,985 et 1,986 kB, et la suite d'accessibilité a réussi en entier [C202].
 
 ---
 
@@ -251,7 +266,7 @@ Helix montre, pour un variant choisi avec soin puis pour cinq gènes curés, qu'
 
 ## Disponibilité
 
-Le dépôt de recherche, qui contient le noyau de données, les jeux de données curés, les bancs d'essai, le journal, le registre des affirmations et le rapport, est disponible en source sous une licence de recherche non commerciale. Le dépôt du produit est privé. L'étude de cas et l'enregistrement de démonstration sont conservés dans le dépôt privé du produit jusqu'au verdict de l'auteur. La publication d'une démonstration publique, et son emplacement, relèvent de la décision de l'auteur ; rien de ce que décrit cet article n'est présenté comme publié ou hébergé.
+Le dépôt de recherche, qui contient le noyau de données, les jeux de données curés, les bancs d'essai, le journal, le registre des affirmations, le rapport, l'étude de cas, les diagrammes d'architecture et l'enregistrement de démonstration, est disponible en source sous une licence de recherche non commerciale. Le dépôt du produit est privé. La démonstration web est publique à l'adresse https://helix.kefimohamedbechir.workers.dev/ [C202] ; elle répond par les règles et n'appelle aucun modèle. La construction de bureau n'est pas distribuée.
 
 ---
 

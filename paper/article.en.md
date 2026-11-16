@@ -5,8 +5,8 @@
 
 | | |
 |---|---|
-| Version | Draft 1, 2026-11-15, from report draft 0.9; not published |
-| Source | Technical report `paper/report.en.md` (draft 0.9, frozen 2026-11-15) |
+| Version | Version 1.0, 2026-11-16, from report version 1.0; published with the report (release v1.0-report) |
+| Source | Technical report `paper/report.en.md` (version 1.0, 2026-11-16) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (see `LICENSE`) |
 
 **Nonclinical notice.** Helix is a research and education project. Nothing in this article is a diagnosis, a variant interpretation for an individual, or medical advice. ClinVar classifications are reported as records, not as guidance.
@@ -82,6 +82,9 @@ A highlight or focus counts as done only when Mol*'s own selection and focus man
 
 The explanation is written by deterministic code from the curated records. Every sentence that makes a claim cites an evidence identifier with its provenance [C45], and each displayed statement carries one of six evidence classes, from experimental observation in a deposited structure to inference. A predicted AlphaFold model is labelled as predicted and is never used to place a variant.
 
+![Evidence World: each statement with its evidence class, and the ClinVar record with its review status, submissions and version. Frame at 0:55.0 of the demo recording.](figures/demo-evidence.jpg)
+
+
 ### 3.4 Deterministic fallback
 
 The fallback is an ordered list of rules over the user's query. It never reads retrieved text, so injected instructions cannot reach it. It refuses clinical and code requests first, then rejects identifiers outside the context, asks for clarification on ambiguous questions, plans the supported commands, and answers anything else as unsupported without guessing. All 69 of its plans in the Phase 3 benchmark passed validation, and its held-out misses were safe: a clarification or a plan that does less than asked [C40].
@@ -91,6 +94,9 @@ The fallback is an ordered list of rules over the user's query. It never reads r
 A public web page has no language model. With no model, the rules answer and execute every supported and bridge question of the five curated sets (30 of 30), on a static production-like host and on a development page with the local model unreachable, and no request reaches the model [C130]. The model is an optional planner on a development page and in the desktop build. The visitor never reads text the model wrote: the app writes one sentence from the plan's actions, and the model's follow-up suggestions are not offered [C121]. Nothing the visitor types or the databases return is turned into page markup or code [C147].
 
 ---
+
+![The AI path: from the visitor's question, through the context and the Director (rules first, then an optional local model, validation and claim screening), to the scene executors and the explanation. Each box names code at the Phase 12 build of record.](figures/ai-path.svg)
+
 
 ## 4 The scientific mapping and what it caught
 
@@ -110,6 +116,9 @@ Table 1. HbS across layers (report Table 4.2).
 Each step exercises a known hazard. HBB lies on the reverse strand, so the change is T>A on the forward strand and A>T on the coding strand. A dbSNP identifier is not an allele: at rs334, allele C gives p.Glu7Gly and allele G gives p.Glu7Ala, so Helix keys the variant to the allele and its HGVS description, never to rs334 alone. The initiator methionine is removed in the mature protein, so the classical literature's "Glu6Val" and HGVS's p.Glu7Val name the same change.
 
 The mapping was rebuilt as code in three TypeScript packages that use only web-platform APIs, so the same code runs in a browser, in the desktop shell and in Node [C27]. The live build of 2026-11-01 passed all 46 checks; any failed error-level check aborts the build and writes nothing [C24]. Two consecutive live builds differed only in timestamps and the hashes that embed them [C25].
+
+![Protein World after the question "Show me where the sickle-cell mutation affects hemoglobin.", answered by the rules: valine 6 of chain H in PDB entry 2HBS, with the mapping card (codon 7, numbering 7 → 6). Frame at 0:21.5 of the demo recording.](figures/demo-val6.jpg)
+
 
 ### 4.2 A numbering inconsistency inside 2HBS
 
@@ -181,6 +190,9 @@ SLC6A3 was set up as a test of the claim that nothing is hardcoded per gene. Its
 
 A recognised gene without a curated set can be retrieved live in the visitor's browser through the same builder and loader, from Ensembl, HGNC, UniProt and AlphaFold DB only, and nothing is stored between visits [C105]. One live run on PTEN took 12 requests and 2,938 ms; at the Phase 11 gate, a single run retrieved, built and showed PTEN in 17.1 s [C190]. Both are single runs against services that change.
 
+![Live mode: PTEN, not curated, built in the browser from four public services, with the banner that says so; Protein World is refused for lack of a reviewed structure. Frame at 1:09.5 of the demo recording.](figures/demo-pten.jpg)
+
+
 ### 6.4 Limits of the generalisation
 
 Every scientific check is proven for the five curated sets only. A live gene stops at the transcript, the sequences and the protein record, and a visitor cannot name a dbSNP variant for it, a limitation the author accepted [C165]. A variation metric over the five sets reads 0.525 on the scene inventory and 0.218 on the capability vector; on the journey as originally defined it reads 1.000 by construction and says nothing, and a supplementary journey-shape axis reads 0.267, with four sets sharing one shape [C106]. The metric shows that the sets differ; it does not show that the journeys help anyone understand them.
@@ -214,6 +226,8 @@ The desktop app wraps the same web build in a Tauri window; its web files are by
 The release build leaves out the concept prototypes and their fonts and transfers 1,970,226 bytes at rest [C192]. One generated header file in the host's format carries every header the security review requires. On a local server applying that host's header rules, the host check passed every requirement that can hold on a local address, while a server sending no headers failed eleven [C193]. What the host itself sends can only be shown on a real address.
 
 The Phase 11 suite was run again on one build that includes every Phase 12 change. Every judged check passes [C197]. Four first failures were faults in the tests, not the app, and were corrected without touching the app. Two results stay open: Firefox sometimes creates a second graphics context at start, as the Phase 11 build does, and in the desktop app on a busy machine one frame in the middle of a move reached up to 40 ms on four passes; the agreed rerun passed, and whether load or the build caused it is not established. A 93-second recording was made from that build, every shot from the real app [C198]. Each step of the repository READMEs was run on fresh clones and exits 0, once the research repository is installed first, an order that was written nowhere before [C199]. The project has spent $0 [C200].
+
+The author then deployed the release build publicly. On the real address the first deployment failed two host requirements, the structure files' type and compression, which put the bytes at rest over the budget; with both types named in the header file, the second deployment passed every applicable requirement, with bytes at rest between 1,985 and 1,986 kB, and the accessibility suite passed in full [C202].
 
 ---
 
@@ -251,7 +265,7 @@ Helix shows, for one carefully chosen variant and then for five curated genes, t
 
 ## Availability
 
-The research repository, which holds the data core, the curated datasets, the benchmarks, the journal, the claims register and the report, is source-available under a non-commercial research licence. The product repository is private. The case study and the demo recording are kept in the private product repository until the author's verdict. Whether a public demo is published, and where, is the author's decision; nothing described in this article is claimed to be published or hosted.
+The research repository, which holds the data core, the curated datasets, the benchmarks, the journal, the claims register, the report, the case study, the architecture diagrams and the demo recording, is source-available under a non-commercial research licence. The product repository is private. The web demo is public at https://helix.kefimohamedbechir.workers.dev/ [C202]; it answers with the rules and makes no model call. The desktop build is not distributed.
 
 ---
 

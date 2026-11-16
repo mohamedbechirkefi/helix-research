@@ -6,10 +6,10 @@
 | | |
 |---|---|
 | Author | Mohamed Bechir Kefi |
-| Version | Draft 0.9, 2026-11-15, frozen as the source of the article; final after the author's review at the Phase 12 gate |
-| Status | Every chapter drafted, Phases 0 to 12: through the Phase 12 build of record, the demo recording and the documentation. Not published (G-PUBLIC). |
+| Version | Version 1.0, 2026-11-16: draft 0.9 of 2026-11-15 after the author passed the Phase 12 gate (D-H053), with the publication (section 9.10) and figures added |
+| Status | Complete, Phases 0 to 12, through the publication of the demo and of this report. Published in the research repository (release v1.0-report). |
 | Companion files | Claims register `paper/claims.md`; experiment journal `journal/` |
-| French copy | `paper/report.fr.md`, final copy of draft 0.9 (2026-11-15), with identical numbers and claims (see `paper/README.md`) |
+| French copy | `paper/report.fr.md`, full copy of version 1.0 (2026-11-16), with identical numbers and claims (see `paper/README.md`) |
 | Licence | Helix Source-Available Non-Commercial Research License v1.0 (see `LICENSE`) |
 
 **Nonclinical notice.** Helix is a research and education project. Nothing in this report is a diagnosis, a variant interpretation for an individual, or medical advice. ClinVar classifications are reported as records, not as guidance.
@@ -449,6 +449,9 @@ The Phase 1 mapping was rebuilt as code in three TypeScript packages (`docs/data
 - Its failure modes are tested, including a file cut exactly at a row boundary.
 - Its contact computation matches the Biopython result of Phase 1 (check T28).
 
+![The data path: from the nine public sources, through the research repository's data preparation, to the curated sets with sha256 manifests, and the browser worker of live mode. Each box names code at the Phase 12 build of record (`docs/showcase/diagrams/README.md`).](figures/data-path.svg)
+
+
 ### 7.2 Platform rule
 
 Because the same code must run in a browser, in the Tauri shell and in Node, the runtime packages use only web-platform APIs: `fetch`, `AbortController`, text encoding and Web Crypto. This is enforced twice [C27]:
@@ -742,6 +745,9 @@ All four are handled in code and documented in the product repository.
 
 **Tests.** After Phase 5, the product repository has 93 passing tests, and this repository 160 (157 pass, 3 opt-in live tests skipped); typecheck is clean in both [C58].
 
+![Worlds and journeys: the journey engine, the app controller, the scene engine and the four worlds. Each box names code at the Phase 12 build of record.](figures/world-journey-engine.svg)
+
+
 ### 9.3 Complete HBB vertical slice (Phase 6)
 
 **Question.** Can the whole HBB slice be used end to end, with three properties:
@@ -775,6 +781,13 @@ All four are handled in code and documented in the product repository.
 - The demonstration video shortens pauses longer than 1.2 s, so planning time does not appear at its real length.
 
 **Tests.** After Phase 6, the product repository has 110 passing tests, and this repository 181: 177 pass and 4 opt-in live tests are skipped by default; the 4 live tests pass when run [C68].
+
+![DNA World on the HBB set: the Ensembl transcript ENST00000335295.4 drawn as an illustrative helix, codon 7 marked, and the variant card with its evidence classes. Frame at 0:09.0 of the Phase 12 demo recording; the caption and the highlight are drawn by the recording, everything else is the app.](figures/demo-dna.jpg)
+
+![Protein World after the question "Show me where the sickle-cell mutation affects hemoglobin.", answered by the rules: valine 6 of chain H in PDB entry 2HBS, with the mapping card (codon 7, numbering 7 → 6). Frame at 0:21.5 of the demo recording.](figures/demo-val6.jpg)
+
+![Evidence World: each statement with its evidence class, and the ClinVar record with its review status, submissions and version. Frame at 0:55.0 of the demo recording.](figures/demo-evidence.jpg)
+
 
 ### 9.3.1 After the Phase 6 review (decisions D-H007 and D-H008)
 
@@ -855,6 +868,9 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 
 **The numbers under the claim, and the gate.** The variation metric of the plan was computed from the app's own loader, context, inventory, planner and chapter matcher over the five sets: the mean pairwise Jaccard distance is 0.525 on the scene inventory, 0.218 on the capability vector, and 1.000 on the journey as the plan defined it, a value that says nothing because the transcript chapter names the gene and every other chapter's target is set-specific; a supplementary journey-shape axis (chapter id, world, focus kind) reads 0.267 and shows the honest picture, four sets sharing one shape and the structure-limited gene another (HX-P9-2026-11-04-variation-metric; C106). Phase 9 closed its build on 2026-11-04 with five curated sets over four worlds, dynamic mode, 447 and 450 unit tests, a Phase 9 suite of 40 scenarios and every earlier suite green, and five questions for the author recorded in its gate review; the author passed the gate (D-H021).
 
+![Live mode: PTEN, not curated, built in the browser from four public services, with the banner that says so; Protein World is refused for lack of a reviewed structure. Frame at 1:09.5 of the demo recording.](figures/demo-pten.jpg)
+
+
 ### 9.7 Advanced contextual AI explorer (Phase 10)
 
 *Written as the phase advances (invariant 14); the gate verdict is the author's.*
@@ -884,6 +900,9 @@ The author passed the Phase 6 gate on 2026-11-02 and asked for a set of changes.
 **Closing the phase.** The final runtime check found two gaps on the shipped path. First, after a visit to Protein World, DNA World still told the planner a structure was loaded. Second, under the split, the older test questions never reached the model, so cancelling a model answer and rejecting an out-of-date one were no longer tested where visitors are. The author asked for both to be fixed and for local paths to be removed from the public history (D-H027). The structure is now named only in Protein World, pinned by a test written before the change. New browser scenarios reach the model on the default page and exercise cancel, out-of-date plans, a timeout and a rapid sequence, against a stand-in and the local model. The history was rewritten with a published map from old to new commit ids. With these verified, the author's condition was met and Phase 10 passed on 2026-11-09. One cost of the split showed up here: a follow-up question waits for a model plan that the split then discards when it holds no explorer action (helix-app docs/reviews/phase-10-close.md).
 
 **Re-scoring with the app's own code.** At the opening of Phase 11 the author asked for the benchmark code to stop re-stating app functions and for both runs to be re-scored (D-H029 answer 87). Built with the app's own selection bridge and session topics, the model's input changed on 2 of the 112 Phase 10 units and 3 of the 58 held-out units, and the model was re-run only on those. No verdict changed in either run (C117, C118). The one movement in the Phase 10 table, rules 276 to 273, comes from the D-H024 change to how the rules answer a pathway that cannot be drawn, not from the harness. The policy's score under the current validator depends on a stated basis: 270 if the Phase 10 choices are kept and re-checked, 276 if the current validator also decides the fallback (HX-P10-2026-11-09-rescore, HX-P10-2026-11-09-heldout-rescore).
+
+![The AI path: from the visitor's question, through the context and the Director (rules first, then an optional local model, validation and claim screening), to the scene executors and the explanation. Each box names code at the Phase 12 build of record.](figures/ai-path.svg)
+
 
 ### 9.8 Release-grade QA, performance and accessibility (Phase 11)
 
@@ -926,6 +945,9 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The gate review (P11.4.1).** The gate ran the whole agreed suite and every budget from one script on one build of record, reading each check by its exit code. The first full run found a regression that every functional and accessibility check had missed. With the processor slowed six times, the drag and wheel moves, which start 20 s or more after the page opens, had five frames over 33.4 ms across three pages, where the budget allows one. Interleaved with the previous build, the counts were 5, 4 and 6 against 0, 0 and 0, so machine load did not explain them. A bisect named the usability fix that moves keyboard focus when the welcome is skipped. Variant builds then separated its two parts. The focus move was harmless: the cause was the forced synchronous render that closed the welcome before the focus moved. The author chose to fix it and run the gate again (D-H049). With the render left to React and focus moved on the next frame, the slowed moves showed no long frame, and the keyboard behaviour is unchanged [C189]. Why that render makes moves 20 s later heavier is not established. On the fixed build, every check exited 0 except the expected ones. The rebuilt gene sets differ from the committed ones only in the generator fields and, for HBB, the provenance hashes already accepted (D-H042). macOS rejects a quarantined copy of the disk image because it is not notarised. 643 app tests and 564 research tests passed. Every displayed text still maps to its source, and no screen has an axe violation [C187]. Every budget passed with no automatic rerun, though two margins stay thin. The frame median of the worst move read 16.8, 16.7 and 16.8 ms against 16.8 ms. The page at rest weighs 1,975,305 bytes, 24,695 under its budget. On the desktop, the longest first frame of a move took 57 ms against 70 [C188]. Run once on the same build, the live retrieval fetched, built and showed PTEN from the public services in 17.1 s, and the library's four live tests passed [C190]. Firefox and Safari gave their earlier results again, with one exception: a Firefox camera check that had passed once failed in 5 of 8 runs, and the build those browsers were first tested on fails it as often, so the fault is older than this phase's changes; its cause is not established [C191]. The limitations document is final on this build. The verdict is the author's.
 
+![The desktop shell: the Tauri build, the Rust side (HTTP scope, navigation guard, menu) and the webview running the unchanged web app, with what is refused and logged. Each box names code at the Phase 12 build of record.](figures/desktop-shell.svg)
+
+
 ### 9.9 Portfolio showcase and launch (Phase 12)
 
 **The plan and the host.** The phase opened on the author's word (D-H050) with a plan whose end criteria put publication last: everything is built and checked locally, and the author decides at the gate whether the demo goes public. The author took every recommendation (D-H051): the product source stays private, the case study and recording go to the public research repository, ten small usability findings are fixed, and the release is version 1.0.0. Of the free static hosts read against the security review, three cannot send a policy header at all, which this app needs, since the policy as a page element would exceed the size budget. The author chose Cloudflare (D-H052).
@@ -944,7 +966,18 @@ The author then settled the open points. When an answer, a clarification or a re
 
 **The documentation.** A case study for reviewers, four architecture diagrams, a product vision and the two repository READMEs were written alongside and finished on the numbers of the build of record. Every box of the diagrams names a file or function that exists in the code. Each step the READMEs give was run on fresh clones of both repositories: every one exits 0, with the counts of the build of record, once one step is in the right order [C199]. That order was written nowhere before: the research repository must be installed before the app is tested or built, because the research packages, linked by path, resolve their own dependencies from it. The documents kept two numbers that later builds had replaced. The bytes at rest in the limitations document were updated to the build of record. The count of displayed texts traced to a source went from 9,221 at the Phase 11 gate to 9,126 on the build of record; both counts are complete on their own build [C187, C197]. The gate review traced the drop to the counting: at the gate a sentence counted once per set of reference digits glued to its end, and since reference numbers became links it counts once. With those digits and run timestamps removed from both inventories, the build of record has 8,958 distinct texts against 8,944, and the differences are the intended changes [C201]. The case study and the recording are in the private product repository until the author's verdict.
 
-**What Phase 12 leaves open.** The publication itself is the author's decision at the gate, with the account on the host and the two checks only the author can make: the wordmark's clearance and one browser visit to ClinVar's data-use page. The desktop tour's long first frame and the extra drawing after start, which the Phase 11 decisions placed in this phase, were not in the agreed list of fixes and stay as stated. One new usability fault, a reference that leads nowhere on one dynamic page, is proposed to the author as a limitation (P12-U-01).
+**What Phase 12 leaves open.** The publication itself is the author's decision at the gate, with the account on the host and the two checks only the author can make: the wordmark's clearance and one browser visit to ClinVar's data-use page. The desktop tour's long first frame and the extra drawing after start, which the Phase 11 decisions placed in this phase, were not in the agreed list of fixes and stay as stated. One new usability fault, a reference that leads nowhere on one dynamic page, is proposed to the author as a limitation (P12-U-01). Section 9.10 records how each was settled.
+
+
+### 9.10 Publication (after the gate)
+
+**The verdict and the author's checks.** The author passed Phase 12 on 2026-11-15 (D-H053) and chose to deploy the demo personally. Before any release, the author made the two checks that only the author could make. A visit to ClinVar's data-use page and the RefSeq questions found that ClinVar asks to be named as a data source, which Helix does on screen, and says its data are not for direct diagnostic use, as Helix's nonclinical notice already says; no RefSeq restriction was found in the part that was read. The author then confirmed the wordmark's clearance [C203]. The case study, the four diagrams and the demo recording were published in the research repository; the product source stays private.
+
+**The public host.** The author deployed the release build to Cloudflare, at https://helix.kefimohamedbechir.workers.dev/. On the real address the host check first failed two requirements. Cloudflare sent the four structure files with a chemical type that it does not compress, which put the bytes at rest at 2.73 MB, over the 2,000 kB budget, and it sent the page without a character set. The header file now names both types by exact path, pinned by a test that failed first, and the build was deployed again. On that build the host check passed 17 requirements, with none failing and one not applicable; the bytes at rest were between 1,985 and 1,986 kB on three starts, about 14 kB under the budget; and the text inventory and the accessibility suite passed in full, on 85 screens with no axe violation and no page error [C202]. The public page runs the rules only: a public address never reaches a local model, so the model scenarios do not apply there. The first accessibility run on the second deployment stopped on network timeouts of the session's connection; the run of 2026-11-16 completed.
+
+**An incident.** During the publication, a push meant for a working branch reached the public main branch of the research repository. On the author's approval the branch was reset, with its protection lifted for that one push and restored after; the stray commit may stay reachable by its identifier. The workspace now pushes only named branches.
+
+**What stays open.** Announcing the demo is the author's. The desktop build is not distributed.
 
 ---
 
@@ -985,8 +1018,8 @@ The complete list of limitations, each with what it means for a visitor, its evi
 - The Phase 1 desktop experiment made a single call to a single model, and its prompt was not stored verbatim [C23]. Phase 3 measured the frequency of such errors on a small, single-gene benchmark; its own limits are in section 8.8.
 
 **Security and licences.**
-- No Content Security Policy is served anywhere until the author publishes. It is written and tested, must be sent as a response header [C148], and is generated with every other required header in the chosen host's format; what that host itself sends was checked only on a local server that applies its rules [C193]. Integrity against a hostile host rests on HTTPS, and the development switches `?dev` and `?diagnostics` work on any host. The review was automated and run by the AI, with no penetration test.
-- ClinVar's own data-use page could not be read by a script, and the rights to the author-supplied wordmark are not yet cleared; both are the author's to settle before any release [C158].
+- The Content Security Policy has been served as a response header since the demo was published on 2026-11-15 [C148, C202]; it is generated with every other required header in the host's format, and the host check on the real address passed every applicable requirement. Integrity against a hostile host rests on HTTPS, and the development switches `?dev` and `?diagnostics` work on any host. The review was automated and run by the AI, with no penetration test.
+- The author read ClinVar's own data-use page, which a script could not read, and confirmed the wordmark's clearance, both on 2026-11-15 [C158, C203]. The session did not verify the clearance itself.
 
 **Desktop distribution.** The desktop build of Phase 11 is packaged but not distributed:
 - The build is not notarised; with the quarantine mark a download sets, macOS's own check rejects it, and a user must open it by hand as the install note explains [C183].
@@ -1131,4 +1164,4 @@ All URLs accessed 2026-11-01. The complete reference lists are in `docs/competit
 | 9 Multi-gene personalisation | 9.6 | 14 entries, among them generic-builder, cftr-deletion, slc6a3-generalisation and dynamic-mode | gate passed (D-H021) |
 | 10 Contextual AI explorer | 9.7 | 8 entries, among them phase10-benchmark and phase10-heldout-run | gate passed (D-H027) |
 | 11 Release QA, performance, accessibility, desktop | 9.8 | 25 entries, among them phase11-scientific-audit, phase11-desktop-qa and phase11-gate | gate passed (D-H050) |
-| 12 Portfolio showcase and launch | 9.9 | 8 entries: phase12-plan, p1211-release-build, p12-rules7, p12-safari, p12-usability, p12-bor, p12-demo, p12-docs | built; gate pending (P12.3.1) |
+| 12 Portfolio showcase and launch | 9.9, 9.10 | 12 entries: phase12-plan, p1211-release-build, p12-rules7, p12-safari, p12-usability, p12-bor, p12-demo, p12-docs, p12-gate, p12-ncbi-pages, p12-public, p12-public-a11y | passed 2026-11-15 (D-H053); published |
